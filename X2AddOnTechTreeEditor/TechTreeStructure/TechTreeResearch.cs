@@ -126,7 +126,9 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		protected override List<TechTreeElement> GetChildren()
 		{
 			// Kinder zurückgeben
-			return new List<TechTreeElement>(new TechTreeElement[] { Successor });
+			if(Successor != null)
+				return new List<TechTreeElement>(new TechTreeElement[] { Successor });
+			return new List<TechTreeElement>();
 		}
 
 		/// <summary>
@@ -162,6 +164,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			{
 				// ID generieren und schreiben
 				writer.WriteAttributeString("id", (++lastID).ToString());
+				elementIDs.Add(this, lastID);
 
 				// Elementtyp schreiben
 				writer.WriteAttributeString("type", Type);
@@ -193,10 +196,12 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// </summary>
 		/// <param name="element">Das XElement, aus dem das Element erstellt werden soll.</param>
 		/// <param name="previousElements">Die bereits eingelesenen Vorgängerelemente, von denen dieses Element abhängig sein kann.</param>
-		public override void FromXml(XElement element, Dictionary<int, TechTreeElement> previousElements)
+		/// <param name="dat">Die DAT-Datei, aus der ggf. Daten ausgelesen werden können.</param>
+		/// <param name="langFiles">Das Language-Datei-Objekt zum Auslesen von Stringdaten.</param>
+		public override void FromXml(XElement element, Dictionary<int, TechTreeElement> previousElements, GenieLibrary.GenieFile dat, GenieLibrary.LanguageFileWrapper langFiles)
 		{
 			// Elemente der Oberklasse lesen
-			base.FromXml(element, previousElements);
+			base.FromXml(element, previousElements, dat, langFiles);
 
 			// Werte einlesen
 			this.Successor = (TechTreeResearch)previousElements[(int)element.Element("successor")];
@@ -205,6 +210,30 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			Dependencies = new List<TechTreeResearch>();
 			foreach(XElement dep in element.Element("dependencies").Descendants("dependency"))
 				Dependencies.Add((TechTreeResearch)previousElements[(int)dep]);
+
+			// DAT-Einheit laden
+			DATResearch = dat.Researches[ID];
+
+			// Name laden
+			Name = langFiles.GetString(DATResearch.LanguageDLLName1) + " [" + DATResearch.Name.TrimEnd('\0') + "]";
+		}
+
+		/// <summary>
+		/// Erstellt für alle Kindelemente die Texturen.
+		/// </summary>
+		/// <param name="textureFunc">Die Textur-Generierungsfunktion.</param>
+		public override void CreateIconTextures(Func<string, short, int> textureFunc)
+		{
+			// Schon ein Icon vorhanden? => Abbrechen
+			if(IconTextureID > 0)
+				return;
+
+			// Icon erstellen
+			if(DATResearch.IconID >= 0)
+				IconTextureID = textureFunc(Type, DATResearch.IconID);
+
+			// Funktion in der Basisklasse aufrufen
+			base.CreateIconTextures(textureFunc);
 		}
 
 		#endregion

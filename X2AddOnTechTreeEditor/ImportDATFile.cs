@@ -115,7 +115,7 @@ namespace X2AddOnTechTreeEditor
 				projectFile.LanguageFileNames = _dllTextBox.Text.Split(';').ToList();
 
 				// Briten-Einheiten kopieren (sollte alle Einheiten in der Liste haben? => TODO: evtl. besser mit Gaia? Macht irgendwie was komisches mit der Enabled-Eigenschaft...)
-				List<GenieLibrary.DataElements.Civ.Unit> remainingUnits = new List<GenieLibrary.DataElements.Civ.Unit>(dat.Civs[1].Units);
+				Dictionary<int, GenieLibrary.DataElements.Civ.Unit> remainingUnits = new Dictionary<int, GenieLibrary.DataElements.Civ.Unit>(dat.Civs[1].Units);
 
 				// Technologien kopieren
 				Dictionary<int, GenieLibrary.DataElements.Research> remainingResearches = new Dictionary<int, GenieLibrary.DataElements.Research>(dat.Researches.Count);
@@ -132,7 +132,7 @@ namespace X2AddOnTechTreeEditor
 				for(int u = remainingUnits.Count - 1; u >= 0; --u)
 				{
 					// Einheit abrufen
-					GenieLibrary.DataElements.Civ.Unit currUnit = remainingUnits[u];
+					GenieLibrary.DataElements.Civ.Unit currUnit = remainingUnits.ElementAt(u).Value;
 					if(currUnit == null || currUnit.Type < GenieLibrary.DataElements.Civ.Unit.UnitType.Creatable)
 						continue;
 
@@ -145,11 +145,10 @@ namespace X2AddOnTechTreeEditor
 						if(deadUnitElement == null)
 						{
 							// Einheit erstellen
-							int deadUnitIndex = remainingUnits.FindIndex(un => un != null && un.ID1 == currUnit.DeadUnitID);
-							if(deadUnitIndex >= 0)
+							if(remainingUnits.ContainsKey(currUnit.DeadUnitID))
 							{
 								// Einheit abrufen
-								GenieLibrary.DataElements.Civ.Unit deadUnit = remainingUnits[deadUnitIndex];
+								GenieLibrary.DataElements.Civ.Unit deadUnit = remainingUnits[currUnit.DeadUnitID];
 
 								// Nach Typ unterscheiden
 								if(deadUnit.Type == GenieLibrary.DataElements.Civ.Unit.UnitType.DeadFish)
@@ -172,7 +171,7 @@ namespace X2AddOnTechTreeEditor
 								// TODO: "Mehrfachtod" erschaffbarer Einheiten (siehe z.B. Shaolin)
 
 								// Einheit als gelöscht markieren
-								remainingUnits[deadUnitIndex] = null;
+								remainingUnits[currUnit.DeadUnitID] = null;
 							}
 						}
 					}
@@ -183,7 +182,7 @@ namespace X2AddOnTechTreeEditor
 						// Einheit hinzufügen
 						projectFile.TechTreeParentElements.Add(new TechTreeStructure.TechTreeCreatable()
 						{
-							Age=0,
+							Age = 0,
 							ID = currUnit.ID1,
 							DATUnit = currUnit,
 							DeadUnit = deadUnitElement
@@ -194,7 +193,7 @@ namespace X2AddOnTechTreeEditor
 						// Gebäude hinzufügen
 						projectFile.TechTreeParentElements.Add(new TechTreeStructure.TechTreeBuilding()
 						{
-							Age=0,
+							Age = 0,
 							ID = currUnit.ID1,
 							DATUnit = currUnit,
 							DeadUnit = deadUnitElement
@@ -202,11 +201,11 @@ namespace X2AddOnTechTreeEditor
 					}
 
 					// Einheit aus Einheiten-Liste nehmen
-					remainingUnits.RemoveAt(u);
+					remainingUnits.Remove(currUnit.ID1);
 				}
 
 				// Liste aufräumen
-				remainingUnits.RemoveAll(un => un == null);
+				remainingUnits = remainingUnits.Where(un => un.Value != null).ToDictionary(un => un.Key, un => un.Value);
 
 				// Techtree kulturweise berechnen
 				/*for(int c = 0; c < _civs.Count; ++c)
@@ -231,10 +230,10 @@ namespace X2AddOnTechTreeEditor
 					// Werte setzen
 					row.Cells.AddRange(
 						new DataGridViewCheckBoxCell() { Value = false },
-						new DataGridViewTextBoxCell() { Value = unit.ID1.ToString() },
-						new DataGridViewTextBoxCell() { Value = unit.Name1.Trim() },
-						new DataGridViewTextBoxCell() { Value = projectFile.LanguageFileWrapper.GetString(unit.LanguageDLLName) },
-						new DataGridViewTextBoxCell() { Value = unit.Type.ToString() }
+						new DataGridViewTextBoxCell() { Value = unit.Value.ID1.ToString() },
+						new DataGridViewTextBoxCell() { Value = unit.Value.Name1.Trim() },
+						new DataGridViewTextBoxCell() { Value = projectFile.LanguageFileWrapper.GetString(unit.Value.LanguageDLLName) },
+						new DataGridViewTextBoxCell() { Value = unit.Value.Type.ToString() }
 					);
 
 					// Zeile hinzufügen

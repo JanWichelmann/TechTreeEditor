@@ -43,8 +43,8 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 
 		protected override List<TechTreeElement> GetChildren()
 		{
-			// TODO
-			throw new NotImplementedException();
+			// Keine Kinder vorhanden
+			return new List<TechTreeElement>();
 		}
 
 		public override void DrawDependencies()
@@ -70,6 +70,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			{
 				// ID generieren und schreiben
 				writer.WriteAttributeString("id", (++lastID).ToString());
+				elementIDs.Add(this, lastID);
 
 				// Elementtyp schreiben
 				writer.WriteAttributeString("type", Type);

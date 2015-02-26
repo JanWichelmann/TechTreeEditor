@@ -76,6 +76,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			{
 				// ID generieren und schreiben
 				writer.WriteAttributeString("id", (++lastID).ToString());
+				elementIDs.Add(this, lastID);
 
 				// Elementtyp schreiben
 				writer.WriteAttributeString("type", Type);

@@ -121,7 +121,9 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		protected override List<TechTreeElement> GetChildren()
 		{
 			// Kinder zurückgeben
-			return new List<TechTreeElement>(new TechTreeElement[] { Successor });
+			if(Successor != null)
+				return new List<TechTreeElement>(new TechTreeElement[] { Successor });
+			return new List<TechTreeElement>();
 		}
 
 		/// <summary>
@@ -167,6 +169,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			{
 				// ID generieren und schreiben
 				writer.WriteAttributeString("id", (++lastID).ToString());
+				elementIDs.Add(this, lastID);
 
 				// Elementtyp schreiben
 				writer.WriteAttributeString("type", Type);
@@ -197,10 +200,12 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// </summary>
 		/// <param name="element">Das XElement, aus dem das Element erstellt werden soll.</param>
 		/// <param name="previousElements">Die bereits eingelesenen Vorgängerelemente, von denen dieses Element abhängig sein kann.</param>
-		public override void FromXml(XElement element, Dictionary<int, TechTreeElement> previousElements)
+		/// <param name="dat">Die DAT-Datei, aus der ggf. Daten ausgelesen werden können.</param>
+		/// <param name="langFiles">Das Language-Datei-Objekt zum Auslesen von Stringdaten.</param>
+		public override void FromXml(XElement element, Dictionary<int, TechTreeElement> previousElements, GenieLibrary.GenieFile dat, GenieLibrary.LanguageFileWrapper langFiles)
 		{
 			// Elemente der Oberklasse lesen
-			base.FromXml(element, previousElements);
+			base.FromXml(element, previousElements, dat, langFiles);
 
 			// Werte einlesen
 			int id = (int)element.Element("successor");

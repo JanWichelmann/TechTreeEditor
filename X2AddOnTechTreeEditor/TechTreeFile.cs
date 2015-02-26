@@ -97,30 +97,39 @@ namespace X2AddOnTechTreeEditor
 					CreateLanguageFileHandles();
 				}
 
+				// DAT-Datei laden
+				using(Stream currFile = archive.GetEntry("dat.unz").Open())
+				{
+					_basicGenieFile = new GenieLibrary.GenieFile(new RAMBuffer(currFile));
+				}
+
 				// Technologiebaum lesen
 				_techTreeParentElements = new List<TechTreeStructure.TechTreeElement>();
 				using(Stream currFile = archive.GetEntry("techtree.xml").Open())
 				{
 					// XML-Format benutzen
 					XDocument doc = XDocument.Load(currFile);
-					XElement mainElement = doc.Element("techtree").Element("elements");
+					XElement mainElement = doc.Element("techtree");
+					XElement elemList = mainElement.Element("elements");
 
 					// Elemente lesen
-					// Diese sind in Dokumentreihenfolge, d.h. alle Abhängigkeiten müssen vor dem jeweiligen Element stehen.
+					// Diese sind in Dokumentreihenfolge, d.h. alle Abhängigkeiten müssen vor dem jeweiligen Element stehen
 					Dictionary<int, TechTreeStructure.TechTreeElement> readElements = new Dictionary<int, TechTreeStructure.TechTreeElement>();
-					foreach(XElement elem in mainElement.Descendants("element"))
+					foreach(XElement elem in elemList.Descendants("element"))
 					{
 						// Element lesen und zur Liste hinzufügen
 						TechTreeStructure.TechTreeElement tte = TechTreeStructure.TechTreeElement.CreateFromType((string)elem.Attribute("type"));
-						tte.FromXml(elem, readElements);
+						tte.FromXml(elem, readElements, _basicGenieFile, _languageFileWrapper);
 						readElements.Add((int)elem.Attribute("id"), tte);
 					}
-				}
 
-				// DAT-Datei laden
-				using(Stream currFile = archive.GetEntry("dat.unz").Open())
-				{
-					_basicGenieFile = new GenieLibrary.GenieFile(new RAMBuffer(currFile));
+					// Elternelemente lesen
+					XElement parentList = mainElement.Element("parents");
+					foreach(XElement elem in mainElement.Descendants("parent"))
+					{
+						// Element zur Liste hinzufügen
+						_techTreeParentElements.Add(readElements[(int)elem]);
+					}
 				}
 			}
 		}
@@ -167,6 +176,12 @@ namespace X2AddOnTechTreeEditor
 						}
 					}
 
+					// DAT-Datei schreiben
+					using(Stream currFile = archive.CreateEntry("dat.unz").Open())
+					{
+						_basicGenieFile.WriteData(currFile);
+					}
+
 					// Language-DLLs schreiben
 					foreach(var file in _languageFiles)
 					{
@@ -190,12 +205,21 @@ namespace X2AddOnTechTreeEditor
 							writer.WriteStartDocument();
 							writer.WriteStartElement("techtree");
 
-							// Elternelemente schreiben
+							// Elemente schreiben
+							Dictionary<TechTreeStructure.TechTreeElement, int> elementIDs = new Dictionary<TechTreeStructure.TechTreeElement, int>();
 							writer.WriteStartElement("elements");
 							{
 								// Pro Element Unterbaum schreiben (aber alles auf einer Ebene)
 								int lastID = 0;
-								_techTreeParentElements.ForEach(p => lastID = p.ToXml(writer, new Dictionary<TechTreeStructure.TechTreeElement, int>(), lastID));
+								_techTreeParentElements.ForEach(p => lastID = p.ToXml(writer, elementIDs, lastID));
+							}
+							writer.WriteEndElement();
+
+							// Elternelemente schreiben
+							writer.WriteStartElement("parents");
+							{
+								// Pro Elternelement ID schreiben
+								_techTreeParentElements.ForEach(p => writer.WriteElementString("parent", elementIDs[p].ToString()));
 							}
 							writer.WriteEndElement();
 
@@ -203,12 +227,6 @@ namespace X2AddOnTechTreeEditor
 							writer.WriteEndElement();
 							writer.WriteEndDocument();
 						}
-					}
-
-					// DAT-Datei schreiben
-					using(Stream currFile = archive.CreateEntry("dat.unz").Open())
-					{
-						_basicGenieFile.WriteData(currFile);
 					}
 				}
 			}

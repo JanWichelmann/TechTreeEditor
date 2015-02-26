@@ -104,7 +104,7 @@ namespace X2AddOnTechTreeEditor
 			_projectFile = new TechTreeFile(_projectFileName);
 
 			// Icon-Texturen erstellen
-
+			_projectFile.TechTreeParentElements.ForEach(p => p.CreateIconTextures(_renderPanel.LoadIconAsTexture));
 
 			// Daten an Render-Control übergeben
 			SetStatus(Strings.MainForm_Status_PreparingTreeRendering);

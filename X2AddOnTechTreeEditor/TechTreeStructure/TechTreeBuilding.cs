@@ -19,9 +19,10 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 
 		/// <summary>
 		/// Die in diesem Gebäude enthaltenen Kindelemente.
-		/// Dies sind Elemente, die in diesem Gebäude entwickelt oder erschaffen werden können.
+		/// Dies sind Elemente, die in diesem Gebäude entwickelt oder erschaffen werden können, samt deren Button-IDs.
+		/// Die Button-IDs sind nicht zwingend eindeutig!
 		/// </summary>
-		public List<TechTreeElement> Children { get; private set; }
+		public List<KeyValuePair<byte, TechTreeElement>> Children { get; private set; }
 
 		/// <summary>
 		/// Die direkte Weiterentwicklung dieses Elements.
@@ -46,7 +47,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			: base()
 		{
 			// Objekte erstellen
-			Children = new List<TechTreeElement>();
+			Children = new List<KeyValuePair<byte, TechTreeElement>>();
 		}
 
 		/// <summary>
@@ -79,13 +80,13 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				Point dotLastChild = position;
 				bool dotFirstChildSet = false;
 				int childYOffset = 0;
-				foreach(TechTreeElement child in Children)
+				foreach(var child in Children)
 				{
 					// Kind versetzt zeichnen
-					child.Draw(position, ageOffsets, parentAgeOffset + 1);
+					child.Value.Draw(position, ageOffsets, parentAgeOffset + 1);
 
 					// Pixel-Breite berechnen
-					childPixelWidth = child.TreeWidth * (RenderControl.BOX_BOUNDS + 2 * RenderControl.BOX_SPACE_HORI);
+					childPixelWidth = child.Value.TreeWidth * (RenderControl.BOX_BOUNDS + 2 * RenderControl.BOX_SPACE_HORI);
 
 					// Aktuelle waagerechte Verbindungslinien-Position bestimmen
 					dotLastChild = new Point(position.X + childPixelWidth / 2, position.Y);
@@ -98,7 +99,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 					}
 
 					// Versatz des Kind-Elements nach unten wegen des Zeitalter-Offsets berechnen
-					childYOffset = dotLastChild.Y + Math.Max(ageOffsets[child.Age] - parentAgeOffset - 1, 0) * (RenderControl.BOX_BOUNDS + 2 * RenderControl.BOX_SPACE_VERT);
+					childYOffset = dotLastChild.Y + Math.Max(ageOffsets[child.Value.Age] - parentAgeOffset - 1, 0) * (RenderControl.BOX_BOUNDS + 2 * RenderControl.BOX_SPACE_VERT);
 
 					// Senkrechte Linie darauf zeichnen
 					GL.Color3(Color.Black);
@@ -152,14 +153,14 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				TreeWidth = 0;
 				List<int> ageCountsCopy = new List<int>(ageCounts);
 				List<int> childAgeCounts = null;
-				foreach(TechTreeElement child in Children)
+				foreach(var child in Children)
 				{
 					// Abmessungen des Unterbaums berechnen
 					childAgeCounts = new List<int>(ageCountsCopy);
-					child.CalculateTreeBounds(ref childAgeCounts);
+					child.Value.CalculateTreeBounds(ref childAgeCounts);
 
 					// Unterbaumbreite zur Gesamtbreite hinzuaddieren
-					TreeWidth += child.TreeWidth;
+					TreeWidth += child.Value.TreeWidth;
 
 					// Zurückgegebene Zeitalter-Werte abgleichen => es wird immer das Maximum pro Zeitalter genommen
 					ageCounts = ageCounts.Zip(childAgeCounts, (a1, a2) => Math.Max(a1, a2)).ToList();
@@ -174,9 +175,10 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		protected override List<TechTreeElement> GetChildren()
 		{
 			// Kinder und Nachfolgeelement zurückgeben
-			List<TechTreeElement> childElements = new List<TechTreeElement>(Children);
-			childElements.Add(Successor);
-			return Children;
+			List<TechTreeElement> childElements = Children.Select(c => c.Value).ToList();
+			if(Successor != null)
+				childElements.Add(Successor);
+			return childElements;
 		}
 
 		/// <summary>
@@ -217,14 +219,14 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 					successorResearchID = elementIDs[SuccessorResearch];
 			}
 
-			// Kind-IDs abrufen
-			List<int> childIDs = new List<int>();
+			// Kind-IDs abrufen (Schlüssel: ID, Wert: Button)
+			Dictionary<int, byte> childIDs = new Dictionary<int, byte>();
 			Children.ForEach(c =>
 			{
-				if(!elementIDs.ContainsKey(c))
-					childIDs.Add(lastID = c.ToXml(writer, elementIDs, lastID));
+				if(!elementIDs.ContainsKey(c.Value))
+					childIDs.Add(lastID = c.Value.ToXml(writer, elementIDs, lastID), c.Key);
 				else
-					childIDs.Add(elementIDs[c]);
+					childIDs.Add(elementIDs[c.Value], c.Key);
 			});
 
 			// Element-Anfangstag schreiben
@@ -232,6 +234,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			{
 				// ID generieren und schreiben
 				writer.WriteAttributeString("id", (++lastID).ToString());
+				elementIDs.Add(this, lastID);
 
 				// Elementtyp schreiben
 				writer.WriteAttributeString("type", Type);
@@ -254,7 +257,14 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				// Kinder schreiben
 				writer.WriteStartElement("children");
 				{
-					childIDs.ForEach(c => writer.WriteElementString("child", c.ToString()));
+					foreach(var c in childIDs)
+					{
+						// Button-ID schreiben
+						writer.WriteStartElement("child");
+						writer.WriteAttributeString("button", c.Value.ToString());
+						writer.WriteString(c.Key.ToString());
+						writer.WriteEndElement();
+					}
 				}
 				writer.WriteEndElement();
 			}
@@ -269,10 +279,12 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// </summary>
 		/// <param name="element">Das XElement, aus dem das Element erstellt werden soll.</param>
 		/// <param name="previousElements">Die bereits eingelesenen Vorgängerelemente, von denen dieses Element abhängig sein kann.</param>
-		public override void FromXml(XElement element, Dictionary<int, TechTreeElement> previousElements)
+		/// <param name="dat">Die DAT-Datei, aus der ggf. Daten ausgelesen werden können.</param>
+		/// <param name="langFiles">Das Language-Datei-Objekt zum Auslesen von Stringdaten.</param>
+		public override void FromXml(XElement element, Dictionary<int, TechTreeElement> previousElements, GenieLibrary.GenieFile dat, GenieLibrary.LanguageFileWrapper langFiles)
 		{
 			// Elemente der Oberklasse lesen
-			base.FromXml(element, previousElements);
+			base.FromXml(element, previousElements, dat, langFiles);
 
 			// Werte einlesen
 			int id = (int)element.Element("successor");
@@ -284,9 +296,9 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				this.SuccessorResearch = (TechTreeResearch)previousElements[id];
 
 			// Kinder einlesen
-			Children = new List<TechTreeElement>();
+			Children = new List<KeyValuePair<byte, TechTreeElement>>();
 			foreach(XElement child in element.Element("children").Descendants("child"))
-				Children.Add(previousElements[(int)child]);
+				Children.Add(new KeyValuePair<byte, TechTreeElement>((byte)(uint)child.Attribute("parent"), previousElements[(int)child]));
 		}
 
 		#endregion

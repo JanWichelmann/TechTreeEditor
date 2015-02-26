@@ -274,22 +274,42 @@ namespace X2AddOnTechTreeEditor
 
 			// Bitmapdaten laden
 			Bitmap icon = null;
-			switch(type)
+			if(iconID >= 0)
 			{
-				case "TechTreeResearch":
-					icon = _iconsResearches.getFrameAsBitmap((uint)iconID, _pal50500);
-					boxG.FillRectangle(new SolidBrush(Color.FromArgb(125, 202, 98)), 0, 0, BOX_BOUNDS, BOX_BOUNDS);
-					break;
+				switch(type)
+				{
+					case "TechTreeResearch":
+						if(_iconsResearches.FrameCount > iconID)
+						{
+							icon = _iconsResearches.getFrameAsBitmap((uint)iconID, _pal50500);
+							boxG.FillRectangle(new SolidBrush(Color.FromArgb(125, 202, 98)), 0, 0, BOX_BOUNDS, BOX_BOUNDS);
+						}
+						break;
 
-				case "TechTreeCreatable":
-					icon = _iconsUnits.getFrameAsBitmap((uint)iconID, _pal50500);
-					boxG.FillRectangle(new SolidBrush(Color.FromArgb(128, 187, 226)), 0, 0, BOX_BOUNDS, BOX_BOUNDS);
-					break;
+					case "TechTreeCreatable":
+						if(_iconsUnits.FrameCount > iconID)
+						{
+							icon = _iconsUnits.getFrameAsBitmap((uint)iconID, _pal50500);
+							boxG.FillRectangle(new SolidBrush(Color.FromArgb(128, 187, 226)), 0, 0, BOX_BOUNDS, BOX_BOUNDS);
+						}
+						break;
 
-				case "TechTreeBuilding":
-					icon = _iconsBuildings.getFrameAsBitmap((uint)iconID, _pal50500);
-					boxG.FillRectangle(new SolidBrush(Color.FromArgb(246, 128, 128)), 0, 0, BOX_BOUNDS, BOX_BOUNDS);
-					break;
+					case "TechTreeBuilding":
+						if(_iconsBuildings.FrameCount > iconID)
+						{
+							icon = _iconsBuildings.getFrameAsBitmap((uint)iconID, _pal50500);
+							boxG.FillRectangle(new SolidBrush(Color.FromArgb(246, 128, 128)), 0, 0, BOX_BOUNDS, BOX_BOUNDS);
+						}
+						break;
+				}
+			}
+
+			// Ggf. Dummy-Icon einsetzen
+			if(icon == null)
+			{
+				icon = new Bitmap(36, 36);
+				Graphics.FromImage(icon).Clear(Color.Yellow);
+				boxG.FillRectangle(new SolidBrush(Color.OrangeRed), 0, 0, BOX_BOUNDS, BOX_BOUNDS);
 			}
 
 			// Icon-Bild mittig auf Kästchen zeichnen

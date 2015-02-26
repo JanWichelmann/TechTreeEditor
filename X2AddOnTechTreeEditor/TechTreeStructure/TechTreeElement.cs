@@ -134,6 +134,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			// Standardwerte setzen
 			Age = 0;
 			TreeWidth = 1;
+			IconTextureID = 0;
 			Selected = false;
 			Hovered = false;
 			ShadowElement = false;
@@ -324,20 +325,13 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		}
 
 		/// <summary>
-		/// Führt die übergebene Aktion für jedes Kindelement aus.
-		/// </summary>
-		/// <param name="action"></param>
-		public virtual void RunActionForEachChild(Action<TechTreeElement> action)
-		{
-
-		}
-
-		/// <summary>
 		/// Liest das aktuelle Element aus dem angegebenen XElement.
 		/// </summary>
 		/// <param name="element">Das XElement, aus dem das Element erstellt werden soll.</param>
 		/// <param name="previousElements">Die bereits eingelesenen Vorgängerelemente, von denen dieses Element abhängig sein kann.</param>
-		public virtual void FromXml(XElement element, Dictionary<int, TechTreeElement> previousElements)
+		/// <param name="dat">Die DAT-Datei, aus der ggf. Daten ausgelesen werden können.</param>
+		/// <param name="langFiles">Das Language-Datei-Objekt zum Auslesen von Stringdaten.</param>
+		public virtual void FromXml(XElement element, Dictionary<int, TechTreeElement> previousElements, GenieLibrary.GenieFile dat, GenieLibrary.LanguageFileWrapper langFiles)
 		{
 			// Werte einlesen
 			Age = (int)element.Element("age");
@@ -369,6 +363,16 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				default:
 					throw new ArgumentException("Ungültiger Elementtyp.");
 			}
+		}
+
+		/// <summary>
+		/// Erstellt für alle Kindelemente die Texturen.
+		/// </summary>
+		/// <param name="textureFunc">Die Textur-Generierungsfunktion.</param>
+		public virtual void CreateIconTextures(Func<string, short, int> textureFunc)
+		{
+			// Aufruf für alle Kindelemente durchführen
+			GetChildren().ForEach(c => c.CreateIconTextures(textureFunc));
 		}
 
 		#endregion Funktionen

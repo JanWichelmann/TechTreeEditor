@@ -20,7 +20,7 @@ namespace GenieLibrary.DataElements
 		public List<float> Resources;
 		public byte IconSet;
 		public List<int> UnitPointers;
-		public List<Unit> Units;
+		public Dictionary<int, Unit> Units;
 
 		#endregion Variablen
 
@@ -45,10 +45,10 @@ namespace GenieLibrary.DataElements
 			for(int i = 0; i < unitCount; ++i)
 				UnitPointers.Add(buffer.ReadInteger());
 
-			Units = new List<Unit>(unitCount);
-			foreach(int p in UnitPointers)
-				if(p != 0)
-					Units.Add(new Unit().ReadDataInline(buffer));
+			Units = new Dictionary<int, Unit>(unitCount);
+			for(int p = 0; p < UnitPointers.Count; ++p)
+				if(UnitPointers[p] != 0)
+					Units.Add(p, new Unit().ReadDataInline(buffer));
 		}
 
 		public override void WriteData(RAMBuffer buffer)
@@ -65,7 +65,8 @@ namespace GenieLibrary.DataElements
 
 			// Sicherstellen, dass genau jede definierte Einheit einen entsprechenden Pointer hat; hier nur über die Listenlänge, sollte aber die meisten auftretenden Fehler abdecken
 			AssertListLength(Units, UnitPointers.Count(p => p != 0));
-			Units.ForEach(e => e.WriteData(buffer));
+			foreach(var u in Units)
+				u.Value.WriteData(buffer);
 		}
 
 		#endregion Funktionen
