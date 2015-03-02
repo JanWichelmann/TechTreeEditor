@@ -9,8 +9,10 @@ using System.Text;
 namespace X2AddOnTechTreeEditor.TechTreeStructure
 {
 	/// <summary>
-	/// Definiert eine Deko-Einheit im Technologiebaum.
+	/// Definiert eine Deko-Setz-Einheit im Technologiebaum.
+	/// Dies sind alle Einheiten, die keinem anderen Typen zugewiesen werden.
 	/// </summary>
+	[System.Diagnostics.DebuggerDisplay("ID: #{ID}, Name: {Name}")]
 	public class TechTreeEyeCandy : TechTreeUnit
 	{
 		#region Variablen
@@ -26,19 +28,23 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		public TechTreeEyeCandy()
 			: base()
 		{
-			
+
 		}
 
 		protected override void DrawChildren(Point position, List<int> ageOffsets, int parentAgeOffset)
 		{
-			// TODO
-			throw new NotImplementedException();
+			// Nichts zu tun
+			return;
 		}
 
 		public override void CalculateTreeBounds(ref List<int> ageCounts)
 		{
-			// TODO
-			throw new NotImplementedException();
+			// Zähler für eigenes Zeitalter inkrementieren
+			++ageCounts[Age];
+
+			// Der Baum hat immer Breite 1, das Element ist aber kein Standardelement
+			TreeWidth = 1;
+			StandardTreeWidth = 0;
 		}
 
 		protected override List<TechTreeElement> GetChildren()
@@ -49,40 +55,42 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 
 		public override void DrawDependencies()
 		{
-			// TODO
-			throw new NotImplementedException();
+			// Nichts zu tun
+			return;
 		}
 
 		public override int ToXml(System.Xml.XmlWriter writer, Dictionary<TechTreeElement, int> elementIDs, int lastID)
 		{
+			// ID generieren
+			int myID = ++lastID;
+			elementIDs[this] = myID;
+
 			// Toten-ID abrufen
 			int deadUnitID = -1;
 			if(DeadUnit != null)
 			{
 				if(!elementIDs.ContainsKey(DeadUnit))
-					deadUnitID = lastID = DeadUnit.ToXml(writer, elementIDs, lastID);
-				else
-					deadUnitID = elementIDs[DeadUnit];
+					lastID = DeadUnit.ToXml(writer, elementIDs, lastID);
+				deadUnitID = elementIDs[DeadUnit];
 			}
 
 			// Element-Anfangstag schreiben
 			writer.WriteStartElement("element");
 			{
 				// ID generieren und schreiben
-				writer.WriteAttributeString("id", (++lastID).ToString());
-				elementIDs.Add(this, lastID);
+				writer.WriteAttributeNumber("id", myID);
 
 				// Elementtyp schreiben
 				writer.WriteAttributeString("type", Type);
 
 				// Interne Werte schreiben
-				writer.WriteElementString("age", Age.ToString());
-				writer.WriteElementString("id", ID.ToString());
-				writer.WriteElementString("name", Name == null ? "" : Name);
-				writer.WriteElementString("shadow", ShadowElement.ToString());
+				writer.WriteElementNumber("age", Age);
+				writer.WriteElementNumber("id", ID);
+				writer.WriteElementNumber("flags", (int)Flags);
+				writer.WriteElementNumber("shadow", ShadowElement);
 
 				// Toten-ID schreiben
-				writer.WriteElementString("deadunit", deadUnitID.ToString());
+				writer.WriteElementNumber("deadunit", deadUnitID);
 			}
 			writer.WriteEndElement();
 
@@ -90,7 +98,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			return lastID;
 		}
 
-#endregion
+		#endregion
 
 		#region Eigenschaften
 

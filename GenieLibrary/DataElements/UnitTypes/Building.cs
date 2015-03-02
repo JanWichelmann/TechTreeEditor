@@ -109,9 +109,9 @@ namespace GenieLibrary.DataElements.UnitTypes
 		{
 			#region Variablen
 
-			private short UnitID;
-			private float MisplacementX;
-			private float MisplacementY;
+			public short UnitID;
+			public float MisplacementX;
+			public float MisplacementY;
 
 			#endregion Variablen
 

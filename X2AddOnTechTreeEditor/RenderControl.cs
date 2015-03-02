@@ -1,13 +1,10 @@
-﻿using System;
+﻿using OpenTK;
+using OpenTK.Graphics.OpenGL;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Imaging;
-using OpenTK;
-using OpenTK.Graphics.OpenGL;
-using System.Data;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace X2AddOnTechTreeEditor
@@ -34,7 +31,7 @@ namespace X2AddOnTechTreeEditor
 		/// <summary>
 		/// Die Rahmenbreite.
 		/// </summary>
-		internal const int BORDER_WIDTH = 5;
+		internal const int BORDER_WIDTH = 3;
 
 		/// <summary>
 		/// Die Seitenlängen der einzelnen Techtree-Kästchen.
@@ -50,6 +47,11 @@ namespace X2AddOnTechTreeEditor
 		/// Der vertikale Platz um die einzelnen Techtree-Kästchen.
 		/// </summary>
 		internal const int BOX_SPACE_VERT = 8;
+
+		/// <summary>
+		/// Die Seitenlängen der Icons in den Techtree-Kästchen.
+		/// </summary>
+		internal const int ICON_BOUNDS = 36;
 
 		/// <summary>
 		/// Der Abstand der Zeichnung vom Zeichenfeld-Rand.
@@ -125,6 +127,31 @@ namespace X2AddOnTechTreeEditor
 		/// </summary>
 		private TechTreeStructure.TechTreeElement _hoverElement = null;
 
+		/// <summary>
+		/// Die Zeichen-Textur.
+		/// </summary>
+		private static int _charTextureID = 0;
+
+		/// <summary>
+		/// Die berechnete Gesamt-Baumbreite.
+		/// </summary>
+		private int _fullTreeWidth = 0;
+
+		/// <summary>
+		/// Die berechnete Gesamt-Baumbreite, wenn nur Standard-Elemente gezeigt werden.
+		/// </summary>
+		private int _fullStandardTreeWidth = 0;
+
+		/// <summary>
+		/// Legt fest, ob nur Standard-Elemente gezeichnet werden sollen.
+		/// </summary>
+		private bool _drawOnlyStandardElements = false;
+
+		/// <summary>
+		/// Enthält die Flag-Texturen.
+		/// </summary>
+		private static Dictionary<TechTreeStructure.TechTreeElement.ElementFlags, int> _flagTextures = null;
+
 		#endregion Variablen
 
 		#region Funktionen
@@ -160,6 +187,9 @@ namespace X2AddOnTechTreeEditor
 			_iconsResearches = iconsResearches;
 			_iconsUnits = iconsUnits;
 			_iconsBuildings = iconsBuildings;
+
+			// Neu zeichnen
+			_drawPanel.Invalidate();
 		}
 
 		/// <summary>
@@ -175,20 +205,22 @@ namespace X2AddOnTechTreeEditor
 			List<int> ageCounts = new List<int>() { 1, 1, 1, 1, 1 }; // TODO Hardcoded für 5 Zeitalter!
 			List<int> tempAgeCounts = new List<int>() { 0, 0, 0, 0, 0 };
 			List<int> childAgeCounts = null;
-			int fullTreeWidth = 0;
+			_fullTreeWidth = 0;
+			_fullStandardTreeWidth = 0;
 			_techTreeParentElements.ForEach(elem =>
 			{
 				// Größe rekursiv berechnen
 				childAgeCounts = new List<int>(tempAgeCounts);
 				elem.CalculateTreeBounds(ref childAgeCounts);
-				fullTreeWidth += elem.TreeWidth;
+				_fullTreeWidth += elem.TreeWidth;
+				_fullStandardTreeWidth += elem.StandardTreeWidth;
 
 				// Zurückgebene Zeitalter-Werte abgleichen => es wird immer das Maximum pro Zeitalter genommen
 				ageCounts = ageCounts.Zip(childAgeCounts, (a1, a2) => Math.Max(a1, a2)).ToList();
 			});
 
 			// Scrollbar einstellen
-			_drawPanelScrollBar.Maximum = (Math.Max(fullTreeWidth * (BOX_BOUNDS + 2 * BOX_SPACE_HORI) + 2 * DRAW_PANEL_PADDING, _drawPanel.Width) - _drawPanel.Width) / DRAW_PANEL_SCROLL_MULT;
+			_drawPanelScrollBar.Maximum = (Math.Max((_drawOnlyStandardElements ? _fullStandardTreeWidth : _fullTreeWidth) * (BOX_BOUNDS + 2 * BOX_SPACE_HORI) + 2 * DRAW_PANEL_PADDING, _drawPanel.Width) - _drawPanel.Width) / DRAW_PANEL_SCROLL_MULT;
 
 			// Zeitalter-Offsets erstellen
 			int currOffset = 0;
@@ -232,6 +264,102 @@ namespace X2AddOnTechTreeEditor
 			// Blickwinkel erstellen
 			SetupDrawPanelViewPort();
 
+			// Zeichen-Texturen für String-Rendering erstellen
+			{
+				// Bitmap laden
+				Bitmap charTexBitmap = X2AddOnTechTreeEditor.Properties.Resources.RenderFontConsolas;
+
+				// Textur generieren
+				_charTextureID = GL.GenTexture();
+				GL.BindTexture(TextureTarget.Texture2D, _charTextureID);
+
+				// Parameter setzen
+				GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+				GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+
+				// Textur übergeben
+				BitmapData charTexBitmapData = charTexBitmap.LockBits(new Rectangle(0, 0, 256, 128), ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+				GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, 256, 128, 0, OpenTK.Graphics.OpenGL.PixelFormat.Bgra, PixelType.UnsignedByte, charTexBitmapData.Scan0);
+
+				// Ressourcen wieder freigeben
+				charTexBitmap.UnlockBits(charTexBitmapData);
+			}
+
+			// Flag-Texturen erstellen
+			{
+				// Flag-Liste initialisieren
+				_flagTextures = new Dictionary<TechTreeStructure.TechTreeElement.ElementFlags, int>();
+
+				// Allgemeines Hilfs-Bitmap
+				Bitmap flagBitmap = new Bitmap(BOX_BOUNDS, BOX_BOUNDS);
+				BitmapData flagBitmapData;
+				Graphics flagBitmapGraphics = Graphics.FromImage(flagBitmap);
+
+				// Hilfsvariablen
+				int newTexID = 0;
+				Rectangle boxBounds = new Rectangle(0, 0, BOX_BOUNDS, BOX_BOUNDS);
+
+				// Editor-Flag
+				flagBitmapGraphics.Clear(Color.Transparent);
+				flagBitmapGraphics.DrawImage(X2AddOnTechTreeEditor.Icons.MapEditor, 1, 49, (BOX_BOUNDS - ICON_BOUNDS) / 2, (BOX_BOUNDS - ICON_BOUNDS) / 2);
+				newTexID = GL.GenTexture();
+				_flagTextures[TechTreeStructure.TechTreeElement.ElementFlags.ShowInEditor] = newTexID;
+				GL.BindTexture(TextureTarget.Texture2D, newTexID);
+				GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+				GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+				flagBitmapData = flagBitmap.LockBits(boxBounds, ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+				GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, BOX_BOUNDS, BOX_BOUNDS, 0, OpenTK.Graphics.OpenGL.PixelFormat.Bgra, PixelType.UnsignedByte, flagBitmapData.Scan0);
+				flagBitmap.UnlockBits(flagBitmapData);
+
+				// Gaia-Only-Flag
+				flagBitmapGraphics.Clear(Color.Transparent);
+				flagBitmapGraphics.DrawImage(X2AddOnTechTreeEditor.Icons.Gaia, 33, 49, (BOX_BOUNDS - ICON_BOUNDS) / 2, (BOX_BOUNDS - ICON_BOUNDS) / 2);
+				newTexID = GL.GenTexture();
+				_flagTextures[TechTreeStructure.TechTreeElement.ElementFlags.GaiaOnly] = newTexID;
+				GL.BindTexture(TextureTarget.Texture2D, newTexID);
+				GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+				GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+				flagBitmapData = flagBitmap.LockBits(boxBounds, ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+				GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, BOX_BOUNDS, BOX_BOUNDS, 0, OpenTK.Graphics.OpenGL.PixelFormat.Bgra, PixelType.UnsignedByte, flagBitmapData.Scan0);
+				flagBitmap.UnlockBits(flagBitmapData);
+
+				// Lock-ID-Flag
+				flagBitmapGraphics.Clear(Color.Transparent);
+				flagBitmapGraphics.DrawImage(X2AddOnTechTreeEditor.Icons.Lock, 49, 49, (BOX_BOUNDS - ICON_BOUNDS) / 2, (BOX_BOUNDS - ICON_BOUNDS) / 2);
+				newTexID = GL.GenTexture();
+				_flagTextures[TechTreeStructure.TechTreeElement.ElementFlags.LockID] = newTexID;
+				GL.BindTexture(TextureTarget.Texture2D, newTexID);
+				GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+				GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+				flagBitmapData = flagBitmap.LockBits(boxBounds, ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+				GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, BOX_BOUNDS, BOX_BOUNDS, 0, OpenTK.Graphics.OpenGL.PixelFormat.Bgra, PixelType.UnsignedByte, flagBitmapData.Scan0);
+				flagBitmap.UnlockBits(flagBitmapData);
+
+				// Blocked-Flag
+				flagBitmapGraphics.Clear(Color.Transparent);
+				flagBitmapGraphics.DrawImage(X2AddOnTechTreeEditor.Icons.Blocked, 0, 0, BOX_BOUNDS, BOX_BOUNDS);
+				newTexID = GL.GenTexture();
+				_flagTextures[TechTreeStructure.TechTreeElement.ElementFlags.Blocked] = newTexID;
+				GL.BindTexture(TextureTarget.Texture2D, newTexID);
+				GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+				GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+				flagBitmapData = flagBitmap.LockBits(boxBounds, ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+				GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, BOX_BOUNDS, BOX_BOUNDS, 0, OpenTK.Graphics.OpenGL.PixelFormat.Bgra, PixelType.UnsignedByte, flagBitmapData.Scan0);
+				flagBitmap.UnlockBits(flagBitmapData);
+
+				// Free-Flag
+				flagBitmapGraphics.Clear(Color.Transparent);
+				flagBitmapGraphics.DrawImage(X2AddOnTechTreeEditor.Icons.Free, 17, 49, (BOX_BOUNDS - ICON_BOUNDS) / 2, (BOX_BOUNDS - ICON_BOUNDS) / 2);
+				newTexID = GL.GenTexture();
+				_flagTextures[TechTreeStructure.TechTreeElement.ElementFlags.Free] = newTexID;
+				GL.BindTexture(TextureTarget.Texture2D, newTexID);
+				GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+				GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+				flagBitmapData = flagBitmap.LockBits(boxBounds, ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+				GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, BOX_BOUNDS, BOX_BOUNDS, 0, OpenTK.Graphics.OpenGL.PixelFormat.Bgra, PixelType.UnsignedByte, flagBitmapData.Scan0);
+				flagBitmap.UnlockBits(flagBitmapData);
+			}
+
 			// Alles ist geladen
 			_glLoaded = true;
 		}
@@ -260,8 +388,7 @@ namespace X2AddOnTechTreeEditor
 		public int LoadIconAsTexture(string type, short iconID)
 		{
 			// Texturobjekt vorbereiten
-			int texID;
-			GL.GenTextures(1, out texID);
+			int texID = GL.GenTexture();
 			GL.BindTexture(TextureTarget.Texture2D, texID);
 
 			// Parameter setzen
@@ -274,46 +401,40 @@ namespace X2AddOnTechTreeEditor
 
 			// Bitmapdaten laden
 			Bitmap icon = null;
-			if(iconID >= 0)
+			switch(type)
 			{
-				switch(type)
-				{
-					case "TechTreeResearch":
-						if(_iconsResearches.FrameCount > iconID)
-						{
-							icon = _iconsResearches.getFrameAsBitmap((uint)iconID, _pal50500);
-							boxG.FillRectangle(new SolidBrush(Color.FromArgb(125, 202, 98)), 0, 0, BOX_BOUNDS, BOX_BOUNDS);
-						}
-						break;
+				case "TechTreeResearch":
+					if(iconID >= 0 && _iconsResearches.FrameCount > iconID)
+						icon = _iconsResearches.getFrameAsBitmap((uint)iconID, _pal50500);
+					boxG.Clear(Color.FromArgb(125, 202, 98));
+					break;
 
-					case "TechTreeCreatable":
-						if(_iconsUnits.FrameCount > iconID)
-						{
-							icon = _iconsUnits.getFrameAsBitmap((uint)iconID, _pal50500);
-							boxG.FillRectangle(new SolidBrush(Color.FromArgb(128, 187, 226)), 0, 0, BOX_BOUNDS, BOX_BOUNDS);
-						}
-						break;
+				case "TechTreeCreatable":
+					if(iconID >= 0 && _iconsUnits.FrameCount > iconID)
+						icon = _iconsUnits.getFrameAsBitmap((uint)iconID, _pal50500);
+					boxG.Clear(Color.FromArgb(128, 187, 226));
+					break;
 
-					case "TechTreeBuilding":
-						if(_iconsBuildings.FrameCount > iconID)
-						{
-							icon = _iconsBuildings.getFrameAsBitmap((uint)iconID, _pal50500);
-							boxG.FillRectangle(new SolidBrush(Color.FromArgb(246, 128, 128)), 0, 0, BOX_BOUNDS, BOX_BOUNDS);
-						}
-						break;
-				}
+				case "TechTreeBuilding":
+					if(iconID >= 0 && _iconsBuildings.FrameCount > iconID)
+						icon = _iconsBuildings.getFrameAsBitmap((uint)iconID, _pal50500);
+					boxG.Clear(Color.FromArgb(246, 128, 128));
+					break;
+
+				default:
+					boxG.Clear(Color.LightCoral);
+					break;
 			}
 
 			// Ggf. Dummy-Icon einsetzen
 			if(icon == null)
 			{
-				icon = new Bitmap(36, 36);
+				icon = new Bitmap(ICON_BOUNDS, ICON_BOUNDS);
 				Graphics.FromImage(icon).Clear(Color.Yellow);
-				boxG.FillRectangle(new SolidBrush(Color.OrangeRed), 0, 0, BOX_BOUNDS, BOX_BOUNDS);
 			}
 
 			// Icon-Bild mittig auf Kästchen zeichnen
-			boxG.DrawImage(icon, new Point((BOX_BOUNDS - icon.Width) / 2, (BOX_BOUNDS - icon.Height) / 2));
+			boxG.DrawImage(icon, new Point((BOX_BOUNDS - ICON_BOUNDS) / 2, (BOX_BOUNDS - ICON_BOUNDS) / 2));
 
 			// Kästchen-Rahmen zeichnen
 			boxG.DrawRectangle(Pens.Black, 0, 0, BOX_BOUNDS - 1, BOX_BOUNDS - 1);
@@ -357,23 +478,8 @@ namespace X2AddOnTechTreeEditor
 			// Zeichenmatrix zurücksetzen
 			GL.LoadIdentity();
 
-			// Rahmen zeichnen
-			GL.Color3(COLOR_BORDER);
-			GL.Begin(PrimitiveType.Quads);
-			{
-				// Oben
-				GL.Vertex2(0, 0);
-				GL.Vertex2(_drawPanel.Width, 0);
-				GL.Vertex2(_drawPanel.Width, BORDER_WIDTH);
-				GL.Vertex2(0, BORDER_WIDTH);
-
-				// Unten
-				GL.Vertex2(0, _drawPanel.Height - BORDER_WIDTH);
-				GL.Vertex2(_drawPanel.Width, _drawPanel.Height - BORDER_WIDTH);
-				GL.Vertex2(_drawPanel.Width, _drawPanel.Height);
-				GL.Vertex2(0, _drawPanel.Height);
-			}
-			GL.End();
+			GL.Color3(Color.Yellow);
+			DrawString("Elternelemente: " + _techTreeParentElements.Count.ToString(), 10, 10);
 
 			// Wurden alle Daten geladen?
 			if(_dataLoaded)
@@ -402,16 +508,49 @@ namespace X2AddOnTechTreeEditor
 				foreach(TechTreeStructure.TechTreeElement parent in _techTreeParentElements)
 				{
 					// Element zeichnen
-					parent.Draw(currPos, _ageOffsets, 0);
+					parent.Draw(currPos, _ageOffsets, 0, _drawOnlyStandardElements);
 
 					// Position um die Breite verschieben
-					currPos.X += parent.TreeWidth * (BOX_BOUNDS + 2 * BOX_SPACE_HORI);
+					currPos.X += (_drawOnlyStandardElements ? parent.StandardTreeWidth : parent.TreeWidth) * (BOX_BOUNDS + 2 * BOX_SPACE_HORI);
 				}
 
 				// Ggf. Abhängigkeitspfeile des ausgewählten Elements zeichnen
 				if(_selectedElement != null)
 					_selectedElement.DrawDependencies();
 			}
+
+			// Zeichenmatrix zurücksetzen
+			GL.LoadIdentity();
+
+			// Rahmen zeichnen
+			GL.Color3(COLOR_BORDER);
+			GL.Begin(PrimitiveType.Quads);
+			{
+				// Oben
+				GL.Vertex2(0, 0);
+				GL.Vertex2(_drawPanel.Width, 0);
+				GL.Vertex2(_drawPanel.Width, BORDER_WIDTH);
+				GL.Vertex2(0, BORDER_WIDTH);
+
+				// Unten
+				GL.Vertex2(0, _drawPanel.Height - BORDER_WIDTH);
+				GL.Vertex2(_drawPanel.Width, _drawPanel.Height - BORDER_WIDTH);
+				GL.Vertex2(_drawPanel.Width, _drawPanel.Height);
+				GL.Vertex2(0, _drawPanel.Height);
+
+				// Links
+				GL.Vertex2(0, 0);
+				GL.Vertex2(BORDER_WIDTH, 0);
+				GL.Vertex2(BORDER_WIDTH, _drawPanel.Height);
+				GL.Vertex2(0, _drawPanel.Height);
+
+				// Rechts
+				GL.Vertex2(_drawPanel.Width - BORDER_WIDTH, 0);
+				GL.Vertex2(_drawPanel.Width, 0);
+				GL.Vertex2(_drawPanel.Width, _drawPanel.Height);
+				GL.Vertex2(_drawPanel.Width - BORDER_WIDTH, _drawPanel.Height);
+			}
+			GL.End();
 
 			// Puffer tauschen, um Flackern zu vermeiden
 			_drawPanel.SwapBuffers();
@@ -425,15 +564,8 @@ namespace X2AddOnTechTreeEditor
 				// Blickwinkel neu laden
 				SetupDrawPanelViewPort();
 
-				// Gesamt-Baumbreite erneut ermitteln
-				int fullTreeWidth = 0;
-				_techTreeParentElements.ForEach(elem =>
-				{
-					fullTreeWidth += elem.TreeWidth;
-				});
-
 				// Scrollbar einstellen
-				_drawPanelScrollBar.Maximum = (Math.Max(fullTreeWidth * (BOX_BOUNDS + 2 * BOX_SPACE_HORI) + 2 * DRAW_PANEL_PADDING, _drawPanel.Width) - _drawPanel.Width) / DRAW_PANEL_SCROLL_MULT;
+				_drawPanelScrollBar.Maximum = (Math.Max((_drawOnlyStandardElements ? _fullStandardTreeWidth : _fullTreeWidth) * (BOX_BOUNDS + 2 * BOX_SPACE_HORI) + 2 * DRAW_PANEL_PADDING, _drawPanel.Width) - _drawPanel.Width) / DRAW_PANEL_SCROLL_MULT;
 
 				// Neuzeichnen erzwingen
 				_drawPanel.Invalidate();
@@ -512,7 +644,7 @@ namespace X2AddOnTechTreeEditor
 			}
 		}
 
-		#endregion
+		#endregion Ereignishandler
 
 		#region Statische Hilfsfunktionen
 
@@ -525,6 +657,14 @@ namespace X2AddOnTechTreeEditor
 		/// <param name="stippleLine">Optional. Gibt an, ob die gezeichnete Linie gestrichelt sein soll. Standardmäßig false.</param>
 		internal static void DrawArrow(TechTreeStructure.TechTreeElement sourceElement, TechTreeStructure.TechTreeElement destinationElement, Color color, bool stippleLine = false)
 		{
+			// Falls das Zielelement Schatten-Element und Gebäude ist, kann es sich um eine Untereinheit handeln
+			if(destinationElement.Type == "TechTreeBuilding" && destinationElement.ShadowElement)
+			{
+				// Obergebäude setzen
+				if(((TechTreeStructure.TechTreeBuilding)destinationElement).StackUnit != null)
+					destinationElement = ((TechTreeStructure.TechTreeBuilding)destinationElement).StackUnit;
+			}
+
 			// Richtungsvektor der Pfeillinie berechnen
 			Vector2 arrowLine = new Vector2(destinationElement.CacheBoxPosition.X - sourceElement.CacheBoxPosition.X + (sourceElement.CacheBoxPosition.X < destinationElement.CacheBoxPosition.X ? -BOX_BOUNDS : BOX_BOUNDS), destinationElement.CacheBoxPosition.Y - sourceElement.CacheBoxPosition.Y);
 
@@ -567,7 +707,76 @@ namespace X2AddOnTechTreeEditor
 			GL.End();
 		}
 
-		#endregion
+		/// <summary>
+		/// Zeichnet ein Flag an der aktuellen Box-Position. Es kann immer nur ein Flag auf einmal gezeichnet werden.
+		/// </summary>
+		/// <param name="flag">Das zu zeichnende Flag.</param>
+		internal static void DrawFlagOverlay(TechTreeStructure.TechTreeElement.ElementFlags flag)
+		{
+			// Flag-Textur abrufen
+			int flagTexID = _flagTextures[flag];
+
+			// Flag-Textur binden und zeichnen
+			GL.BindTexture(TextureTarget.Texture2D, flagTexID);
+			GL.Begin(PrimitiveType.Quads);
+			{
+				GL.TexCoord2(0.0, 0.0); GL.Vertex2(0, 0); // Oben links
+				GL.TexCoord2(1.0, 0.0); GL.Vertex2(RenderControl.BOX_BOUNDS, 0); // Oben rechts
+				GL.TexCoord2(1.0, 1.0); GL.Vertex2(RenderControl.BOX_BOUNDS, RenderControl.BOX_BOUNDS); // Unten rechts
+				GL.TexCoord2(0.0, 1.0); GL.Vertex2(0, RenderControl.BOX_BOUNDS); // Unten links
+			}
+			GL.End();
+		}
+
+		/// <summary>
+		/// Zeichnet die gegebene Zeichenfolge an die gegebene Position. Dabei wird die obere linke Ecke angegeben.
+		/// Die Abmessungen betragen 8x13 Pixel für das erste und dann 6x13 Pixel pro Zeichen.
+		/// </summary>
+		/// <param name="value">Die zu zeichende Zeichenfolge.</param>
+		/// <param name="position">Die Position, an die die Zeichenfolge gezeichnet werden soll.</param>
+		internal static void DrawString(string value, Point position)
+		{
+			// Überladene Funktion aufrufen
+			DrawString(value, position.X, position.Y);
+		}
+
+		/// <summary>
+		/// Zeichnet die gegebene Zeichenfolge an die gegebene Position. Dabei wird die obere linke Ecke angegeben.
+		/// Die Abmessungen betragen 8x13 Pixel für das erste und dann 6x13 Pixel pro Zeichen.
+		/// </summary>
+		/// <param name="value">Die zu zeichende Zeichenfolge.</param>
+		/// <param name="x">Die X-Position, an die die Zeichenfolge gezeichnet werden soll.</param>
+		/// <param name="y">Die Y-Position, an die die Zeichenfolge gezeichnet werden soll.</param>
+		internal static void DrawString(string value, int x, int y)
+		{
+			// Textur laden
+			GL.BindTexture(TextureTarget.Texture2D, _charTextureID);
+
+			// String zeichenweise durchlaufen
+			foreach(char c in value.ToCharArray())
+			{
+				// Zeichnen
+				int cTrans = (int)c - 32;
+				float charPosX = (cTrans & 31) / 32.0f;
+				float charPosY = (cTrans >> 5) / 10.0f;
+				GL.Begin(PrimitiveType.Quads);
+				{
+					GL.TexCoord2(charPosX, charPosY); GL.Vertex2(x, y); // Oben links
+					GL.TexCoord2(charPosX + 1 / 32.0f, charPosY); GL.Vertex2(x + 8, y); // Oben rechts
+					GL.TexCoord2(charPosX + 1 / 32.0f, charPosY + 1 / 9.84615f); GL.Vertex2(x + 8, y + 13); // Unten rechts
+					GL.TexCoord2(charPosX, charPosY + 1 / 10.0f); GL.Vertex2(x, y + 13); // Unten links
+				}
+				GL.End();
+
+				// X-Position erhöhen
+				x += 6;
+			}
+
+			// Texture entladen
+			GL.BindTexture(TextureTarget.Texture2D, 0);
+		}
+
+		#endregion Statische Hilfsfunktionen
 
 		#region Ereignisse
 
@@ -629,8 +838,8 @@ namespace X2AddOnTechTreeEditor
 			}
 		}
 
-		#endregion
+		#endregion Event: Geänderte Auswahl
 
-		#endregion
+		#endregion Ereignisse
 	}
 }

@@ -1,13 +1,8 @@
 ﻿using DRSLibrary;
-using OpenTK;
-using OpenTK.Graphics.OpenGL;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.Linq;
 using System.Windows.Forms;
-using X2AddOnTechTreeEditor.Resources;
+using X2AddOnTechTreeEditor;
 
 namespace X2AddOnTechTreeEditor
 {
@@ -38,12 +33,7 @@ namespace X2AddOnTechTreeEditor
 		/// <summary>
 		/// Die DAT-Kulturen-Namen.
 		/// </summary>
-		//private List<KeyValuePair<uint, string>> _civs = new List<KeyValuePair<uint, string>>();
-
-		/// <summary>
-		/// Die blockierten Elemente der einzelnen Kulturen.
-		/// </summary>
-		//private Dictionary<int, CivBlock> _civBlocks = new Dictionary<int, CivBlock>();
+		private List<KeyValuePair<uint, string>> _civs = new List<KeyValuePair<uint, string>>();
 
 		/// <summary>
 		/// Das aktuell ausgewählte Techtree-Element.
@@ -64,12 +54,13 @@ namespace X2AddOnTechTreeEditor
 		/// </summary>
 		public MainForm()
 		{
-			/* Sprache ändern (für Debugging)
-			System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
-			System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");/**/
-
 			// Steuerelemente laden
 			InitializeComponent();
+
+			// ToolBar-Einstellungen laden
+#if !DEBUG
+			ToolStripManager.LoadSettings(this, "ToolBarSettings");
+#endif
 
 			// Fenstertitel setzen
 			UpdateFormTitle();
@@ -106,6 +97,22 @@ namespace X2AddOnTechTreeEditor
 			// Icon-Texturen erstellen
 			_projectFile.TechTreeParentElements.ForEach(p => p.CreateIconTextures(_renderPanel.LoadIconAsTexture));
 
+			// Kulturennamen laden
+			SetStatus("Lade Kulturenliste...");
+			_civs.Clear();
+			for(uint i = 0; i < _projectFile.CivTrees.Count; ++i)
+			{
+				// Zivilisation einfügen
+				_civs.Add(new KeyValuePair<uint, string>(i, _projectFile.LanguageFileWrapper.GetString(10230u + i + 1)));
+			}
+			_civs.Sort((x, y) => x.Value.CompareTo(y.Value));
+
+			// Kulturen-Auswahlliste mit Namen-Array neu verknüpfen
+			_civSelectComboBox.ComboBox.DisplayMember = "Value";
+			_civSelectComboBox.ComboBox.ValueMember = "Key";
+			_civSelectComboBox.ComboBox.DataSource = new BindingSource() { DataSource = _civs };
+			_civSelectComboBox.ComboBox.SelectedIndex = 0;
+
 			// Daten an Render-Control übergeben
 			SetStatus(Strings.MainForm_Status_PreparingTreeRendering);
 			_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
@@ -115,6 +122,7 @@ namespace X2AddOnTechTreeEditor
 			_dataLoaded = true;
 			this.Cursor = Cursors.Default;
 			_saveProjectMenuButton.Enabled = true;
+			_saveProjectButton.Enabled = true;
 			UpdateFormTitle();
 			SetStatus(Strings.MainForm_Status_Ready);
 		}
@@ -192,22 +200,6 @@ namespace X2AddOnTechTreeEditor
 			// Schönen Cursor zeigen
 			this.Cursor = Cursors.AppStarting;
 
-			// Kulturen-Auswahlliste mit Daten verknüpfen
-			/*SetStatus("Lade Kulturenliste...");
-			uint i = 0;
-			foreach(GenieLibrary.DataElements.Civ civ in _dat.Civs)
-			{
-				// Zivilisation einfügen
-				if(i != 0)
-					_civs.Add(new KeyValuePair<uint, string>(i, _languageFiles.GetString(10230u + i)));
-				++i;
-			}
-			_civs.Sort((x, y) => x.Value.CompareTo(y.Value));
-			_civSelectComboBox.ComboBox.DataSource = new BindingSource(_civs, null);
-			_civSelectComboBox.ComboBox.ValueMember = "Key";
-			_civSelectComboBox.ComboBox.DisplayMember = "Value";
-			_civSelectComboBox.ComboBox.SelectedIndex = 0;*/
-
 			// Interfac-DRS laden
 			SetStatus("Lade Interfac-DRS...");
 			_interfacDRS = new DRSFile("interfac.drs");
@@ -225,7 +217,7 @@ namespace X2AddOnTechTreeEditor
 			// Daten an Render-Control übergeben
 			SetStatus(Strings.MainForm_Status_PassRenderData);
 			_renderPanel.UpdateIconData(_pal50500, _iconsResearches, _iconsUnits, _iconsBuildings);
-
+			
 			// Fertig
 			_dataLoaded = true;
 			this.Cursor = Cursors.Default;
@@ -237,6 +229,13 @@ namespace X2AddOnTechTreeEditor
 			// Wenn Daten noch nicht geladen sind, nichts tun
 			if(!_dataLoaded)
 				return;
+
+			// Daten für die ausgewählte Zivilisation einfügen
+			TechTreeFile.CivTreeConfig selCivTree = _projectFile.CivTrees[(int)(uint)_civSelectComboBox.ComboBox.SelectedValue];
+			_projectFile.ApplyCivConfiguration(selCivTree);
+
+			// Neuzeichnen
+			_renderPanel.Invalidate();
 		}
 
 		private void _renderPanel_SelectionChanged(object sender, RenderControl.SelectionChangedEventArgs e)
@@ -281,6 +280,17 @@ namespace X2AddOnTechTreeEditor
 			}
 		}
 
+		private void _importDATButton_Click(object sender, EventArgs e)
+		{
+			// Dialog anzeigen
+			ImportDATFile importDialog = new ImportDATFile();
+			if(importDialog.ShowDialog() == DialogResult.OK)
+			{
+				// Projektdatei laden
+				LoadProject(importDialog.ProjectFileName);
+			}
+		}
+
 		private void _openProjectMenuButton_Click(object sender, EventArgs e)
 		{
 			// Dialog anzeigen
@@ -289,6 +299,28 @@ namespace X2AddOnTechTreeEditor
 				// Projekt laden
 				LoadProject(_openProjectDialog.FileName);
 			}
+		}
+
+		private void _openProjectButton_Click(object sender, EventArgs e)
+		{
+			// Dialog anzeigen
+			if(_openProjectDialog.ShowDialog() == DialogResult.OK)
+			{
+				// Projekt laden
+				LoadProject(_openProjectDialog.FileName);
+			}
+		}
+
+		private void _saveProjectMenuButton_Click(object sender, EventArgs e)
+		{
+			// Speichern
+			SaveProject();
+		}
+
+		private void _saveProjectButton_Click(object sender, EventArgs e)
+		{
+			// Speichern
+			SaveProject();
 		}
 
 		private void _exitMenuButton_Click(object sender, EventArgs e)
@@ -316,64 +348,11 @@ namespace X2AddOnTechTreeEditor
 					SaveProject();
 				}
 			}
-		}
 
-		private void _saveProjectMenuButton_Click(object sender, EventArgs e)
-		{
-			// Speichern
-			SaveProject();
+			// ToolBar-Einstellungen speichern
+			ToolStripManager.SaveSettings(this, "ToolBarSettings");
 		}
 
 		#endregion Ereignishandler
-
-		#region Strukturen
-
-		/// <summary>
-		/// Verwaltet die deaktivierten Elemente einer Kultur.
-		/// </summary>
-		private class CivBlock
-		{
-			/// <summary>
-			/// Die blockierten Technologien.
-			/// </summary>
-			public List<int> BlockedResearches;
-
-			/// <summary>
-			/// Die blockierten Einheiten / Gebäude.
-			/// </summary>
-			public List<int> BlockedUnits;
-
-			/// <summary>
-			/// Konstruktor.
-			/// </summary>
-			public CivBlock()
-			{
-				// Objekte erstellen
-				BlockedResearches = new List<int>();
-				BlockedUnits = new List<int>();
-			}
-
-			/// <summary>
-			/// Prüft, ob die angegebene Technologie blockiert ist.
-			/// </summary>
-			/// <param name="id">Die ID der zu prüfenden Technologie.</param>
-			/// <returns></returns>
-			public bool ResearchIsBlocked(int id)
-			{
-				return BlockedResearches.Contains(id);
-			}
-
-			/// <summary>
-			/// Prüft, ob die angegebene Einheit blockiert ist.
-			/// </summary>
-			/// <param name="id">Die ID der zu prüfenden Einheit.</param>
-			/// <returns></returns>
-			public bool UnitIsBlocked(int id)
-			{
-				return BlockedUnits.Contains(id);
-			}
-		}
-
-		#endregion Strukturen
 	}
 }

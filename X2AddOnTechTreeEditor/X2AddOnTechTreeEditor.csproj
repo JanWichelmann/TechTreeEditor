@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -50,7 +50,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>addon.ico</ApplicationIcon>
+    <ApplicationIcon>symbol.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="ImportDATFile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,12 +95,18 @@
     <Compile Include="RenderControl.Designer.cs">
       <DependentUpon>RenderControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Strings.Designer.cs">
+    <Compile Include="Icons.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Icons.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Strings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
     <Compile Include="TechTreeStructure\TechTreeBuilding.cs" />
+    <Compile Include="TechTreeStructure\TechTreeProjectile.cs" />
     <Compile Include="TechTreeStructure\TechTreeEyeCandy.cs" />
     <Compile Include="TechTreeStructure\TechTreeElement.cs" />
     <Compile Include="TechTreeFile.cs" />
@@ -107,6 +114,10 @@
     <Compile Include="TechTreeStructure\TechTreeDead.cs" />
     <Compile Include="TechTreeStructure\TechTreeCreatable.cs" />
     <Compile Include="TechTreeStructure\TechTreeUnit.cs" />
+    <EmbeddedResource Include="Icons.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Icons.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ImportDATFile.en-US.resx">
       <DependentUpon>ImportDATFile.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,7 +143,7 @@
     <EmbeddedResource Include="RenderControl.resx">
       <DependentUpon>RenderControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Strings.resx">
+    <EmbeddedResource Include="Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
@@ -171,10 +182,32 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="addon.ico" />
     <Content Include="compr.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Icons\CreateConnection.png" />
+    <None Include="Icons\DeleteConnection.png" />
+    <None Include="Icons\DeleteElement.png" />
+    <None Include="Icons\Exit.png" />
+    <None Include="Icons\Info.png" />
+    <None Include="Icons\NewBuilding.png" />
+    <None Include="Icons\NewProject.png" />
+    <None Include="Icons\NewResearch.png" />
+    <None Include="Icons\NewUnit.png" />
+    <None Include="Icons\OpenProject.png" />
+    <None Include="Icons\Redo.png" />
+    <None Include="Icons\Lock.png" />
+    <None Include="Icons\Undo.png" />
+    <None Include="Icons\MapEditor.png" />
+    <None Include="Icons\Blocked.png" />
+    <None Include="Icons\Gaia.png" />
+    <None Include="Icons\Free.png" />
+    <None Include="Icons\SaveProject.png" />
+    <Content Include="Icons\EditorMode.png" />
+    <Content Include="Icons\StandardMode.png" />
+    <Content Include="Icons\Symbol32.png" />
+    <Content Include="symbol.ico" />
+    <None Include="Resources\RenderFontConsolas.bmp" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

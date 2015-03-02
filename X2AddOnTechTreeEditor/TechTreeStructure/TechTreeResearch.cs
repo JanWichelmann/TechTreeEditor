@@ -1,10 +1,8 @@
-﻿using System;
+﻿using OpenTK.Graphics.OpenGL;
+using System;
 using System.Collections.Generic;
-using OpenTK;
-using OpenTK.Graphics.OpenGL;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -13,6 +11,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 	/// <summary>
 	/// Definiert ein Technologie-Element im Technologiebaum.
 	/// </summary>
+	[System.Diagnostics.DebuggerDisplay("ID: #{ID}, Name: {Name}")]
 	public class TechTreeResearch : TechTreeElement
 	{
 		#region Variablen
@@ -23,16 +22,16 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		public List<TechTreeResearch> Dependencies { get; private set; }
 
 		/// <summary>
-		/// Die Technologie, die an demselben (Button-)Slot wie diese Technologie liegt und somit direkt von ihr abhängig ist.
+		/// Die Technologien, die an demselben (Button-)Slot wie diese Technologie liegen und direkt von ihr abhängig sind.
 		/// </summary>
-		public TechTreeResearch Successor { get; set; }
+		public List<TechTreeResearch> Successors { get; private set; }
 
 		/// <summary>
 		/// Die zugehörige DAT-Technologie.
 		/// </summary>
 		public GenieLibrary.DataElements.Research DATResearch { get; set; }
 
-		#endregion
+		#endregion Variablen
 
 		#region Funktionen
 
@@ -45,6 +44,10 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		{
 			// Objekte erstellen
 			Dependencies = new List<TechTreeResearch>();
+			Successors = new List<TechTreeResearch>();
+
+			// Technologien sind in jedem Fall Standard-Elemente
+			_standardElement = true;
 		}
 
 		/// <summary>
@@ -52,28 +55,71 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// </summary>
 		/// <param name="position">Die Zeichenposition des gesamten Baum-Rechtecks. Es wird die obere linke Ecke angegeben.</param>
 		/// <param name="ageOffsets">Eine Liste mit den Zeitalter-Offset-Daten. Diese wird in dieser Funktion nicht verändert.</param>
-		/// <param name="lastAge">Das Zeitalter-Offset des übergeordneten Elements.</param>
+		/// <param name="parentAgeOffset">Das Zeitalter-Offset des übergeordneten Elements.</param>
 		protected override void DrawChildren(Point position, List<int> ageOffsets, int parentAgeOffset)
 		{
 			// (Breiten-)Mittelpunkt dieses Elements berechnen
-			int pixelWidth = (RenderControl.BOX_BOUNDS + 2 * RenderControl.BOX_SPACE_HORI) / 2;
+			int pixelWidth = TreeWidth * (RenderControl.BOX_BOUNDS + 2 * RenderControl.BOX_SPACE_HORI);
 
-			// Ist ein Nachfolger vorhanden?
-			if(Successor != null)
+			// Sind Nachfolger vorhanden?
+			if(Successors.Count != 0)
 			{
-				// Nachfolger zeichnen
-				position.Y += RenderControl.BOX_BOUNDS + 2 * RenderControl.BOX_SPACE_VERT;
-				Successor.Draw(position, ageOffsets, parentAgeOffset + 1);
-
-				// Versatz des Nachfolger-Elements nach unten wegen des Zeitalter-Offsets berechnen
-				int childYOffset = position.Y + Math.Max(ageOffsets[Successor.Age] - parentAgeOffset - 1, 0) * (RenderControl.BOX_BOUNDS + 2 * RenderControl.BOX_SPACE_VERT);
-
-				// Senkrechte Verbindungslinie nach unten zeichnen
+				// Senkrechte Linie nach unten zeichnen
 				GL.Color3(Color.Black);
 				GL.Begin(PrimitiveType.Lines);
 				{
-					GL.Vertex2(position.X + pixelWidth, position.Y + RenderControl.BOX_BOUNDS + RenderControl.BOX_SPACE_VERT); // Oben
-					GL.Vertex2(position.X + pixelWidth, childYOffset + RenderControl.BOX_SPACE_VERT); // Unten
+					GL.Vertex2(position.X + (pixelWidth / 2), position.Y + RenderControl.BOX_BOUNDS + RenderControl.BOX_SPACE_VERT); // Oben
+					GL.Vertex2(position.X + (pixelWidth / 2), position.Y + RenderControl.BOX_BOUNDS + 2 * RenderControl.BOX_SPACE_VERT); // Unten
+				}
+				GL.End();
+
+				// Nachfolger zeichnen
+				position.Y += RenderControl.BOX_BOUNDS + 2 * RenderControl.BOX_SPACE_VERT;
+				int successorPixelWidth = 0;
+				Point dotFirstSuccessor = position;
+				Point dotLastSuccessor = position;
+				bool dotFirstSuccessorSet = false;
+				int successorYOffset = 0;
+				foreach(TechTreeResearch successor in Successors)
+				{
+					// Nachfolger versetzt zeichnen
+					successor.Draw(position, ageOffsets, parentAgeOffset + 1);
+
+					// Pixel-Breite berechnen
+					successorPixelWidth = successor.TreeWidth * (RenderControl.BOX_BOUNDS + 2 * RenderControl.BOX_SPACE_HORI);
+
+					// Aktuelle waagerechte Verbindungslinien-Position bestimmen
+					dotLastSuccessor = new Point(position.X + successorPixelWidth / 2, position.Y);
+
+					// Ggf. erste waagerechte Verbindungslinien-Position merken
+					if(!dotFirstSuccessorSet)
+					{
+						dotFirstSuccessor = dotLastSuccessor;
+						dotFirstSuccessorSet = true;
+					}
+
+					// Versatz des Nachfolger-Elements nach unten wegen des Zeitalter-Offsets berechnen
+					successorYOffset = dotLastSuccessor.Y + Math.Max(ageOffsets[successor.Age] - parentAgeOffset - 1, 0) * (RenderControl.BOX_BOUNDS + 2 * RenderControl.BOX_SPACE_VERT);
+
+					// Senkrechte Linie darauf zeichnen
+					GL.Color3(Color.Black);
+					GL.Begin(PrimitiveType.Lines);
+					{
+						GL.Vertex2(dotLastSuccessor.X, dotLastSuccessor.Y); // Oben
+						GL.Vertex2(dotLastSuccessor.X, successorYOffset + RenderControl.BOX_SPACE_VERT); // Unten
+					}
+					GL.End();
+
+					// Position erhöhen
+					position.X += successorPixelWidth;
+				}
+
+				// Waagerechte Verbindungslinie zeichnen
+				GL.Color3(Color.Black);
+				GL.Begin(PrimitiveType.Lines);
+				{
+					GL.Vertex2(dotFirstSuccessor.X, dotFirstSuccessor.Y); // Oben
+					GL.Vertex2(dotLastSuccessor.X + 1, dotLastSuccessor.Y); // Unten (+ 1, da sonst ein Pixel am Ende fehlt)
 				}
 				GL.End();
 			}
@@ -86,7 +132,9 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		{
 			// Pfeil zu jedem Element zeichnen
 			foreach(TechTreeResearch dep in Dependencies)
-				RenderControl.DrawArrow(this, dep, Color.Red, true);
+				RenderControl.DrawArrow(dep, this, Color.Red, true);
+			foreach(var dep in BuildingDependencies)
+				RenderControl.DrawArrow(dep.Key, this, Color.DarkGreen, true);
 		}
 
 		/// <summary>
@@ -98,25 +146,31 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			// Zähler für eigenes Zeitalter inkrementieren
 			++ageCounts[Age];
 
-			// Nachfolge-Element vorhanden?
-			if(Successor == null)
-			{
-				// Der Baum ist genau 1 Element breit
+			// Abmessungen des Baums bestimmen
+			if(Successors.Count == 0)
 				TreeWidth = 1;
-			}
 			else
 			{
-				// Die Breite des Baums ist die Breite des Unterbaums
-				List<int> childAgeCounts = null;
-				childAgeCounts = new List<int>(new List<int>(ageCounts));
-				Successor.CalculateTreeBounds(ref childAgeCounts);
+				// Die Breite des Baums ist die Summe der Breite der Nachfolger
+				TreeWidth = 0;
+				List<int> ageCountsCopy = new List<int>(ageCounts);
+				List<int> succAgeCounts = null;
+				foreach(TechTreeResearch succ in Successors)
+				{
+					// Abmessungen des Unterbaums berechnen
+					succAgeCounts = new List<int>(ageCountsCopy);
+					succ.CalculateTreeBounds(ref succAgeCounts);
 
-				// Unterbaumbreite zur Gesamtbreite hinzuaddieren
-				TreeWidth = Successor.TreeWidth;
+					// Unterbaumbreite zur Gesamtbreite hinzuaddieren
+					TreeWidth += succ.TreeWidth;
 
-				// Zurückgegebene Zeitalter-Werte abgleichen => es wird immer das Maximum pro Zeitalter genommen
-				ageCounts = ageCounts.Zip(childAgeCounts, (a1, a2) => Math.Max(a1, a2)).ToList();
+					// Zurückgegebene Zeitalter-Werte abgleichen => es wird immer das Maximum pro Zeitalter genommen
+					ageCounts = ageCounts.Zip(succAgeCounts, (a1, a2) => Math.Max(a1, a2)).ToList();
+				}
 			}
+
+			// Standard-Elemente sind hier irrelevant
+			StandardTreeWidth = TreeWidth;
 		}
 
 		/// <summary>
@@ -125,10 +179,8 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// <returns></returns>
 		protected override List<TechTreeElement> GetChildren()
 		{
-			// Kinder zurückgeben
-			if(Successor != null)
-				return new List<TechTreeElement>(new TechTreeElement[] { Successor });
-			return new List<TechTreeElement>();
+			// Nachfolger zurückgeben
+			return new List<TechTreeElement>(Successors);
 		}
 
 		/// <summary>
@@ -136,52 +188,79 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// </summary>
 		/// <param name="writer">Der XmlWriter, in den die Daten geschrieben werden sollen.</param>
 		/// <param name="elementIDs">Die Liste mit den den TechTree-Elementen zugeordneten IDs.</param>
-		/// <param name="lastID">Die letzte vergebene ID. Muss als Referenz übergeben werden, da diese Zahl stetig inkrementiert wird.</param>
+		/// <param name="lastID">Die letzte vergebene ID.</param>
 		public override int ToXml(XmlWriter writer, Dictionary<TechTreeElement, int> elementIDs, int lastID)
 		{
-			// Nachfolger-ID abrufen
-			int successorID = -1;
-			if(Successor != null)
+			// ID generieren
+			int myID = ++lastID;
+			elementIDs[this] = myID;
+
+			// Nachfolger-IDs abrufen
+			List<int> succIDs = new List<int>();
+			Successors.ForEach(s =>
 			{
-				if(!elementIDs.ContainsKey(Successor))
-					successorID = lastID = Successor.ToXml(writer, elementIDs, lastID);
-				else
-					successorID = elementIDs[Successor];
-			}
+				if(!elementIDs.ContainsKey(s))
+					lastID = s.ToXml(writer, elementIDs, lastID);
+				succIDs.Add(elementIDs[s]);
+			});
 
 			// Abhängigkeits-IDs abrufen
 			List<int> dependencyIDs = new List<int>();
 			Dependencies.ForEach(d =>
 			{
 				if(!elementIDs.ContainsKey(d))
-					dependencyIDs.Add(lastID = d.ToXml(writer, elementIDs, lastID));
-				else
-					dependencyIDs.Add(elementIDs[d]);
+					lastID = d.ToXml(writer, elementIDs, lastID);
+				dependencyIDs.Add(elementIDs[d]);
 			});
+
+			// Gebäude-Abhängigkeits-IDs abrufen
+			List<KeyValuePair<int, int>> buildingDepIDs = new List<KeyValuePair<int, int>>();
+			foreach(var d in BuildingDependencies)
+			{
+				if(!elementIDs.ContainsKey(d.Key))
+					lastID = d.Key.ToXml(writer, elementIDs, lastID);
+				buildingDepIDs.Add(new KeyValuePair<int, int>(elementIDs[d.Key], d.Value));
+			}
 
 			// Element-Anfangstag schreiben
 			writer.WriteStartElement("element");
 			{
 				// ID generieren und schreiben
-				writer.WriteAttributeString("id", (++lastID).ToString());
-				elementIDs.Add(this, lastID);
+				writer.WriteAttributeNumber("id", myID);
 
 				// Elementtyp schreiben
 				writer.WriteAttributeString("type", Type);
 
 				// Interne Werte schreiben
-				writer.WriteElementString("age", Age.ToString());
-				writer.WriteElementString("id", ID.ToString());
-				writer.WriteElementString("name", Name == null ? "" : Name);
-				writer.WriteElementString("shadow", ShadowElement.ToString());
+				writer.WriteElementNumber("age", Age);
+				writer.WriteElementNumber("id", ID);
+				writer.WriteElementNumber("flags", (int)Flags);
+				writer.WriteElementNumber("shadow", ShadowElement);
 
 				// Nachfolger schreiben
-				writer.WriteElementString("successor", successorID.ToString());
+				writer.WriteStartElement("successors");
+				{
+					foreach(int s in succIDs)
+						writer.WriteElementNumber("successor", s);
+				}
+				writer.WriteEndElement();
 
 				// Abhängigkeiten schreiben
 				writer.WriteStartElement("dependencies");
 				{
-					dependencyIDs.ForEach(d => writer.WriteElementString("dependency", d.ToString()));
+					dependencyIDs.ForEach(d => writer.WriteElementNumber("dependency", d));
+				}
+				writer.WriteEndElement();
+				writer.WriteStartElement("buildingdependencies");
+				{
+					buildingDepIDs.ForEach(d =>
+					{
+						// Abhängigkeitsanzahl und Abhängigkeits-ID schreiben
+						writer.WriteStartElement("dependency");
+						writer.WriteAttributeNumber("depcount", d.Value);
+						writer.WriteNumber(d.Key);
+						writer.WriteEndElement();
+					});
 				}
 				writer.WriteEndElement();
 			}
@@ -203,19 +282,26 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			// Elemente der Oberklasse lesen
 			base.FromXml(element, previousElements, dat, langFiles);
 
-			// Werte einlesen
-			this.Successor = (TechTreeResearch)previousElements[(int)element.Element("successor")];
+			// Nachfolger einlesen
+			Successors = new List<TechTreeResearch>();
+			foreach(XElement succ in element.Element("successors").Descendants("successor"))
+				Successors.Add((TechTreeResearch)previousElements[(int)succ]);
 
 			// Abhängigkeiten einlesen
 			Dependencies = new List<TechTreeResearch>();
 			foreach(XElement dep in element.Element("dependencies").Descendants("dependency"))
 				Dependencies.Add((TechTreeResearch)previousElements[(int)dep]);
 
+			// Gebäude-Abhängigkeiten einlesen
+			BuildingDependencies = new Dictionary<TechTreeBuilding, int>();
+			foreach(XElement dep in element.Element("buildingdependencies").Descendants("dependency"))
+				BuildingDependencies.Add((TechTreeBuilding)previousElements[(int)dep], (int)dep.Attribute("depcount"));
+
 			// DAT-Einheit laden
 			DATResearch = dat.Researches[ID];
 
 			// Name laden
-			Name = langFiles.GetString(DATResearch.LanguageDLLName1) + " [" + DATResearch.Name.TrimEnd('\0') + "]";
+			Name = langFiles.GetString(DATResearch.LanguageDLLName1) + " [#" + ID.ToString() + ", " + DATResearch.Name.TrimEnd('\0') + "]";
 		}
 
 		/// <summary>
@@ -236,7 +322,25 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			base.CreateIconTextures(textureFunc);
 		}
 
-		#endregion
+		/// <summary>
+		/// Zählt die Referenzen zu dem angegebenen Element.
+		/// </summary>
+		/// <param name="element">Das zu zählende Element.</param>
+		/// <returns></returns>
+		public override int CountReferencesToElement(TechTreeElement element)
+		{
+			// Oberklassen zählen lassen	
+			int counter = base.CountReferencesToElement(element);
+
+			// Zählen
+			counter += Dependencies.Count(c => c == element);
+			counter += Successors.Count(c => c == element);
+
+			// Fertig
+			return counter;
+		}
+
+		#endregion Funktionen
 
 		#region Eigenschaften
 
@@ -248,6 +352,6 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			get { return "TechTreeResearch"; }
 		}
 
-		#endregion
+		#endregion Eigenschaften
 	}
 }

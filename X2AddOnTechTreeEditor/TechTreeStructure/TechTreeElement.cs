@@ -1,25 +1,16 @@
-﻿using System;
+﻿using OpenTK.Graphics.OpenGL;
+using System;
 using System.Collections.Generic;
-using OpenTK;
-using OpenTK.Graphics.OpenGL;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Xml;
 using System.Xml.Linq;
-
-// TODO: Datenstruktur komplett umschreiben, am besten Ober-/Unterklassen-Modell zur Unterscheidung von Gebäuden, Einheiten und Technologien.
-// Die Struktur muss den regulären Techtree möglichst sauber und zeichenbar wiedergeben können, erstmal keine Gedanken zur Generierung machen.
-// Weiterentwicklungen und zugehörige Technologien müssen irgendwie sinnvoll implementiert werden.
-// Wie werden die Kulturunterschiede gehandhabt? => Einfach "Deaktivierung" von Einheiten/Technologien? => DAT-Struktur erstmal nicht beachten, Konvertierung kommt später.
-// Kultur-Unterschiede betrifft ja primär erstmal Civ-Boni, d.h. automatische Technologien. Wenn man die hier komplett rauslässt, sollte das erstmal keine Probleme machen.
-// Tote Einheiten / Annex-Einheiten usw. nicht vergessen! Die als "Schattenobjekte" hinterlegen. Derartige Parameter falls möglich von der DAT lösen, um absolute ID-Freiheit zu bekommen.
 
 namespace X2AddOnTechTreeEditor.TechTreeStructure
 {
 	/// <summary>
 	/// Definiert ein allgemeines Techtree-Element.
 	/// </summary>
+	[System.Diagnostics.DebuggerDisplay("ID: #{ID}, Name: {Name}")]
 	public abstract class TechTreeElement
 	{
 		#region Variablen
@@ -54,6 +45,16 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		public int TreeWidth { get; set; }
 
 		/// <summary>
+		/// Die Breite des Unterbaums, wenn nur Standard-Elemente gezeichnet werden. Kann mithilfe der CalculateTreeBounds-Methode aktualisiert werden.
+		/// </summary>
+		public int StandardTreeWidth { get; set; }
+
+		/// <summary>
+		/// Die Element-Flags.
+		/// </summary>
+		public ElementFlags Flags { get; set; }
+
+		/// <summary>
 		/// Gibt an, ob das Feld aktuell ausgewählt ist. Wird lediglich als Hilfsvariable beim Zeichnen abgefragt.
 		/// </summary>
 		public bool Selected { get; set; }
@@ -68,21 +69,26 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// </summary>
 		public bool ShadowElement { get; set; }
 
+		/// <summary>
+		/// Enthält die Liste der Gebäude, von denen dieses Element abhängig ist. Die Zahl ist die Anzahl der verbleibenden zusätzlichen Abhängigkeiten.
+		/// </summary>
+		public Dictionary<TechTreeBuilding, int> BuildingDependencies { get; protected set; }
+
 		#endregion Öffentlich
 
 		#region Geschützt
-
-		/// <summary>
-		/// Gibt an, ob die gecachten Werte gültig sind.
-		/// </summary>
-		protected bool _cacheValid = false;
 
 		/// <summary>
 		/// Die Positionswerte des Element-Kästchens.
 		/// </summary>
 		protected Rectangle _cacheBoxPosition;
 
-		#endregion Privat
+		/// <summary>
+		/// Gibt an, ob das Element ein Standard-Element ist.
+		/// </summary>
+		protected bool _standardElement = false;
+
+		#endregion Geschützt
 
 		#endregion Variablen
 
@@ -122,7 +128,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// <param name="lastID">Die letzte vergebene ID. Muss als Referenz übergeben werden, da diese Zahl stetig inkrementiert wird.</param>
 		public abstract int ToXml(XmlWriter writer, Dictionary<TechTreeElement, int> elementIDs, int lastID);
 
-		#endregion
+		#endregion Abstrakte Funktionen
 
 		#region Funktionen
 
@@ -134,10 +140,12 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			// Standardwerte setzen
 			Age = 0;
 			TreeWidth = 1;
+			StandardTreeWidth = 1;
 			IconTextureID = 0;
 			Selected = false;
 			Hovered = false;
 			ShadowElement = false;
+			BuildingDependencies = new Dictionary<TechTreeBuilding, int>();
 		}
 
 		/// <summary>
@@ -145,9 +153,14 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// </summary>
 		/// <param name="position">Die Zeichenposition des gesamten Baum-Rechtecks. Es wird die obere linke Ecke angegeben.</param>
 		/// <param name="ageOffsets">Eine Liste mit den Zeitalter-Offset-Daten. Diese wird in dieser Funktion nicht verändert.</param>
-		/// <param name="lastAge">Das Zeitalter-Offset des übergeordneten Elements.</param>
-		public void Draw(Point position, List<int> ageOffsets, int parentAgeOffset)
+		/// <param name="parentAgeOffset">Das Zeitalter-Offset des übergeordneten Elements.</param>
+		/// <param name="onlyStandardElements">Gibt an, ob nur Standard-Elemente gezeichnet werden sollen.</param>
+		public void Draw(Point position, List<int> ageOffsets, int parentAgeOffset, bool onlyStandardElements = false)
 		{
+			// Element zeichnen?
+			if(onlyStandardElements && !_standardElement)
+				return;
+
 			// Falls das Eltern-Zeitalter-Offset nicht dem aktuellen Zeitalter entspricht, entsprechend vertikal verschieben
 			while(parentAgeOffset < ageOffsets[Age])
 			{
@@ -159,16 +172,12 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			}
 
 			// Pixelbreite des Unterbaums berechnen
-			int pixelWidth = TreeWidth * (RenderControl.BOX_BOUNDS + 2 * RenderControl.BOX_SPACE_HORI);
+			int pixelWidth = (onlyStandardElements ? StandardTreeWidth : TreeWidth) * (RenderControl.BOX_BOUNDS + 2 * RenderControl.BOX_SPACE_HORI);
 
 			// Eigene Box in die Mitte zeichnen
 			{
-				// Ggf. gecachten Positionswert aktualisieren
-				if(!_cacheValid)
-				{
-					_cacheBoxPosition = new Rectangle(position.X + (pixelWidth - RenderControl.BOX_BOUNDS) / 2, position.Y + RenderControl.BOX_SPACE_VERT, RenderControl.BOX_BOUNDS, RenderControl.BOX_BOUNDS);
-					_cacheValid = true;
-				}
+				// Gecachten Positionswert aktualisieren
+				_cacheBoxPosition = new Rectangle(position.X + (pixelWidth - RenderControl.BOX_BOUNDS) / 2, position.Y + RenderControl.BOX_SPACE_VERT, RenderControl.BOX_BOUNDS, RenderControl.BOX_BOUNDS);
 
 				// Farbe setzen und Textur laden
 				GL.Color4(Color.White);
@@ -188,14 +197,26 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				}
 				GL.End();
 
+				// Flag-Icons zeichnen
+				if((Flags & ElementFlags.ShowInEditor) == ElementFlags.ShowInEditor)
+					RenderControl.DrawFlagOverlay(ElementFlags.ShowInEditor);
+				if((Flags & ElementFlags.GaiaOnly) == ElementFlags.GaiaOnly)
+					RenderControl.DrawFlagOverlay(ElementFlags.GaiaOnly);
+				if((Flags & ElementFlags.LockID) == ElementFlags.LockID)
+					RenderControl.DrawFlagOverlay(ElementFlags.LockID);
+				if((Flags & ElementFlags.Blocked) == ElementFlags.Blocked)
+					RenderControl.DrawFlagOverlay(ElementFlags.Blocked);
+				if((Flags & ElementFlags.Free) == ElementFlags.Free)
+					RenderControl.DrawFlagOverlay(ElementFlags.Free);
+
 				// Textur entladen
 				GL.BindTexture(TextureTarget.Texture2D, 0);
 
 				// Falls Element überfahren, einen Auswahlrahmen zeichnen
 				if(Selected)
 				{
-					GL.Color4(Color.Red);
-					GL.LineWidth(2);
+					GL.Color4(Color.FromArgb(128,28,28));
+					GL.LineWidth(3);
 					GL.Begin(PrimitiveType.LineLoop);
 					{
 						GL.Vertex2(0, 0); // Oben links
@@ -209,8 +230,8 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				else if(Hovered)
 				{
 					// Falls Element ausgewählt, einen Auswahlrahmen zeichnen
-					GL.Color4(Color.Gold);
-					GL.LineWidth(2);
+					GL.Color4(Color.FromArgb(166,94,94));
+					GL.LineWidth(3);
 					GL.Begin(PrimitiveType.LineLoop);
 					{
 						GL.Vertex2(0, 0); // Oben links
@@ -254,77 +275,6 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		}
 
 		/// <summary>
-		/// Sucht rekursiv das Element mit der gegebenen ID.
-		/// </summary>
-		/// <param name="id">Die zu suchende ID.</param>
-		/// <returns></returns>
-		public TechTreeElement FindElementWithID(int id)
-		{
-			// Ist dieses Element das gesuchte?
-			if(ID == id)
-				return this;
-
-			// Rekursiv in den Kind-Elementen suchen
-			TechTreeElement res = null;
-			foreach(TechTreeElement child in GetChildren())
-			{
-				if((res = child.FindElementWithID(id)) != null)
-					break;
-			}
-
-			// Fertig
-			return res;
-		}
-
-		/// <summary>
-		/// Sucht rekursiv das Element mit der gegebenen ID und dem gegebenen Typen.
-		/// </summary>
-		/// <param name="id">Die zu suchende ID.</param>
-		/// <param name="type">Der Typ des zu suchenden Elements.</param>
-		/// <returns></returns>
-		public TechTreeElement FindElementWithID(int id, Type type)
-		{
-			// Ist dieses Element das gesuchte?
-			if(ID == id && this.GetType() == type)
-				return this;
-
-			// Rekursiv in den Kind-Elementen suchen
-			TechTreeElement res = null;
-			foreach(TechTreeElement child in GetChildren())
-			{
-				if((res = child.FindElementWithID(id, type)) != null)
-					break;
-			}
-
-			// Fertig
-			return res;
-		}
-
-		/// <summary>
-		/// Sucht rekursiv das Element mit dem gegebenen Typen. Es wird das erste tiefste Element zurückgegeben.
-		/// </summary>
-		/// <param name="type">Der Typ des zu suchenden Elements.</param>
-		/// <returns></returns>
-		public TechTreeElement FindElementWithType(Type type)
-		{
-			// Rekursiv in den Kind-Elementen suchen
-			TechTreeElement res = null;
-			foreach(TechTreeElement child in GetChildren())
-			{
-				if(child.GetType() == type)
-					if((res = child.FindElementWithType(type)) != null)
-						break;
-			}
-
-			// Dieses Element ist das gesuchte
-			if(res == null)
-				return this;
-
-			// Fertig
-			return res;
-		}
-
-		/// <summary>
 		/// Liest das aktuelle Element aus dem angegebenen XElement.
 		/// </summary>
 		/// <param name="element">Das XElement, aus dem das Element erstellt werden soll.</param>
@@ -336,7 +286,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			// Werte einlesen
 			Age = (int)element.Element("age");
 			ID = (int)element.Element("id");
-			Name = (string)element.Element("name");
+			Flags = (ElementFlags)(int)element.Element("flags");
 			ShadowElement = (bool)element.Element("shadow");
 		}
 
@@ -352,14 +302,22 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			{
 				case "TechTreeBuilding":
 					return new TechTreeBuilding();
+
 				case "TechTreeCreatable":
 					return new TechTreeCreatable();
+
 				case "TechTreeDead":
 					return new TechTreeDead();
+
 				case "TechTreeEyeCandy":
 					return new TechTreeEyeCandy();
+
+				case "TechTreeProjectile":
+					return new TechTreeProjectile();
+
 				case "TechTreeResearch":
 					return new TechTreeResearch();
+
 				default:
 					throw new ArgumentException("Ungültiger Elementtyp.");
 			}
@@ -373,6 +331,21 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		{
 			// Aufruf für alle Kindelemente durchführen
 			GetChildren().ForEach(c => c.CreateIconTextures(textureFunc));
+		}
+
+		/// <summary>
+		/// Zählt die Referenzen zu dem angegebenen Element.
+		/// </summary>
+		/// <param name="element">Das zu zählende Element.</param>
+		/// <returns></returns>
+		public virtual int CountReferencesToElement(TechTreeElement element)
+		{
+			// Gebäude-Abhängigkeiten zählen
+			int counter = 0;
+			foreach(var dep in BuildingDependencies)
+				if(dep.Key == element)
+					++counter;
+			return counter;
 		}
 
 		#endregion Funktionen
@@ -393,6 +366,53 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		public virtual string Type
 		{
 			get { return "TechTreeElement"; }
+		}
+
+		#endregion Eigenschaften
+
+		#region Enumerationen
+
+		/// <summary>
+		/// Definiert Element-spezifische Flags.
+		/// </summary>
+		[Flags]
+		public enum ElementFlags : int
+		{
+			/// <summary>
+			/// Kein Flag gesetzt.
+			/// </summary>
+			None = 0,
+			
+			/// <summary>
+			/// Macht das Element im Editor verfügbar.
+			/// </summary>
+			ShowInEditor = 1,
+
+			/// <summary>
+			/// Schaltet das Element im Editor nur für den Spieler Gaia frei.
+			/// Hat keine Wirkung, falls ShowInEditor-Flag nicht gesetzt.
+			/// </summary>
+			GaiaOnly = 2,
+
+			/// <summary>
+			/// Schützt die ID des Elements. Diese wird beim Erstellen der neuen DAT beibehalten werden.
+			/// </summary>
+			LockID = 4,
+
+			/// <summary>
+			/// Markiert das Element in der aktuell ausgewählten Kultur als blockiert. Hat nur Auswirkungen auf das Rendering.
+			/// </summary>
+			Blocked = 8,
+
+			/// <summary>
+			/// Markiert das Element in der aktuell ausgewählten Kultur als kostenfrei. Hat nur Auswirkungen auf das Rendering.
+			/// </summary>
+			Free = 16,
+
+			/// <summary>
+			/// Definiert alle Flags, die ausschließlich für das Rendering relevant sind.
+			/// </summary>
+			RenderingFlags = 24
 		}
 
 		#endregion

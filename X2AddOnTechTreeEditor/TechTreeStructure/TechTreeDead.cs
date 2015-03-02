@@ -12,6 +12,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 	/// Definiert eine tote Einheit im Technologiebaum.
 	/// Diese wird niemals gerendert.
 	/// </summary>
+	[System.Diagnostics.DebuggerDisplay("ID: #{ID}, Name: {Name}")]
 	public class TechTreeDead : TechTreeUnit
 	{
 		#region Variablen
@@ -61,13 +62,16 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 
 		public override int ToXml(System.Xml.XmlWriter writer, Dictionary<TechTreeElement, int> elementIDs, int lastID)
 		{
+			// ID generieren
+			int myID = ++lastID;
+			elementIDs[this] = myID;
+
 			// Toten-ID abrufen
 			int deadUnitID = -1;
 			if(DeadUnit != null)
 			{
 				if(!elementIDs.ContainsKey(DeadUnit))
-					deadUnitID = lastID = DeadUnit.ToXml(writer, elementIDs, lastID);
-				else
+					 lastID = DeadUnit.ToXml(writer, elementIDs, lastID);
 					deadUnitID = elementIDs[DeadUnit];
 			}
 
@@ -75,20 +79,19 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			writer.WriteStartElement("element");
 			{
 				// ID generieren und schreiben
-				writer.WriteAttributeString("id", (++lastID).ToString());
-				elementIDs.Add(this, lastID);
+				writer.WriteAttributeNumber("id", myID);
 
 				// Elementtyp schreiben
 				writer.WriteAttributeString("type", Type);
 
 				// Interne Werte schreiben
-				writer.WriteElementString("age", Age.ToString());
-				writer.WriteElementString("id", ID.ToString());
-				writer.WriteElementString("name", Name == null ? "" : Name);
-				writer.WriteElementString("shadow", ShadowElement.ToString());
+				writer.WriteElementNumber("age", Age);
+				writer.WriteElementNumber("id", ID);
+				writer.WriteElementNumber("flags", (int)Flags);
+				writer.WriteElementNumber("shadow", ShadowElement);
 
 				// Toten-ID schreiben
-				writer.WriteElementString("deadunit", deadUnitID.ToString());
+				writer.WriteElementNumber("deadunit", deadUnitID);
 			}
 			writer.WriteEndElement();
 

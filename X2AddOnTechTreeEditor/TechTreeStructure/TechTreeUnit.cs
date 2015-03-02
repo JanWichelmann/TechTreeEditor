@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using OpenTK;
-using OpenTK.Graphics.OpenGL;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Xml;
 using System.Xml.Linq;
 
 namespace X2AddOnTechTreeEditor.TechTreeStructure
@@ -13,6 +8,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 	/// <summary>
 	/// Definiert ein Einheit-Element im Technologiebaum.
 	/// </summary>
+	[System.Diagnostics.DebuggerDisplay("ID: #{ID}, Name: {Name}")]
 	public abstract class TechTreeUnit : TechTreeElement
 	{
 		#region Variablen
@@ -27,7 +23,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// </summary>
 		public TechTreeUnit DeadUnit { get; set; }
 
-		#endregion
+		#endregion Variablen
 
 		#region Funktionen
 
@@ -38,7 +34,6 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		public TechTreeUnit()
 			: base()
 		{
-
 		}
 
 		/// <summary>
@@ -59,10 +54,12 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				this.DeadUnit = (TechTreeUnit)previousElements[id];
 
 			// DAT-Einheit laden
-			DATUnit = dat.Civs[1].Units[ID];
+			for(int c = dat.Civs.Count - 1; c >= 0; --c)
+				if((DATUnit = dat.Civs[c].Units.FirstOrDefault(u => u.Key == ID).Value) != null)
+					break;
 
 			// Name laden
-			Name = langFiles.GetString(DATUnit.LanguageDLLName) + " [" + DATUnit.Name1.TrimEnd('\0') + "]";
+			Name = langFiles.GetString(DATUnit.LanguageDLLName) + " [#" + ID.ToString() + ", " + DATUnit.Name1.TrimEnd('\0') + "]";
 		}
 
 		/// <summary>
@@ -82,7 +79,25 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			base.CreateIconTextures(textureFunc);
 		}
 
-		#endregion
+		/// <summary>
+		/// Zählt die Referenzen zu dem angegebenen Element.
+		/// </summary>
+		/// <param name="element">Das zu zählende Element.</param>
+		/// <returns></returns>
+		public override int CountReferencesToElement(TechTreeElement element)
+		{
+			// Oberklassen zählen lassen	
+			int counter = base.CountReferencesToElement(element);
+
+			// Zählen
+			if(DeadUnit == element)
+				++counter;
+
+			// Fertig
+			return counter;
+		}
+
+		#endregion Funktionen
 
 		#region Eigenschaften
 
@@ -94,6 +109,6 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			get { return "TechTreeUnit"; }
 		}
 
-		#endregion
+		#endregion Eigenschaften
 	}
 }

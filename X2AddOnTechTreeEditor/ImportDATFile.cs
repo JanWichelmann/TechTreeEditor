@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using X2AddOnTechTreeEditor.TechTreeStructure;
 
 namespace X2AddOnTechTreeEditor
 {
@@ -21,24 +18,24 @@ namespace X2AddOnTechTreeEditor
 		/// <summary>
 		/// Gibt an, ob das Fenster geschlossen wird.
 		/// </summary>
-		bool _formClosing = false;
+		private bool _formClosing = false;
 
 		/// <summary>
 		/// Gibt an, ob das Fenster geschlossen werden kann.
 		/// </summary>
-		bool _formClosingAllowed = true;
+		private bool _formClosingAllowed = true;
 
 		/// <summary>
 		/// Die neue Projektdatei.
 		/// </summary>
-		TechTreeFile projectFile = null;
+		private TechTreeFile _projectFile = null;
 
 		/// <summary>
 		/// Ruft den Dateinamen der neu erstellten Projektdatei ab.
 		/// </summary>
 		public string ProjectFileName { get; private set; }
 
-		#endregion
+		#endregion Variablen
 
 		#region Funktionen
 
@@ -49,6 +46,9 @@ namespace X2AddOnTechTreeEditor
 		{
 			// Steuerelemente laden
 			InitializeComponent();
+
+			// Spaltentyp für UnitType-Werte setzen
+			_selectionViewTypeColumn.ValueType = typeof(GenieLibrary.DataElements.Civ.Unit.UnitType);
 
 			// ToolTip zuweisen
 			_dllHelpBox.SetToolTip(_dllTextBox, "Hier sollen alle referenzierten Language-DLL-Dateien angegeben werden.\nDiese sollen nach Priorität aufsteigend sortiert sein, also zum Beispiel:\n\nLANGUAGE.DLL;language_x1.dll;language_x1_p1.dll");
@@ -61,7 +61,7 @@ namespace X2AddOnTechTreeEditor
 			this.DialogResult = DialogResult.Cancel;
 		}
 
-		#endregion
+		#endregion Funktionen
 
 		#region Ereignishandler
 
@@ -108,14 +108,25 @@ namespace X2AddOnTechTreeEditor
 			Task.Factory.StartNew(() =>
 			{
 				// TechTree-Datei erstellen und DAT-Datei laden
-				projectFile = new TechTreeFile(new GenieLibrary.GenieFile(GenieLibrary.GenieFile.DecompressData(new IORAMHelper.RAMBuffer(_datTextBox.Text))));
-				GenieLibrary.GenieFile dat = projectFile.BasicGenieFile; // Kürzel
+				_projectFile = new TechTreeFile(new GenieLibrary.GenieFile(GenieLibrary.GenieFile.DecompressData(new IORAMHelper.RAMBuffer(_datTextBox.Text))));
+				GenieLibrary.GenieFile dat = _projectFile.BasicGenieFile; // Kürzel
 
 				// Wenn DLLs angegeben wurden, diese laden
-				projectFile.LanguageFileNames = _dllTextBox.Text.Split(';').ToList();
+				List<string> languageFileNames = _dllTextBox.Text.Split(';').ToList();
+				languageFileNames.RemoveAll(fn => string.IsNullOrEmpty(fn));
+				languageFileNames.Reverse();
+				_projectFile.LanguageFileNames = languageFileNames;
 
-				// Briten-Einheiten kopieren (sollte alle Einheiten in der Liste haben? => TODO: evtl. besser mit Gaia? Macht irgendwie was komisches mit der Enabled-Eigenschaft...)
-				Dictionary<int, GenieLibrary.DataElements.Civ.Unit> remainingUnits = new Dictionary<int, GenieLibrary.DataElements.Civ.Unit>(dat.Civs[1].Units);
+				// Alle Einheiten aus den Völkern kopieren (erst Zivilisationen, dann Gaia, um etwaige Bugs zu vermeiden)
+				Dictionary<int, GenieLibrary.DataElements.Civ.Unit> remainingUnits = new Dictionary<int, GenieLibrary.DataElements.Civ.Unit>(dat.UnitHeaders.Count);
+				for(int c = dat.Civs.Count - 1; c >= 0; --c)
+				{
+					// Einheiten kopieren
+					GenieLibrary.DataElements.Civ currC = dat.Civs[c];
+					foreach(var unit in currC.Units)
+						if(!remainingUnits.ContainsKey(unit.Key))
+							remainingUnits.Add(unit.Key, unit.Value);
+				}
 
 				// Technologien kopieren
 				Dictionary<int, GenieLibrary.DataElements.Research> remainingResearches = new Dictionary<int, GenieLibrary.DataElements.Research>(dat.Researches.Count);
@@ -125,10 +136,15 @@ namespace X2AddOnTechTreeEditor
 				// Liste für die bereits entwickelten Technologien
 				List<int> completedResearches = new List<int>(dat.Researches.Count);
 
+				// Liste für die Technologie-IDs, die von Gebäuden getriggert werden
+				Dictionary<int, List<TechTreeBuilding>> triggeredResearches = new Dictionary<int, List<TechTreeBuilding>>();
+
 				// Alle Gebäude als Stammelemente schreiben, erschaffbare Einheiten aus Einheiten-Liste nehmen und Untereinheiten anhängen
 				// Als IDs benutzen wir hier zuerst die DAT-IDs, diese werden dann später in eindeutige IDs umgesetzt
-				List<TechTreeStructure.TechTreeCreatable> creatableUnits = new List<TechTreeStructure.TechTreeCreatable>(remainingUnits.Count);
-				List<TechTreeStructure.TechTreeUnit> otherUnits = new List<TechTreeStructure.TechTreeUnit>(remainingUnits.Count); // Tote und Eye-Candy-Einheiten
+				List<TechTreeUnit> allNormalUnits = new List<TechTreeUnit>(); // Enthält alle auf "normale" Einheiten erstellten Zeiger. Dient lediglich zur Optimierung des Ergebnisses.
+				List<TechTreeCreatable> creatableUnits = new List<TechTreeCreatable>(remainingUnits.Count);
+				List<TechTreeBuilding> buildings = new List<TechTreeBuilding>(remainingUnits.Count);
+				List<TechTreeUnit> otherUnits = new List<TechTreeUnit>(remainingUnits.Count); // Tote und Eye-Candy-Einheiten
 				for(int u = remainingUnits.Count - 1; u >= 0; --u)
 				{
 					// Einheit abrufen
@@ -137,7 +153,7 @@ namespace X2AddOnTechTreeEditor
 						continue;
 
 					// Tote Einheit vorhanden?
-					TechTreeStructure.TechTreeUnit deadUnitElement = null;
+					TechTreeUnit deadUnitElement = null;
 					if(currUnit.DeadUnitID >= 0)
 					{
 						// Einheit bereits geladen?
@@ -152,13 +168,13 @@ namespace X2AddOnTechTreeEditor
 
 								// Nach Typ unterscheiden
 								if(deadUnit.Type == GenieLibrary.DataElements.Civ.Unit.UnitType.DeadFish)
-									deadUnitElement = new TechTreeStructure.TechTreeDead()
+									deadUnitElement = new TechTreeDead()
 									{
 										ID = deadUnit.ID1,
 										DATUnit = deadUnit
 									};
 								else if(deadUnit.Type == GenieLibrary.DataElements.Civ.Unit.UnitType.EyeCandy)
-									deadUnitElement = new TechTreeStructure.TechTreeEyeCandy()
+									deadUnitElement = new TechTreeEyeCandy()
 									{
 										ID = deadUnit.ID1,
 										DATUnit = deadUnit
@@ -176,49 +192,774 @@ namespace X2AddOnTechTreeEditor
 						}
 					}
 
+					// Tracking-Einheit vorhanden?
+					TechTreeEyeCandy trackingUnitElement = null;
+					if(currUnit.DeadFish.TrackingUnit >= 0)
+					{
+						// Einheit bereits geladen?
+						trackingUnitElement = (TechTreeEyeCandy)otherUnits.FirstOrDefault(un => un.ID == currUnit.DeadFish.TrackingUnit);
+						if(trackingUnitElement == null)
+						{
+							// Einheit erstellen
+							if(remainingUnits.ContainsKey(currUnit.DeadFish.TrackingUnit))
+							{
+								// Einheit abrufen
+								GenieLibrary.DataElements.Civ.Unit trackUnit = remainingUnits[currUnit.DeadFish.TrackingUnit];
+
+								// Element erstellen
+								trackingUnitElement = new TechTreeEyeCandy()
+								{
+									ID = trackUnit.ID1,
+									DATUnit = trackUnit
+								};
+
+								// Einheit speichern
+								otherUnits.Add(trackingUnitElement);
+
+								// Einheit als gelöscht markieren
+								remainingUnits[currUnit.DeadFish.TrackingUnit] = null;
+							}
+						}
+					}
+
+					// Projektil vorhanden?
+					TechTreeProjectile projectileUnitElement = null;
+					if(currUnit.Type50.ProjectileUnitID >= 0)
+					{
+						// Einheit bereits geladen?
+						projectileUnitElement = (TechTreeProjectile)otherUnits.FirstOrDefault(un => un.ID == currUnit.Type50.ProjectileUnitID);
+						if(projectileUnitElement == null)
+						{
+							// Einheit erstellen
+							if(remainingUnits.ContainsKey(currUnit.Type50.ProjectileUnitID))
+							{
+								// Einheit abrufen
+								GenieLibrary.DataElements.Civ.Unit projUnit = remainingUnits[currUnit.Type50.ProjectileUnitID];
+
+								// Element erstellen
+								projectileUnitElement = new TechTreeProjectile()
+								{
+									ID = projUnit.ID1,
+									DATUnit = projUnit
+								};
+
+								// Einheit speichern
+								otherUnits.Add(projectileUnitElement);
+
+								// Einheit als gelöscht markieren
+								remainingUnits[currUnit.Type50.ProjectileUnitID] = null;
+							}
+						}
+					}
+
+					// Projektil-Duplikation vorhanden?
+					TechTreeProjectile projectileDuplUnitElement = null;
+					if(currUnit.Creatable.AlternativeProjectileUnit >= 0)
+					{
+						// Einheit bereits geladen?
+						projectileDuplUnitElement = (TechTreeProjectile)otherUnits.FirstOrDefault(un => un.ID == currUnit.Creatable.AlternativeProjectileUnit);
+						if(projectileDuplUnitElement == null)
+						{
+							// Einheit erstellen
+							if(remainingUnits.ContainsKey(currUnit.Creatable.AlternativeProjectileUnit))
+							{
+								// Einheit abrufen
+								GenieLibrary.DataElements.Civ.Unit projDuplUnit = remainingUnits[currUnit.Creatable.AlternativeProjectileUnit];
+
+								// Element erstellen
+								projectileDuplUnitElement = new TechTreeProjectile()
+								{
+									ID = projDuplUnit.ID1,
+									DATUnit = projDuplUnit
+								};
+
+								// Einheit speichern
+								otherUnits.Add(projectileDuplUnitElement);
+
+								// Einheit als gelöscht markieren
+								remainingUnits[currUnit.Creatable.AlternativeProjectileUnit] = null;
+							}
+						}
+					}
+
 					// Nach Typen unterscheiden
 					if(currUnit.Type == GenieLibrary.DataElements.Civ.Unit.UnitType.Creatable)
 					{
 						// Einheit hinzufügen
-						projectFile.TechTreeParentElements.Add(new TechTreeStructure.TechTreeCreatable()
+						TechTreeCreatable newUnit = new TechTreeCreatable()
 						{
 							Age = 0,
 							ID = currUnit.ID1,
 							DATUnit = currUnit,
-							DeadUnit = deadUnitElement
-						});
+							DeadUnit = deadUnitElement,
+							StandardElement = (currUnit.Creatable.TrainLocationID > 0),
+							ProjectileUnit = projectileUnitElement,
+							ProjectileDuplicationUnit = projectileDuplUnitElement,
+							TrackingUnit = trackingUnitElement,
+							Flags = (currUnit.HideInEditor == 0 ? TechTreeElement.ElementFlags.ShowInEditor : TechTreeElement.ElementFlags.None)
+						};
+						creatableUnits.Add(newUnit);
+						allNormalUnits.Add(newUnit);
 					}
 					else if(currUnit.Type == GenieLibrary.DataElements.Civ.Unit.UnitType.Building)
 					{
 						// Gebäude hinzufügen
-						projectFile.TechTreeParentElements.Add(new TechTreeStructure.TechTreeBuilding()
+						TechTreeBuilding building = new TechTreeBuilding()
 						{
 							Age = 0,
 							ID = currUnit.ID1,
 							DATUnit = currUnit,
-							DeadUnit = deadUnitElement
-						});
+							DeadUnit = deadUnitElement,
+							StandardElement = (currUnit.Creatable.TrainLocationID > 0),
+							ProjectileUnit = projectileUnitElement,
+							ProjectileDuplicationUnit = projectileDuplUnitElement,
+							Flags = (currUnit.HideInEditor == 0 ? TechTreeElement.ElementFlags.ShowInEditor : TechTreeElement.ElementFlags.None)
+						};
+						buildings.Add(building);
+						allNormalUnits.Add(building);
+
+						// Wenn das Gebäude eine Technologie triggert, diese merken
+						if(currUnit.Building.ResearchID >= 0)
+						{
+							// Liste erstellt?
+							if(!triggeredResearches.ContainsKey(currUnit.Building.ResearchID))
+								triggeredResearches[currUnit.Building.ResearchID] = new List<TechTreeBuilding>();
+							triggeredResearches[currUnit.Building.ResearchID].Add(building);
+						}
 					}
 
 					// Einheit aus Einheiten-Liste nehmen
 					remainingUnits.Remove(currUnit.ID1);
 				}
 
+				// Untereinheiten/Querverweise für Gebäude anlegen
+				foreach(var currB in buildings)
+				{
+					// Stack-Einheit?
+					if(currB.DATUnit.Building.StackUnitID >= 0)
+					{
+						// Einheit abrufen
+						currB.StackUnit = (TechTreeBuilding)buildings.FirstOrDefault(b => b.ID == currB.DATUnit.Building.StackUnitID);
+					}
+
+					// Head-Einheit?
+					if(currB.DATUnit.Building.HeadUnit >= 0)
+					{
+						// Einheit abrufen
+						currB.HeadUnit = (TechTreeBuilding)buildings.FirstOrDefault(b => b.ID == currB.DATUnit.Building.HeadUnit);
+					}
+
+					// Transform-Einheit?
+					if(currB.DATUnit.Building.TransformUnit >= 0)
+					{
+						// Einheit abrufen
+						currB.TransformUnit = (TechTreeBuilding)buildings.FirstOrDefault(b => b.ID == currB.DATUnit.Building.TransformUnit);
+					}
+
+					// Annex-Einheiten?
+					foreach(var annex in currB.DATUnit.Building.Annexes)
+					{
+						// Gültiger Annex?
+						if(annex.UnitID >= 0)
+						{
+							// Annex hinzufügen
+							TechTreeBuilding annexBuilding = (TechTreeBuilding)buildings.First(b => b.ID == annex.UnitID);
+							currB.AnnexUnits.Add(new Tuple<TechTreeBuilding, float, float>(annexBuilding, annex.MisplacementX, annex.MisplacementY));
+
+							// Annex-Gebäude als Schatten-Element markieren, damit es nicht als Elternelement gezeichnet wird
+							annexBuilding.ShadowElement = true;
+						}
+					}
+				}
+
+				// Den sonstigen Einheiten etwaige Untereinheiten zuweisen
+				Dictionary<int, TechTreeUnit> otherUnitsLookup = otherUnits.ToDictionary(elem => elem.ID);
+				foreach(var currUnit in otherUnits)
+				{
+					// Nur Projektile interessant
+					if(currUnit.Type == "TechTreeProjectile")
+					{
+						// Tracking-Einheit vorhanden?
+						TechTreeEyeCandy trackingUnitElement = null;
+						if(currUnit.DATUnit.DeadFish.TrackingUnit >= 0)
+						{
+							// Einheit bereits geladen?
+							if(otherUnitsLookup.ContainsKey(currUnit.DATUnit.DeadFish.TrackingUnit))
+								trackingUnitElement = (TechTreeEyeCandy)otherUnitsLookup[currUnit.DATUnit.DeadFish.TrackingUnit];
+							else
+							{
+								// Einheit erstellen
+								if(remainingUnits.ContainsKey(currUnit.DATUnit.DeadFish.TrackingUnit))
+								{
+									// Einheit abrufen
+									GenieLibrary.DataElements.Civ.Unit trackUnit = remainingUnits[currUnit.DATUnit.DeadFish.TrackingUnit];
+
+									// Element erstellen
+									trackingUnitElement = new TechTreeEyeCandy()
+									{
+										ID = trackUnit.ID1,
+										DATUnit = trackUnit
+									};
+
+									// Einheit speichern
+									otherUnitsLookup.Add(trackingUnitElement.ID, trackingUnitElement);
+
+									// Einheit als gelöscht markieren
+									remainingUnits[currUnit.DATUnit.DeadFish.TrackingUnit] = null;
+								}
+							}
+
+							// Einheit zuweisen
+							((TechTreeProjectile)currUnit).TrackingUnit = trackingUnitElement;
+						}
+					}
+				}
+
 				// Liste aufräumen
 				remainingUnits = remainingUnits.Where(un => un.Value != null).ToDictionary(un => un.Key, un => un.Value);
 
-				// Techtree kulturweise berechnen
-				/*for(int c = 0; c < _civs.Count; ++c)
-				{
-					// Statusmeldung
-					SetStatus(string.Format("Generiere Techtree für Kultur " + c + " von " + _civs.Count + "...", ""));
+				// Als Elternelemente kommen nun die aktuell in der Gebäude-Liste befindlichen Objekte infrage, die keine Schattenelemente sind
+				List<TechTreeBuilding> parentBuildings = buildings.Where(b => !b.ShadowElement).ToList();
 
+				// Technologien den Gebäuden zuweisen
+				Dictionary<int, TechTreeResearch> researches = new Dictionary<int, TechTreeResearch>();
+				Dictionary<int, GenieLibrary.DataElements.Research> shadowNodes = new Dictionary<int, GenieLibrary.DataElements.Research>();
+				Dictionary<int, GenieLibrary.DataElements.Research> otherResearches = new Dictionary<int, GenieLibrary.DataElements.Research>();
+				for(int r = remainingResearches.Count - 1; r >= 0; --r)
+				{
+					// Technologie abrufen
+					GenieLibrary.DataElements.Research currRes = remainingResearches[r];
+
+					// Hat die Technologie ein Gebäude?
+					if(currRes.ResearchLocation > 0)
+					{
+						// Technologie-Objekt erstellen
+						TechTreeResearch research = new TechTreeResearch()
+						{
+							Age = 0,
+							ID = r,
+							DATResearch = currRes
+						};
+
+						// Technologie dem Gebäude zuweisen
+						TechTreeBuilding parentBuilding = buildings.FirstOrDefault(u => u.ID == currRes.ResearchLocation);
+						if(parentBuilding != null)
+							parentBuilding.Children.Add(new Tuple<byte, TechTreeElement>(currRes.ButtonID, research));
+
+						// Technologie aus Rest-Liste entfernen, aber Objekt speichern
+						remainingResearches.Remove(r);
+						researches.Add(r, research);
+					}
+					else // Möglicherweise Shadow-Tech
+					{
+						// Prüfen, ob alle Abhängigkeiten Shadow-Elemente sind
+						List<short> reqTechs = currRes.RequiredTechs.Where(dep => dep >= 0).ToList();
+						if(reqTechs.Count > 0 && reqTechs.TrueForAll(dep => triggeredResearches.ContainsKey(dep)))
+						{
+							// Shadow-Node gefunden, merken
+							shadowNodes.Add(r, currRes);
+
+							// Technologie aus Rest-Liste entfernen
+							remainingResearches.Remove(r);
+						}
+						else if(currRes.TechageID >= 0) // Die Technologie sollte zumindest einen Effekt haben
+						{
+							// Rest-Technologie, merken
+							otherResearches.Add(r, currRes);
+
+							// Technologie aus Rest-Liste entfernen
+							remainingResearches.Remove(r);
+						}
+					}
+				}
+
+				// Solange noch Änderungen stattfinden, nach Shadow-Node-Technologien suchen
+				int shadowCount = -1;
+				while(shadowCount != shadowNodes.Count)
+				{
+					// Neue Anzahl speichern
+					shadowCount = shadowNodes.Count;
+
+					// Alle Technologien durchlaufen
+					for(int r = remainingResearches.Count - 1; r >= 0; --r)
+					{
+						// Technologie existent?
+						if(remainingResearches.ContainsKey(r))
+						{
+							// Technologie abrufen und auf Kandidat prüfen
+							GenieLibrary.DataElements.Research currRes = remainingResearches[r];
+							if(currRes.ResearchLocation <= 0)
+							{
+								// Prüfen, ob alle Abhängigkeiten Shadow-Elemente sind
+								List<short> reqTechs = currRes.RequiredTechs.Where(dep => dep >= 0).ToList();
+								if(reqTechs.Count > 0 && reqTechs.TrueForAll(dep => triggeredResearches.ContainsKey(dep) || shadowNodes.ContainsKey(dep)))
+								{
+									// Shadow-Node gefunden, merken
+									shadowNodes.Add(r, currRes);
+
+									// Technologie aus Rest-Liste entfernen
+									remainingResearches.Remove(r);
+								}
+							}
+						}
+					}
+				}
+
+				// Zeitalter-Technologien parsen, um Schatten-Weiterentwicklungen bei den Gebäuden zu finden
+				// Dunkle Zeit wird hier ignoriert => TODO: hardcoded...
+				for(int age = 101; age <= 104; ++age)
+				{
+					// Technologie-Effekte durchlaufen
+					foreach(var effect in dat.Techages[researches[age].DATResearch.TechageID].Effects)
+					{
+						// Upgrade-Effekte sind hier interessant
+						if(effect.Type == 3)
+						{
+							// Gebäude suchen
+							TechTreeBuilding baseBuilding = buildings.FirstOrDefault(b => b.ID == effect.A);
+							TechTreeBuilding upgrBuilding = buildings.FirstOrDefault(b => b.ID == effect.B);
+							if(baseBuilding != null && upgrBuilding != null)
+							{
+								// Upgrade-Gebäude dem Basis-Gebäude zuweisen samt der zugehörigen Zeitalter-Nummer
+								baseBuilding.AgeUpgrades[age - 100] = upgrBuilding;
+
+								// Upgrade-Gebäude als Schattenelement markieren
+								upgrBuilding.ShadowElement = true;
+
+								// Das Upgrade-Gebäude kann kein Elternelement mehr sein
+								parentBuildings.Remove(upgrBuilding);
+							}
+						}
+					}
+				}
+
+				// Erstellte Technologien korrekt verzweigen
+				// Dafür Gebäude durchlaufen und nach Button-IDs vorgehen
+				foreach(var currB in buildings)
+				{
+					// Technologien nach Buttons gruppieren (Button => List<TechTreeResearch>)
+					foreach(var g in currB.Children.Where(c => c.Item2.Type == "TechTreeResearch").GroupBy(c => c.Item1).ToDictionary(el => el.Key, el => el.Select(elm => (TechTreeResearch)elm.Item2).ToList()))
+					{
+						// Technologie-Abhängigkeiten durchsuchen
+						bool finish = false; // Abbruchvariable, wenn keine Änderung mehr passiert
+						while(!finish)
+						{
+							// Wenn keine Änderung passiert, in der nächsten Runde abbrechen
+							finish = true;
+
+							// Technologien nacheinander durchgehen und nach Abhängigkeit suchen
+							TechTreeResearch currR;
+							for(int r = 0; r < g.Value.Count; ++r)
+							{
+								// Technologie abrufen
+								currR = (TechTreeResearch)g.Value[r];
+
+								// Abhängigkeiten suchen
+								TechTreeResearch dep = g.Value.FirstOrDefault(re => re.DATResearch.RequiredTechs.Contains((short)currR.ID));
+								if(dep != null && !currR.Successors.Contains(dep))
+								{
+									// Abhängigkeit gefunden, Element anhängen
+									currR.Successors.Add(dep);
+
+									// Technologie aus Gebäudeelement entfernen
+									currB.Children.RemoveAll(el => el.Item2 == dep);
+
+									// Es wurde eine Änderung durchgeführt
+									finish = false;
+								}
+							}
+						}
+					}
+
+					// Gebäude-Kinder nach Buttons sortieren
+					currB.Children.Sort((a, b) => a.Item1.CompareTo(b.Item1));
+				}
+
+				// Den Technologien deren Abhängigkeiten zuweisen
+				// Bei den Gebäudeabhängigkeiten wird aus Vereinfachungsgründen angenommen, dass maximal eine Unter-Abhängigkeit mit Tiefe 1 existiert; mehr wird aktuell nicht unterstützt.
+				// Es können wegen dieser Vereinfachung bei gemoddeten DATs folglich schnell Ungenauigkeiten auftreten, die manuell gefixt werden müssen.
+				foreach(var currRes in researches)
+				{
+					// Abhängigkeiten durchlaufen
+					foreach(short depID in currRes.Value.DATResearch.RequiredTechs)
+					{
+						// Abhängigkeit definiert?
+						if(depID > 0)
+						{
+							// Zeitalter-Abhängigkeit? => TODO: hardcoded...
+							// Dunkle Zeit (105) braucht nicht berücksichtigt werden, Age ist eh standardmäßig 0
+							if(depID >= 101 && depID <= 104)
+							{
+								// Zeitalter setzen
+								if(currRes.Value.Age < depID - 100)
+									currRes.Value.Age = depID - 100;
+							}
+
+							// Normale Technologie-Abhängigkeit?
+							else if(researches.ContainsKey(depID) && !researches[depID].Successors.Contains(currRes.Value))
+							{
+								// Abhängigkeit zuweisen
+								currRes.Value.Dependencies.Add(researches[depID]);
+							}
+
+							// Gebäude-Abhängigkeit?
+							else
+							{
+								// Direkte Abhängigkeit?
+								if(triggeredResearches.ContainsKey(depID))
+								{
+									// Gebäude-Abhängigkeit hinzufügen
+									foreach(var b in triggeredResearches[depID])
+										if(currRes.Value.DATResearch.ResearchLocation != b.ID && !b.ShadowElement)
+											if(currRes.Value.BuildingDependencies.ContainsKey(b))
+												currRes.Value.BuildingDependencies[b] = Math.Min(currRes.Value.BuildingDependencies[b], currRes.Value.DATResearch.RequiredTechCount - 1);
+											else
+												currRes.Value.BuildingDependencies[b] = currRes.Value.DATResearch.RequiredTechCount - 1;
+								}
+
+								// Shadow-Node?
+								else if(shadowNodes.ContainsKey(depID))
+								{
+									// Node abrufen
+									GenieLibrary.DataElements.Research shadowN = shadowNodes[depID];
+
+									// Abhängigkeiten der Node durchgehen
+									foreach(short nDep in shadowN.RequiredTechs)
+									{
+										// Abhängigkeit definiert?
+										if(nDep > 0)
+											if(triggeredResearches.ContainsKey(nDep))
+											{
+												// Gebäude-Abhängigkeit hinzufügen
+												foreach(var b in triggeredResearches[nDep])
+													if(currRes.Value.DATResearch.ResearchLocation != b.ID && !b.ShadowElement)
+														if(currRes.Value.BuildingDependencies.ContainsKey(b))
+															currRes.Value.BuildingDependencies[b] = Math.Min(currRes.Value.BuildingDependencies[b], shadowN.RequiredTechCount - 1);
+														else
+															currRes.Value.BuildingDependencies[b] = shadowN.RequiredTechCount - 1;
+											}
+											else if(shadowNodes.ContainsKey(nDep))
+											{
+												// Node abrufen
+												GenieLibrary.DataElements.Research shadowN2 = shadowNodes[nDep];
+
+												// Abhängigkeiten der Node durchgehen
+												foreach(short nDep2 in shadowN2.RequiredTechs)
+												{
+													// Abhängigkeit definiert?
+													if(nDep2 > 0)
+														if(triggeredResearches.ContainsKey(nDep2))
+														{
+															// Gebäude-Abhängigkeit hinzufügen
+															foreach(var b in triggeredResearches[nDep2])
+																if(currRes.Value.DATResearch.ResearchLocation != b.ID && !b.ShadowElement)
+																	if(currRes.Value.BuildingDependencies.ContainsKey(b))
+																		currRes.Value.BuildingDependencies[b] = Math.Min(currRes.Value.BuildingDependencies[b], shadowN2.RequiredTechCount - 1);
+																	else
+																		currRes.Value.BuildingDependencies[b] = shadowN2.RequiredTechCount - 1;
+														}
+												}
+											}
+									}
+								}
+							}
+						}
+					}
+				}
+
+				// Einheiten suchen, die Gebäuden zugewiesen werden können
+				Dictionary<int, Tuple<TechTreeCreatable, TechTreeBuilding>> assignableUnits = new Dictionary<int, Tuple<TechTreeCreatable, TechTreeBuilding>>(creatableUnits.Count);
+				for(int u = creatableUnits.Count - 1; u >= 0; --u)
+				{
+					// Einheit abrufen
+					TechTreeCreatable currUnit = creatableUnits[u];
+
+					// Hat die Einheit ein Gebäude?
+					if(currUnit.DATUnit.Creatable.TrainLocationID >= 0)
+					{
+						// Gebäude suchen
+						TechTreeBuilding building = buildings.FirstOrDefault(b => b.ID == currUnit.DATUnit.Creatable.TrainLocationID);
+						if(building != null)
+						{
+							// Einheit aus Gesamtliste nehmen und Referenz merken
+							creatableUnits.RemoveAt(u);
+							assignableUnits.Add(currUnit.ID, new Tuple<TechTreeCreatable, TechTreeBuilding>(currUnit, building));
+						}
+					}
+				}
+
+				// Weiterentwicklungen suchen
+				List<Tuple<int, int, TechTreeResearch>> unitUpgradeEffects = new List<Tuple<int, int, TechTreeResearch>>();
+				foreach(var currRes in researches)
+				{
+					// Technologie-Effekte durchlaufen
+					foreach(var effect in dat.Techages[currRes.Value.DATResearch.TechageID].Effects)
+					{
+						// Upgrade-Effekte sind hier interessant
+						if(effect.Type == 3)
+						{
+							// Gebäude suchen
+							TechTreeBuilding baseBuilding = buildings.FirstOrDefault(b => b.ID == effect.A);
+							TechTreeBuilding upgrBuilding = buildings.FirstOrDefault(b => b.ID == effect.B);
+							if(baseBuilding != null && upgrBuilding != null && currRes.Value.DATResearch.Type != 2) // Zeitalter überspringen (wurden bereits behandelt)
+							{
+								// Ist schon Upgrade-Gebäude zugewiesen? => Welches Upgrade ist früher?
+								upgrBuilding.Age = currRes.Value.Age;
+								while(baseBuilding.Successor != null && baseBuilding.Successor.Age < upgrBuilding.Age)
+								{
+									// Upgrade kommt später
+									baseBuilding = baseBuilding.Successor;
+								}
+
+								// Gebäude zuweisen, die Upgrade-Technologie ist die aktuelle
+								baseBuilding.Successor = upgrBuilding;
+								baseBuilding.SuccessorResearch = currRes.Value;
+
+								// Upgrade-Gebäude aus Elternelement-Liste nehmen
+								if(parentBuildings.Contains(upgrBuilding))
+									parentBuildings.Remove(upgrBuilding);
+							}
+							else
+							{
+								// Einheiten suchen
+								var baseUnitRes = assignableUnits.FirstOrDefault(u => u.Key == effect.A);
+								var upgrUnitRes = assignableUnits.FirstOrDefault(u => u.Key == effect.B);
+								if(baseUnitRes.Value != null && upgrUnitRes.Value != null)
+								{
+									// Kombination in Upgrade-Liste schreiben
+									unitUpgradeEffects.Add(new Tuple<int, int, TechTreeResearch>(baseUnitRes.Value.Item1.ID, upgrUnitRes.Value.Item1.ID, currRes.Value));
+								}
+							}
+						}
+					}
+				}
+
+				// Einheiten-Upgrade-Ketten auflösen
+				List<Tuple<int, int, TechTreeResearch>> unitUpgradeEffectsCopy = new List<Tuple<int, int, TechTreeResearch>>(unitUpgradeEffects);
+				foreach(int baseUnitID in unitUpgradeEffects.Where(u1 => !unitUpgradeEffects.Exists(u2 => u2.Item2 == u1.Item1)).Select(elem => elem.Item1).Distinct())
+				{
+					// Einheit abrufen
+					TechTreeCreatable baseUnit = SortUnitUpgrades(unitUpgradeEffectsCopy, baseUnitID, assignableUnits);
+
+					// Zeitalter der Einheit ist bis auf Weiteres dasselbe wie das des Elterngebäudes
+					baseUnit.Age = assignableUnits[baseUnitID].Item2.Age;
+
+					// Einheit ihrem Gebäude zuweisen
+					assignableUnits[baseUnitID].Item2.Children.Add(new Tuple<byte, TechTreeElement>(baseUnit.DATUnit.Creatable.ButtonID, baseUnit));
+				}
+
+				// Freischalt-Technologie-Abhängigkeiten bestimmen
+				foreach(var currRes in researches)
+				{
+					// Effekte durchlaufen
+					foreach(var effect in dat.Techages[currRes.Value.DATResearch.TechageID].Effects)
+					{
+						// Aktivierungseffekt?
+						if(effect.Type == 2 && effect.B == 1)
+						{
+							// Gebäude abrufen
+							TechTreeBuilding building = buildings.FirstOrDefault(b => b.ID == effect.A);
+							if(building != null)
+							{
+								// Technologie-Abhängigkeit definieren
+								building.EnablerResearch = currRes.Value;
+							}
+							else if(assignableUnits.ContainsKey(effect.A))
+							{
+								// Einheit abrufen
+								TechTreeCreatable unit = assignableUnits[effect.A].Item1;
+
+								// Zeitalter festlegen
+								unit.Age = Math.Max(unit.Age, currRes.Value.Age);
+
+								// Technologie-Abhängigkeit definieren
+								unit.EnablerResearch = currRes.Value;
+							}
+						}
+					}
+				}
+
+				// Shadow-Nodes in die "Sonstige Technologien"-Liste schreiben, um ggf. falsch einsortierte Technologien zu finden
+				foreach(var sn in shadowNodes)
+					otherResearches[sn.Key] = sn.Value;
+
+				// Sonstige Technologien durchlaufen und automatische Aktivierungen finden ("make avail"-Techs)
+				foreach(var currRes in otherResearches)
+				{
+					// Effekte durchlaufen
+					foreach(var effect in dat.Techages[currRes.Value.TechageID].Effects)
+					{
+						// Aktivierungseffekt?
+						if(effect.Type == 2 && effect.B == 1)
+						{
+							// Gebäude abrufen
+							TechTreeBuilding building = buildings.FirstOrDefault(b => b.ID == effect.A);
+							if(building != null)
+							{
+								// Gebäude-Abhängigkeiten erstellen
+								// Abhängigkeiten der Technologie durchgehen
+								foreach(short dep in currRes.Value.RequiredTechs)
+								{
+									// Abhängigkeit definiert?
+									if(dep > 0)
+
+										// Zeitalter-Abhängigkeit? Dunkle Zeit kann hier ignoriert werden, da eh Age = 0
+										if(dep >= 101 && dep <= 104)
+										{
+											// Gebäude-Zeitalter setzen
+											building.Age = dep - 100;
+										}
+
+										// Gebäude-Abhängigkeit?
+										else if(triggeredResearches.ContainsKey(dep))
+										{
+											// Gebäude-Abhängigkeit hinzufügen
+											foreach(var b in triggeredResearches[dep])
+												if(!b.ShadowElement)
+													if(building.BuildingDependencies.ContainsKey(b))
+														building.BuildingDependencies[b] = Math.Min(building.BuildingDependencies[b], currRes.Value.RequiredTechCount - 1);
+													else
+														building.BuildingDependencies[b] = currRes.Value.RequiredTechCount - 1;
+										}
+								}
+							}
+							else if(assignableUnits.ContainsKey(effect.A))
+							{
+								// Einheit abrufen
+								TechTreeCreatable unit = assignableUnits[effect.A].Item1;
+
+								// Abhängigkeiten der Technologie durchgehen
+								foreach(short dep in currRes.Value.RequiredTechs)
+								{
+									// Abhängigkeit definiert?
+									if(dep > 0)
+									{
+										// Zeitalter-Abhängigkeit? Dunkle Zeit kann hier ignoriert werden, da eh Age mindestens 0
+										if(dep >= 101 && dep <= 104)
+										{
+											// Einheit-Zeitalter setzen
+											unit.Age = Math.Max(unit.Age, dep - 100);
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+
+				// Einheiten direkt ihrem Gebäude zuweisen, falls das noch nicht passiert ist
+				foreach(var currUnit in assignableUnits)
+				{
+					// Einheit an ihr Gebäude anfügen
+					if(!allNormalUnits.Exists(u => u.CountReferencesToElement(currUnit.Value.Item1) > 0))
+						currUnit.Value.Item2.Children.Add(new Tuple<byte, TechTreeElement>(currUnit.Value.Item1.DATUnit.Creatable.ButtonID, currUnit.Value.Item1));
+				}
+
+				// Gebäude ggf. Elterneinheiten zuweisen, falls diese keine Bauarbeiter sind (hardcoded: #118)
+				for(int b = parentBuildings.Count - 1; b >= 0; --b)
+				{
+					// Gebäude abrufen
+					TechTreeBuilding building = parentBuildings[b];
+
+					// Elterneinheit != Bauarbeiter?
+					if(building.DATUnit.Creatable.TrainLocationID != 118)
+						if(assignableUnits.ContainsKey(building.DATUnit.Creatable.TrainLocationID))
+						{
+							// Elterneinheit zuweisen
+							assignableUnits[building.DATUnit.Creatable.TrainLocationID].Item1.Children.Add(new Tuple<byte, TechTreeElement>(building.DATUnit.Creatable.ButtonID, building));
+
+							// Zeitalter ggf. übernehmen
+							building.Age = Math.Max(building.Age, assignableUnits[building.DATUnit.Creatable.TrainLocationID].Item1.Age);
+
+							// Gebäude aus Elternliste nehmen
+							parentBuildings.RemoveAt(b);
+						}
+						else
+						{
+							// Elterngebäude suchen
+							TechTreeBuilding parentBuilding = buildings.FirstOrDefault(pb => pb.ID == building.DATUnit.Creatable.TrainLocationID);
+							if(parentBuilding != null)
+							{
+								// Elterneinheit zuweisen
+								parentBuilding.Children.Add(new Tuple<byte, TechTreeElement>(building.DATUnit.Creatable.ButtonID, building));
+
+								// Zeitalter ggf. übernehmen
+								building.Age = Math.Max(building.Age, parentBuilding.Age);
+
+								// Gebäude aus Elternliste nehmen
+								parentBuildings.RemoveAt(b);
+							}
+						}
+				}
+
+				// Elternelemente zuweisen
+				_projectFile.TechTreeParentElements = new List<TechTreeElement>(parentBuildings);
+
+				// Kultur-Konfigurationen berechnen
+				List<TechTreeFile.CivTreeConfig> civTrees = new List<TechTreeFile.CivTreeConfig>();
+				for(int c = 1; c < dat.Civs.Count; ++c) // Gaia überspringen
+				{
 					// Kultur-Objekt abrufen
-					GenieLibrary.DataElements.Civ currCiv = _dat.Civs[c];
+					GenieLibrary.DataElements.Civ currCiv = dat.Civs[c];
+					TechTreeFile.CivTreeConfig currConf = new TechTreeFile.CivTreeConfig();
+					civTrees.Add(currConf);
 
 					// Kultur-Techtree anwenden (Sperren usw.)
-					// ...
-				}*/
+					foreach(var techEff in dat.Techages[currCiv.TechTreeID].Effects)
+					{
+						// Typen untersuchen
+						switch(techEff.Type)
+						{
+							// Technologie sperren
+							case 102:
+								{
+									// Gültige Technologie?
+									if(techEff.D < 0)
+										break;
+
+									// Technologie abrufen
+									GenieLibrary.DataElements.Research research = dat.Researches[(int)techEff.D];
+
+									// Technologie-Typ ermitteln
+									if(research.ResearchLocation > 0)
+									{
+										// Normale Technologie => Element suchen und sperren
+										currConf.BlockedElements.Add(researches[(int)techEff.D]);
+									}
+									else
+									{
+										// Es könnte sich um eine make-avail Technologie handeln
+										// Effekte der gesperrten Technologie nach Aktivierungen durchsuchen und diese sperren
+										if(research.TechageID >= 0)
+											foreach(var currSubEff in dat.Techages[research.TechageID].Effects)
+											{
+												// Aktivierungs-Effekt?
+												if(currSubEff.Type == 2 && currSubEff.B == 1)
+												{
+													// Zugehörige Einheit suchen
+													TechTreeUnit unit = null;
+													if((unit = (TechTreeUnit)_projectFile.FindTechTreeElement(currSubEff.A, "TechTreeCreatable")) == null)
+														unit = (TechTreeUnit)_projectFile.FindTechTreeElement(currSubEff.A, "TechTreeBuilding");
+													if(unit != null)
+													{
+														// Einheit in Sperrliste schreiben
+														currConf.BlockedElements.Add(unit);
+													}
+												}
+											}
+									}
+								}
+								break;
+						}
+					}
+				}
+
+				// Kultur-Konfigurationen zuweisen
+				_projectFile.CivTrees = civTrees;
+
+				// Alle zuweisbaren Einheiten, die noch keinem Gebäude zugewiesen wurden, auf die Rest-Liste schreiben
+				//creatableUnits.AddRange(assignableUnits.Where(u => !u.Value.Item2.Children.Exists(ch => ch.Item2 == u.Value.Item1)).Select(u => u.Value.Item1).ToList());
+				//creatableUnits.Distinct();
 
 				// Fehlende Einheiten in Liste für Restauswahlfeld schreiben
 				List<DataGridViewRow> rows = new List<DataGridViewRow>(remainingUnits.Count);
@@ -229,12 +970,64 @@ namespace X2AddOnTechTreeEditor
 
 					// Werte setzen
 					row.Cells.AddRange(
-						new DataGridViewCheckBoxCell() { Value = false },
+						new DataGridViewCheckBoxCell() { Value = (unit.Value.Type == GenieLibrary.DataElements.Civ.Unit.UnitType.EyeCandy || unit.Value.Class == 5) }, // EyeCandy+Fisch automatisch markieren
 						new DataGridViewTextBoxCell() { Value = unit.Value.ID1.ToString() },
 						new DataGridViewTextBoxCell() { Value = unit.Value.Name1.Trim() },
-						new DataGridViewTextBoxCell() { Value = projectFile.LanguageFileWrapper.GetString(unit.Value.LanguageDLLName) },
-						new DataGridViewTextBoxCell() { Value = unit.Value.Type.ToString() }
+						new DataGridViewTextBoxCell() { Value = _projectFile.LanguageFileWrapper.GetString(unit.Value.LanguageDLLName) },
+						new DataGridViewTextBoxCell() { Value = unit.Value.Type }
 					);
+
+					// Einheit erstellen
+					TechTreeUnit unitElem = null;
+					switch(unit.Value.Type)
+					{
+						case GenieLibrary.DataElements.Civ.Unit.UnitType.Building:
+							unitElem = new TechTreeBuilding()
+							{
+								ID = unit.Key,
+								DATUnit = unit.Value,
+								StandardElement = false
+							};
+							break;
+						case GenieLibrary.DataElements.Civ.Unit.UnitType.Creatable:
+							unitElem = new TechTreeCreatable()
+							{
+								ID = unit.Key,
+								DATUnit = unit.Value,
+								StandardElement = false
+							};
+							break;
+						default:
+							unitElem = new TechTreeEyeCandy()
+							{
+								ID = unit.Key,
+								DATUnit = unit.Value
+							};
+							break;
+					}
+
+					// Element an Zeile anheften
+					row.Tag = unitElem;
+
+					// Zeile hinzufügen
+					rows.Add(row);
+				}
+				foreach(var unit in creatableUnits)
+				{
+					// Element hinzufügen
+					DataGridViewRow row = new DataGridViewRow();
+
+					// Werte setzen
+					row.Cells.AddRange(
+						new DataGridViewCheckBoxCell() { Value = true },
+						new DataGridViewTextBoxCell() { Value = unit.DATUnit.ID1.ToString() },
+						new DataGridViewTextBoxCell() { Value = unit.DATUnit.Name1.Trim() },
+						new DataGridViewTextBoxCell() { Value = _projectFile.LanguageFileWrapper.GetString(unit.DATUnit.LanguageDLLName) },
+						new DataGridViewTextBoxCell() { Value = GenieLibrary.DataElements.Civ.Unit.UnitType.Creatable }
+					);
+
+					// Element an Zeile anheften
+					row.Tag = unit;
 
 					// Zeile hinzufügen
 					rows.Add(row);
@@ -266,8 +1059,8 @@ namespace X2AddOnTechTreeEditor
 
 		private void _cancelButton_Click(object sender, EventArgs e)
 		{
-			// Sicherheitshalber fragen
-			if(MessageBox.Show("Wollen Sie dieses Fenster wirklich schließen und damit den Importvorgang abbrechen?", "Importvorgang abbrechen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			// Ggf. sicherheitshalber fragen
+			if(string.IsNullOrWhiteSpace(_datTextBox.Text) || MessageBox.Show("Wollen Sie dieses Fenster wirklich schließen und damit den Importvorgang abbrechen?", "Importvorgang abbrechen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				this.Close();
 			}
@@ -320,10 +1113,19 @@ namespace X2AddOnTechTreeEditor
 				// Fertigstellungs-Funktion in separatem Thread ausführen, um Formular nicht zu blockieren
 				Task.Factory.StartNew(() =>
 				{
-					// TODO: Viel zu tun hier...
+					// Markierte Elemente als Elternelemente eintragen
+					foreach(DataGridViewRow row in _selectionView.Rows)
+					{
+						// Zeile markiert?
+						if((bool)row.Cells[0].Value == true)
+						{
+							// Element als Elternelement definieren
+							_projectFile.TechTreeParentElements.Add((TechTreeElement)row.Tag);
+						}
+					}
 
 					// Projektdatei speichern
-					projectFile.WriteData(ProjectFileName);
+					_projectFile.WriteData(ProjectFileName);
 
 					// Fertig
 					this.Invoke(new Action(() =>
@@ -337,24 +1139,54 @@ namespace X2AddOnTechTreeEditor
 			}
 		}
 
-		#endregion
+		#endregion Ereignishandler
 
 		#region Hilfsfunktionen für die Baumerstellung
 
 		/// <summary>
-		/// Simuliert für das angegebene Zeitalter die Entwicklungen und daraus folgenden Freischaltungen von Einheiten und Gebäuden sowie folgender Technologien.
-		/// Die Ergebnisse werden automatisch in den Baum geschrieben.
+		/// Löst rekursiv die Einheit-Upgrade-Ketten auf und weist der Einheiten ihre jeweiligen Nachfolger zu.
 		/// </summary>
-		/// <param name="ttf">Das TechTree-Objekt, mit dem gearbeitet werden soll.</param>
-		/// <param name="age">Die Nummer des zu simulierenden Zeitalters.</param>
-		/// <param name="remainingTechs">Alle noch nicht simulierten (= entwickelten) Technologien.</param>
-		/// <param name="completedTechs">Die IDs aller bereits simulierten (= entwickelten) Technologien.</param>
-		/// <param name="remainingUnits">Die noch nicht in den Baum geschriebenen Einheiten.</param>
-		private void SimulateAge(TechTreeFile ttf, int age, Dictionary<int, GenieLibrary.DataElements.Research> remainingTechs, List<int> completedTechs, List<GenieLibrary.DataElements.Civ.Unit> remainingUnits)
+		/// <param name="upgrades">Die Upgrade-Paare.</param>
+		/// <param name="currBaseUnitID">Die ID der aktuellen "Stamm-Einheit". Das ist die Einheit, die im aktuellen Durchlauf keine Vorgänger hat.</param>
+		/// <param name="unitData">Die Liste, die den Einheiten-IDs die Einheiten-Objekte zuordnet.</param>
+		private TechTreeCreatable SortUnitUpgrades(List<Tuple<int, int, TechTreeResearch>> upgrades, int currBaseUnitID, Dictionary<int, Tuple<TechTreeCreatable, TechTreeBuilding>> unitData)
 		{
+			// Die aktuelle Stamm-Einheit abrufen
+			TechTreeCreatable baseUnit = unitData[currBaseUnitID].Item1;
 
+			// Nachfolgeeinheiten bestimmen und alle Einträge mit der aktuellen Basiseinheit entfernen
+			List<Tuple<int, TechTreeResearch>> children = new List<Tuple<int, TechTreeResearch>>();
+			for(int i = upgrades.Count - 1; i >= 0; --i)
+				if(upgrades[i].Item1 == currBaseUnitID)
+				{
+					// Nachfolger merken
+					children.Add(new Tuple<int, TechTreeResearch>(upgrades[i].Item2, upgrades[i].Item3));
+
+					// Element aus Upgrade-Liste löschen
+					upgrades.RemoveAt(i);
+				}
+
+			// Alle Elemente herausnehmen, die einen Vorgänger haben, der nicht die aktuelle Einheit ist
+			children.RemoveAll(c => upgrades.Exists(u => u.Item2 == c.Item1));
+
+			// Existiert ein Kind?
+			if(children.Count > 0)
+			{
+				// Rekursiver Aufruf, das Kind ist das nächste Stammelement
+				// Es wird immer nur das erste Kind genommen, mehrere Nachfolger werden bis auf weiteres nicht zugelassen
+				baseUnit.Successor = SortUnitUpgrades(upgrades, children[0].Item1, unitData);
+
+				// Technologie zuweisen
+				baseUnit.SuccessorResearch = children[0].Item2;
+
+				// Zeitalter der Nachfolgeeinheit ist das Zeitalter der entwickelnden Technologie
+				baseUnit.Successor.Age = children[0].Item2.Age;
+			}
+
+			// Stammeinheit zurückgeben
+			return baseUnit;
 		}
 
-		#endregion Hilfsfunktionen für die Baumerstellung
+		#endregion
 	}
 }
