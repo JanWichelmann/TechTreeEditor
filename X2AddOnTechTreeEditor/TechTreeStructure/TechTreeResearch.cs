@@ -130,11 +130,11 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// </summary>
 		public override void DrawDependencies()
 		{
-			// Pfeil zu jedem Element zeichnen
+			// Linie zu jedem Element zeichnen
 			foreach(TechTreeResearch dep in Dependencies)
-				RenderControl.DrawArrow(dep, this, Color.Red, true);
+				RenderControl.DrawLine(this, dep, Color.Red, true);
 			foreach(var dep in BuildingDependencies)
-				RenderControl.DrawArrow(dep.Key, this, Color.DarkGreen, true);
+				RenderControl.DrawLine(this, dep.Key, Color.Blue, true);
 		}
 
 		/// <summary>
@@ -177,10 +177,21 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// Ruft eine Liste mit den Kindelementen ab.
 		/// </summary>
 		/// <returns></returns>
-		protected override List<TechTreeElement> GetChildren()
+		public override List<TechTreeElement> GetChildren()
 		{
 			// Nachfolger zurückgeben
 			return new List<TechTreeElement>(Successors);
+		}
+
+		/// <summary>
+		/// Gibt das übergebene Element frei, falls es diesem Element untergeordnet sein sollte.
+		/// </summary>
+		/// <param name="child">Das freizugebende Element.</param>
+		/// <returns></returns>
+		public override void RemoveChild(TechTreeElement child)
+		{
+			// Kind-Element?
+			Successors.RemoveAll(s => s == child);
 		}
 
 		/// <summary>

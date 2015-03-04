@@ -22,21 +22,21 @@ namespace X2AddOnTechTreeEditor {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Strings {
+    public class Strings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Strings() {
+        public Strings() {
         }
         
         /// <summary>
         ///   Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("X2AddOnTechTreeEditor.Strings", typeof(Strings).Assembly);
@@ -51,7 +51,7 @@ namespace X2AddOnTechTreeEditor {
         ///   Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Aktuelle Auswahl: {0} ähnelt.
         /// </summary>
-        internal static string MainForm_CurrentSelection {
+        public static string MainForm_CurrentSelection {
             get {
                 return ResourceManager.GetString("MainForm_CurrentSelection", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Es gibt noch ungespeicherte Änderungen. Sollen diese gespeichert werden? ähnelt.
         /// </summary>
-        internal static string MainForm_Message_CloseProjectSaveChanges {
+        public static string MainForm_Message_CloseProjectSaveChanges {
             get {
                 return ResourceManager.GetString("MainForm_Message_CloseProjectSaveChanges", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Projekt schließen ähnelt.
         /// </summary>
-        internal static string MainForm_Message_CloseProjectSaveChanges_Title {
+        public static string MainForm_Message_CloseProjectSaveChanges_Title {
             get {
                 return ResourceManager.GetString("MainForm_Message_CloseProjectSaveChanges_Title", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Lade Farbpalette... ähnelt.
         /// </summary>
-        internal static string MainForm_Status_LoadingPal {
+        public static string MainForm_Status_LoadingPal {
             get {
                 return ResourceManager.GetString("MainForm_Status_LoadingPal", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Lade Projektdatei... ähnelt.
         /// </summary>
-        internal static string MainForm_Status_LoadingProjectFile {
+        public static string MainForm_Status_LoadingProjectFile {
             get {
                 return ResourceManager.GetString("MainForm_Status_LoadingProjectFile", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Übergebe Renderdaten... ähnelt.
         /// </summary>
-        internal static string MainForm_Status_PassRenderData {
+        public static string MainForm_Status_PassRenderData {
             get {
                 return ResourceManager.GetString("MainForm_Status_PassRenderData", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Bereite Baum-Rendering vor... ähnelt.
         /// </summary>
-        internal static string MainForm_Status_PreparingTreeRendering {
+        public static string MainForm_Status_PreparingTreeRendering {
             get {
                 return ResourceManager.GetString("MainForm_Status_PreparingTreeRendering", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Bereit ähnelt.
         /// </summary>
-        internal static string MainForm_Status_Ready {
+        public static string MainForm_Status_Ready {
             get {
                 return ResourceManager.GetString("MainForm_Status_Ready", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Projekt speichern... ähnelt.
         /// </summary>
-        internal static string MainForm_Status_Saving {
+        public static string MainForm_Status_Saving {
             get {
                 return ResourceManager.GetString("MainForm_Status_Saving", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Projekt gespeichert. ähnelt.
         /// </summary>
-        internal static string MainForm_Status_SavingSuccessful {
+        public static string MainForm_Status_SavingSuccessful {
             get {
                 return ResourceManager.GetString("MainForm_Status_SavingSuccessful", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die X2-AddOn :: Technologiebaum bearbeiten {0} ähnelt.
         /// </summary>
-        internal static string MainForm_Title {
+        public static string MainForm_Title {
             get {
                 return ResourceManager.GetString("MainForm_Title", resourceCulture);
             }

@@ -192,11 +192,11 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// </summary>
 		public override void DrawDependencies()
 		{
-			// Ggf. Pfeil zur Weiterentwicklungs-Technologie zeichnen
+			// Ggf. Linie zur Weiterentwicklungs-Technologie zeichnen
 			if(SuccessorResearch != null)
-				RenderControl.DrawArrow(SuccessorResearch, this, Color.Red, true);
+				RenderControl.DrawLine(this, SuccessorResearch, Color.Red, true);
 
-			// Ggf. Pfeil zur Freischaltungs-Technologie zeichnen
+			// Ggf. Pfeil von der Freischaltungs-Technologie zeichnen
 			if(EnablerResearch != null)
 				RenderControl.DrawArrow(EnablerResearch, this, Color.DarkGreen, true);
 		}
@@ -259,13 +259,31 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// Ruft eine Liste mit den Kindelementen ab.
 		/// </summary>
 		/// <returns></returns>
-		protected override List<TechTreeElement> GetChildren()
+		public override List<TechTreeElement> GetChildren()
 		{
 			// Kinder und Nachfolgeelement zurückgeben
 			List<TechTreeElement> childElements = Children.Select(c => c.Item2).ToList();
 			if(Successor != null)
 				childElements.Add(Successor);
 			return childElements;
+		}
+
+		/// <summary>
+		/// Gibt das übergebene Element frei, falls es diesem Element untergeordnet sein sollte.
+		/// </summary>
+		/// <param name="child">Das freizugebende Element.</param>
+		/// <returns></returns>
+		public override void RemoveChild(TechTreeElement child)
+		{
+			// Nachfolge-Element?
+			if(Successor == child)
+			{
+				Successor = null;
+				SuccessorResearch = null;
+			}
+
+			// Kind-Element?
+			Children.RemoveAll(c => c.Item2 == child);
 		}
 
 		/// <summary>

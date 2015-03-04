@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace X2AddOnTechTreeEditor
 {
-	internal static class Program
+	public static class Program
 	{
 		/// <summary>
 		/// Der Haupteinstiegspunkt für die Anwendung.

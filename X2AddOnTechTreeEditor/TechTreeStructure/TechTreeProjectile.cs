@@ -54,10 +54,15 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			throw new NotSupportedException("Projektile können nicht gezeichnet werden!");
 		}
 
-		protected override List<TechTreeElement> GetChildren()
+		public override List<TechTreeElement> GetChildren()
 		{
 			// Keine Kinder vorhanden
 			return new List<TechTreeElement>();
+		}
+
+		public override void RemoveChild(TechTreeElement child)
+		{
+			// Dieses Element hat keine Kinder
 		}
 
 		public override void DrawDependencies()

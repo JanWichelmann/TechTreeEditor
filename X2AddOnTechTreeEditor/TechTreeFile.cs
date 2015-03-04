@@ -1,4 +1,5 @@
 ﻿using IORAMHelper;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -16,7 +17,7 @@ namespace X2AddOnTechTreeEditor
 	/// Inkorrektes Bearbeiten dieser Elemente führt evtl. zu fehlerhaften Einstellungen bei den CivBlocks.
 	/// TODO: Ja, das ist hässlich...
 	/// </summary>
-	internal class TechTreeFile
+	public class TechTreeFile
 	{
 		#region Variablen
 
@@ -375,17 +376,47 @@ namespace X2AddOnTechTreeEditor
 		public bool DestroyElement(TechTreeElement element)
 		{
 			// Noch Referenzen vorhanden?
-			if(_allElements.Sum(e => e.CountReferencesToElement(element)) > 0)
+			// Das Element darf keine Kinder haben!
+			if(element == null || element.HasChildren() || !_allElements.All(e => e.CountReferencesToElement(element) + (e.HasChild(element) ? -1 : 0) == 0))
 			{
 				// Fehler
 				return false;
 			}
+
+			// Element suchen und als Kind entfernen
+			_allElements.ForEach(e => e.RemoveChild(element));
 
 			// Element aus Liste nehmen
 			_allElements.Remove(element);
 
 			// Fertig
 			return true;
+		}
+
+		/// <summary>
+		/// Verschiebt das angegebene Element um offset Zeitalter. Mit diesem verbundene Elemente werden dabei nicht beeinträchtigt.
+		/// </summary>
+		/// <param name="element">Das zu verschiebende Element.</param>
+		/// <param name="offset">Der Betrag, um den das Element verschoben werden soll.</param>
+		public void MoveElementAge(TechTreeElement element, int offset)
+		{
+			// Gültiges Element und Offset?
+			if(element == null || element.Age + offset < 0 || element.Age + offset > 4) // TODO: hardcoded...
+				return;
+
+			// Vorgänger-Element bestimmen
+			TechTreeElement parentElem = _allElements.Find(e => e.HasChild(element) && e != element);
+			int minAge = (parentElem == null ? 0 : parentElem.Age);
+
+			// Nachfolger-Element mit minimalem Zeitalter bestimmen
+			int maxAge = (element.HasChildren() ? element.GetChildren().Min(e => e.Age) : 4); // TODO: hardcoded...
+
+			// Neues Zeitalter berechnen
+			int newAge = element.Age + offset;
+
+			// Falls gültig, zuweisen
+			if(minAge <= newAge && newAge <= maxAge)
+				element.Age = newAge;
 		}
 
 		/// <summary>
@@ -422,9 +453,312 @@ namespace X2AddOnTechTreeEditor
 			foreach(var currElem in _allElements)
 				if(currElem.ID == id && currElem.Type == type)
 					return currElem;
-			
+
 			// Nichts gefunden
 			return null;
+		}
+
+		/// <summary>
+		/// Ordnet das gegebene Element einem anderen unter.
+		/// </summary>
+		/// <param name="parent">Das Element, dem das andere untergeordnet werden soll.</param>
+		/// <param name="child">Das unterzuordnende Element.</param>
+		/// <param name="doAlternateAction">Gibt an, ob die zweitmögliche Aktion ausgeführt werden soll. Das sind:<para/>
+		/// P-Gebäude -> C-Gebäude: Das C-Gebäude dem P-Gebäude als erschaffbare Einheit unterordnen, nicht als Nachfolger<para/>
+		/// P-Einheit -> C-Einheit: Die C-Einheit der P-Einheit als erschaffbare Einheit unterordnen, nicht als Nachfolger</param>
+		public void CreateElementLink(TechTreeElement parent, TechTreeElement child, bool doAlternateAction = false)
+		{
+			// Kind muss angegeben werden
+			// Elternelement und Kind dürfen nicht identisch sein
+			// Das Elternelement darf kein Kind des Kindelements sein
+			if(child == null || parent == child || child.HasChild(parent))
+				return;
+
+			// Alte Verbindung löschen
+			DeleteElementLink(child);
+
+			// Wenn kein Elternteil angegeben ist, nichts weiter tun
+			if(parent == null)
+				return;
+
+			// Nach Elementtypen entscheiden
+			Type parentType = parent.GetType();
+			Type childType = child.GetType();
+			if(parentType == typeof(TechTreeBuilding))
+			{
+				// Element laden
+				TechTreeBuilding parentBuilding = (TechTreeBuilding)parent;
+
+				// Ist das Kind ein Gebäude?
+				if(childType == typeof(TechTreeBuilding))
+				{
+					// Element laden
+					TechTreeBuilding childBuilding = (TechTreeBuilding)child;
+
+					// Gewünschte Aktion bestimmen
+					if(doAlternateAction)
+					{
+						// Kind lediglich unterordnen
+						// Die Button-ID wird standardmäßig auf 0 gesetzt
+						parentBuilding.Children.Add(new Tuple<byte, TechTreeElement>(0, childBuilding));
+					}
+					else
+					{
+						// Hat das Eltern-Gebäude schon einen Nachfolger? => Dem Kind unterordnen
+						if(parentBuilding.Successor != null)
+						{
+							// Letzten Kind-Nachfolger suchen
+							TechTreeBuilding lastChildSuccessor = childBuilding;
+							while(lastChildSuccessor.Successor != null)
+								lastChildSuccessor = lastChildSuccessor.Successor;
+
+							// Gebäude-Nachfolger dem letzten Nachfolger unterordnen
+							lastChildSuccessor.Successor = parentBuilding.Successor;
+							lastChildSuccessor.SuccessorResearch = parentBuilding.SuccessorResearch;
+
+							// Eine Technologie ist nicht mehr zugewiesen
+							parentBuilding.SuccessorResearch = null;
+						}
+
+						// Kind dem Gebäude als Nachfolger unterordnen
+						parentBuilding.Successor = childBuilding;
+					}
+
+					// Element aus Stammelement-Liste löschen
+					_techTreeParentElements.Remove(child);
+				}
+				else if(childType == typeof(TechTreeCreatable) || childType == typeof(TechTreeResearch))
+				{
+					// Element dem Gebäude als Kindelement unterordnen
+					// Die Button-ID wird standardmäßig auf 0 gesetzt
+					parentBuilding.Children.Add(new Tuple<byte, TechTreeElement>(0, child));
+
+					// Element aus Stammelement-Liste löschen
+					_techTreeParentElements.Remove(child);
+				}
+			}
+			else if(parentType == typeof(TechTreeCreatable))
+			{
+				// Element laden
+				TechTreeCreatable parentCreatable = (TechTreeCreatable)parent;
+
+				// Nach Kind-Typ unterscheiden
+				if(childType == typeof(TechTreeCreatable))
+				{
+					// Element laden
+					TechTreeCreatable childCreatable = (TechTreeCreatable)child;
+
+					// Gewünschte Aktion bestimmen
+					if(doAlternateAction)
+					{
+						// Kind lediglich unterordnen
+						// Die Button-ID wird standardmäßig auf 0 gesetzt
+						parentCreatable.Children.Add(new Tuple<byte, TechTreeElement>(0, childCreatable));
+					}
+					else
+					{
+						// Hat das Eltern-Gebäude schon einen Nachfolger? => Dem Kind unterordnen
+						if(parentCreatable.Successor != null)
+						{
+							// Letzten Kind-Nachfolger suchen
+							TechTreeCreatable lastChildSuccessor = childCreatable;
+							while(lastChildSuccessor.Successor != null)
+								lastChildSuccessor = lastChildSuccessor.Successor;
+
+							// Gebäude-Nachfolger dem letzten Nachfolger unterordnen
+							lastChildSuccessor.Successor = parentCreatable.Successor;
+							lastChildSuccessor.SuccessorResearch = parentCreatable.SuccessorResearch;
+						}
+
+						// Kind dem Gebäude als Nachfolger unterordnen
+						parentCreatable.Successor = childCreatable;
+
+						// Eine Technologie ist noch nicht zugewiesen
+						parentCreatable.SuccessorResearch = null;
+					}
+
+					// Element aus Stammelement-Liste löschen
+					_techTreeParentElements.Remove(child);
+				}
+				else if(childType == typeof(TechTreeBuilding) || childType == typeof(TechTreeResearch))
+				{
+					// Element der Einheit als Kindelement unterordnen
+					// Die Button-ID wird standardmäßig auf 0 gesetzt
+					parentCreatable.Children.Add(new Tuple<byte, TechTreeElement>(0, child));
+
+					// Element aus Stammelement-Liste löschen
+					_techTreeParentElements.Remove(child);
+				}
+			}
+			else if(parentType == typeof(TechTreeResearch) && childType == typeof(TechTreeResearch))
+			{
+				// Kindtechnologie unterordnen
+				((TechTreeResearch)parent).Successors.Add((TechTreeResearch)child);
+
+				// Element aus Stammelement-Liste löschen
+				_techTreeParentElements.Remove(child);
+			}
+		}
+
+		/// <summary>
+		/// Löscht die Unterordnung des gegebenen Elements und definiert es als Stammelement.
+		/// </summary>
+		/// <param name="element">Das zu befreiende Element.</param>
+		public void DeleteElementLink(TechTreeElement element)
+		{
+			// Kind muss angegeben werden
+			if(element == null)
+				return;
+
+			// Ist das Kind schon ein Stammelement? => Nichts zu tun
+			if(_techTreeParentElements.Contains(element))
+				return;
+
+			// Elternelement des Kinds suchen und das Kind aus dessen Unterordnung entfernen
+			_allElements.ForEach(a => a.RemoveChild(element));
+
+			// Kind als Stammelement definieren
+			_techTreeParentElements.Add(element);
+		}
+
+		/// <summary>
+		/// Erstellt eine neue Freischalt-Abhängigkeit.
+		/// </summary>
+		/// <param name="baseElement">Das Basis-Element.</param>
+		/// <param name="dependency">Die Technologie, die das Basis-Element freischalten soll.</param>
+		public void CreateMakeAvailDependency(TechTreeElement baseElement, TechTreeResearch dependency)
+		{
+			// Typ des Hauptelements abrufen
+			Type baseElemType = baseElement.GetType();
+
+			// Hat die Basis-Einheit Vorgänger-Elemente?
+			// Bei Technologien nicht relevant, da die ja nicht "weiterentwickelt" werden
+			if(baseElemType != typeof(TechTreeResearch))
+			{
+				TechTreeElement parentElem = _allElements.Find(e => e.HasChild(baseElement) && e != baseElement);
+				if(parentElem != null)
+					if(parentElem.GetType() == typeof(TechTreeBuilding) && ((TechTreeBuilding)parentElem).Successor == baseElement)
+						return;
+					else if(parentElem.GetType() == typeof(TechTreeCreatable) && ((TechTreeCreatable)parentElem).Successor == baseElement)
+						return;
+			}
+
+			// Abhängigkeit erstellen
+			if(baseElemType == typeof(TechTreeBuilding))
+				((TechTreeBuilding)baseElement).EnablerResearch = dependency;
+			else if(baseElemType == typeof(TechTreeCreatable))
+				((TechTreeCreatable)baseElement).EnablerResearch = dependency;
+			else if(baseElemType == typeof(TechTreeResearch))
+			{
+				// Wenn noch keine Abhängigkeit existiert, Technologie-Abhängigkeit hinzufügen
+				TechTreeResearch baseElemResearch = (TechTreeResearch)baseElement;
+				if(!baseElemResearch.Dependencies.Contains(dependency))
+					baseElemResearch.Dependencies.Add(dependency);
+			}
+		}
+
+		/// <summary>
+		/// Erstellt eine neue Upgrade-Abhängigkeit.
+		/// </summary>
+		/// <param name="baseElement">Das Basis-Element.</param>
+		/// <param name="dependency">Die Technologie, die das Basis-Element weiterentwickeln soll.</param>
+		public void CreateUpgradeDependency(TechTreeElement baseElement, TechTreeResearch dependency)
+		{
+			// Typ des Hauptelements abrufen
+			Type baseElemType = baseElement.GetType();
+
+			// Abhängigkeit erstellen
+			if(baseElemType == typeof(TechTreeBuilding))
+				((TechTreeBuilding)baseElement).SuccessorResearch = dependency;
+			else if(baseElemType == typeof(TechTreeCreatable))
+				((TechTreeCreatable)baseElement).SuccessorResearch = dependency;
+		}
+
+		/// <summary>
+		/// Erstellt eine neue Gebäude-Abhängigkeit.
+		/// </summary>
+		/// <param name="baseElement">Das Basis-Element.</param>
+		/// <param name="dependency">Das Gebäude, von dessen Bau das Basis-Element abhängen soll.</param>
+		public void CreateBuildingDependency(TechTreeElement baseElement, TechTreeBuilding dependency)
+		{
+			// Typ des Hauptelements abrufen
+			Type baseElemType = baseElement.GetType();
+
+			// Abhängigkeit erstellen
+			if(baseElemType == typeof(TechTreeBuilding))
+			{
+				// Element abrufen
+				TechTreeBuilding baseElemBuilding = (TechTreeBuilding)baseElement;
+
+				// Wenn Abhängigkeit noch nicht existiert, diese erstellen
+				if(!baseElemBuilding.BuildingDependencies.ContainsKey(dependency))
+					baseElemBuilding.BuildingDependencies.Add(dependency, 0);
+			}
+			else if(baseElemType == typeof(TechTreeResearch))
+			{
+				// Element abrufen
+				TechTreeResearch baseElemResearch = (TechTreeResearch)baseElement;
+
+				// Wenn Abhängigkeit noch nicht existiert, diese erstellen
+				if(!baseElemResearch.BuildingDependencies.ContainsKey(dependency))
+					baseElemResearch.BuildingDependencies.Add(dependency, 0);
+			}
+		}
+
+		/// <summary>
+		/// Löscht eine Abhängigkeit.
+		/// </summary>
+		/// <param name="baseElement">Das Basis-Element.</param>
+		/// <param name="dependency">Das referenzierte Element.</param>
+		public void DeleteDependency(TechTreeElement baseElement, TechTreeElement dependency)
+		{
+			// Typ der Elemente abrufen
+			Type baseElemType = baseElement.GetType();
+			Type depElemType = dependency.GetType();
+
+			// Fallunterscheidung
+			if(baseElemType == typeof(TechTreeBuilding))
+			{
+				// Element abrufen
+				TechTreeBuilding baseElemBuilding = (TechTreeBuilding)baseElement;
+
+				// Abhängigkeiten löschen
+				if(baseElemBuilding.EnablerResearch == dependency)
+					baseElemBuilding.EnablerResearch = null;
+				if(baseElemBuilding.SuccessorResearch == dependency)
+					baseElemBuilding.SuccessorResearch = null;
+				if(depElemType == typeof(TechTreeBuilding))
+					if(baseElemBuilding.BuildingDependencies.ContainsKey((TechTreeBuilding)dependency))
+						baseElemBuilding.BuildingDependencies.Remove((TechTreeBuilding)dependency);
+			}
+			else if(baseElemType == typeof(TechTreeCreatable))
+			{
+				// Element abrufen
+				TechTreeCreatable baseElemCreatable = (TechTreeCreatable)baseElement;
+
+				// Abhängigkeiten löschen
+				if(baseElemCreatable.EnablerResearch == dependency)
+					baseElemCreatable.EnablerResearch = null;
+				if(baseElemCreatable.SuccessorResearch == dependency)
+					baseElemCreatable.SuccessorResearch = null;
+			}
+			else if(baseElemType == typeof(TechTreeResearch))
+			{
+				// Element abrufen
+				TechTreeResearch baseElemResearch = (TechTreeResearch)baseElement;
+
+				// Abhängigkeiten löschen
+				if(depElemType == typeof(TechTreeBuilding))
+				{
+					if(baseElemResearch.BuildingDependencies.ContainsKey((TechTreeBuilding)dependency))
+						baseElemResearch.BuildingDependencies.Remove((TechTreeBuilding)dependency);
+				}
+				else if(depElemType == typeof(TechTreeResearch))
+				{
+					if(baseElemResearch.Dependencies.Contains((TechTreeResearch)dependency))
+						baseElemResearch.Dependencies.Remove((TechTreeResearch)dependency);
+				}
+			}
 		}
 
 		#endregion

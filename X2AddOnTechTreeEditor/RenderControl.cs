@@ -31,32 +31,32 @@ namespace X2AddOnTechTreeEditor
 		/// <summary>
 		/// Die Rahmenbreite.
 		/// </summary>
-		internal const int BORDER_WIDTH = 3;
+		public const int BORDER_WIDTH = 3;
 
 		/// <summary>
 		/// Die Seitenlängen der einzelnen Techtree-Kästchen.
 		/// </summary>
-		internal const int BOX_BOUNDS = 64;
+		public const int BOX_BOUNDS = 64;
 
 		/// <summary>
 		/// Der horizontale Platz um die einzelnen Techtree-Kästchen.
 		/// </summary>
-		internal const int BOX_SPACE_HORI = 4;
+		public const int BOX_SPACE_HORI = 4;
 
 		/// <summary>
 		/// Der vertikale Platz um die einzelnen Techtree-Kästchen.
 		/// </summary>
-		internal const int BOX_SPACE_VERT = 8;
+		public const int BOX_SPACE_VERT = 8;
 
 		/// <summary>
 		/// Die Seitenlängen der Icons in den Techtree-Kästchen.
 		/// </summary>
-		internal const int ICON_BOUNDS = 36;
+		public const int ICON_BOUNDS = 36;
 
 		/// <summary>
 		/// Der Abstand der Zeichnung vom Zeichenfeld-Rand.
 		/// </summary>
-		internal const int DRAW_PANEL_PADDING = 17;
+		public const int DRAW_PANEL_PADDING = 17;
 
 		/// <summary>
 		/// Der Pixel-Scroll-Faktor der Zeichenfeld-Scrollleiste.
@@ -66,12 +66,12 @@ namespace X2AddOnTechTreeEditor
 		/// <summary>
 		/// Die Hälfte der Breite einer Pfeilspitze.
 		/// </summary>
-		internal const int ARROW_WIDTH_HALF = 5;
+		public const int ARROW_WIDTH_HALF = 5;
 
 		/// <summary>
 		/// Die Länge einer Pfeilspitze.
 		/// </summary>
-		internal const int ARROW_LENGTH = 10;
+		public const int ARROW_LENGTH = 10;
 
 		#endregion Konstanten
 
@@ -201,6 +201,15 @@ namespace X2AddOnTechTreeEditor
 			// Elternelemente speichern
 			_techTreeParentElements = techTreeParentElements;
 
+			// Baum-Abmessungen berechnen
+			UpdateTreeData();
+		}
+
+		/// <summary>
+		/// Berechnet alle Abmessungen des internen Baums neu und zeichnet diesen.
+		/// </summary>
+		public void UpdateTreeData()
+		{
 			// Baumgröße berechnen
 			List<int> ageCounts = new List<int>() { 1, 1, 1, 1, 1 }; // TODO Hardcoded für 5 Zeitalter!
 			List<int> tempAgeCounts = new List<int>() { 0, 0, 0, 0, 0 };
@@ -301,7 +310,7 @@ namespace X2AddOnTechTreeEditor
 
 				// Editor-Flag
 				flagBitmapGraphics.Clear(Color.Transparent);
-				flagBitmapGraphics.DrawImage(X2AddOnTechTreeEditor.Icons.MapEditor, 1, 49, (BOX_BOUNDS - ICON_BOUNDS) / 2, (BOX_BOUNDS - ICON_BOUNDS) / 2);
+				flagBitmapGraphics.DrawImage(X2AddOnTechTreeEditor.Icons.MapEditor, 1, 50, (BOX_BOUNDS - ICON_BOUNDS) / 2, (BOX_BOUNDS - ICON_BOUNDS) / 2);
 				newTexID = GL.GenTexture();
 				_flagTextures[TechTreeStructure.TechTreeElement.ElementFlags.ShowInEditor] = newTexID;
 				GL.BindTexture(TextureTarget.Texture2D, newTexID);
@@ -313,7 +322,7 @@ namespace X2AddOnTechTreeEditor
 
 				// Gaia-Only-Flag
 				flagBitmapGraphics.Clear(Color.Transparent);
-				flagBitmapGraphics.DrawImage(X2AddOnTechTreeEditor.Icons.Gaia, 33, 49, (BOX_BOUNDS - ICON_BOUNDS) / 2, (BOX_BOUNDS - ICON_BOUNDS) / 2);
+				flagBitmapGraphics.DrawImage(X2AddOnTechTreeEditor.Icons.Gaia, 32, 50, (BOX_BOUNDS - ICON_BOUNDS) / 2, (BOX_BOUNDS - ICON_BOUNDS) / 2);
 				newTexID = GL.GenTexture();
 				_flagTextures[TechTreeStructure.TechTreeElement.ElementFlags.GaiaOnly] = newTexID;
 				GL.BindTexture(TextureTarget.Texture2D, newTexID);
@@ -325,7 +334,7 @@ namespace X2AddOnTechTreeEditor
 
 				// Lock-ID-Flag
 				flagBitmapGraphics.Clear(Color.Transparent);
-				flagBitmapGraphics.DrawImage(X2AddOnTechTreeEditor.Icons.Lock, 49, 49, (BOX_BOUNDS - ICON_BOUNDS) / 2, (BOX_BOUNDS - ICON_BOUNDS) / 2);
+				flagBitmapGraphics.DrawImage(X2AddOnTechTreeEditor.Icons.Lock, 48, 50, (BOX_BOUNDS - ICON_BOUNDS) / 2, (BOX_BOUNDS - ICON_BOUNDS) / 2);
 				newTexID = GL.GenTexture();
 				_flagTextures[TechTreeStructure.TechTreeElement.ElementFlags.LockID] = newTexID;
 				GL.BindTexture(TextureTarget.Texture2D, newTexID);
@@ -337,7 +346,7 @@ namespace X2AddOnTechTreeEditor
 
 				// Blocked-Flag
 				flagBitmapGraphics.Clear(Color.Transparent);
-				flagBitmapGraphics.DrawImage(X2AddOnTechTreeEditor.Icons.Blocked, 0, 0, BOX_BOUNDS, BOX_BOUNDS);
+				flagBitmapGraphics.DrawImage(X2AddOnTechTreeEditor.Icons.BlockedTexture, 0, 0, BOX_BOUNDS, BOX_BOUNDS);
 				newTexID = GL.GenTexture();
 				_flagTextures[TechTreeStructure.TechTreeElement.ElementFlags.Blocked] = newTexID;
 				GL.BindTexture(TextureTarget.Texture2D, newTexID);
@@ -349,7 +358,7 @@ namespace X2AddOnTechTreeEditor
 
 				// Free-Flag
 				flagBitmapGraphics.Clear(Color.Transparent);
-				flagBitmapGraphics.DrawImage(X2AddOnTechTreeEditor.Icons.Free, 17, 49, (BOX_BOUNDS - ICON_BOUNDS) / 2, (BOX_BOUNDS - ICON_BOUNDS) / 2);
+				flagBitmapGraphics.DrawImage(X2AddOnTechTreeEditor.Icons.Free, 16, 50, (BOX_BOUNDS - ICON_BOUNDS) / 2, (BOX_BOUNDS - ICON_BOUNDS) / 2);
 				newTexID = GL.GenTexture();
 				_flagTextures[TechTreeStructure.TechTreeElement.ElementFlags.Free] = newTexID;
 				GL.BindTexture(TextureTarget.Texture2D, newTexID);
@@ -406,31 +415,49 @@ namespace X2AddOnTechTreeEditor
 				case "TechTreeResearch":
 					if(iconID >= 0 && _iconsResearches.FrameCount > iconID)
 						icon = _iconsResearches.getFrameAsBitmap((uint)iconID, _pal50500);
+					else
+					{
+						icon = new Bitmap(ICON_BOUNDS, ICON_BOUNDS);
+						Graphics iconG = Graphics.FromImage(icon);
+						iconG.Clear(Color.FromArgb(220, 220, 220));
+						iconG.DrawImage(Icons.ResearchIcon, 2, 2, 32, 32);
+					}
 					boxG.Clear(Color.FromArgb(125, 202, 98));
 					break;
 
 				case "TechTreeCreatable":
 					if(iconID >= 0 && _iconsUnits.FrameCount > iconID)
 						icon = _iconsUnits.getFrameAsBitmap((uint)iconID, _pal50500);
+					else
+					{
+						icon = new Bitmap(ICON_BOUNDS, ICON_BOUNDS);
+						Graphics iconG = Graphics.FromImage(icon);
+						iconG.Clear(Color.FromArgb(220, 220, 220));
+						iconG.DrawImage(Icons.UnitIcon, 2, 2, 32, 32);
+					}
 					boxG.Clear(Color.FromArgb(128, 187, 226));
 					break;
 
 				case "TechTreeBuilding":
 					if(iconID >= 0 && _iconsBuildings.FrameCount > iconID)
 						icon = _iconsBuildings.getFrameAsBitmap((uint)iconID, _pal50500);
+					else
+					{
+						icon = new Bitmap(ICON_BOUNDS, ICON_BOUNDS);
+						Graphics iconG = Graphics.FromImage(icon);
+						iconG.Clear(Color.FromArgb(220, 220, 220));
+						iconG.DrawImage(Icons.BuildingIcon, 2, 2, 32, 32);
+					}
 					boxG.Clear(Color.FromArgb(246, 128, 128));
 					break;
 
 				default:
-					boxG.Clear(Color.LightCoral);
+					icon = new Bitmap(ICON_BOUNDS, ICON_BOUNDS);
+					Graphics iconGr = Graphics.FromImage(icon);
+					iconGr.Clear(Color.FromArgb(220, 220, 220));
+					iconGr.DrawImage(Icons.EyeCandyIcon, 2, 2, 32, 32);
+					boxG.Clear(Color.LightYellow);
 					break;
-			}
-
-			// Ggf. Dummy-Icon einsetzen
-			if(icon == null)
-			{
-				icon = new Bitmap(ICON_BOUNDS, ICON_BOUNDS);
-				Graphics.FromImage(icon).Clear(Color.Yellow);
 			}
 
 			// Icon-Bild mittig auf Kästchen zeichnen
@@ -453,6 +480,31 @@ namespace X2AddOnTechTreeEditor
 
 			// Textur-ID zurückgeben
 			return texID;
+		}
+
+		/// <summary>
+		/// Zeichnet den Baum neu.
+		/// </summary>
+		public void Redraw()
+		{
+			// Neuzeichnen
+			_drawPanel.Invalidate();
+		}
+
+		/// <summary>
+		/// Setzt den Render-Modus.
+		/// </summary>
+		/// <param name="onlyStandardElements">Gibt an, ob nur Standardelemente gezeichnet werden sollen.</param>
+		public void SetRenderMode(bool renderOnlyStandardElements)
+		{
+			// Wert merken
+			_drawOnlyStandardElements = renderOnlyStandardElements;
+
+			// Scrollbar einstellen
+			_drawPanelScrollBar.Maximum = (Math.Max((_drawOnlyStandardElements ? _fullStandardTreeWidth : _fullTreeWidth) * (BOX_BOUNDS + 2 * BOX_SPACE_HORI) + 2 * DRAW_PANEL_PADDING, _drawPanel.Width) - _drawPanel.Width) / DRAW_PANEL_SCROLL_MULT;
+
+			// Neuzeichnen
+			_drawPanel.Invalidate();
 		}
 
 		#endregion Funktionen
@@ -478,8 +530,8 @@ namespace X2AddOnTechTreeEditor
 			// Zeichenmatrix zurücksetzen
 			GL.LoadIdentity();
 
-			GL.Color3(Color.Yellow);
-			DrawString("Elternelemente: " + _techTreeParentElements.Count.ToString(), 10, 10);
+			GL.Color3(COLOR_BACKGROUND);
+			DrawString("[Render Mode: " + (_drawOnlyStandardElements ? "StandardOnly" : "All") + "]", 6, 6);
 
 			// Wurden alle Daten geladen?
 			if(_dataLoaded)
@@ -580,8 +632,8 @@ namespace X2AddOnTechTreeEditor
 
 		private void _drawPanel_MouseClick(object sender, MouseEventArgs e)
 		{
-			// Wurde die Auswahl geändert?
-			if(_hoverElement != _selectedElement)
+			// Auswahl geändert?
+			if(_selectedElement != _hoverElement)
 			{
 				// Bisher selektiertes Element ggf. deselektieren
 				if(_selectedElement != null)
@@ -600,10 +652,10 @@ namespace X2AddOnTechTreeEditor
 
 				// Ereignis weiterreichen
 				OnSelectionChanged(new SelectionChangedEventArgs(_selectedElement));
-
-				// Neuzeichnen
-				_drawPanel.Invalidate();
 			}
+
+			// Neuzeichnen
+			_drawPanel.Invalidate();
 
 			// Mausklickereignis weiterreichen
 			OnMouseClick(e);
@@ -615,7 +667,7 @@ namespace X2AddOnTechTreeEditor
 			TechTreeStructure.TechTreeElement hovered = null;
 			foreach(TechTreeStructure.TechTreeElement elem in _techTreeParentElements)
 			{
-				if((hovered = elem.FindBox(new Point(e.X + _drawPanelScrollBar.Value * DRAW_PANEL_SCROLL_MULT, e.Y))) != null)
+				if((hovered = elem.FindBox(new Point(e.X + _drawPanelScrollBar.Value * DRAW_PANEL_SCROLL_MULT, e.Y), _drawOnlyStandardElements)) != null)
 					break;
 			}
 
@@ -655,10 +707,10 @@ namespace X2AddOnTechTreeEditor
 		/// <param name="destinationElement">Das Zielelement.</param>
 		/// <param name="color">Die Farbe des Pfeils.</param>
 		/// <param name="stippleLine">Optional. Gibt an, ob die gezeichnete Linie gestrichelt sein soll. Standardmäßig false.</param>
-		internal static void DrawArrow(TechTreeStructure.TechTreeElement sourceElement, TechTreeStructure.TechTreeElement destinationElement, Color color, bool stippleLine = false)
+		public static void DrawArrow(TechTreeStructure.TechTreeElement sourceElement, TechTreeStructure.TechTreeElement destinationElement, Color color, bool stippleLine = false)
 		{
 			// Falls das Zielelement Schatten-Element und Gebäude ist, kann es sich um eine Untereinheit handeln
-			if(destinationElement.Type == "TechTreeBuilding" && destinationElement.ShadowElement)
+			if(destinationElement.GetType() == typeof(TechTreeStructure.TechTreeBuilding) && destinationElement.ShadowElement)
 			{
 				// Obergebäude setzen
 				if(((TechTreeStructure.TechTreeBuilding)destinationElement).StackUnit != null)
@@ -708,10 +760,49 @@ namespace X2AddOnTechTreeEditor
 		}
 
 		/// <summary>
+		/// Zeichnet eine Linie vom gegebenen Quellelement zum Zielelement in der gegebenen Farbe.
+		/// </summary>
+		/// <param name="sourceElement">Das Quellelement.</param>
+		/// <param name="destinationElement">Das Zielelement.</param>
+		/// <param name="color">Die Farbe der Linie.</param>
+		/// <param name="stippleLine">Optional. Gibt an, ob die gezeichnete Linie gestrichelt sein soll. Standardmäßig false.</param>
+		public static void DrawLine(TechTreeStructure.TechTreeElement sourceElement, TechTreeStructure.TechTreeElement destinationElement, Color color, bool stippleLine = false)
+		{
+			// Falls das Zielelement Schatten-Element und Gebäude ist, kann es sich um eine Untereinheit handeln
+			if(destinationElement.GetType() == typeof(TechTreeStructure.TechTreeBuilding) && destinationElement.ShadowElement)
+			{
+				// Obergebäude setzen
+				if(((TechTreeStructure.TechTreeBuilding)destinationElement).StackUnit != null)
+					destinationElement = ((TechTreeStructure.TechTreeBuilding)destinationElement).StackUnit;
+			}
+
+			// Startvektor der Linie berechnen
+			Vector2 lineOrigin = new Vector2(sourceElement.CacheBoxPosition.X + (sourceElement.CacheBoxPosition.X < destinationElement.CacheBoxPosition.X ? BOX_BOUNDS : 0), sourceElement.CacheBoxPosition.Y + BOX_BOUNDS / 2);
+
+			// Zielvektor der Linie berechnen
+			Vector2 lineDest = new Vector2(destinationElement.CacheBoxPosition.X + (sourceElement.CacheBoxPosition.X < destinationElement.CacheBoxPosition.X ? 0 : BOX_BOUNDS), destinationElement.CacheBoxPosition.Y + BOX_BOUNDS / 2);
+
+			// Linie zeichnen (gestrichelt)
+			GL.Color3(color);
+			if(stippleLine)
+				GL.Enable(EnableCap.LineStipple);
+			GL.LineWidth(2);
+			GL.Begin(PrimitiveType.Lines);
+			{
+				GL.Vertex2(lineOrigin);
+				GL.Vertex2(lineDest);
+			}
+			GL.End();
+			GL.LineWidth(1);
+			if(stippleLine)
+				GL.Disable(EnableCap.LineStipple);
+		}
+
+		/// <summary>
 		/// Zeichnet ein Flag an der aktuellen Box-Position. Es kann immer nur ein Flag auf einmal gezeichnet werden.
 		/// </summary>
 		/// <param name="flag">Das zu zeichnende Flag.</param>
-		internal static void DrawFlagOverlay(TechTreeStructure.TechTreeElement.ElementFlags flag)
+		public static void DrawFlagOverlay(TechTreeStructure.TechTreeElement.ElementFlags flag)
 		{
 			// Flag-Textur abrufen
 			int flagTexID = _flagTextures[flag];
@@ -734,7 +825,7 @@ namespace X2AddOnTechTreeEditor
 		/// </summary>
 		/// <param name="value">Die zu zeichende Zeichenfolge.</param>
 		/// <param name="position">Die Position, an die die Zeichenfolge gezeichnet werden soll.</param>
-		internal static void DrawString(string value, Point position)
+		public static void DrawString(string value, Point position)
 		{
 			// Überladene Funktion aufrufen
 			DrawString(value, position.X, position.Y);
@@ -747,7 +838,7 @@ namespace X2AddOnTechTreeEditor
 		/// <param name="value">Die zu zeichende Zeichenfolge.</param>
 		/// <param name="x">Die X-Position, an die die Zeichenfolge gezeichnet werden soll.</param>
 		/// <param name="y">Die Y-Position, an die die Zeichenfolge gezeichnet werden soll.</param>
-		internal static void DrawString(string value, int x, int y)
+		public static void DrawString(string value, int x, int y)
 		{
 			// Textur laden
 			GL.BindTexture(TextureTarget.Texture2D, _charTextureID);

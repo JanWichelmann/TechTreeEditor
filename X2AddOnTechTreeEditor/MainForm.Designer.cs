@@ -44,14 +44,21 @@
 			this._projectToolBar = new System.Windows.Forms.ToolStrip();
 			this._mainToolBar = new System.Windows.Forms.ToolStrip();
 			this._civSelectComboBox = new System.Windows.Forms.ToolStripComboBox();
+			this._addToolsBar = new System.Windows.Forms.ToolStrip();
 			this._techTreeElementContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this._menuSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+			this._menuSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this._openProjectDialog = new System.Windows.Forms.OpenFileDialog();
 			this._newUnitButton = new System.Windows.Forms.ToolStripButton();
 			this._newBuildingButton = new System.Windows.Forms.ToolStripButton();
 			this._newResearchButton = new System.Windows.Forms.ToolStripButton();
+			this._newEyeCandyButton = new System.Windows.Forms.ToolStripButton();
 			this._newLinkButton = new System.Windows.Forms.ToolStripButton();
 			this._deleteLinkButton = new System.Windows.Forms.ToolStripButton();
+			this._newMakeAvailDepButton = new System.Windows.Forms.ToolStripButton();
+			this._newSuccResDepButton = new System.Windows.Forms.ToolStripButton();
+			this._newBuildingDepButton = new System.Windows.Forms.ToolStripButton();
+			this._deleteDepButton = new System.Windows.Forms.ToolStripButton();
 			this._deleteElementButton = new System.Windows.Forms.ToolStripButton();
 			this._importDATMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._openProjectMenuButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,8 +70,16 @@
 			this._importDATButton = new System.Windows.Forms.ToolStripButton();
 			this._openProjectButton = new System.Windows.Forms.ToolStripButton();
 			this._saveProjectButton = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-			this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+			this._editorModeButton = new System.Windows.Forms.ToolStripButton();
+			this._standardModeButton = new System.Windows.Forms.ToolStripButton();
+			this._ageUpButton = new System.Windows.Forms.ToolStripButton();
+			this._ageDownButton = new System.Windows.Forms.ToolStripButton();
+			this._standardElementCheckButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._showInEditorCheckButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._gaiaOnlyCheckButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._lockIDCheckButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._blockForCivCheckButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._freeForCivCheckButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._renderPanel = new X2AddOnTechTreeEditor.RenderControl();
 			this._menuContainer.BottomToolStripPanel.SuspendLayout();
 			this._menuContainer.ContentPanel.SuspendLayout();
@@ -76,6 +91,7 @@
 			this._mainMenu.SuspendLayout();
 			this._projectToolBar.SuspendLayout();
 			this._mainToolBar.SuspendLayout();
+			this._addToolsBar.SuspendLayout();
 			this._techTreeElementContextMenu.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -102,6 +118,7 @@
 			this._menuContainer.TopToolStripPanel.Controls.Add(this._mainMenu);
 			this._menuContainer.TopToolStripPanel.Controls.Add(this._projectToolBar);
 			this._menuContainer.TopToolStripPanel.Controls.Add(this._mainToolBar);
+			this._menuContainer.TopToolStripPanel.Controls.Add(this._addToolsBar);
 			// 
 			// _statusStrip
 			// 
@@ -130,8 +147,13 @@
             this._newUnitButton,
             this._newBuildingButton,
             this._newResearchButton,
+            this._newEyeCandyButton,
             this._newLinkButton,
             this._deleteLinkButton,
+            this._newMakeAvailDepButton,
+            this._newSuccResDepButton,
+            this._newBuildingDepButton,
+            this._deleteDepButton,
             this._deleteElementButton});
 			this._toolBoxBar.Name = "_toolBoxBar";
 			// 
@@ -198,28 +220,51 @@
 			this._mainToolBar.ImageScalingSize = new System.Drawing.Size(32, 32);
 			this._mainToolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._civSelectComboBox,
-            this.toolStripButton1,
-            this.toolStripButton2});
+            this._editorModeButton,
+            this._standardModeButton});
 			this._mainToolBar.Name = "_mainToolBar";
 			// 
 			// _civSelectComboBox
 			// 
 			this._civSelectComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this._civSelectComboBox.Name = "_civSelectComboBox";
 			resources.ApplyResources(this._civSelectComboBox, "_civSelectComboBox");
+			this._civSelectComboBox.Name = "_civSelectComboBox";
 			this._civSelectComboBox.SelectedIndexChanged += new System.EventHandler(this._civSelectComboBox_SelectedIndexChanged);
+			// 
+			// _addToolsBar
+			// 
+			resources.ApplyResources(this._addToolsBar, "_addToolsBar");
+			this._addToolsBar.ImageScalingSize = new System.Drawing.Size(32, 32);
+			this._addToolsBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._ageUpButton,
+            this._ageDownButton});
+			this._addToolsBar.Name = "_addToolsBar";
 			// 
 			// _techTreeElementContextMenu
 			// 
 			this._techTreeElementContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.testToolStripMenuItem});
+            this._standardElementCheckButton,
+            this._menuSeparator3,
+            this._showInEditorCheckButton,
+            this._gaiaOnlyCheckButton,
+            this._lockIDCheckButton,
+            this._menuSeparator4,
+            this._blockForCivCheckButton,
+            this._freeForCivCheckButton});
 			this._techTreeElementContextMenu.Name = "_techTreeElementContextMenu";
 			resources.ApplyResources(this._techTreeElementContextMenu, "_techTreeElementContextMenu");
+			this._techTreeElementContextMenu.MouseEnter += new System.EventHandler(this._techTreeElementContextMenu_MouseEnter);
+			this._techTreeElementContextMenu.MouseLeave += new System.EventHandler(this._techTreeElementContextMenu_MouseLeave);
 			// 
-			// testToolStripMenuItem
+			// _menuSeparator3
 			// 
-			this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-			resources.ApplyResources(this.testToolStripMenuItem, "testToolStripMenuItem");
+			this._menuSeparator3.Name = "_menuSeparator3";
+			resources.ApplyResources(this._menuSeparator3, "_menuSeparator3");
+			// 
+			// _menuSeparator4
+			// 
+			this._menuSeparator4.Name = "_menuSeparator4";
+			resources.ApplyResources(this._menuSeparator4, "_menuSeparator4");
 			// 
 			// _openProjectDialog
 			// 
@@ -228,95 +273,123 @@
 			// _newUnitButton
 			// 
 			this._newUnitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this._newUnitButton.Image = global::X2AddOnTechTreeEditor.Icons.NewUnit;
 			resources.ApplyResources(this._newUnitButton, "_newUnitButton");
 			this._newUnitButton.Name = "_newUnitButton";
 			// 
 			// _newBuildingButton
 			// 
 			this._newBuildingButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this._newBuildingButton.Image = global::X2AddOnTechTreeEditor.Icons.NewBuilding;
 			resources.ApplyResources(this._newBuildingButton, "_newBuildingButton");
 			this._newBuildingButton.Name = "_newBuildingButton";
 			// 
 			// _newResearchButton
 			// 
 			this._newResearchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this._newResearchButton.Image = global::X2AddOnTechTreeEditor.Icons.NewResearch;
 			resources.ApplyResources(this._newResearchButton, "_newResearchButton");
 			this._newResearchButton.Name = "_newResearchButton";
+			// 
+			// _newEyeCandyButton
+			// 
+			this._newEyeCandyButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			resources.ApplyResources(this._newEyeCandyButton, "_newEyeCandyButton");
+			this._newEyeCandyButton.Image = global::X2AddOnTechTreeEditor.Icons.NewEyeCandy;
+			this._newEyeCandyButton.Name = "_newEyeCandyButton";
 			// 
 			// _newLinkButton
 			// 
 			this._newLinkButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this._newLinkButton.Image = global::X2AddOnTechTreeEditor.Icons.CreateConnection;
 			resources.ApplyResources(this._newLinkButton, "_newLinkButton");
 			this._newLinkButton.Name = "_newLinkButton";
+			this._newLinkButton.Click += new System.EventHandler(this._newLinkButton_Click);
 			// 
 			// _deleteLinkButton
 			// 
 			this._deleteLinkButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this._deleteLinkButton.Image = global::X2AddOnTechTreeEditor.Icons.DeleteConnection;
 			resources.ApplyResources(this._deleteLinkButton, "_deleteLinkButton");
 			this._deleteLinkButton.Name = "_deleteLinkButton";
+			this._deleteLinkButton.Click += new System.EventHandler(this._deleteLinkButton_Click);
+			// 
+			// _newMakeAvailDepButton
+			// 
+			this._newMakeAvailDepButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			resources.ApplyResources(this._newMakeAvailDepButton, "_newMakeAvailDepButton");
+			this._newMakeAvailDepButton.Image = global::X2AddOnTechTreeEditor.Icons.MakeAvailDependency;
+			this._newMakeAvailDepButton.Name = "_newMakeAvailDepButton";
+			this._newMakeAvailDepButton.Click += new System.EventHandler(this._newMakeAvailDepButton_Click);
+			// 
+			// _newSuccResDepButton
+			// 
+			this._newSuccResDepButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			resources.ApplyResources(this._newSuccResDepButton, "_newSuccResDepButton");
+			this._newSuccResDepButton.Image = global::X2AddOnTechTreeEditor.Icons.UpgradeDependency;
+			this._newSuccResDepButton.Name = "_newSuccResDepButton";
+			this._newSuccResDepButton.Click += new System.EventHandler(this._newSuccResDepButton_Click);
+			// 
+			// _newBuildingDepButton
+			// 
+			this._newBuildingDepButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			resources.ApplyResources(this._newBuildingDepButton, "_newBuildingDepButton");
+			this._newBuildingDepButton.Image = global::X2AddOnTechTreeEditor.Icons.BuildingDependeny;
+			this._newBuildingDepButton.Name = "_newBuildingDepButton";
+			this._newBuildingDepButton.Click += new System.EventHandler(this._newBuildingDepButton_Click);
+			// 
+			// _deleteDepButton
+			// 
+			this._deleteDepButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			resources.ApplyResources(this._deleteDepButton, "_deleteDepButton");
+			this._deleteDepButton.Image = global::X2AddOnTechTreeEditor.Icons.DeleteDependency;
+			this._deleteDepButton.Name = "_deleteDepButton";
+			this._deleteDepButton.Click += new System.EventHandler(this._deleteDepButton_Click);
 			// 
 			// _deleteElementButton
 			// 
 			this._deleteElementButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this._deleteElementButton.Image = global::X2AddOnTechTreeEditor.Icons.DeleteElement;
 			resources.ApplyResources(this._deleteElementButton, "_deleteElementButton");
 			this._deleteElementButton.Name = "_deleteElementButton";
+			this._deleteElementButton.Click += new System.EventHandler(this._deleteElementButton_Click);
 			// 
 			// _importDATMenuButton
 			// 
-			this._importDATMenuButton.Image = global::X2AddOnTechTreeEditor.Icons.NewProject;
-			this._importDATMenuButton.Name = "_importDATMenuButton";
 			resources.ApplyResources(this._importDATMenuButton, "_importDATMenuButton");
+			this._importDATMenuButton.Name = "_importDATMenuButton";
 			this._importDATMenuButton.Click += new System.EventHandler(this._importDATMenuButton_Click);
 			// 
 			// _openProjectMenuButton
 			// 
-			this._openProjectMenuButton.Image = global::X2AddOnTechTreeEditor.Icons.OpenProject;
-			this._openProjectMenuButton.Name = "_openProjectMenuButton";
 			resources.ApplyResources(this._openProjectMenuButton, "_openProjectMenuButton");
+			this._openProjectMenuButton.Name = "_openProjectMenuButton";
 			this._openProjectMenuButton.Click += new System.EventHandler(this._openProjectMenuButton_Click);
 			// 
 			// _saveProjectMenuButton
 			// 
 			resources.ApplyResources(this._saveProjectMenuButton, "_saveProjectMenuButton");
-			this._saveProjectMenuButton.Image = global::X2AddOnTechTreeEditor.Icons.SaveProject;
 			this._saveProjectMenuButton.Name = "_saveProjectMenuButton";
 			this._saveProjectMenuButton.Click += new System.EventHandler(this._saveProjectMenuButton_Click);
 			// 
 			// _exitMenuButton
 			// 
-			this._exitMenuButton.Image = global::X2AddOnTechTreeEditor.Icons.Exit;
-			this._exitMenuButton.Name = "_exitMenuButton";
 			resources.ApplyResources(this._exitMenuButton, "_exitMenuButton");
+			this._exitMenuButton.Name = "_exitMenuButton";
 			this._exitMenuButton.Click += new System.EventHandler(this._exitMenuButton_Click);
 			// 
 			// _undoMenuButton
 			// 
-			this._undoMenuButton.Image = global::X2AddOnTechTreeEditor.Icons.Undo;
-			this._undoMenuButton.Name = "_undoMenuButton";
 			resources.ApplyResources(this._undoMenuButton, "_undoMenuButton");
+			this._undoMenuButton.Name = "_undoMenuButton";
 			// 
 			// redoMenuButton
 			// 
-			this.redoMenuButton.Image = global::X2AddOnTechTreeEditor.Icons.Redo;
-			this.redoMenuButton.Name = "redoMenuButton";
 			resources.ApplyResources(this.redoMenuButton, "redoMenuButton");
+			this.redoMenuButton.Name = "redoMenuButton";
 			// 
 			// _infoMenuButton
 			// 
-			this._infoMenuButton.Image = global::X2AddOnTechTreeEditor.Icons.Info;
-			this._infoMenuButton.Name = "_infoMenuButton";
 			resources.ApplyResources(this._infoMenuButton, "_infoMenuButton");
+			this._infoMenuButton.Name = "_infoMenuButton";
 			// 
 			// _importDATButton
 			// 
 			this._importDATButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this._importDATButton.Image = global::X2AddOnTechTreeEditor.Icons.NewProject;
 			resources.ApplyResources(this._importDATButton, "_importDATButton");
 			this._importDATButton.Name = "_importDATButton";
 			this._importDATButton.Click += new System.EventHandler(this._importDATButton_Click);
@@ -324,7 +397,6 @@
 			// _openProjectButton
 			// 
 			this._openProjectButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this._openProjectButton.Image = global::X2AddOnTechTreeEditor.Icons.OpenProject;
 			resources.ApplyResources(this._openProjectButton, "_openProjectButton");
 			this._openProjectButton.Name = "_openProjectButton";
 			this._openProjectButton.Click += new System.EventHandler(this._openProjectButton_Click);
@@ -333,23 +405,84 @@
 			// 
 			this._saveProjectButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			resources.ApplyResources(this._saveProjectButton, "_saveProjectButton");
-			this._saveProjectButton.Image = global::X2AddOnTechTreeEditor.Icons.SaveProject;
 			this._saveProjectButton.Name = "_saveProjectButton";
 			this._saveProjectButton.Click += new System.EventHandler(this._saveProjectButton_Click);
 			// 
-			// toolStripButton1
+			// _editorModeButton
 			// 
-			this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton1.Image = global::X2AddOnTechTreeEditor.Icons.EditorMode;
-			resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
-			this.toolStripButton1.Name = "toolStripButton1";
+			this._editorModeButton.Checked = true;
+			this._editorModeButton.CheckOnClick = true;
+			this._editorModeButton.CheckState = System.Windows.Forms.CheckState.Checked;
+			this._editorModeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			resources.ApplyResources(this._editorModeButton, "_editorModeButton");
+			this._editorModeButton.Name = "_editorModeButton";
+			this._editorModeButton.CheckedChanged += new System.EventHandler(this._editorModeButton_CheckedChanged);
 			// 
-			// toolStripButton2
+			// _standardModeButton
 			// 
-			this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton2.Image = global::X2AddOnTechTreeEditor.Icons.StandardMode;
-			resources.ApplyResources(this.toolStripButton2, "toolStripButton2");
-			this.toolStripButton2.Name = "toolStripButton2";
+			this._standardModeButton.CheckOnClick = true;
+			this._standardModeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			resources.ApplyResources(this._standardModeButton, "_standardModeButton");
+			this._standardModeButton.Name = "_standardModeButton";
+			this._standardModeButton.CheckedChanged += new System.EventHandler(this._standardModeButton_CheckedChanged);
+			// 
+			// _ageUpButton
+			// 
+			this._ageUpButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			resources.ApplyResources(this._ageUpButton, "_ageUpButton");
+			this._ageUpButton.Image = global::X2AddOnTechTreeEditor.Icons.AgeUp;
+			this._ageUpButton.Name = "_ageUpButton";
+			this._ageUpButton.Click += new System.EventHandler(this._ageUpButton_Click);
+			// 
+			// _ageDownButton
+			// 
+			this._ageDownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			resources.ApplyResources(this._ageDownButton, "_ageDownButton");
+			this._ageDownButton.Image = global::X2AddOnTechTreeEditor.Icons.AgeDown;
+			this._ageDownButton.Name = "_ageDownButton";
+			this._ageDownButton.Click += new System.EventHandler(this._ageDownButton_Click);
+			// 
+			// _standardElementCheckButton
+			// 
+			this._standardElementCheckButton.CheckOnClick = true;
+			resources.ApplyResources(this._standardElementCheckButton, "_standardElementCheckButton");
+			this._standardElementCheckButton.Name = "_standardElementCheckButton";
+			this._standardElementCheckButton.CheckedChanged += new System.EventHandler(this._standardElementCheckButton_CheckedChanged);
+			// 
+			// _showInEditorCheckButton
+			// 
+			this._showInEditorCheckButton.CheckOnClick = true;
+			resources.ApplyResources(this._showInEditorCheckButton, "_showInEditorCheckButton");
+			this._showInEditorCheckButton.Name = "_showInEditorCheckButton";
+			this._showInEditorCheckButton.CheckedChanged += new System.EventHandler(this._showInEditorCheckButton_CheckedChanged);
+			// 
+			// _gaiaOnlyCheckButton
+			// 
+			this._gaiaOnlyCheckButton.CheckOnClick = true;
+			resources.ApplyResources(this._gaiaOnlyCheckButton, "_gaiaOnlyCheckButton");
+			this._gaiaOnlyCheckButton.Name = "_gaiaOnlyCheckButton";
+			this._gaiaOnlyCheckButton.CheckedChanged += new System.EventHandler(this._gaiaOnlyCheckButton_CheckedChanged);
+			// 
+			// _lockIDCheckButton
+			// 
+			this._lockIDCheckButton.CheckOnClick = true;
+			resources.ApplyResources(this._lockIDCheckButton, "_lockIDCheckButton");
+			this._lockIDCheckButton.Name = "_lockIDCheckButton";
+			this._lockIDCheckButton.CheckedChanged += new System.EventHandler(this._lockIDCheckButton_CheckedChanged);
+			// 
+			// _blockForCivCheckButton
+			// 
+			this._blockForCivCheckButton.CheckOnClick = true;
+			resources.ApplyResources(this._blockForCivCheckButton, "_blockForCivCheckButton");
+			this._blockForCivCheckButton.Name = "_blockForCivCheckButton";
+			this._blockForCivCheckButton.CheckedChanged += new System.EventHandler(this._blockForCivCheckButton_CheckedChanged);
+			// 
+			// _freeForCivCheckButton
+			// 
+			this._freeForCivCheckButton.CheckOnClick = true;
+			resources.ApplyResources(this._freeForCivCheckButton, "_freeForCivCheckButton");
+			this._freeForCivCheckButton.Name = "_freeForCivCheckButton";
+			this._freeForCivCheckButton.CheckedChanged += new System.EventHandler(this._freeForCivCheckButton_CheckedChanged);
 			// 
 			// _renderPanel
 			// 
@@ -387,6 +520,8 @@
 			this._projectToolBar.PerformLayout();
 			this._mainToolBar.ResumeLayout(false);
 			this._mainToolBar.PerformLayout();
+			this._addToolsBar.ResumeLayout(false);
+			this._addToolsBar.PerformLayout();
 			this._techTreeElementContextMenu.ResumeLayout(false);
 			this.ResumeLayout(false);
 
@@ -403,7 +538,7 @@
 		private System.Windows.Forms.ToolStripComboBox _civSelectComboBox;
 		private System.Windows.Forms.ToolStripStatusLabel _statusLabel;
 		private System.Windows.Forms.ContextMenuStrip _techTreeElementContextMenu;
-		private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem _standardElementCheckButton;
 		private System.Windows.Forms.ToolStripStatusLabel _selectedNameLabel;
 		private System.Windows.Forms.ToolStripMenuItem _importDATMenuButton;
 		private RenderControl _renderPanel;
@@ -428,8 +563,23 @@
 		private System.Windows.Forms.ToolStripButton _newLinkButton;
 		private System.Windows.Forms.ToolStripButton _deleteLinkButton;
 		private System.Windows.Forms.ToolStripButton _deleteElementButton;
-		private System.Windows.Forms.ToolStripButton toolStripButton1;
-		private System.Windows.Forms.ToolStripButton toolStripButton2;
+		private System.Windows.Forms.ToolStripButton _editorModeButton;
+		private System.Windows.Forms.ToolStripButton _standardModeButton;
+		private System.Windows.Forms.ToolStripMenuItem _showInEditorCheckButton;
+		private System.Windows.Forms.ToolStripMenuItem _gaiaOnlyCheckButton;
+		private System.Windows.Forms.ToolStripMenuItem _lockIDCheckButton;
+		private System.Windows.Forms.ToolStripSeparator _menuSeparator3;
+		private System.Windows.Forms.ToolStripMenuItem _blockForCivCheckButton;
+		private System.Windows.Forms.ToolStripMenuItem _freeForCivCheckButton;
+		private System.Windows.Forms.ToolStripSeparator _menuSeparator4;
+		private System.Windows.Forms.ToolStrip _addToolsBar;
+		private System.Windows.Forms.ToolStripButton _ageUpButton;
+		private System.Windows.Forms.ToolStripButton _ageDownButton;
+		private System.Windows.Forms.ToolStripButton _newEyeCandyButton;
+		private System.Windows.Forms.ToolStripButton _newMakeAvailDepButton;
+		private System.Windows.Forms.ToolStripButton _newSuccResDepButton;
+		private System.Windows.Forms.ToolStripButton _newBuildingDepButton;
+		private System.Windows.Forms.ToolStripButton _deleteDepButton;
 	}
 }
 

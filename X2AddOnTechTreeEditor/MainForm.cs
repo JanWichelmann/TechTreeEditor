@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using X2AddOnTechTreeEditor;
+using X2AddOnTechTreeEditor.TechTreeStructure;
 
 namespace X2AddOnTechTreeEditor
 {
@@ -38,12 +39,27 @@ namespace X2AddOnTechTreeEditor
 		/// <summary>
 		/// Das aktuell ausgewählte Techtree-Element.
 		/// </summary>
-		private TechTreeStructure.TechTreeElement _selectedElement = null;
+		private TechTreeElement _selectedElement = null;
+
+		/// <summary>
+		/// Die Konfiguration der aktuell ausgewählten Kultur.
+		/// </summary>
+		private TechTreeFile.CivTreeConfig _currCivConfig = null;
 
 		/// <summary>
 		/// Gibt an, ob die letzten Änderungen gespeichert wurden.
 		/// </summary>
 		private bool _saved = true;
+
+		/// <summary>
+		/// Die aktuell aktive Baum-Operation.
+		/// </summary>
+		private TreeOperations _currentOperation = TreeOperations.None;
+
+		/// <summary>
+		/// Das zuerst ausgewählte Element der aktuell aktiven Operation.
+		/// </summary>
+		private TechTreeElement _currentOperationFirstSelection = null;
 
 		#endregion Variablen
 
@@ -117,12 +133,30 @@ namespace X2AddOnTechTreeEditor
 			SetStatus(Strings.MainForm_Status_PreparingTreeRendering);
 			_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
 
+			// Buttons freischalten
+			_saveProjectMenuButton.Enabled = true;
+			_saveProjectButton.Enabled = true;
+			_civSelectComboBox.Enabled = true;
+			_editorModeButton.Enabled = true;
+			_standardModeButton.Enabled = true;
+			_ageUpButton.Enabled = true;
+			_ageDownButton.Enabled = true;
+			_newUnitButton.Enabled = true;
+			_newBuildingButton.Enabled = true;
+			_newResearchButton.Enabled = true;
+			_newEyeCandyButton.Enabled = true;
+			_newLinkButton.Enabled = true;
+			_deleteLinkButton.Enabled = true;
+			_newMakeAvailDepButton.Enabled = true;
+			_newSuccResDepButton.Enabled = true;
+			_newBuildingDepButton.Enabled = true;
+			_deleteDepButton.Enabled = true;
+			_deleteElementButton.Enabled = true;
+
 			// Fertig
 			_saved = true;
 			_dataLoaded = true;
 			this.Cursor = Cursors.Default;
-			_saveProjectMenuButton.Enabled = true;
-			_saveProjectButton.Enabled = true;
 			UpdateFormTitle();
 			SetStatus(Strings.MainForm_Status_Ready);
 		}
@@ -185,6 +219,60 @@ namespace X2AddOnTechTreeEditor
 			Application.DoEvents();
 		}
 
+		/// <summary>
+		/// Aktualisiert die aktuelle Operation und zeigt einen entsprechenden Hinweis an.
+		/// </summary>
+		/// <param name="operation">Die neue aktuelle Operation.</param>
+		private void UpdateCurrentOperation(TreeOperations operation)
+		{
+			// Operation zuweisen
+			_currentOperation = operation;
+
+			// Status-Text aktualisieren
+			switch(operation)
+			{
+				case TreeOperations.None:
+					SetStatus(Strings.MainForm_Status_Ready);
+					break;
+				case TreeOperations.NewLinkFirstElement:
+					SetStatus("Bitte das unterzuordnene Element auswählen...");
+					break;
+				case TreeOperations.NewLinkSecondElement:
+					SetStatus("Bitte das neue Ober-Element auswählen...");
+					break;
+				case TreeOperations.DeleteLink:
+					SetStatus("Bitte das abzutrennende Unterelement auswählen...");
+					break;
+				case TreeOperations.DeleteElement:
+					SetStatus("Bitte das löschende Element auswählen...");
+					break;
+				case TreeOperations.NewMakeAvailDependencyFirstElement:
+					SetStatus("Bitte das zu aktivierende Element auswählen...");
+					break;
+				case TreeOperations.NewMakeAvailDependencySecondElement:
+					SetStatus("Bitte die aktivierende Technologie auswählen...");
+					break;
+				case TreeOperations.NewSuccessorResearchDependencyFirstElement:
+					SetStatus("Bitte das weiterzuentwickelnde Element auswählen...");
+					break;
+				case TreeOperations.NewSuccessorResearchDependencySecondElement:
+					SetStatus("Bitte die weiterentwickelnde Technologie auswählen...");
+					break;
+				case TreeOperations.NewBuildingDependencyFirstElement:
+					SetStatus("Bitte das abhängige Element auswählen...");
+					break;
+				case TreeOperations.NewBuildingDependencySecondElement:
+					SetStatus("Bitte das benötigte Gebäude auswählen...");
+					break;
+				case TreeOperations.DeleteDependencyFirstElement:
+					SetStatus("Bitte das abhängige Element auswählen...");
+					break;
+				case TreeOperations.DeleteDependencySecondElement:
+					SetStatus("Bitte das referenzierte Element auswählen...");
+					break;
+			}
+		}
+
 		#endregion Funktionen
 
 		#region Ereignishandler
@@ -217,7 +305,7 @@ namespace X2AddOnTechTreeEditor
 			// Daten an Render-Control übergeben
 			SetStatus(Strings.MainForm_Status_PassRenderData);
 			_renderPanel.UpdateIconData(_pal50500, _iconsResearches, _iconsUnits, _iconsBuildings);
-			
+
 			// Fertig
 			_dataLoaded = true;
 			this.Cursor = Cursors.Default;
@@ -231,11 +319,11 @@ namespace X2AddOnTechTreeEditor
 				return;
 
 			// Daten für die ausgewählte Zivilisation einfügen
-			TechTreeFile.CivTreeConfig selCivTree = _projectFile.CivTrees[(int)(uint)_civSelectComboBox.ComboBox.SelectedValue];
-			_projectFile.ApplyCivConfiguration(selCivTree);
+			_currCivConfig = _projectFile.CivTrees[(int)(uint)_civSelectComboBox.ComboBox.SelectedValue];
+			_projectFile.ApplyCivConfiguration(_currCivConfig);
 
 			// Neuzeichnen
-			_renderPanel.Invalidate();
+			_renderPanel.Redraw();
 		}
 
 		private void _renderPanel_SelectionChanged(object sender, RenderControl.SelectionChangedEventArgs e)
@@ -248,6 +336,60 @@ namespace X2AddOnTechTreeEditor
 			{
 				// Name des gewählten Elements anzeigen
 				_selectedNameLabel.Text = string.Format(Strings.MainForm_CurrentSelection, _selectedElement.Name);
+
+				// Operationsmodus vorgehen
+				if(_currentOperation == TreeOperations.None)
+				{
+					// Standard-Element-Button aktualisieren
+					if(_selectedElement.GetType() == typeof(TechTreeBuilding))
+					{
+						_standardElementCheckButton.Enabled = true;
+						_standardElementCheckButton.Checked = ((TechTreeBuilding)_selectedElement).StandardElement;
+					}
+					else if(_selectedElement.GetType() == typeof(TechTreeCreatable))
+					{
+						_standardElementCheckButton.Enabled = true;
+						_standardElementCheckButton.Checked = ((TechTreeCreatable)_selectedElement).StandardElement;
+					}
+					else
+					{
+						_standardElementCheckButton.Enabled = (_selectedElement.GetType() == typeof(TechTreeResearch)); // Technologien sind immer Standard-Elemente
+						_standardElementCheckButton.Checked = false;
+					}
+
+					// Editor-Button aktualisieren
+					_showInEditorCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.ShowInEditor) == TechTreeElement.ElementFlags.ShowInEditor);
+
+					// Gaia-Button aktualisieren
+					if(_standardElementCheckButton.Checked)
+					{
+						_gaiaOnlyCheckButton.Enabled = false;
+						_gaiaOnlyCheckButton.Checked = false;
+					}
+					else
+					{
+						_gaiaOnlyCheckButton.Enabled = true;
+						_gaiaOnlyCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.GaiaOnly) == TechTreeElement.ElementFlags.GaiaOnly);
+					}
+
+					// ID-Sperr-Button aktualisieren
+					_lockIDCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.LockID) == TechTreeElement.ElementFlags.LockID);
+
+					// Blockier-Button aktualisieren
+					_blockForCivCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.Blocked) == TechTreeElement.ElementFlags.Blocked);
+
+					// Kostenlos-Button aktualisieren
+					if(_blockForCivCheckButton.Checked)
+					{
+						_freeForCivCheckButton.Enabled = false;
+						_freeForCivCheckButton.Checked = false;
+					}
+					else
+					{
+						_freeForCivCheckButton.Enabled = true;
+						_freeForCivCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.Free) == TechTreeElement.ElementFlags.Free);
+					}
+				}
 			}
 			else
 			{
@@ -258,6 +400,10 @@ namespace X2AddOnTechTreeEditor
 
 		private void _renderPanel_MouseClick(object sender, MouseEventArgs e)
 		{
+			// Wenn Daten noch nicht geladen sind, nichts tun
+			if(!_dataLoaded)
+				return;
+
 			// Kontextmenü immer verbergen
 			_techTreeElementContextMenu.Hide();
 
@@ -266,6 +412,213 @@ namespace X2AddOnTechTreeEditor
 			{
 				// Kontextmenü zeigen an aktueller Mausposition
 				_techTreeElementContextMenu.Show(_renderPanel, e.Location);
+			}
+
+			// Bei linkem Mauszeiger ggf. Operation ausführen
+			else if(e.Button == MouseButtons.Left)
+			{
+				// Fallunterscheidung der aktuell aktiven Operation
+				switch(_currentOperation)
+				{
+					// Element unterordnen: Erstes Element (Kindelement)
+					case TreeOperations.NewLinkFirstElement:
+						{
+							// Element speichern
+							_currentOperationFirstSelection = _selectedElement;
+
+							// Zweites Element auswählen lassen
+							UpdateCurrentOperation(TreeOperations.NewLinkSecondElement);
+						}
+						break;
+
+					// Element unterordnen: Zweites Element (Elternelement)
+					case TreeOperations.NewLinkSecondElement:
+						{
+							// Änderung durchführen
+							// Shift => Gebäude als erschaffbare Einheit unterordnen, nicht als Nachfolger
+							_projectFile.CreateElementLink(_selectedElement, _currentOperationFirstSelection, ModifierKeys.HasFlag(Keys.Shift));
+
+							// Fertig
+							UpdateCurrentOperation(TreeOperations.None);
+
+							// Baum neu berechnen
+							_renderPanel.UpdateTreeData();
+						}
+						break;
+
+					// Unterordnung löschen
+					case TreeOperations.DeleteLink:
+						{
+							// Änderung durchführen
+							_projectFile.DeleteElementLink(_selectedElement);
+
+							// Fertig
+							UpdateCurrentOperation(TreeOperations.None);
+
+							// Baum neu berechnen
+							_renderPanel.UpdateTreeData();
+						}
+						break;
+
+					// Element löschen
+					case TreeOperations.DeleteElement:
+						{
+							// Änderung durchführen
+							if(_selectedElement != null)
+								if(!_projectFile.DestroyElement(_selectedElement))
+								{
+									// Es wurden noch nicht alle Referenzen entfernt
+									MessageBox.Show("Fehler: Es wurden noch nicht alle Referenzen gelöscht!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+								}
+
+							// Fertig
+							UpdateCurrentOperation(TreeOperations.None);
+
+							// Baum neu berechnen
+							_renderPanel.UpdateTreeData();
+						}
+						break;
+
+					// Freischalt-Abhängigkeit erstellen: Erstes Element (abhängiges Grundelement)
+					case TreeOperations.NewMakeAvailDependencyFirstElement:
+						{
+							// Wurde überhaupt etwas ausgewählt?
+							if(_selectedElement == null)
+							{
+								// Abbrechen
+								UpdateCurrentOperation(TreeOperations.None);
+							}
+							else
+							{
+								// Element speichern
+								_currentOperationFirstSelection = _selectedElement;
+
+								// Zweites Element auswählen lassen
+								UpdateCurrentOperation(TreeOperations.NewMakeAvailDependencySecondElement);
+							}
+						}
+						break;
+
+					// Freischalt-Abhängigkeit erstellen: Zweites Element (referenziertes Element)
+					case TreeOperations.NewMakeAvailDependencySecondElement:
+						{
+							// Änderung durchführen
+							if(_selectedElement != null && _selectedElement.GetType() == typeof(TechTreeResearch))
+								_projectFile.CreateMakeAvailDependency(_currentOperationFirstSelection, (TechTreeResearch)_selectedElement);
+
+							// Fertig
+							UpdateCurrentOperation(TreeOperations.None);
+
+							// Neuzeichnen
+							_renderPanel.Redraw();
+						}
+						break;
+
+					// Weiterentwicklungs-Abhängigkeit erstellen: Erstes Element (weiterzuentwickelndes Grundelement)
+					case TreeOperations.NewSuccessorResearchDependencyFirstElement:
+						{
+							// Wurde überhaupt etwas ausgewählt?
+							if(_selectedElement == null)
+							{
+								// Abbrechen
+								UpdateCurrentOperation(TreeOperations.None);
+							}
+							else
+							{
+								// Element speichern
+								_currentOperationFirstSelection = _selectedElement;
+
+								// Zweites Element auswählen lassen
+								UpdateCurrentOperation(TreeOperations.NewSuccessorResearchDependencySecondElement);
+							}
+						}
+						break;
+
+					// Weiterentwicklungs-Abhängigkeit erstellen: Zweites Element (weiterentwickelnde Technologie)
+					case TreeOperations.NewSuccessorResearchDependencySecondElement:
+						{
+							// Änderung durchführen
+							if(_selectedElement != null && _selectedElement.GetType() == typeof(TechTreeResearch))
+								_projectFile.CreateUpgradeDependency(_currentOperationFirstSelection, (TechTreeResearch)_selectedElement);
+
+							// Fertig
+							UpdateCurrentOperation(TreeOperations.None);
+
+							// Neuzeichnen
+							_renderPanel.Redraw();
+						}
+						break;
+
+					// Gebäude-Abhängigkeit erstellen: Erstes Element (abhängiges Element)
+					case TreeOperations.NewBuildingDependencyFirstElement:
+						{
+							// Wurde überhaupt etwas ausgewählt?
+							if(_selectedElement == null)
+							{
+								// Abbrechen
+								UpdateCurrentOperation(TreeOperations.None);
+							}
+							else
+							{
+								// Element speichern
+								_currentOperationFirstSelection = _selectedElement;
+
+								// Zweites Element auswählen lassen
+								UpdateCurrentOperation(TreeOperations.NewBuildingDependencySecondElement);
+							}
+						}
+						break;
+
+					// Gebäude-Abhängigkeit erstellen: Zweites Element (aktivierendes Gebäude)
+					case TreeOperations.NewBuildingDependencySecondElement:
+						{
+							// Änderung durchführen
+							if(_selectedElement != null && _selectedElement.GetType() == typeof(TechTreeBuilding))
+								_projectFile.CreateBuildingDependency(_currentOperationFirstSelection, (TechTreeBuilding)_selectedElement);
+
+							// Fertig
+							UpdateCurrentOperation(TreeOperations.None);
+
+							// Neuzeichnen
+							_renderPanel.Redraw();
+						}
+						break;
+
+					// Abhängigkeit löschen: Erstes Element (abhängiges Element)
+					case TreeOperations.DeleteDependencyFirstElement:
+						{
+							// Wurde überhaupt etwas ausgewählt?
+							if(_selectedElement == null)
+							{
+								// Abbrechen
+								UpdateCurrentOperation(TreeOperations.None);
+							}
+							else
+							{
+								// Element speichern
+								_currentOperationFirstSelection = _selectedElement;
+
+								// Zweites Element auswählen lassen
+								UpdateCurrentOperation(TreeOperations.DeleteDependencySecondElement);
+							}
+						}
+						break;
+
+					// Abhängigkeit löschen: Zweites Element (referenziertes Element)
+					case TreeOperations.DeleteDependencySecondElement:
+						{
+							// Änderung durchführen
+							if(_selectedElement != null)
+								_projectFile.DeleteDependency(_currentOperationFirstSelection, _selectedElement);
+
+							// Fertig
+							UpdateCurrentOperation(TreeOperations.None);
+
+							// Neuzeichnen
+							_renderPanel.Redraw();
+						}
+						break;
+				}
 			}
 		}
 
@@ -353,6 +706,325 @@ namespace X2AddOnTechTreeEditor
 			ToolStripManager.SaveSettings(this, "ToolBarSettings");
 		}
 
+		private void _editorModeButton_CheckedChanged(object sender, EventArgs e)
+		{
+			// Markiert?
+			if(_editorModeButton.Checked)
+				_standardModeButton.CheckState = CheckState.Unchecked;
+
+			// Render-Modus setzen
+			_renderPanel.SetRenderMode(false);
+		}
+
+		private void _standardModeButton_CheckedChanged(object sender, EventArgs e)
+		{
+			// Markiert?
+			if(_standardModeButton.Checked)
+				_editorModeButton.CheckState = CheckState.Unchecked;
+
+			// Render-Modus setzen
+			_renderPanel.SetRenderMode(true);
+		}
+
+		private void _techTreeElementContextMenu_MouseEnter(object sender, EventArgs e)
+		{
+			// Kontextmenü anzeigen lassen
+			_techTreeElementContextMenu.AutoClose = false;
+		}
+
+		private void _techTreeElementContextMenu_MouseLeave(object sender, EventArgs e)
+		{
+			// Kontextmenü ausblenden lassen
+			_techTreeElementContextMenu.AutoClose = true;
+		}
+
+		private void _standardElementCheckButton_CheckedChanged(object sender, EventArgs e)
+		{
+			// Element ausgewählt?
+			if(_selectedElement != null)
+			{
+				// Flag aktualisieren
+				if(_selectedElement.GetType() == typeof(TechTreeBuilding))
+					((TechTreeBuilding)_selectedElement).StandardElement = _standardElementCheckButton.Checked;
+				else if(_selectedElement.GetType() == typeof(TechTreeCreatable))
+					((TechTreeCreatable)_selectedElement).StandardElement = _standardElementCheckButton.Checked;
+
+				// Gaia-Button aktualisieren
+				if(_standardElementCheckButton.Checked)
+				{
+					// Standard-Element-Eigenschaft überstimmt Gaia
+					_gaiaOnlyCheckButton.Checked = false;
+					_gaiaOnlyCheckButton.Enabled = false;
+				}
+				else
+				{
+					// Gaia erlauben
+					_gaiaOnlyCheckButton.Enabled = true;
+				}
+			}
+
+			// Neuzeichnen
+			_renderPanel.Redraw();
+		}
+
+		private void _showInEditorCheckButton_CheckedChanged(object sender, EventArgs e)
+		{
+			// Element ausgewählt?
+			if(_selectedElement != null)
+			{
+				// Flag aktualisieren
+				if(_showInEditorCheckButton.Checked)
+					_selectedElement.Flags |= TechTreeElement.ElementFlags.ShowInEditor;
+				else
+					_selectedElement.Flags &= ~TechTreeElement.ElementFlags.ShowInEditor;
+			}
+
+			// Neuzeichnen
+			_renderPanel.Redraw();
+		}
+
+		private void _gaiaOnlyCheckButton_CheckedChanged(object sender, EventArgs e)
+		{
+			// Element ausgewählt?
+			if(_selectedElement != null)
+			{
+				// Flag aktualisieren
+				if(_gaiaOnlyCheckButton.Checked)
+					_selectedElement.Flags |= TechTreeElement.ElementFlags.GaiaOnly;
+				else
+					_selectedElement.Flags &= ~TechTreeElement.ElementFlags.GaiaOnly;
+			}
+
+			// Neuzeichnen
+			_renderPanel.Redraw();
+		}
+
+		private void _lockIDCheckButton_CheckedChanged(object sender, EventArgs e)
+		{
+			// Element ausgewählt?
+			if(_selectedElement != null)
+			{
+				// Flag aktualisieren
+				if(_lockIDCheckButton.Checked)
+					_selectedElement.Flags |= TechTreeElement.ElementFlags.LockID;
+				else
+					_selectedElement.Flags &= ~TechTreeElement.ElementFlags.LockID;
+			}
+
+			// Neuzeichnen
+			_renderPanel.Redraw();
+		}
+
+		private void _blockForCivCheckButton_CheckedChanged(object sender, EventArgs e)
+		{
+			// Element ausgewählt?
+			if(_selectedElement != null)
+			{
+				// Kultur-Block-Liste aktualisieren
+				if(_blockForCivCheckButton.Checked)
+				{
+					// Element blockieren
+					if(!_currCivConfig.BlockedElements.Contains(_selectedElement))
+						_currCivConfig.BlockedElements.Add(_selectedElement);
+
+					// Element kann nicht mehr kostenlos sein
+					_freeForCivCheckButton.Checked = false;
+					_freeForCivCheckButton.Enabled = false;
+				}
+				else
+				{
+					// Element freigeben
+					if(_currCivConfig.BlockedElements.Contains(_selectedElement))
+						_currCivConfig.BlockedElements.Remove(_selectedElement);
+
+					// Element kann kostenlos sein
+					_freeForCivCheckButton.Enabled = true;
+				}
+
+				// Flag aktualisieren
+				if(_blockForCivCheckButton.Checked)
+					_selectedElement.Flags |= TechTreeElement.ElementFlags.Blocked;
+				else
+					_selectedElement.Flags &= ~TechTreeElement.ElementFlags.Blocked;
+			}
+
+			// Neuzeichnen
+			_renderPanel.Redraw();
+		}
+
+		private void _freeForCivCheckButton_CheckedChanged(object sender, EventArgs e)
+		{
+			// Element ausgewählt?
+			if(_selectedElement != null)
+			{
+				// Kultur-Kostenlos-Liste aktualisieren
+				if(_freeForCivCheckButton.Checked)
+				{
+					// Element kostenlos machen
+					if(!_currCivConfig.FreeElements.Contains(_selectedElement))
+						_currCivConfig.FreeElements.Add(_selectedElement);
+				}
+				else
+				{
+					// Element aus Liste löschen
+					if(_currCivConfig.FreeElements.Contains(_selectedElement))
+						_currCivConfig.FreeElements.Remove(_selectedElement);
+				}
+
+				// Flag aktualisieren
+				if(_freeForCivCheckButton.Checked)
+					_selectedElement.Flags |= TechTreeElement.ElementFlags.Free;
+				else
+					_selectedElement.Flags &= ~TechTreeElement.ElementFlags.Free;
+			}
+
+			// Neuzeichnen
+			_renderPanel.Redraw();
+		}
+
+		private void _newLinkButton_Click(object sender, EventArgs e)
+		{
+			// Operation starten
+			UpdateCurrentOperation(TreeOperations.NewLinkFirstElement);
+		}
+
+		private void _deleteLinkButton_Click(object sender, EventArgs e)
+		{
+			// Operation starten
+			UpdateCurrentOperation(TreeOperations.DeleteLink);
+		}
+
+		private void _deleteElementButton_Click(object sender, EventArgs e)
+		{
+			// Operation starten
+			UpdateCurrentOperation(TreeOperations.DeleteElement);
+		}
+
+		private void _ageUpButton_Click(object sender, EventArgs e)
+		{
+			// Element ausgewählt?
+			if(_selectedElement != null)
+			{
+				// Element verschieben
+				_projectFile.MoveElementAge(_selectedElement, -1);
+
+				// Baum neu berechnen
+				_renderPanel.UpdateTreeData();
+			}
+		}
+
+		private void _ageDownButton_Click(object sender, EventArgs e)
+		{
+			// Element ausgewählt?
+			if(_selectedElement != null)
+			{
+				// Element verschieben
+				_projectFile.MoveElementAge(_selectedElement, 1);
+
+				// Baum neu berechnen
+				_renderPanel.UpdateTreeData();
+			}
+		}
+
+		private void _newMakeAvailDepButton_Click(object sender, EventArgs e)
+		{
+			// Operation starten
+			UpdateCurrentOperation(TreeOperations.NewMakeAvailDependencyFirstElement);
+		}
+
+		private void _newSuccResDepButton_Click(object sender, EventArgs e)
+		{
+			// Operation starten
+			UpdateCurrentOperation(TreeOperations.NewSuccessorResearchDependencyFirstElement);
+		}
+
+		private void _newBuildingDepButton_Click(object sender, EventArgs e)
+		{
+			// Operation starten
+			UpdateCurrentOperation(TreeOperations.NewBuildingDependencyFirstElement);
+		}
+
+		private void _deleteDepButton_Click(object sender, EventArgs e)
+		{
+			// Operation starten
+			UpdateCurrentOperation(TreeOperations.DeleteDependencyFirstElement);
+		}
+
 		#endregion Ereignishandler
+
+		#region Enumerationen
+
+		/// <summary>
+		/// Die durchführbaren Baumoperationen.
+		/// </summary>
+		private enum TreeOperations
+		{
+			/// <summary>
+			/// Es ist keine Operation aktiv.
+			/// </summary>
+			None,
+
+			/// <summary>
+			/// Das erste Element für die "Neue Verknüpfung"-Operation wird ausgewählt.
+			/// </summary>
+			NewLinkFirstElement,
+
+			/// <summary>
+			/// Das zweite Element für die "Neue Verknüpfung"-Operation wird ausgewählt.
+			/// </summary>
+			NewLinkSecondElement,
+
+			/// <summary>
+			/// Das zu lösende Element für die "Verknüpfung löschen"-Operation wird ausgewählt.
+			/// </summary>
+			DeleteLink,
+
+			/// <summary>
+			/// Das zu löschende Element für die "Element löschen"-Operation wird ausgewählt.
+			/// </summary>
+			DeleteElement,
+
+			/// <summary>
+			/// Das erste Element für die "Neue Freischalt-Abhängigkeit"-Operation wird ausgewählt.
+			/// </summary>
+			NewMakeAvailDependencyFirstElement,
+
+			/// <summary>
+			/// Das zweite Element für die "Neue Freischalt-Abhängigkeit"-Operation wird ausgewählt.
+			/// </summary>
+			NewMakeAvailDependencySecondElement,
+
+			/// <summary>
+			/// Das erste Element für die "Neue Weiterentwicklungs-Technologie-Abhängigkeit"-Operation wird ausgewählt.
+			/// </summary>
+			NewSuccessorResearchDependencyFirstElement,
+
+			/// <summary>
+			/// Das zweite Element für die "Neue Weiterentwicklungs-Technologie-Abhängigkeit"-Operation wird ausgewählt.
+			/// </summary>
+			NewSuccessorResearchDependencySecondElement,
+
+			/// <summary>
+			/// Das erste Element für die "Neue Gebäude-Abhängigkeit"-Operation wird ausgewählt.
+			/// </summary>
+			NewBuildingDependencyFirstElement,
+
+			/// <summary>
+			/// Das zweite Element für die "Neue Gebäude-Abhängigkeit"-Operation wird ausgewählt.
+			/// </summary>
+			NewBuildingDependencySecondElement,
+
+			/// <summary>
+			/// Das erste Element für die "Abhängigkeit löschen"-Operation wird ausgewählt.
+			/// </summary>
+			DeleteDependencyFirstElement,
+
+			/// <summary>
+			/// Das zweite Element für die "Abhängigkeit löschen"-Operation wird ausgewählt.
+			/// </summary>
+			DeleteDependencySecondElement
+		}
+
+		#endregion
 	}
 }

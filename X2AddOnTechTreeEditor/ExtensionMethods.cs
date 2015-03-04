@@ -11,7 +11,7 @@ namespace X2AddOnTechTreeEditor
 	/// <summary>
 	/// Definiert Hilfsmethoden, die an vorhandene Typen per Extension angebunden werden.
 	/// </summary>
-	internal static class ExtensionMethods
+	public static class ExtensionMethods
 	{
 		/// <summary>
 		/// Schreibt ein Element mit dem angegebenen lokalen Namen und Zahlenwert. Der Wert wird in das XML-übliche Format konvertiert.

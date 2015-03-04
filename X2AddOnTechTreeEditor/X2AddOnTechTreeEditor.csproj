@@ -182,9 +182,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="compr.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Icons\CreateConnection.png" />
     <None Include="Icons\DeleteConnection.png" />
     <None Include="Icons\DeleteElement.png" />
@@ -203,9 +200,21 @@
     <None Include="Icons\Gaia.png" />
     <None Include="Icons\Free.png" />
     <None Include="Icons\SaveProject.png" />
+    <Content Include="Icons\AgeDown.png" />
+    <Content Include="Icons\AgeUp.png" />
+    <Content Include="Icons\BlockedTexture.png" />
+    <Content Include="Icons\BuildingDependeny.png" />
+    <Content Include="Icons\BuildingIcon.png" />
+    <Content Include="Icons\DeleteDependency.png" />
     <Content Include="Icons\EditorMode.png" />
+    <Content Include="Icons\EyeCandyIcon.png" />
+    <Content Include="Icons\MakeAvailDependency.png" />
+    <Content Include="Icons\NewEyeCandy.png" />
+    <Content Include="Icons\ResearchIcon.png" />
     <Content Include="Icons\StandardMode.png" />
     <Content Include="Icons\Symbol32.png" />
+    <Content Include="Icons\UnitIcon.png" />
+    <Content Include="Icons\UpgradeDependency.png" />
     <Content Include="symbol.ico" />
     <None Include="Resources\RenderFontConsolas.bmp" />
   </ItemGroup>

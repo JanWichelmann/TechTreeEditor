@@ -1,5 +1,6 @@
 ﻿using OpenTK.Graphics.OpenGL;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Xml;
@@ -112,7 +113,14 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// Ruft eine Liste mit den Kindelementen ab. Dies wird zur Umsetzung von Such-Rekursionen u.ä. benutzt.
 		/// </summary>
 		/// <returns></returns>
-		protected abstract List<TechTreeElement> GetChildren();
+		public abstract List<TechTreeElement> GetChildren();
+
+		/// <summary>
+		/// Gibt das übergebene Element frei, falls es diesem Element untergeordnet sein sollte.
+		/// </summary>
+		/// <param name="child">Das freizugebende Element.</param>
+		/// <returns></returns>
+		public abstract void RemoveChild(TechTreeElement child);
 
 		/// <summary>
 		/// Zeichnet Pfeile zu den Abhängigkeiten dieses Elements. Sollte nur nach der Draw-Methode aufgerufen werden, damit die Elementpositionen vorberechnet und gecached sind.
@@ -215,7 +223,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				// Falls Element überfahren, einen Auswahlrahmen zeichnen
 				if(Selected)
 				{
-					GL.Color4(Color.FromArgb(128,28,28));
+					GL.Color4(Color.FromArgb(128, 28, 28));
 					GL.LineWidth(3);
 					GL.Begin(PrimitiveType.LineLoop);
 					{
@@ -230,7 +238,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				else if(Hovered)
 				{
 					// Falls Element ausgewählt, einen Auswahlrahmen zeichnen
-					GL.Color4(Color.FromArgb(166,94,94));
+					GL.Color4(Color.FromArgb(166, 94, 94));
 					GL.LineWidth(3);
 					GL.Begin(PrimitiveType.LineLoop);
 					{
@@ -255,18 +263,19 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// Sucht rekursiv das Element, dessen Kästchen den angegebenen Bildpunkt enthält.
 		/// </summary>
 		/// <param name="point">Der zu suchende Bildpunkt.</param>
+		/// <param name="onlyStandardElements">Gibt an, ob nur Standardelemente gefunden werden sollen.</param>
 		/// <returns></returns>
-		public TechTreeElement FindBox(Point point)
+		public TechTreeElement FindBox(Point point, bool onlyStandardElements)
 		{
 			// Enthält das aktuelle Element den gegebenen Punkt?
-			if(_cacheBoxPosition.Contains(point))
+			if(_cacheBoxPosition.Contains(point) && (!onlyStandardElements || _standardElement))
 				return this;
 
 			// Rekursiv in den Kind-Elementen suchen
 			TechTreeElement res = null;
 			foreach(TechTreeElement child in GetChildren())
 			{
-				if((res = child.FindBox(point)) != null)
+				if((res = child.FindBox(point, onlyStandardElements)) != null)
 					break;
 			}
 
@@ -348,6 +357,31 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			return counter;
 		}
 
+		/// <summary>
+		/// Prüft, ob das übergebene Element eines der Kindelemente dieses Elements ist.
+		/// </summary>
+		/// <param name="element">Das zu suchende Element.</param>
+		/// <returns></returns>
+		public bool HasChild(TechTreeElement element)
+		{
+			// Kind-Element?
+			if(this == element)
+				return true;
+
+			// Rekursiver Aufruf
+			return GetChildren().Exists(c => c.HasChild(element));
+		}
+
+		/// <summary>
+		/// Prüft, ob das übergebene Element Kindelemente hat.
+		/// </summary>
+		/// <returns></returns>
+		public bool HasChildren()
+		{
+			// Rekursiver Aufruf
+			return GetChildren().Count > 0;
+		}
+
 		#endregion Funktionen
 
 		#region Eigenschaften
@@ -382,15 +416,14 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			/// Kein Flag gesetzt.
 			/// </summary>
 			None = 0,
-			
+
 			/// <summary>
 			/// Macht das Element im Editor verfügbar.
 			/// </summary>
 			ShowInEditor = 1,
 
 			/// <summary>
-			/// Schaltet das Element im Editor nur für den Spieler Gaia frei.
-			/// Hat keine Wirkung, falls ShowInEditor-Flag nicht gesetzt.
+			/// Schaltet das Element nur für den Spieler Gaia frei.
 			/// </summary>
 			GaiaOnly = 2,
 
