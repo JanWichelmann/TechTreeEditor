@@ -242,7 +242,6 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 
 			// Baumbreite muss berechnet werden
 			TreeWidth = 0;
-			StandardTreeWidth = 0;
 
 			// Abmessungen des Baums bestimmen
 			if(Children.Count > 0)
@@ -258,7 +257,6 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 
 					// Unterbaumbreite zur Gesamtbreite hinzuaddieren
 					TreeWidth += child.Item2.TreeWidth;
-					StandardTreeWidth += child.Item2.StandardTreeWidth;
 
 					// Zurückgegebene Zeitalter-Werte abgleichen => es wird immer das Maximum pro Zeitalter genommen
 					ageCounts = ageCounts.Zip(childAgeCounts, (a1, a2) => Math.Max(a1, a2)).ToList();
@@ -271,18 +269,11 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				// Baumbreite addieren
 				Successor.CalculateTreeBounds(ref ageCounts);
 				TreeWidth += Successor.TreeWidth;
-				StandardTreeWidth += Successor.StandardTreeWidth;
 			}
 
 			// Die Baumbreite muss mindestens 1 sein
 			if(TreeWidth == 0)
 				TreeWidth = 1;
-
-			// Die Standard-Baumbreite muss bei Nicht-Standard-Elementen 0 sein, sonst mindestens 1
-			if(!_standardElement)
-				StandardTreeWidth = 0;
-			else if(StandardTreeWidth == 0)
-				StandardTreeWidth = 1;
 		}
 
 		/// <summary>

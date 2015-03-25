@@ -22,21 +22,21 @@ namespace X2AddOnTechTreeEditor {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Strings {
+    internal class Strings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        public Strings() {
+        internal Strings() {
         }
         
         /// <summary>
         ///   Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("X2AddOnTechTreeEditor.Strings", typeof(Strings).Assembly);
@@ -51,7 +51,7 @@ namespace X2AddOnTechTreeEditor {
         ///   Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,9 +61,18 @@ namespace X2AddOnTechTreeEditor {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        /// </summary>
+        internal static string ClassNames {
+            get {
+                return ResourceManager.GetString("ClassNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Aktuelle Auswahl: {0} ähnelt.
         /// </summary>
-        public static string MainForm_CurrentSelection {
+        internal static string MainForm_CurrentSelection {
             get {
                 return ResourceManager.GetString("MainForm_CurrentSelection", resourceCulture);
             }
@@ -72,7 +81,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Es gibt noch ungespeicherte Änderungen. Sollen diese gespeichert werden? ähnelt.
         /// </summary>
-        public static string MainForm_Message_CloseProjectSaveChanges {
+        internal static string MainForm_Message_CloseProjectSaveChanges {
             get {
                 return ResourceManager.GetString("MainForm_Message_CloseProjectSaveChanges", resourceCulture);
             }
@@ -81,7 +90,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Projekt schließen ähnelt.
         /// </summary>
-        public static string MainForm_Message_CloseProjectSaveChanges_Title {
+        internal static string MainForm_Message_CloseProjectSaveChanges_Title {
             get {
                 return ResourceManager.GetString("MainForm_Message_CloseProjectSaveChanges_Title", resourceCulture);
             }
@@ -90,7 +99,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Lade Farbpalette... ähnelt.
         /// </summary>
-        public static string MainForm_Status_LoadingPal {
+        internal static string MainForm_Status_LoadingPal {
             get {
                 return ResourceManager.GetString("MainForm_Status_LoadingPal", resourceCulture);
             }
@@ -99,7 +108,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Lade Projektdatei... ähnelt.
         /// </summary>
-        public static string MainForm_Status_LoadingProjectFile {
+        internal static string MainForm_Status_LoadingProjectFile {
             get {
                 return ResourceManager.GetString("MainForm_Status_LoadingProjectFile", resourceCulture);
             }
@@ -108,7 +117,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Übergebe Renderdaten... ähnelt.
         /// </summary>
-        public static string MainForm_Status_PassRenderData {
+        internal static string MainForm_Status_PassRenderData {
             get {
                 return ResourceManager.GetString("MainForm_Status_PassRenderData", resourceCulture);
             }
@@ -117,7 +126,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Bereite Baum-Rendering vor... ähnelt.
         /// </summary>
-        public static string MainForm_Status_PreparingTreeRendering {
+        internal static string MainForm_Status_PreparingTreeRendering {
             get {
                 return ResourceManager.GetString("MainForm_Status_PreparingTreeRendering", resourceCulture);
             }
@@ -126,7 +135,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Bereit ähnelt.
         /// </summary>
-        public static string MainForm_Status_Ready {
+        internal static string MainForm_Status_Ready {
             get {
                 return ResourceManager.GetString("MainForm_Status_Ready", resourceCulture);
             }
@@ -135,7 +144,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Projekt speichern... ähnelt.
         /// </summary>
-        public static string MainForm_Status_Saving {
+        internal static string MainForm_Status_Saving {
             get {
                 return ResourceManager.GetString("MainForm_Status_Saving", resourceCulture);
             }
@@ -144,7 +153,7 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Projekt gespeichert. ähnelt.
         /// </summary>
-        public static string MainForm_Status_SavingSuccessful {
+        internal static string MainForm_Status_SavingSuccessful {
             get {
                 return ResourceManager.GetString("MainForm_Status_SavingSuccessful", resourceCulture);
             }
@@ -153,9 +162,48 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die X2-AddOn :: Technologiebaum bearbeiten {0} ähnelt.
         /// </summary>
-        public static string MainForm_Title {
+        internal static string MainForm_Title {
             get {
                 return ResourceManager.GetString("MainForm_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Nahrung
+        ///Holz
+        ///Stein
+        ///Gold
+        ///Bevölkerungslimit
+        ///Bekehrungsreichweite
+        ///Current Age
+        ///Relics Captured
+        ///Trade Bonus
+        ///Trade Goods
+        ///Trade Production
+        ///Population (Both Current and Headroom)
+        ///Corpse Decay Time
+        ///Discovery
+        ///Monuments/Ruins Captured
+        ///Meat Storage
+        ///Berry Storage
+        ///Fish Storage
+        ///Unknown
+        ///Total Units Owned
+        ///Units Killed
+        ///Research Count
+        ///% Map Explored
+        ///Castle Age tech index
+        ///Imperial Age tech index
+        ///Feudal Age tech index
+        ///Attack Warning Sound
+        ///Enable Monk Conversion
+        ///Enable Building Conversion
+        ///Unused
+        ///Bui [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string ResourceTypes {
+            get {
+                return ResourceManager.GetString("ResourceTypes", resourceCulture);
             }
         }
     }

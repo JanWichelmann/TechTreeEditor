@@ -893,7 +893,14 @@ namespace X2AddOnTechTreeEditor
 				}
 
 				// Elternelemente zuweisen
-				_projectFile.TechTreeParentElements = new List<TechTreeElement>(parentBuildings);
+				_projectFile.TechTreeParentElements = new List<TechTreeElement>(buildings);
+				_projectFile.TechTreeParentElements.AddRange(otherUnitsLookup.Select(elem => elem.Value));
+				_projectFile.TechTreeParentElements.Distinct();
+				_projectFile.TechTreeParentElements.RemoveAll(p => _projectFile.TechTreeParentElements.Exists(p2 => p2 != p && p2.HasChild(p)));
+				_projectFile.TechTreeParentElements.ForEach(elem => {
+					if(elem.GetType() == typeof(TechTreeBuilding) && elem.ShadowElement)
+						((TechTreeBuilding)elem).StandardElement = false;
+				});
 
 				// Kultur-Konfigurationen berechnen
 				List<TechTreeFile.CivTreeConfig> civTrees = new List<TechTreeFile.CivTreeConfig>();
@@ -956,10 +963,6 @@ namespace X2AddOnTechTreeEditor
 
 				// Kultur-Konfigurationen zuweisen
 				_projectFile.CivTrees = civTrees;
-
-				// Alle zuweisbaren Einheiten, die noch keinem Gebäude zugewiesen wurden, auf die Rest-Liste schreiben
-				//creatableUnits.AddRange(assignableUnits.Where(u => !u.Value.Item2.Children.Exists(ch => ch.Item2 == u.Value.Item1)).Select(u => u.Value.Item1).ToList());
-				//creatableUnits.Distinct();
 
 				// Fehlende Einheiten in Liste für Restauswahlfeld schreiben
 				List<DataGridViewRow> rows = new List<DataGridViewRow>(remainingUnits.Count);

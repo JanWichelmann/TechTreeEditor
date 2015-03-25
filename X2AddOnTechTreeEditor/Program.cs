@@ -14,9 +14,9 @@ namespace X2AddOnTechTreeEditor
 		private static void Main()
 		{
 			// Sprache ändern (für Debugging)
-			/*CultureInfo currCulture = new System.Globalization.CultureInfo("de-DE");
-			System.Threading.Thread.CurrentThread.CurrentCulture = currCulture;
-			System.Threading.Thread.CurrentThread.CurrentUICulture = currCulture;*/
+			/**CultureInfo currCulture = new System.Globalization.CultureInfo("en-US");
+			CultureInfo.DefaultThreadCurrentCulture = currCulture;
+			CultureInfo.DefaultThreadCurrentUICulture = currCulture;/**/
 
 			// Anwendung starten
 			Application.EnableVisualStyles();

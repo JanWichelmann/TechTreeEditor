@@ -67,7 +67,7 @@ namespace GenieLibrary
 		/// <summary>
 		/// Die Grafiken.
 		/// </summary>
-		public List<DataElements.Graphic> Graphics;
+		public Dictionary<int, DataElements.Graphic> Graphics;
 
 		/// <summary>
 		/// Ungenutzte Daten.
@@ -202,10 +202,10 @@ namespace GenieLibrary
 				GraphicPointers.Add(_buffer.ReadInteger());
 
 			// Grafiken lesen
-			Graphics = new List<DataElements.Graphic>(graphicCount);
-			foreach(int p in GraphicPointers)
-				if(p != 0)
-					Graphics.Add(new DataElements.Graphic().ReadDataInline(_buffer));
+			Graphics = new Dictionary<int, DataElements.Graphic>(graphicCount);
+			for(int p = 0; p < GraphicPointers.Count; ++p)
+				if(GraphicPointers[p] != 0)
+					Graphics.Add(p, new DataElements.Graphic().ReadDataInline(_buffer));
 
 			// Ungenutzte Daten lesen
 			int unusedCount = 36368 + terrainCount * 436;
@@ -315,7 +315,8 @@ namespace GenieLibrary
 
 			// Grafiken schreiben Sicherstellen, dass genau jede definierte Grafik einen entsprechenden Pointer hat; hier nur über die Listenlänge, sollte aber die meisten auftretenden Fehler abdecken
 			AssertListLength(Graphics, GraphicPointers.Count(p => p != 0));
-			Graphics.ForEach(e => e.WriteData(_buffer));
+			foreach(var e in Graphics)
+				e.Value.WriteData(_buffer);
 
 			// Ungenutzte Daten schreiben
 			AssertListLength(Unused1, 36368 + DataElements.TerrainRestriction.TerrainCount * 436);
@@ -423,7 +424,7 @@ namespace GenieLibrary
 			// Ergebnis in Puffer schreiben
 			return new RAMBuffer(output.ToArray());
 		}
-		
+
 		/// <summary>
 		/// Dekomprimiert die gegebenen DAT-Daten (zlib-Kompression).
 		/// </summary>

@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using X2AddOnTechTreeEditor;
 using X2AddOnTechTreeEditor.TechTreeStructure;
 
+// Icons: "Attribute bearbeiten" (16x16 und 32x32), "Grafiken editieren" (32x32)
+
 namespace X2AddOnTechTreeEditor
 {
 	public partial class MainForm : Form
@@ -60,6 +62,11 @@ namespace X2AddOnTechTreeEditor
 		/// Das zuerst ausgewählte Element der aktuell aktiven Operation.
 		/// </summary>
 		private TechTreeElement _currentOperationFirstSelection = null;
+
+		/// <summary>
+		/// Die Farbtabelle zu Rendern von Grafiken.
+		/// </summary>
+		BMPLoaderNew.ColorTable _pal50500 = null;
 
 		#endregion Variablen
 
@@ -126,7 +133,7 @@ namespace X2AddOnTechTreeEditor
 			// Kulturen-Auswahlliste mit Namen-Array neu verknüpfen
 			_civSelectComboBox.ComboBox.DisplayMember = "Value";
 			_civSelectComboBox.ComboBox.ValueMember = "Key";
-			_civSelectComboBox.ComboBox.DataSource = new BindingSource() { DataSource = _civs };
+			_civSelectComboBox.ComboBox.DataSource = _civs;
 			_civSelectComboBox.ComboBox.SelectedIndex = 0;
 
 			// Daten an Render-Control übergeben
@@ -139,12 +146,15 @@ namespace X2AddOnTechTreeEditor
 			_civSelectComboBox.Enabled = true;
 			_editorModeButton.Enabled = true;
 			_standardModeButton.Enabled = true;
+			_searchTextBox.Enabled = true;
 			_ageUpButton.Enabled = true;
 			_ageDownButton.Enabled = true;
 			_newUnitButton.Enabled = true;
 			_newBuildingButton.Enabled = true;
 			_newResearchButton.Enabled = true;
 			_newEyeCandyButton.Enabled = true;
+			_newProjectileButton.Enabled = true;
+			_newDeadButton.Enabled = true;
 			_newLinkButton.Enabled = true;
 			_deleteLinkButton.Enabled = true;
 			_newMakeAvailDepButton.Enabled = true;
@@ -300,7 +310,7 @@ namespace X2AddOnTechTreeEditor
 
 			// Farb-Palette laden
 			SetStatus(Strings.MainForm_Status_LoadingPal);
-			BMPLoaderNew.ColorTable _pal50500 = new BMPLoaderNew.ColorTable(new BMPLoaderNew.JASCPalette(new IORAMHelper.RAMBuffer(Properties.Resources.pal50500)));
+			_pal50500 = new BMPLoaderNew.ColorTable(new BMPLoaderNew.JASCPalette(new IORAMHelper.RAMBuffer(Properties.Resources.pal50500)));
 
 			// Daten an Render-Control übergeben
 			SetStatus(Strings.MainForm_Status_PassRenderData);
@@ -442,7 +452,7 @@ namespace X2AddOnTechTreeEditor
 							UpdateCurrentOperation(TreeOperations.None);
 
 							// Baum neu berechnen
-							_renderPanel.UpdateTreeData();
+							_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
 						}
 						break;
 
@@ -456,7 +466,7 @@ namespace X2AddOnTechTreeEditor
 							UpdateCurrentOperation(TreeOperations.None);
 
 							// Baum neu berechnen
-							_renderPanel.UpdateTreeData();
+							_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
 						}
 						break;
 
@@ -475,7 +485,7 @@ namespace X2AddOnTechTreeEditor
 							UpdateCurrentOperation(TreeOperations.None);
 
 							// Baum neu berechnen
-							_renderPanel.UpdateTreeData();
+							_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
 						}
 						break;
 
@@ -909,7 +919,7 @@ namespace X2AddOnTechTreeEditor
 				_projectFile.MoveElementAge(_selectedElement, -1);
 
 				// Baum neu berechnen
-				_renderPanel.UpdateTreeData();
+				_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
 			}
 		}
 
@@ -922,7 +932,7 @@ namespace X2AddOnTechTreeEditor
 				_projectFile.MoveElementAge(_selectedElement, 1);
 
 				// Baum neu berechnen
-				_renderPanel.UpdateTreeData();
+				_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
 			}
 		}
 
@@ -948,6 +958,67 @@ namespace X2AddOnTechTreeEditor
 		{
 			// Operation starten
 			UpdateCurrentOperation(TreeOperations.DeleteDependencyFirstElement);
+		}
+
+		private void _renderPanel_DoubleClick(object sender, EventArgs e)
+		{
+			// Ist etwas ausgewählt?
+			if(_selectedElement != null)
+			{
+				// Typ abrufen
+				Type elemType = _selectedElement.GetType();
+
+				// Nach Typ vom aktuell ausgewählten Element unterscheiden
+				if(elemType == typeof(TechTreeBuilding))
+				{
+					// Gebäude-Dialog anzeigen
+					EditBuildingForm form = new EditBuildingForm(_projectFile, (TechTreeBuilding)_selectedElement);
+					form.ShowDialog();
+				}
+				else if(elemType == typeof(TechTreeCreatable))
+				{
+					// Einheit-Dialog anzeigen
+					EditCreatableForm form = new EditCreatableForm(_projectFile, (TechTreeCreatable)_selectedElement);
+					form.ShowDialog();
+				}
+				else if(elemType == typeof(TechTreeProjectile))
+				{
+					// Einheit-Dialog anzeigen
+					EditProjectileForm form = new EditProjectileForm(_projectFile, (TechTreeProjectile)_selectedElement);
+					form.ShowDialog();
+				}
+			}
+		}
+
+		private void _searchTextBox_TextChanged(object sender, EventArgs e)
+		{
+			// Such-Befehl weitergeben
+			_renderPanel.UpdateSearchText(_searchTextBox.Text);
+		}
+
+		private void _editAttributesMenuButton_Click(object sender, EventArgs e)
+		{
+			// Kontextmenü ausblenden
+			_techTreeElementContextMenu.AutoClose = true;
+			_techTreeElementContextMenu.Hide();
+
+			// Nach Typ unterscheiden
+			if(_selectedElement != null)
+				if(_selectedElement.GetType() == typeof(TechTreeResearch))
+				{
+					// TODO
+				}
+				else
+				{
+					// Das Element muss eine Einheit sein => Fenster anzeigen
+					EditUnitAttributeForm form = new EditUnitAttributeForm(_projectFile, (TechTreeUnit)_selectedElement);
+					form.IconChanged += (sender2, e2) =>
+					{
+						e2.Unit.FreeIconTexture();
+						e2.Unit.CreateIconTexture(_renderPanel.LoadIconAsTexture);
+					};
+					form.ShowDialog();
+				}
 		}
 
 		#endregion Ereignishandler
@@ -1026,5 +1097,6 @@ namespace X2AddOnTechTreeEditor
 		}
 
 		#endregion
+
 	}
 }

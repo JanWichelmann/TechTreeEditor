@@ -378,10 +378,10 @@ namespace GenieLibrary.DataElements
 			{
 				#region Variablen
 
-				private short GraphicID;
-				private byte DamagePercent;
-				private byte ApplyMode;
-				private byte Unknown2;
+				public short GraphicID;
+				public byte DamagePercent;
+				public byte ApplyMode;
+				public byte Unknown2;
 
 				#endregion Variablen
 

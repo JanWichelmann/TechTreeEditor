@@ -90,7 +90,7 @@ namespace X2AddOnTechTreeEditor
 		/// <summary>
 		/// Die Techtree-Elternelemente.
 		/// </summary>
-		private List<TechTreeStructure.TechTreeElement> _techTreeParentElements = new List<TechTreeStructure.TechTreeElement>();
+		private Dictionary<TechTreeStructure.TechTreeElement, bool> _techTreeParentElements = new Dictionary<TechTreeStructure.TechTreeElement, bool>();
 
 		/// <summary>
 		/// Die 0-basierten Element-Versatzwerte der einzelnen Zeitalter. Das bedeutet, dass ein Element von Zeitalter i mindestens um offsets[i] vertikal versetzt wird.
@@ -138,11 +138,6 @@ namespace X2AddOnTechTreeEditor
 		private int _fullTreeWidth = 0;
 
 		/// <summary>
-		/// Die berechnete Gesamt-Baumbreite, wenn nur Standard-Elemente gezeigt werden.
-		/// </summary>
-		private int _fullStandardTreeWidth = 0;
-
-		/// <summary>
 		/// Legt fest, ob nur Standard-Elemente gezeichnet werden sollen.
 		/// </summary>
 		private bool _drawOnlyStandardElements = false;
@@ -151,6 +146,11 @@ namespace X2AddOnTechTreeEditor
 		/// Enthält die Flag-Texturen.
 		/// </summary>
 		private static Dictionary<TechTreeStructure.TechTreeElement.ElementFlags, int> _flagTextures = null;
+
+		/// <summary>
+		/// Der aktuelle Suchtext.
+		/// </summary>
+		string _currentSearchText = "";
 
 		#endregion Variablen
 
@@ -199,37 +199,26 @@ namespace X2AddOnTechTreeEditor
 		public void UpdateTreeData(List<TechTreeStructure.TechTreeElement> techTreeParentElements)
 		{
 			// Elternelemente speichern
-			_techTreeParentElements = techTreeParentElements;
+			_techTreeParentElements = techTreeParentElements.ToDictionary(p => p, p => true);
 
-			// Baum-Abmessungen berechnen
-			UpdateTreeData();
-		}
-
-		/// <summary>
-		/// Berechnet alle Abmessungen des internen Baums neu und zeichnet diesen.
-		/// </summary>
-		public void UpdateTreeData()
-		{
 			// Baumgröße berechnen
 			List<int> ageCounts = new List<int>() { 1, 1, 1, 1, 1 }; // TODO Hardcoded für 5 Zeitalter!
 			List<int> tempAgeCounts = new List<int>() { 0, 0, 0, 0, 0 };
 			List<int> childAgeCounts = null;
 			_fullTreeWidth = 0;
-			_fullStandardTreeWidth = 0;
-			_techTreeParentElements.ForEach(elem =>
+			foreach(var elem in _techTreeParentElements)
 			{
 				// Größe rekursiv berechnen
 				childAgeCounts = new List<int>(tempAgeCounts);
-				elem.CalculateTreeBounds(ref childAgeCounts);
-				_fullTreeWidth += elem.TreeWidth;
-				_fullStandardTreeWidth += elem.StandardTreeWidth;
+				elem.Key.CalculateTreeBounds(ref childAgeCounts);
+				_fullTreeWidth += elem.Key.TreeWidth;
 
 				// Zurückgebene Zeitalter-Werte abgleichen => es wird immer das Maximum pro Zeitalter genommen
 				ageCounts = ageCounts.Zip(childAgeCounts, (a1, a2) => Math.Max(a1, a2)).ToList();
-			});
+			}
 
 			// Scrollbar einstellen
-			_drawPanelScrollBar.Maximum = (Math.Max((_drawOnlyStandardElements ? _fullStandardTreeWidth : _fullTreeWidth) * (BOX_BOUNDS + 2 * BOX_SPACE_HORI) + 2 * DRAW_PANEL_PADDING, _drawPanel.Width) - _drawPanel.Width) / DRAW_PANEL_SCROLL_MULT;
+			_drawPanelScrollBar.Maximum = (Math.Max(_fullTreeWidth * (BOX_BOUNDS + 2 * BOX_SPACE_HORI) + 2 * DRAW_PANEL_PADDING, _drawPanel.Width) - _drawPanel.Width) / DRAW_PANEL_SCROLL_MULT;
 
 			// Zeitalter-Offsets erstellen
 			int currOffset = 0;
@@ -242,9 +231,58 @@ namespace X2AddOnTechTreeEditor
 				return tempOffset;
 			}).ToList();
 
+			// Filter erneut anwenden
+			ApplyFilters();
+
 			// Fertig, neuzeichnen
 			_dataLoaded = true;
 			_drawPanel.Invalidate();
+		}
+
+		/// <summary>
+		/// Aktualisiert den aktuellen Suchtext.
+		/// </summary>
+		/// <param name="search">Der neue Suchtext.</param>
+		public void UpdateSearchText(string search)
+		{
+			// Suchtext merken
+			_currentSearchText = search.ToLower();
+
+			// Filter neu anwenden
+			ApplyFilters();
+
+			// Neuzeichnen
+			_drawPanel.Invalidate();
+		}
+
+		/// <summary>
+		/// Wendet die gespeicherten Filter auf die Baumelternelemente an.
+		/// </summary>
+		private void ApplyFilters()
+		{
+			// Pro Element Filter ausführen
+			List<TechTreeStructure.TechTreeElement> parentElements = new List<TechTreeStructure.TechTreeElement>(_techTreeParentElements.Keys);
+			foreach(var elem in parentElements)
+			{
+				// Element wird prinzipiell erstmal angezeigt
+				bool newVal = true;
+
+				// Standardelement?
+				if(_drawOnlyStandardElements)
+					if(elem.GetType() == typeof(TechTreeStructure.TechTreeBuilding))
+						newVal = ((TechTreeStructure.TechTreeBuilding)elem).StandardElement;
+					else if(elem.GetType() == typeof(TechTreeStructure.TechTreeCreatable))
+						newVal = ((TechTreeStructure.TechTreeCreatable)elem).StandardElement;
+					else if(elem.GetType() != typeof(TechTreeStructure.TechTreeResearch)) // Für Technologien eine Ausnahme, sind ja strenggenommen Standardelemente...
+						newVal = false;
+
+				// Suchstring angegeben?
+				if(newVal && !string.IsNullOrWhiteSpace(_currentSearchText))
+					newVal = elem.HasChildWithName(_currentSearchText);
+
+				// Anzeigewert merken
+				_techTreeParentElements[elem] = newVal;
+			}
 		}
 
 		/// <summary>
@@ -451,12 +489,43 @@ namespace X2AddOnTechTreeEditor
 					boxG.Clear(Color.FromArgb(246, 128, 128));
 					break;
 
+				case "TechTreeEyeCandy":
+					{
+						icon = new Bitmap(ICON_BOUNDS, ICON_BOUNDS);
+						Graphics iconG = Graphics.FromImage(icon);
+						iconG.Clear(Color.FromArgb(220, 220, 220));
+						iconG.DrawImage(Icons.EyeCandyIcon, 2, 2, 32, 32);
+						boxG.Clear(Color.FromArgb(196, 145, 250));
+					}
+					break;
+
+				case "TechTreeProjectile":
+					{
+						icon = new Bitmap(ICON_BOUNDS, ICON_BOUNDS);
+						Graphics iconG = Graphics.FromImage(icon);
+						iconG.Clear(Color.FromArgb(220, 220, 220));
+						iconG.DrawImage(Icons.ProjectileIcon, 2, 2, 32, 32);
+						boxG.Clear(Color.FromArgb(250, 174, 132));
+					}
+					break;
+
+				case "TechTreeDead":
+					{
+						icon = new Bitmap(ICON_BOUNDS, ICON_BOUNDS);
+						Graphics iconG = Graphics.FromImage(icon);
+						iconG.Clear(Color.FromArgb(220, 220, 220));
+						iconG.DrawImage(Icons.DeadIcon, 2, 2, 32, 32);
+						boxG.Clear(Color.LightYellow);
+					}
+					break;
+
 				default:
-					icon = new Bitmap(ICON_BOUNDS, ICON_BOUNDS);
-					Graphics iconGr = Graphics.FromImage(icon);
-					iconGr.Clear(Color.FromArgb(220, 220, 220));
-					iconGr.DrawImage(Icons.EyeCandyIcon, 2, 2, 32, 32);
-					boxG.Clear(Color.LightYellow);
+					{
+						icon = new Bitmap(ICON_BOUNDS, ICON_BOUNDS);
+						Graphics iconG = Graphics.FromImage(icon);
+						iconG.Clear(Color.FromArgb(220, 220, 220));
+						boxG.Clear(Color.Peru);
+					}
 					break;
 			}
 
@@ -477,7 +546,7 @@ namespace X2AddOnTechTreeEditor
 			box.UnlockBits(data);
 			box.Dispose();
 			icon.Dispose();
-
+			
 			// Textur-ID zurückgeben
 			return texID;
 		}
@@ -500,8 +569,8 @@ namespace X2AddOnTechTreeEditor
 			// Wert merken
 			_drawOnlyStandardElements = renderOnlyStandardElements;
 
-			// Scrollbar einstellen
-			_drawPanelScrollBar.Maximum = (Math.Max((_drawOnlyStandardElements ? _fullStandardTreeWidth : _fullTreeWidth) * (BOX_BOUNDS + 2 * BOX_SPACE_HORI) + 2 * DRAW_PANEL_PADDING, _drawPanel.Width) - _drawPanel.Width) / DRAW_PANEL_SCROLL_MULT;
+			// Filter neu anwenden
+			ApplyFilters();
 
 			// Neuzeichnen
 			_drawPanel.Invalidate();
@@ -557,13 +626,17 @@ namespace X2AddOnTechTreeEditor
 
 				// Elternelemente zeichnen
 				Point currPos = new Point(DRAW_PANEL_PADDING, DRAW_PANEL_PADDING);
-				foreach(TechTreeStructure.TechTreeElement parent in _techTreeParentElements)
+				foreach(var parent in _techTreeParentElements)
 				{
+					// Element angezeigt?
+					if(!parent.Value)
+						continue;
+
 					// Element zeichnen
-					parent.Draw(currPos, _ageOffsets, 0, _drawOnlyStandardElements);
+					parent.Key.Draw(currPos, _ageOffsets, 0);
 
 					// Position um die Breite verschieben
-					currPos.X += (_drawOnlyStandardElements ? parent.StandardTreeWidth : parent.TreeWidth) * (BOX_BOUNDS + 2 * BOX_SPACE_HORI);
+					currPos.X += parent.Key.TreeWidth * (BOX_BOUNDS + 2 * BOX_SPACE_HORI);
 				}
 
 				// Ggf. Abhängigkeitspfeile des ausgewählten Elements zeichnen
@@ -617,7 +690,7 @@ namespace X2AddOnTechTreeEditor
 				SetupDrawPanelViewPort();
 
 				// Scrollbar einstellen
-				_drawPanelScrollBar.Maximum = (Math.Max((_drawOnlyStandardElements ? _fullStandardTreeWidth : _fullTreeWidth) * (BOX_BOUNDS + 2 * BOX_SPACE_HORI) + 2 * DRAW_PANEL_PADDING, _drawPanel.Width) - _drawPanel.Width) / DRAW_PANEL_SCROLL_MULT;
+				_drawPanelScrollBar.Maximum = (Math.Max(_fullTreeWidth * (BOX_BOUNDS + 2 * BOX_SPACE_HORI) + 2 * DRAW_PANEL_PADDING, _drawPanel.Width) - _drawPanel.Width) / DRAW_PANEL_SCROLL_MULT;
 
 				// Neuzeichnen erzwingen
 				_drawPanel.Invalidate();
@@ -665,9 +738,9 @@ namespace X2AddOnTechTreeEditor
 		{
 			// Überfahrenes Element herausfinden
 			TechTreeStructure.TechTreeElement hovered = null;
-			foreach(TechTreeStructure.TechTreeElement elem in _techTreeParentElements)
+			foreach(var elem in _techTreeParentElements)
 			{
-				if((hovered = elem.FindBox(new Point(e.X + _drawPanelScrollBar.Value * DRAW_PANEL_SCROLL_MULT, e.Y), _drawOnlyStandardElements)) != null)
+				if(elem.Value && (hovered = elem.Key.FindBox(new Point(e.X + _drawPanelScrollBar.Value * DRAW_PANEL_SCROLL_MULT, e.Y))) != null)
 					break;
 			}
 
@@ -694,6 +767,12 @@ namespace X2AddOnTechTreeEditor
 				// Neuzeichnen
 				_drawPanel.Invalidate();
 			}
+		}
+
+		private void _drawPanel_DoubleClick(object sender, EventArgs e)
+		{
+			// Ereignis weiterreichen
+			OnDoubleClick(e);
 		}
 
 		#endregion Ereignishandler

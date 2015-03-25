@@ -377,7 +377,7 @@ namespace X2AddOnTechTreeEditor
 		{
 			// Noch Referenzen vorhanden?
 			// Das Element darf keine Kinder haben!
-			if(element == null || element.HasChildren() || !_allElements.All(e => e.CountReferencesToElement(element) + (e.HasChild(element) ? -1 : 0) == 0))
+			if(element == null || element.HasChildren() || !_allElements.All(e => e.CountReferencesToElement(element) + (e.HasChild(element) ? -1 : 0) <= 0))
 			{
 				// Fehler
 				return false;
@@ -388,6 +388,7 @@ namespace X2AddOnTechTreeEditor
 
 			// Element aus Liste nehmen
 			_allElements.Remove(element);
+			_techTreeParentElements.Remove(element);
 
 			// Fertig
 			return true;
@@ -759,6 +760,17 @@ namespace X2AddOnTechTreeEditor
 						baseElemResearch.Dependencies.Remove((TechTreeResearch)dependency);
 				}
 			}
+		}
+
+		/// <summary>
+		/// Gibt alle TechTree-Elemente zurück, die die gegebene Bedingung erfüllen.
+		/// </summary>
+		/// <param name="predicate">Eine Funktion, mit der jedes Element auf eine Bedingung überprüft wird.</param>
+		/// <returns></returns>
+		public List<TechTreeElement> Where(Func<TechTreeElement, bool> predicate)
+		{
+			// Elemente auswerten und zurückgeben
+			return _allElements.Where(predicate).ToList();
 		}
 
 		#endregion

@@ -46,11 +46,6 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		public int TreeWidth { get; set; }
 
 		/// <summary>
-		/// Die Breite des Unterbaums, wenn nur Standard-Elemente gezeichnet werden. Kann mithilfe der CalculateTreeBounds-Methode aktualisiert werden.
-		/// </summary>
-		public int StandardTreeWidth { get; set; }
-
-		/// <summary>
 		/// Die Element-Flags.
 		/// </summary>
 		public ElementFlags Flags { get; set; }
@@ -110,6 +105,12 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		public abstract void CalculateTreeBounds(ref List<int> ageCounts);
 
 		/// <summary>
+		/// Erstellt die Icon-Textur.
+		/// </summary>
+		/// <param name="textureFunc">Die Textur-Generierungsfunktion.</param>
+		public abstract void CreateIconTexture(Func<string, short, int> textureFunc);
+
+		/// <summary>
 		/// Ruft eine Liste mit den Kindelementen ab. Dies wird zur Umsetzung von Such-Rekursionen u.ä. benutzt.
 		/// </summary>
 		/// <returns></returns>
@@ -148,7 +149,6 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			// Standardwerte setzen
 			Age = 0;
 			TreeWidth = 1;
-			StandardTreeWidth = 1;
 			IconTextureID = 0;
 			Selected = false;
 			Hovered = false;
@@ -162,13 +162,8 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// <param name="position">Die Zeichenposition des gesamten Baum-Rechtecks. Es wird die obere linke Ecke angegeben.</param>
 		/// <param name="ageOffsets">Eine Liste mit den Zeitalter-Offset-Daten. Diese wird in dieser Funktion nicht verändert.</param>
 		/// <param name="parentAgeOffset">Das Zeitalter-Offset des übergeordneten Elements.</param>
-		/// <param name="onlyStandardElements">Gibt an, ob nur Standard-Elemente gezeichnet werden sollen.</param>
-		public void Draw(Point position, List<int> ageOffsets, int parentAgeOffset, bool onlyStandardElements = false)
+		public void Draw(Point position, List<int> ageOffsets, int parentAgeOffset)
 		{
-			// Element zeichnen?
-			if(onlyStandardElements && !_standardElement)
-				return;
-
 			// Falls das Eltern-Zeitalter-Offset nicht dem aktuellen Zeitalter entspricht, entsprechend vertikal verschieben
 			while(parentAgeOffset < ageOffsets[Age])
 			{
@@ -180,7 +175,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			}
 
 			// Pixelbreite des Unterbaums berechnen
-			int pixelWidth = (onlyStandardElements ? StandardTreeWidth : TreeWidth) * (RenderControl.BOX_BOUNDS + 2 * RenderControl.BOX_SPACE_HORI);
+			int pixelWidth = TreeWidth * (RenderControl.BOX_BOUNDS + 2 * RenderControl.BOX_SPACE_HORI);
 
 			// Eigene Box in die Mitte zeichnen
 			{
@@ -263,19 +258,18 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// Sucht rekursiv das Element, dessen Kästchen den angegebenen Bildpunkt enthält.
 		/// </summary>
 		/// <param name="point">Der zu suchende Bildpunkt.</param>
-		/// <param name="onlyStandardElements">Gibt an, ob nur Standardelemente gefunden werden sollen.</param>
 		/// <returns></returns>
-		public TechTreeElement FindBox(Point point, bool onlyStandardElements)
+		public TechTreeElement FindBox(Point point)
 		{
 			// Enthält das aktuelle Element den gegebenen Punkt?
-			if(_cacheBoxPosition.Contains(point) && (!onlyStandardElements || _standardElement))
+			if(_cacheBoxPosition.Contains(point))
 				return this;
 
 			// Rekursiv in den Kind-Elementen suchen
 			TechTreeElement res = null;
 			foreach(TechTreeElement child in GetChildren())
 			{
-				if((res = child.FindBox(point, onlyStandardElements)) != null)
+				if((res = child.FindBox(point)) != null)
 					break;
 			}
 
@@ -343,6 +337,19 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		}
 
 		/// <summary>
+		/// Gibt die Icon-Textur frei.
+		/// </summary>
+		public void FreeIconTexture()
+		{
+			// Textur löschen
+			if(IconTextureID > 0)
+			{
+				GL.DeleteTexture(IconTextureID);
+				IconTextureID = 0;
+			}
+		}
+
+		/// <summary>
 		/// Zählt die Referenzen zu dem angegebenen Element.
 		/// </summary>
 		/// <param name="element">Das zu zählende Element.</param>
@@ -373,6 +380,21 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		}
 
 		/// <summary>
+		/// Prüft, ob eines der Kindelemente in seinem Namen den gegebenen String enthält.
+		/// </summary>
+		/// <param name="value">Der zu suchende Name.</param>
+		/// <returns></returns>
+		public bool HasChildWithName(string value)
+		{
+			// Kind-Element?
+			if(Name.Contains(value, StringComparison.OrdinalIgnoreCase))
+				return true;
+
+			// Rekursiver Aufruf
+			return GetChildren().Exists(c => c.HasChildWithName(value));
+		}
+
+		/// <summary>
 		/// Prüft, ob das übergebene Element Kindelemente hat.
 		/// </summary>
 		/// <returns></returns>
@@ -380,6 +402,17 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		{
 			// Rekursiver Aufruf
 			return GetChildren().Count > 0;
+		}
+
+		/// <summary>
+		/// Gibt die String-Repräsentation dieses Elements zurück.
+		/// Dies ist normalerweise der Wert der "Name"-Eigenschaft.
+		/// </summary>
+		/// <returns></returns>
+		public override string ToString()
+		{
+			// Namen zurückgeben
+			return Name;
 		}
 
 		#endregion Funktionen

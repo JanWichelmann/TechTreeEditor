@@ -1,0 +1,62 @@
+Archer
+Artifact
+Trade boat
+Building
+Civilian
+Sea fish
+Soldier
+Berry bush
+Stone mine
+Prey animal
+Predator animal
+Other
+Cavalry
+Siege weapon
+Map decoration
+Trees
+Unused
+Unused
+Priest
+Trade cart
+Transport boat
+Fishing boat
+War_boat
+Conquistador
+Unused
+Unused
+Unused
+Walls
+Phalanx
+Unused
+Flags
+Unused
+Gold mine
+Shore fish
+Cliff
+Petard
+Cavalry archer
+Dolphin
+Birds
+Gates
+Piles
+Resource
+Relic
+Monk with relic
+Hand cannoneer
+Two handed sword
+Pikeman
+Scout cavalry
+Ore mine
+Farm
+Spearman
+Packed siege units
+Tower
+Boarding boat
+Unpacked siege units
+Scorpion
+Raider
+Cavalry raider
+Sheep
+King
+Unused
+Horse

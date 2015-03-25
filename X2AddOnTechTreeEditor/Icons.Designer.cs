@@ -133,6 +133,16 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DeadIcon {
+            get {
+                object obj = ResourceManager.GetObject("DeadIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DeleteConnection {
             get {
                 object obj = ResourceManager.GetObject("DeleteConnection", resourceCulture);
@@ -263,6 +273,16 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap NewDead {
+            get {
+                object obj = ResourceManager.GetObject("NewDead", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap NewEyeCandy {
             get {
                 object obj = ResourceManager.GetObject("NewEyeCandy", resourceCulture);
@@ -276,6 +296,16 @@ namespace X2AddOnTechTreeEditor {
         internal static System.Drawing.Bitmap NewProject {
             get {
                 object obj = ResourceManager.GetObject("NewProject", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NewProjectile {
+            get {
+                object obj = ResourceManager.GetObject("NewProjectile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,6 +343,16 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ProjectileIcon {
+            get {
+                object obj = ResourceManager.GetObject("ProjectileIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Redo {
             get {
                 object obj = ResourceManager.GetObject("Redo", resourceCulture);
@@ -336,6 +376,16 @@ namespace X2AddOnTechTreeEditor {
         internal static System.Drawing.Bitmap SaveProject {
             get {
                 object obj = ResourceManager.GetObject("SaveProject", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Search {
+            get {
+                object obj = ResourceManager.GetObject("Search", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

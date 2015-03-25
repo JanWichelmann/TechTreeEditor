@@ -123,6 +123,14 @@ namespace GenieLibrary.DataElements
 			}
 		}
 
+		public override string ToString()
+		{
+			if(ID >= 0)
+				return ID.ToString() + ": " + Name1.TrimEnd('\0');
+			else
+				return "None";
+		}
+
 		#endregion Funktionen
 
 		#region Strukturen

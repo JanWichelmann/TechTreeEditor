@@ -43,6 +43,7 @@
 			this._drawPanel.TabIndex = 2;
 			this._drawPanel.VSync = false;
 			this._drawPanel.Paint += new System.Windows.Forms.PaintEventHandler(this._drawPanel_Paint);
+			this._drawPanel.DoubleClick += new System.EventHandler(this._drawPanel_DoubleClick);
 			this._drawPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this._drawPanel_MouseClick);
 			this._drawPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this._drawPanel_MouseMove);
 			this._drawPanel.Resize += new System.EventHandler(this._drawPanel_Resize);

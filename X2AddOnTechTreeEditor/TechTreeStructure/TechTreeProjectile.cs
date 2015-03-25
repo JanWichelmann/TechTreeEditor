@@ -44,14 +44,17 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 
 		protected override void DrawChildren(Point position, List<int> ageOffsets, int parentAgeOffset)
 		{
-			// Nichts zu zeichnen
-			throw new NotSupportedException("Projektile können nicht gezeichnet werden!");
+			// Nichts zu tun
+			return;
 		}
 
 		public override void CalculateTreeBounds(ref List<int> ageCounts)
 		{
-			// Nichts zu zeichnen
-			throw new NotSupportedException("Projektile können nicht gezeichnet werden!");
+			// Zähler für eigenes Zeitalter inkrementieren
+			++ageCounts[Age];
+
+			// Der Baum hat immer Breite 1
+			TreeWidth = 1;
 		}
 
 		public override List<TechTreeElement> GetChildren()
@@ -67,8 +70,8 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 
 		public override void DrawDependencies()
 		{
-			// Nichts zu zeichnen
-			throw new NotSupportedException("Projektile können nicht gezeichnet werden!");
+			// Nichts zu tun
+			return;
 		}
 
 		public override int ToXml(System.Xml.XmlWriter writer, Dictionary<TechTreeElement, int> elementIDs, int lastID)

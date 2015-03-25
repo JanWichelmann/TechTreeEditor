@@ -106,5 +106,38 @@ namespace X2AddOnTechTreeEditor
 			// Element schreiben
 			writer.WriteString(value.ToString(CultureInfo.InvariantCulture.NumberFormat));
 		}
+
+		/// <summary>
+		/// Prüft, ob die angegebene Zeichenfolge in diesem String vorkommt.
+		/// </summary>
+		/// <param name="str">Der String.</param>
+		/// <param name="value">Die zu suchende Zeichenfolge.</param>
+		/// <param name="comparison">Der String-Vergleichs-Modus.</param>
+		/// <returns></returns>
+		public static bool Contains(this string str, string value, StringComparison comparison)
+		{
+			// Vorkommen prüfen
+			return str.IndexOf(value, comparison) >= 0;
+		}
+
+		/// <summary>
+		/// Versucht, den übergebenen Wert sicher in den Zielwert zu konvertieren und gibt diesen dann zurück.
+		/// </summary>
+		/// <typeparam name="T">Der Zieltyp.</typeparam>
+		/// <param name="val">Der zu konvertierende Wert.</param>
+		/// <returns></returns>
+		public static T SafeConvert<T>(this decimal val) where T : struct, IComparable, IFormattable, IConvertible, IComparable<T>, IEquatable<T>
+		{
+			// Casten und zurückgeben
+			try
+			{
+				return (T)Convert.ChangeType(val, typeof(T), CultureInfo.InvariantCulture);
+			}
+			catch(OverflowException) { }
+			catch(InvalidCastException) { }
+
+			// Leeren Wert zurückgeben
+			return default(T);
+		}
 	}
 }

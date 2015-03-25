@@ -74,6 +74,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\DropDownFieldControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DropDownFieldControl.Designer.cs">
+      <DependentUpon>DropDownFieldControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GraphicControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\GraphicControl.Designer.cs">
+      <DependentUpon>GraphicControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CheckBoxFieldControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CheckBoxFieldControl.Designer.cs">
+      <DependentUpon>CheckBoxFieldControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ResourceCostControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ResourceCostControl.Designer.cs">
+      <DependentUpon>ResourceCostControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NumberFieldControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NumberFieldControl.Designer.cs">
+      <DependentUpon>NumberFieldControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LanguageDLLControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\LanguageDLLControl.Designer.cs">
+      <DependentUpon>LanguageDLLControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditProjectileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditProjectileForm.Designer.cs">
+      <DependentUpon>EditProjectileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditCreatableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCreatableForm.Designer.cs">
+      <DependentUpon>EditCreatableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditBuildingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditBuildingForm.Designer.cs">
+      <DependentUpon>EditBuildingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="ImportDATFile.cs">
       <SubType>Form</SubType>
@@ -100,10 +154,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Icons.resx</DependentUpon>
     </Compile>
+    <Compile Include="Strings.en-US.Designer.cs">
+      <DependentUpon>Strings.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Strings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="EditUnitAttributeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditUnitAttributeForm.Designer.cs">
+      <DependentUpon>EditUnitAttributeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TechTreeStructure\TechTreeBuilding.cs" />
     <Compile Include="TechTreeStructure\TechTreeProjectile.cs" />
@@ -114,6 +179,42 @@
     <Compile Include="TechTreeStructure\TechTreeDead.cs" />
     <Compile Include="TechTreeStructure\TechTreeCreatable.cs" />
     <Compile Include="TechTreeStructure\TechTreeUnit.cs" />
+    <EmbeddedResource Include="Controls\DropDownFieldControl.resx">
+      <DependentUpon>DropDownFieldControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\GraphicControl.resx">
+      <DependentUpon>GraphicControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CheckBoxFieldControl.resx">
+      <DependentUpon>CheckBoxFieldControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ResourceCostControl.resx">
+      <DependentUpon>ResourceCostControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NumberFieldControl.resx">
+      <DependentUpon>NumberFieldControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\LanguageDLLControl.resx">
+      <DependentUpon>LanguageDLLControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditProjectileForm.en-US.resx">
+      <DependentUpon>EditProjectileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditProjectileForm.resx">
+      <DependentUpon>EditProjectileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCreatableForm.en-US.resx">
+      <DependentUpon>EditCreatableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCreatableForm.resx">
+      <DependentUpon>EditCreatableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditBuildingForm.en-US.resx">
+      <DependentUpon>EditBuildingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditBuildingForm.resx">
+      <DependentUpon>EditBuildingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Icons.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Icons.Designer.cs</LastGenOutput>
@@ -143,9 +244,19 @@
     <EmbeddedResource Include="RenderControl.resx">
       <DependentUpon>RenderControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Strings.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditUnitAttributeForm.en-US.resx">
+      <DependentUpon>EditUnitAttributeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditUnitAttributeForm.resx">
+      <DependentUpon>EditUnitAttributeForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
@@ -205,16 +316,25 @@
     <Content Include="Icons\BlockedTexture.png" />
     <Content Include="Icons\BuildingDependeny.png" />
     <Content Include="Icons\BuildingIcon.png" />
+    <Content Include="Icons\DeadIcon.png" />
     <Content Include="Icons\DeleteDependency.png" />
     <Content Include="Icons\EditorMode.png" />
     <Content Include="Icons\EyeCandyIcon.png" />
     <Content Include="Icons\MakeAvailDependency.png" />
+    <Content Include="Icons\NewDead.png" />
     <Content Include="Icons\NewEyeCandy.png" />
+    <Content Include="Icons\NewProjectile.png" />
+    <Content Include="Icons\ProjectileIcon.png" />
     <Content Include="Icons\ResearchIcon.png" />
+    <Content Include="Icons\Search.png" />
     <Content Include="Icons\StandardMode.png" />
     <Content Include="Icons\Symbol32.png" />
     <Content Include="Icons\UnitIcon.png" />
     <Content Include="Icons\UpgradeDependency.png" />
+    <None Include="Resources\ResourceTypesDE.txt" />
+    <None Include="Resources\ResourceTypesEN.txt" />
+    <None Include="Resources\ClassNamesDE.txt" />
+    <None Include="Resources\ClassNamesEN.txt" />
     <Content Include="symbol.ico" />
     <None Include="Resources\RenderFontConsolas.bmp" />
   </ItemGroup>

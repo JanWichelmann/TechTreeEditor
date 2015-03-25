@@ -168,9 +168,6 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 					ageCounts = ageCounts.Zip(succAgeCounts, (a1, a2) => Math.Max(a1, a2)).ToList();
 				}
 			}
-
-			// Standard-Elemente sind hier irrelevant
-			StandardTreeWidth = TreeWidth;
 		}
 
 		/// <summary>
@@ -326,11 +323,21 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				return;
 
 			// Icon erstellen
-			if(DATResearch.IconID >= 0)
-				IconTextureID = textureFunc(Type, DATResearch.IconID);
+				CreateIconTexture(textureFunc);
 
 			// Funktion in der Basisklasse aufrufen
 			base.CreateIconTextures(textureFunc);
+		}
+
+		/// <summary>
+		/// Erstellt die Icon-Textur.
+		/// </summary>
+		/// <param name="textureFunc">Die Textur-Generierungsfunktion.</param>
+		public override void CreateIconTexture(Func<string, short, int> textureFunc)
+		{
+			// Icon erstellen
+			if(DATResearch.IconID >= 0)
+				IconTextureID = textureFunc(Type, DATResearch.IconID);
 		}
 
 		/// <summary>

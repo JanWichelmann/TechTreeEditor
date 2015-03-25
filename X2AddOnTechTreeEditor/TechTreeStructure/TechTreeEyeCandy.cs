@@ -42,9 +42,8 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			// Zähler für eigenes Zeitalter inkrementieren
 			++ageCounts[Age];
 
-			// Der Baum hat immer Breite 1, das Element ist aber kein Standardelement
+			// Der Baum hat immer Breite 1
 			TreeWidth = 1;
-			StandardTreeWidth = 0;
 		}
 
 		public override List<TechTreeElement> GetChildren()

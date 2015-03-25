@@ -59,7 +59,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 					break;
 
 			// Name laden
-			Name = langFiles.GetString(DATUnit.LanguageDLLName) + " [#" + ID.ToString() + ", " + DATUnit.Name1.TrimEnd('\0') + "]";
+			Name = langFiles.GetString(DATUnit.LanguageDLLName) + " [ID " + ID.ToString() + ", T " + (byte)DATUnit.Type+ ", " + DATUnit.Name1.TrimEnd('\0') + "]";
 		}
 
 		/// <summary>
@@ -73,10 +73,20 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				return;
 
 			// Icon erstellen
-			IconTextureID = textureFunc(Type, DATUnit.IconID);
+			CreateIconTexture(textureFunc);
 
 			// Funktion in der Basisklasse aufrufen
 			base.CreateIconTextures(textureFunc);
+		}
+
+		/// <summary>
+		/// Erstellt die Icon-Textur.
+		/// </summary>
+		/// <param name="textureFunc">Die Textur-Generierungsfunktion.</param>
+		public override void CreateIconTexture(Func<string, short, int> textureFunc)
+		{
+			// Icon erstellen
+			IconTextureID = textureFunc(Type, DATUnit.IconID);
 		}
 
 		/// <summary>
