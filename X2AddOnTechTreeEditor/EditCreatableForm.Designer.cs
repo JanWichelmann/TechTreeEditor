@@ -41,6 +41,10 @@
 			this._childrenViewButtonColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this._childrenViewChildColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this._closeButton = new System.Windows.Forms.Button();
+			this.label4 = new System.Windows.Forms.Label();
+			this._dropSite2ComboBox = new System.Windows.Forms.ComboBox();
+			this._dropSite1ComboBox = new System.Windows.Forms.ComboBox();
+			this.label5 = new System.Windows.Forms.Label();
 			this._otherUnitsGroupBox.SuspendLayout();
 			this._childrenGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this._childrenView)).BeginInit();
@@ -48,6 +52,10 @@
 			// 
 			// _otherUnitsGroupBox
 			// 
+			this._otherUnitsGroupBox.Controls.Add(this.label4);
+			this._otherUnitsGroupBox.Controls.Add(this._dropSite2ComboBox);
+			this._otherUnitsGroupBox.Controls.Add(this._dropSite1ComboBox);
+			this._otherUnitsGroupBox.Controls.Add(this.label5);
 			this._otherUnitsGroupBox.Controls.Add(this.label3);
 			this._otherUnitsGroupBox.Controls.Add(this._trackUnitComboBox);
 			this._otherUnitsGroupBox.Controls.Add(this._projDuplUnitComboBox);
@@ -140,6 +148,34 @@
 			this._closeButton.UseVisualStyleBackColor = true;
 			this._closeButton.Click += new System.EventHandler(this._closeButton_Click);
 			// 
+			// label4
+			// 
+			resources.ApplyResources(this.label4, "label4");
+			this.label4.Name = "label4";
+			// 
+			// _dropSite2ComboBox
+			// 
+			this._dropSite2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this._dropSite2ComboBox.FormattingEnabled = true;
+			resources.ApplyResources(this._dropSite2ComboBox, "_dropSite2ComboBox");
+			this._dropSite2ComboBox.Name = "_dropSite2ComboBox";
+			this._dropSite2ComboBox.Sorted = true;
+			this._dropSite2ComboBox.SelectedIndexChanged += new System.EventHandler(this._dropSite2ComboBox_SelectedIndexChanged);
+			// 
+			// _dropSite1ComboBox
+			// 
+			this._dropSite1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this._dropSite1ComboBox.FormattingEnabled = true;
+			resources.ApplyResources(this._dropSite1ComboBox, "_dropSite1ComboBox");
+			this._dropSite1ComboBox.Name = "_dropSite1ComboBox";
+			this._dropSite1ComboBox.Sorted = true;
+			this._dropSite1ComboBox.SelectedIndexChanged += new System.EventHandler(this._dropSite1ComboBox_SelectedIndexChanged);
+			// 
+			// label5
+			// 
+			resources.ApplyResources(this.label5, "label5");
+			this.label5.Name = "label5";
+			// 
 			// EditCreatableForm
 			// 
 			resources.ApplyResources(this, "$this");
@@ -172,5 +208,9 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn _childrenViewButtonColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn _childrenViewChildColumn;
 		private System.Windows.Forms.Button _closeButton;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.ComboBox _dropSite2ComboBox;
+		private System.Windows.Forms.ComboBox _dropSite1ComboBox;
+		private System.Windows.Forms.Label label5;
 	}
 }

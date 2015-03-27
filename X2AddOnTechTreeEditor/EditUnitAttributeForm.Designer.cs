@@ -121,7 +121,28 @@
 			this._dllHelpField = new X2AddOnTechTreeEditor.Controls.LanguageDLLControl();
 			this._dllNameField = new X2AddOnTechTreeEditor.Controls.LanguageDLLControl();
 			this._deadTabPage = new System.Windows.Forms.TabPage();
+			this.groupBox16 = new System.Windows.Forms.GroupBox();
+			this._unknown9EField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._unknown9DField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._unknown9CField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._unknown9BField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._unknown9AField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._unknown8Field = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._unknown7Field = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this.groupBox15 = new System.Windows.Forms.GroupBox();
+			this._trackUnitDensityField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._rotationSpeedField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._graMoving2Field = new X2AddOnTechTreeEditor.Controls.DropDownFieldControl();
+			this._graMoving1Field = new X2AddOnTechTreeEditor.Controls.DropDownFieldControl();
 			this._birdTabPage = new System.Windows.Forms.TabPage();
+			this.groupBox17 = new System.Windows.Forms.GroupBox();
+			this._soundMoveField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._soundAttackField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._animalModeField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._workRateField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._villagerModeField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._searchRadiusField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._sheepConvField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
 			this._type50TabPage = new System.Windows.Forms.TabPage();
 			this._projectileTabPage = new System.Windows.Forms.TabPage();
 			this._creatableTabPage = new System.Windows.Forms.TabPage();
@@ -144,6 +165,11 @@
 			this.groupBox3.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
+			this._deadTabPage.SuspendLayout();
+			this.groupBox16.SuspendLayout();
+			this.groupBox15.SuspendLayout();
+			this._birdTabPage.SuspendLayout();
+			this.groupBox17.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// _bottomPanel
@@ -1108,14 +1134,261 @@
 			// _deadTabPage
 			// 
 			resources.ApplyResources(this._deadTabPage, "_deadTabPage");
+			this._deadTabPage.Controls.Add(this.groupBox16);
+			this._deadTabPage.Controls.Add(this.groupBox15);
 			this._deadTabPage.Name = "_deadTabPage";
 			this._deadTabPage.UseVisualStyleBackColor = true;
+			// 
+			// groupBox16
+			// 
+			this.groupBox16.Controls.Add(this._unknown9EField);
+			this.groupBox16.Controls.Add(this._unknown9DField);
+			this.groupBox16.Controls.Add(this._unknown9CField);
+			this.groupBox16.Controls.Add(this._unknown9BField);
+			this.groupBox16.Controls.Add(this._unknown9AField);
+			this.groupBox16.Controls.Add(this._unknown8Field);
+			this.groupBox16.Controls.Add(this._unknown7Field);
+			resources.ApplyResources(this.groupBox16, "groupBox16");
+			this.groupBox16.Name = "groupBox16";
+			this.groupBox16.TabStop = false;
+			// 
+			// _unknown9EField
+			// 
+			resources.ApplyResources(this._unknown9EField, "_unknown9EField");
+			this._unknown9EField.Name = "_unknown9EField";
+			this._unknown9EField.NameString = "9e:";
+			this._unknown9EField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._unknown9EField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._unknown9EField_ValueChanged);
+			// 
+			// _unknown9DField
+			// 
+			resources.ApplyResources(this._unknown9DField, "_unknown9DField");
+			this._unknown9DField.Name = "_unknown9DField";
+			this._unknown9DField.NameString = "9d:";
+			this._unknown9DField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._unknown9DField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._unknown9DField_ValueChanged);
+			// 
+			// _unknown9CField
+			// 
+			resources.ApplyResources(this._unknown9CField, "_unknown9CField");
+			this._unknown9CField.Name = "_unknown9CField";
+			this._unknown9CField.NameString = "9c:";
+			this._unknown9CField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._unknown9CField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._unknown9CField_ValueChanged);
+			// 
+			// _unknown9BField
+			// 
+			resources.ApplyResources(this._unknown9BField, "_unknown9BField");
+			this._unknown9BField.Name = "_unknown9BField";
+			this._unknown9BField.NameString = "9b:";
+			this._unknown9BField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._unknown9BField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._unknown9BField_ValueChanged);
+			// 
+			// _unknown9AField
+			// 
+			resources.ApplyResources(this._unknown9AField, "_unknown9AField");
+			this._unknown9AField.Name = "_unknown9AField";
+			this._unknown9AField.NameString = "9a:";
+			this._unknown9AField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._unknown9AField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._unknown9AField_ValueChanged);
+			// 
+			// _unknown8Field
+			// 
+			resources.ApplyResources(this._unknown8Field, "_unknown8Field");
+			this._unknown8Field.Name = "_unknown8Field";
+			this._unknown8Field.NameString = "8:";
+			this._unknown8Field.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._unknown8Field.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._unknown8Field_ValueChanged);
+			// 
+			// _unknown7Field
+			// 
+			resources.ApplyResources(this._unknown7Field, "_unknown7Field");
+			this._unknown7Field.Name = "_unknown7Field";
+			this._unknown7Field.NameString = "7:";
+			this._unknown7Field.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._unknown7Field.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._unknown7Field_ValueChanged);
+			// 
+			// groupBox15
+			// 
+			this.groupBox15.Controls.Add(this._trackUnitDensityField);
+			this.groupBox15.Controls.Add(this._rotationSpeedField);
+			this.groupBox15.Controls.Add(this._graMoving2Field);
+			this.groupBox15.Controls.Add(this._graMoving1Field);
+			resources.ApplyResources(this.groupBox15, "groupBox15");
+			this.groupBox15.Name = "groupBox15";
+			this.groupBox15.TabStop = false;
+			// 
+			// _trackUnitDensityField
+			// 
+			resources.ApplyResources(this._trackUnitDensityField, "_trackUnitDensityField");
+			this._trackUnitDensityField.Name = "_trackUnitDensityField";
+			this._trackUnitDensityField.NameString = "Track-Einheit-Abstand:";
+			this._trackUnitDensityField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._trackUnitDensityField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._trackUnitDensityField_ValueChanged);
+			// 
+			// _rotationSpeedField
+			// 
+			resources.ApplyResources(this._rotationSpeedField, "_rotationSpeedField");
+			this._rotationSpeedField.Name = "_rotationSpeedField";
+			this._rotationSpeedField.NameString = "Rotationsgeschwindigkeit: ";
+			this._rotationSpeedField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._rotationSpeedField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._rotationSpeedField_ValueChanged);
+			// 
+			// _graMoving2Field
+			// 
+			resources.ApplyResources(this._graMoving2Field, "_graMoving2Field");
+			this._graMoving2Field.Name = "_graMoving2Field";
+			this._graMoving2Field.NameString = "Lauf-Grafik 2:";
+			this._graMoving2Field.Value = null;
+			this._graMoving2Field.ValueChanged += new X2AddOnTechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graMoving2Field_ValueChanged);
+			// 
+			// _graMoving1Field
+			// 
+			resources.ApplyResources(this._graMoving1Field, "_graMoving1Field");
+			this._graMoving1Field.Name = "_graMoving1Field";
+			this._graMoving1Field.NameString = "Lauf-Grafik 1:";
+			this._graMoving1Field.Value = null;
+			this._graMoving1Field.ValueChanged += new X2AddOnTechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graMoving1Field_ValueChanged);
 			// 
 			// _birdTabPage
 			// 
 			resources.ApplyResources(this._birdTabPage, "_birdTabPage");
+			this._birdTabPage.Controls.Add(this.groupBox17);
 			this._birdTabPage.Name = "_birdTabPage";
 			this._birdTabPage.UseVisualStyleBackColor = true;
+			// 
+			// groupBox17
+			// 
+			this.groupBox17.Controls.Add(this._soundMoveField);
+			this.groupBox17.Controls.Add(this._soundAttackField);
+			this.groupBox17.Controls.Add(this._animalModeField);
+			this.groupBox17.Controls.Add(this._workRateField);
+			this.groupBox17.Controls.Add(this._villagerModeField);
+			this.groupBox17.Controls.Add(this._searchRadiusField);
+			this.groupBox17.Controls.Add(this._sheepConvField);
+			resources.ApplyResources(this.groupBox17, "groupBox17");
+			this.groupBox17.Name = "groupBox17";
+			this.groupBox17.TabStop = false;
+			// 
+			// _soundMoveField
+			// 
+			resources.ApplyResources(this._soundMoveField, "_soundMoveField");
+			this._soundMoveField.Name = "_soundMoveField";
+			this._soundMoveField.NameString = "Lauf-Sound:";
+			this._soundMoveField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._soundMoveField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._soundMoveField_ValueChanged);
+			// 
+			// _soundAttackField
+			// 
+			resources.ApplyResources(this._soundAttackField, "_soundAttackField");
+			this._soundAttackField.Name = "_soundAttackField";
+			this._soundAttackField.NameString = "Angriff-Sound:";
+			this._soundAttackField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._soundAttackField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._soundAttackField_ValueChanged);
+			// 
+			// _animalModeField
+			// 
+			resources.ApplyResources(this._animalModeField, "_animalModeField");
+			this._animalModeField.Name = "_animalModeField";
+			this._animalModeField.NameString = "Tier-Modus:";
+			this._animalModeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._animalModeField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._animalModeField_ValueChanged);
+			// 
+			// _workRateField
+			// 
+			resources.ApplyResources(this._workRateField, "_workRateField");
+			this._workRateField.Name = "_workRateField";
+			this._workRateField.NameString = "Arbeitsrate:";
+			this._workRateField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._workRateField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._workRateField_ValueChanged);
+			// 
+			// _villagerModeField
+			// 
+			resources.ApplyResources(this._villagerModeField, "_villagerModeField");
+			this._villagerModeField.Name = "_villagerModeField";
+			this._villagerModeField.NameString = "Dorfbewohner-Modus:";
+			this._villagerModeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._villagerModeField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._villagerModeField_ValueChanged);
+			// 
+			// _searchRadiusField
+			// 
+			resources.ApplyResources(this._searchRadiusField, "_searchRadiusField");
+			this._searchRadiusField.Name = "_searchRadiusField";
+			this._searchRadiusField.NameString = "Suchradius:";
+			this._searchRadiusField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._searchRadiusField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._searchRadiusField_ValueChanged);
+			// 
+			// _sheepConvField
+			// 
+			resources.ApplyResources(this._sheepConvField, "_sheepConvField");
+			this._sheepConvField.Name = "_sheepConvField";
+			this._sheepConvField.NameString = "Autom. Konvertierung:";
+			this._sheepConvField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._sheepConvField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._sheepConvField_ValueChanged);
 			// 
 			// _type50TabPage
 			// 
@@ -1169,6 +1442,11 @@
 			this.groupBox3.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox1.ResumeLayout(false);
+			this._deadTabPage.ResumeLayout(false);
+			this.groupBox16.ResumeLayout(false);
+			this.groupBox15.ResumeLayout(false);
+			this._birdTabPage.ResumeLayout(false);
+			this.groupBox17.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -1272,6 +1550,27 @@
 		private Controls.DropDownFieldControl _graStanding2Field;
 		private Controls.DropDownFieldControl _graFalling1Field;
 		private Controls.DropDownFieldControl _graStanding1Field;
+		private System.Windows.Forms.GroupBox groupBox15;
+		private Controls.DropDownFieldControl _graMoving1Field;
+		private Controls.DropDownFieldControl _graMoving2Field;
+		private Controls.NumberFieldControl _rotationSpeedField;
+		private Controls.NumberFieldControl _trackUnitDensityField;
+		private System.Windows.Forms.GroupBox groupBox16;
+		private Controls.NumberFieldControl _unknown8Field;
+		private Controls.NumberFieldControl _unknown7Field;
+		private Controls.NumberFieldControl _unknown9EField;
+		private Controls.NumberFieldControl _unknown9DField;
+		private Controls.NumberFieldControl _unknown9CField;
+		private Controls.NumberFieldControl _unknown9BField;
+		private Controls.NumberFieldControl _unknown9AField;
+		private System.Windows.Forms.GroupBox groupBox17;
+		private Controls.NumberFieldControl _searchRadiusField;
+		private Controls.NumberFieldControl _sheepConvField;
+		private Controls.NumberFieldControl _workRateField;
+		private Controls.NumberFieldControl _villagerModeField;
+		private Controls.NumberFieldControl _animalModeField;
+		private Controls.NumberFieldControl _soundMoveField;
+		private Controls.NumberFieldControl _soundAttackField;
 
 	}
 }

@@ -19,7 +19,7 @@ namespace GenieLibrary.DataElements.UnitTypes
 		/// <summary>
 		/// Länge: 5.
 		/// </summary>
-		public List<float> Unknown16B;
+		public List<int> Unknown16B;
 
 		#endregion Variablen
 
@@ -36,9 +36,9 @@ namespace GenieLibrary.DataElements.UnitTypes
 			TrackingUnitDensity = buffer.ReadFloat();
 			Unknown16 = buffer.ReadByte();
 
-			Unknown16B = new List<float>(5);
+			Unknown16B = new List<int>(5);
 			for(int i = 0; i < 5; ++i)
-				Unknown16B.Add(buffer.ReadFloat());
+				Unknown16B.Add(buffer.ReadInteger());
 		}
 
 		public override void WriteData(RAMBuffer buffer)
@@ -53,7 +53,7 @@ namespace GenieLibrary.DataElements.UnitTypes
 			buffer.WriteByte(Unknown16);
 
 			AssertListLength(Unknown16B, 5);
-			Unknown16B.ForEach(e => buffer.WriteFloat(e));
+			Unknown16B.ForEach(e => buffer.WriteInteger(e));
 		}
 
 		#endregion Funktionen

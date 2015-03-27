@@ -85,6 +85,16 @@ namespace X2AddOnTechTreeEditor
 			}
 		}
 
+		private void _interfacDRSButton_Click(object sender, EventArgs e)
+		{
+			// Dialog anzeigen
+			if(_openInterfacDRSDialog.ShowDialog() == DialogResult.OK)
+			{
+				// Dateinamen aktualisieren
+				_interfacDRSTextBox.Text = _openInterfacDRSDialog.FileName;
+			}
+		}
+
 		private void _loadDataButton_Click(object sender, EventArgs e)
 		{
 			// Sicherstellen, dass DAT-Datei angegeben wurde
@@ -102,6 +112,8 @@ namespace X2AddOnTechTreeEditor
 			_datButton.Enabled = false;
 			_dllTextBox.Enabled = false;
 			_dllButton.Enabled = false;
+			_interfacDRSTextBox.Enabled = false;
+			_interfacDRSButton.Enabled = false;
 			_loadDataButton.Enabled = false;
 
 			// Lade-Funktion in separatem Thread ausführen, um Formular nicht zu blockieren
@@ -115,7 +127,10 @@ namespace X2AddOnTechTreeEditor
 				List<string> languageFileNames = _dllTextBox.Text.Split(';').ToList();
 				languageFileNames.RemoveAll(fn => string.IsNullOrEmpty(fn));
 				languageFileNames.Reverse();
-				_projectFile.LanguageFileNames = languageFileNames;
+				_projectFile.LanguageFilePaths = languageFileNames;
+
+				// Interfac-DRS-Pfad merken
+				_projectFile.InterfacDRSPath = _interfacDRSTextBox.Text;
 
 				// Alle Einheiten aus den Völkern kopieren (erst Zivilisationen, dann Gaia, um etwaige Bugs zu vermeiden)
 				Dictionary<int, GenieLibrary.DataElements.Civ.Unit> remainingUnits = new Dictionary<int, GenieLibrary.DataElements.Civ.Unit>(dat.UnitHeaders.Count);
@@ -369,6 +384,22 @@ namespace X2AddOnTechTreeEditor
 							// Annex-Gebäude als Schatten-Element markieren, damit es nicht als Elternelement gezeichnet wird
 							annexBuilding.ShadowElement = true;
 						}
+					}
+				}
+
+				// Untereinheiten/Querverweise für erschaffbare Einheiten anlegen
+				foreach(var currU in creatableUnits)
+				{
+					// DropSite-Einheiten?
+					if(currU.DATUnit.Bird.DropSite1 >= 0)
+					{
+						// Einheit abrufen
+						currU.DropSite1Unit = (TechTreeUnit)allNormalUnits.FirstOrDefault(u => u.ID == currU.DATUnit.Bird.DropSite1);
+					}
+					if(currU.DATUnit.Bird.DropSite2 >= 0)
+					{
+						// Einheit abrufen
+						currU.DropSite2Unit = (TechTreeUnit)allNormalUnits.FirstOrDefault(u => u.ID == currU.DATUnit.Bird.DropSite2);
 					}
 				}
 

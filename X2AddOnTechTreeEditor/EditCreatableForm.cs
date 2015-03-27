@@ -59,32 +59,28 @@ namespace X2AddOnTechTreeEditor
 			_projUnitComboBox.Items.Add(emptyProj);
 			_projDuplUnitComboBox.Items.Add(emptyProj);
 
+			// Transportzielliste erstellen
+			List<TechTreeElement> units = _projectFile.Where(e => e is TechTreeUnit);
+			_dropSite1ComboBox.Items.AddRange(units.ToArray());
+			_dropSite2ComboBox.Items.AddRange(units.ToArray());
+
 			// Trackingliste erstellen
-			_trackUnitComboBox.SuspendLayout();
 			_trackUnitComboBox.DisplayMember = "Name";
-			_projectFile.Where(u => u.GetType() == typeof(TechTreeEyeCandy)).ForEach(u =>
-			{
-				_trackUnitComboBox.Items.Add(u);
-			});
-			_trackUnitComboBox.ResumeLayout();
+			_trackUnitComboBox.Items.AddRange(units.Where(u => u.GetType() == typeof(TechTreeEyeCandy)).ToArray());
 
 			// Projektillisten erstellen
-			_projUnitComboBox.SuspendLayout();
-			_projDuplUnitComboBox.SuspendLayout();
 			_projUnitComboBox.DisplayMember = "Name";
 			_projDuplUnitComboBox.DisplayMember = "Name";
-			_projectFile.Where(p => p.GetType() == typeof(TechTreeProjectile)).ForEach(p =>
-			{
-				_projUnitComboBox.Items.Add(p);
-				_projDuplUnitComboBox.Items.Add(p);
-			});
-			_projUnitComboBox.ResumeLayout();
-			_projDuplUnitComboBox.ResumeLayout();
+			TechTreeElement[] projectiles = units.Where(p => p.GetType() == typeof(TechTreeProjectile)).ToArray();
+			_projUnitComboBox.Items.AddRange(projectiles);
+			_projDuplUnitComboBox.Items.AddRange(projectiles);
 
 			// Elemente auswählen
 			_trackUnitComboBox.SelectedItem = (_creatable.TrackingUnit == null ? emptyEyeCandy : _creatable.TrackingUnit);
 			_projUnitComboBox.SelectedItem = (_creatable.ProjectileUnit == null ? emptyProj : _creatable.ProjectileUnit);
 			_projDuplUnitComboBox.SelectedItem = (_creatable.ProjectileDuplicationUnit == null ? emptyProj : _creatable.ProjectileDuplicationUnit);
+			_dropSite1ComboBox.SelectedItem = (_creatable.DropSite1Unit == null ? emptyEyeCandy : _creatable.DropSite1Unit);
+			_dropSite2ComboBox.SelectedItem = (_creatable.DropSite2Unit == null ? emptyEyeCandy : _creatable.DropSite2Unit);
 
 			// Kindelemente in View schreiben
 			foreach(var currC in _creatable.Children)
@@ -120,6 +116,18 @@ namespace X2AddOnTechTreeEditor
 			// Wert aktualisieren
 			TechTreeEyeCandy selItem = (TechTreeEyeCandy)_trackUnitComboBox.SelectedItem;
 			_creatable.TrackingUnit = (selItem.ID >= 0 ? selItem : null);
+		}
+
+		private void _dropSite1ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			TechTreeUnit selItem = (TechTreeUnit)_dropSite1ComboBox.SelectedItem;
+			_creatable.DropSite1Unit = (selItem.ID >= 0 ? selItem : null);
+		}
+
+		private void _dropSite2ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			TechTreeUnit selItem = (TechTreeUnit)_dropSite2ComboBox.SelectedItem;
+			_creatable.DropSite2Unit = (selItem.ID >= 0 ? selItem : null);
 		}
 
 		private void _childrenView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)

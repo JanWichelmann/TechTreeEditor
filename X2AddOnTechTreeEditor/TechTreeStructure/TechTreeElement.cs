@@ -6,6 +6,10 @@ using System.Drawing;
 using System.Xml;
 using System.Xml.Linq;
 
+/*
+ * TODO: Beschränkung auf "allgemeine" Kultur aufheben, da z.B. verschiedene Kulturgruppen verschiedene Standing-Grafiken bei Gebäuden haben (Grafik-Set).
+ */
+
 namespace X2AddOnTechTreeEditor.TechTreeStructure
 {
 	/// <summary>
@@ -62,6 +66,8 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 
 		/// <summary>
 		/// Gibt an, ob dieses Element ein "Schattenelement" ist, d.h. zwar referenziert, aber im Baum nicht angezeigt wird.
+		/// Wird lediglich als Hilfsvariable beim Zeichnen abgefragt.
+		/// TODO: Entfernen?
 		/// </summary>
 		public bool ShadowElement { get; set; }
 

@@ -117,6 +117,24 @@ namespace X2AddOnTechTreeEditor
 			_projectFileName = filename;
 			_projectFile = new TechTreeFile(_projectFileName);
 
+			// Interfac-DRS laden
+			SetStatus("Lade Interfac-DRS...");
+			_interfacDRS = new DRSFile(_projectFile.InterfacDRSPath);
+
+			// Icons laden
+			SetStatus("Lade Icon-SLPs...");
+			SLPLoader.Loader _iconsResearches = new SLPLoader.Loader(new IORAMHelper.RAMBuffer(_interfacDRS.GetResourceData(50729)));
+			SLPLoader.Loader _iconsUnits = new SLPLoader.Loader(new IORAMHelper.RAMBuffer(_interfacDRS.GetResourceData(50730)));
+			SLPLoader.Loader _iconsBuildings = new SLPLoader.Loader(new IORAMHelper.RAMBuffer(_interfacDRS.GetResourceData(50706)));
+
+			// Farb-Palette laden
+			SetStatus(Strings.MainForm_Status_LoadingPal);
+			_pal50500 = new BMPLoaderNew.ColorTable(new BMPLoaderNew.JASCPalette(new IORAMHelper.RAMBuffer(Properties.Resources.pal50500)));
+
+			// Daten an Render-Control übergeben
+			SetStatus(Strings.MainForm_Status_PassRenderData);
+			_renderPanel.UpdateIconData(_pal50500, _iconsResearches, _iconsUnits, _iconsBuildings);
+
 			// Icon-Texturen erstellen
 			_projectFile.TechTreeParentElements.ForEach(p => p.CreateIconTextures(_renderPanel.LoadIconAsTexture));
 
@@ -295,30 +313,7 @@ namespace X2AddOnTechTreeEditor
 
 		private void MainForm_Shown(object sender, EventArgs e)
 		{
-			// Schönen Cursor zeigen
-			this.Cursor = Cursors.AppStarting;
-
-			// Interfac-DRS laden
-			SetStatus("Lade Interfac-DRS...");
-			_interfacDRS = new DRSFile("interfac.drs");
-
-			// Icons laden
-			SetStatus("Lade Icon-SLPs...");
-			SLPLoader.Loader _iconsResearches = new SLPLoader.Loader(new IORAMHelper.RAMBuffer(_interfacDRS.GetResourceData(50729)));
-			SLPLoader.Loader _iconsUnits = new SLPLoader.Loader(new IORAMHelper.RAMBuffer(_interfacDRS.GetResourceData(50730)));
-			SLPLoader.Loader _iconsBuildings = new SLPLoader.Loader(new IORAMHelper.RAMBuffer(_interfacDRS.GetResourceData(50706)));
-
-			// Farb-Palette laden
-			SetStatus(Strings.MainForm_Status_LoadingPal);
-			_pal50500 = new BMPLoaderNew.ColorTable(new BMPLoaderNew.JASCPalette(new IORAMHelper.RAMBuffer(Properties.Resources.pal50500)));
-
-			// Daten an Render-Control übergeben
-			SetStatus(Strings.MainForm_Status_PassRenderData);
-			_renderPanel.UpdateIconData(_pal50500, _iconsResearches, _iconsUnits, _iconsBuildings);
-
-			// Fertig
-			_dataLoaded = true;
-			this.Cursor = Cursors.Default;
+			// Bereit
 			SetStatus(Strings.MainForm_Status_Ready);
 		}
 

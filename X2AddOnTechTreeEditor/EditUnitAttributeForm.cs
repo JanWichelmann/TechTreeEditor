@@ -11,7 +11,38 @@ using X2AddOnTechTreeEditor.TechTreeStructure;
 
 /* Es fehlen:
 
-public short DeadUnitID;
+/// <summary>
+/// Format: Klasse =&gt; Wert.
+/// </summary>
+public Dictionary<short, short> Attacks;
+
+/// <summary>
+/// Format: Klasse =&gt; Wert.
+/// </summary>
+public Dictionary<short, short> Armours;
+
+public short TerrainRestrictionForDamageMultiplying;
+public float MaxRange;
+public float BlastRadius;
+public float ReloadTime;
+public short AccuracyPercent;
+public byte TowerMode;
+public short FrameDelay;
+
+/// <summary>
+/// Länge: 3.
+/// </summary>
+public List<float> GraphicDisplacement;
+
+public byte BlastLevel;
+public float MinRange;
+public float AccuracyErrorRadius;
+public short AttackGraphic;
+public short DisplayedMeleeArmour;
+public short DisplayedAttack;
+public float DisplayedRange;
+public float DisplayedReloadTime;
+
 */
 
 namespace X2AddOnTechTreeEditor
@@ -69,12 +100,14 @@ namespace X2AddOnTechTreeEditor
 			List<GenieLibrary.DataElements.Graphic> graphicList = _projectFile.BasicGenieFile.Graphics.Values.ToList();
 			graphicList.Add(emptyG);
 			graphicList.Sort((x, y) => x.ID.CompareTo(y.ID));
+			List<object> tmpGrList = graphicList.Cast<object>().ToList();
 
 			// Einheiten-Liste erstellen
 			TechTreeUnit emptyU = new TechTreeDead { ID = -1, Name = "None" };
 			List<TechTreeUnit> unitList = _projectFile.Where(p => p is TechTreeUnit).Cast<TechTreeUnit>().ToList();
 			unitList.Add(emptyU);
 			unitList.Sort((x, y) => x.Name.CompareTo(y.Name));
+			List<object> tmpUList = unitList.Cast<object>().ToList();
 
 			// Klassenliste in ComboBox einfügen
 			_classComboBox.Items.AddRange(Strings.ClassNames.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries));
@@ -92,7 +125,6 @@ namespace X2AddOnTechTreeEditor
 				_dllHotkeyField.Value = _unit.DATUnit.HotKey;
 
 				// Grafik-Werte einfügen
-				List<object> tmpGrList = graphicList.Cast<object>().ToList();
 				_graStanding1Field.ElementList = tmpGrList;
 				_graStanding1Field.Value = (_unit.DATUnit.StandingGraphic1 < 0 ? emptyG : graphicList.FirstOrDefault(g => g.ID == _unit.DATUnit.StandingGraphic1));
 				_graStanding2Field.ElementList = tmpGrList;
@@ -146,7 +178,7 @@ namespace X2AddOnTechTreeEditor
 				// Haupt-Werte setzen
 				_nameTextBox.Text = _unit.DATUnit.Name1.TrimEnd('\0');
 				_classComboBox.SelectedIndex = _unit.DATUnit.Class;
-				_deadUnitIDField.ElementList = unitList.Cast<object>().ToList();
+				_deadUnitIDField.ElementList = tmpUList;
 				_deadUnitIDField.Value = (_unit.DeadUnit == null ? emptyU : _unit.DeadUnit);
 				_iconIDField.Value = _unit.DATUnit.IconID;
 
@@ -214,12 +246,33 @@ namespace X2AddOnTechTreeEditor
 			// Tab-Seiten je nach Typ sperren, sonst jeweilige Steuerelemente füllen
 			if(_deadTabPage.Enabled = (_unit.DATUnit.Type >= GenieLibrary.DataElements.Civ.Unit.UnitType.DeadFish))
 			{
+				// Verschiedene Werte setzen
+				_graMoving1Field.ElementList = tmpGrList;
+				_graMoving1Field.Value = (_unit.DATUnit.DeadFish.WalkingGraphic1 < 0 ? emptyG : graphicList.FirstOrDefault(g => g.ID == _unit.DATUnit.DeadFish.WalkingGraphic1));
+				_graMoving2Field.ElementList = tmpGrList;
+				_graMoving2Field.Value = (_unit.DATUnit.DeadFish.WalkingGraphic2 < 0 ? emptyG : graphicList.FirstOrDefault(g => g.ID == _unit.DATUnit.DeadFish.WalkingGraphic2));
+				_rotationSpeedField.Value = (decimal)_unit.DATUnit.DeadFish.RotationSpeed;
+				_trackUnitDensityField.Value = (decimal)_unit.DATUnit.DeadFish.TrackingUnitDensity;
 
+				// Unbekannte Werte setzen
+				_unknown7Field.Value = _unit.DATUnit.DeadFish.Unknown11;
+				_unknown8Field.Value = _unit.DATUnit.DeadFish.Unknown16;
+				_unknown9AField.Value = _unit.DATUnit.DeadFish.Unknown16B[0];
+				_unknown9BField.Value = _unit.DATUnit.DeadFish.Unknown16B[1];
+				_unknown9CField.Value = _unit.DATUnit.DeadFish.Unknown16B[2];
+				_unknown9DField.Value = _unit.DATUnit.DeadFish.Unknown16B[3];
+				_unknown9EField.Value = _unit.DATUnit.DeadFish.Unknown16B[4];
 			}
-			else _deadTabPage.ForeColor = SystemColors.ControlDark;
 			if(_birdTabPage.Enabled = (_unit.DATUnit.Type >= GenieLibrary.DataElements.Civ.Unit.UnitType.Bird))
 			{
-
+				// Verschiedene Werte setzen
+				_sheepConvField.Value = _unit.DATUnit.Bird.SheepConversion;
+				_searchRadiusField.Value = (decimal)_unit.DATUnit.Bird.SearchRadius;
+				_villagerModeField.Value = _unit.DATUnit.Bird.VillagerMode;
+				_animalModeField.Value = _unit.DATUnit.Bird.AnimalMode;
+				_soundAttackField.Value = _unit.DATUnit.Bird.AttackSound;
+				_soundMoveField.Value = _unit.DATUnit.Bird.MoveSound;
+				_workRateField.Value = (decimal)_unit.DATUnit.Bird.WorkRate;
 			}
 			if(_type50TabPage.Enabled = (_unit.DATUnit.Type >= GenieLibrary.DataElements.Civ.Unit.UnitType.Type50))
 			{
@@ -754,6 +807,146 @@ namespace X2AddOnTechTreeEditor
 			if(_unit.DeadUnit.ID < 0)
 				_unit.DeadUnit = null;
 		}
+
+		#endregion
+
+		#region Tab: Tote Einheiten/Fisch
+
+		private void _graMoving1Field_ValueChanged(object sender, Controls.DropDownFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unit.DATUnit.DeadFish.WalkingGraphic1 = ((GenieLibrary.DataElements.Graphic)e.NewValue).ID;
+		}
+
+		private void _graMoving2Field_ValueChanged(object sender, Controls.DropDownFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unit.DATUnit.DeadFish.WalkingGraphic2 = ((GenieLibrary.DataElements.Graphic)e.NewValue).ID;
+		}
+
+		private void _rotationSpeedField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unit.DATUnit.DeadFish.RotationSpeed = e.NewValue.SafeConvert<float>();
+		}
+
+		private void _trackUnitDensityField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unit.DATUnit.DeadFish.TrackingUnitDensity = e.NewValue.SafeConvert<float>();
+		}
+
+		private void _unknown7Field_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unit.DATUnit.DeadFish.Unknown11 = e.NewValue.SafeConvert<byte>();
+		}
+
+		private void _unknown8Field_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unit.DATUnit.DeadFish.Unknown16 = e.NewValue.SafeConvert<byte>();
+		}
+
+		private void _unknown9AField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unit.DATUnit.DeadFish.Unknown16B[0] = e.NewValue.SafeConvert<int>();
+		}
+
+		private void _unknown9BField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unit.DATUnit.DeadFish.Unknown16B[1] = e.NewValue.SafeConvert<int>();
+		}
+
+		private void _unknown9CField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unit.DATUnit.DeadFish.Unknown16B[2] = e.NewValue.SafeConvert<int>();
+		}
+
+		private void _unknown9DField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unit.DATUnit.DeadFish.Unknown16B[3] = e.NewValue.SafeConvert<int>();
+		}
+
+		private void _unknown9EField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unit.DATUnit.DeadFish.Unknown16B[4] = e.NewValue.SafeConvert<int>();
+		}
+
+		#endregion
+
+		#region Tab: Zivilwerte
+
+		private void _sheepConvField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unit.DATUnit.Bird.SheepConversion = e.NewValue.SafeConvert<short>();
+		}
+
+		private void _searchRadiusField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unit.DATUnit.Bird.SearchRadius = e.NewValue.SafeConvert<float>();
+		}
+
+		private void _villagerModeField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unit.DATUnit.Bird.VillagerMode = e.NewValue.SafeConvert<byte>();
+		}
+
+		private void _animalModeField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unit.DATUnit.Bird.AnimalMode = e.NewValue.SafeConvert<byte>();
+		}
+
+		private void _soundAttackField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unit.DATUnit.Bird.AttackSound = e.NewValue.SafeConvert<short>();
+		}
+
+		private void _soundMoveField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unit.DATUnit.Bird.MoveSound = e.NewValue.SafeConvert<short>();
+		}
+
+		private void _workRateField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unit.DATUnit.Bird.WorkRate = e.NewValue.SafeConvert<float>();
+		}
+
+		#endregion
+
+		#region Tab: Angriffswerte
+
+
+
+		#endregion
+
+		#region Tab: Projektile
+
+
+
+		#endregion
+
+		#region Tab: Erschaffbare Einheiten
+
+
+
+		#endregion
+
+		#region Tab: Gebäude
+
+
 
 		#endregion
 

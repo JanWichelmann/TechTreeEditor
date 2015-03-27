@@ -45,6 +45,16 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		public TechTreeEyeCandy TrackingUnit { get; set; }
 
 		/// <summary>
+		/// Die zugehörige DropSite-1-Einheit.
+		/// </summary>
+		public TechTreeUnit DropSite1Unit{ get; set; }
+
+		/// <summary>
+		/// Die zugehörige DropSite-2-Einheit.
+		/// </summary>
+		public TechTreeUnit DropSite2Unit { get; set; }
+
+		/// <summary>
 		/// Die Projektil-Einheit.
 		/// </summary>
 		public TechTreeProjectile ProjectileUnit { get; set; }
@@ -307,6 +317,22 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				trackUnitID = elementIDs[TrackingUnit];
 			}
 
+			// DropSite-IDs abrufen
+			int dropSite1UnitID = -1;
+			if(DropSite1Unit != null)
+			{
+				if(!elementIDs.ContainsKey(DropSite1Unit))
+					lastID = DropSite1Unit.ToXml(writer, elementIDs, lastID);
+				dropSite1UnitID = elementIDs[DropSite1Unit];
+			}
+			int dropSite2UnitID = -1;
+			if(DropSite2Unit != null)
+			{
+				if(!elementIDs.ContainsKey(DropSite2Unit))
+					lastID = DropSite2Unit.ToXml(writer, elementIDs, lastID);
+				dropSite2UnitID = elementIDs[DropSite2Unit];
+			}
+
 			// Nachfolger-ID abrufen
 			int successorID = -1;
 			if(Successor != null)
@@ -392,6 +418,10 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				// Tracking-ID schreiben
 				writer.WriteElementNumber("trackunit", trackUnitID);
 
+				// DropSite-IDs schreiben
+				writer.WriteElementNumber("dropsite1", dropSite1UnitID);
+				writer.WriteElementNumber("dropsite2", dropSite2UnitID);
+
 				// Nachfolger-ID schreiben
 				writer.WriteElementNumber("successor", successorID);
 
@@ -465,6 +495,12 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			id = (int)element.Element("trackunit");
 			if(id >= 0)
 				this.TrackingUnit = (TechTreeEyeCandy)previousElements[id];
+			id = (int)element.Element("dropsite1");
+			if(id >= 0)
+				this.DropSite1Unit = (TechTreeUnit)previousElements[id];
+			id = (int)element.Element("dropsite2");
+			if(id >= 0)
+				this.DropSite2Unit = (TechTreeUnit)previousElements[id];
 			id = (int)element.Element("projunit");
 			if(id >= 0)
 				this.ProjectileUnit = (TechTreeProjectile)previousElements[id];
@@ -501,6 +537,8 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			if(ProjectileUnit == element) ++counter;
 			if(ProjectileDuplicationUnit == element) ++counter;
 			if(TrackingUnit == element) ++counter;
+			if(DropSite1Unit == element) ++counter;
+			if(DropSite2Unit == element) ++counter;
 
 			// Fertig
 			return counter;

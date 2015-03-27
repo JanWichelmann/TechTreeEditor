@@ -80,12 +80,6 @@
     <Compile Include="Controls\DropDownFieldControl.Designer.cs">
       <DependentUpon>DropDownFieldControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\GraphicControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\GraphicControl.Designer.cs">
-      <DependentUpon>GraphicControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\CheckBoxFieldControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -181,9 +175,6 @@
     <Compile Include="TechTreeStructure\TechTreeUnit.cs" />
     <EmbeddedResource Include="Controls\DropDownFieldControl.resx">
       <DependentUpon>DropDownFieldControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\GraphicControl.resx">
-      <DependentUpon>GraphicControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CheckBoxFieldControl.resx">
       <DependentUpon>CheckBoxFieldControl.cs</DependentUpon>

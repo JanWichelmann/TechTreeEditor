@@ -37,14 +37,19 @@ namespace X2AddOnTechTreeEditor
 		private List<TechTreeElement> _allElements = null;
 
 		/// <summary>
-		/// Die Language-Dateien (Zuordnung: Name => Inhalt).
+		/// Die Pfade zu den Language-Dateien.
 		/// </summary>
-		private Dictionary<string, RAMBuffer> _languageFiles = null;
-
+		private List<string> _languageFilePaths = null;
+		
 		/// <summary>
 		/// Das Language-DLL-Wrapperobjekt.
 		/// </summary>
 		private GenieLibrary.LanguageFileWrapper _languageFileWrapper = null;
+
+		/// <summary>
+		/// Der Pfad zur Interface-DRS.
+		/// </summary>
+		private string _interfacDRSPath = "";
 
 		/// <summary>
 		/// Die Kultur-Baum-Konfigurationen.
@@ -102,20 +107,17 @@ namespace X2AddOnTechTreeEditor
 					XDocument doc = XDocument.Load(currFile);
 					XElement mainElement = doc.Element("project");
 
-					// Language-Dateien lesen
-					_languageFiles = new Dictionary<string, RAMBuffer>();
+					// Language-Datei-Pfade lesen
+					_languageFilePaths = new List<string>();
 					foreach(XElement fileElement in mainElement.Element("languagefiles").Descendants("file"))
-					{
-						// Datei lesen
-						using(Stream langFile = archive.GetEntry(fileElement.Value).Open())
-						{
-							_languageFiles.Add(fileElement.Value, new RAMBuffer(langFile));
-						}
-					}
+							_languageFilePaths.Add(fileElement.Value);
 
-					// Language-Dateien laden
-					CreateLanguageFileHandles();
+					// Interfac-DRS-Pfad lesen
+					_interfacDRSPath = mainElement.Element("interfacdrs").Value;
 				}
+
+				// DLL-Handles erstellen
+				_languageFileWrapper = new GenieLibrary.LanguageFileWrapper(_languageFilePaths.ToArray());
 
 				// DAT-Datei laden
 				using(Stream currFile = archive.GetEntry("dat.unz").Open())
@@ -180,9 +182,6 @@ namespace X2AddOnTechTreeEditor
 						// Kultur lesen
 						_civTrees[(int)fileElement.Attribute("id")].FromXml(fileElement, readElements);
 					}
-
-					// Language-Dateien laden
-					CreateLanguageFileHandles();
 				}
 			}
 		}
@@ -211,17 +210,17 @@ namespace X2AddOnTechTreeEditor
 							writer.WriteStartDocument();
 							writer.WriteStartElement("project");
 
-							// Language-DLL-Namen schreiben
+							// Language-DLL-Pfade schreiben
 							writer.WriteStartElement("languagefiles");
 							{
-								// Dateien einzeln schreiben
-								foreach(string currDLLName in _languageFiles.Keys)
-								{
-									// Dateinamen schreiben
+								// Datei-Pfad einzeln schreiben
+								foreach(string currDLLName in _languageFilePaths)
 									writer.WriteElementString("file", currDLLName);
-								}
 							}
 							writer.WriteEndElement();
+
+							// Interfac-DRS-Pfad schreiben
+							writer.WriteElementString("interfacdrs", _interfacDRSPath);
 
 							// Haupt- und Dokumentelement schließen
 							writer.WriteEndElement();
@@ -233,17 +232,6 @@ namespace X2AddOnTechTreeEditor
 					using(Stream currFile = archive.CreateEntry("dat.unz").Open())
 					{
 						_basicGenieFile.WriteData(currFile);
-					}
-
-					// Language-DLLs schreiben
-					foreach(var file in _languageFiles)
-					{
-						// Pro Datei Eintrag erstellen
-						using(Stream currFile = archive.CreateEntry(file.Key).Open())
-						{
-							// Dateiinhalt schreiben
-							file.Value.ToMemoryStream().CopyTo(currFile);
-						}
 					}
 
 					// Technologiebaumdaten schreiben
@@ -326,25 +314,6 @@ namespace X2AddOnTechTreeEditor
 					}
 				}
 			}
-		}
-
-		/// <summary>
-		/// Lädt die enthaltenen Language-DLLs.
-		/// </summary>
-		private void CreateLanguageFileHandles()
-		{
-			// Dateien in temporärem Verzeichnis mappen
-			List<string> tempFileNames = new List<string>();
-			foreach(KeyValuePair<string, RAMBuffer> currFile in _languageFiles)
-			{
-				// Datei mappen
-				string filename = Path.GetTempFileName();
-				currFile.Value.Save(filename);
-				tempFileNames.Add(filename);
-			}
-
-			// DLL-Handles erstellen
-			_languageFileWrapper = new GenieLibrary.LanguageFileWrapper(tempFileNames.ToArray());
 		}
 
 		#endregion Funktionen
@@ -804,21 +773,28 @@ namespace X2AddOnTechTreeEditor
 		}
 
 		/// <summary>
-		/// Die Language-Dateien. Neuzuweisen dieser Eigenschaft überschreibt alle bereits enthaltenen Language-Dateien!
+		/// Die Language-Datei-Pfade.
 		/// </summary>
-		public List<string> LanguageFileNames
+		public List<string> LanguageFilePaths
 		{
-			get { return _languageFiles.Keys.ToList(); }
+			get { return _languageFilePaths; }
 			set
 			{
 				// Dateien laden
-				_languageFiles = new Dictionary<string, RAMBuffer>();
-				foreach(string file in value)
-					_languageFiles.Add(Path.GetFileName(file).ToLower(), new RAMBuffer(file));
+				_languageFilePaths = value;
 
-				// Handles erstellen
-				CreateLanguageFileHandles();
+				// DLL-Handles neu erstellen
+				_languageFileWrapper = new GenieLibrary.LanguageFileWrapper(_languageFilePaths.ToArray());
 			}
+		}
+
+		/// <summary>
+		/// Der Interfac-DRS-Pfad.
+		/// </summary>
+		public string InterfacDRSPath
+		{
+			get { return _interfacDRSPath; }
+			set { _interfacDRSPath = value; }
 		}
 
 		/// <summary>

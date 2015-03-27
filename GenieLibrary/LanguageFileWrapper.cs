@@ -45,6 +45,15 @@ namespace GenieLibrary
 		}
 
 		/// <summary>
+		/// Destruktor. Gibt die geladenen DLLs wieder frei.
+		/// </summary>
+		~LanguageFileWrapper()
+		{
+			// Handles freigeben
+			_filePointers.ForEach(p => FreeLibrary(p));
+		}
+
+		/// <summary>
 		/// Ruft den String mit der gegebenen ID ab. Wenn dieser nicht gefunden wird, wird ein leerer String zurückgegeben.
 		/// </summary>
 		/// <param name="stringID">Die ID des abzurufenden Strings.</param>
@@ -65,13 +74,11 @@ namespace GenieLibrary
 
 		#region Importierte Funktionen
 
-		/// <summary>
-		/// Lädt die angegebene DLL und gibt einen Zeiger auf diese zurück.
-		/// </summary>
-		/// <param name="path">Die zu ladende DLL.</param>
-		/// <returns></returns>
 		[DllImport("kernel32.dll", SetLastError = true)]
 		public static extern IntPtr LoadLibrary(string path);
+
+		[DllImport("kernel32.dll", SetLastError = true)]
+		public static extern bool FreeLibrary(IntPtr handle);
 
 		[DllImport("user32.dll")]
 		public static extern int LoadString(IntPtr instance, uint stringID, StringBuilder buffer, int bufferSize);

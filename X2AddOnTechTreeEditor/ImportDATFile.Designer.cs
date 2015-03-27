@@ -53,6 +53,10 @@
 			this._dllHelpBox = new System.Windows.Forms.ToolTip(this.components);
 			this._finishProgressBar = new System.Windows.Forms.ProgressBar();
 			this._saveProjectDialog = new System.Windows.Forms.SaveFileDialog();
+			this._interfacDRSButton = new System.Windows.Forms.Button();
+			this.label4 = new System.Windows.Forms.Label();
+			this._interfacDRSTextBox = new System.Windows.Forms.TextBox();
+			this._openInterfacDRSDialog = new System.Windows.Forms.OpenFileDialog();
 			this._selectionGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this._selectionView)).BeginInit();
 			this.SuspendLayout();
@@ -208,10 +212,34 @@
 			// 
 			resources.ApplyResources(this._saveProjectDialog, "_saveProjectDialog");
 			// 
+			// _interfacDRSButton
+			// 
+			resources.ApplyResources(this._interfacDRSButton, "_interfacDRSButton");
+			this._interfacDRSButton.Name = "_interfacDRSButton";
+			this._interfacDRSButton.UseVisualStyleBackColor = true;
+			this._interfacDRSButton.Click += new System.EventHandler(this._interfacDRSButton_Click);
+			// 
+			// label4
+			// 
+			resources.ApplyResources(this.label4, "label4");
+			this.label4.Name = "label4";
+			// 
+			// _interfacDRSTextBox
+			// 
+			resources.ApplyResources(this._interfacDRSTextBox, "_interfacDRSTextBox");
+			this._interfacDRSTextBox.Name = "_interfacDRSTextBox";
+			// 
+			// _openInterfacDRSDialog
+			// 
+			resources.ApplyResources(this._openInterfacDRSDialog, "_openInterfacDRSDialog");
+			// 
 			// ImportDATFile
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this._interfacDRSButton);
+			this.Controls.Add(this.label4);
+			this.Controls.Add(this._interfacDRSTextBox);
 			this.Controls.Add(this._finishProgressBar);
 			this.Controls.Add(this._dllButton);
 			this.Controls.Add(this.label3);
@@ -260,5 +288,9 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn _selectionViewTypeColumn;
 		private System.Windows.Forms.SaveFileDialog _saveProjectDialog;
 		private System.Windows.Forms.ProgressBar _finishProgressBar;
+		private System.Windows.Forms.Button _interfacDRSButton;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.TextBox _interfacDRSTextBox;
+		private System.Windows.Forms.OpenFileDialog _openInterfacDRSDialog;
 	}
 }
