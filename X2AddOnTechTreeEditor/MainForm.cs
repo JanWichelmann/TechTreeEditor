@@ -1,11 +1,10 @@
 ﻿using DRSLibrary;
 using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using X2AddOnTechTreeEditor;
 using X2AddOnTechTreeEditor.TechTreeStructure;
-
-// Icons: "Attribute bearbeiten" (16x16 und 32x32), "Grafiken editieren" (32x32)
 
 namespace X2AddOnTechTreeEditor
 {
@@ -66,7 +65,12 @@ namespace X2AddOnTechTreeEditor
 		/// <summary>
 		/// Die Farbtabelle zu Rendern von Grafiken.
 		/// </summary>
-		BMPLoaderNew.ColorTable _pal50500 = null;
+		private BMPLoaderNew.ColorTable _pal50500 = null;
+
+		/// <summary>
+		/// Der Einheiten-Manager.
+		/// </summary>
+		private GenieUnitManager _unitManager = null;
 
 		#endregion Variablen
 
@@ -84,6 +88,9 @@ namespace X2AddOnTechTreeEditor
 #if !DEBUG
 			ToolStripManager.LoadSettings(this, "ToolBarSettings");
 #endif
+
+			// Kultur-Kopier-Leisten-Renderer setzen
+			_civCopyBar.Renderer = new CivCopyButtonRenderer();
 
 			// Fenstertitel setzen
 			UpdateFormTitle();
@@ -154,6 +161,40 @@ namespace X2AddOnTechTreeEditor
 			_civSelectComboBox.ComboBox.DataSource = _civs;
 			_civSelectComboBox.ComboBox.SelectedIndex = 0;
 
+			// Einheiten-Manager erstellen
+			_unitManager = new GenieUnitManager(_projectFile.BasicGenieFile);
+
+			// Erste Kultur auswählen
+			_currCivConfig = _projectFile.CivTrees[(int)_civs[0].Key];
+			_unitManager.SelectedCivIndex = (int)_civs[0].Key;
+			_projectFile.ApplyCivConfiguration(_currCivConfig);
+
+			// Kultur-Kopier-Leiste füllen
+			_civCopyBar.Items.Clear();
+			foreach(var civ in _civs)
+			{
+				// Button erstellen
+				ToolStripButton civButton = new ToolStripButton(civ.Value);
+				civButton.BackColor = Color.FromArgb(239, 255, 163);
+				civButton.Name = "_civCopyButton" + civ.Key.ToString();
+				civButton.Margin = new System.Windows.Forms.Padding(1, 0, 0, 1);
+				civButton.CheckOnClick = true;
+				civButton.CheckedChanged += (sender, e) =>
+				{
+					// Button abrufen
+					ToolStripButton senderButton = (ToolStripButton)sender;
+
+					// Kultur-ID abrufen
+					int civID = (int)senderButton.Tag;
+
+					// Kultur-Kopier-Wert setzen
+					_unitManager[civID] = senderButton.Checked;
+				};
+				civButton.ToolTipText = string.Format("Auto-Kopieren zu {0}", civ.Value);
+				civButton.Tag = (int)civ.Key;
+				_civCopyBar.Items.Add(civButton);
+			}
+
 			// Daten an Render-Control übergeben
 			SetStatus(Strings.MainForm_Status_PreparingTreeRendering);
 			_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
@@ -162,11 +203,13 @@ namespace X2AddOnTechTreeEditor
 			_saveProjectMenuButton.Enabled = true;
 			_saveProjectButton.Enabled = true;
 			_civSelectComboBox.Enabled = true;
+			_editGraphicsButton.Enabled = true;
 			_editorModeButton.Enabled = true;
 			_standardModeButton.Enabled = true;
 			_searchTextBox.Enabled = true;
 			_ageUpButton.Enabled = true;
 			_ageDownButton.Enabled = true;
+			_editAttributesButton.Enabled = true;
 			_newUnitButton.Enabled = true;
 			_newBuildingButton.Enabled = true;
 			_newResearchButton.Enabled = true;
@@ -180,6 +223,7 @@ namespace X2AddOnTechTreeEditor
 			_newBuildingDepButton.Enabled = true;
 			_deleteDepButton.Enabled = true;
 			_deleteElementButton.Enabled = true;
+			_civCopyBar.Enabled = true;
 
 			// Fertig
 			_saved = true;
@@ -322,9 +366,11 @@ namespace X2AddOnTechTreeEditor
 			// Wenn Daten noch nicht geladen sind, nichts tun
 			if(!_dataLoaded)
 				return;
-
+		
 			// Daten für die ausgewählte Zivilisation einfügen
-			_currCivConfig = _projectFile.CivTrees[(int)(uint)_civSelectComboBox.ComboBox.SelectedValue];
+			int civID = (int)(uint)_civSelectComboBox.ComboBox.SelectedValue;
+			_currCivConfig = _projectFile.CivTrees[civID];
+			_unitManager.SelectedCivIndex = civID;
 			_projectFile.ApplyCivConfiguration(_currCivConfig);
 
 			// Neuzeichnen
@@ -339,7 +385,16 @@ namespace X2AddOnTechTreeEditor
 			// Ist ein Element ausgewählt?
 			if(_selectedElement != null)
 			{
+				// Falls es sich um eine Einheit handelt, ID ändern
+				if(_selectedElement is TechTreeUnit)
+				{
+					// ID im Manager ändern
+					_unitManager.SelectedUnitIndex = _selectedElement.ID;
+					((TechTreeUnit)_selectedElement).DATUnit = _unitManager.SelectedUnit;
+				}
+
 				// Name des gewählten Elements anzeigen
+				_selectedElement.UpdateName(_projectFile.LanguageFileWrapper);
 				_selectedNameLabel.Text = string.Format(Strings.MainForm_CurrentSelection, _selectedElement.Name);
 
 				// Operationsmodus vorgehen
@@ -997,6 +1052,12 @@ namespace X2AddOnTechTreeEditor
 			_techTreeElementContextMenu.AutoClose = true;
 			_techTreeElementContextMenu.Hide();
 
+			// Das gleiche tun wie beim ToolBar-Button
+			_editAttributesButton_Click(sender, e);
+		}
+
+		private void _editAttributesButton_Click(object sender, EventArgs e)
+		{
 			// Nach Typ unterscheiden
 			if(_selectedElement != null)
 				if(_selectedElement.GetType() == typeof(TechTreeResearch))
@@ -1006,7 +1067,7 @@ namespace X2AddOnTechTreeEditor
 				else
 				{
 					// Das Element muss eine Einheit sein => Fenster anzeigen
-					EditUnitAttributeForm form = new EditUnitAttributeForm(_projectFile, (TechTreeUnit)_selectedElement);
+					EditUnitAttributeForm form = new EditUnitAttributeForm(_projectFile, (TechTreeUnit)_selectedElement, _unitManager);
 					form.IconChanged += (sender2, e2) =>
 					{
 						e2.Unit.FreeIconTexture();
@@ -1093,5 +1154,43 @@ namespace X2AddOnTechTreeEditor
 
 		#endregion
 
+		#region Hilfsklassen
+
+		/// <summary>
+		/// Hilfsklasse zum schöneren Zeichnen der Kultur-Kopier-Buttons.
+		/// </summary>
+		private class CivCopyButtonRenderer : ToolStripProfessionalRenderer
+		{
+			protected override void OnRenderButtonBackground(ToolStripItemRenderEventArgs e)
+			{
+				// Button abrufen
+				ToolStripButton button = e.Item as ToolStripButton;
+				if(button != null && button.CheckOnClick)
+				{
+					// Button-Abmessungen abrufen
+					Rectangle bounds = new Rectangle(Point.Empty, button.Size);
+
+					// Button zeichnen
+					if(button.Checked)
+					{
+						// Der Button ist ausgewählt
+						e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(153, 255, 124)), bounds);
+
+						// Einen schönen "3D"-Rahmen zeichnen
+						e.Graphics.DrawLine(Pens.DarkGreen, new Point(bounds.Left, bounds.Bottom), new Point(bounds.Left, bounds.Top));
+						e.Graphics.DrawLine(Pens.DarkGreen, new Point(bounds.Left, bounds.Top), new Point(bounds.Right, bounds.Top));
+					}
+					else
+					{
+						// Der Button ist nicht ausgewählt
+						e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(239, 255, 163)), bounds);
+					}
+				}
+				else
+					base.OnRenderButtonBackground(e);
+			}
+		}
+
+		#endregion
 	}
 }

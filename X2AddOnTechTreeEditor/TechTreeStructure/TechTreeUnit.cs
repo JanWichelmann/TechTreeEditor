@@ -15,6 +15,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 
 		/// <summary>
 		/// Die zugehörige DAT-Einheit.
+		/// In diese Eigenschaft sollte im Normalfall nicht geschrieben werden, es sollte auf den jeweiligen Einheiten-Manager zurückgegriffen werden!
 		/// </summary>
 		public GenieLibrary.DataElements.Civ.Unit DATUnit { get; set; }
 
@@ -57,9 +58,6 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			for(int c = dat.Civs.Count - 1; c >= 0; --c)
 				if((DATUnit = dat.Civs[c].Units.FirstOrDefault(u => u.Key == ID).Value) != null)
 					break;
-
-			// Name laden
-			Name = langFiles.GetString(DATUnit.LanguageDLLName) + " [ID " + ID.ToString() + ", T " + (byte)DATUnit.Type+ ", " + DATUnit.Name1.TrimEnd('\0') + "]";
 		}
 
 		/// <summary>
@@ -105,6 +103,16 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 
 			// Fertig
 			return counter;
+		}
+
+		/// <summary>
+		/// Generiert den Anzeige-Namen.
+		/// </summary>
+		/// <param name="langFiles">Das Language-Datei-Objekt zum Auslesen von Stringdaten.</param>
+		public override void UpdateName(GenieLibrary.LanguageFileWrapper langFiles)
+		{
+			// Name setzen
+			Name = langFiles.GetString(DATUnit.LanguageDLLName) + " [ID " + ID.ToString() + ", T " + (byte)DATUnit.Type + ", " + DATUnit.Name1.TrimEnd('\0') + "]";
 		}
 
 		#endregion Funktionen

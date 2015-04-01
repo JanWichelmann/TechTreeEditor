@@ -143,6 +143,12 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// <param name="lastID">Die letzte vergebene ID. Muss als Referenz übergeben werden, da diese Zahl stetig inkrementiert wird.</param>
 		public abstract int ToXml(XmlWriter writer, Dictionary<TechTreeElement, int> elementIDs, int lastID);
 
+		/// <summary>
+		/// Aktualisiert den Element-Namen.
+		/// </summary>
+		/// <param name="langFiles">Das Language-Datei-Objekt zum Auslesen von Stringdaten.</param>
+		public abstract void UpdateName(GenieLibrary.LanguageFileWrapper langFiles);
+
 		#endregion Abstrakte Funktionen
 
 		#region Funktionen

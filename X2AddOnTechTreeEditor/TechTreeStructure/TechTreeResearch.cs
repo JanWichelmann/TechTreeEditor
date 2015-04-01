@@ -307,9 +307,6 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 
 			// DAT-Einheit laden
 			DATResearch = dat.Researches[ID];
-
-			// Name laden
-			Name = langFiles.GetString(DATResearch.LanguageDLLName1) + " [#" + ID.ToString() + ", " + DATResearch.Name.TrimEnd('\0') + "]";
 		}
 
 		/// <summary>
@@ -356,6 +353,16 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 
 			// Fertig
 			return counter;
+		}
+
+		/// <summary>
+		/// Generiert den Anzeige-Namen.
+		/// </summary>
+		/// <param name="langFiles">Das Language-Datei-Objekt zum Auslesen von Stringdaten.</param>
+		public override void UpdateName(GenieLibrary.LanguageFileWrapper langFiles)
+		{
+			// Name setzen
+			Name = langFiles.GetString(DATResearch.LanguageDLLName1) + " [ID " + ID.ToString() + ", " + DATResearch.Name.TrimEnd('\0') + "]";
 		}
 
 		#endregion Funktionen

@@ -747,7 +747,7 @@ namespace X2AddOnTechTreeEditor
 		#region Eigenschaften
 
 		/// <summary>
-		/// Ruft die originale Basis-DAT-Datei ab.
+		/// Ruft die zugrundeliegende Basis-DAT-Datei ab.
 		/// </summary>
 		public GenieLibrary.GenieFile BasicGenieFile
 		{

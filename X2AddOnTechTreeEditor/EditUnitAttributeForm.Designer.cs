@@ -82,7 +82,6 @@
 			this._soundTrain1Field = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
 			this._soundSelectionField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
 			this.groupBox7 = new System.Windows.Forms.GroupBox();
-			this._deadUnitIDField = new X2AddOnTechTreeEditor.Controls.DropDownFieldControl();
 			this._iconIDField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
 			this._classLabel = new System.Windows.Forms.Label();
 			this._classComboBox = new System.Windows.Forms.ComboBox();
@@ -144,9 +143,89 @@
 			this._searchRadiusField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
 			this._sheepConvField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
 			this._type50TabPage = new System.Windows.Forms.TabPage();
+			this.groupBox21 = new System.Windows.Forms.GroupBox();
+			this._graAttackField = new X2AddOnTechTreeEditor.Controls.DropDownFieldControl();
+			this._terrainMultField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._towerModeField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._blastLevelField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._blastRadiusField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this.groupBox23 = new System.Windows.Forms.GroupBox();
+			this._graphicDisplacementZField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._graphicDisplacementYField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._graphicDisplacementXField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._frameDelayField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._accuracyErrorField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._accuracyPercentField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this.groupBox22 = new System.Windows.Forms.GroupBox();
+			this._attackReloadTimeDisplayedField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._attackReloadTimeField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this.groupBox20 = new System.Windows.Forms.GroupBox();
+			this._rangeDisplayedField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._rangeMaxField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._rangeMinField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this.groupBox19 = new System.Windows.Forms.GroupBox();
+			this._defaultArmorField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._armourValuesField = new System.Windows.Forms.DataGridView();
+			this._armValClassColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this._armValValueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this._displayedMeleeArmourField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this.groupBox18 = new System.Windows.Forms.GroupBox();
+			this._attackValuesField = new System.Windows.Forms.DataGridView();
+			this._attValClassColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this._attValValueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this._displayedAttackField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
 			this._projectileTabPage = new System.Windows.Forms.TabPage();
+			this.groupBox24 = new System.Windows.Forms.GroupBox();
+			this._projectileArcField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._unknown10Field = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._penetrationModeField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._dropAnimationModeField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._compensationModeField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._stretchModeField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
 			this._creatableTabPage = new System.Windows.Forms.TabPage();
+			this.groupBox29 = new System.Windows.Forms.GroupBox();
+			this._unknown12Field = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._unknown13Field = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._unknown11Field = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this.groupBox28 = new System.Windows.Forms.GroupBox();
+			this._graChargeField = new X2AddOnTechTreeEditor.Controls.DropDownFieldControl();
+			this._graGarrisonField = new X2AddOnTechTreeEditor.Controls.DropDownFieldControl();
+			this.groupBox27 = new System.Windows.Forms.GroupBox();
+			this._displayedPierceArmorField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._chargeModeField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._heroModeField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._trainTimeField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this.groupBox26 = new System.Windows.Forms.GroupBox();
+			this._missileSpawnZField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._missileSpawnYField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._missileSpawnXField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._missileDuplMaxField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._missileDuplMinField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this.groupBox25 = new System.Windows.Forms.GroupBox();
+			this._cost3Field = new X2AddOnTechTreeEditor.Controls.ResourceCostControl();
+			this._cost2Field = new X2AddOnTechTreeEditor.Controls.ResourceCostControl();
+			this._cost1Field = new X2AddOnTechTreeEditor.Controls.ResourceCostControl();
 			this._buildingTabPage = new System.Windows.Forms.TabPage();
+			this.groupBox33 = new System.Windows.Forms.GroupBox();
+			this._lootStoneField = new X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl();
+			this._lootGoldField = new X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl();
+			this._lootFoodField = new X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl();
+			this._lootWoodField = new X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl();
+			this.groupBox32 = new System.Windows.Forms.GroupBox();
+			this._unknown15Field = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._unknown14Field = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this.groupBox31 = new System.Windows.Forms.GroupBox();
+			this._disappearsField = new X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl();
+			this._garrisonHealRateField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._garrisonTypeField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._unknownSoundField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._constructionSoundField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._foundTerrainField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._graphicAngleField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
+			this._adjacentModeField = new X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl();
+			this.groupBox30 = new System.Windows.Forms.GroupBox();
+			this._graSnowField = new X2AddOnTechTreeEditor.Controls.DropDownFieldControl();
+			this._graConstructionField = new X2AddOnTechTreeEditor.Controls.DropDownFieldControl();
 			this._bottomPanel.SuspendLayout();
 			this._mainTabControl.SuspendLayout();
 			this._commonTabPage.SuspendLayout();
@@ -170,6 +249,28 @@
 			this.groupBox15.SuspendLayout();
 			this._birdTabPage.SuspendLayout();
 			this.groupBox17.SuspendLayout();
+			this._type50TabPage.SuspendLayout();
+			this.groupBox21.SuspendLayout();
+			this.groupBox23.SuspendLayout();
+			this.groupBox22.SuspendLayout();
+			this.groupBox20.SuspendLayout();
+			this.groupBox19.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this._armourValuesField)).BeginInit();
+			this.groupBox18.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this._attackValuesField)).BeginInit();
+			this._projectileTabPage.SuspendLayout();
+			this.groupBox24.SuspendLayout();
+			this._creatableTabPage.SuspendLayout();
+			this.groupBox29.SuspendLayout();
+			this.groupBox28.SuspendLayout();
+			this.groupBox27.SuspendLayout();
+			this.groupBox26.SuspendLayout();
+			this.groupBox25.SuspendLayout();
+			this._buildingTabPage.SuspendLayout();
+			this.groupBox33.SuspendLayout();
+			this.groupBox32.SuspendLayout();
+			this.groupBox31.SuspendLayout();
+			this.groupBox30.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// _bottomPanel
@@ -769,7 +870,6 @@
 			// 
 			// groupBox7
 			// 
-			this.groupBox7.Controls.Add(this._deadUnitIDField);
 			this.groupBox7.Controls.Add(this._iconIDField);
 			this.groupBox7.Controls.Add(this._classLabel);
 			this.groupBox7.Controls.Add(this._classComboBox);
@@ -778,14 +878,6 @@
 			resources.ApplyResources(this.groupBox7, "groupBox7");
 			this.groupBox7.Name = "groupBox7";
 			this.groupBox7.TabStop = false;
-			// 
-			// _deadUnitIDField
-			// 
-			resources.ApplyResources(this._deadUnitIDField, "_deadUnitIDField");
-			this._deadUnitIDField.Name = "_deadUnitIDField";
-			this._deadUnitIDField.NameString = "Tote Einheit:";
-			this._deadUnitIDField.Value = null;
-			this._deadUnitIDField.ValueChanged += new X2AddOnTechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._deadUnitIDField_ValueChanged);
 			// 
 			// _iconIDField
 			// 
@@ -1393,26 +1485,885 @@
 			// _type50TabPage
 			// 
 			resources.ApplyResources(this._type50TabPage, "_type50TabPage");
+			this._type50TabPage.Controls.Add(this.groupBox21);
+			this._type50TabPage.Controls.Add(this.groupBox23);
+			this._type50TabPage.Controls.Add(this.groupBox22);
+			this._type50TabPage.Controls.Add(this.groupBox20);
+			this._type50TabPage.Controls.Add(this.groupBox19);
+			this._type50TabPage.Controls.Add(this.groupBox18);
 			this._type50TabPage.Name = "_type50TabPage";
 			this._type50TabPage.UseVisualStyleBackColor = true;
+			// 
+			// groupBox21
+			// 
+			this.groupBox21.Controls.Add(this._graAttackField);
+			this.groupBox21.Controls.Add(this._terrainMultField);
+			this.groupBox21.Controls.Add(this._towerModeField);
+			this.groupBox21.Controls.Add(this._blastLevelField);
+			this.groupBox21.Controls.Add(this._blastRadiusField);
+			resources.ApplyResources(this.groupBox21, "groupBox21");
+			this.groupBox21.Name = "groupBox21";
+			this.groupBox21.TabStop = false;
+			// 
+			// _graAttackField
+			// 
+			resources.ApplyResources(this._graAttackField, "_graAttackField");
+			this._graAttackField.Name = "_graAttackField";
+			this._graAttackField.NameString = "Angriff-Grafik:";
+			this._graAttackField.Value = null;
+			this._graAttackField.ValueChanged += new X2AddOnTechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graAttackField_ValueChanged);
+			// 
+			// _terrainMultField
+			// 
+			resources.ApplyResources(this._terrainMultField, "_terrainMultField");
+			this._terrainMultField.Name = "_terrainMultField";
+			this._terrainMultField.NameString = "Terrain-Multiplikator:";
+			this._terrainMultField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._terrainMultField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._terrainMultField_ValueChanged);
+			// 
+			// _towerModeField
+			// 
+			resources.ApplyResources(this._towerModeField, "_towerModeField");
+			this._towerModeField.Name = "_towerModeField";
+			this._towerModeField.NameString = "Turm-Modus:";
+			this._towerModeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._towerModeField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._towerModeField_ValueChanged);
+			// 
+			// _blastLevelField
+			// 
+			resources.ApplyResources(this._blastLevelField, "_blastLevelField");
+			this._blastLevelField.Name = "_blastLevelField";
+			this._blastLevelField.NameString = "Zerstörungslevel:";
+			this._blastLevelField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._blastLevelField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._blastLevelField_ValueChanged);
+			// 
+			// _blastRadiusField
+			// 
+			resources.ApplyResources(this._blastRadiusField, "_blastRadiusField");
+			this._blastRadiusField.Name = "_blastRadiusField";
+			this._blastRadiusField.NameString = "Zerstörungsradius:";
+			this._blastRadiusField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._blastRadiusField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._blastRadiusField_ValueChanged);
+			// 
+			// groupBox23
+			// 
+			this.groupBox23.Controls.Add(this._graphicDisplacementZField);
+			this.groupBox23.Controls.Add(this._graphicDisplacementYField);
+			this.groupBox23.Controls.Add(this._graphicDisplacementXField);
+			this.groupBox23.Controls.Add(this._frameDelayField);
+			this.groupBox23.Controls.Add(this._accuracyErrorField);
+			this.groupBox23.Controls.Add(this._accuracyPercentField);
+			resources.ApplyResources(this.groupBox23, "groupBox23");
+			this.groupBox23.Name = "groupBox23";
+			this.groupBox23.TabStop = false;
+			// 
+			// _graphicDisplacementZField
+			// 
+			resources.ApplyResources(this._graphicDisplacementZField, "_graphicDisplacementZField");
+			this._graphicDisplacementZField.Name = "_graphicDisplacementZField";
+			this._graphicDisplacementZField.NameString = "Grafik-Versatz Z:";
+			this._graphicDisplacementZField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._graphicDisplacementZField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._graphicDisplacementZField_ValueChanged);
+			// 
+			// _graphicDisplacementYField
+			// 
+			resources.ApplyResources(this._graphicDisplacementYField, "_graphicDisplacementYField");
+			this._graphicDisplacementYField.Name = "_graphicDisplacementYField";
+			this._graphicDisplacementYField.NameString = "Grafik-Versatz Y:";
+			this._graphicDisplacementYField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._graphicDisplacementYField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._graphicDisplacementYField_ValueChanged);
+			// 
+			// _graphicDisplacementXField
+			// 
+			resources.ApplyResources(this._graphicDisplacementXField, "_graphicDisplacementXField");
+			this._graphicDisplacementXField.Name = "_graphicDisplacementXField";
+			this._graphicDisplacementXField.NameString = "Grafik-Versatz X:";
+			this._graphicDisplacementXField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._graphicDisplacementXField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._graphicDisplacementXField_ValueChanged);
+			// 
+			// _frameDelayField
+			// 
+			resources.ApplyResources(this._frameDelayField, "_frameDelayField");
+			this._frameDelayField.Name = "_frameDelayField";
+			this._frameDelayField.NameString = "Frame-Verzögerung:";
+			this._frameDelayField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._frameDelayField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._frameDelayField_ValueChanged);
+			// 
+			// _accuracyErrorField
+			// 
+			resources.ApplyResources(this._accuracyErrorField, "_accuracyErrorField");
+			this._accuracyErrorField.Name = "_accuracyErrorField";
+			this._accuracyErrorField.NameString = "Fehler-Radius:";
+			this._accuracyErrorField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._accuracyErrorField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._accuracyErrorField_ValueChanged);
+			// 
+			// _accuracyPercentField
+			// 
+			resources.ApplyResources(this._accuracyPercentField, "_accuracyPercentField");
+			this._accuracyPercentField.Name = "_accuracyPercentField";
+			this._accuracyPercentField.NameString = "Prozentuale Genauigkeit:";
+			this._accuracyPercentField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._accuracyPercentField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._accuracyPercentField_ValueChanged);
+			// 
+			// groupBox22
+			// 
+			this.groupBox22.Controls.Add(this._attackReloadTimeDisplayedField);
+			this.groupBox22.Controls.Add(this._attackReloadTimeField);
+			resources.ApplyResources(this.groupBox22, "groupBox22");
+			this.groupBox22.Name = "groupBox22";
+			this.groupBox22.TabStop = false;
+			// 
+			// _attackReloadTimeDisplayedField
+			// 
+			resources.ApplyResources(this._attackReloadTimeDisplayedField, "_attackReloadTimeDisplayedField");
+			this._attackReloadTimeDisplayedField.Name = "_attackReloadTimeDisplayedField";
+			this._attackReloadTimeDisplayedField.NameString = "Angezeigt:";
+			this._attackReloadTimeDisplayedField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._attackReloadTimeDisplayedField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._attackReloadTimeDisplayedField_ValueChanged);
+			// 
+			// _attackReloadTimeField
+			// 
+			resources.ApplyResources(this._attackReloadTimeField, "_attackReloadTimeField");
+			this._attackReloadTimeField.Name = "_attackReloadTimeField";
+			this._attackReloadTimeField.NameString = "Wert:";
+			this._attackReloadTimeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._attackReloadTimeField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._attackReloadTimeField_ValueChanged);
+			// 
+			// groupBox20
+			// 
+			this.groupBox20.Controls.Add(this._rangeDisplayedField);
+			this.groupBox20.Controls.Add(this._rangeMaxField);
+			this.groupBox20.Controls.Add(this._rangeMinField);
+			resources.ApplyResources(this.groupBox20, "groupBox20");
+			this.groupBox20.Name = "groupBox20";
+			this.groupBox20.TabStop = false;
+			// 
+			// _rangeDisplayedField
+			// 
+			resources.ApplyResources(this._rangeDisplayedField, "_rangeDisplayedField");
+			this._rangeDisplayedField.Name = "_rangeDisplayedField";
+			this._rangeDisplayedField.NameString = "Angezeigt:";
+			this._rangeDisplayedField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._rangeDisplayedField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._rangeDisplayedField_ValueChanged);
+			// 
+			// _rangeMaxField
+			// 
+			resources.ApplyResources(this._rangeMaxField, "_rangeMaxField");
+			this._rangeMaxField.Name = "_rangeMaxField";
+			this._rangeMaxField.NameString = "Maximal:";
+			this._rangeMaxField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._rangeMaxField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._rangeMaxField_ValueChanged);
+			// 
+			// _rangeMinField
+			// 
+			resources.ApplyResources(this._rangeMinField, "_rangeMinField");
+			this._rangeMinField.Name = "_rangeMinField";
+			this._rangeMinField.NameString = "Minimal:";
+			this._rangeMinField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._rangeMinField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._rangeMinField_ValueChanged);
+			// 
+			// groupBox19
+			// 
+			this.groupBox19.Controls.Add(this._defaultArmorField);
+			this.groupBox19.Controls.Add(this._armourValuesField);
+			this.groupBox19.Controls.Add(this._displayedMeleeArmourField);
+			resources.ApplyResources(this.groupBox19, "groupBox19");
+			this.groupBox19.Name = "groupBox19";
+			this.groupBox19.TabStop = false;
+			// 
+			// _defaultArmorField
+			// 
+			resources.ApplyResources(this._defaultArmorField, "_defaultArmorField");
+			this._defaultArmorField.Name = "_defaultArmorField";
+			this._defaultArmorField.NameString = "Standard-Rüstung:";
+			this._defaultArmorField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._defaultArmorField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._defaultArmorField_ValueChanged);
+			// 
+			// _armourValuesField
+			// 
+			this._armourValuesField.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this._armourValuesField.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this._armourValuesField.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this._armValClassColumn,
+            this._armValValueColumn});
+			resources.ApplyResources(this._armourValuesField, "_armourValuesField");
+			this._armourValuesField.Name = "_armourValuesField";
+			this._armourValuesField.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this._armourValuesField_CellValidating);
+			this._armourValuesField.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._armourValuesField_CellValueChanged);
+			this._armourValuesField.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this._armourValuesField_RowsRemoved);
+			// 
+			// _armValClassColumn
+			// 
+			this._armValClassColumn.FillWeight = 80F;
+			resources.ApplyResources(this._armValClassColumn, "_armValClassColumn");
+			this._armValClassColumn.Name = "_armValClassColumn";
+			// 
+			// _armValValueColumn
+			// 
+			this._armValValueColumn.FillWeight = 20F;
+			resources.ApplyResources(this._armValValueColumn, "_armValValueColumn");
+			this._armValValueColumn.Name = "_armValValueColumn";
+			// 
+			// _displayedMeleeArmourField
+			// 
+			resources.ApplyResources(this._displayedMeleeArmourField, "_displayedMeleeArmourField");
+			this._displayedMeleeArmourField.Name = "_displayedMeleeArmourField";
+			this._displayedMeleeArmourField.NameString = "Angezeigte Nahkampfrüstung:";
+			this._displayedMeleeArmourField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._displayedMeleeArmourField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._displayedMeleeArmourField_ValueChanged);
+			// 
+			// groupBox18
+			// 
+			this.groupBox18.Controls.Add(this._attackValuesField);
+			this.groupBox18.Controls.Add(this._displayedAttackField);
+			resources.ApplyResources(this.groupBox18, "groupBox18");
+			this.groupBox18.Name = "groupBox18";
+			this.groupBox18.TabStop = false;
+			// 
+			// _attackValuesField
+			// 
+			this._attackValuesField.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this._attackValuesField.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this._attackValuesField.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this._attValClassColumn,
+            this._attValValueColumn});
+			resources.ApplyResources(this._attackValuesField, "_attackValuesField");
+			this._attackValuesField.Name = "_attackValuesField";
+			this._attackValuesField.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this._attackValuesField_CellValidating);
+			this._attackValuesField.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._attackValuesField_CellValueChanged);
+			this._attackValuesField.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this._attackValuesField_RowsRemoved);
+			// 
+			// _attValClassColumn
+			// 
+			this._attValClassColumn.FillWeight = 80F;
+			resources.ApplyResources(this._attValClassColumn, "_attValClassColumn");
+			this._attValClassColumn.Name = "_attValClassColumn";
+			// 
+			// _attValValueColumn
+			// 
+			this._attValValueColumn.FillWeight = 20F;
+			resources.ApplyResources(this._attValValueColumn, "_attValValueColumn");
+			this._attValValueColumn.Name = "_attValValueColumn";
+			// 
+			// _displayedAttackField
+			// 
+			resources.ApplyResources(this._displayedAttackField, "_displayedAttackField");
+			this._displayedAttackField.Name = "_displayedAttackField";
+			this._displayedAttackField.NameString = "Angezeigt:";
+			this._displayedAttackField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._displayedAttackField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._displayedAttackField_ValueChanged);
 			// 
 			// _projectileTabPage
 			// 
 			resources.ApplyResources(this._projectileTabPage, "_projectileTabPage");
+			this._projectileTabPage.Controls.Add(this.groupBox24);
 			this._projectileTabPage.Name = "_projectileTabPage";
 			this._projectileTabPage.UseVisualStyleBackColor = true;
+			// 
+			// groupBox24
+			// 
+			this.groupBox24.Controls.Add(this._projectileArcField);
+			this.groupBox24.Controls.Add(this._unknown10Field);
+			this.groupBox24.Controls.Add(this._penetrationModeField);
+			this.groupBox24.Controls.Add(this._dropAnimationModeField);
+			this.groupBox24.Controls.Add(this._compensationModeField);
+			this.groupBox24.Controls.Add(this._stretchModeField);
+			resources.ApplyResources(this.groupBox24, "groupBox24");
+			this.groupBox24.Name = "groupBox24";
+			this.groupBox24.TabStop = false;
+			// 
+			// _projectileArcField
+			// 
+			resources.ApplyResources(this._projectileArcField, "_projectileArcField");
+			this._projectileArcField.Name = "_projectileArcField";
+			this._projectileArcField.NameString = "Flugbahn-Krümmung:";
+			this._projectileArcField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._projectileArcField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._projectileArcField_ValueChanged);
+			// 
+			// _unknown10Field
+			// 
+			resources.ApplyResources(this._unknown10Field, "_unknown10Field");
+			this._unknown10Field.Name = "_unknown10Field";
+			this._unknown10Field.NameString = "Unbekannt 10:";
+			this._unknown10Field.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._unknown10Field.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._unknown10Field_ValueChanged);
+			// 
+			// _penetrationModeField
+			// 
+			resources.ApplyResources(this._penetrationModeField, "_penetrationModeField");
+			this._penetrationModeField.Name = "_penetrationModeField";
+			this._penetrationModeField.NameString = "Treffmodus:";
+			this._penetrationModeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._penetrationModeField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._penetrationModeField_ValueChanged);
+			// 
+			// _dropAnimationModeField
+			// 
+			resources.ApplyResources(this._dropAnimationModeField, "_dropAnimationModeField");
+			this._dropAnimationModeField.Name = "_dropAnimationModeField";
+			this._dropAnimationModeField.NameString = "Verschwindemodus:";
+			this._dropAnimationModeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._dropAnimationModeField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._dropAnimationModeField_ValueChanged);
+			// 
+			// _compensationModeField
+			// 
+			resources.ApplyResources(this._compensationModeField, "_compensationModeField");
+			this._compensationModeField.Name = "_compensationModeField";
+			this._compensationModeField.NameString = "Zielmodus:";
+			this._compensationModeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._compensationModeField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._compensationModeField_ValueChanged);
+			// 
+			// _stretchModeField
+			// 
+			resources.ApplyResources(this._stretchModeField, "_stretchModeField");
+			this._stretchModeField.Name = "_stretchModeField";
+			this._stretchModeField.NameString = "Flugbahn-Typ:";
+			this._stretchModeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._stretchModeField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._stretchModeField_ValueChanged);
 			// 
 			// _creatableTabPage
 			// 
 			resources.ApplyResources(this._creatableTabPage, "_creatableTabPage");
+			this._creatableTabPage.Controls.Add(this.groupBox29);
+			this._creatableTabPage.Controls.Add(this.groupBox28);
+			this._creatableTabPage.Controls.Add(this.groupBox27);
+			this._creatableTabPage.Controls.Add(this.groupBox26);
+			this._creatableTabPage.Controls.Add(this.groupBox25);
 			this._creatableTabPage.Name = "_creatableTabPage";
 			this._creatableTabPage.UseVisualStyleBackColor = true;
+			// 
+			// groupBox29
+			// 
+			this.groupBox29.Controls.Add(this._unknown12Field);
+			this.groupBox29.Controls.Add(this._unknown13Field);
+			this.groupBox29.Controls.Add(this._unknown11Field);
+			resources.ApplyResources(this.groupBox29, "groupBox29");
+			this.groupBox29.Name = "groupBox29";
+			this.groupBox29.TabStop = false;
+			// 
+			// _unknown12Field
+			// 
+			resources.ApplyResources(this._unknown12Field, "_unknown12Field");
+			this._unknown12Field.Name = "_unknown12Field";
+			this._unknown12Field.NameString = "Unbekannt 12:";
+			this._unknown12Field.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._unknown12Field.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._unknown12Field_ValueChanged);
+			// 
+			// _unknown13Field
+			// 
+			resources.ApplyResources(this._unknown13Field, "_unknown13Field");
+			this._unknown13Field.Name = "_unknown13Field";
+			this._unknown13Field.NameString = "Unbekannt 13:";
+			this._unknown13Field.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._unknown13Field.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._unknown13Field_ValueChanged);
+			// 
+			// _unknown11Field
+			// 
+			resources.ApplyResources(this._unknown11Field, "_unknown11Field");
+			this._unknown11Field.Name = "_unknown11Field";
+			this._unknown11Field.NameString = "Unbekannt 11:";
+			this._unknown11Field.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._unknown11Field.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._unknown11Field_ValueChanged);
+			// 
+			// groupBox28
+			// 
+			this.groupBox28.Controls.Add(this._graChargeField);
+			this.groupBox28.Controls.Add(this._graGarrisonField);
+			resources.ApplyResources(this.groupBox28, "groupBox28");
+			this.groupBox28.Name = "groupBox28";
+			this.groupBox28.TabStop = false;
+			// 
+			// _graChargeField
+			// 
+			resources.ApplyResources(this._graChargeField, "_graChargeField");
+			this._graChargeField.Name = "_graChargeField";
+			this._graChargeField.NameString = "Nachladen:";
+			this._graChargeField.Value = null;
+			this._graChargeField.ValueChanged += new X2AddOnTechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graChargeField_ValueChanged);
+			// 
+			// _graGarrisonField
+			// 
+			resources.ApplyResources(this._graGarrisonField, "_graGarrisonField");
+			this._graGarrisonField.Name = "_graGarrisonField";
+			this._graGarrisonField.NameString = "Einquartieren:";
+			this._graGarrisonField.Value = null;
+			this._graGarrisonField.ValueChanged += new X2AddOnTechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graGarrisonField_ValueChanged);
+			// 
+			// groupBox27
+			// 
+			this.groupBox27.Controls.Add(this._displayedPierceArmorField);
+			this.groupBox27.Controls.Add(this._chargeModeField);
+			this.groupBox27.Controls.Add(this._heroModeField);
+			this.groupBox27.Controls.Add(this._trainTimeField);
+			resources.ApplyResources(this.groupBox27, "groupBox27");
+			this.groupBox27.Name = "groupBox27";
+			this.groupBox27.TabStop = false;
+			// 
+			// _displayedPierceArmorField
+			// 
+			resources.ApplyResources(this._displayedPierceArmorField, "_displayedPierceArmorField");
+			this._displayedPierceArmorField.Name = "_displayedPierceArmorField";
+			this._displayedPierceArmorField.NameString = "Angezeigte Beschussrüstung:";
+			this._displayedPierceArmorField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._displayedPierceArmorField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._displayedPierceArmorField_ValueChanged);
+			// 
+			// _chargeModeField
+			// 
+			resources.ApplyResources(this._chargeModeField, "_chargeModeField");
+			this._chargeModeField.Name = "_chargeModeField";
+			this._chargeModeField.NameString = "Nachlade-Modus:";
+			this._chargeModeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._chargeModeField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._chargeModeField_ValueChanged);
+			// 
+			// _heroModeField
+			// 
+			resources.ApplyResources(this._heroModeField, "_heroModeField");
+			this._heroModeField.Name = "_heroModeField";
+			this._heroModeField.NameString = "Helden-Modus:";
+			this._heroModeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._heroModeField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._heroModeField_ValueChanged);
+			// 
+			// _trainTimeField
+			// 
+			resources.ApplyResources(this._trainTimeField, "_trainTimeField");
+			this._trainTimeField.Name = "_trainTimeField";
+			this._trainTimeField.NameString = "Erschaff-Zeit:";
+			this._trainTimeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._trainTimeField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._trainTimeField_ValueChanged);
+			// 
+			// groupBox26
+			// 
+			this.groupBox26.Controls.Add(this._missileSpawnZField);
+			this.groupBox26.Controls.Add(this._missileSpawnYField);
+			this.groupBox26.Controls.Add(this._missileSpawnXField);
+			this.groupBox26.Controls.Add(this._missileDuplMaxField);
+			this.groupBox26.Controls.Add(this._missileDuplMinField);
+			resources.ApplyResources(this.groupBox26, "groupBox26");
+			this.groupBox26.Name = "groupBox26";
+			this.groupBox26.TabStop = false;
+			// 
+			// _missileSpawnZField
+			// 
+			resources.ApplyResources(this._missileSpawnZField, "_missileSpawnZField");
+			this._missileSpawnZField.Name = "_missileSpawnZField";
+			this._missileSpawnZField.NameString = "Spawn Z:";
+			this._missileSpawnZField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._missileSpawnZField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._missileSpawnZField_ValueChanged);
+			// 
+			// _missileSpawnYField
+			// 
+			resources.ApplyResources(this._missileSpawnYField, "_missileSpawnYField");
+			this._missileSpawnYField.Name = "_missileSpawnYField";
+			this._missileSpawnYField.NameString = "Spawn Y:";
+			this._missileSpawnYField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._missileSpawnYField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._missileSpawnYField_ValueChanged);
+			// 
+			// _missileSpawnXField
+			// 
+			resources.ApplyResources(this._missileSpawnXField, "_missileSpawnXField");
+			this._missileSpawnXField.Name = "_missileSpawnXField";
+			this._missileSpawnXField.NameString = "Spawn X:";
+			this._missileSpawnXField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._missileSpawnXField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._missileSpawnXField_ValueChanged);
+			// 
+			// _missileDuplMaxField
+			// 
+			resources.ApplyResources(this._missileDuplMaxField, "_missileDuplMaxField");
+			this._missileDuplMaxField.Name = "_missileDuplMaxField";
+			this._missileDuplMaxField.NameString = "Duplikation-Max.:";
+			this._missileDuplMaxField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._missileDuplMaxField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._missileDuplMaxField_ValueChanged);
+			// 
+			// _missileDuplMinField
+			// 
+			resources.ApplyResources(this._missileDuplMinField, "_missileDuplMinField");
+			this._missileDuplMinField.Name = "_missileDuplMinField";
+			this._missileDuplMinField.NameString = "Duplikation-Min.:";
+			this._missileDuplMinField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._missileDuplMinField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._missileDuplMinField_ValueChanged);
+			// 
+			// groupBox25
+			// 
+			this.groupBox25.Controls.Add(this._cost3Field);
+			this.groupBox25.Controls.Add(this._cost2Field);
+			this.groupBox25.Controls.Add(this._cost1Field);
+			resources.ApplyResources(this.groupBox25, "groupBox25");
+			this.groupBox25.Name = "groupBox25";
+			this.groupBox25.TabStop = false;
+			// 
+			// _cost3Field
+			// 
+			resources.ApplyResources(this._cost3Field, "_cost3Field");
+			this._cost3Field.Name = "_cost3Field";
+			this._cost3Field.NameString = "Kosten 3:";
+			this._cost3Field.ValueChanged += new X2AddOnTechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._cost3Field_ValueChanged);
+			// 
+			// _cost2Field
+			// 
+			resources.ApplyResources(this._cost2Field, "_cost2Field");
+			this._cost2Field.Name = "_cost2Field";
+			this._cost2Field.NameString = "Kosten 2:";
+			this._cost2Field.ValueChanged += new X2AddOnTechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._cost2Field_ValueChanged);
+			// 
+			// _cost1Field
+			// 
+			resources.ApplyResources(this._cost1Field, "_cost1Field");
+			this._cost1Field.Name = "_cost1Field";
+			this._cost1Field.NameString = "Kosten 1:";
+			this._cost1Field.ValueChanged += new X2AddOnTechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._cost1Field_ValueChanged);
 			// 
 			// _buildingTabPage
 			// 
 			resources.ApplyResources(this._buildingTabPage, "_buildingTabPage");
+			this._buildingTabPage.Controls.Add(this.groupBox33);
+			this._buildingTabPage.Controls.Add(this.groupBox32);
+			this._buildingTabPage.Controls.Add(this.groupBox31);
+			this._buildingTabPage.Controls.Add(this.groupBox30);
 			this._buildingTabPage.Name = "_buildingTabPage";
 			this._buildingTabPage.UseVisualStyleBackColor = true;
+			// 
+			// groupBox33
+			// 
+			this.groupBox33.Controls.Add(this._lootStoneField);
+			this.groupBox33.Controls.Add(this._lootGoldField);
+			this.groupBox33.Controls.Add(this._lootFoodField);
+			this.groupBox33.Controls.Add(this._lootWoodField);
+			resources.ApplyResources(this.groupBox33, "groupBox33");
+			this.groupBox33.Name = "groupBox33";
+			this.groupBox33.TabStop = false;
+			// 
+			// _lootStoneField
+			// 
+			resources.ApplyResources(this._lootStoneField, "_lootStoneField");
+			this._lootStoneField.Name = "_lootStoneField";
+			this._lootStoneField.NameString = "Stein";
+			this._lootStoneField.Value = false;
+			this._lootStoneField.ValueChanged += new X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._lootStoneField_ValueChanged);
+			// 
+			// _lootGoldField
+			// 
+			resources.ApplyResources(this._lootGoldField, "_lootGoldField");
+			this._lootGoldField.Name = "_lootGoldField";
+			this._lootGoldField.NameString = "Gold";
+			this._lootGoldField.Value = false;
+			this._lootGoldField.ValueChanged += new X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._lootGoldField_ValueChanged);
+			// 
+			// _lootFoodField
+			// 
+			resources.ApplyResources(this._lootFoodField, "_lootFoodField");
+			this._lootFoodField.Name = "_lootFoodField";
+			this._lootFoodField.NameString = "Nahrung";
+			this._lootFoodField.Value = false;
+			this._lootFoodField.ValueChanged += new X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._lootFoodField_ValueChanged);
+			// 
+			// _lootWoodField
+			// 
+			resources.ApplyResources(this._lootWoodField, "_lootWoodField");
+			this._lootWoodField.Name = "_lootWoodField";
+			this._lootWoodField.NameString = "Holz";
+			this._lootWoodField.Value = false;
+			this._lootWoodField.ValueChanged += new X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._lootWoodField_ValueChanged);
+			// 
+			// groupBox32
+			// 
+			this.groupBox32.Controls.Add(this._unknown15Field);
+			this.groupBox32.Controls.Add(this._unknown14Field);
+			resources.ApplyResources(this.groupBox32, "groupBox32");
+			this.groupBox32.Name = "groupBox32";
+			this.groupBox32.TabStop = false;
+			// 
+			// _unknown15Field
+			// 
+			resources.ApplyResources(this._unknown15Field, "_unknown15Field");
+			this._unknown15Field.Name = "_unknown15Field";
+			this._unknown15Field.NameString = "Unbekannt 15:";
+			this._unknown15Field.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._unknown15Field.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._unknown15Field_ValueChanged);
+			// 
+			// _unknown14Field
+			// 
+			resources.ApplyResources(this._unknown14Field, "_unknown14Field");
+			this._unknown14Field.Name = "_unknown14Field";
+			this._unknown14Field.NameString = "Unbekannt 14:";
+			this._unknown14Field.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._unknown14Field.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._unknown14Field_ValueChanged);
+			// 
+			// groupBox31
+			// 
+			this.groupBox31.Controls.Add(this._disappearsField);
+			this.groupBox31.Controls.Add(this._garrisonHealRateField);
+			this.groupBox31.Controls.Add(this._garrisonTypeField);
+			this.groupBox31.Controls.Add(this._unknownSoundField);
+			this.groupBox31.Controls.Add(this._constructionSoundField);
+			this.groupBox31.Controls.Add(this._foundTerrainField);
+			this.groupBox31.Controls.Add(this._graphicAngleField);
+			this.groupBox31.Controls.Add(this._adjacentModeField);
+			resources.ApplyResources(this.groupBox31, "groupBox31");
+			this.groupBox31.Name = "groupBox31";
+			this.groupBox31.TabStop = false;
+			// 
+			// _disappearsField
+			// 
+			resources.ApplyResources(this._disappearsField, "_disappearsField");
+			this._disappearsField.Name = "_disappearsField";
+			this._disappearsField.NameString = "Verschwindet";
+			this._disappearsField.Value = false;
+			this._disappearsField.ValueChanged += new X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._disappearsField_ValueChanged);
+			// 
+			// _garrisonHealRateField
+			// 
+			resources.ApplyResources(this._garrisonHealRateField, "_garrisonHealRateField");
+			this._garrisonHealRateField.Name = "_garrisonHealRateField";
+			this._garrisonHealRateField.NameString = "Heil-Rate:";
+			this._garrisonHealRateField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._garrisonHealRateField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._garrisonHealRateField_ValueChanged);
+			// 
+			// _garrisonTypeField
+			// 
+			resources.ApplyResources(this._garrisonTypeField, "_garrisonTypeField");
+			this._garrisonTypeField.Name = "_garrisonTypeField";
+			this._garrisonTypeField.NameString = "Einquartier-Typ:";
+			this._garrisonTypeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._garrisonTypeField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._garrisonTypeField_ValueChanged);
+			// 
+			// _unknownSoundField
+			// 
+			resources.ApplyResources(this._unknownSoundField, "_unknownSoundField");
+			this._unknownSoundField.Name = "_unknownSoundField";
+			this._unknownSoundField.NameString = "Unb. Sound:";
+			this._unknownSoundField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._unknownSoundField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._unknownSoundField_ValueChanged);
+			// 
+			// _constructionSoundField
+			// 
+			resources.ApplyResources(this._constructionSoundField, "_constructionSoundField");
+			this._constructionSoundField.Name = "_constructionSoundField";
+			this._constructionSoundField.NameString = "Bau-Sound:";
+			this._constructionSoundField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._constructionSoundField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._constructionSoundField_ValueChanged);
+			// 
+			// _foundTerrainField
+			// 
+			resources.ApplyResources(this._foundTerrainField, "_foundTerrainField");
+			this._foundTerrainField.Name = "_foundTerrainField";
+			this._foundTerrainField.NameString = "Grund-Terrain:";
+			this._foundTerrainField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._foundTerrainField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._foundTerrainField_ValueChanged);
+			// 
+			// _graphicAngleField
+			// 
+			resources.ApplyResources(this._graphicAngleField, "_graphicAngleField");
+			this._graphicAngleField.Name = "_graphicAngleField";
+			this._graphicAngleField.NameString = "Grafik-Achse:";
+			this._graphicAngleField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._graphicAngleField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._graphicAngleField_ValueChanged);
+			// 
+			// _adjacentModeField
+			// 
+			resources.ApplyResources(this._adjacentModeField, "_adjacentModeField");
+			this._adjacentModeField.Name = "_adjacentModeField";
+			this._adjacentModeField.NameString = "Angebunden";
+			this._adjacentModeField.Value = false;
+			this._adjacentModeField.ValueChanged += new X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._adjacentModeField_ValueChanged);
+			// 
+			// groupBox30
+			// 
+			this.groupBox30.Controls.Add(this._graSnowField);
+			this.groupBox30.Controls.Add(this._graConstructionField);
+			resources.ApplyResources(this.groupBox30, "groupBox30");
+			this.groupBox30.Name = "groupBox30";
+			this.groupBox30.TabStop = false;
+			// 
+			// _graSnowField
+			// 
+			resources.ApplyResources(this._graSnowField, "_graSnowField");
+			this._graSnowField.Name = "_graSnowField";
+			this._graSnowField.NameString = "Schnee:";
+			this._graSnowField.Value = null;
+			this._graSnowField.ValueChanged += new X2AddOnTechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graSnowField_ValueChanged);
+			// 
+			// _graConstructionField
+			// 
+			resources.ApplyResources(this._graConstructionField, "_graConstructionField");
+			this._graConstructionField.Name = "_graConstructionField";
+			this._graConstructionField.NameString = "Konstruktion:";
+			this._graConstructionField.Value = null;
+			this._graConstructionField.ValueChanged += new X2AddOnTechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graConstructionField_ValueChanged);
 			// 
 			// EditUnitAttributeForm
 			// 
@@ -1447,6 +2398,28 @@
 			this.groupBox15.ResumeLayout(false);
 			this._birdTabPage.ResumeLayout(false);
 			this.groupBox17.ResumeLayout(false);
+			this._type50TabPage.ResumeLayout(false);
+			this.groupBox21.ResumeLayout(false);
+			this.groupBox23.ResumeLayout(false);
+			this.groupBox22.ResumeLayout(false);
+			this.groupBox20.ResumeLayout(false);
+			this.groupBox19.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this._armourValuesField)).EndInit();
+			this.groupBox18.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this._attackValuesField)).EndInit();
+			this._projectileTabPage.ResumeLayout(false);
+			this.groupBox24.ResumeLayout(false);
+			this._creatableTabPage.ResumeLayout(false);
+			this.groupBox29.ResumeLayout(false);
+			this.groupBox28.ResumeLayout(false);
+			this.groupBox27.ResumeLayout(false);
+			this.groupBox26.ResumeLayout(false);
+			this.groupBox25.ResumeLayout(false);
+			this._buildingTabPage.ResumeLayout(false);
+			this.groupBox33.ResumeLayout(false);
+			this.groupBox32.ResumeLayout(false);
+			this.groupBox31.ResumeLayout(false);
+			this.groupBox30.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -1545,7 +2518,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn _dmgGraIDColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn _dmgGraApplyModeColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn _dmgGraUnknownColumn;
-		private Controls.DropDownFieldControl _deadUnitIDField;
 		private Controls.DropDownFieldControl _graFalling2Field;
 		private Controls.DropDownFieldControl _graStanding2Field;
 		private Controls.DropDownFieldControl _graFalling1Field;
@@ -1571,6 +2543,86 @@
 		private Controls.NumberFieldControl _animalModeField;
 		private Controls.NumberFieldControl _soundMoveField;
 		private Controls.NumberFieldControl _soundAttackField;
+		private System.Windows.Forms.GroupBox groupBox18;
+		private Controls.NumberFieldControl _displayedAttackField;
+		private System.Windows.Forms.DataGridView _attackValuesField;
+		private System.Windows.Forms.DataGridViewComboBoxColumn _attValClassColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn _attValValueColumn;
+		private System.Windows.Forms.GroupBox groupBox19;
+		private System.Windows.Forms.DataGridView _armourValuesField;
+		private System.Windows.Forms.DataGridViewComboBoxColumn _armValClassColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn _armValValueColumn;
+		private Controls.NumberFieldControl _displayedMeleeArmourField;
+		private Controls.NumberFieldControl _defaultArmorField;
+		private System.Windows.Forms.GroupBox groupBox20;
+		private Controls.NumberFieldControl _rangeMinField;
+		private Controls.NumberFieldControl _rangeDisplayedField;
+		private Controls.NumberFieldControl _rangeMaxField;
+		private Controls.NumberFieldControl _accuracyErrorField;
+		private Controls.NumberFieldControl _accuracyPercentField;
+		private System.Windows.Forms.GroupBox groupBox22;
+		private Controls.NumberFieldControl _attackReloadTimeDisplayedField;
+		private Controls.NumberFieldControl _attackReloadTimeField;
+		private System.Windows.Forms.GroupBox groupBox23;
+		private Controls.NumberFieldControl _graphicDisplacementZField;
+		private Controls.NumberFieldControl _graphicDisplacementYField;
+		private Controls.NumberFieldControl _graphicDisplacementXField;
+		private Controls.NumberFieldControl _frameDelayField;
+		private System.Windows.Forms.GroupBox groupBox21;
+		private Controls.DropDownFieldControl _graAttackField;
+		private Controls.NumberFieldControl _terrainMultField;
+		private Controls.NumberFieldControl _towerModeField;
+		private Controls.NumberFieldControl _blastLevelField;
+		private Controls.NumberFieldControl _blastRadiusField;
+		private System.Windows.Forms.GroupBox groupBox24;
+		private Controls.NumberFieldControl _stretchModeField;
+		private Controls.NumberFieldControl _penetrationModeField;
+		private Controls.NumberFieldControl _dropAnimationModeField;
+		private Controls.NumberFieldControl _compensationModeField;
+		private Controls.NumberFieldControl _projectileArcField;
+		private Controls.NumberFieldControl _unknown10Field;
+		private System.Windows.Forms.GroupBox groupBox25;
+		private Controls.ResourceCostControl _cost3Field;
+		private Controls.ResourceCostControl _cost2Field;
+		private Controls.ResourceCostControl _cost1Field;
+		private System.Windows.Forms.GroupBox groupBox26;
+		private Controls.NumberFieldControl _missileDuplMaxField;
+		private Controls.NumberFieldControl _missileDuplMinField;
+		private Controls.NumberFieldControl _missileSpawnZField;
+		private Controls.NumberFieldControl _missileSpawnYField;
+		private Controls.NumberFieldControl _missileSpawnXField;
+		private System.Windows.Forms.GroupBox groupBox27;
+		private Controls.NumberFieldControl _trainTimeField;
+		private Controls.NumberFieldControl _chargeModeField;
+		private Controls.NumberFieldControl _heroModeField;
+		private Controls.NumberFieldControl _displayedPierceArmorField;
+		private System.Windows.Forms.GroupBox groupBox28;
+		private Controls.DropDownFieldControl _graChargeField;
+		private Controls.DropDownFieldControl _graGarrisonField;
+		private System.Windows.Forms.GroupBox groupBox29;
+		private Controls.NumberFieldControl _unknown12Field;
+		private Controls.NumberFieldControl _unknown13Field;
+		private Controls.NumberFieldControl _unknown11Field;
+		private System.Windows.Forms.GroupBox groupBox30;
+		private Controls.DropDownFieldControl _graSnowField;
+		private Controls.DropDownFieldControl _graConstructionField;
+		private System.Windows.Forms.GroupBox groupBox31;
+		private Controls.CheckBoxFieldControl _adjacentModeField;
+		private Controls.NumberFieldControl _graphicAngleField;
+		private Controls.NumberFieldControl _foundTerrainField;
+		private Controls.NumberFieldControl _garrisonHealRateField;
+		private Controls.NumberFieldControl _garrisonTypeField;
+		private Controls.NumberFieldControl _unknownSoundField;
+		private Controls.NumberFieldControl _constructionSoundField;
+		private Controls.CheckBoxFieldControl _disappearsField;
+		private System.Windows.Forms.GroupBox groupBox32;
+		private Controls.NumberFieldControl _unknown15Field;
+		private Controls.NumberFieldControl _unknown14Field;
+		private System.Windows.Forms.GroupBox groupBox33;
+		private Controls.CheckBoxFieldControl _lootStoneField;
+		private Controls.CheckBoxFieldControl _lootGoldField;
+		private Controls.CheckBoxFieldControl _lootFoodField;
+		private Controls.CheckBoxFieldControl _lootWoodField;
 
 	}
 }

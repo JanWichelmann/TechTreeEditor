@@ -1161,32 +1161,11 @@
   <data name="&gt;&gt;groupBox8.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="_deadUnitIDField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 70</value>
-  </data>
-  <data name="_deadUnitIDField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 20</value>
-  </data>
-  <data name="_deadUnitIDField.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;_deadUnitIDField.Name" xml:space="preserve">
-    <value>_deadUnitIDField</value>
-  </data>
-  <data name="&gt;&gt;_deadUnitIDField.Type" xml:space="preserve">
-    <value>X2AddOnTechTreeEditor.Controls.DropDownFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_deadUnitIDField.Parent" xml:space="preserve">
-    <value>groupBox7</value>
-  </data>
-  <data name="&gt;&gt;_deadUnitIDField.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="_iconIDField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 98</value>
+    <value>6, 72</value>
   </data>
   <data name="_iconIDField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 20</value>
+    <value>133, 20</value>
   </data>
   <data name="_iconIDField.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1201,7 +1180,7 @@
     <value>groupBox7</value>
   </data>
   <data name="&gt;&gt;_iconIDField.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="_classLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1231,7 +1210,7 @@
     <value>groupBox7</value>
   </data>
   <data name="&gt;&gt;_classLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="_classComboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>89, 45</value>
@@ -1252,7 +1231,7 @@
     <value>groupBox7</value>
   </data>
   <data name="&gt;&gt;_classComboBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="_nameLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1282,7 +1261,7 @@
     <value>groupBox7</value>
   </data>
   <data name="&gt;&gt;_nameLabel.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="_nameTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>89, 19</value>
@@ -1303,7 +1282,7 @@
     <value>groupBox7</value>
   </data>
   <data name="&gt;&gt;_nameTextBox.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="groupBox7.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 5</value>
@@ -2559,6 +2538,615 @@
   <data name="_type50TabPage.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="_graAttackField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 71</value>
+  </data>
+  <data name="_graAttackField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 20</value>
+  </data>
+  <data name="_graAttackField.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;_graAttackField.Name" xml:space="preserve">
+    <value>_graAttackField</value>
+  </data>
+  <data name="&gt;&gt;_graAttackField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.DropDownFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_graAttackField.Parent" xml:space="preserve">
+    <value>groupBox21</value>
+  </data>
+  <data name="&gt;&gt;_graAttackField.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_terrainMultField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>164, 45</value>
+  </data>
+  <data name="_terrainMultField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 20</value>
+  </data>
+  <data name="_terrainMultField.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_terrainMultField.Name" xml:space="preserve">
+    <value>_terrainMultField</value>
+  </data>
+  <data name="&gt;&gt;_terrainMultField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_terrainMultField.Parent" xml:space="preserve">
+    <value>groupBox21</value>
+  </data>
+  <data name="&gt;&gt;_terrainMultField.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_towerModeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="_towerModeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 20</value>
+  </data>
+  <data name="_towerModeField.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_towerModeField.Name" xml:space="preserve">
+    <value>_towerModeField</value>
+  </data>
+  <data name="&gt;&gt;_towerModeField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_towerModeField.Parent" xml:space="preserve">
+    <value>groupBox21</value>
+  </data>
+  <data name="&gt;&gt;_towerModeField.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_blastLevelField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>164, 19</value>
+  </data>
+  <data name="_blastLevelField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 20</value>
+  </data>
+  <data name="_blastLevelField.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_blastLevelField.Name" xml:space="preserve">
+    <value>_blastLevelField</value>
+  </data>
+  <data name="&gt;&gt;_blastLevelField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_blastLevelField.Parent" xml:space="preserve">
+    <value>groupBox21</value>
+  </data>
+  <data name="&gt;&gt;_blastLevelField.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_blastRadiusField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_blastRadiusField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 20</value>
+  </data>
+  <data name="_blastRadiusField.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_blastRadiusField.Name" xml:space="preserve">
+    <value>_blastRadiusField</value>
+  </data>
+  <data name="&gt;&gt;_blastRadiusField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_blastRadiusField.Parent" xml:space="preserve">
+    <value>groupBox21</value>
+  </data>
+  <data name="&gt;&gt;_blastRadiusField.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="groupBox21.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 358</value>
+  </data>
+  <data name="groupBox21.Size" type="System.Drawing.Size, System.Drawing">
+    <value>324, 99</value>
+  </data>
+  <data name="groupBox21.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="groupBox21.Text" xml:space="preserve">
+    <value>Verschiedenes</value>
+  </data>
+  <data name="&gt;&gt;groupBox21.Name" xml:space="preserve">
+    <value>groupBox21</value>
+  </data>
+  <data name="&gt;&gt;groupBox21.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox21.Parent" xml:space="preserve">
+    <value>_type50TabPage</value>
+  </data>
+  <data name="&gt;&gt;groupBox21.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_graphicDisplacementZField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>377, 45</value>
+  </data>
+  <data name="_graphicDisplacementZField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 20</value>
+  </data>
+  <data name="_graphicDisplacementZField.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;_graphicDisplacementZField.Name" xml:space="preserve">
+    <value>_graphicDisplacementZField</value>
+  </data>
+  <data name="&gt;&gt;_graphicDisplacementZField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_graphicDisplacementZField.Parent" xml:space="preserve">
+    <value>groupBox23</value>
+  </data>
+  <data name="&gt;&gt;_graphicDisplacementZField.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_graphicDisplacementYField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>192, 45</value>
+  </data>
+  <data name="_graphicDisplacementYField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 20</value>
+  </data>
+  <data name="_graphicDisplacementYField.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;_graphicDisplacementYField.Name" xml:space="preserve">
+    <value>_graphicDisplacementYField</value>
+  </data>
+  <data name="&gt;&gt;_graphicDisplacementYField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_graphicDisplacementYField.Parent" xml:space="preserve">
+    <value>groupBox23</value>
+  </data>
+  <data name="&gt;&gt;_graphicDisplacementYField.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_graphicDisplacementXField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="_graphicDisplacementXField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 20</value>
+  </data>
+  <data name="_graphicDisplacementXField.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;_graphicDisplacementXField.Name" xml:space="preserve">
+    <value>_graphicDisplacementXField</value>
+  </data>
+  <data name="&gt;&gt;_graphicDisplacementXField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_graphicDisplacementXField.Parent" xml:space="preserve">
+    <value>groupBox23</value>
+  </data>
+  <data name="&gt;&gt;_graphicDisplacementXField.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_frameDelayField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>377, 19</value>
+  </data>
+  <data name="_frameDelayField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 20</value>
+  </data>
+  <data name="_frameDelayField.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;_frameDelayField.Name" xml:space="preserve">
+    <value>_frameDelayField</value>
+  </data>
+  <data name="&gt;&gt;_frameDelayField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_frameDelayField.Parent" xml:space="preserve">
+    <value>groupBox23</value>
+  </data>
+  <data name="&gt;&gt;_frameDelayField.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_accuracyErrorField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>191, 19</value>
+  </data>
+  <data name="_accuracyErrorField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 20</value>
+  </data>
+  <data name="_accuracyErrorField.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;_accuracyErrorField.Name" xml:space="preserve">
+    <value>_accuracyErrorField</value>
+  </data>
+  <data name="&gt;&gt;_accuracyErrorField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_accuracyErrorField.Parent" xml:space="preserve">
+    <value>groupBox23</value>
+  </data>
+  <data name="&gt;&gt;_accuracyErrorField.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="_accuracyPercentField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 19</value>
+  </data>
+  <data name="_accuracyPercentField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 20</value>
+  </data>
+  <data name="_accuracyPercentField.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_accuracyPercentField.Name" xml:space="preserve">
+    <value>_accuracyPercentField</value>
+  </data>
+  <data name="&gt;&gt;_accuracyPercentField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_accuracyPercentField.Parent" xml:space="preserve">
+    <value>groupBox23</value>
+  </data>
+  <data name="&gt;&gt;_accuracyPercentField.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="groupBox23.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 279</value>
+  </data>
+  <data name="groupBox23.Size" type="System.Drawing.Size, System.Drawing">
+    <value>565, 73</value>
+  </data>
+  <data name="groupBox23.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="groupBox23.Text" xml:space="preserve">
+    <value>Projektilparameter</value>
+  </data>
+  <data name="&gt;&gt;groupBox23.Name" xml:space="preserve">
+    <value>groupBox23</value>
+  </data>
+  <data name="&gt;&gt;groupBox23.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox23.Parent" xml:space="preserve">
+    <value>_type50TabPage</value>
+  </data>
+  <data name="&gt;&gt;groupBox23.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_attackReloadTimeDisplayedField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="_attackReloadTimeDisplayedField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 20</value>
+  </data>
+  <data name="_attackReloadTimeDisplayedField.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;_attackReloadTimeDisplayedField.Name" xml:space="preserve">
+    <value>_attackReloadTimeDisplayedField</value>
+  </data>
+  <data name="&gt;&gt;_attackReloadTimeDisplayedField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_attackReloadTimeDisplayedField.Parent" xml:space="preserve">
+    <value>groupBox22</value>
+  </data>
+  <data name="&gt;&gt;_attackReloadTimeDisplayedField.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_attackReloadTimeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_attackReloadTimeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 20</value>
+  </data>
+  <data name="_attackReloadTimeField.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_attackReloadTimeField.Name" xml:space="preserve">
+    <value>_attackReloadTimeField</value>
+  </data>
+  <data name="&gt;&gt;_attackReloadTimeField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_attackReloadTimeField.Parent" xml:space="preserve">
+    <value>groupBox22</value>
+  </data>
+  <data name="&gt;&gt;_attackReloadTimeField.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox22.Location" type="System.Drawing.Point, System.Drawing">
+    <value>646, 108</value>
+  </data>
+  <data name="groupBox22.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 73</value>
+  </data>
+  <data name="groupBox22.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="groupBox22.Text" xml:space="preserve">
+    <value>Nachladezeit</value>
+  </data>
+  <data name="&gt;&gt;groupBox22.Name" xml:space="preserve">
+    <value>groupBox22</value>
+  </data>
+  <data name="&gt;&gt;groupBox22.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox22.Parent" xml:space="preserve">
+    <value>_type50TabPage</value>
+  </data>
+  <data name="&gt;&gt;groupBox22.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_rangeDisplayedField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 71</value>
+  </data>
+  <data name="_rangeDisplayedField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 20</value>
+  </data>
+  <data name="_rangeDisplayedField.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_rangeDisplayedField.Name" xml:space="preserve">
+    <value>_rangeDisplayedField</value>
+  </data>
+  <data name="&gt;&gt;_rangeDisplayedField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_rangeDisplayedField.Parent" xml:space="preserve">
+    <value>groupBox20</value>
+  </data>
+  <data name="&gt;&gt;_rangeDisplayedField.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_rangeMaxField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="_rangeMaxField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 20</value>
+  </data>
+  <data name="_rangeMaxField.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_rangeMaxField.Name" xml:space="preserve">
+    <value>_rangeMaxField</value>
+  </data>
+  <data name="&gt;&gt;_rangeMaxField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_rangeMaxField.Parent" xml:space="preserve">
+    <value>groupBox20</value>
+  </data>
+  <data name="&gt;&gt;_rangeMaxField.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_rangeMinField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_rangeMinField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 20</value>
+  </data>
+  <data name="_rangeMinField.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_rangeMinField.Name" xml:space="preserve">
+    <value>_rangeMinField</value>
+  </data>
+  <data name="&gt;&gt;_rangeMinField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_rangeMinField.Parent" xml:space="preserve">
+    <value>groupBox20</value>
+  </data>
+  <data name="&gt;&gt;_rangeMinField.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="groupBox20.Location" type="System.Drawing.Point, System.Drawing">
+    <value>646, 3</value>
+  </data>
+  <data name="groupBox20.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 99</value>
+  </data>
+  <data name="groupBox20.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="groupBox20.Text" xml:space="preserve">
+    <value>Reichweite</value>
+  </data>
+  <data name="&gt;&gt;groupBox20.Name" xml:space="preserve">
+    <value>groupBox20</value>
+  </data>
+  <data name="&gt;&gt;groupBox20.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox20.Parent" xml:space="preserve">
+    <value>_type50TabPage</value>
+  </data>
+  <data name="&gt;&gt;groupBox20.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_defaultArmorField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="_defaultArmorField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 20</value>
+  </data>
+  <data name="_defaultArmorField.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_defaultArmorField.Name" xml:space="preserve">
+    <value>_defaultArmorField</value>
+  </data>
+  <data name="&gt;&gt;_defaultArmorField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_defaultArmorField.Parent" xml:space="preserve">
+    <value>groupBox19</value>
+  </data>
+  <data name="&gt;&gt;_defaultArmorField.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="_armValClassColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_armValClassColumn.HeaderText" xml:space="preserve">
+    <value>Rüstungsklasse</value>
+  </data>
+  <metadata name="_armValValueColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_armValValueColumn.HeaderText" xml:space="preserve">
+    <value>Wert</value>
+  </data>
+  <data name="_armourValuesField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 71</value>
+  </data>
+  <data name="_armourValuesField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>301, 193</value>
+  </data>
+  <data name="_armourValuesField.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_armourValuesField.Name" xml:space="preserve">
+    <value>_armourValuesField</value>
+  </data>
+  <data name="&gt;&gt;_armourValuesField.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_armourValuesField.Parent" xml:space="preserve">
+    <value>groupBox19</value>
+  </data>
+  <data name="&gt;&gt;_armourValuesField.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_displayedMeleeArmourField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_displayedMeleeArmourField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 20</value>
+  </data>
+  <data name="_displayedMeleeArmourField.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_displayedMeleeArmourField.Name" xml:space="preserve">
+    <value>_displayedMeleeArmourField</value>
+  </data>
+  <data name="&gt;&gt;_displayedMeleeArmourField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_displayedMeleeArmourField.Parent" xml:space="preserve">
+    <value>groupBox19</value>
+  </data>
+  <data name="&gt;&gt;_displayedMeleeArmourField.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="groupBox19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>327, 3</value>
+  </data>
+  <data name="groupBox19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 270</value>
+  </data>
+  <data name="groupBox19.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="groupBox19.Text" xml:space="preserve">
+    <value>Rüstungswerte</value>
+  </data>
+  <data name="&gt;&gt;groupBox19.Name" xml:space="preserve">
+    <value>groupBox19</value>
+  </data>
+  <data name="&gt;&gt;groupBox19.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox19.Parent" xml:space="preserve">
+    <value>_type50TabPage</value>
+  </data>
+  <data name="&gt;&gt;groupBox19.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <metadata name="_attValClassColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_attValClassColumn.HeaderText" xml:space="preserve">
+    <value>Rüstungsklasse</value>
+  </data>
+  <metadata name="_attValValueColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_attValValueColumn.HeaderText" xml:space="preserve">
+    <value>Wert</value>
+  </data>
+  <data name="_attackValuesField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="_attackValuesField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>301, 219</value>
+  </data>
+  <data name="_attackValuesField.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_attackValuesField.Name" xml:space="preserve">
+    <value>_attackValuesField</value>
+  </data>
+  <data name="&gt;&gt;_attackValuesField.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_attackValuesField.Parent" xml:space="preserve">
+    <value>groupBox18</value>
+  </data>
+  <data name="&gt;&gt;_attackValuesField.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_displayedAttackField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_displayedAttackField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 20</value>
+  </data>
+  <data name="_displayedAttackField.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_displayedAttackField.Name" xml:space="preserve">
+    <value>_displayedAttackField</value>
+  </data>
+  <data name="&gt;&gt;_displayedAttackField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_displayedAttackField.Parent" xml:space="preserve">
+    <value>groupBox18</value>
+  </data>
+  <data name="&gt;&gt;_displayedAttackField.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 3</value>
+  </data>
+  <data name="groupBox18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 270</value>
+  </data>
+  <data name="groupBox18.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="groupBox18.Text" xml:space="preserve">
+    <value>Angriffsstärke</value>
+  </data>
+  <data name="&gt;&gt;groupBox18.Name" xml:space="preserve">
+    <value>groupBox18</value>
+  </data>
+  <data name="&gt;&gt;groupBox18.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox18.Parent" xml:space="preserve">
+    <value>_type50TabPage</value>
+  </data>
+  <data name="&gt;&gt;groupBox18.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="_type50TabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
@@ -2588,6 +3176,156 @@
   </data>
   <data name="_projectileTabPage.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="_projectileArcField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>167, 71</value>
+  </data>
+  <data name="_projectileArcField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 20</value>
+  </data>
+  <data name="_projectileArcField.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;_projectileArcField.Name" xml:space="preserve">
+    <value>_projectileArcField</value>
+  </data>
+  <data name="&gt;&gt;_projectileArcField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_projectileArcField.Parent" xml:space="preserve">
+    <value>groupBox24</value>
+  </data>
+  <data name="&gt;&gt;_projectileArcField.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_unknown10Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 71</value>
+  </data>
+  <data name="_unknown10Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 20</value>
+  </data>
+  <data name="_unknown10Field.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;_unknown10Field.Name" xml:space="preserve">
+    <value>_unknown10Field</value>
+  </data>
+  <data name="&gt;&gt;_unknown10Field.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_unknown10Field.Parent" xml:space="preserve">
+    <value>groupBox24</value>
+  </data>
+  <data name="&gt;&gt;_unknown10Field.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_penetrationModeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>167, 45</value>
+  </data>
+  <data name="_penetrationModeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 20</value>
+  </data>
+  <data name="_penetrationModeField.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_penetrationModeField.Name" xml:space="preserve">
+    <value>_penetrationModeField</value>
+  </data>
+  <data name="&gt;&gt;_penetrationModeField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_penetrationModeField.Parent" xml:space="preserve">
+    <value>groupBox24</value>
+  </data>
+  <data name="&gt;&gt;_penetrationModeField.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_dropAnimationModeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="_dropAnimationModeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 20</value>
+  </data>
+  <data name="_dropAnimationModeField.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_dropAnimationModeField.Name" xml:space="preserve">
+    <value>_dropAnimationModeField</value>
+  </data>
+  <data name="&gt;&gt;_dropAnimationModeField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_dropAnimationModeField.Parent" xml:space="preserve">
+    <value>groupBox24</value>
+  </data>
+  <data name="&gt;&gt;_dropAnimationModeField.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_compensationModeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>167, 19</value>
+  </data>
+  <data name="_compensationModeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 20</value>
+  </data>
+  <data name="_compensationModeField.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_compensationModeField.Name" xml:space="preserve">
+    <value>_compensationModeField</value>
+  </data>
+  <data name="&gt;&gt;_compensationModeField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_compensationModeField.Parent" xml:space="preserve">
+    <value>groupBox24</value>
+  </data>
+  <data name="&gt;&gt;_compensationModeField.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="_stretchModeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_stretchModeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 20</value>
+  </data>
+  <data name="_stretchModeField.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_stretchModeField.Name" xml:space="preserve">
+    <value>_stretchModeField</value>
+  </data>
+  <data name="&gt;&gt;_stretchModeField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_stretchModeField.Parent" xml:space="preserve">
+    <value>groupBox24</value>
+  </data>
+  <data name="&gt;&gt;_stretchModeField.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="groupBox24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 3</value>
+  </data>
+  <data name="groupBox24.Size" type="System.Drawing.Size, System.Drawing">
+    <value>331, 100</value>
+  </data>
+  <data name="groupBox24.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="groupBox24.Text" xml:space="preserve">
+    <value>Verschiedenes</value>
+  </data>
+  <data name="&gt;&gt;groupBox24.Name" xml:space="preserve">
+    <value>groupBox24</value>
+  </data>
+  <data name="&gt;&gt;groupBox24.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox24.Parent" xml:space="preserve">
+    <value>_projectileTabPage</value>
+  </data>
+  <data name="&gt;&gt;groupBox24.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="_projectileTabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -2619,6 +3357,483 @@
   <data name="_creatableTabPage.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="_unknown12Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="_unknown12Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 20</value>
+  </data>
+  <data name="_unknown12Field.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_unknown12Field.Name" xml:space="preserve">
+    <value>_unknown12Field</value>
+  </data>
+  <data name="&gt;&gt;_unknown12Field.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_unknown12Field.Parent" xml:space="preserve">
+    <value>groupBox29</value>
+  </data>
+  <data name="&gt;&gt;_unknown12Field.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_unknown13Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 71</value>
+  </data>
+  <data name="_unknown13Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 20</value>
+  </data>
+  <data name="_unknown13Field.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_unknown13Field.Name" xml:space="preserve">
+    <value>_unknown13Field</value>
+  </data>
+  <data name="&gt;&gt;_unknown13Field.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_unknown13Field.Parent" xml:space="preserve">
+    <value>groupBox29</value>
+  </data>
+  <data name="&gt;&gt;_unknown13Field.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_unknown11Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_unknown11Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 20</value>
+  </data>
+  <data name="_unknown11Field.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_unknown11Field.Name" xml:space="preserve">
+    <value>_unknown11Field</value>
+  </data>
+  <data name="&gt;&gt;_unknown11Field.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_unknown11Field.Parent" xml:space="preserve">
+    <value>groupBox29</value>
+  </data>
+  <data name="&gt;&gt;_unknown11Field.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="groupBox29.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 190</value>
+  </data>
+  <data name="groupBox29.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 99</value>
+  </data>
+  <data name="groupBox29.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="groupBox29.Text" xml:space="preserve">
+    <value>Unbekannte Werte</value>
+  </data>
+  <data name="&gt;&gt;groupBox29.Name" xml:space="preserve">
+    <value>groupBox29</value>
+  </data>
+  <data name="&gt;&gt;groupBox29.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox29.Parent" xml:space="preserve">
+    <value>_creatableTabPage</value>
+  </data>
+  <data name="&gt;&gt;groupBox29.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_graChargeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="_graChargeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 20</value>
+  </data>
+  <data name="_graChargeField.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_graChargeField.Name" xml:space="preserve">
+    <value>_graChargeField</value>
+  </data>
+  <data name="&gt;&gt;_graChargeField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.DropDownFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_graChargeField.Parent" xml:space="preserve">
+    <value>groupBox28</value>
+  </data>
+  <data name="&gt;&gt;_graChargeField.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_graGarrisonField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_graGarrisonField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 20</value>
+  </data>
+  <data name="_graGarrisonField.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_graGarrisonField.Name" xml:space="preserve">
+    <value>_graGarrisonField</value>
+  </data>
+  <data name="&gt;&gt;_graGarrisonField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.DropDownFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_graGarrisonField.Parent" xml:space="preserve">
+    <value>groupBox28</value>
+  </data>
+  <data name="&gt;&gt;_graGarrisonField.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox28.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 110</value>
+  </data>
+  <data name="groupBox28.Size" type="System.Drawing.Size, System.Drawing">
+    <value>242, 74</value>
+  </data>
+  <data name="groupBox28.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="groupBox28.Text" xml:space="preserve">
+    <value>Grafiken</value>
+  </data>
+  <data name="&gt;&gt;groupBox28.Name" xml:space="preserve">
+    <value>groupBox28</value>
+  </data>
+  <data name="&gt;&gt;groupBox28.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox28.Parent" xml:space="preserve">
+    <value>_creatableTabPage</value>
+  </data>
+  <data name="&gt;&gt;groupBox28.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_displayedPierceArmorField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="_displayedPierceArmorField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 20</value>
+  </data>
+  <data name="_displayedPierceArmorField.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;_displayedPierceArmorField.Name" xml:space="preserve">
+    <value>_displayedPierceArmorField</value>
+  </data>
+  <data name="&gt;&gt;_displayedPierceArmorField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_displayedPierceArmorField.Parent" xml:space="preserve">
+    <value>groupBox27</value>
+  </data>
+  <data name="&gt;&gt;_displayedPierceArmorField.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_chargeModeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 19</value>
+  </data>
+  <data name="_chargeModeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 20</value>
+  </data>
+  <data name="_chargeModeField.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;_chargeModeField.Name" xml:space="preserve">
+    <value>_chargeModeField</value>
+  </data>
+  <data name="&gt;&gt;_chargeModeField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_chargeModeField.Parent" xml:space="preserve">
+    <value>groupBox27</value>
+  </data>
+  <data name="&gt;&gt;_chargeModeField.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_heroModeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 19</value>
+  </data>
+  <data name="_heroModeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 20</value>
+  </data>
+  <data name="_heroModeField.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;_heroModeField.Name" xml:space="preserve">
+    <value>_heroModeField</value>
+  </data>
+  <data name="&gt;&gt;_heroModeField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_heroModeField.Parent" xml:space="preserve">
+    <value>groupBox27</value>
+  </data>
+  <data name="&gt;&gt;_heroModeField.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_trainTimeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_trainTimeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 20</value>
+  </data>
+  <data name="_trainTimeField.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;_trainTimeField.Name" xml:space="preserve">
+    <value>_trainTimeField</value>
+  </data>
+  <data name="&gt;&gt;_trainTimeField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_trainTimeField.Parent" xml:space="preserve">
+    <value>groupBox27</value>
+  </data>
+  <data name="&gt;&gt;_trainTimeField.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="groupBox27.Location" type="System.Drawing.Point, System.Drawing">
+    <value>353, 81</value>
+  </data>
+  <data name="groupBox27.Size" type="System.Drawing.Size, System.Drawing">
+    <value>468, 72</value>
+  </data>
+  <data name="groupBox27.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="groupBox27.Text" xml:space="preserve">
+    <value>Verschiedenes</value>
+  </data>
+  <data name="&gt;&gt;groupBox27.Name" xml:space="preserve">
+    <value>groupBox27</value>
+  </data>
+  <data name="&gt;&gt;groupBox27.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox27.Parent" xml:space="preserve">
+    <value>_creatableTabPage</value>
+  </data>
+  <data name="&gt;&gt;groupBox27.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_missileSpawnZField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 45</value>
+  </data>
+  <data name="_missileSpawnZField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 20</value>
+  </data>
+  <data name="_missileSpawnZField.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;_missileSpawnZField.Name" xml:space="preserve">
+    <value>_missileSpawnZField</value>
+  </data>
+  <data name="&gt;&gt;_missileSpawnZField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_missileSpawnZField.Parent" xml:space="preserve">
+    <value>groupBox26</value>
+  </data>
+  <data name="&gt;&gt;_missileSpawnZField.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_missileSpawnYField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 46</value>
+  </data>
+  <data name="_missileSpawnYField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 20</value>
+  </data>
+  <data name="_missileSpawnYField.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_missileSpawnYField.Name" xml:space="preserve">
+    <value>_missileSpawnYField</value>
+  </data>
+  <data name="&gt;&gt;_missileSpawnYField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_missileSpawnYField.Parent" xml:space="preserve">
+    <value>groupBox26</value>
+  </data>
+  <data name="&gt;&gt;_missileSpawnYField.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_missileSpawnXField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="_missileSpawnXField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 20</value>
+  </data>
+  <data name="_missileSpawnXField.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_missileSpawnXField.Name" xml:space="preserve">
+    <value>_missileSpawnXField</value>
+  </data>
+  <data name="&gt;&gt;_missileSpawnXField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_missileSpawnXField.Parent" xml:space="preserve">
+    <value>groupBox26</value>
+  </data>
+  <data name="&gt;&gt;_missileSpawnXField.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_missileDuplMaxField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 19</value>
+  </data>
+  <data name="_missileDuplMaxField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 20</value>
+  </data>
+  <data name="_missileDuplMaxField.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_missileDuplMaxField.Name" xml:space="preserve">
+    <value>_missileDuplMaxField</value>
+  </data>
+  <data name="&gt;&gt;_missileDuplMaxField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_missileDuplMaxField.Parent" xml:space="preserve">
+    <value>groupBox26</value>
+  </data>
+  <data name="&gt;&gt;_missileDuplMaxField.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_missileDuplMinField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_missileDuplMinField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 20</value>
+  </data>
+  <data name="_missileDuplMinField.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_missileDuplMinField.Name" xml:space="preserve">
+    <value>_missileDuplMinField</value>
+  </data>
+  <data name="&gt;&gt;_missileDuplMinField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_missileDuplMinField.Parent" xml:space="preserve">
+    <value>groupBox26</value>
+  </data>
+  <data name="&gt;&gt;_missileDuplMinField.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="groupBox26.Location" type="System.Drawing.Point, System.Drawing">
+    <value>353, 3</value>
+  </data>
+  <data name="groupBox26.Size" type="System.Drawing.Size, System.Drawing">
+    <value>468, 72</value>
+  </data>
+  <data name="groupBox26.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="groupBox26.Text" xml:space="preserve">
+    <value>Geschoss</value>
+  </data>
+  <data name="&gt;&gt;groupBox26.Name" xml:space="preserve">
+    <value>groupBox26</value>
+  </data>
+  <data name="&gt;&gt;groupBox26.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox26.Parent" xml:space="preserve">
+    <value>_creatableTabPage</value>
+  </data>
+  <data name="&gt;&gt;groupBox26.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_cost3Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 73</value>
+  </data>
+  <data name="_cost3Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 21</value>
+  </data>
+  <data name="_cost3Field.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_cost3Field.Name" xml:space="preserve">
+    <value>_cost3Field</value>
+  </data>
+  <data name="&gt;&gt;_cost3Field.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.ResourceCostControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_cost3Field.Parent" xml:space="preserve">
+    <value>groupBox25</value>
+  </data>
+  <data name="&gt;&gt;_cost3Field.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_cost2Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 46</value>
+  </data>
+  <data name="_cost2Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 21</value>
+  </data>
+  <data name="_cost2Field.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_cost2Field.Name" xml:space="preserve">
+    <value>_cost2Field</value>
+  </data>
+  <data name="&gt;&gt;_cost2Field.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.ResourceCostControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_cost2Field.Parent" xml:space="preserve">
+    <value>groupBox25</value>
+  </data>
+  <data name="&gt;&gt;_cost2Field.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_cost1Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_cost1Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 21</value>
+  </data>
+  <data name="_cost1Field.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_cost1Field.Name" xml:space="preserve">
+    <value>_cost1Field</value>
+  </data>
+  <data name="&gt;&gt;_cost1Field.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.ResourceCostControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_cost1Field.Parent" xml:space="preserve">
+    <value>groupBox25</value>
+  </data>
+  <data name="&gt;&gt;_cost1Field.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="groupBox25.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 3</value>
+  </data>
+  <data name="groupBox25.Size" type="System.Drawing.Size, System.Drawing">
+    <value>339, 101</value>
+  </data>
+  <data name="groupBox25.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="groupBox25.Text" xml:space="preserve">
+    <value>Ressourcen-Kosten</value>
+  </data>
+  <data name="&gt;&gt;groupBox25.Name" xml:space="preserve">
+    <value>groupBox25</value>
+  </data>
+  <data name="&gt;&gt;groupBox25.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox25.Parent" xml:space="preserve">
+    <value>_creatableTabPage</value>
+  </data>
+  <data name="&gt;&gt;groupBox25.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="_creatableTabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
@@ -2648,6 +3863,438 @@
   </data>
   <data name="_buildingTabPage.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="_lootStoneField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 45</value>
+  </data>
+  <data name="_lootStoneField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 20</value>
+  </data>
+  <data name="_lootStoneField.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_lootStoneField.Name" xml:space="preserve">
+    <value>_lootStoneField</value>
+  </data>
+  <data name="&gt;&gt;_lootStoneField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_lootStoneField.Parent" xml:space="preserve">
+    <value>groupBox33</value>
+  </data>
+  <data name="&gt;&gt;_lootStoneField.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_lootGoldField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="_lootGoldField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 20</value>
+  </data>
+  <data name="_lootGoldField.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_lootGoldField.Name" xml:space="preserve">
+    <value>_lootGoldField</value>
+  </data>
+  <data name="&gt;&gt;_lootGoldField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_lootGoldField.Parent" xml:space="preserve">
+    <value>groupBox33</value>
+  </data>
+  <data name="&gt;&gt;_lootGoldField.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_lootFoodField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 19</value>
+  </data>
+  <data name="_lootFoodField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 20</value>
+  </data>
+  <data name="_lootFoodField.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_lootFoodField.Name" xml:space="preserve">
+    <value>_lootFoodField</value>
+  </data>
+  <data name="&gt;&gt;_lootFoodField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_lootFoodField.Parent" xml:space="preserve">
+    <value>groupBox33</value>
+  </data>
+  <data name="&gt;&gt;_lootFoodField.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_lootWoodField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_lootWoodField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 20</value>
+  </data>
+  <data name="_lootWoodField.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_lootWoodField.Name" xml:space="preserve">
+    <value>_lootWoodField</value>
+  </data>
+  <data name="&gt;&gt;_lootWoodField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_lootWoodField.Parent" xml:space="preserve">
+    <value>groupBox33</value>
+  </data>
+  <data name="&gt;&gt;_lootWoodField.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="groupBox33.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 214</value>
+  </data>
+  <data name="groupBox33.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 71</value>
+  </data>
+  <data name="groupBox33.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="groupBox33.Text" xml:space="preserve">
+    <value>Ablegbare Ressourcen</value>
+  </data>
+  <data name="&gt;&gt;groupBox33.Name" xml:space="preserve">
+    <value>groupBox33</value>
+  </data>
+  <data name="&gt;&gt;groupBox33.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox33.Parent" xml:space="preserve">
+    <value>_buildingTabPage</value>
+  </data>
+  <data name="&gt;&gt;groupBox33.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_unknown15Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="_unknown15Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 20</value>
+  </data>
+  <data name="_unknown15Field.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_unknown15Field.Name" xml:space="preserve">
+    <value>_unknown15Field</value>
+  </data>
+  <data name="&gt;&gt;_unknown15Field.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_unknown15Field.Parent" xml:space="preserve">
+    <value>groupBox32</value>
+  </data>
+  <data name="&gt;&gt;_unknown15Field.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_unknown14Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_unknown14Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 20</value>
+  </data>
+  <data name="_unknown14Field.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_unknown14Field.Name" xml:space="preserve">
+    <value>_unknown14Field</value>
+  </data>
+  <data name="&gt;&gt;_unknown14Field.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_unknown14Field.Parent" xml:space="preserve">
+    <value>groupBox32</value>
+  </data>
+  <data name="&gt;&gt;_unknown14Field.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox32.Location" type="System.Drawing.Point, System.Drawing">
+    <value>256, 3</value>
+  </data>
+  <data name="groupBox32.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 74</value>
+  </data>
+  <data name="groupBox32.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="groupBox32.Text" xml:space="preserve">
+    <value>Unbekannte Werte</value>
+  </data>
+  <data name="&gt;&gt;groupBox32.Name" xml:space="preserve">
+    <value>groupBox32</value>
+  </data>
+  <data name="&gt;&gt;groupBox32.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox32.Parent" xml:space="preserve">
+    <value>_buildingTabPage</value>
+  </data>
+  <data name="&gt;&gt;groupBox32.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_disappearsField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>149, 19</value>
+  </data>
+  <data name="_disappearsField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 20</value>
+  </data>
+  <data name="_disappearsField.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;_disappearsField.Name" xml:space="preserve">
+    <value>_disappearsField</value>
+  </data>
+  <data name="&gt;&gt;_disappearsField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_disappearsField.Parent" xml:space="preserve">
+    <value>groupBox31</value>
+  </data>
+  <data name="&gt;&gt;_disappearsField.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_garrisonHealRateField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>149, 97</value>
+  </data>
+  <data name="_garrisonHealRateField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 20</value>
+  </data>
+  <data name="_garrisonHealRateField.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;_garrisonHealRateField.Name" xml:space="preserve">
+    <value>_garrisonHealRateField</value>
+  </data>
+  <data name="&gt;&gt;_garrisonHealRateField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_garrisonHealRateField.Parent" xml:space="preserve">
+    <value>groupBox31</value>
+  </data>
+  <data name="&gt;&gt;_garrisonHealRateField.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_garrisonTypeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 97</value>
+  </data>
+  <data name="_garrisonTypeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 20</value>
+  </data>
+  <data name="_garrisonTypeField.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;_garrisonTypeField.Name" xml:space="preserve">
+    <value>_garrisonTypeField</value>
+  </data>
+  <data name="&gt;&gt;_garrisonTypeField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_garrisonTypeField.Parent" xml:space="preserve">
+    <value>groupBox31</value>
+  </data>
+  <data name="&gt;&gt;_garrisonTypeField.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_unknownSoundField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>149, 71</value>
+  </data>
+  <data name="_unknownSoundField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 20</value>
+  </data>
+  <data name="_unknownSoundField.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;_unknownSoundField.Name" xml:space="preserve">
+    <value>_unknownSoundField</value>
+  </data>
+  <data name="&gt;&gt;_unknownSoundField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_unknownSoundField.Parent" xml:space="preserve">
+    <value>groupBox31</value>
+  </data>
+  <data name="&gt;&gt;_unknownSoundField.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_constructionSoundField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 71</value>
+  </data>
+  <data name="_constructionSoundField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 20</value>
+  </data>
+  <data name="_constructionSoundField.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;_constructionSoundField.Name" xml:space="preserve">
+    <value>_constructionSoundField</value>
+  </data>
+  <data name="&gt;&gt;_constructionSoundField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_constructionSoundField.Parent" xml:space="preserve">
+    <value>groupBox31</value>
+  </data>
+  <data name="&gt;&gt;_constructionSoundField.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="_foundTerrainField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>149, 45</value>
+  </data>
+  <data name="_foundTerrainField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 20</value>
+  </data>
+  <data name="_foundTerrainField.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_foundTerrainField.Name" xml:space="preserve">
+    <value>_foundTerrainField</value>
+  </data>
+  <data name="&gt;&gt;_foundTerrainField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_foundTerrainField.Parent" xml:space="preserve">
+    <value>groupBox31</value>
+  </data>
+  <data name="&gt;&gt;_foundTerrainField.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="_graphicAngleField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="_graphicAngleField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 20</value>
+  </data>
+  <data name="_graphicAngleField.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_graphicAngleField.Name" xml:space="preserve">
+    <value>_graphicAngleField</value>
+  </data>
+  <data name="&gt;&gt;_graphicAngleField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.NumberFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_graphicAngleField.Parent" xml:space="preserve">
+    <value>groupBox31</value>
+  </data>
+  <data name="&gt;&gt;_graphicAngleField.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="_adjacentModeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_adjacentModeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 20</value>
+  </data>
+  <data name="_adjacentModeField.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_adjacentModeField.Name" xml:space="preserve">
+    <value>_adjacentModeField</value>
+  </data>
+  <data name="&gt;&gt;_adjacentModeField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_adjacentModeField.Parent" xml:space="preserve">
+    <value>groupBox31</value>
+  </data>
+  <data name="&gt;&gt;_adjacentModeField.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="groupBox31.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 83</value>
+  </data>
+  <data name="groupBox31.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 125</value>
+  </data>
+  <data name="groupBox31.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="groupBox31.Text" xml:space="preserve">
+    <value>Verschiedenes</value>
+  </data>
+  <data name="&gt;&gt;groupBox31.Name" xml:space="preserve">
+    <value>groupBox31</value>
+  </data>
+  <data name="&gt;&gt;groupBox31.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox31.Parent" xml:space="preserve">
+    <value>_buildingTabPage</value>
+  </data>
+  <data name="&gt;&gt;groupBox31.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_graSnowField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="_graSnowField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 20</value>
+  </data>
+  <data name="_graSnowField.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_graSnowField.Name" xml:space="preserve">
+    <value>_graSnowField</value>
+  </data>
+  <data name="&gt;&gt;_graSnowField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.DropDownFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_graSnowField.Parent" xml:space="preserve">
+    <value>groupBox30</value>
+  </data>
+  <data name="&gt;&gt;_graSnowField.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_graConstructionField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_graConstructionField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 20</value>
+  </data>
+  <data name="_graConstructionField.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_graConstructionField.Name" xml:space="preserve">
+    <value>_graConstructionField</value>
+  </data>
+  <data name="&gt;&gt;_graConstructionField.Type" xml:space="preserve">
+    <value>X2AddOnTechTreeEditor.Controls.DropDownFieldControl, X2AddOnTechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_graConstructionField.Parent" xml:space="preserve">
+    <value>groupBox30</value>
+  </data>
+  <data name="&gt;&gt;_graConstructionField.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox30.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 3</value>
+  </data>
+  <data name="groupBox30.Size" type="System.Drawing.Size, System.Drawing">
+    <value>242, 74</value>
+  </data>
+  <data name="groupBox30.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="groupBox30.Text" xml:space="preserve">
+    <value>Grafiken</value>
+  </data>
+  <data name="&gt;&gt;groupBox30.Name" xml:space="preserve">
+    <value>groupBox30</value>
+  </data>
+  <data name="&gt;&gt;groupBox30.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox30.Parent" xml:space="preserve">
+    <value>_buildingTabPage</value>
+  </data>
+  <data name="&gt;&gt;groupBox30.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="_buildingTabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -3088,7 +4735,7 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Attribute bearbeiten: </value>
+    <value>Einheit-Attribute bearbeiten</value>
   </data>
   <data name="&gt;&gt;_dmgGraPercentColumn.Name" xml:space="preserve">
     <value>_dmgGraPercentColumn</value>
@@ -3112,6 +4759,30 @@
     <value>_dmgGraUnknownColumn</value>
   </data>
   <data name="&gt;&gt;_dmgGraUnknownColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_armValClassColumn.Name" xml:space="preserve">
+    <value>_armValClassColumn</value>
+  </data>
+  <data name="&gt;&gt;_armValClassColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_armValValueColumn.Name" xml:space="preserve">
+    <value>_armValValueColumn</value>
+  </data>
+  <data name="&gt;&gt;_armValValueColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_attValClassColumn.Name" xml:space="preserve">
+    <value>_attValClassColumn</value>
+  </data>
+  <data name="&gt;&gt;_attValClassColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_attValValueColumn.Name" xml:space="preserve">
+    <value>_attValValueColumn</value>
+  </data>
+  <data name="&gt;&gt;_attValValueColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

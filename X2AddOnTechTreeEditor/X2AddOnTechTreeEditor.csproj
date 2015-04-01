@@ -123,6 +123,7 @@
       <DependentUpon>EditBuildingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="GenieUnitManager.cs" />
     <Compile Include="ImportDATFile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,6 +310,9 @@
     <Content Include="Icons\BuildingIcon.png" />
     <Content Include="Icons\DeadIcon.png" />
     <Content Include="Icons\DeleteDependency.png" />
+    <Content Include="Icons\EditAttributes.png" />
+    <Content Include="Icons\EditAttributesSmall.png" />
+    <Content Include="Icons\EditGraphics.png" />
     <Content Include="Icons\EditorMode.png" />
     <Content Include="Icons\EyeCandyIcon.png" />
     <Content Include="Icons\MakeAvailDependency.png" />
@@ -326,6 +330,8 @@
     <None Include="Resources\ResourceTypesEN.txt" />
     <None Include="Resources\ClassNamesDE.txt" />
     <None Include="Resources\ClassNamesEN.txt" />
+    <None Include="Resources\ArmourClassesDE.txt" />
+    <None Include="Resources\ArmourClassesEN.txt" />
     <Content Include="symbol.ico" />
     <None Include="Resources\RenderFontConsolas.bmp" />
   </ItemGroup>

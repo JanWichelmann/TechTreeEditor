@@ -61,7 +61,92 @@ namespace X2AddOnTechTreeEditor {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ungenutzt
+        ///Infanterie
+        ///Schildkrötenschiffe
+        ///Schwere Rüstung (Pierce Armour)
+        ///Leichte Rüstung (Melee Armour)
+        ///Kriegselefanten
+        ///Ungenutzt
+        ///Ungenutzt
+        ///Kavallerie
+        ///Ungenutzt
+        ///Ungenutzt
+        ///Alle Gebäude (ohne Hafen)
+        ///Ungenutzt
+        ///Steinverteidigung (Stone Defense??)
+        ///Ungenutzt
+        ///Bogenschützen
+        ///Schiffe, Kamele und Saboteure
+        ///Rammen
+        ///Bäume
+        ///Spezialeinheiten (ohne Schildkrötenschiffe)
+        ///Belagerungswaffen
+        ///Standardgebäude
+        ///Wälle und Tore
+        ///Ungenutzt
+        ///Wildschweine
+        ///Mönche
+        ///Burgen
+        ///Speerkämpfer
+        ///Ber. Bogenschützen
+        ///Adlerkriege [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string ArmourClasses {
+            get {
+                return ResourceManager.GetString("ArmourClasses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bogenschütze
+        ///Artefakt
+        ///Handelsschiff
+        ///Gebäude
+        ///Zivilist
+        ///Sea fish
+        ///Soldier
+        ///Berry bush
+        ///Stone mine
+        ///Prey animal
+        ///Predator animal
+        ///Other
+        ///Cavalry
+        ///Siege weapon
+        ///Map decoration
+        ///Trees
+        ///Unused
+        ///Unused
+        ///Priest
+        ///Trade cart
+        ///Transport boat
+        ///Fishing boat
+        ///War boat
+        ///Conquistador
+        ///Unused
+        ///Unused
+        ///Unused
+        ///Walls
+        ///Phalanx
+        ///Unused
+        ///Flags
+        ///Unused
+        ///Gold mine
+        ///Shore fish
+        ///Cliff
+        ///Petard
+        ///Cavalry archer
+        ///Dolphin
+        ///Birds
+        ///Gates
+        ///Piles
+        ///Resource
+        ///Relic
+        ///Monk with relic
+        ///Hand cannoneer
+        ///Two handed sword
+        ///Pikeman
+        ///Scout cavalry        /// [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string ClassNames {
             get {
