@@ -13,6 +13,7 @@ namespace X2AddOnTechTreeEditor.Controls
 	/// <summary>
 	/// Definiert ein Steuerelement zur Auswahl einer Language-DLL-ID mit integrierter Vorschau des gewählten Werts.
 	/// </summary>
+	[DefaultEvent("ValueChanged")]
 	public partial class LanguageDLLControl : UserControl
 	{
 		#region Variablen
@@ -60,7 +61,7 @@ namespace X2AddOnTechTreeEditor.Controls
 					_idTextBox.BackColor = Color.White;
 
 					// Label aktualisieren
-					_valueLabel.Text = _projectFile.LanguageFileWrapper.GetString((uint)value);
+					_valueLabel.Text = _projectFile.LanguageFileWrapper.GetString((uint)value).Replace('\n', ' ');
 					if(string.IsNullOrWhiteSpace(_valueLabel.Text))
 						_valueLabel.Text = "???";
 

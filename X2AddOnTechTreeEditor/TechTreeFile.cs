@@ -33,6 +33,7 @@ namespace X2AddOnTechTreeEditor
 
 		/// <summary>
 		/// Enthält alle Technologiebaumelemente in einer linearen Liste.
+		/// Diese dient nur als Cache zur Optimierung von Suchoperationen, beim Speichern ist diese unerheblich!
 		/// </summary>
 		private List<TechTreeElement> _allElements = null;
 

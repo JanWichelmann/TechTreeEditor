@@ -54,7 +54,16 @@ namespace X2AddOnTechTreeEditor
 
 			// Dummy-Objekte für leere Listenelemente erstellen
 			TechTreeEyeCandy emptyEyeCandy = new TechTreeEyeCandy() { ID = -1 };
+			_deadUnitComboBox.Items.Add(emptyEyeCandy);
 			_trackUnitComboBox.Items.Add(emptyEyeCandy);
+
+			// Totenliste erstellen
+			_deadUnitComboBox.SuspendLayout();
+			_deadUnitComboBox.DisplayMember = "Name";
+			_projectFile.Where(u => u is TechTreeUnit).ForEach(u =>
+			{
+				_deadUnitComboBox.Items.Add(u);
+			});
 
 			// Trackingliste erstellen
 			_trackUnitComboBox.SuspendLayout();
@@ -66,12 +75,20 @@ namespace X2AddOnTechTreeEditor
 			_trackUnitComboBox.ResumeLayout();
 
 			// Elemente auswählen
+			_deadUnitComboBox.SelectedItem = (_projectile.DeadUnit == null ? emptyEyeCandy : _projectile.DeadUnit);
 			_trackUnitComboBox.SelectedItem = (_projectile.TrackingUnit == null ? emptyEyeCandy : _projectile.TrackingUnit);
 		}
 
 		#endregion
 
 		#region Ereignishandler
+
+		private void _deadUnitComboBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			// Wert aktualisieren
+			TechTreeUnit selItem = (TechTreeUnit)_deadUnitComboBox.SelectedItem;
+			_projectile.DeadUnit = (selItem.ID >= 0 ? selItem : null);
+		}
 
 		private void _trackUnitComboBox_SelectedIndexChanged(object sender, EventArgs e)
 		{

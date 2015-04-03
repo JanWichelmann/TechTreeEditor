@@ -58,6 +58,9 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			for(int c = dat.Civs.Count - 1; c >= 0; --c)
 				if((DATUnit = dat.Civs[c].Units.FirstOrDefault(u => u.Key == ID).Value) != null)
 					break;
+
+			// Namen setzen
+			UpdateName(langFiles);
 		}
 
 		/// <summary>

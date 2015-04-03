@@ -9,15 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using X2AddOnTechTreeEditor.TechTreeStructure;
 
-/* Es fehlen:
-
-/// <summary>
-/// Länge: 6.
-/// </summary>
-public List<byte> LootingTable;
-
-*/
-
 namespace X2AddOnTechTreeEditor
 {
 	public partial class EditUnitAttributeForm : Form

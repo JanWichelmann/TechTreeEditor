@@ -121,6 +121,9 @@
   <data name="ArmourClasses" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>resources\armourclassesde.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="Attributes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\attributesde.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="ClassNames" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>resources\classnamesde.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>

@@ -54,13 +54,18 @@ namespace X2AddOnTechTreeEditor
 
 			// Dummy-Objekte für leere Listenelemente erstellen
 			TechTreeEyeCandy emptyEyeCandy = new TechTreeEyeCandy() { ID = -1 };
+			_deadUnitComboBox.Items.Add(emptyEyeCandy);
 			_trackUnitComboBox.Items.Add(emptyEyeCandy);
 			TechTreeProjectile emptyProj = new TechTreeProjectile() { ID = -1 };
 			_projUnitComboBox.Items.Add(emptyProj);
 			_projDuplUnitComboBox.Items.Add(emptyProj);
 
-			// Transportzielliste erstellen
+			// Einheitenliste erstellen
+			_deadUnitComboBox.DisplayMember = "Name";
+			_dropSite1ComboBox.DisplayMember = "Name";
+			_dropSite2ComboBox.DisplayMember = "Name";
 			List<TechTreeElement> units = _projectFile.Where(e => e is TechTreeUnit);
+			_deadUnitComboBox.Items.AddRange(units.ToArray());
 			_dropSite1ComboBox.Items.AddRange(units.ToArray());
 			_dropSite2ComboBox.Items.AddRange(units.ToArray());
 
@@ -76,6 +81,7 @@ namespace X2AddOnTechTreeEditor
 			_projDuplUnitComboBox.Items.AddRange(projectiles);
 
 			// Elemente auswählen
+			_deadUnitComboBox.SelectedItem = (_creatable.DeadUnit == null ? emptyEyeCandy : _creatable.DeadUnit);
 			_trackUnitComboBox.SelectedItem = (_creatable.TrackingUnit == null ? emptyEyeCandy : _creatable.TrackingUnit);
 			_projUnitComboBox.SelectedItem = (_creatable.ProjectileUnit == null ? emptyProj : _creatable.ProjectileUnit);
 			_projDuplUnitComboBox.SelectedItem = (_creatable.ProjectileDuplicationUnit == null ? emptyProj : _creatable.ProjectileDuplicationUnit);
@@ -96,6 +102,12 @@ namespace X2AddOnTechTreeEditor
 		#endregion
 
 		#region Ereignishandler
+
+		private void _deadUnitComboBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			TechTreeUnit selItem = (TechTreeUnit)_deadUnitComboBox.SelectedItem;
+			_creatable.DeadUnit = (selItem.ID >= 0 ? selItem : null);
+		}
 
 		private void _projUnitComboBox_SelectedIndexChanged(object sender, EventArgs e)
 		{

@@ -104,6 +104,12 @@
     <Compile Include="Controls\LanguageDLLControl.Designer.cs">
       <DependentUpon>LanguageDLLControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditResearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditResearchForm.Designer.cs">
+      <DependentUpon>EditResearchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditProjectileForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,12 @@
     </Compile>
     <Compile Include="EditBuildingForm.Designer.cs">
       <DependentUpon>EditBuildingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditResearchAttributeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditResearchAttributeForm.Designer.cs">
+      <DependentUpon>EditResearchAttributeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="GenieUnitManager.cs" />
@@ -165,6 +177,7 @@
     <Compile Include="EditUnitAttributeForm.Designer.cs">
       <DependentUpon>EditUnitAttributeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TechTreeStructure\TechEffect.cs" />
     <Compile Include="TechTreeStructure\TechTreeBuilding.cs" />
     <Compile Include="TechTreeStructure\TechTreeProjectile.cs" />
     <Compile Include="TechTreeStructure\TechTreeEyeCandy.cs" />
@@ -189,6 +202,12 @@
     <EmbeddedResource Include="Controls\LanguageDLLControl.resx">
       <DependentUpon>LanguageDLLControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditResearchForm.en-US.resx">
+      <DependentUpon>EditResearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditResearchForm.resx">
+      <DependentUpon>EditResearchForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditProjectileForm.en-US.resx">
       <DependentUpon>EditProjectileForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +225,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditBuildingForm.resx">
       <DependentUpon>EditBuildingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditResearchAttributeForm.be.resx">
+      <DependentUpon>EditResearchAttributeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditResearchAttributeForm.en-US.resx">
+      <DependentUpon>EditResearchAttributeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditResearchAttributeForm.resx">
+      <DependentUpon>EditResearchAttributeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Icons.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -332,6 +360,8 @@
     <None Include="Resources\ClassNamesEN.txt" />
     <None Include="Resources\ArmourClassesDE.txt" />
     <None Include="Resources\ArmourClassesEN.txt" />
+    <None Include="Resources\AttributesDE.txt" />
+    <None Include="Resources\AttributesEN.txt" />
     <Content Include="symbol.ico" />
     <None Include="Resources\RenderFontConsolas.bmp" />
   </ItemGroup>

@@ -928,19 +928,73 @@ namespace X2AddOnTechTreeEditor
 				_projectFile.TechTreeParentElements.AddRange(otherUnitsLookup.Select(elem => elem.Value));
 				_projectFile.TechTreeParentElements.Distinct();
 				_projectFile.TechTreeParentElements.RemoveAll(p => _projectFile.TechTreeParentElements.Exists(p2 => p2 != p && p2.HasChild(p)));
-				_projectFile.TechTreeParentElements.ForEach(elem => {
+				_projectFile.TechTreeParentElements.ForEach(elem =>
+				{
 					if(elem.GetType() == typeof(TechTreeBuilding) && elem.ShadowElement)
 						((TechTreeBuilding)elem).StandardElement = false;
 				});
 
+				// Effekte der importierten Technologien lesen
+				foreach(var res in researches)
+				{
+					// Effekte durchgehen
+					if(res.Value.DATResearch.TechageID >= 0 && res.Value.DATResearch.TechageID < _projectFile.BasicGenieFile.Techages.Count)
+						_projectFile.BasicGenieFile.Techages[res.Value.DATResearch.TechageID].Effects.ForEach(eff =>
+						{
+							// Effekt lesen
+							TechEffect newE = new TechEffect();
+							newE.Type = (TechEffect.EffectType)eff.Type;
+							switch(newE.Type)
+							{
+								case TechEffect.EffectType.AttributeSet:
+								case TechEffect.EffectType.AttributePM:
+								case TechEffect.EffectType.AttributeMult:
+									newE.Element = allNormalUnits.FirstOrDefault(u => u.ID == eff.A);
+									newE.ClassID = eff.B;
+									newE.ParameterID = eff.C;
+									newE.Value = eff.D;
+									break;
+								case TechEffect.EffectType.ResourceSetPM:
+									newE.ParameterID = eff.A;
+									newE.Mode = (TechEffect.EffectMode)eff.B;
+									newE.Value = eff.D;
+									break;
+								case TechEffect.EffectType.ResourceMult:
+									newE.ParameterID = eff.A;
+									newE.Value = eff.D;
+									break;
+								case TechEffect.EffectType.ResearchCostSetPM:
+									newE.Element = researches.FirstOrDefault(r => r.Key == eff.A).Value;
+									newE.ParameterID = eff.B;
+									newE.Mode = (TechEffect.EffectMode)eff.C;
+									newE.Value = eff.D;
+									break;
+								case TechEffect.EffectType.ResearchTimeSetPM:
+									newE.Element = researches.FirstOrDefault(r => r.Key == eff.A).Value;
+									newE.Mode = (TechEffect.EffectMode)eff.C;
+									newE.Value = eff.D;
+									break;
+								default:
+									newE = null;
+									break;
+							}
+							if(newE != null)
+								res.Value.Effects.Add(newE);
+						});
+				}
+
 				// Kultur-Konfigurationen berechnen
 				List<TechTreeFile.CivTreeConfig> civTrees = new List<TechTreeFile.CivTreeConfig>();
-				for(int c = 1; c < dat.Civs.Count; ++c) // Gaia überspringen
+				for(int c = 0; c < dat.Civs.Count; ++c)
 				{
 					// Kultur-Objekt abrufen
 					GenieLibrary.DataElements.Civ currCiv = dat.Civs[c];
 					TechTreeFile.CivTreeConfig currConf = new TechTreeFile.CivTreeConfig();
 					civTrees.Add(currConf);
+
+					// Gaia überspringen
+					if(c == 0)
+						continue;
 
 					// Kultur-Techtree anwenden (Sperren usw.)
 					foreach(var techEff in dat.Techages[currCiv.TechTreeID].Effects)
@@ -975,9 +1029,7 @@ namespace X2AddOnTechTreeEditor
 												if(currSubEff.Type == 2 && currSubEff.B == 1)
 												{
 													// Zugehörige Einheit suchen
-													TechTreeUnit unit = null;
-													if((unit = (TechTreeUnit)_projectFile.FindTechTreeElement(currSubEff.A, "TechTreeCreatable")) == null)
-														unit = (TechTreeUnit)_projectFile.FindTechTreeElement(currSubEff.A, "TechTreeBuilding");
+													TechTreeUnit unit = allNormalUnits.FirstOrDefault(u => u.ID == currSubEff.A);
 													if(unit != null)
 													{
 														// Einheit in Sperrliste schreiben
@@ -1158,7 +1210,53 @@ namespace X2AddOnTechTreeEditor
 						}
 					}
 
-					// Projektdatei speichern
+					// Projektdatei speichern und neu laden, um Daten-Konsistenz sicherzustellen (Einfügen der Daten hat u.U. interne Variablen nicht korrekt gesetzt)
+					_projectFile.WriteData(ProjectFileName);
+					_projectFile = new TechTreeFile(ProjectFileName);
+
+					// Sicherstellen, dass Elemente für alle Völker verfügbar sind
+					// Elemente können weiterhin als "Gaia-Only" definiert sein, sie sind dennoch bis aus Weiteres für alle Völker verfügbar, das macht die Export-Funktion
+					bool isGaia = false;
+					int civCount = _projectFile.BasicGenieFile.Civs.Count;
+					int count = 0;
+					_projectFile.Where(elem => elem is TechTreeUnit).ForEach(u =>
+					{
+						// Gaia gesetzt?
+						isGaia = _projectFile.BasicGenieFile.Civs[0].UnitPointers[u.ID] > 0;
+
+						// Weitere Referenzen zählen
+						count = 0;
+						for(int i = 1; i < civCount; ++i)
+						{
+							// Einheit existiert?
+							if(_projectFile.BasicGenieFile.Civs[i].UnitPointers[u.ID] > 0)
+								++count;
+						}
+
+						// Nur-Gaia?
+						if(isGaia && count == 0)
+							u.Flags |= TechTreeElement.ElementFlags.GaiaOnly;
+						if(count < civCount - 1) // In allen Kulturen definiert?
+						{
+							// Einheit muss in alle Zivilisationen kopiert werden
+							for(int i = 0; i < civCount; ++i)
+							{
+								// Einheit nicht existent?
+								if(_projectFile.BasicGenieFile.Civs[i].UnitPointers[u.ID] <= 0)
+								{
+									// Einheit setzen
+									_projectFile.BasicGenieFile.Civs[i].UnitPointers[u.ID] = 1;
+									_projectFile.BasicGenieFile.Civs[i].Units[u.ID] = ((TechTreeUnit)u).DATUnit;
+
+									// Einheit als blockiert markieren
+									if(i > 0 && !u.Flags.HasFlag(TechTreeElement.ElementFlags.GaiaOnly))
+										_projectFile.CivTrees[i].BlockedElements.Add(u);
+								}
+							}
+						}
+					});
+
+					// Projektdatei erneut speichern
 					_projectFile.WriteData(ProjectFileName);
 
 					// Fertig

@@ -69,6 +69,8 @@
 			this._annex1ComboBox = new System.Windows.Forms.ComboBox();
 			this._annex1CheckBox = new System.Windows.Forms.CheckBox();
 			this._closeButton = new System.Windows.Forms.Button();
+			this.label6 = new System.Windows.Forms.Label();
+			this._deadUnitComboBox = new System.Windows.Forms.ComboBox();
 			this._ageUpgradeGroupBox.SuspendLayout();
 			this._otherUnitsGroupBox.SuspendLayout();
 			this._buildingDependencyGroupBox.SuspendLayout();
@@ -113,8 +115,10 @@
 			// 
 			// _otherUnitsGroupBox
 			// 
+			this._otherUnitsGroupBox.Controls.Add(this.label6);
 			this._otherUnitsGroupBox.Controls.Add(this.label5);
 			this._otherUnitsGroupBox.Controls.Add(this._transformUnitComboBox);
+			this._otherUnitsGroupBox.Controls.Add(this._deadUnitComboBox);
 			this._otherUnitsGroupBox.Controls.Add(this.label4);
 			this._otherUnitsGroupBox.Controls.Add(this._headUnitComboBox);
 			this._otherUnitsGroupBox.Controls.Add(this.label3);
@@ -540,6 +544,20 @@
 			this._closeButton.UseVisualStyleBackColor = true;
 			this._closeButton.Click += new System.EventHandler(this._closeButton_Click);
 			// 
+			// label6
+			// 
+			resources.ApplyResources(this.label6, "label6");
+			this.label6.Name = "label6";
+			// 
+			// _deadUnitComboBox
+			// 
+			this._deadUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this._deadUnitComboBox.FormattingEnabled = true;
+			resources.ApplyResources(this._deadUnitComboBox, "_deadUnitComboBox");
+			this._deadUnitComboBox.Name = "_deadUnitComboBox";
+			this._deadUnitComboBox.Sorted = true;
+			this._deadUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._deadUnitComboBox_SelectedIndexChanged);
+			// 
 			// EditBuildingForm
 			// 
 			resources.ApplyResources(this, "$this");
@@ -616,5 +634,7 @@
 		private System.Windows.Forms.ComboBox _annex2ComboBox;
 		private System.Windows.Forms.CheckBox _annex2CheckBox;
 		private System.Windows.Forms.Button _closeButton;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.ComboBox _deadUnitComboBox;
 	}
 }

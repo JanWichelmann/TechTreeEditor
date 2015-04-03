@@ -50,6 +50,11 @@ namespace X2AddOnTechTreeEditor
 		/// </summary>
 		bool _locked = false;
 
+		/// <summary>
+		/// Gibt an, ob diese Einheit nur für Gaia verfügbar ist. Auto-Kopier-Vorgänge werden dann für alle Einheiten durchgeführt.
+		/// </summary>
+		bool _gaiaUnit = false;
+
 		#endregion
 
 		#region Funktionen
@@ -81,7 +86,7 @@ namespace X2AddOnTechTreeEditor
 			for(int i = 0; i < _copyCivs.Length; ++i)
 			{
 				// Kultur ausgewählt?
-				if(_copyCivs[i])
+				if(_copyCivs[i] || _gaiaUnit)
 				{
 					// Einheit aktualisieren
 					updater(_dat.Civs[i].Units[_currUnitIndex]);
@@ -89,7 +94,7 @@ namespace X2AddOnTechTreeEditor
 			}
 
 			// Falls die ausgewählte Kultur nicht enthalten ist, auch für diese die Änderung durchführen
-			if(!_copyCivs[_currCivIndex])
+			if(!_copyCivs[_currCivIndex] && !GaiaUnit)
 				updater(_dat.Civs[_currCivIndex].Units[_currUnitIndex]);
 		}
 
@@ -187,6 +192,15 @@ namespace X2AddOnTechTreeEditor
 		public Civ.Unit SelectedUnit
 		{
 			get { return _currUnit; }
+		}
+
+		/// <summary>
+		/// Ruft ab, ob die aktuelle Einheit eine Nur-Gaia-Einheit ist, oder legt dies fest.
+		/// </summary>
+		public bool GaiaUnit
+		{
+			get { return _gaiaUnit; }
+			set { _gaiaUnit = value; }
 		}
 
 		#endregion

@@ -1,0 +1,33 @@
+0: Hit Points
+1: Line of Sight
+2: Garrison
+3: Unit Size Radius 1
+4: Unit Size Radius 2
+5: Movement Speed
+6: Garrison Recovery Rate
+7: Unknown
+8: Armor
+9: Attack
+10: Attack Rate
+11: Percent Accuracy
+12: Range
+13: Working Rate
+14: Resource Carriage
+15: Default Armor
+16: Unknown
+17: Unknown
+18: Unknown
+19: Unknown
+20: Minimum Range
+21: Population Support
+22: Blast Radius
+23: Search Radius
+100: Resource Cost
+101: Creation Time
+102: Number of Garrison Arrows
+103: Food Cost
+104: Wood Cost
+105: Gold Cost
+106: Stone Cost
+107: Max Dupl. Missiles
+108: Healing Rate

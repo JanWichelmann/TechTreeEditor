@@ -33,11 +33,15 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this._trackUnitComboBox = new System.Windows.Forms.ComboBox();
 			this._closeButton = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
+			this._deadUnitComboBox = new System.Windows.Forms.ComboBox();
 			this._otherUnitsGroupBox.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// _otherUnitsGroupBox
 			// 
+			this._otherUnitsGroupBox.Controls.Add(this.label1);
+			this._otherUnitsGroupBox.Controls.Add(this._deadUnitComboBox);
 			this._otherUnitsGroupBox.Controls.Add(this.label3);
 			this._otherUnitsGroupBox.Controls.Add(this._trackUnitComboBox);
 			resources.ApplyResources(this._otherUnitsGroupBox, "_otherUnitsGroupBox");
@@ -65,6 +69,20 @@
 			this._closeButton.UseVisualStyleBackColor = true;
 			this._closeButton.Click += new System.EventHandler(this._closeButton_Click);
 			// 
+			// label1
+			// 
+			resources.ApplyResources(this.label1, "label1");
+			this.label1.Name = "label1";
+			// 
+			// _deadUnitComboBox
+			// 
+			this._deadUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this._deadUnitComboBox.FormattingEnabled = true;
+			resources.ApplyResources(this._deadUnitComboBox, "_deadUnitComboBox");
+			this._deadUnitComboBox.Name = "_deadUnitComboBox";
+			this._deadUnitComboBox.Sorted = true;
+			this._deadUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._deadUnitComboBox_SelectedIndexChanged);
+			// 
 			// EditProjectileForm
 			// 
 			resources.ApplyResources(this, "$this");
@@ -86,5 +104,7 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.ComboBox _trackUnitComboBox;
 		private System.Windows.Forms.Button _closeButton;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.ComboBox _deadUnitComboBox;
 	}
 }

@@ -20,7 +20,7 @@ namespace GenieLibrary.DataElements
 		public List<float> Resources;
 		public byte IconSet;
 		public List<int> UnitPointers;
-		public Dictionary<int, Unit> Units;
+		public SortedList<int, Unit> Units;
 
 		#endregion Variablen
 
@@ -45,7 +45,7 @@ namespace GenieLibrary.DataElements
 			for(int i = 0; i < unitCount; ++i)
 				UnitPointers.Add(buffer.ReadInteger());
 
-			Units = new Dictionary<int, Unit>(unitCount);
+			Units = new SortedList<int, Unit>(unitCount);
 			for(int p = 0; p < UnitPointers.Count; ++p)
 				if(UnitPointers[p] != 0)
 					Units.Add(p, new Unit().ReadDataInline(buffer));

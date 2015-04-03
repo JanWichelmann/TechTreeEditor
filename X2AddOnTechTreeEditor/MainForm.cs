@@ -151,7 +151,10 @@ namespace X2AddOnTechTreeEditor
 			for(uint i = 0; i < _projectFile.CivTrees.Count; ++i)
 			{
 				// Zivilisation einfügen
-				_civs.Add(new KeyValuePair<uint, string>(i, _projectFile.LanguageFileWrapper.GetString(10230u + i + 1)));
+				if(i == 0)
+					_civs.Add(new KeyValuePair<uint, string>(i, "[Gaia]"));
+				else
+					_civs.Add(new KeyValuePair<uint, string>(i, _projectFile.LanguageFileWrapper.GetString(10230u + i)));
 			}
 			_civs.Sort((x, y) => x.Value.CompareTo(y.Value));
 
@@ -207,9 +210,6 @@ namespace X2AddOnTechTreeEditor
 			_editorModeButton.Enabled = true;
 			_standardModeButton.Enabled = true;
 			_searchTextBox.Enabled = true;
-			_ageUpButton.Enabled = true;
-			_ageDownButton.Enabled = true;
-			_editAttributesButton.Enabled = true;
 			_newUnitButton.Enabled = true;
 			_newBuildingButton.Enabled = true;
 			_newResearchButton.Enabled = true;
@@ -366,11 +366,13 @@ namespace X2AddOnTechTreeEditor
 			// Wenn Daten noch nicht geladen sind, nichts tun
 			if(!_dataLoaded)
 				return;
-		
+
 			// Daten für die ausgewählte Zivilisation einfügen
 			int civID = (int)(uint)_civSelectComboBox.ComboBox.SelectedValue;
 			_currCivConfig = _projectFile.CivTrees[civID];
 			_unitManager.SelectedCivIndex = civID;
+			if(_selectedElement != null)
+				_unitManager.GaiaUnit = _selectedElement.Flags.HasFlag(TechTreeElement.ElementFlags.GaiaOnly);
 			_projectFile.ApplyCivConfiguration(_currCivConfig);
 
 			// Neuzeichnen
@@ -390,6 +392,7 @@ namespace X2AddOnTechTreeEditor
 				{
 					// ID im Manager ändern
 					_unitManager.SelectedUnitIndex = _selectedElement.ID;
+					_unitManager.GaiaUnit = _selectedElement.Flags.HasFlag(TechTreeElement.ElementFlags.GaiaOnly);
 					((TechTreeUnit)_selectedElement).DATUnit = _unitManager.SelectedUnit;
 				}
 
@@ -397,7 +400,7 @@ namespace X2AddOnTechTreeEditor
 				_selectedElement.UpdateName(_projectFile.LanguageFileWrapper);
 				_selectedNameLabel.Text = string.Format(Strings.MainForm_CurrentSelection, _selectedElement.Name);
 
-				// Operationsmodus vorgehen
+				// Nach Operationsmodus vorgehen
 				if(_currentOperation == TreeOperations.None)
 				{
 					// Standard-Element-Button aktualisieren
@@ -418,7 +421,8 @@ namespace X2AddOnTechTreeEditor
 					}
 
 					// Editor-Button aktualisieren
-					_showInEditorCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.ShowInEditor) == TechTreeElement.ElementFlags.ShowInEditor);
+					_showInEditorCheckButton.Enabled = (_selectedElement.GetType() != typeof(TechTreeResearch));
+					_showInEditorCheckButton.Checked = _selectedElement.Flags.HasFlag(TechTreeElement.ElementFlags.ShowInEditor) && _showInEditorCheckButton.Enabled;
 
 					// Gaia-Button aktualisieren
 					if(_standardElementCheckButton.Checked)
@@ -428,7 +432,7 @@ namespace X2AddOnTechTreeEditor
 					}
 					else
 					{
-						_gaiaOnlyCheckButton.Enabled = true;
+						_gaiaOnlyCheckButton.Enabled = (_selectedElement.GetType() != typeof(TechTreeResearch));
 						_gaiaOnlyCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.GaiaOnly) == TechTreeElement.ElementFlags.GaiaOnly);
 					}
 
@@ -450,11 +454,21 @@ namespace X2AddOnTechTreeEditor
 						_freeForCivCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.Free) == TechTreeElement.ElementFlags.Free);
 					}
 				}
+
+				// Buttons aktivieren
+				_ageUpButton.Enabled = true;
+				_ageDownButton.Enabled = true;
+				_editAttributesButton.Enabled = true;
 			}
 			else
 			{
 				// Dummy-Namen anzeigen
 				_selectedNameLabel.Text = "";
+
+				// Buttons deaktivieren
+				_ageUpButton.Enabled = false;
+				_ageDownButton.Enabled = false;
+				_editAttributesButton.Enabled = false;
 			}
 		}
 
@@ -853,6 +867,7 @@ namespace X2AddOnTechTreeEditor
 					_selectedElement.Flags |= TechTreeElement.ElementFlags.GaiaOnly;
 				else
 					_selectedElement.Flags &= ~TechTreeElement.ElementFlags.GaiaOnly;
+				_unitManager.GaiaUnit = _gaiaOnlyCheckButton.Checked;
 			}
 
 			// Neuzeichnen
@@ -1037,7 +1052,23 @@ namespace X2AddOnTechTreeEditor
 					EditProjectileForm form = new EditProjectileForm(_projectFile, (TechTreeProjectile)_selectedElement);
 					form.ShowDialog();
 				}
+				else if(elemType == typeof(TechTreeResearch))
+				{
+					// Einheit-Dialog anzeigen
+					EditResearchForm form = new EditResearchForm(_projectFile, (TechTreeResearch)_selectedElement);
+					form.ShowDialog();
+				}
 			}
+		}
+
+		private void _editElementPropertiesMenuButton_Click(object sender, EventArgs e)
+		{
+			// Kontextmenü ausblenden
+			_techTreeElementContextMenu.AutoClose = true;
+			_techTreeElementContextMenu.Hide();
+
+			// Dasselbe tun wie beim Doppelklick
+			_renderPanel_DoubleClick(sender, e);
 		}
 
 		private void _searchTextBox_TextChanged(object sender, EventArgs e)
@@ -1062,7 +1093,14 @@ namespace X2AddOnTechTreeEditor
 			if(_selectedElement != null)
 				if(_selectedElement.GetType() == typeof(TechTreeResearch))
 				{
-					// TODO
+					// Fenster anzeigen
+					EditResearchAttributeForm form = new EditResearchAttributeForm(_projectFile, (TechTreeResearch)_selectedElement);
+					form.IconChanged += (sender2, e2) =>
+					{
+						e2.Research.FreeIconTexture();
+						e2.Research.CreateIconTexture(_renderPanel.LoadIconAsTexture);
+					};
+					form.ShowDialog();
 				}
 				else
 				{
@@ -1183,7 +1221,7 @@ namespace X2AddOnTechTreeEditor
 					else
 					{
 						// Der Button ist nicht ausgewählt
-						e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(239, 255, 163)), bounds);
+						e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(229, 255, 77)), bounds);
 					}
 				}
 				else

@@ -66,12 +66,22 @@ namespace X2AddOnTechTreeEditor
 
 			// Dummy-Objekte für leere Listenelemente erstellen
 			TechTreeBuilding emptyBuilding = new TechTreeBuilding() { ID = -1 };
+			_deadUnitComboBox.Items.Add(emptyBuilding);
 			_stackUnitComboBox.Items.Add(emptyBuilding);
 			_headUnitComboBox.Items.Add(emptyBuilding);
 			_transformUnitComboBox.Items.Add(emptyBuilding);
 			TechTreeProjectile emptyProj = new TechTreeProjectile() { ID = -1 };
 			_projUnitComboBox.Items.Add(emptyProj);
 			_projDuplUnitComboBox.Items.Add(emptyProj);
+
+			// Einheitenliste erstellen
+			_deadUnitComboBox.SuspendLayout();
+			_deadUnitComboBox.DisplayMember = "Name";
+			_projectFile.Where(u => u is TechTreeUnit).ForEach(u =>
+			{
+				_deadUnitComboBox.Items.Add(u);
+			});
+			_deadUnitComboBox.ResumeLayout();
 
 			// Gebäudelisten erstellen
 			_ageUpgradeComboBox.SuspendLayout();
@@ -124,6 +134,7 @@ namespace X2AddOnTechTreeEditor
 			_projDuplUnitComboBox.ResumeLayout();
 
 			// Elemente auswählen
+			_deadUnitComboBox.SelectedItem = (_building.DeadUnit == null ? emptyBuilding : _building.DeadUnit);
 			_stackUnitComboBox.SelectedItem = (_building.StackUnit == null ? emptyBuilding : _building.StackUnit);
 			_headUnitComboBox.SelectedItem = (_building.HeadUnit == null ? emptyBuilding : _building.HeadUnit);
 			_transformUnitComboBox.SelectedItem = (_building.TransformUnit == null ? emptyBuilding : _building.TransformUnit);
@@ -243,6 +254,13 @@ namespace X2AddOnTechTreeEditor
 				// Wert löschen
 				_building.AgeUpgrades.Remove(e.Index + _building.Age + 1);
 			}
+		}
+
+		private void _deadUnitComboBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			// Wert aktualisieren
+			TechTreeUnit selItem = (TechTreeUnit)_deadUnitComboBox.SelectedItem;
+			_building.DeadUnit = (selItem.ID >= 0 ? selItem : null);
 		}
 
 		private void _projUnitComboBox_SelectedIndexChanged(object sender, EventArgs e)

@@ -27,6 +27,11 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		public List<TechTreeResearch> Successors { get; private set; }
 
 		/// <summary>
+		/// Die Technologie-Effekte.
+		/// </summary>
+		public List<TechEffect> Effects { get; private set; }
+
+		/// <summary>
 		/// Die zugehörige DAT-Technologie.
 		/// </summary>
 		public GenieLibrary.DataElements.Research DATResearch { get; set; }
@@ -45,6 +50,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			// Objekte erstellen
 			Dependencies = new List<TechTreeResearch>();
 			Successors = new List<TechTreeResearch>();
+			Effects = new List<TechEffect>();
 
 			// Technologien sind in jedem Fall Standard-Elemente
 			_standardElement = true;
@@ -230,6 +236,17 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				buildingDepIDs.Add(new KeyValuePair<int, int>(elementIDs[d.Key], d.Value));
 			}
 
+			// Sicherstellen, dass alle von den Effekten referenzierten Elemente IDs haben
+			Effects.ForEach(eff =>
+			{
+				if(eff.Element != null)
+					if(!elementIDs.ContainsKey(eff.Element))
+						lastID = eff.Element.ToXml(writer, elementIDs, lastID);
+				if(eff.DestinationElement != null)
+					if(!elementIDs.ContainsKey(eff.DestinationElement))
+						lastID = eff.DestinationElement.ToXml(writer, elementIDs, lastID);
+			});
+
 			// Element-Anfangstag schreiben
 			writer.WriteStartElement("element");
 			{
@@ -271,6 +288,13 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 					});
 				}
 				writer.WriteEndElement();
+
+				// Effekte schreiben
+				writer.WriteStartElement("effects");
+				{
+					Effects.ForEach(eff => eff.ToXml(writer, elementIDs));
+				}
+				writer.WriteEndElement();
 			}
 			writer.WriteEndElement();
 
@@ -305,8 +329,16 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			foreach(XElement dep in element.Element("buildingdependencies").Descendants("dependency"))
 				BuildingDependencies.Add((TechTreeBuilding)previousElements[(int)dep], (int)dep.Attribute("depcount"));
 
+			// Effekte lesen
+			Effects = new List<TechEffect>();
+			foreach(XElement eff in element.Element("effects").Descendants("effect"))
+				Effects.Add(new TechEffect(eff, previousElements));
+
 			// DAT-Einheit laden
 			DATResearch = dat.Researches[ID];
+
+			// Namen setzen
+			UpdateName(langFiles);
 		}
 
 		/// <summary>
@@ -320,7 +352,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				return;
 
 			// Icon erstellen
-				CreateIconTexture(textureFunc);
+			CreateIconTexture(textureFunc);
 
 			// Funktion in der Basisklasse aufrufen
 			base.CreateIconTextures(textureFunc);
