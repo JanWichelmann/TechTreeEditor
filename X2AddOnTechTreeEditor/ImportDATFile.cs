@@ -934,55 +934,6 @@ namespace X2AddOnTechTreeEditor
 						((TechTreeBuilding)elem).StandardElement = false;
 				});
 
-				// Effekte der importierten Technologien lesen
-				foreach(var res in researches)
-				{
-					// Effekte durchgehen
-					if(res.Value.DATResearch.TechageID >= 0 && res.Value.DATResearch.TechageID < _projectFile.BasicGenieFile.Techages.Count)
-						_projectFile.BasicGenieFile.Techages[res.Value.DATResearch.TechageID].Effects.ForEach(eff =>
-						{
-							// Effekt lesen
-							TechEffect newE = new TechEffect();
-							newE.Type = (TechEffect.EffectType)eff.Type;
-							switch(newE.Type)
-							{
-								case TechEffect.EffectType.AttributeSet:
-								case TechEffect.EffectType.AttributePM:
-								case TechEffect.EffectType.AttributeMult:
-									newE.Element = allNormalUnits.FirstOrDefault(u => u.ID == eff.A);
-									newE.ClassID = eff.B;
-									newE.ParameterID = eff.C;
-									newE.Value = eff.D;
-									break;
-								case TechEffect.EffectType.ResourceSetPM:
-									newE.ParameterID = eff.A;
-									newE.Mode = (TechEffect.EffectMode)eff.B;
-									newE.Value = eff.D;
-									break;
-								case TechEffect.EffectType.ResourceMult:
-									newE.ParameterID = eff.A;
-									newE.Value = eff.D;
-									break;
-								case TechEffect.EffectType.ResearchCostSetPM:
-									newE.Element = researches.FirstOrDefault(r => r.Key == eff.A).Value;
-									newE.ParameterID = eff.B;
-									newE.Mode = (TechEffect.EffectMode)eff.C;
-									newE.Value = eff.D;
-									break;
-								case TechEffect.EffectType.ResearchTimeSetPM:
-									newE.Element = researches.FirstOrDefault(r => r.Key == eff.A).Value;
-									newE.Mode = (TechEffect.EffectMode)eff.C;
-									newE.Value = eff.D;
-									break;
-								default:
-									newE = null;
-									break;
-							}
-							if(newE != null)
-								res.Value.Effects.Add(newE);
-						});
-				}
-
 				// Kultur-Konfigurationen berechnen
 				List<TechTreeFile.CivTreeConfig> civTrees = new List<TechTreeFile.CivTreeConfig>();
 				for(int c = 0; c < dat.Civs.Count; ++c)
@@ -1075,6 +1026,7 @@ namespace X2AddOnTechTreeEditor
 								StandardElement = false
 							};
 							break;
+
 						case GenieLibrary.DataElements.Civ.Unit.UnitType.Creatable:
 							unitElem = new TechTreeCreatable()
 							{
@@ -1083,6 +1035,7 @@ namespace X2AddOnTechTreeEditor
 								StandardElement = false
 							};
 							break;
+
 						default:
 							unitElem = new TechTreeEyeCandy()
 							{
@@ -1256,6 +1209,78 @@ namespace X2AddOnTechTreeEditor
 						}
 					});
 
+					// Effekte der importierten Technologien lesen
+					// Dies geschieht erst hier, da evtl. noch weitere Einheiten für den Import markiert wurden, die von den Technologien referenziert werden
+					List<TechTreeResearch> researches = _projectFile.Where(elem => elem.GetType() == typeof(TechTreeResearch)).Cast<TechTreeResearch>().ToList();
+					List<TechTreeElement> units = _projectFile.Where(elem => elem is TechTreeUnit);
+					foreach(var res in researches)
+					{
+						// Effekte durchgehen
+						if(res.DATResearch.TechageID >= 0 && res.DATResearch.TechageID < _projectFile.BasicGenieFile.Techages.Count)
+							_projectFile.BasicGenieFile.Techages[res.DATResearch.TechageID].Effects.ForEach(eff =>
+							{
+								// Effekt lesen
+								TechEffect newE = new TechEffect();
+								newE.Type = (TechEffect.EffectType)eff.Type;
+								switch(newE.Type)
+								{
+									case TechEffect.EffectType.AttributeSet:
+									case TechEffect.EffectType.AttributePM:
+									case TechEffect.EffectType.AttributeMult:
+										newE.Element = units.FirstOrDefault(u => u.ID == eff.A);
+										newE.ClassID = eff.B;
+										if(newE.Element == null && newE.ClassID < 0)
+											newE = null;
+										else
+										{
+											newE.ParameterID = eff.C;
+											newE.Value = eff.D;
+										}
+										break;
+
+									case TechEffect.EffectType.ResourceSetPM:
+										newE.ParameterID = eff.A;
+										newE.Mode = (TechEffect.EffectMode)eff.B;
+										newE.Value = eff.D;
+										break;
+
+									case TechEffect.EffectType.ResourceMult:
+										newE.ParameterID = eff.A;
+										newE.Value = eff.D;
+										break;
+
+									case TechEffect.EffectType.ResearchCostSetPM:
+										newE.Element = researches.FirstOrDefault(r => r.ID == eff.A);
+										if(newE.Element == null)
+											newE = null;
+										else
+										{
+											newE.ParameterID = eff.B;
+											newE.Mode = (TechEffect.EffectMode)eff.C;
+											newE.Value = eff.D;
+										}
+										break;
+
+									case TechEffect.EffectType.ResearchTimeSetPM:
+										newE.Element = researches.FirstOrDefault(r => r.ID == eff.A);
+										if(newE.Element == null)
+											newE = null;
+										else
+										{
+											newE.Mode = (TechEffect.EffectMode)eff.C;
+											newE.Value = eff.D;
+										}
+										break;
+
+									default:
+										newE = null;
+										break;
+								}
+								if(newE != null)
+									res.Effects.Add(newE);
+							});
+					}
+
 					// Projektdatei erneut speichern
 					_projectFile.WriteData(ProjectFileName);
 
@@ -1319,6 +1344,6 @@ namespace X2AddOnTechTreeEditor
 			return baseUnit;
 		}
 
-		#endregion
+		#endregion Hilfsfunktionen für die Baumerstellung
 	}
 }

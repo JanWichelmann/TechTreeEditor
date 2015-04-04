@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using X2AddOnTechTreeEditor.TechTreeStructure;
 
@@ -18,24 +13,48 @@ namespace X2AddOnTechTreeEditor
 		/// <summary>
 		/// Die referenzierte Baum-Technologie.
 		/// </summary>
-		TechTreeResearch _treeResearch;
+		private TechTreeResearch _treeResearch;
 
 		/// <summary>
 		/// Die aktuelle Projektdatei.
 		/// </summary>
-		TechTreeFile _projectFile;
+		private TechTreeFile _projectFile;
+
+		/// <summary>
+		/// Gibt an, ob gerade Werte geladen werden und deshalb Ereignisse unterbunden werden sollen.
+		/// </summary>
+		private bool _updating = false;
 
 		/// <summary>
 		/// Die gecachten Attribute.
 		/// </summary>
-		static List<KeyValuePair<int, string>> _attributes = null;
+		private static List<KeyValuePair<int, string>> _attributes = null;
 
 		/// <summary>
-		/// Gibt an, ob das Formular komplett geladen ist.
+		/// Die Beschreibungstexte der Effekt-Typen.
 		/// </summary>
-		bool _formLoaded = false;
+		private static List<KeyValuePair<TechEffect.EffectType, string>> _effectTypes = (new KeyValuePair<TechEffect.EffectType, string>[]
+		{
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.AttributeSet, "Attribut setzen"),
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResourceSetPM, "Ressource setzen/additiv ändern"),
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.AttributePM, "Attribut additiv ändern"),
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.AttributeMult, "Attribut multiplikativ ändern"),
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResourceMult, "Ressource multiplikativ ändern"),
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchCostSetPM, "Technologie-Kosten setzen/additiv ändern"),
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchTimeSetPM, "Technologie-Entwicklungszeit setzen/additiv ändern")
+		}).ToList();
 
-		#endregion
+		/// <summary>
+		/// Leere Einheit.
+		/// </summary>
+		static TechTreeUnit _emptyUnit = new TechTreeCreatable() { ID = -1, Name = "[Keine]" };
+
+		/// <summary>
+		/// Leere Technologie
+		/// </summary>
+		static TechTreeResearch _emptyResearch = new TechTreeResearch() { ID = -1, Name = "[Keine]" };
+
+		#endregion Variablen
 
 		#region Funktionen
 
@@ -100,20 +119,20 @@ namespace X2AddOnTechTreeEditor
 			_timeField.Value = _treeResearch.DATResearch.ResearchTime;
 			_unknown1Field.Value = _treeResearch.DATResearch.Unknown1;
 
-			// Effektliste füllen
-			_effectsListBox.DataSource = _treeResearch.Effects;
+			// Effekt-Typ-Liste zuweisen
+			_effectTypeComboBox.ValueMember = "Key";
+			_effectTypeComboBox.DisplayMember = "Value";
+			_effectTypeComboBox.DataSource = _effectTypes;
 
 			// Einheit-Liste erstellen
-			TechTreeUnit emptyU = new TechTreeCreatable() { ID = -1, Name = "[Keine]" };
 			List<TechTreeElement> unitList = _projectFile.Where(elem => elem is TechTreeUnit);
-			unitList.Add(emptyU);
+			unitList.Add(_emptyUnit);
 			unitList.Sort((x, y) => x.ID.CompareTo(y.ID));
 			List<object> tmpUList = unitList.Cast<object>().ToList();
 
 			// Technologie-Liste erstellen
-			TechTreeResearch emptyR = new TechTreeResearch() { ID = -1, Name = "[Keine]" };
 			List<TechTreeElement> resList = _projectFile.Where(elem => elem.GetType() == typeof(TechTreeResearch));
-			resList.Add(emptyR);
+			resList.Add(_emptyResearch);
 			resList.Sort((x, y) => x.ID.CompareTo(y.ID));
 			List<object> tmpRList = resList.Cast<object>().ToList();
 
@@ -126,6 +145,7 @@ namespace X2AddOnTechTreeEditor
 
 			// Klassen übergeben
 			_classComboBox.Items.AddRange(Strings.ClassNames.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries));
+			_classComboBox.Items.Insert(0, "");
 
 			// Attribute übergeben
 			if(_attributes == null)
@@ -144,11 +164,33 @@ namespace X2AddOnTechTreeEditor
 			// Ressourcentypen übergeben
 			_resourceComboBox.Items.AddRange(Strings.ResourceTypes.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries));
 
-			// Fertig
-			_formLoaded = true;
+			// Effektliste füllen
+			// Dies muss zum Schluss geschehen, da dabei das SelectedIndexChanged-Ereignis aufgerufen wird und dieses sonst lauter NullReference-Exceptions auslöst
+			_effectsListBox.DataSource = _treeResearch.Effects;
 		}
 
-		#endregion
+		/// <summary>
+		/// Aktualisiert die Effekt-Liste.
+		/// </summary>
+		private void UpdateEffectList()
+		{
+			// Aktualisierungsvorgang läuft
+			if(_updating)
+				return;
+			else
+				_updating = true;
+
+			// Aktualisieren
+			_effectsListBox.SuspendLayout();
+			_effectsListBox.DataSource = null;
+			_effectsListBox.DataSource = _treeResearch.Effects;
+			_effectsListBox.ResumeLayout();
+
+			// Fertig
+			_updating = false;
+		}
+
+		#endregion Funktionen
 
 		#region Ereignishandler
 
@@ -254,28 +296,365 @@ namespace X2AddOnTechTreeEditor
 
 		private void _effectsListBox_SelectedIndexChanged(object sender, EventArgs e)
 		{
+			// Aktualisierungsvorgang läuft
+			if(_updating)
+				return;
+			else
+				_updating = true;
+
+			// Element abrufen
+			TechEffect sel = (TechEffect)_effectsListBox.SelectedItem;
+
 			// Erstmal alle Elemente abschalten, um den Code übersichtlich zu halten, der Performance-Verlust ist minimal
-			_unitField.Enabled = false;
-			_destUnitField.Enabled = false;
-			_researchField.Enabled = false;
-			_classLabel.Enabled = _classComboBox.Enabled = false;
-			_attributeLabel.Enabled = _attributeComboBox.Enabled = false;
-			_armourClassLabel.Enabled = _armourClassComboBox.Enabled = false;
-			_resourceLabel.Enabled = _resourceComboBox.Enabled = false;
-			_modeCheckBox.Enabled = false;
-			_valueField.Enabled = false;
+			_effectTypeLabel.Visible = _effectTypeComboBox.Visible = (sel != null);
+			_unitField.Visible = false;
+			_destUnitField.Visible = false;
+			_researchField.Visible = false;
+			_classLabel.Visible = _classComboBox.Visible = false;
+			_attributeLabel.Visible = _attributeComboBox.Visible = false;
+			_armourClassLabel.Visible = _armourClassComboBox.Visible = false;
+			_resourceLabel.Visible = _resourceComboBox.Visible = false;
+			_modeCheckBox.Visible = false;
+			_valueField.Visible = false;
 
 			// Element-Informationen anzeigen
-			TechEffect sel = (TechEffect)_effectsListBox.SelectedItem;
-			switch(sel.Type)
+			if(sel != null)
 			{
-				case TechEffect.EffectType.AttributeSet:
+				_effectTypeComboBox.SelectedValue = sel.Type;
+				switch(sel.Type)
+				{
+					case TechEffect.EffectType.AttributeSet:
+					case TechEffect.EffectType.AttributePM:
+					case TechEffect.EffectType.AttributeMult:
+						_unitField.Visible = true;
+						_unitField.Value = (sel.Element == null ? _emptyUnit : sel.Element);
+						_classLabel.Visible = _classComboBox.Visible = true;
+						_classComboBox.SelectedIndex = sel.ClassID + 1;
+						_attributeLabel.Visible = _attributeComboBox.Visible = true;
+						_attributeComboBox.SelectedValue = (int)sel.ParameterID;
+						_valueField.Visible = true;
+						if(sel.ParameterID == 8 || sel.ParameterID == 9)
+						{
+							_armourClassLabel.Visible = _armourClassComboBox.Visible = true;
+							_armourClassComboBox.SelectedIndex = ((int)sel.Value >> 8);
+							_valueField.Value = ((int)sel.Value & 0xFF);
+						}
+						else
+							_valueField.Value = (decimal)sel.Value;
+						break;
 
-					break;
+					case TechEffect.EffectType.ResourceSetPM:
+						_resourceLabel.Visible = _resourceComboBox.Visible = true;
+						_resourceComboBox.SelectedIndex = sel.ParameterID;
+						_modeCheckBox.Visible = true;
+						_modeCheckBox.Value = sel.Mode == TechEffect.EffectMode.PM_Enable;
+						_valueField.Value = (decimal)sel.Value;
+						break;
+
+					case TechEffect.EffectType.ResourceMult:
+						_resourceLabel.Visible = _resourceComboBox.Visible = true;
+						_resourceComboBox.SelectedIndex = sel.ParameterID;
+						_valueField.Value = (decimal)sel.Value;
+						break;
+
+					case TechEffect.EffectType.ResearchCostSetPM:
+						_researchField.Visible = true;
+						_researchField.Value = (sel.Element == null ? _emptyResearch : sel.Element);
+						_resourceLabel.Visible = _resourceComboBox.Visible = true;
+						_resourceComboBox.SelectedIndex = sel.ParameterID;
+						_modeCheckBox.Visible = true;
+						_modeCheckBox.Value = sel.Mode == TechEffect.EffectMode.PM_Enable;
+						_valueField.Value = (decimal)sel.Value;
+						break;
+
+					case TechEffect.EffectType.ResearchTimeSetPM:
+
+						_researchField.Visible = true;
+						_researchField.Value = (sel.Element == null ? _emptyResearch : sel.Element);
+						_modeCheckBox.Visible = true;
+						_modeCheckBox.Value = sel.Mode == TechEffect.EffectMode.PM_Enable;
+						_valueField.Value = (decimal)sel.Value;
+						break;
+				}
+			}
+
+			// Fertig
+			_updating = false;
+		}
+
+		private void _effectUpButton_Click(object sender, EventArgs e)
+		{
+			// Ausgewählten Effekt mit oberem vertauschen
+			if(_effectsListBox.SelectedIndex > 0)
+			{
+				// Effekte vertauschen
+				TechEffect temp = _treeResearch.Effects[_effectsListBox.SelectedIndex - 1];
+				_treeResearch.Effects[_effectsListBox.SelectedIndex - 1] = _treeResearch.Effects[_effectsListBox.SelectedIndex];
+				_treeResearch.Effects[_effectsListBox.SelectedIndex] = temp;
+				--_effectsListBox.SelectedIndex;
+
+				// Aktualisieren
+				UpdateEffectList();
 			}
 		}
 
-		#endregion
+		private void _effectDownButton_Click(object sender, EventArgs e)
+		{
+			// Ausgewählten Effekt mit unterem vertauschen
+			if(_effectsListBox.SelectedIndex >= 0 && _effectsListBox.SelectedIndex < _treeResearch.Effects.Count - 1)
+			{
+				// Effekte vertauschen
+				TechEffect temp = _treeResearch.Effects[_effectsListBox.SelectedIndex + 1];
+				_treeResearch.Effects[_effectsListBox.SelectedIndex + 1] = _treeResearch.Effects[_effectsListBox.SelectedIndex];
+				_treeResearch.Effects[_effectsListBox.SelectedIndex] = temp;
+				++_effectsListBox.SelectedIndex;
+
+				// Aktualisieren
+				UpdateEffectList();
+			}
+		}
+
+		private void _newEffectButton_Click(object sender, EventArgs e)
+		{
+			// Neuen Effekt hinzufügen
+			_treeResearch.Effects.Add(new TechEffect());
+
+			// Aktualisieren
+			UpdateEffectList();
+		}
+
+		private void _deleteEffectButton_Click(object sender, EventArgs e)
+		{
+			// Effekt löschen
+			if(_effectsListBox.SelectedIndex >= 0 && MessageBox.Show("Diesen Effekt wirklich löschen?", "Effekt löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				// Effekt löschen
+				_treeResearch.Effects.RemoveAt(_effectsListBox.SelectedIndex);
+
+				// Aktualisieren
+				UpdateEffectList();
+			}
+		}
+
+		private void _sortEffectsButton_Click(object sender, EventArgs e)
+		{
+			// Effekte sortieren
+			if(MessageBox.Show("Wirklich alle Effekte alphabetisch sortieren?", "Effekte sortieren", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				// Effekte sortieren
+				_treeResearch.Effects.Sort((eff1, eff2) => eff1.ToString().CompareTo(eff2.ToString()));
+
+				// Aktualisieren
+				UpdateEffectList();
+			}
+		}
+
+		private void EditResearchAttributeForm_ResizeBegin(object sender, EventArgs e)
+		{
+			// Flackern vermeiden
+			this.SuspendLayout();
+		}
+
+		private void EditResearchAttributeForm_ResizeEnd(object sender, EventArgs e)
+		{
+			// Flackern vermeiden
+			this.ResumeLayout();
+		}
+
+		private void _effectTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			TechEffect sel = (TechEffect)_effectsListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Typ der ausgewählten Technologie ändern
+				sel.Type = (TechEffect.EffectType)_effectTypeComboBox.SelectedValue;
+
+				// Aktualisieren
+				UpdateEffectList();
+			}
+		}
+
+		private void _unitField_ValueChanged(object sender, Controls.DropDownFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			TechEffect sel = (TechEffect)_effectsListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Einheit ändern
+				sel.Element = (TechTreeElement)_unitField.Value;
+
+				// Aktualisieren
+				UpdateEffectList();
+			}
+		}
+
+		private void _destUnitField_ValueChanged(object sender, Controls.DropDownFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			TechEffect sel = (TechEffect)_effectsListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Einheit ändern
+				sel.DestinationElement = (TechTreeElement)_destUnitField.Value;
+
+				// Aktualisieren
+				UpdateEffectList();
+			}
+		}
+
+		private void _researchField_ValueChanged(object sender, Controls.DropDownFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			TechEffect sel = (TechEffect)_effectsListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Technologie ändern
+				sel.Element = (TechTreeElement)_researchField.Value;
+
+				// Aktualisieren
+				UpdateEffectList();
+			}
+		}
+
+		private void _classComboBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			TechEffect sel = (TechEffect)_effectsListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Klasse ändern
+				sel.ClassID = (short)(_classComboBox.SelectedIndex - 1);
+
+				// Aktualisieren
+				UpdateEffectList();
+			}
+		}
+
+		private void _attributeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			TechEffect sel = (TechEffect)_effectsListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Attribut ändern
+				sel.ParameterID = (short)(int)_attributeComboBox.SelectedValue;
+
+				// Falls Rüstungsklassen benötigt werden, diese anzeigen
+				if(sel.ParameterID == 8 || sel.ParameterID == 9)
+					_armourClassLabel.Visible = _armourClassComboBox.Visible = true;
+				else
+					_armourClassLabel.Visible = _armourClassComboBox.Visible = false;
+
+				// Aktualisieren
+				UpdateEffectList();
+			}
+		}
+
+		private void _armourClassComboBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			TechEffect sel = (TechEffect)_effectsListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Wert ändern
+				sel.Value = (float)(_armourClassComboBox.SelectedIndex << 8 | ((int)_valueField.Value & 0xFF));
+
+				// Aktualisieren
+				UpdateEffectList();
+			}
+		}
+
+		private void _resourceComboBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			TechEffect sel = (TechEffect)_effectsListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Ressource ändern
+				sel.ParameterID = (short)_resourceComboBox.SelectedIndex;
+
+				// Aktualisieren
+				UpdateEffectList();
+			}
+		}
+
+		private void _modeCheckBox_ValueChanged(object sender, Controls.CheckBoxFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			TechEffect sel = (TechEffect)_effectsListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Modus ändern
+				sel.Mode = _modeCheckBox.Value ? TechEffect.EffectMode.PM_Enable : TechEffect.EffectMode.Set_Disable;
+
+				// Aktualisieren
+				UpdateEffectList();
+			}
+		}
+
+		private void _valueField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			TechEffect sel = (TechEffect)_effectsListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Wert ändern
+				if(_armourClassComboBox.Visible)
+					sel.Value = (float)(_armourClassComboBox.SelectedIndex << 8 | ((int)_valueField.Value & 0xFF));
+				else
+					sel.Value = (float)_valueField.Value;
+
+				// Aktualisieren
+				UpdateEffectList();
+
+				// Fokus halten
+				_valueField.Focus();
+				_valueField.SetCursorToEnd();
+			}
+		}
+
+		#endregion Ereignishandler
 
 		#region Ereignisse
 
@@ -337,8 +716,8 @@ namespace X2AddOnTechTreeEditor
 			}
 		}
 
-		#endregion
+		#endregion Event: Geändertes Icon
 
-		#endregion
+		#endregion Ereignisse
 	}
 }

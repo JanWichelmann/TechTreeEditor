@@ -6,7 +6,6 @@ using System.IO.Compression;
 using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
-using System.Collections.ObjectModel;
 using X2AddOnTechTreeEditor.TechTreeStructure;
 
 namespace X2AddOnTechTreeEditor
@@ -41,7 +40,7 @@ namespace X2AddOnTechTreeEditor
 		/// Die Pfade zu den Language-Dateien.
 		/// </summary>
 		private List<string> _languageFilePaths = null;
-		
+
 		/// <summary>
 		/// Das Language-DLL-Wrapperobjekt.
 		/// </summary>
@@ -111,7 +110,7 @@ namespace X2AddOnTechTreeEditor
 					// Language-Datei-Pfade lesen
 					_languageFilePaths = new List<string>();
 					foreach(XElement fileElement in mainElement.Element("languagefiles").Descendants("file"))
-							_languageFilePaths.Add(fileElement.Value);
+						_languageFilePaths.Add(fileElement.Value);
 
 					// Interfac-DRS-Pfad lesen
 					_interfacDRSPath = mainElement.Element("interfacdrs").Value;
@@ -743,7 +742,7 @@ namespace X2AddOnTechTreeEditor
 			return _allElements.Where(predicate).ToList();
 		}
 
-		#endregion
+		#endregion Baumfunktionen
 
 		#region Eigenschaften
 

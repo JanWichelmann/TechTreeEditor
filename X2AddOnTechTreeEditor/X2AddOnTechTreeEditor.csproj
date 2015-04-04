@@ -104,6 +104,9 @@
     <Compile Include="Controls\LanguageDLLControl.Designer.cs">
       <DependentUpon>LanguageDLLControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="DoubleBufferedListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="EditResearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,9 +228,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditBuildingForm.resx">
       <DependentUpon>EditBuildingForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EditResearchAttributeForm.be.resx">
-      <DependentUpon>EditResearchAttributeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditResearchAttributeForm.en-US.resx">
       <DependentUpon>EditResearchAttributeForm.cs</DependentUpon>

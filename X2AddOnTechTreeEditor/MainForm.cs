@@ -1,9 +1,8 @@
 ﻿using DRSLibrary;
 using System;
-using System.Drawing;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
-using X2AddOnTechTreeEditor;
 using X2AddOnTechTreeEditor.TechTreeStructure;
 
 namespace X2AddOnTechTreeEditor
@@ -26,11 +25,6 @@ namespace X2AddOnTechTreeEditor
 		/// Der Pfad zur aktuell geöffneten Projektdatei.
 		/// </summary>
 		private string _projectFileName = "";
-
-		/// <summary>
-		/// Die Interfac-DRS. Enthält u.a. die Icons.
-		/// </summary>
-		private DRSFile _interfacDRS = null;
 
 		/// <summary>
 		/// Die DAT-Kulturen-Namen.
@@ -126,13 +120,13 @@ namespace X2AddOnTechTreeEditor
 
 			// Interfac-DRS laden
 			SetStatus("Lade Interfac-DRS...");
-			_interfacDRS = new DRSFile(_projectFile.InterfacDRSPath);
+			DRSFile interfacDRS = new DRSFile(_projectFile.InterfacDRSPath);
 
 			// Icons laden
 			SetStatus("Lade Icon-SLPs...");
-			SLPLoader.Loader _iconsResearches = new SLPLoader.Loader(new IORAMHelper.RAMBuffer(_interfacDRS.GetResourceData(50729)));
-			SLPLoader.Loader _iconsUnits = new SLPLoader.Loader(new IORAMHelper.RAMBuffer(_interfacDRS.GetResourceData(50730)));
-			SLPLoader.Loader _iconsBuildings = new SLPLoader.Loader(new IORAMHelper.RAMBuffer(_interfacDRS.GetResourceData(50706)));
+			SLPLoader.Loader _iconsResearches = new SLPLoader.Loader(new IORAMHelper.RAMBuffer(interfacDRS.GetResourceData(50729)));
+			SLPLoader.Loader _iconsUnits = new SLPLoader.Loader(new IORAMHelper.RAMBuffer(interfacDRS.GetResourceData(50730)));
+			SLPLoader.Loader _iconsBuildings = new SLPLoader.Loader(new IORAMHelper.RAMBuffer(interfacDRS.GetResourceData(50706)));
 
 			// Farb-Palette laden
 			SetStatus(Strings.MainForm_Status_LoadingPal);
@@ -306,39 +300,51 @@ namespace X2AddOnTechTreeEditor
 				case TreeOperations.None:
 					SetStatus(Strings.MainForm_Status_Ready);
 					break;
+
 				case TreeOperations.NewLinkFirstElement:
 					SetStatus("Bitte das unterzuordnene Element auswählen...");
 					break;
+
 				case TreeOperations.NewLinkSecondElement:
 					SetStatus("Bitte das neue Ober-Element auswählen...");
 					break;
+
 				case TreeOperations.DeleteLink:
 					SetStatus("Bitte das abzutrennende Unterelement auswählen...");
 					break;
+
 				case TreeOperations.DeleteElement:
 					SetStatus("Bitte das löschende Element auswählen...");
 					break;
+
 				case TreeOperations.NewMakeAvailDependencyFirstElement:
 					SetStatus("Bitte das zu aktivierende Element auswählen...");
 					break;
+
 				case TreeOperations.NewMakeAvailDependencySecondElement:
 					SetStatus("Bitte die aktivierende Technologie auswählen...");
 					break;
+
 				case TreeOperations.NewSuccessorResearchDependencyFirstElement:
 					SetStatus("Bitte das weiterzuentwickelnde Element auswählen...");
 					break;
+
 				case TreeOperations.NewSuccessorResearchDependencySecondElement:
 					SetStatus("Bitte die weiterentwickelnde Technologie auswählen...");
 					break;
+
 				case TreeOperations.NewBuildingDependencyFirstElement:
 					SetStatus("Bitte das abhängige Element auswählen...");
 					break;
+
 				case TreeOperations.NewBuildingDependencySecondElement:
 					SetStatus("Bitte das benötigte Gebäude auswählen...");
 					break;
+
 				case TreeOperations.DeleteDependencyFirstElement:
 					SetStatus("Bitte das abhängige Element auswählen...");
 					break;
+
 				case TreeOperations.DeleteDependencySecondElement:
 					SetStatus("Bitte das referenzierte Element auswählen...");
 					break;
@@ -1190,7 +1196,7 @@ namespace X2AddOnTechTreeEditor
 			DeleteDependencySecondElement
 		}
 
-		#endregion
+		#endregion Enumerationen
 
 		#region Hilfsklassen
 
@@ -1229,6 +1235,6 @@ namespace X2AddOnTechTreeEditor
 			}
 		}
 
-		#endregion
+		#endregion Hilfsklassen
 	}
 }

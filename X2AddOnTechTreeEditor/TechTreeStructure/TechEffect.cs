@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -50,7 +47,27 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// </summary>
 		public float Value { get; set; }
 
-		#endregion
+		/// <summary>
+		/// Die gecachten Attribute.
+		/// </summary>
+		private static Dictionary<int, string> _attributes = null;
+
+		/// <summary>
+		/// Die gecachten Einheiten-Klassen.
+		/// </summary>
+		private static string[] _classes = null;
+
+		/// <summary>
+		/// Die gecachten Rüstungs-Klassen.
+		/// </summary>
+		private static string[] _armourClasses = null;
+
+		/// <summary>
+		/// Die gecachten Ressourcen-Typen.
+		/// </summary>
+		private static string[] _resourceTypes = null;
+
+		#endregion Variablen
 
 		#region Funktionen
 
@@ -59,7 +76,6 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// </summary>
 		public TechEffect()
 		{
-
 		}
 
 		/// <summary>
@@ -146,48 +162,79 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// <returns></returns>
 		public override string ToString()
 		{
-			switch(Type)
+			// Ggf. Nachschlag-Listen erstellen
+			if(_attributes == null)
 			{
-				case EffectType.AttributeSet:
-					if(ParameterID == 8)
-						return string.Format("Rüstungsstärke für Einheit '{0}' bzw. Klasse '{1}': = {2} gegen Rüstungsklasse '{3}'", (Element != null ? Element.Name : "?"), ClassID, ((short)Value & 0xFF), ((short)Value >> 8));
-					else if(ParameterID == 9)
-						return string.Format("Angriffsstärke für Einheit '{0}' bzw. Klasse '{1}': = {2} gegen Rüstungsklasse '{3}'", (Element != null ? Element.Name : "?"), ClassID, ((short)Value & 0xFF), ((short)Value >> 8));
-					else
-						return string.Format("Attribut '{0}' für Einheit '{1}' bzw. Klasse '{2}': = {3}", ParameterID, (Element != null ? Element.Name : "?"), ClassID, Value);
-				case EffectType.ResourceSetPM:
-					return string.Format("Ressource '{0}': {1} {2}", ParameterID, (Mode == EffectMode.PM_Enable ? "+" : "="), Value);
-				case EffectType.UnitEnableDisable:
-					return string.Format("{0} Einheit '{1}'", (Mode == EffectMode.PM_Enable ? "Aktiviere" : "Deaktiviere"), (Element != null ? Element.Name : "?"));
-				case EffectType.UnitUpgrade:
-					return string.Format("Upgrade '{0}' -> '{1}'", (Element != null ? Element.Name : "?"), (DestinationElement != null ? DestinationElement.Name : "?"));
-				case EffectType.AttributePM:
-					if(ParameterID == 8)
-						return string.Format("Rüstungsstärke für Einheit '{0}' bzw. Klasse '{1}': + {2} gegen Rüstungsklasse '{3}'", (Element != null ? Element.Name : "?"), ClassID, ((short)Value & 0xFF), ((short)Value >> 8));
-					else if(ParameterID == 9)
-						return string.Format("Angriffsstärke für Einheit '{0}' bzw. Klasse '{1}': + {2} gegen Rüstungsklasse '{3}'", (Element != null ? Element.Name : "?"), ClassID, ((short)Value & 0xFF), ((short)Value >> 8));
-					else
-						return string.Format("Attribut '{0}' für Einheit '{1}' bzw. Klasse '{2}': + {3}", ParameterID, (Element != null ? Element.Name : "?"), ClassID, Value);
-				case EffectType.AttributeMult:
-					if(ParameterID == 8)
-						return string.Format("Rüstungsstärke für Einheit '{0}' bzw. Klasse '{1}': * {2} gegen Rüstungsklasse '{3}'", (Element != null ? Element.Name : "?"), ClassID, ((short)Value & 0xFF), ((short)Value >> 8));
-					else if(ParameterID == 9)
-						return string.Format("Angriffsstärke für Einheit '{0}' bzw. Klasse '{1}': * {2} gegen Rüstungsklasse '{3}'", (Element != null ? Element.Name : "?"), ClassID, ((short)Value & 0xFF), ((short)Value >> 8));
-					else
-						return string.Format("Attribut '{0}' für Einheit '{1}' bzw. Klasse '{2}': * {3}", ParameterID, (Element != null ? Element.Name : "?"), ClassID, Value);
-				case EffectType.ResourceMult:
-					return string.Format("Ressource '{0}': * {1}", ParameterID, Value);
-				case EffectType.ResearchCostSetPM:
-					return string.Format("'{0}'-Kosten für Technologie '{1}': {2} {3}", ParameterID, (Element != null ? Element.Name : "?"), (Mode == EffectMode.PM_Enable ? "+" : "="), Value);
-				case EffectType.ResearchDisable:
-					return string.Format("Deaktiviere Technologie '{0}'", (Element != null ? Element.Name : "?"));
-				case EffectType.ResearchTimeSetPM:
-					return string.Format("Entwicklungszeit für Technologie '{1}': {2} {3}", (Element != null ? Element.Name : "?"), (Mode == EffectMode.PM_Enable ? "+" : "="), Value);
+				_attributes = new Dictionary<int, string>();
+				foreach(string a in Strings.Attributes.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries))
+					_attributes.Add(int.Parse(a.Substring(0, a.IndexOf(':'))), a.Substring(a.IndexOf(':') + 2));
 			}
-			return "...";
+			if(_classes == null)
+				_classes = Strings.ClassNames.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+			if(_armourClasses == null)
+				_armourClasses = Strings.ArmourClasses.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+			if(_resourceTypes == null)
+				_resourceTypes = Strings.ResourceTypes.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+
+			// Nach Effekt-Typ vorgehen
+			try
+			{
+				switch(Type)
+				{
+					case EffectType.AttributeSet:
+						if(ParameterID == 8)
+							return string.Format("Rüstungsstärke für {0}: = {1} gegen Rüstungsklasse '{2}'", (Element != null ? "Einheit '" + Element.Name + "'" : "Klasse '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
+						else if(ParameterID == 9)
+							return string.Format("Angriffsstärke für {0}: = {1} gegen Rüstungsklasse '{2}'", (Element != null ? "Einheit '" + Element.Name + "'" : "Klasse '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
+						else
+							return string.Format("Attribut '{0}' für {1}: = {2}", _attributes[ParameterID], (Element != null ? "Einheit '" + Element.Name + "'" : "Klasse '" + _classes[ClassID] + "'"), Value);
+
+					case EffectType.ResourceSetPM:
+						return string.Format("Ressource '{0}': {1} {2}", _resourceTypes[ParameterID], (Mode == EffectMode.PM_Enable ? "+" : "="), Value);
+
+					case EffectType.UnitEnableDisable:
+						return string.Format("{0} Einheit '{1}'", (Mode == EffectMode.PM_Enable ? "Aktiviere" : "Deaktiviere"), (Element != null ? Element.Name : "?"));
+
+					case EffectType.UnitUpgrade:
+						return string.Format("Upgrade '{0}' -> '{1}'", (Element != null ? Element.Name : "?"), (DestinationElement != null ? DestinationElement.Name : "?"));
+
+					case EffectType.AttributePM:
+						if(ParameterID == 8)
+							return string.Format("Rüstungsstärke für {0}: + {1} gegen Rüstungsklasse '{2}'", (Element != null ? "Einheit '" + Element.Name + "'" : "Klasse '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
+						else if(ParameterID == 9)
+							return string.Format("Angriffsstärke für {0}: + {1} gegen Rüstungsklasse '{2}'", (Element != null ? "Einheit '" + Element.Name + "'" : "Klasse '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
+						else
+							return string.Format("Attribut '{0}' für {1}: + {2}", _attributes[ParameterID], (Element != null ? "Einheit '" + Element.Name + "'" : "Klasse '" + _classes[ClassID] + "'"), Value);
+
+					case EffectType.AttributeMult:
+						if(ParameterID == 8)
+							return string.Format("Rüstungsstärke für {0}: * {1} gegen Rüstungsklasse '{2}'", (Element != null ? "Einheit '" + Element.Name + "'" : "Klasse '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
+						else if(ParameterID == 9)
+							return string.Format("Angriffsstärke für {0}: * {1} gegen Rüstungsklasse '{2}'", (Element != null ? "Einheit '" + Element.Name + "'" : "Klasse '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
+						else
+							return string.Format("Attribut '{0}' für {1}': * {2}", _attributes[ParameterID], (Element != null ? "Einheit '" + Element.Name + "'" : "Klasse '" + _classes[ClassID] + "'"), Value);
+
+					case EffectType.ResourceMult:
+						return string.Format("Ressource '{0}': * {1}", _resourceTypes[ParameterID], Value);
+
+					case EffectType.ResearchCostSetPM:
+						return string.Format("'{0}'-Kosten für Technologie '{1}': {2} {3}", _resourceTypes[ParameterID], (Element != null ? Element.Name : "?"), (Mode == EffectMode.PM_Enable ? "+" : "="), Value);
+
+					case EffectType.ResearchDisable:
+						return string.Format("Deaktiviere Technologie '{0}'", (Element != null ? Element.Name : "?"));
+
+					case EffectType.ResearchTimeSetPM:
+						return string.Format("Entwicklungszeit für Technologie '{1}': {2} {3}", (Element != null ? Element.Name : "?"), (Mode == EffectMode.PM_Enable ? "+" : "="), Value);
+				}
+				return "?";
+			}
+			catch(IndexOutOfRangeException)
+			{
+				return "?";
+			}
 		}
 
-		#endregion
+		#endregion Funktionen
 
 		#region Enumerationen
 
@@ -217,6 +264,6 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			PM_Enable = 1
 		}
 
-		#endregion
+		#endregion Enumerationen
 	}
 }

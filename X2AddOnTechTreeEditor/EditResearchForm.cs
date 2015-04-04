@@ -25,11 +25,6 @@ namespace X2AddOnTechTreeEditor
 		/// </summary>
 		TechTreeFile _projectFile = null;
 
-		/// <summary>
-		/// Gibt an, ob die Daten noch geladen werden.
-		/// </summary>
-		bool _loading = true;
-
 		#endregion
 
 		#region Funktionen
@@ -69,9 +64,6 @@ namespace X2AddOnTechTreeEditor
 				row.Cells.Add(new DataGridViewTextBoxCell() { Value = currD.Key.Name });
 				_buildingDepView.Rows.Add(row);
 			}
-
-			// Alles geladen
-			_loading = false;
 		}
 
 		#endregion

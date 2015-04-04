@@ -38,6 +38,16 @@ namespace X2AddOnTechTreeEditor.Controls
 			InitializeComponent();
 		}
 
+		/// <summary>
+		/// Setzt den TextBox-Cursor ans Ende der TextBox.
+		/// </summary>
+		public void SetCursorToEnd()
+		{
+			// Auswahl in TextBox ans Ende setzen
+			_valueTextBox.Focus();
+			_valueTextBox.SelectionStart = _valueTextBox.TextLength;
+		}
+
 		#endregion
 
 		#region Eventhandler
