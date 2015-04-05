@@ -946,6 +946,12 @@ namespace X2AddOnTechTreeEditor
 			GL.BindTexture(TextureTarget.Texture2D, 0);
 		}
 
+		private void _drawPanel_KeyDown(object sender, KeyEventArgs e)
+		{
+			// Ereignis weiterreichen
+			OnKeyDown(e);
+		}
+
 		#endregion Statische Hilfsfunktionen
 
 		#region Ereignisse

@@ -34,7 +34,6 @@
 			this._statusStrip = new System.Windows.Forms.StatusStrip();
 			this._statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this._selectedNameLabel = new System.Windows.Forms.ToolStripStatusLabel();
-			this._renderPanel = new X2AddOnTechTreeEditor.RenderControl();
 			this._toolBoxBar = new System.Windows.Forms.ToolStrip();
 			this._newUnitButton = new System.Windows.Forms.ToolStripButton();
 			this._newBuildingButton = new System.Windows.Forms.ToolStripButton();
@@ -62,7 +61,7 @@
 			this._exitMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._editMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._undoMenuButton = new System.Windows.Forms.ToolStripMenuItem();
-			this.redoMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._redoMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._menuSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this._helpMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._infoMenuButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,6 +97,8 @@
 			this._editAttributesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._editElementPropertiesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._openProjectDialog = new System.Windows.Forms.OpenFileDialog();
+			this._lockAllIDsMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._renderPanel = new X2AddOnTechTreeEditor.RenderControl();
 			this._menuContainer.BottomToolStripPanel.SuspendLayout();
 			this._menuContainer.ContentPanel.SuspendLayout();
 			this._menuContainer.LeftToolStripPanel.SuspendLayout();
@@ -160,14 +161,6 @@
 			// 
 			this._selectedNameLabel.Name = "_selectedNameLabel";
 			resources.ApplyResources(this._selectedNameLabel, "_selectedNameLabel");
-			// 
-			// _renderPanel
-			// 
-			resources.ApplyResources(this._renderPanel, "_renderPanel");
-			this._renderPanel.Name = "_renderPanel";
-			this._renderPanel.SelectionChanged += new X2AddOnTechTreeEditor.RenderControl.SelectionChangedEventHandler(this._renderPanel_SelectionChanged);
-			this._renderPanel.DoubleClick += new System.EventHandler(this._renderPanel_DoubleClick);
-			this._renderPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this._renderPanel_MouseClick);
 			// 
 			// _toolBoxBar
 			// 
@@ -365,8 +358,9 @@
 			// 
 			this._editMenuButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._undoMenuButton,
-            this.redoMenuButton,
-            this._menuSeparator2});
+            this._redoMenuButton,
+            this._menuSeparator2,
+            this._lockAllIDsMenuButton});
 			this._editMenuButton.Name = "_editMenuButton";
 			resources.ApplyResources(this._editMenuButton, "_editMenuButton");
 			// 
@@ -375,10 +369,10 @@
 			resources.ApplyResources(this._undoMenuButton, "_undoMenuButton");
 			this._undoMenuButton.Name = "_undoMenuButton";
 			// 
-			// redoMenuButton
+			// _redoMenuButton
 			// 
-			resources.ApplyResources(this.redoMenuButton, "redoMenuButton");
-			this.redoMenuButton.Name = "redoMenuButton";
+			resources.ApplyResources(this._redoMenuButton, "_redoMenuButton");
+			this._redoMenuButton.Name = "_redoMenuButton";
 			// 
 			// _menuSeparator2
 			// 
@@ -638,6 +632,21 @@
 			// 
 			resources.ApplyResources(this._openProjectDialog, "_openProjectDialog");
 			// 
+			// _lockAllIDsMenuButton
+			// 
+			resources.ApplyResources(this._lockAllIDsMenuButton, "_lockAllIDsMenuButton");
+			this._lockAllIDsMenuButton.Name = "_lockAllIDsMenuButton";
+			this._lockAllIDsMenuButton.Click += new System.EventHandler(this._lockAllIDsMenuButton_Click);
+			// 
+			// _renderPanel
+			// 
+			resources.ApplyResources(this._renderPanel, "_renderPanel");
+			this._renderPanel.Name = "_renderPanel";
+			this._renderPanel.SelectionChanged += new X2AddOnTechTreeEditor.RenderControl.SelectionChangedEventHandler(this._renderPanel_SelectionChanged);
+			this._renderPanel.DoubleClick += new System.EventHandler(this._renderPanel_DoubleClick);
+			this._renderPanel.KeyDown += new System.Windows.Forms.KeyEventHandler(this._renderPanel_KeyDown);
+			this._renderPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this._renderPanel_MouseClick);
+			// 
 			// MainForm
 			// 
 			resources.ApplyResources(this, "$this");
@@ -697,7 +706,7 @@
 		private System.Windows.Forms.ToolStrip _toolBoxBar;
 		private System.Windows.Forms.ToolStripMenuItem _editMenuButton;
 		private System.Windows.Forms.ToolStripMenuItem _undoMenuButton;
-		private System.Windows.Forms.ToolStripMenuItem redoMenuButton;
+		private System.Windows.Forms.ToolStripMenuItem _redoMenuButton;
 		private System.Windows.Forms.ToolStripSeparator _menuSeparator1;
 		private System.Windows.Forms.ToolStripSeparator _menuSeparator2;
 		private System.Windows.Forms.ToolStrip _projectToolBar;
@@ -746,6 +755,7 @@
 		private System.Windows.Forms.ToolStripSeparator _menuSeparator12;
 		private System.Windows.Forms.ToolStripButton _editGraphicsButton;
 		private System.Windows.Forms.ToolStripMenuItem _editElementPropertiesMenuButton;
+		private System.Windows.Forms.ToolStripMenuItem _lockAllIDsMenuButton;
 	}
 }
 

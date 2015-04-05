@@ -82,7 +82,7 @@ namespace X2AddOnTechTreeEditor
 #if !DEBUG
 			ToolStripManager.LoadSettings(this, "ToolBarSettings");
 #endif
-
+			
 			// Kultur-Kopier-Leisten-Renderer setzen
 			_civCopyBar.Renderer = new CivCopyButtonRenderer();
 
@@ -218,6 +218,7 @@ namespace X2AddOnTechTreeEditor
 			_deleteDepButton.Enabled = true;
 			_deleteElementButton.Enabled = true;
 			_civCopyBar.Enabled = true;
+			_lockAllIDsMenuButton.Enabled = true;
 
 			// Fertig
 			_saved = true;
@@ -544,7 +545,7 @@ namespace X2AddOnTechTreeEditor
 					case TreeOperations.DeleteElement:
 						{
 							// Änderung durchführen
-							if(_selectedElement != null)
+							if(_selectedElement != null && MessageBox.Show("Dieses Element wirklich löschen?", "Element löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 								if(!_projectFile.DestroyElement(_selectedElement))
 								{
 									// Es wurden noch nicht alle Referenzen entfernt
@@ -1255,6 +1256,52 @@ namespace X2AddOnTechTreeEditor
 		{
 			// Operation starten
 			UpdateCurrentOperation(TreeOperations.NewDead);
+		}
+
+		private void _lockAllIDsMenuButton_Click(object sender, EventArgs e)
+		{
+			// Nachfragen
+			if(MessageBox.Show("Wirklich alle Element-IDs als 'Geschützt' markieren?", "Alle IDs schützen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				// Elemente durchlaufen und IDs schützen
+				_projectFile.Where(elem => true).ForEach(elem => elem.Flags |= TechTreeElement.ElementFlags.LockID);
+
+				// Neuzeichnen
+				_renderPanel.Redraw();
+			}
+		}
+
+		private void _renderPanel_KeyDown(object sender, KeyEventArgs e)
+		{
+			// Ist ein Element markiert?
+			if(_selectedElement != null)
+			{
+				// Hotkeys für Flags
+				if(e.KeyCode == Keys.S && _standardElementCheckButton.Enabled)
+					_standardElementCheckButton.Checked = !_standardElementCheckButton.Checked;
+				if(e.KeyCode == Keys.E && _showInEditorCheckButton.Enabled)
+					_showInEditorCheckButton.Checked = !_showInEditorCheckButton.Checked;
+				if(e.KeyCode == Keys.G && _gaiaOnlyCheckButton.Enabled)
+					_gaiaOnlyCheckButton.Checked = !_gaiaOnlyCheckButton.Checked;
+				if(e.KeyCode == Keys.I && _lockIDCheckButton.Enabled)
+					_lockIDCheckButton.Checked = !_lockIDCheckButton.Checked;
+				if(e.KeyCode == Keys.B && _blockForCivCheckButton.Enabled)
+					_blockForCivCheckButton.Checked = !_blockForCivCheckButton.Checked;
+				if(e.KeyCode == Keys.F && _freeForCivCheckButton.Enabled)
+					_freeForCivCheckButton.Checked = !_freeForCivCheckButton.Checked;
+
+				// Hotkey zum Anzeigen des Attributfensters
+				if(e.KeyCode == Keys.Enter)
+					_editAttributesButton_Click(sender, EventArgs.Empty);
+
+				// Hotkey zum Löschen eines Elements
+				if(e.KeyCode == Keys.Delete)
+				{
+					// Lösch-Operation einleiten und direkt Mausklick auf das Element simulieren, verhindert Code-Duplikation
+					UpdateCurrentOperation(TreeOperations.DeleteElement);
+					_renderPanel_MouseClick(sender, new MouseEventArgs(MouseButtons.Left, 1, _selectedElement.CacheBoxPosition.X, _selectedElement.CacheBoxPosition.Y, 0));
+				}
+			}
 		}
 
 		#endregion Ereignishandler
