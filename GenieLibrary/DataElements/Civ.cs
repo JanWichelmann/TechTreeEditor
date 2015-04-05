@@ -1,6 +1,7 @@
 ﻿using IORAMHelper;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace GenieLibrary.DataElements
 {
@@ -73,7 +74,7 @@ namespace GenieLibrary.DataElements
 
 		#region Strukturen
 
-		public class Unit : IGenieDataElement
+		public class Unit : IGenieDataElement, ICloneable
 		{
 			#region Variablen
 
@@ -370,11 +371,41 @@ namespace GenieLibrary.DataElements
 					Building.WriteData(buffer);
 			}
 
+			/// <summary>
+			/// Gibt eine tiefe Kopie dieses Objekts zurück.
+			/// </summary>
+			/// <returns></returns>
+			public object Clone()
+			{
+				// Erstmal alle Wert-Typen kopieren
+				Unit clone = (Unit)this.MemberwiseClone();
+
+				// Referenztypen kopieren
+				clone.ResourceStorages = new List<ResourceTuple<short, float, byte>>(ResourceStorages);
+				clone.DamageGraphics = new List<DamageGraphic>(DamageGraphics.Count);
+				DamageGraphics.ForEach(d => clone.DamageGraphics.Add((DamageGraphic)d.Clone()));
+				if(DeadFish != null)
+					clone.DeadFish = (UnitTypes.DeadFish)DeadFish.Clone();
+				if(Bird != null)
+					clone.Bird = (UnitTypes.Bird)Bird.Clone();
+				if(Type50 != null)
+					clone.Type50 = (UnitTypes.Type50)Type50.Clone();
+				if(Projectile != null)
+					clone.Projectile = (UnitTypes.Projectile)Projectile.Clone();
+				if(Creatable != null)
+					clone.Creatable = (UnitTypes.Creatable)Creatable.Clone();
+				if(Building != null)
+					clone.Building = (UnitTypes.Building)Building.Clone();
+
+				// Fertig
+				return clone;
+			}
+
 			#endregion Funktionen
 
 			#region Strukturen
 
-			public class DamageGraphic : IGenieDataElement
+			public class DamageGraphic : IGenieDataElement, ICloneable
 			{
 				#region Variablen
 
@@ -401,6 +432,16 @@ namespace GenieLibrary.DataElements
 					buffer.WriteByte(DamagePercent);
 					buffer.WriteByte(ApplyMode);
 					buffer.WriteByte(Unknown2);
+				}
+
+				/// <summary>
+				/// Gibt eine tiefe Kopie dieses Objekts zurück.
+				/// </summary>
+				/// <returns></returns>
+				public object Clone()
+				{
+					// Keine Referenztypen vorhanden, flache Kopie reicht
+					return this.MemberwiseClone();
 				}
 
 				#endregion Funktionen

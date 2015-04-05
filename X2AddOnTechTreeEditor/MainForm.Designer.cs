@@ -34,6 +34,7 @@
 			this._statusStrip = new System.Windows.Forms.StatusStrip();
 			this._statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this._selectedNameLabel = new System.Windows.Forms.ToolStripStatusLabel();
+			this._renderPanel = new X2AddOnTechTreeEditor.RenderControl();
 			this._toolBoxBar = new System.Windows.Forms.ToolStrip();
 			this._newUnitButton = new System.Windows.Forms.ToolStripButton();
 			this._newBuildingButton = new System.Windows.Forms.ToolStripButton();
@@ -95,9 +96,8 @@
 			this._freeForCivCheckButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._menuSeparator10 = new System.Windows.Forms.ToolStripSeparator();
 			this._editAttributesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
-			this._openProjectDialog = new System.Windows.Forms.OpenFileDialog();
 			this._editElementPropertiesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
-			this._renderPanel = new X2AddOnTechTreeEditor.RenderControl();
+			this._openProjectDialog = new System.Windows.Forms.OpenFileDialog();
 			this._menuContainer.BottomToolStripPanel.SuspendLayout();
 			this._menuContainer.ContentPanel.SuspendLayout();
 			this._menuContainer.LeftToolStripPanel.SuspendLayout();
@@ -161,6 +161,14 @@
 			this._selectedNameLabel.Name = "_selectedNameLabel";
 			resources.ApplyResources(this._selectedNameLabel, "_selectedNameLabel");
 			// 
+			// _renderPanel
+			// 
+			resources.ApplyResources(this._renderPanel, "_renderPanel");
+			this._renderPanel.Name = "_renderPanel";
+			this._renderPanel.SelectionChanged += new X2AddOnTechTreeEditor.RenderControl.SelectionChangedEventHandler(this._renderPanel_SelectionChanged);
+			this._renderPanel.DoubleClick += new System.EventHandler(this._renderPanel_DoubleClick);
+			this._renderPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this._renderPanel_MouseClick);
+			// 
 			// _toolBoxBar
 			// 
 			resources.ApplyResources(this._toolBoxBar, "_toolBoxBar");
@@ -189,18 +197,21 @@
 			this._newUnitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			resources.ApplyResources(this._newUnitButton, "_newUnitButton");
 			this._newUnitButton.Name = "_newUnitButton";
+			this._newUnitButton.Click += new System.EventHandler(this._newUnitButton_Click);
 			// 
 			// _newBuildingButton
 			// 
 			this._newBuildingButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			resources.ApplyResources(this._newBuildingButton, "_newBuildingButton");
 			this._newBuildingButton.Name = "_newBuildingButton";
+			this._newBuildingButton.Click += new System.EventHandler(this._newBuildingButton_Click);
 			// 
 			// _newResearchButton
 			// 
 			this._newResearchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			resources.ApplyResources(this._newResearchButton, "_newResearchButton");
 			this._newResearchButton.Name = "_newResearchButton";
+			this._newResearchButton.Click += new System.EventHandler(this._newResearchButton_Click);
 			// 
 			// _newEyeCandyButton
 			// 
@@ -208,6 +219,7 @@
 			resources.ApplyResources(this._newEyeCandyButton, "_newEyeCandyButton");
 			this._newEyeCandyButton.Image = global::X2AddOnTechTreeEditor.Icons.NewEyeCandy;
 			this._newEyeCandyButton.Name = "_newEyeCandyButton";
+			this._newEyeCandyButton.Click += new System.EventHandler(this._newEyeCandyButton_Click);
 			// 
 			// _newProjectileButton
 			// 
@@ -215,6 +227,7 @@
 			resources.ApplyResources(this._newProjectileButton, "_newProjectileButton");
 			this._newProjectileButton.Image = global::X2AddOnTechTreeEditor.Icons.NewProjectile;
 			this._newProjectileButton.Name = "_newProjectileButton";
+			this._newProjectileButton.Click += new System.EventHandler(this._newProjectileButton_Click);
 			// 
 			// _newDeadButton
 			// 
@@ -222,6 +235,7 @@
 			resources.ApplyResources(this._newDeadButton, "_newDeadButton");
 			this._newDeadButton.Image = global::X2AddOnTechTreeEditor.Icons.NewDead;
 			this._newDeadButton.Name = "_newDeadButton";
+			this._newDeadButton.Click += new System.EventHandler(this._newDeadButton_Click);
 			// 
 			// _menuSeparator7
 			// 
@@ -614,23 +628,15 @@
 			resources.ApplyResources(this._editAttributesMenuButton, "_editAttributesMenuButton");
 			this._editAttributesMenuButton.Click += new System.EventHandler(this._editAttributesMenuButton_Click);
 			// 
-			// _openProjectDialog
-			// 
-			resources.ApplyResources(this._openProjectDialog, "_openProjectDialog");
-			// 
 			// _editElementPropertiesMenuButton
 			// 
 			this._editElementPropertiesMenuButton.Name = "_editElementPropertiesMenuButton";
 			resources.ApplyResources(this._editElementPropertiesMenuButton, "_editElementPropertiesMenuButton");
 			this._editElementPropertiesMenuButton.Click += new System.EventHandler(this._editElementPropertiesMenuButton_Click);
 			// 
-			// _renderPanel
+			// _openProjectDialog
 			// 
-			resources.ApplyResources(this._renderPanel, "_renderPanel");
-			this._renderPanel.Name = "_renderPanel";
-			this._renderPanel.SelectionChanged += new X2AddOnTechTreeEditor.RenderControl.SelectionChangedEventHandler(this._renderPanel_SelectionChanged);
-			this._renderPanel.DoubleClick += new System.EventHandler(this._renderPanel_DoubleClick);
-			this._renderPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this._renderPanel_MouseClick);
+			resources.ApplyResources(this._openProjectDialog, "_openProjectDialog");
 			// 
 			// MainForm
 			// 

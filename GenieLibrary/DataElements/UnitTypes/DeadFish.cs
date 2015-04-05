@@ -1,9 +1,10 @@
 ﻿using IORAMHelper;
 using System.Collections.Generic;
+using System;
 
 namespace GenieLibrary.DataElements.UnitTypes
 {
-	public class DeadFish : IGenieDataElement
+	public class DeadFish : IGenieDataElement, ICloneable
 	{
 		#region Variablen
 
@@ -54,6 +55,22 @@ namespace GenieLibrary.DataElements.UnitTypes
 
 			AssertListLength(Unknown16B, 5);
 			Unknown16B.ForEach(e => buffer.WriteInteger(e));
+		}
+
+		/// <summary>
+		/// Gibt eine tiefe Kopie dieses Objekts zurück.
+		/// </summary>
+		/// <returns></returns>
+		public object Clone()
+		{
+			// Erstmal alle Wert-Typen kopieren
+			DeadFish clone = (DeadFish)this.MemberwiseClone();
+
+			// Referenztypen kopieren
+			clone.Unknown16B = new List<int>(Unknown16B);
+
+			// Fertig
+			return clone;
 		}
 
 		#endregion Funktionen

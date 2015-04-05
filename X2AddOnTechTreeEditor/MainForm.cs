@@ -698,6 +698,76 @@ namespace X2AddOnTechTreeEditor
 							_renderPanel.Redraw();
 						}
 						break;
+
+					// Neue erschaffbare Einheit erstellen
+					case TreeOperations.NewCreatable:
+					case TreeOperations.NewBuilding:
+					case TreeOperations.NewEyeCandy:
+					case TreeOperations.NewProjectile:
+					case TreeOperations.NewDead:
+						{
+							// Es muss eine Einheit ausgewählt sein
+							if(_selectedElement != null)
+							{
+								// Neue Einheit erstellen
+								TechTreeUnit newU = null;
+								if(_selectedElement.GetType() == typeof(TechTreeCreatable))
+								{
+									newU = (TechTreeUnit)_projectFile.CreateElement("TechTreeCreatable");
+									newU.Flags = _selectedElement.Flags & ~TechTreeElement.ElementFlags.RenderingFlags;
+									((TechTreeCreatable)newU).StandardElement = ((TechTreeCreatable)_selectedElement).StandardElement;
+								}
+								if(_selectedElement.GetType() == typeof(TechTreeBuilding))
+								{
+									newU = (TechTreeUnit)_projectFile.CreateElement("TechTreeBuilding");
+									newU.Flags = _selectedElement.Flags & ~TechTreeElement.ElementFlags.RenderingFlags;
+									((TechTreeBuilding)newU).StandardElement = ((TechTreeBuilding)_selectedElement).StandardElement;
+								}
+								if(_selectedElement.GetType() == typeof(TechTreeEyeCandy))
+								{
+									newU = (TechTreeUnit)_projectFile.CreateElement("TechTreeEyeCandy");
+									newU.Flags = _selectedElement.Flags & ~TechTreeElement.ElementFlags.RenderingFlags;
+								}
+								if(_selectedElement.GetType() == typeof(TechTreeProjectile))
+								{
+									newU = (TechTreeUnit)_projectFile.CreateElement("TechTreeProjectile");
+									newU.Flags = _selectedElement.Flags & ~TechTreeElement.ElementFlags.RenderingFlags;
+								}
+								if(_selectedElement.GetType() == typeof(TechTreeDead))
+								{
+									newU = (TechTreeUnit)_projectFile.CreateElement("TechTreeDead");
+									newU.Flags = _selectedElement.Flags & ~TechTreeElement.ElementFlags.RenderingFlags;
+								}
+
+								// DAT-Einheit auf Basis der des ausgewählten Elements erstellen
+								GenieLibrary.DataElements.Civ.Unit newUDAT = (GenieLibrary.DataElements.Civ.Unit)((TechTreeUnit)_selectedElement).DATUnit.Clone();
+								newU.DATUnit = newUDAT;
+
+								// Neue ID abrufen und DAT-Einheit auf alle Zivilisationen verteilen
+								int newUID = _projectFile.BasicGenieFile.UnitHeaders.Count;
+								newU.ID = newUID;
+								newUDAT.ID1 = newUDAT.ID2 = newUDAT.ID3 = (short)newUID;
+								_projectFile.BasicGenieFile.UnitHeaders.Add(new GenieLibrary.DataElements.UnitHeader() { Exists = 1, Commands = new List<GenieLibrary.DataElements.UnitHeader.UnitCommand>() });
+								foreach(var civ in _projectFile.BasicGenieFile.Civs)
+								{
+									civ.UnitPointers.Add(newUID);
+									civ.Units.Add(newUID, newUDAT);
+								}
+
+								// Technologie als Elternelement setzen und an den Anfang stellen
+								_projectFile.TechTreeParentElements.Insert(0, newU);
+
+								// Icon erstellen
+								newU.CreateIconTexture(_renderPanel.LoadIconAsTexture);
+
+								// Baum neu berechnen
+								_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
+							}
+
+							// Fertig
+							UpdateCurrentOperation(TreeOperations.None);
+						}
+						break;
 				}
 			}
 		}
@@ -1105,6 +1175,7 @@ namespace X2AddOnTechTreeEditor
 					{
 						e2.Research.FreeIconTexture();
 						e2.Research.CreateIconTexture(_renderPanel.LoadIconAsTexture);
+						_renderPanel.Redraw();
 					};
 					form.ShowDialog();
 				}
@@ -1116,9 +1187,74 @@ namespace X2AddOnTechTreeEditor
 					{
 						e2.Unit.FreeIconTexture();
 						e2.Unit.CreateIconTexture(_renderPanel.LoadIconAsTexture);
+						_renderPanel.Redraw();
 					};
 					form.ShowDialog();
 				}
+		}
+
+		private void _newUnitButton_Click(object sender, EventArgs e)
+		{
+			// Operation starten
+			UpdateCurrentOperation(TreeOperations.NewCreatable);
+		}
+
+		private void _newBuildingButton_Click(object sender, EventArgs e)
+		{
+			// Operation starten
+			UpdateCurrentOperation(TreeOperations.NewBuilding);
+		}
+
+		private void _newResearchButton_Click(object sender, EventArgs e)
+		{
+			// Neue Technologie erstellen
+			TechTreeResearch newResearch = (TechTreeResearch)_projectFile.CreateElement("TechTreeResearch");
+			GenieLibrary.DataElements.Research newResearchDAT = new GenieLibrary.DataElements.Research()
+			{
+				Name = "New Research\0",
+				ResourceCosts = new List<GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>>(3),
+				LanguageDLLName1 = 7000,
+				LanguageDLLName2 = 157000,
+				LanguageDLLDescription = 8000,
+				LanguageDLLHelp = 107000,
+				Unknown1 = -1
+			};
+			newResearchDAT.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>());
+			newResearchDAT.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>());
+			newResearchDAT.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>());
+			newResearch.DATResearch = newResearchDAT;
+
+			// Technologie in die DAT schreiben
+			int newID = _projectFile.BasicGenieFile.Researches.Count;
+			_projectFile.BasicGenieFile.Researches.Add(newResearchDAT);
+			newResearch.ID = newID;
+
+			// Technologie als Elternelement setzen und an den Anfang stellen
+			_projectFile.TechTreeParentElements.Insert(0, newResearch);
+
+			// Icon erstellen
+			newResearch.CreateIconTexture(_renderPanel.LoadIconAsTexture);
+
+			// Baum neu berechnen
+			_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
+		}
+
+		private void _newEyeCandyButton_Click(object sender, EventArgs e)
+		{
+			// Operation starten
+			UpdateCurrentOperation(TreeOperations.NewEyeCandy);
+		}
+
+		private void _newProjectileButton_Click(object sender, EventArgs e)
+		{
+			// Operation starten
+			UpdateCurrentOperation(TreeOperations.NewProjectile);
+		}
+
+		private void _newDeadButton_Click(object sender, EventArgs e)
+		{
+			// Operation starten
+			UpdateCurrentOperation(TreeOperations.NewDead);
 		}
 
 		#endregion Ereignishandler
@@ -1193,7 +1329,32 @@ namespace X2AddOnTechTreeEditor
 			/// <summary>
 			/// Das zweite Element für die "Abhängigkeit löschen"-Operation wird ausgewählt.
 			/// </summary>
-			DeleteDependencySecondElement
+			DeleteDependencySecondElement,
+
+			/// <summary>
+			/// Das Basiselement für eine neue erschaffbare Einheit wird ausgewählt.
+			/// </summary>
+			NewCreatable,
+
+			/// <summary>
+			/// Das Basiselement für ein neues Gebäude wird ausgewählt.
+			/// </summary>
+			NewBuilding,
+
+			/// <summary>
+			/// Das Basiselement für eine neue Deko-Einheit wird ausgewählt.
+			/// </summary>
+			NewEyeCandy,
+
+			/// <summary>
+			/// Das Basiselement für eine neue Projektil-Einheit wird ausgewählt.
+			/// </summary>
+			NewProjectile,
+
+			/// <summary>
+			/// Das Basiselement für eine neue tote Einheit wird ausgewählt.
+			/// </summary>
+			NewDead
 		}
 
 		#endregion Enumerationen

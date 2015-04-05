@@ -1,9 +1,10 @@
 ﻿using IORAMHelper;
 using System.Collections.Generic;
+using System;
 
 namespace GenieLibrary.DataElements.UnitTypes
 {
-	public class Creatable : IGenieDataElement
+	public class Creatable : IGenieDataElement, ICloneable
 	{
 		#region Variablen
 
@@ -92,6 +93,23 @@ namespace GenieLibrary.DataElements.UnitTypes
 			buffer.WriteInteger(ChargingGraphic);
 			buffer.WriteByte(ChargingMode);
 			buffer.WriteShort(DisplayedPierceArmour);
+		}
+
+		/// <summary>
+		/// Gibt eine tiefe Kopie dieses Objekts zurück.
+		/// </summary>
+		/// <returns></returns>
+		public object Clone()
+		{
+			// Erstmal alle Wert-Typen kopieren
+			Creatable clone = (Creatable)this.MemberwiseClone();
+
+			// Referenztypen kopieren
+			clone.ResourceCosts = new List<ResourceTuple<short, short, short>>(ResourceCosts);
+			clone.MissileSpawningArea = new List<float>(MissileSpawningArea);
+
+			// Fertig
+			return clone;
 		}
 
 		#endregion Funktionen

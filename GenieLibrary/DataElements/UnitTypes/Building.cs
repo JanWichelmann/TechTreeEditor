@@ -1,9 +1,10 @@
 ﻿using IORAMHelper;
 using System.Collections.Generic;
+using System;
 
 namespace GenieLibrary.DataElements.UnitTypes
 {
-	public class Building : IGenieDataElement
+	public class Building : IGenieDataElement, ICloneable
 	{
 		#region Variablen
 
@@ -101,11 +102,29 @@ namespace GenieLibrary.DataElements.UnitTypes
 			LootingTable.ForEach(e => buffer.WriteByte(e));
 		}
 
+		/// <summary>
+		/// Gibt eine tiefe Kopie dieses Objekts zurück.
+		/// </summary>
+		/// <returns></returns>
+		public object Clone()
+		{
+			// Erstmal alle Wert-Typen kopieren
+			Building clone = (Building)this.MemberwiseClone();
+
+			// Referenztypen kopieren
+			clone.Annexes = new List<BuildingAnnex>(Annexes.Count);
+			Annexes.ForEach(a => clone.Annexes.Add((BuildingAnnex)a.Clone()));
+			clone.LootingTable = new List<byte>(LootingTable);
+
+			// Fertig
+			return clone;
+		}
+
 		#endregion Funktionen
 
 		#region Strukturen
 
-		public class BuildingAnnex : IGenieDataElement
+		public class BuildingAnnex : IGenieDataElement, ICloneable
 		{
 			#region Variablen
 
@@ -129,6 +148,16 @@ namespace GenieLibrary.DataElements.UnitTypes
 				buffer.WriteShort(UnitID);
 				buffer.WriteFloat(MisplacementX);
 				buffer.WriteFloat(MisplacementY);
+			}
+
+			/// <summary>
+			/// Gibt eine tiefe Kopie dieses Objekts zurück.
+			/// </summary>
+			/// <returns></returns>
+			public object Clone()
+			{
+				// Keine Referenztypen vorhanden, flache Kopie reicht
+				return this.MemberwiseClone();
 			}
 
 			#endregion Funktionen

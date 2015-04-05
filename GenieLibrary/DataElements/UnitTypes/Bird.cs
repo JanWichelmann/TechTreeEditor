@@ -1,8 +1,9 @@
 ﻿using IORAMHelper;
+using System;
 
 namespace GenieLibrary.DataElements.UnitTypes
 {
-	public class Bird : IGenieDataElement
+	public class Bird : IGenieDataElement, ICloneable
 	{
 		#region Variablen
 
@@ -44,6 +45,16 @@ namespace GenieLibrary.DataElements.UnitTypes
 			buffer.WriteShort(AttackSound);
 			buffer.WriteShort(MoveSound);
 			buffer.WriteByte(AnimalMode);
+		}
+
+		/// <summary>
+		/// Gibt eine tiefe Kopie dieses Objekts zurück.
+		/// </summary>
+		/// <returns></returns>
+		public object Clone()
+		{
+			// Keine Referenztypen vorhanden, flache Kopie reicht
+			return this.MemberwiseClone();
 		}
 
 		#endregion Funktionen

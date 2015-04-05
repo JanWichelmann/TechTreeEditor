@@ -1,9 +1,10 @@
 ﻿using IORAMHelper;
 using System.Collections.Generic;
+using System;
 
 namespace GenieLibrary.DataElements.UnitTypes
 {
-	public class Type50 : IGenieDataElement
+	public class Type50 : IGenieDataElement, ICloneable
 	{
 		#region Variablen
 
@@ -121,6 +122,24 @@ namespace GenieLibrary.DataElements.UnitTypes
 			buffer.WriteShort(DisplayedAttack);
 			buffer.WriteFloat(DisplayedRange);
 			buffer.WriteFloat(DisplayedReloadTime);
+		}
+
+		/// <summary>
+		/// Gibt eine tiefe Kopie dieses Objekts zurück.
+		/// </summary>
+		/// <returns></returns>
+		public object Clone()
+		{
+			// Erstmal alle Wert-Typen kopieren
+			Type50 clone = (Type50)this.MemberwiseClone();
+
+			// Referenztypen kopieren
+			clone.Attacks = new Dictionary<short, short>(Attacks);
+			clone.Armours = new Dictionary<short, short>(Armours);
+			clone.GraphicDisplacement = new List<float>(GraphicDisplacement);
+
+			// Fertig
+			return clone;
 		}
 
 		#endregion Funktionen

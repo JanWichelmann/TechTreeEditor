@@ -1,8 +1,9 @@
 ﻿using IORAMHelper;
+using System;
 
 namespace GenieLibrary.DataElements.UnitTypes
 {
-	public class Projectile : IGenieDataElement
+	public class Projectile : IGenieDataElement, ICloneable
 	{
 		#region Variablen
 
@@ -35,6 +36,16 @@ namespace GenieLibrary.DataElements.UnitTypes
 			buffer.WriteByte(PenetrationMode);
 			buffer.WriteByte(Unknown24);
 			buffer.WriteFloat(ProjectileArc);
+		}
+
+		/// <summary>
+		/// Gibt eine tiefe Kopie dieses Objekts zurück.
+		/// </summary>
+		/// <returns></returns>
+		public object Clone()
+		{
+			// Keine Referenztypen vorhanden, flache Kopie reicht
+			return this.MemberwiseClone();
 		}
 
 		#endregion Funktionen
