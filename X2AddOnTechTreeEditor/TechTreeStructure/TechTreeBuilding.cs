@@ -12,7 +12,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 	/// Definiert ein Gebäude-Element im Technologiebaum.
 	/// </summary>
 	[System.Diagnostics.DebuggerDisplay("ID: #{ID}, Name: {Name}")]
-	public class TechTreeBuilding : TechTreeUnit
+	public class TechTreeBuilding : TechTreeUnit, IChildrenContainer
 	{
 		#region Variablen
 
@@ -77,6 +77,11 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// Diese Liste darf maximal 4 Elemente enthalten.
 		/// </summary>
 		public List<Tuple<TechTreeBuilding, float, float>> AnnexUnits { get; private set; }
+
+		/// <summary>
+		/// Die Button-ID im Dorfbewohner-Bau-Menü. Wird nur bei Elternelementen benutzt.
+		/// </summary>
+		public int ButtonID { get; set; }
 
 		#endregion Variablen
 
@@ -453,6 +458,9 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				writer.WriteElementNumber("shadow", ShadowElement);
 				writer.WriteElementNumber("standard", StandardElement);
 
+				// Button-ID schreiben
+				writer.WriteElementNumber("button", ButtonID);
+
 				// Toten-ID schreiben
 				writer.WriteElementNumber("deadunit", deadUnitID);
 
@@ -551,6 +559,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 
 			// Werte einlesen
 			StandardElement = (bool)element.Element("standard");
+			ButtonID = (int)element.Element("button");
 			int id = (int)element.Element("successor");
 			if(id >= 0)
 				this.Successor = (TechTreeBuilding)previousElements[id];

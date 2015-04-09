@@ -61,7 +61,7 @@ namespace X2AddOnTechTreeEditor
 			_projectFile = projectFile;
 			_treeUnit = treeUnit;
 			_unitManager = unitManager;
-
+			
 			// Einheiten-Änderungen sperren, damit die Zuweisungen nicht alle Auto-Kopier-Einheiten überschreiben
 			_unitManager.Lock();
 

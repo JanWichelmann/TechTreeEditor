@@ -12,7 +12,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 	/// Definiert ein Erschaffbare-Einheit-Element im Technologiebaum.
 	/// </summary>
 	[System.Diagnostics.DebuggerDisplay("ID: #{ID}, Name: {Name}")]
-	public class TechTreeCreatable : TechTreeUnit
+	public class TechTreeCreatable : TechTreeUnit, IChildrenContainer
 	{
 		#region Variablen
 

@@ -46,7 +46,8 @@ namespace X2AddOnTechTreeEditor
 		/// <summary>
 		/// Erstellt ein neues Gebäude-Bearbeitungsfenster.
 		/// </summary>
-		/// <param name="projectile">Das zu bearbeitende Gebäude.</param>
+		/// <param name="projectFile">Das zugrundeliegende Projekt.</param>
+		/// <param name="building">Das zu bearbeitende Gebäude.</param>
 		public EditBuildingForm(TechTreeFile projectFile, TechTreeBuilding building)
 			: this()
 		{
@@ -186,6 +187,9 @@ namespace X2AddOnTechTreeEditor
 				_annex4XBox.Value = (decimal)_building.AnnexUnits[3].Item2;
 				_annex4YBox.Value = (decimal)_building.AnnexUnits[3].Item3;
 			}
+
+			// Baumenü-Button-ID setzen
+			_buttonIDField.Value = building.ButtonID;
 
 			// Alles geladen
 			_loading = false;
@@ -461,6 +465,12 @@ namespace X2AddOnTechTreeEditor
 		{
 			// Aktualisieren
 			UpdateAnnexList();
+		}
+
+		private void _buttonIDField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_building.ButtonID = (int)e.NewValue;
 		}
 
 		#endregion

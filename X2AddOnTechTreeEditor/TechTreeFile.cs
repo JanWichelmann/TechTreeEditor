@@ -352,6 +352,22 @@ namespace X2AddOnTechTreeEditor
 				return false;
 			}
 
+			// Alle verweisenden Technologie-Effekte ändern
+			_allElements.ForEach(e =>
+			{
+				// Technologie?
+				if(e.GetType() == typeof(TechTreeResearch))
+					((TechTreeResearch)e).Effects.ForEach(eff =>
+					{
+						// Elementverweis löschen
+						if(eff.Element == element)
+							eff.Element = null;
+						if(eff.DestinationElement == element)
+							eff.DestinationElement = null;
+					});
+			});
+
+
 			// Element suchen und als Kind entfernen
 			_allElements.ForEach(e => e.RemoveChild(element));
 
@@ -827,6 +843,16 @@ namespace X2AddOnTechTreeEditor
 			public List<TechTreeElement> FreeElements { get; private set; }
 
 			/// <summary>
+			/// Die zusätzlichen Civ-Boni.
+			/// </summary>
+			public List<TechEffect> Bonuses { get; private set; }
+
+			/// <summary>
+			/// Die Team-Boni.
+			/// </summary>
+			public List<TechEffect> TeamBonuses { get; private set; }
+
+			/// <summary>
 			/// Konstruktor.
 			/// </summary>
 			public CivTreeConfig()
@@ -834,6 +860,8 @@ namespace X2AddOnTechTreeEditor
 				// Objekte erstellen
 				BlockedElements = new List<TechTreeElement>();
 				FreeElements = new List<TechTreeElement>();
+				Bonuses = new List<TechEffect>();
+				TeamBonuses = new List<TechEffect>();
 			}
 
 			/// <summary>
@@ -858,6 +886,9 @@ namespace X2AddOnTechTreeEditor
 					FreeElements.ForEach(fe => writer.WriteElementNumber("element", elementIDs[fe]));
 				}
 				writer.WriteEndElement();
+
+				// Boni schreiben
+				// TODO
 			}
 
 			/// <summary>
@@ -876,6 +907,9 @@ namespace X2AddOnTechTreeEditor
 				FreeElements = new List<TechTreeElement>();
 				foreach(XElement dep in element.Element("freeelements").Descendants("element"))
 					FreeElements.Add(treeElements[(int)dep]);
+
+				// Boni einlesen
+				// TODO
 			}
 		}
 

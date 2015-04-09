@@ -139,6 +139,12 @@
     </Compile>
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="GenieUnitManager.cs" />
+    <Compile Include="ExportDATFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportDATFile.Designer.cs">
+      <DependentUpon>ExportDATFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImportDATFile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,7 @@
     <Compile Include="EditUnitAttributeForm.Designer.cs">
       <DependentUpon>EditUnitAttributeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TechTreeStructure\IChildrenContainer.cs" />
     <Compile Include="TechTreeStructure\TechEffect.cs" />
     <Compile Include="TechTreeStructure\TechTreeBuilding.cs" />
     <Compile Include="TechTreeStructure\TechTreeProjectile.cs" />
@@ -238,6 +245,12 @@
     <EmbeddedResource Include="Icons.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Icons.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExportDATFile.en-US.resx">
+      <DependentUpon>ExportDATFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExportDATFile.resx">
+      <DependentUpon>ExportDATFile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ImportDATFile.en-US.resx">
       <DependentUpon>ImportDATFile.cs</DependentUpon>
@@ -340,8 +353,12 @@
     <Content Include="Icons\DeleteDependency.png" />
     <Content Include="Icons\EditAttributes.png" />
     <Content Include="Icons\EditAttributesSmall.png" />
+    <Content Include="Icons\EditCivBoni.png" />
+    <Content Include="Icons\EditElementBig.png" />
+    <Content Include="Icons\EditElementSmall.png" />
     <Content Include="Icons\EditGraphics.png" />
     <Content Include="Icons\EditorMode.png" />
+    <Content Include="Icons\ExportProject.png" />
     <Content Include="Icons\EyeCandyIcon.png" />
     <Content Include="Icons\MakeAvailDependency.png" />
     <Content Include="Icons\NewDead.png" />

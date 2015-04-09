@@ -193,6 +193,36 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EditCivBoni {
+            get {
+                object obj = ResourceManager.GetObject("EditCivBoni", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditElementBig {
+            get {
+                object obj = ResourceManager.GetObject("EditElementBig", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditElementSmall {
+            get {
+                object obj = ResourceManager.GetObject("EditElementSmall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap EditGraphics {
             get {
                 object obj = ResourceManager.GetObject("EditGraphics", resourceCulture);
@@ -216,6 +246,16 @@ namespace X2AddOnTechTreeEditor {
         internal static System.Drawing.Bitmap Exit {
             get {
                 object obj = ResourceManager.GetObject("Exit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExportProject {
+            get {
+                object obj = ResourceManager.GetObject("ExportProject", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

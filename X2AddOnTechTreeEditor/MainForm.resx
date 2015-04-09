@@ -187,7 +187,7 @@
     <value>0, 0</value>
   </data>
   <data name="_renderPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1074, 509</value>
+    <value>1074, 470</value>
   </data>
   <data name="_renderPanel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -205,7 +205,7 @@
     <value>0</value>
   </data>
   <data name="_menuContainer.ContentPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1074, 509</value>
+    <value>1074, 470</value>
   </data>
   <data name="&gt;&gt;_menuContainer.ContentPanel.Name" xml:space="preserve">
     <value>_menuContainer.ContentPanel</value>
@@ -505,7 +505,7 @@
     <value>Magenta</value>
   </data>
   <data name="_deleteDepButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 36</value>
+    <value>36, 36</value>
   </data>
   <data name="_deleteDepButton.ToolTipText" xml:space="preserve">
     <value>Eine Abhängigkeit löschen.</value>
@@ -532,7 +532,7 @@
     <value>0, 3</value>
   </data>
   <data name="_toolBoxBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 506</value>
+    <value>37, 467</value>
   </data>
   <data name="_toolBoxBar.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -738,6 +738,18 @@
   </data>
   <data name="_saveProjectMenuButton.ToolTipText" xml:space="preserve">
     <value>Alle Änderungen in der aktuell geöffneten Projektdatei speichern.</value>
+  </data>
+  <data name="_exportDATMenuButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_exportDATMenuButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 38</value>
+  </data>
+  <data name="_exportDATMenuButton.Text" xml:space="preserve">
+    <value>DAT exportieren...</value>
+  </data>
+  <data name="_exportDATMenuButton.ToolTipText" xml:space="preserve">
+    <value>Das Projekt zu einer neuen DAT-Datei exportieren.</value>
   </data>
   <data name="_menuSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 6</value>
@@ -1086,11 +1098,26 @@
   <data name="_saveProjectButton.ToolTipText" xml:space="preserve">
     <value>Alle Änderungen in der aktuell geöffneten Projektdatei speichern.</value>
   </data>
+  <data name="_exportDATButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_exportDATButton.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="_exportDATButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="_exportDATButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 36</value>
+  </data>
+  <data name="_exportDATButton.ToolTipText" xml:space="preserve">
+    <value>Das Projekt zu einer neuen DAT-Datei exportieren.</value>
+  </data>
   <data name="_projectToolBar.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 24</value>
   </data>
   <data name="_projectToolBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 39</value>
+    <value>156, 39</value>
   </data>
   <data name="_projectToolBar.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1106,81 +1133,6 @@
   </data>
   <data name="&gt;&gt;_projectToolBar.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <metadata name="_addToolsBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1003, 17</value>
-  </metadata>
-  <data name="_addToolsBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="_ageUpButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="_ageUpButton.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="_ageUpButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="_ageUpButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 36</value>
-  </data>
-  <data name="_ageUpButton.ToolTipText" xml:space="preserve">
-    <value>Das ausgewählte Element ein Zeitalter nach oben verschieben.</value>
-  </data>
-  <data name="_ageDownButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="_ageDownButton.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="_ageDownButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="_ageDownButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 36</value>
-  </data>
-  <data name="_ageDownButton.ToolTipText" xml:space="preserve">
-    <value>Das ausgewählte Element ein Zeitalter nach unten verschieben.</value>
-  </data>
-  <data name="_menuSeparator11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 39</value>
-  </data>
-  <data name="_editAttributesButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="_editAttributesButton.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="_editAttributesButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="_editAttributesButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 36</value>
-  </data>
-  <data name="_editAttributesButton.ToolTipText" xml:space="preserve">
-    <value>Die Attribute dieses Elements bearbeiten.</value>
-  </data>
-  <data name="_addToolsBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>123, 24</value>
-  </data>
-  <data name="_addToolsBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 39</value>
-  </data>
-  <data name="_addToolsBar.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;_addToolsBar.Name" xml:space="preserve">
-    <value>_addToolsBar</value>
-  </data>
-  <data name="&gt;&gt;_addToolsBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_addToolsBar.Parent" xml:space="preserve">
-    <value>_menuContainer.TopToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;_addToolsBar.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <metadata name="_mainToolBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>246, 17</value>
@@ -1213,6 +1165,21 @@
     <value>36, 36</value>
   </data>
   <data name="_editGraphicsButton.ToolTipText" xml:space="preserve">
+    <value>Die DAT-Grafiken bearbeiten.</value>
+  </data>
+  <data name="_editCivBoniButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_editCivBoniButton.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="_editCivBoniButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="_editCivBoniButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 36</value>
+  </data>
+  <data name="_editCivBoniButton.ToolTipText" xml:space="preserve">
     <value>Die DAT-Grafiken bearbeiten.</value>
   </data>
   <data name="_menuSeparator5.Size" type="System.Drawing.Size, System.Drawing">
@@ -1344,7 +1311,7 @@
     <value>3, 63</value>
   </data>
   <data name="_mainToolBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>487, 39</value>
+    <value>554, 39</value>
   </data>
   <data name="_mainToolBar.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1359,6 +1326,96 @@
     <value>_menuContainer.TopToolStripPanel</value>
   </data>
   <data name="&gt;&gt;_mainToolBar.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="_addToolsBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1003, 17</value>
+  </metadata>
+  <data name="_addToolsBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="_ageUpButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_ageUpButton.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="_ageUpButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="_ageUpButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 36</value>
+  </data>
+  <data name="_ageUpButton.ToolTipText" xml:space="preserve">
+    <value>Das ausgewählte Element ein Zeitalter nach oben verschieben.</value>
+  </data>
+  <data name="_ageDownButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_ageDownButton.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="_ageDownButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="_ageDownButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 36</value>
+  </data>
+  <data name="_ageDownButton.ToolTipText" xml:space="preserve">
+    <value>Das ausgewählte Element ein Zeitalter nach unten verschieben.</value>
+  </data>
+  <data name="_menuSeparator11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 39</value>
+  </data>
+  <data name="_editAttributesButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_editAttributesButton.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="_editAttributesButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="_editAttributesButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 36</value>
+  </data>
+  <data name="_editAttributesButton.ToolTipText" xml:space="preserve">
+    <value>Die Attribute dieses Elements bearbeiten.</value>
+  </data>
+  <data name="_editElementPropertiesButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_editElementPropertiesButton.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="_editElementPropertiesButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="_editElementPropertiesButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 36</value>
+  </data>
+  <data name="_editElementPropertiesButton.ToolTipText" xml:space="preserve">
+    <value>Die Attribute dieses Elements bearbeiten.</value>
+  </data>
+  <data name="_addToolsBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 102</value>
+  </data>
+  <data name="_addToolsBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 39</value>
+  </data>
+  <data name="_addToolsBar.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_addToolsBar.Name" xml:space="preserve">
+    <value>_addToolsBar</value>
+  </data>
+  <data name="&gt;&gt;_addToolsBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_addToolsBar.Parent" xml:space="preserve">
+    <value>_menuContainer.TopToolStripPanel</value>
+  </data>
+  <data name="&gt;&gt;_addToolsBar.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="&gt;&gt;_menuContainer.TopToolStripPanel.Name" xml:space="preserve">
@@ -1569,7 +1626,7 @@
     <value>Baum-Verknüpfungsoptionen...</value>
   </data>
   <data name="_techTreeElementContextMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>255, 220</value>
+    <value>255, 198</value>
   </data>
   <data name="&gt;&gt;_techTreeElementContextMenu.Name" xml:space="preserve">
     <value>_techTreeElementContextMenu</value>
@@ -2114,6 +2171,12 @@
   <data name="&gt;&gt;_saveProjectMenuButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;_exportDATMenuButton.Name" xml:space="preserve">
+    <value>_exportDATMenuButton</value>
+  </data>
+  <data name="&gt;&gt;_exportDATMenuButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;_menuSeparator1.Name" xml:space="preserve">
     <value>_menuSeparator1</value>
   </data>
@@ -2150,6 +2213,12 @@
   <data name="&gt;&gt;_menuSeparator2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;_lockAllIDsMenuButton.Name" xml:space="preserve">
+    <value>_lockAllIDsMenuButton</value>
+  </data>
+  <data name="&gt;&gt;_lockAllIDsMenuButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;_helpMenuButton.Name" xml:space="preserve">
     <value>_helpMenuButton</value>
   </data>
@@ -2178,6 +2247,12 @@
     <value>_saveProjectButton</value>
   </data>
   <data name="&gt;&gt;_saveProjectButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_exportDATButton.Name" xml:space="preserve">
+    <value>_exportDATButton</value>
+  </data>
+  <data name="&gt;&gt;_exportDATButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;_ageUpButton.Name" xml:space="preserve">
@@ -2330,11 +2405,17 @@
   <data name="&gt;&gt;_openProjectDialog.Type" xml:space="preserve">
     <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_lockAllIDsMenuButton.Name" xml:space="preserve">
-    <value>_lockAllIDsMenuButton</value>
+  <data name="&gt;&gt;_editElementPropertiesButton.Name" xml:space="preserve">
+    <value>_editElementPropertiesButton</value>
   </data>
-  <data name="&gt;&gt;_lockAllIDsMenuButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;_editElementPropertiesButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_editCivBoniButton.Name" xml:space="preserve">
+    <value>_editCivBoniButton</value>
+  </data>
+  <data name="&gt;&gt;_editCivBoniButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

@@ -328,6 +328,7 @@ namespace X2AddOnTechTreeEditor
 							StandardElement = (currUnit.Creatable.TrainLocationID > 0),
 							ProjectileUnit = projectileUnitElement,
 							ProjectileDuplicationUnit = projectileDuplUnitElement,
+							ButtonID = currUnit.Creatable.ButtonID,
 							Flags = (currUnit.HideInEditor == 0 ? TechTreeElement.ElementFlags.ShowInEditor : TechTreeElement.ElementFlags.None)
 						};
 						buildings.Add(building);

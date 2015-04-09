@@ -33,8 +33,10 @@
 			this._ageUpgradeComboBox = new System.Windows.Forms.ComboBox();
 			this._ageUpgradeListBox = new System.Windows.Forms.CheckedListBox();
 			this._otherUnitsGroupBox = new System.Windows.Forms.GroupBox();
+			this.label6 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this._transformUnitComboBox = new System.Windows.Forms.ComboBox();
+			this._deadUnitComboBox = new System.Windows.Forms.ComboBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this._headUnitComboBox = new System.Windows.Forms.ComboBox();
 			this.label3 = new System.Windows.Forms.Label();
@@ -69,8 +71,7 @@
 			this._annex1ComboBox = new System.Windows.Forms.ComboBox();
 			this._annex1CheckBox = new System.Windows.Forms.CheckBox();
 			this._closeButton = new System.Windows.Forms.Button();
-			this.label6 = new System.Windows.Forms.Label();
-			this._deadUnitComboBox = new System.Windows.Forms.ComboBox();
+			this._buttonIDField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
 			this._ageUpgradeGroupBox.SuspendLayout();
 			this._otherUnitsGroupBox.SuspendLayout();
 			this._buildingDependencyGroupBox.SuspendLayout();
@@ -131,6 +132,11 @@
 			this._otherUnitsGroupBox.Name = "_otherUnitsGroupBox";
 			this._otherUnitsGroupBox.TabStop = false;
 			// 
+			// label6
+			// 
+			resources.ApplyResources(this.label6, "label6");
+			this.label6.Name = "label6";
+			// 
 			// label5
 			// 
 			resources.ApplyResources(this.label5, "label5");
@@ -144,6 +150,15 @@
 			this._transformUnitComboBox.Name = "_transformUnitComboBox";
 			this._transformUnitComboBox.Sorted = true;
 			this._transformUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._transformUnitComboBox_SelectedIndexChanged);
+			// 
+			// _deadUnitComboBox
+			// 
+			this._deadUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this._deadUnitComboBox.FormattingEnabled = true;
+			resources.ApplyResources(this._deadUnitComboBox, "_deadUnitComboBox");
+			this._deadUnitComboBox.Name = "_deadUnitComboBox";
+			this._deadUnitComboBox.Sorted = true;
+			this._deadUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._deadUnitComboBox_SelectedIndexChanged);
 			// 
 			// label4
 			// 
@@ -544,24 +559,23 @@
 			this._closeButton.UseVisualStyleBackColor = true;
 			this._closeButton.Click += new System.EventHandler(this._closeButton_Click);
 			// 
-			// label6
+			// _buttonIDField
 			// 
-			resources.ApplyResources(this.label6, "label6");
-			this.label6.Name = "label6";
-			// 
-			// _deadUnitComboBox
-			// 
-			this._deadUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this._deadUnitComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this._deadUnitComboBox, "_deadUnitComboBox");
-			this._deadUnitComboBox.Name = "_deadUnitComboBox";
-			this._deadUnitComboBox.Sorted = true;
-			this._deadUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._deadUnitComboBox_SelectedIndexChanged);
+			resources.ApplyResources(this._buttonIDField, "_buttonIDField");
+			this._buttonIDField.Name = "_buttonIDField";
+			this._buttonIDField.NameString = "Baumenü-Button-ID:";
+			this._buttonIDField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._buttonIDField.ValueChanged += new X2AddOnTechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._buttonIDField_ValueChanged);
 			// 
 			// EditBuildingForm
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this._buttonIDField);
 			this.Controls.Add(this._closeButton);
 			this.Controls.Add(this._annexGroupBox);
 			this.Controls.Add(this._childrenGroupBox);
@@ -636,5 +650,6 @@
 		private System.Windows.Forms.Button _closeButton;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.ComboBox _deadUnitComboBox;
+		private Controls.NumberFieldControl _buttonIDField;
 	}
 }

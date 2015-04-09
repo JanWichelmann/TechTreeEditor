@@ -57,18 +57,21 @@
 			this._importDATMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._openProjectMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._saveProjectMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._exportDATMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._menuSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this._exitMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._editMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._undoMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._redoMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._menuSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this._lockAllIDsMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._helpMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._infoMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._projectToolBar = new System.Windows.Forms.ToolStrip();
 			this._importDATButton = new System.Windows.Forms.ToolStripButton();
 			this._openProjectButton = new System.Windows.Forms.ToolStripButton();
 			this._saveProjectButton = new System.Windows.Forms.ToolStripButton();
+			this._exportDATButton = new System.Windows.Forms.ToolStripButton();
 			this._addToolsBar = new System.Windows.Forms.ToolStrip();
 			this._ageUpButton = new System.Windows.Forms.ToolStripButton();
 			this._ageDownButton = new System.Windows.Forms.ToolStripButton();
@@ -97,8 +100,9 @@
 			this._editAttributesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._editElementPropertiesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._openProjectDialog = new System.Windows.Forms.OpenFileDialog();
-			this._lockAllIDsMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._editElementPropertiesButton = new System.Windows.Forms.ToolStripButton();
 			this._renderPanel = new X2AddOnTechTreeEditor.RenderControl();
+			this._editCivBoniButton = new System.Windows.Forms.ToolStripButton();
 			this._menuContainer.BottomToolStripPanel.SuspendLayout();
 			this._menuContainer.ContentPanel.SuspendLayout();
 			this._menuContainer.LeftToolStripPanel.SuspendLayout();
@@ -140,8 +144,8 @@
 			// 
 			this._menuContainer.TopToolStripPanel.Controls.Add(this._mainMenu);
 			this._menuContainer.TopToolStripPanel.Controls.Add(this._projectToolBar);
-			this._menuContainer.TopToolStripPanel.Controls.Add(this._addToolsBar);
 			this._menuContainer.TopToolStripPanel.Controls.Add(this._mainToolBar);
+			this._menuContainer.TopToolStripPanel.Controls.Add(this._addToolsBar);
 			// 
 			// _statusStrip
 			// 
@@ -320,6 +324,7 @@
             this._importDATMenuButton,
             this._openProjectMenuButton,
             this._saveProjectMenuButton,
+            this._exportDATMenuButton,
             this._menuSeparator1,
             this._exitMenuButton});
 			this._fileMenuButton.Name = "_fileMenuButton";
@@ -342,6 +347,12 @@
 			resources.ApplyResources(this._saveProjectMenuButton, "_saveProjectMenuButton");
 			this._saveProjectMenuButton.Name = "_saveProjectMenuButton";
 			this._saveProjectMenuButton.Click += new System.EventHandler(this._saveProjectMenuButton_Click);
+			// 
+			// _exportDATMenuButton
+			// 
+			resources.ApplyResources(this._exportDATMenuButton, "_exportDATMenuButton");
+			this._exportDATMenuButton.Name = "_exportDATMenuButton";
+			this._exportDATMenuButton.Click += new System.EventHandler(this._exportDATMenuButton_Click);
 			// 
 			// _menuSeparator1
 			// 
@@ -379,6 +390,12 @@
 			this._menuSeparator2.Name = "_menuSeparator2";
 			resources.ApplyResources(this._menuSeparator2, "_menuSeparator2");
 			// 
+			// _lockAllIDsMenuButton
+			// 
+			resources.ApplyResources(this._lockAllIDsMenuButton, "_lockAllIDsMenuButton");
+			this._lockAllIDsMenuButton.Name = "_lockAllIDsMenuButton";
+			this._lockAllIDsMenuButton.Click += new System.EventHandler(this._lockAllIDsMenuButton_Click);
+			// 
 			// _helpMenuButton
 			// 
 			this._helpMenuButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -398,7 +415,8 @@
 			this._projectToolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._importDATButton,
             this._openProjectButton,
-            this._saveProjectButton});
+            this._saveProjectButton,
+            this._exportDATButton});
 			this._projectToolBar.Name = "_projectToolBar";
 			// 
 			// _importDATButton
@@ -422,6 +440,14 @@
 			this._saveProjectButton.Name = "_saveProjectButton";
 			this._saveProjectButton.Click += new System.EventHandler(this._saveProjectButton_Click);
 			// 
+			// _exportDATButton
+			// 
+			this._exportDATButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			resources.ApplyResources(this._exportDATButton, "_exportDATButton");
+			this._exportDATButton.Image = global::X2AddOnTechTreeEditor.Icons.ExportProject;
+			this._exportDATButton.Name = "_exportDATButton";
+			this._exportDATButton.Click += new System.EventHandler(this._exportDATButton_Click);
+			// 
 			// _addToolsBar
 			// 
 			resources.ApplyResources(this._addToolsBar, "_addToolsBar");
@@ -430,7 +456,8 @@
             this._ageUpButton,
             this._ageDownButton,
             this._menuSeparator11,
-            this._editAttributesButton});
+            this._editAttributesButton,
+            this._editElementPropertiesButton});
 			this._addToolsBar.Name = "_addToolsBar";
 			// 
 			// _ageUpButton
@@ -470,6 +497,7 @@
             this._civSelectComboBox,
             this._menuSeparator12,
             this._editGraphicsButton,
+            this._editCivBoniButton,
             this._menuSeparator5,
             this._editorModeButton,
             this._standardModeButton,
@@ -624,6 +652,7 @@
 			// 
 			// _editElementPropertiesMenuButton
 			// 
+			this._editElementPropertiesMenuButton.Image = global::X2AddOnTechTreeEditor.Icons.EditElementSmall;
 			this._editElementPropertiesMenuButton.Name = "_editElementPropertiesMenuButton";
 			resources.ApplyResources(this._editElementPropertiesMenuButton, "_editElementPropertiesMenuButton");
 			this._editElementPropertiesMenuButton.Click += new System.EventHandler(this._editElementPropertiesMenuButton_Click);
@@ -632,11 +661,13 @@
 			// 
 			resources.ApplyResources(this._openProjectDialog, "_openProjectDialog");
 			// 
-			// _lockAllIDsMenuButton
+			// _editElementPropertiesButton
 			// 
-			resources.ApplyResources(this._lockAllIDsMenuButton, "_lockAllIDsMenuButton");
-			this._lockAllIDsMenuButton.Name = "_lockAllIDsMenuButton";
-			this._lockAllIDsMenuButton.Click += new System.EventHandler(this._lockAllIDsMenuButton_Click);
+			this._editElementPropertiesButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			resources.ApplyResources(this._editElementPropertiesButton, "_editElementPropertiesButton");
+			this._editElementPropertiesButton.Image = global::X2AddOnTechTreeEditor.Icons.EditElementBig;
+			this._editElementPropertiesButton.Name = "_editElementPropertiesButton";
+			this._editElementPropertiesButton.Click += new System.EventHandler(this._editElementPropertiesButton_Click);
 			// 
 			// _renderPanel
 			// 
@@ -646,6 +677,13 @@
 			this._renderPanel.DoubleClick += new System.EventHandler(this._renderPanel_DoubleClick);
 			this._renderPanel.KeyDown += new System.Windows.Forms.KeyEventHandler(this._renderPanel_KeyDown);
 			this._renderPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this._renderPanel_MouseClick);
+			// 
+			// _editCivBoniButton
+			// 
+			this._editCivBoniButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			resources.ApplyResources(this._editCivBoniButton, "_editCivBoniButton");
+			this._editCivBoniButton.Image = global::X2AddOnTechTreeEditor.Icons.EditCivBoni;
+			this._editCivBoniButton.Name = "_editCivBoniButton";
 			// 
 			// MainForm
 			// 
@@ -756,6 +794,10 @@
 		private System.Windows.Forms.ToolStripButton _editGraphicsButton;
 		private System.Windows.Forms.ToolStripMenuItem _editElementPropertiesMenuButton;
 		private System.Windows.Forms.ToolStripMenuItem _lockAllIDsMenuButton;
+		private System.Windows.Forms.ToolStripMenuItem _exportDATMenuButton;
+		private System.Windows.Forms.ToolStripButton _exportDATButton;
+		private System.Windows.Forms.ToolStripButton _editElementPropertiesButton;
+		private System.Windows.Forms.ToolStripButton _editCivBoniButton;
 	}
 }
 

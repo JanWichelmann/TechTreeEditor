@@ -6,10 +6,6 @@ using System.Drawing;
 using System.Xml;
 using System.Xml.Linq;
 
-/*
- * TODO: Beschränkung auf "allgemeine" Kultur aufheben, da z.B. verschiedene Kulturgruppen verschiedene Standing-Grafiken bei Gebäuden haben (Grafik-Set).
- */
-
 namespace X2AddOnTechTreeEditor.TechTreeStructure
 {
 	/// <summary>
@@ -412,7 +408,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// <returns></returns>
 		public bool HasChildren()
 		{
-			// Rekursiver Aufruf
+			// Kinder vorhanden?
 			return GetChildren().Count > 0;
 		}
 

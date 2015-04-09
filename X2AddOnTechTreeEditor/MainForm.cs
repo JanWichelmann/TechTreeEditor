@@ -199,8 +199,11 @@ namespace X2AddOnTechTreeEditor
 			// Buttons freischalten
 			_saveProjectMenuButton.Enabled = true;
 			_saveProjectButton.Enabled = true;
+			_exportDATMenuButton.Enabled = true;
+			_exportDATButton.Enabled = true;
 			_civSelectComboBox.Enabled = true;
 			_editGraphicsButton.Enabled = true;
+			_editCivBoniButton.Enabled = true;
 			_editorModeButton.Enabled = true;
 			_standardModeButton.Enabled = true;
 			_searchTextBox.Enabled = true;
@@ -466,6 +469,7 @@ namespace X2AddOnTechTreeEditor
 				_ageUpButton.Enabled = true;
 				_ageDownButton.Enabled = true;
 				_editAttributesButton.Enabled = true;
+				_editElementPropertiesButton.Enabled = true;
 			}
 			else
 			{
@@ -476,6 +480,7 @@ namespace X2AddOnTechTreeEditor
 				_ageUpButton.Enabled = false;
 				_ageDownButton.Enabled = false;
 				_editAttributesButton.Enabled = false;
+				_editElementPropertiesButton.Enabled = false;
 			}
 		}
 
@@ -1148,6 +1153,12 @@ namespace X2AddOnTechTreeEditor
 			_renderPanel_DoubleClick(sender, e);
 		}
 
+		private void _editElementPropertiesButton_Click(object sender, EventArgs e)
+		{
+			// Dasselbe tun wie beim Doppelklick
+			_renderPanel_DoubleClick(sender, e);
+		}
+
 		private void _searchTextBox_TextChanged(object sender, EventArgs e)
 		{
 			// Such-Befehl weitergeben
@@ -1304,6 +1315,20 @@ namespace X2AddOnTechTreeEditor
 			}
 		}
 
+		private void _exportDATMenuButton_Click(object sender, EventArgs e)
+		{
+			// Dialog anzeigen
+			ExportDATFile exportDialog = new ExportDATFile(_projectFile);
+			exportDialog.ShowDialog();
+		}
+
+		private void _exportDATButton_Click(object sender, EventArgs e)
+		{
+			// Dialog anzeigen
+			ExportDATFile exportDialog = new ExportDATFile(_projectFile);
+			exportDialog.ShowDialog();
+		}
+
 		#endregion Ereignishandler
 
 		#region Enumerationen
@@ -1426,16 +1451,16 @@ namespace X2AddOnTechTreeEditor
 					if(button.Checked)
 					{
 						// Der Button ist ausgewählt
-						e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(153, 255, 124)), bounds);
+						e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(255, 194, 110)), bounds);
 
 						// Einen schönen "3D"-Rahmen zeichnen
-						e.Graphics.DrawLine(Pens.DarkGreen, new Point(bounds.Left, bounds.Bottom), new Point(bounds.Left, bounds.Top));
-						e.Graphics.DrawLine(Pens.DarkGreen, new Point(bounds.Left, bounds.Top), new Point(bounds.Right, bounds.Top));
+						e.Graphics.DrawLine(new Pen(Color.FromArgb(138,89,21)), new Point(bounds.Left, bounds.Bottom), new Point(bounds.Left, bounds.Top));
+						e.Graphics.DrawLine(new Pen(Color.FromArgb(138, 89, 21)), new Point(bounds.Left, bounds.Top), new Point(bounds.Right, bounds.Top));
 					}
 					else
 					{
 						// Der Button ist nicht ausgewählt
-						e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(229, 255, 77)), bounds);
+						e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(255, 221, 140)), bounds);
 					}
 				}
 				else
