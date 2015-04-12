@@ -186,6 +186,7 @@
     <Compile Include="EditUnitAttributeForm.Designer.cs">
       <DependentUpon>EditUnitAttributeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TechTreeStructure\IUpgradeable.cs" />
     <Compile Include="TechTreeStructure\IChildrenContainer.cs" />
     <Compile Include="TechTreeStructure\TechEffect.cs" />
     <Compile Include="TechTreeStructure\TechTreeBuilding.cs" />

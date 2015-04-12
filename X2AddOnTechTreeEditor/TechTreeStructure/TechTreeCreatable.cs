@@ -12,7 +12,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 	/// Definiert ein Erschaffbare-Einheit-Element im Technologiebaum.
 	/// </summary>
 	[System.Diagnostics.DebuggerDisplay("ID: #{ID}, Name: {Name}")]
-	public class TechTreeCreatable : TechTreeUnit, IChildrenContainer
+	public class TechTreeCreatable : TechTreeUnit, IChildrenContainer, IUpgradeable
 	{
 		#region Variablen
 
@@ -26,7 +26,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// <summary>
 		/// Die direkte Weiterentwicklung dieses Elements.
 		/// </summary>
-		public TechTreeCreatable Successor { get; set; }
+		public TechTreeUnit Successor { get; set; }
 
 		/// <summary>
 		/// Die Technologie, die dieses Element weiterentwickelt.
@@ -47,7 +47,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// <summary>
 		/// Die zugehörige DropSite-1-Einheit.
 		/// </summary>
-		public TechTreeUnit DropSite1Unit{ get; set; }
+		public TechTreeUnit DropSite1Unit { get; set; }
 
 		/// <summary>
 		/// Die zugehörige DropSite-2-Einheit.

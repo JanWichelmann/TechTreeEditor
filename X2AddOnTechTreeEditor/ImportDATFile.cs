@@ -740,7 +740,7 @@ namespace X2AddOnTechTreeEditor
 								while(baseBuilding.Successor != null && baseBuilding.Successor.Age < upgrBuilding.Age)
 								{
 									// Upgrade kommt später
-									baseBuilding = baseBuilding.Successor;
+									baseBuilding = (TechTreeBuilding)baseBuilding.Successor;
 								}
 
 								// Gebäude zuweisen, die Upgrade-Technologie ist die aktuelle

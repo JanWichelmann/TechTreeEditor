@@ -496,7 +496,7 @@ namespace X2AddOnTechTreeEditor
 							// Letzten Kind-Nachfolger suchen
 							TechTreeBuilding lastChildSuccessor = childBuilding;
 							while(lastChildSuccessor.Successor != null)
-								lastChildSuccessor = lastChildSuccessor.Successor;
+								lastChildSuccessor = (TechTreeBuilding)lastChildSuccessor.Successor;
 
 							// Gebäude-Nachfolger dem letzten Nachfolger unterordnen
 							lastChildSuccessor.Successor = parentBuilding.Successor;
@@ -549,7 +549,7 @@ namespace X2AddOnTechTreeEditor
 							// Letzten Kind-Nachfolger suchen
 							TechTreeCreatable lastChildSuccessor = childCreatable;
 							while(lastChildSuccessor.Successor != null)
-								lastChildSuccessor = lastChildSuccessor.Successor;
+								lastChildSuccessor = (TechTreeCreatable)lastChildSuccessor.Successor;
 
 							// Gebäude-Nachfolger dem letzten Nachfolger unterordnen
 							lastChildSuccessor.Successor = parentCreatable.Successor;

@@ -12,7 +12,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 	/// Definiert ein Gebäude-Element im Technologiebaum.
 	/// </summary>
 	[System.Diagnostics.DebuggerDisplay("ID: #{ID}, Name: {Name}")]
-	public class TechTreeBuilding : TechTreeUnit, IChildrenContainer
+	public class TechTreeBuilding : TechTreeUnit, IChildrenContainer, IUpgradeable
 	{
 		#region Variablen
 
@@ -26,8 +26,8 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// <summary>
 		/// Die direkte Weiterentwicklung dieses Elements.
 		/// </summary>
-		public TechTreeBuilding Successor { get; set; }
-
+		public TechTreeUnit Successor { get; set; }
+		
 		/// <summary>
 		/// Die Technologie, die dieses Element weiterentwickelt.
 		/// </summary>
