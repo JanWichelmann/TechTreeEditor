@@ -47,7 +47,7 @@
 			this._projUnitComboBox = new System.Windows.Forms.ComboBox();
 			this._buildingDependencyGroupBox = new System.Windows.Forms.GroupBox();
 			this._buildingDepView = new System.Windows.Forms.DataGridView();
-			this._buildingDepViewCountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this._buildingDepViewCountColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this._buildingDepViewNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this._childrenGroupBox = new System.Windows.Forms.GroupBox();
 			this._childrenView = new System.Windows.Forms.DataGridView();
@@ -234,13 +234,15 @@
             this._buildingDepViewNameColumn});
 			resources.ApplyResources(this._buildingDepView, "_buildingDepView");
 			this._buildingDepView.Name = "_buildingDepView";
-			this._buildingDepView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this._buildingDepView_CellValidating);
+			this._buildingDepView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._buildingDepView_CellValueChanged);
 			// 
 			// _buildingDepViewCountColumn
 			// 
 			this._buildingDepViewCountColumn.FillWeight = 20F;
 			resources.ApplyResources(this._buildingDepViewCountColumn, "_buildingDepViewCountColumn");
 			this._buildingDepViewCountColumn.Name = "_buildingDepViewCountColumn";
+			this._buildingDepViewCountColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this._buildingDepViewCountColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			// 
 			// _buildingDepViewNameColumn
 			// 
@@ -626,8 +628,6 @@
 		private System.Windows.Forms.DataGridView _buildingDepView;
 		private System.Windows.Forms.GroupBox _childrenGroupBox;
 		private System.Windows.Forms.DataGridView _childrenView;
-		private System.Windows.Forms.DataGridViewTextBoxColumn _buildingDepViewCountColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn _buildingDepViewNameColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn _childrenViewButtonColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn _childrenViewChildColumn;
 		private System.Windows.Forms.GroupBox _annexGroupBox;
@@ -651,5 +651,7 @@
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.ComboBox _deadUnitComboBox;
 		private Controls.NumberFieldControl _buttonIDField;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn _buildingDepViewCountColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn _buildingDepViewNameColumn;
 	}
 }

@@ -109,6 +109,11 @@ namespace X2AddOnTechTreeEditor
 					exportDAT.Researches.Clear();
 					exportDAT.Techages.Clear();
 
+					// Listen der zu blockenden Technologie-IDs pro Kultur erstellen
+					List<int>[] civBlockIDs = new List<int>[_projectFile.CivTrees.Count];
+					for(int c = 0; c < _projectFile.CivTrees.Count; ++c)
+						civBlockIDs[c] = new List<int>();
+
 					// Einheiten-ID-Verteilung erstellen
 					Dictionary<TechTreeUnit, int> unitIDMap = new Dictionary<TechTreeUnit, int>();
 
@@ -339,7 +344,7 @@ namespace X2AddOnTechTreeEditor
 								newUnit.DropSite1UnitID = unitIDMap[unitObj.DropSite1Unit];
 							if(unitObj.DropSite2Unit != null)
 								newUnit.DropSite2UnitID = unitIDMap[unitObj.DropSite2Unit];
-							if(unitObj.EnablerResearch != null || _projectFile.Where(el => el.GetType() == typeof(TechTreeCreatable) && ((TechTreeCreatable)el).Successor == unitObj).Count > 0)
+							if(unitObj.EnablerResearch != null)
 								newUnit.NeedsResearch = true;
 
 							// Erstmal keine Button-Werte setzen
@@ -372,7 +377,6 @@ namespace X2AddOnTechTreeEditor
 							{
 								// Effekt in jeweiligem Zeitalter erstellen
 								// TODO: Hardcoded...
-								// TODO: Hier alle Kombinationen benutzen? D.h. z.B. Haus1->Haus4, Haus2->Haus4, Haus3->Haus4
 								techages[datResearches[100 + currAU.Key].TechageID].Effects.Add(new GenieLibrary.DataElements.Techage.TechageEffect()
 								{
 									Type = (byte)TechEffect.EffectType.UnitUpgrade,
@@ -387,6 +391,7 @@ namespace X2AddOnTechTreeEditor
 					}
 
 					// Einheiten durchlaufen und Kind-Elementen Orte und Buttons zuweisen
+					Dictionary<int, int> upgradeConstraints = new Dictionary<int, int>(); // Die einzelnen Upgrade-Verbindungen, Format: B <- A
 					foreach(var unit in _projectFile.Where(u => u is IChildrenContainer && u is TechTreeUnit))
 					{
 						// Kinder durchlaufen
@@ -416,11 +421,16 @@ namespace X2AddOnTechTreeEditor
 								// Alle Nachfolger durchlaufen und Werte weiterreichen
 								if(currUnit is IUpgradeable)
 								{
+									int lastSuccID = unitIDMap[currUnit];
 									TechTreeUnit currSuccessor = ((IUpgradeable)currUnit).Successor;
 									while(currSuccessor != null)
 									{
+										// Upgrade merken
+										int currID = unitIDMap[currSuccessor];
+										upgradeConstraints[currID] = lastSuccID;
+
 										// Einheitendaten abrufen
-										UnitIDContainer currSuccD = unitData[unitIDMap[currSuccessor]];
+										UnitIDContainer currSuccD = unitData[currID];
 
 										// Button-ID vererben
 										if(currUnitD.ButtonID > 0 && currSuccD.ButtonID == 0)
@@ -434,9 +444,8 @@ namespace X2AddOnTechTreeEditor
 										if(currUnitD.NeedsResearch)
 											currSuccD.NeedsResearch = currUnitD.NeedsResearch;
 
-										// TODO: Hier Upgrade-Tech
-
 										// Nächster
+										lastSuccID = currID;
 										if(currSuccessor is IUpgradeable)
 											currSuccessor = ((IUpgradeable)currSuccessor).Successor;
 										else
@@ -456,8 +465,13 @@ namespace X2AddOnTechTreeEditor
 
 						// Alle Nachfolger durchlaufen und Werte weiterreichen
 						TechTreeUnit currSuccessor = ((IUpgradeable)unit).Successor;
+						int lastSuccID = unitID;
 						while(currSuccessor != null)
 						{
+							// Upgrade merken
+							int currID = unitIDMap[currSuccessor];
+							upgradeConstraints[currID] = lastSuccID;
+
 							// Einheitendaten abrufen
 							UnitIDContainer currSuccD = unitData[unitIDMap[currSuccessor]];
 
@@ -473,13 +487,58 @@ namespace X2AddOnTechTreeEditor
 							if(unitD.NeedsResearch)
 								currSuccD.NeedsResearch = unitD.NeedsResearch;
 
-							// TODO: Hier Upgrade-Tech
-
 							// Nächster
+							lastSuccID = currID;
 							if(currSuccessor is IUpgradeable)
 								currSuccessor = ((IUpgradeable)currSuccessor).Successor;
 							else
 								break;
+						}
+					}
+
+					// Weiterentwicklungen für alle Einheiten erstellen
+					List<TechTreeUnit> nonSuccessorUnits = unitIDMap.Keys.ToList();
+					foreach(var unit in _projectFile.Where(u => u is IUpgradeable && u is TechTreeUnit))
+					{
+						// Ist eine Upgrade-Einheit gesetzt?
+						TechTreeUnit succUnit = ((IUpgradeable)unit).Successor;
+						TechTreeResearch succRes = ((IUpgradeable)unit).SuccessorResearch;
+						if(succUnit != null)
+						{
+							// Die Einheit ist ein Upgrade und muss aktiviert werden
+							nonSuccessorUnits.Remove(succUnit);
+							int unitID = unitIDMap[succUnit];
+							unitData[unitID].NeedsResearch = true;
+
+							// Effekte erstellen für jede Entwicklungsstufe der Einheit
+							int currID = unitID;
+							List<GenieLibrary.DataElements.Techage.TechageEffect> effects = new List<GenieLibrary.DataElements.Techage.TechageEffect>();
+							while(upgradeConstraints.ContainsKey(currID))
+							{
+								// ID, die zu dieser Einheit entwickelt werden kann, abrufen
+								currID = upgradeConstraints[currID];
+
+								// Upgrade-Effekt erstellen
+								effects.Add(new GenieLibrary.DataElements.Techage.TechageEffect()
+								{
+									Type = (byte)TechEffect.EffectType.UnitUpgrade,
+									A = (short)currID,
+									B = (short)unitID
+								});
+							}
+
+							// Technologie-Upgrade oder automatisches Zeitalter-Upgrade?
+							if(succRes == null && succUnit.Age > 0)
+							{
+								// Auto-Upgrade-Effekt zu Zeitalter-Technologie hinzufügen
+								// TODO: Hardcoded...
+								techages[datResearches[100 + succUnit.Age].TechageID].Effects.AddRange(effects);
+							}
+							else if(succRes != null)
+							{
+								// Upgrade-Effekt zu angegebener Technologie hinzufügen
+								techages[datResearches[researchIDMap[succRes]].TechageID].Effects.AddRange(effects);
+							}
 						}
 					}
 
@@ -539,13 +598,13 @@ namespace X2AddOnTechTreeEditor
 					}
 
 					// Einheiten-Abhängigkeiten erstellen
-					foreach(var unit in unitIDMap)
+					foreach(TechTreeUnit unit in nonSuccessorUnits)
 					{
 						// Abhängigkeiten erstellen
-						if(CreateUnitDependencyStructure(unit.Value, unit.Key, researchIDMap, buildingDependencyResearchIDs, datResearches, techages))
+						if(CreateUnitDependencyStructure(unitIDMap[unit], unit, researchIDMap, buildingDependencyResearchIDs, datResearches, techages, civBlockIDs))
 						{
 							// Die Einheit muss aktiviert werden
-							unitData[unit.Value].NeedsResearch = true;
+							unitData[unitIDMap[unit]].NeedsResearch = true;
 						}
 					}
 
@@ -614,6 +673,9 @@ namespace X2AddOnTechTreeEditor
 					// Zivilisationsdaten erstellen
 					for(int c = 0; c < _projectFile.CivTrees.Count; ++c)
 					{
+						// Kultur-Konfiguration abrufen
+						TechTreeFile.CivTreeConfig currCivConfig = _projectFile.CivTrees[c];
+
 						// Neue Kultur erstellen
 						GenieLibrary.DataElements.Civ newCiv = new GenieLibrary.DataElements.Civ()
 						{
@@ -634,8 +696,44 @@ namespace X2AddOnTechTreeEditor
 							newBonusTechage.Name = "CivB: " + newCiv.Name.Substring(0, 23) + "~\0";
 						else
 							newBonusTechage.Name = "CivB: " + newCiv.Name + "\0";
-						CreateTechageEffects(newBonusTechage, _projectFile.CivTrees[c].Bonuses, unitIDMap, researchIDMap);
+						CreateTechageEffects(newBonusTechage, currCivConfig.Bonuses, unitIDMap, researchIDMap);
 						exportDAT.Techages.Add(newBonusTechage);
+
+						// Technologie-Blockierungen in Effekte umwandeln
+						civBlockIDs[c].ForEach(cb => newBonusTechage.Effects.Add(new GenieLibrary.DataElements.Techage.TechageEffect()
+						{
+							Type = (byte)TechEffect.EffectType.ResearchDisable,
+							D = (float)cb
+						}));
+
+						// Freie Technologien in Effekte umwandeln
+						foreach(TechTreeResearch freeRes in currCivConfig.FreeElements)
+						{
+							// Zeit auf 0 setzen
+							int resID = researchIDMap[freeRes];
+							newBonusTechage.Effects.Add(new GenieLibrary.DataElements.Techage.TechageEffect()
+							{
+								Type = (byte)TechEffect.EffectType.ResearchTimeSetPM,
+								A = (short)resID,
+								C = (short)TechEffect.EffectMode.Set_Disable,
+								D = 0
+							});
+
+							// Einzelne Ressourcen auf 0 setzen
+							foreach(var resource in datResearches[resID].ResourceCosts)
+							{
+								// Ressource benutzt? => Löschen
+								if(resource.Enabled > 0)
+									newBonusTechage.Effects.Add(new GenieLibrary.DataElements.Techage.TechageEffect()
+									{
+										Type = (byte)TechEffect.EffectType.ResearchCostSetPM,
+										A = (short)resID,
+										B = resource.Type,
+										C = (short)TechEffect.EffectMode.Set_Disable,
+										D = 0
+									});
+							}
+						}
 
 						// Team-Boni erstellen
 						newBonusTechage = new GenieLibrary.DataElements.Techage();
@@ -643,7 +741,7 @@ namespace X2AddOnTechTreeEditor
 							newBonusTechage.Name = "CivT: " + newCiv.Name.Substring(0, 23) + "~\0";
 						else
 							newBonusTechage.Name = "CivT: " + newCiv.Name + "\0";
-						CreateTechageEffects(newBonusTechage, _projectFile.CivTrees[c].TeamBonuses, unitIDMap, researchIDMap);
+						CreateTechageEffects(newBonusTechage, currCivConfig.TeamBonuses, unitIDMap, researchIDMap);
 						exportDAT.Techages.Add(newBonusTechage);
 
 						// Einheiten erstellen
@@ -779,6 +877,8 @@ namespace X2AddOnTechTreeEditor
 			if(research.BuildingDependencies.Count > 0)
 			{
 				// Element erstellen
+				int lastID = 0;
+				int mainDepSlotNum = 0;
 				GenieLibrary.DataElements.Research buildingDepMainNode = new GenieLibrary.DataElements.Research()
 				{
 					Name = "#BDepMainNode: " + research.DATResearch.Name,
@@ -791,28 +891,100 @@ namespace X2AddOnTechTreeEditor
 					Unknown1 = -1,
 					TechageID = -1,
 					Civ = -1,
-					ResearchLocation=-1,
-					RequiredTechCount = 2 // TODO: Das ist natürlich falsch
+					ResearchLocation = -1,
+					RequiredTechCount = 1 // Ein Unter-Knoten muss true liefern
 				};
 				buildingDepMainNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
 				buildingDepMainNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
 				buildingDepMainNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
 
 				// Abhängigkeiten einfügen
-				// TODO: Die Anzahlen werden aktuell völlig ignoriert
-				int depSlotNum = 0;
-				foreach(var dep in research.BuildingDependencies)
+				// Abhängigkeitsknoten für Gebäude ohne weitere Anzahl erstellen
+				if(research.BuildingDependencies.Any(d => !d.Value))
 				{
-					// Maximal 6 Slots => TODO...
-					if(depSlotNum >= 6)
-						break;
+					// Element erstellen
+					GenieLibrary.DataElements.Research buildingDepSubNode = new GenieLibrary.DataElements.Research()
+					{
+						Name = "#BDepSingleNode: " + research.DATResearch.Name,
+						ResourceCosts = new List<GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>>(3),
+						RequiredTechs = new List<short>(new short[] { -1, -1, -1, -1, -1, -1 }),
+						LanguageDLLName1 = 7000,
+						LanguageDLLName2 = 157000,
+						LanguageDLLDescription = 8000,
+						LanguageDLLHelp = 107000,
+						Unknown1 = -1,
+						TechageID = -1,
+						Civ = -1,
+						ResearchLocation = -1,
+						RequiredTechCount = 1 // Eines dieser Gebäude reicht
+					};
+					buildingDepSubNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+					buildingDepSubNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+					buildingDepSubNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
 
-					// Abhängigkeit erstellen
-					buildingDepMainNode.RequiredTechs[depSlotNum++] = (short)buildingDependencyResearchIDs[(TechTreeBuilding)dep.Key];
+					// Gebäude einfügen
+					int depSlotNum = 0;
+					foreach(var dep in research.BuildingDependencies)
+					{
+						// Maximal 6 Slots, das muss reichen
+						if(depSlotNum >= 6)
+							break;
+
+						// Abhängigkeit erstellen
+						if(!dep.Value)
+							buildingDepSubNode.RequiredTechs[depSlotNum++] = (short)buildingDependencyResearchIDs[(TechTreeBuilding)dep.Key];
+					}
+
+					// Unterknoten speichern
+					while(datResearches.ContainsKey(lastID))
+						++lastID;
+					datResearches[lastID] = buildingDepSubNode;
+					buildingDepMainNode.RequiredTechs[mainDepSlotNum++] = (short)lastID;
+				}
+				// Abhängigkeitsknoten für Gebäude mit weiterer Anzahl erstellen
+				if(research.BuildingDependencies.Any(d => d.Value))
+				{
+					// Element erstellen
+					GenieLibrary.DataElements.Research buildingDepSubNode = new GenieLibrary.DataElements.Research()
+					{
+						Name = "#BDepMultiNode: " + research.DATResearch.Name,
+						ResourceCosts = new List<GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>>(3),
+						RequiredTechs = new List<short>(new short[] { -1, -1, -1, -1, -1, -1 }),
+						LanguageDLLName1 = 7000,
+						LanguageDLLName2 = 157000,
+						LanguageDLLDescription = 8000,
+						LanguageDLLHelp = 107000,
+						Unknown1 = -1,
+						TechageID = -1,
+						Civ = -1,
+						ResearchLocation = -1,
+						RequiredTechCount = 2 // Zwei dieser Gebäude benötigt
+					};
+					buildingDepSubNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+					buildingDepSubNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+					buildingDepSubNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+
+					// Gebäude einfügen
+					int depSlotNum = 0;
+					foreach(var dep in research.BuildingDependencies)
+					{
+						// Maximal 6 Slots, das muss reichen
+						if(depSlotNum >= 6)
+							break;
+
+						// Abhängigkeit erstellen
+						if(dep.Value)
+							buildingDepSubNode.RequiredTechs[depSlotNum++] = (short)buildingDependencyResearchIDs[(TechTreeBuilding)dep.Key];
+					}
+
+					// Unterknoten speichern
+					while(datResearches.ContainsKey(lastID))
+						++lastID;
+					datResearches[lastID] = buildingDepSubNode;
+					buildingDepMainNode.RequiredTechs[mainDepSlotNum++] = (short)lastID;
 				}
 
 				// Freie ID suchen und Abhängigkeitsknoten erstellen
-				int lastID = 0;
 				while(datResearches.ContainsKey(lastID))
 					++lastID;
 				datResearches[lastID] = buildingDepMainNode;
@@ -837,7 +1009,7 @@ namespace X2AddOnTechTreeEditor
 				if(dep != parent)
 				{
 					// Slots voll?
-					// TODO: Noch etwas zu wenig...
+					// Muss reichen
 					if(slotNum >= 6)
 						break;
 
@@ -857,8 +1029,9 @@ namespace X2AddOnTechTreeEditor
 		/// <param name="buildingDependencyResearchIDs">Die IDs der von Gebäuden induzierten Technologien.</param>
 		/// <param name="datResearches">Die bereits erstellten DAT-Technologien.</param>
 		/// <param name="techages">Die Technologie-Effekt-Daten-Liste.</param>
+		/// <param name="civBlockIDs">Die pro Kultur zu sperrenden Technologie-IDs.</param>
 		/// <returns></returns>
-		private bool CreateUnitDependencyStructure(int unitID, TechTreeUnit unit, Dictionary<TechTreeResearch, int> researchIDMap, Dictionary<TechTreeBuilding, int> buildingDependencyResearchIDs, SortedDictionary<int, GenieLibrary.DataElements.Research> datResearches, SortedDictionary<int, GenieLibrary.DataElements.Techage> techages)
+		private bool CreateUnitDependencyStructure(int unitID, TechTreeUnit unit, Dictionary<TechTreeResearch, int> researchIDMap, Dictionary<TechTreeBuilding, int> buildingDependencyResearchIDs, SortedDictionary<int, GenieLibrary.DataElements.Research> datResearches, SortedDictionary<int, GenieLibrary.DataElements.Techage> techages, List<int>[] civBlockIDs)
 		{
 			// Nur erschaffbare Einheiten bzw. Gebäude sind hier interessant
 			TechTreeBuilding unitB = unit as TechTreeBuilding;
@@ -866,10 +1039,19 @@ namespace X2AddOnTechTreeEditor
 			if(unitB == null && unitC == null)
 				return false;
 
+			// Kulturabhängige nötige Blockierungen der gleich erstellten Verfügbarkeits-Technologie erstellen
+			List<short> blocks = new List<short>();
+			List<short> avails = new List<short>();
+			for(short c = 0; c < _projectFile.CivTrees.Count; ++c)
+				if(_projectFile.CivTrees[c].BlockedElements.Contains(unit))
+					blocks.Add(c);
+				else
+					avails.Add(c);
+
 			// DAT-Technologie für Abhängigkeit erstellen
 			GenieLibrary.DataElements.Research availResearch = new GenieLibrary.DataElements.Research()
 			{
-				Name = "#BAvail: " + unit.DATUnit.Name1,
+				Name = "#Avail: " + unit.DATUnit.Name1,
 				Civ = -1,
 				ResearchLocation = -1,
 				ResourceCosts = new List<GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>>(3),
@@ -911,6 +1093,7 @@ namespace X2AddOnTechTreeEditor
 			if(unit.BuildingDependencies.Count > 0)
 			{
 				// Element erstellen
+				int mainDepSlotNum = 0;
 				GenieLibrary.DataElements.Research buildingDepMainNode = new GenieLibrary.DataElements.Research()
 				{
 					Name = "#BDepMainNode: " + unit.DATUnit.Name1,
@@ -924,46 +1107,128 @@ namespace X2AddOnTechTreeEditor
 					TechageID = -1,
 					Civ = -1,
 					ResearchLocation = -1,
-					RequiredTechCount = 1 // TODO: Das ist natürlich falsch
+					RequiredTechCount = 1 // Ein Unter-Knoten muss true liefern
 				};
 				buildingDepMainNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
 				buildingDepMainNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
 				buildingDepMainNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
 
 				// Abhängigkeiten einfügen
-				// TODO: Die Anzahlen werden aktuell völlig ignoriert
-				int depSlotNum = 0;
-				foreach(var dep in unit.BuildingDependencies)
+				// Abhängigkeitsknoten für Gebäude ohne weitere Anzahl erstellen
+				if(unit.BuildingDependencies.Any(d => !d.Value))
 				{
-					// Maximal 6 Slots => TODO...
-					if(depSlotNum >= 6)
-						break;
+					// Element erstellen
+					GenieLibrary.DataElements.Research buildingDepSubNode = new GenieLibrary.DataElements.Research()
+					{
+						Name = "#BDepSingleNode: " + unit.DATUnit.Name1,
+						ResourceCosts = new List<GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>>(3),
+						RequiredTechs = new List<short>(new short[] { -1, -1, -1, -1, -1, -1 }),
+						LanguageDLLName1 = 7000,
+						LanguageDLLName2 = 157000,
+						LanguageDLLDescription = 8000,
+						LanguageDLLHelp = 107000,
+						Unknown1 = -1,
+						TechageID = -1,
+						Civ = -1,
+						ResearchLocation = -1,
+						RequiredTechCount = 1 // Eines dieser Gebäude reicht
+					};
+					buildingDepSubNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+					buildingDepSubNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+					buildingDepSubNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
 
-					// Abhängigkeit erstellen
-					buildingDepMainNode.RequiredTechs[depSlotNum++] = (short)buildingDependencyResearchIDs[(TechTreeBuilding)dep.Key];
+					// Gebäude einfügen
+					int depSlotNum = 0;
+					foreach(var dep in unit.BuildingDependencies)
+					{
+						// Maximal 6 Slots, das muss reichen
+						if(depSlotNum >= 6)
+							break;
+
+						// Abhängigkeit erstellen
+						if(!dep.Value)
+							buildingDepSubNode.RequiredTechs[depSlotNum++] = (short)buildingDependencyResearchIDs[(TechTreeBuilding)dep.Key];
+					}
+
+					// Unterknoten speichern
+					while(datResearches.ContainsKey(lastID))
+						++lastID;
+					datResearches[lastID] = buildingDepSubNode;
+					buildingDepMainNode.RequiredTechs[mainDepSlotNum++] = (short)lastID;
+				}
+				// Abhängigkeitsknoten für Gebäude mit weiterer Anzahl erstellen
+				if(unit.BuildingDependencies.Any(d => d.Value))
+				{
+					// Element erstellen
+					GenieLibrary.DataElements.Research buildingDepSubNode = new GenieLibrary.DataElements.Research()
+					{
+						Name = "#BDepMultiNode: " + unit.DATUnit.Name1,
+						ResourceCosts = new List<GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>>(3),
+						RequiredTechs = new List<short>(new short[] { -1, -1, -1, -1, -1, -1 }),
+						LanguageDLLName1 = 7000,
+						LanguageDLLName2 = 157000,
+						LanguageDLLDescription = 8000,
+						LanguageDLLHelp = 107000,
+						Unknown1 = -1,
+						TechageID = -1,
+						Civ = -1,
+						ResearchLocation = -1,
+						RequiredTechCount = 2 // Zwei dieser Gebäude benötigt
+					};
+					buildingDepSubNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+					buildingDepSubNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+					buildingDepSubNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+
+					// Gebäude einfügen
+					int depSlotNum = 0;
+					foreach(var dep in unit.BuildingDependencies)
+					{
+						// Maximal 6 Slots, das muss reichen
+						if(depSlotNum >= 6)
+							break;
+
+						// Abhängigkeit erstellen
+						if(dep.Value)
+							buildingDepSubNode.RequiredTechs[depSlotNum++] = (short)buildingDependencyResearchIDs[(TechTreeBuilding)dep.Key];
+					}
+
+					// Unterknoten speichern
+					while(datResearches.ContainsKey(lastID))
+						++lastID;
+					datResearches[lastID] = buildingDepSubNode;
+					buildingDepMainNode.RequiredTechs[mainDepSlotNum++] = (short)lastID;
 				}
 
-				// Freie ID suchen und Abhängigkeitsknoten erstellen
-				while(datResearches.ContainsKey(lastID))
-					++lastID;
-				datResearches[lastID] = buildingDepMainNode;
-				availResearch.RequiredTechs[slotNum++] = (short)lastID;
-				++availResearch.RequiredTechCount;
+				// Freie ID suchen und Abhängigkeitsknoten erstellen, falls benötigt
+				if(buildingDepMainNode.RequiredTechs.Count(t => t > -1) > 0)
+				{
+					while(datResearches.ContainsKey(lastID))
+						++lastID;
+					datResearches[lastID] = buildingDepMainNode;
+					availResearch.RequiredTechs[slotNum++] = (short)lastID;
+					++availResearch.RequiredTechCount;
+				}
 			}
 
 			// Gibt es überhaupt Abhängigkeiten?
-			if(availResearch.RequiredTechCount > 0)
+			if(availResearch.RequiredTechCount > 0 || blocks.Count > 0)
 			{
 				// Neue DAT-Technologie speichern
 				while(datResearches.ContainsKey(lastID))
 					++lastID;
 				datResearches[lastID] = availResearch;
 
+				// Nur für eine Kultur?
+				if(avails.Count == 1)
+					availResearch.Civ = avails[0];
+				else
+					blocks.ForEach(c => civBlockIDs[c].Add(lastID));
+
 				// Upgrade-Effekt erstellen
 				availResearch.TechageID = (short)lastID;
 				techages[lastID] = new GenieLibrary.DataElements.Techage()
 				{
-					Name = "BAvail: " + (unit.DATUnit.Name1.Length <= 23 ? unit.DATUnit.Name1 : unit.DATUnit.Name1.Substring(0, 21) + "~\0"),
+					Name = "Avail: " + (unit.DATUnit.Name1.Length <= 23 ? unit.DATUnit.Name1 : unit.DATUnit.Name1.Substring(0, 21) + "~\0"),
 					Effects = new List<GenieLibrary.DataElements.Techage.TechageEffect>()
 				};
 				techages[lastID].Effects.Add(new GenieLibrary.DataElements.Techage.TechageEffect()
@@ -978,7 +1243,7 @@ namespace X2AddOnTechTreeEditor
 			}
 			else
 			{
-				// Keine Abhängigkeiten, Einheit frei verfügbar
+				// Fertig, Einheit muss sonst nicht weiter aktiviert werden
 				return false;
 			}
 		}

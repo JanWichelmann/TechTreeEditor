@@ -643,10 +643,7 @@ namespace X2AddOnTechTreeEditor
 									// Gebäude-Abhängigkeit hinzufügen
 									foreach(var b in triggeredResearches[depID])
 										if(currRes.Value.DATResearch.ResearchLocation != b.ID && !b.ShadowElement)
-											if(currRes.Value.BuildingDependencies.ContainsKey(b))
-												currRes.Value.BuildingDependencies[b] = Math.Min(currRes.Value.BuildingDependencies[b], currRes.Value.DATResearch.RequiredTechCount - 1);
-											else
-												currRes.Value.BuildingDependencies[b] = currRes.Value.DATResearch.RequiredTechCount - 1;
+											currRes.Value.BuildingDependencies[b] = (currRes.Value.DATResearch.RequiredTechCount - 1 > 0);
 								}
 
 								// Shadow-Node?
@@ -665,10 +662,7 @@ namespace X2AddOnTechTreeEditor
 												// Gebäude-Abhängigkeit hinzufügen
 												foreach(var b in triggeredResearches[nDep])
 													if(currRes.Value.DATResearch.ResearchLocation != b.ID && !b.ShadowElement)
-														if(currRes.Value.BuildingDependencies.ContainsKey(b))
-															currRes.Value.BuildingDependencies[b] = Math.Min(currRes.Value.BuildingDependencies[b], shadowN.RequiredTechCount - 1);
-														else
-															currRes.Value.BuildingDependencies[b] = shadowN.RequiredTechCount - 1;
+														currRes.Value.BuildingDependencies[b] = (shadowN.RequiredTechCount - 1 > 0);
 											}
 											else if(shadowNodes.ContainsKey(nDep))
 											{
@@ -685,10 +679,7 @@ namespace X2AddOnTechTreeEditor
 															// Gebäude-Abhängigkeit hinzufügen
 															foreach(var b in triggeredResearches[nDep2])
 																if(currRes.Value.DATResearch.ResearchLocation != b.ID && !b.ShadowElement)
-																	if(currRes.Value.BuildingDependencies.ContainsKey(b))
-																		currRes.Value.BuildingDependencies[b] = Math.Min(currRes.Value.BuildingDependencies[b], shadowN2.RequiredTechCount - 1);
-																	else
-																		currRes.Value.BuildingDependencies[b] = shadowN2.RequiredTechCount - 1;
+																	currRes.Value.BuildingDependencies[b] = (shadowN2.RequiredTechCount - 1 > 0);
 														}
 												}
 											}
@@ -819,64 +810,62 @@ namespace X2AddOnTechTreeEditor
 				foreach(var currRes in otherResearches)
 				{
 					// Effekte durchlaufen
-					foreach(var effect in dat.Techages[currRes.Value.TechageID].Effects)
-					{
-						// Aktivierungseffekt?
-						if(effect.Type == 2 && effect.B == 1)
+					if(currRes.Value.TechageID >= 0)
+						foreach(var effect in dat.Techages[currRes.Value.TechageID].Effects)
 						{
-							// Gebäude abrufen
-							TechTreeBuilding building = buildings.FirstOrDefault(b => b.ID == effect.A);
-							if(building != null)
+							// Aktivierungseffekt?
+							if(effect.Type == 2 && effect.B == 1)
 							{
-								// Gebäude-Abhängigkeiten erstellen
-								// Abhängigkeiten der Technologie durchgehen
-								foreach(short dep in currRes.Value.RequiredTechs)
+								// Gebäude abrufen
+								TechTreeBuilding building = buildings.FirstOrDefault(b => b.ID == effect.A);
+								if(building != null)
 								{
-									// Abhängigkeit definiert?
-									if(dep > 0)
-
-										// Zeitalter-Abhängigkeit? Dunkle Zeit kann hier ignoriert werden, da eh Age = 0
-										if(dep >= 101 && dep <= 104)
-										{
-											// Gebäude-Zeitalter setzen
-											building.Age = dep - 100;
-										}
-
-										// Gebäude-Abhängigkeit?
-										else if(triggeredResearches.ContainsKey(dep))
-										{
-											// Gebäude-Abhängigkeit hinzufügen
-											foreach(var b in triggeredResearches[dep])
-												if(!b.ShadowElement)
-													if(building.BuildingDependencies.ContainsKey(b))
-														building.BuildingDependencies[b] = Math.Min(building.BuildingDependencies[b], currRes.Value.RequiredTechCount - 1);
-													else
-														building.BuildingDependencies[b] = currRes.Value.RequiredTechCount - 1;
-										}
-								}
-							}
-							else if(assignableUnits.ContainsKey(effect.A))
-							{
-								// Einheit abrufen
-								TechTreeCreatable unit = assignableUnits[effect.A].Item1;
-
-								// Abhängigkeiten der Technologie durchgehen
-								foreach(short dep in currRes.Value.RequiredTechs)
-								{
-									// Abhängigkeit definiert?
-									if(dep > 0)
+									// Gebäude-Abhängigkeiten erstellen
+									// Abhängigkeiten der Technologie durchgehen
+									foreach(short dep in currRes.Value.RequiredTechs)
 									{
-										// Zeitalter-Abhängigkeit? Dunkle Zeit kann hier ignoriert werden, da eh Age mindestens 0
-										if(dep >= 101 && dep <= 104)
+										// Abhängigkeit definiert?
+										if(dep > 0)
+
+											// Zeitalter-Abhängigkeit? Dunkle Zeit kann hier ignoriert werden, da eh Age = 0
+											if(dep >= 101 && dep <= 104)
+											{
+												// Gebäude-Zeitalter setzen
+												building.Age = dep - 100;
+											}
+
+											// Gebäude-Abhängigkeit?
+											else if(triggeredResearches.ContainsKey(dep))
+											{
+												// Gebäude-Abhängigkeit hinzufügen
+												foreach(var b in triggeredResearches[dep])
+													if(!b.ShadowElement)
+														building.BuildingDependencies[b] = (currRes.Value.RequiredTechCount - 1 > 0);
+											}
+									}
+								}
+								else if(assignableUnits.ContainsKey(effect.A))
+								{
+									// Einheit abrufen
+									TechTreeCreatable unit = assignableUnits[effect.A].Item1;
+
+									// Abhängigkeiten der Technologie durchgehen
+									foreach(short dep in currRes.Value.RequiredTechs)
+									{
+										// Abhängigkeit definiert?
+										if(dep > 0)
 										{
-											// Einheit-Zeitalter setzen
-											unit.Age = Math.Max(unit.Age, dep - 100);
+											// Zeitalter-Abhängigkeit? Dunkle Zeit kann hier ignoriert werden, da eh Age mindestens 0
+											if(dep >= 101 && dep <= 104)
+											{
+												// Einheit-Zeitalter setzen
+												unit.Age = Math.Max(unit.Age, dep - 100);
+											}
 										}
 									}
 								}
 							}
 						}
-					}
 				}
 
 				// Einheiten direkt ihrem Gebäude zuweisen, falls das noch nicht passiert ist
@@ -1279,6 +1268,144 @@ namespace X2AddOnTechTreeEditor
 								}
 								if(newE != null)
 									res.Effects.Add(newE);
+							});
+					}
+
+					// Kultur-Boni lesen
+					for(int c = 0; c < _projectFile.CivTrees.Count; ++c)
+					{
+						// Kultur-Objekt abrufen
+						GenieLibrary.DataElements.Civ currCiv = _projectFile.BasicGenieFile.Civs[c];
+						TechTreeFile.CivTreeConfig currConf = _projectFile.CivTrees[c];
+
+						// Boni lesen
+						if(currCiv.TechTreeID >= 0)
+							_projectFile.BasicGenieFile.Techages[currCiv.TechTreeID].Effects.ForEach(eff =>
+							{
+								// Effekt lesen
+								TechEffect newE = new TechEffect();
+								newE.Type = (TechEffect.EffectType)eff.Type;
+								switch(newE.Type)
+								{
+									case TechEffect.EffectType.AttributeSet:
+									case TechEffect.EffectType.AttributePM:
+									case TechEffect.EffectType.AttributeMult:
+										newE.Element = units.FirstOrDefault(u => u.ID == eff.A);
+										newE.ClassID = eff.B;
+										if(newE.Element == null && newE.ClassID < 0)
+											newE = null;
+										else
+										{
+											newE.ParameterID = eff.C;
+											newE.Value = eff.D;
+										}
+										break;
+
+									case TechEffect.EffectType.ResourceSetPM:
+										newE.ParameterID = eff.A;
+										newE.Mode = (TechEffect.EffectMode)eff.B;
+										newE.Value = eff.D;
+										break;
+
+									case TechEffect.EffectType.ResourceMult:
+										newE.ParameterID = eff.A;
+										newE.Value = eff.D;
+										break;
+
+									case TechEffect.EffectType.ResearchCostSetPM:
+										newE.Element = researches.FirstOrDefault(r => r.ID == eff.A);
+										if(newE.Element == null)
+											newE = null;
+										else
+										{
+											newE.ParameterID = eff.B;
+											newE.Mode = (TechEffect.EffectMode)eff.C;
+											newE.Value = eff.D;
+										}
+										break;
+
+									case TechEffect.EffectType.ResearchTimeSetPM:
+										newE.Element = researches.FirstOrDefault(r => r.ID == eff.A);
+										if(newE.Element == null)
+											newE = null;
+										else
+										{
+											newE.Mode = (TechEffect.EffectMode)eff.C;
+											newE.Value = eff.D;
+										}
+										break;
+
+									default:
+										newE = null;
+										break;
+								}
+								if(newE != null)
+									currConf.Bonuses.Add(newE);
+							});
+
+						// Team-Boni lesen
+						if(currCiv.TeamBonusID >= 0)
+							_projectFile.BasicGenieFile.Techages[currCiv.TeamBonusID].Effects.ForEach(eff =>
+							{
+								// Effekt lesen
+								TechEffect newE = new TechEffect();
+								newE.Type = (TechEffect.EffectType)eff.Type;
+								switch(newE.Type)
+								{
+									case TechEffect.EffectType.AttributeSet:
+									case TechEffect.EffectType.AttributePM:
+									case TechEffect.EffectType.AttributeMult:
+										newE.Element = units.FirstOrDefault(u => u.ID == eff.A);
+										newE.ClassID = eff.B;
+										if(newE.Element == null && newE.ClassID < 0)
+											newE = null;
+										else
+										{
+											newE.ParameterID = eff.C;
+											newE.Value = eff.D;
+										}
+										break;
+
+									case TechEffect.EffectType.ResourceSetPM:
+										newE.ParameterID = eff.A;
+										newE.Mode = (TechEffect.EffectMode)eff.B;
+										newE.Value = eff.D;
+										break;
+
+									case TechEffect.EffectType.ResourceMult:
+										newE.ParameterID = eff.A;
+										newE.Value = eff.D;
+										break;
+
+									case TechEffect.EffectType.ResearchCostSetPM:
+										newE.Element = researches.FirstOrDefault(r => r.ID == eff.A);
+										if(newE.Element == null)
+											newE = null;
+										else
+										{
+											newE.ParameterID = eff.B;
+											newE.Mode = (TechEffect.EffectMode)eff.C;
+											newE.Value = eff.D;
+										}
+										break;
+
+									case TechEffect.EffectType.ResearchTimeSetPM:
+										newE.Element = researches.FirstOrDefault(r => r.ID == eff.A);
+										if(newE.Element == null)
+											newE = null;
+										else
+										{
+											newE.Mode = (TechEffect.EffectMode)eff.C;
+											newE.Value = eff.D;
+										}
+										break;
+
+									default:
+										newE = null;
+										break;
+								}
+								if(newE != null)
+									currConf.TeamBonuses.Add(newE);
 							});
 					}
 

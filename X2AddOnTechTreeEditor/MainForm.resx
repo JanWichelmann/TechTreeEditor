@@ -505,13 +505,13 @@
     <value>Magenta</value>
   </data>
   <data name="_deleteDepButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 36</value>
+    <value>35, 36</value>
   </data>
   <data name="_deleteDepButton.ToolTipText" xml:space="preserve">
     <value>Eine Abhängigkeit löschen.</value>
   </data>
   <data name="_menuSeparator9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 39</value>
+    <value>35, 6</value>
   </data>
   <data name="_deleteElementButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -523,7 +523,7 @@
     <value>Magenta</value>
   </data>
   <data name="_deleteElementButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 36</value>
+    <value>35, 36</value>
   </data>
   <data name="_deleteElementButton.ToolTipText" xml:space="preserve">
     <value>Ein Element löschen.</value>
@@ -655,7 +655,7 @@
 </value>
   </data>
   <data name="_importDATMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 38</value>
+    <value>171, 22</value>
   </data>
   <data name="_importDATMenuButton.Text" xml:space="preserve">
     <value>DAT importieren...</value>
@@ -691,7 +691,7 @@
 </value>
   </data>
   <data name="_openProjectMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 38</value>
+    <value>171, 22</value>
   </data>
   <data name="_openProjectMenuButton.Text" xml:space="preserve">
     <value>Projekt öffnen...</value>
@@ -731,7 +731,7 @@
 </value>
   </data>
   <data name="_saveProjectMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 38</value>
+    <value>171, 22</value>
   </data>
   <data name="_saveProjectMenuButton.Text" xml:space="preserve">
     <value>Projekt speichern</value>
@@ -743,7 +743,7 @@
     <value>False</value>
   </data>
   <data name="_exportDATMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 38</value>
+    <value>171, 22</value>
   </data>
   <data name="_exportDATMenuButton.Text" xml:space="preserve">
     <value>DAT exportieren...</value>
@@ -752,7 +752,7 @@
     <value>Das Projekt zu einer neuen DAT-Datei exportieren.</value>
   </data>
   <data name="_menuSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 6</value>
+    <value>168, 6</value>
   </data>
   <data name="_exitMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -775,7 +775,7 @@
 </value>
   </data>
   <data name="_exitMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 38</value>
+    <value>171, 22</value>
   </data>
   <data name="_exitMenuButton.Text" xml:space="preserve">
     <value>Beenden</value>
@@ -838,7 +838,7 @@
 </value>
   </data>
   <data name="_undoMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 38</value>
+    <value>163, 22</value>
   </data>
   <data name="_undoMenuButton.Text" xml:space="preserve">
     <value>Rückgängig</value>
@@ -887,7 +887,7 @@
 </value>
   </data>
   <data name="_redoMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 38</value>
+    <value>163, 22</value>
   </data>
   <data name="_redoMenuButton.Text" xml:space="preserve">
     <value>Wiederholen</value>
@@ -896,13 +896,13 @@
     <value>Die letzte rückgängig gemachte Änderung wiederherstellen.</value>
   </data>
   <data name="_menuSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 6</value>
+    <value>160, 6</value>
   </data>
   <data name="_lockAllIDsMenuButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="_lockAllIDsMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 38</value>
+    <value>163, 22</value>
   </data>
   <data name="_lockAllIDsMenuButton.Text" xml:space="preserve">
     <value>Alle IDs schützen</value>
@@ -932,7 +932,7 @@
 </value>
   </data>
   <data name="_infoMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 38</value>
+    <value>104, 22</value>
   </data>
   <data name="_infoMenuButton.Text" xml:space="preserve">
     <value>Info...</value>
@@ -1180,7 +1180,7 @@
     <value>36, 36</value>
   </data>
   <data name="_editCivBoniButton.ToolTipText" xml:space="preserve">
-    <value>Die DAT-Grafiken bearbeiten.</value>
+    <value>Die Kultur- und Team-Boni bearbeiten.</value>
   </data>
   <data name="_menuSeparator5.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 39</value>
@@ -1398,7 +1398,7 @@
     <value>Die Attribute dieses Elements bearbeiten.</value>
   </data>
   <data name="_addToolsBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 102</value>
+    <value>3, 102</value>
   </data>
   <data name="_addToolsBar.Size" type="System.Drawing.Size, System.Drawing">
     <value>162, 39</value>
@@ -2033,9 +2033,6 @@
         AAA=
 </value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>X2-AddOn :: Technologiebaum bearbeiten</value>
   </data>
@@ -2255,30 +2252,6 @@
   <data name="&gt;&gt;_exportDATButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_ageUpButton.Name" xml:space="preserve">
-    <value>_ageUpButton</value>
-  </data>
-  <data name="&gt;&gt;_ageUpButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_ageDownButton.Name" xml:space="preserve">
-    <value>_ageDownButton</value>
-  </data>
-  <data name="&gt;&gt;_ageDownButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_menuSeparator11.Name" xml:space="preserve">
-    <value>_menuSeparator11</value>
-  </data>
-  <data name="&gt;&gt;_menuSeparator11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_editAttributesButton.Name" xml:space="preserve">
-    <value>_editAttributesButton</value>
-  </data>
-  <data name="&gt;&gt;_editAttributesButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;_civSelectComboBox.Name" xml:space="preserve">
     <value>_civSelectComboBox</value>
   </data>
@@ -2295,6 +2268,12 @@
     <value>_editGraphicsButton</value>
   </data>
   <data name="&gt;&gt;_editGraphicsButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_editCivBoniButton.Name" xml:space="preserve">
+    <value>_editCivBoniButton</value>
+  </data>
+  <data name="&gt;&gt;_editCivBoniButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;_menuSeparator5.Name" xml:space="preserve">
@@ -2332,6 +2311,36 @@
   </data>
   <data name="&gt;&gt;_searchLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_ageUpButton.Name" xml:space="preserve">
+    <value>_ageUpButton</value>
+  </data>
+  <data name="&gt;&gt;_ageUpButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_ageDownButton.Name" xml:space="preserve">
+    <value>_ageDownButton</value>
+  </data>
+  <data name="&gt;&gt;_ageDownButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_menuSeparator11.Name" xml:space="preserve">
+    <value>_menuSeparator11</value>
+  </data>
+  <data name="&gt;&gt;_menuSeparator11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_editAttributesButton.Name" xml:space="preserve">
+    <value>_editAttributesButton</value>
+  </data>
+  <data name="&gt;&gt;_editAttributesButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_editElementPropertiesButton.Name" xml:space="preserve">
+    <value>_editElementPropertiesButton</value>
+  </data>
+  <data name="&gt;&gt;_editElementPropertiesButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;_standardElementCheckButton.Name" xml:space="preserve">
     <value>_standardElementCheckButton</value>
@@ -2404,18 +2413,6 @@
   </data>
   <data name="&gt;&gt;_openProjectDialog.Type" xml:space="preserve">
     <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_editElementPropertiesButton.Name" xml:space="preserve">
-    <value>_editElementPropertiesButton</value>
-  </data>
-  <data name="&gt;&gt;_editElementPropertiesButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_editCivBoniButton.Name" xml:space="preserve">
-    <value>_editCivBoniButton</value>
-  </data>
-  <data name="&gt;&gt;_editCivBoniButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

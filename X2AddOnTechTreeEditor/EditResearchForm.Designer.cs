@@ -31,9 +31,9 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditResearchForm));
 			this._buildingDependencyGroupBox = new System.Windows.Forms.GroupBox();
 			this._buildingDepView = new System.Windows.Forms.DataGridView();
-			this._buildingDepViewCountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this._buildingDepViewNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this._closeButton = new System.Windows.Forms.Button();
+			this._buildingDepViewCountColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this._buildingDepViewNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this._buildingDependencyGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this._buildingDepView)).BeginInit();
 			this.SuspendLayout();
@@ -56,20 +56,7 @@
             this._buildingDepViewNameColumn});
 			resources.ApplyResources(this._buildingDepView, "_buildingDepView");
 			this._buildingDepView.Name = "_buildingDepView";
-			this._buildingDepView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this._buildingDepView_CellValidating);
-			// 
-			// _buildingDepViewCountColumn
-			// 
-			this._buildingDepViewCountColumn.FillWeight = 20F;
-			resources.ApplyResources(this._buildingDepViewCountColumn, "_buildingDepViewCountColumn");
-			this._buildingDepViewCountColumn.Name = "_buildingDepViewCountColumn";
-			// 
-			// _buildingDepViewNameColumn
-			// 
-			this._buildingDepViewNameColumn.FillWeight = 80F;
-			resources.ApplyResources(this._buildingDepViewNameColumn, "_buildingDepViewNameColumn");
-			this._buildingDepViewNameColumn.Name = "_buildingDepViewNameColumn";
-			this._buildingDepViewNameColumn.ReadOnly = true;
+			this._buildingDepView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._buildingDepView_CellValueChanged);
 			// 
 			// _closeButton
 			// 
@@ -77,6 +64,21 @@
 			this._closeButton.Name = "_closeButton";
 			this._closeButton.UseVisualStyleBackColor = true;
 			this._closeButton.Click += new System.EventHandler(this._closeButton_Click);
+			// 
+			// _buildingDepViewCountColumn
+			// 
+			this._buildingDepViewCountColumn.FillWeight = 20F;
+			resources.ApplyResources(this._buildingDepViewCountColumn, "_buildingDepViewCountColumn");
+			this._buildingDepViewCountColumn.Name = "_buildingDepViewCountColumn";
+			this._buildingDepViewCountColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this._buildingDepViewCountColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			// 
+			// _buildingDepViewNameColumn
+			// 
+			this._buildingDepViewNameColumn.FillWeight = 80F;
+			resources.ApplyResources(this._buildingDepViewNameColumn, "_buildingDepViewNameColumn");
+			this._buildingDepViewNameColumn.Name = "_buildingDepViewNameColumn";
+			this._buildingDepViewNameColumn.ReadOnly = true;
 			// 
 			// EditResearchForm
 			// 
@@ -97,8 +99,8 @@
 
 		private System.Windows.Forms.GroupBox _buildingDependencyGroupBox;
 		private System.Windows.Forms.DataGridView _buildingDepView;
-		private System.Windows.Forms.DataGridViewTextBoxColumn _buildingDepViewCountColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn _buildingDepViewNameColumn;
 		private System.Windows.Forms.Button _closeButton;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn _buildingDepViewCountColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn _buildingDepViewNameColumn;
 	}
 }

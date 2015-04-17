@@ -151,6 +151,12 @@
   <data name="DeleteElement" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons\deleteelement.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DeleteTechEffect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons\deletetecheffect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DownTechEffect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons\downtecheffect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="EditAttributes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons\editattributes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -193,6 +199,9 @@
   <data name="Lock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons\lock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LockAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons\lockall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MakeAvailDependency" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons\makeavaildependency.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -217,6 +226,9 @@
   <data name="NewResearch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons\newresearch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="NewTechEffect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons\newtecheffect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="NewUnit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons\newunit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -238,6 +250,9 @@
   <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SortTechEffects" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons\sorttecheffects.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="StandardMode" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons\standardmode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -252,5 +267,8 @@
   </data>
   <data name="UpgradeDependency" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons\upgradedependency.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UpTechEffect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons\uptecheffect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

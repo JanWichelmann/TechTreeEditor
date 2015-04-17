@@ -487,6 +487,9 @@ namespace X2AddOnTechTreeEditor
 						// Kind lediglich unterordnen
 						// Die Button-ID wird standardmäßig auf 0 gesetzt
 						parentBuilding.Children.Add(new Tuple<byte, TechTreeElement>(0, childBuilding));
+
+						// Kindelemente nach Button-ID sortieren
+						parentBuilding.Children.Sort((c1, c2) => c1.Item1.CompareTo(c2.Item1));
 					}
 					else
 					{
@@ -519,6 +522,9 @@ namespace X2AddOnTechTreeEditor
 					// Die Button-ID wird standardmäßig auf 0 gesetzt
 					parentBuilding.Children.Add(new Tuple<byte, TechTreeElement>(0, child));
 
+					// Kindelemente nach Button-ID sortieren
+					parentBuilding.Children.Sort((c1, c2) => c1.Item1.CompareTo(c2.Item1));
+
 					// Element aus Stammelement-Liste löschen
 					_techTreeParentElements.Remove(child);
 				}
@@ -540,6 +546,9 @@ namespace X2AddOnTechTreeEditor
 						// Kind lediglich unterordnen
 						// Die Button-ID wird standardmäßig auf 0 gesetzt
 						parentCreatable.Children.Add(new Tuple<byte, TechTreeElement>(0, childCreatable));
+
+						// Kindelemente nach Button-ID sortieren
+						parentCreatable.Children.Sort((c1, c2) => c1.Item1.CompareTo(c2.Item1));
 					}
 					else
 					{
@@ -571,6 +580,9 @@ namespace X2AddOnTechTreeEditor
 					// Element der Einheit als Kindelement unterordnen
 					// Die Button-ID wird standardmäßig auf 0 gesetzt
 					parentCreatable.Children.Add(new Tuple<byte, TechTreeElement>(0, child));
+
+					// Kindelemente nach Button-ID sortieren
+					parentCreatable.Children.Sort((c1, c2) => c1.Item1.CompareTo(c2.Item1));
 
 					// Element aus Stammelement-Liste löschen
 					_techTreeParentElements.Remove(child);
@@ -678,7 +690,7 @@ namespace X2AddOnTechTreeEditor
 
 				// Wenn Abhängigkeit noch nicht existiert, diese erstellen
 				if(!baseElemBuilding.BuildingDependencies.ContainsKey(dependency))
-					baseElemBuilding.BuildingDependencies.Add(dependency, 0);
+					baseElemBuilding.BuildingDependencies.Add(dependency, false);
 			}
 			else if(baseElemType == typeof(TechTreeResearch))
 			{
@@ -687,7 +699,7 @@ namespace X2AddOnTechTreeEditor
 
 				// Wenn Abhängigkeit noch nicht existiert, diese erstellen
 				if(!baseElemResearch.BuildingDependencies.ContainsKey(dependency))
-					baseElemResearch.BuildingDependencies.Add(dependency, 0);
+					baseElemResearch.BuildingDependencies.Add(dependency, false);
 			}
 		}
 
@@ -840,7 +852,7 @@ namespace X2AddOnTechTreeEditor
 			/// Die freien Elemente.
 			/// Dies sind Elemente, die automatisch entwickelt werden / verfügbar sind.
 			/// </summary>
-			public List<TechTreeElement> FreeElements { get; private set; }
+			public List<TechTreeResearch> FreeElements { get; private set; }
 
 			/// <summary>
 			/// Die zusätzlichen Civ-Boni.
@@ -859,7 +871,7 @@ namespace X2AddOnTechTreeEditor
 			{
 				// Objekte erstellen
 				BlockedElements = new List<TechTreeElement>();
-				FreeElements = new List<TechTreeElement>();
+				FreeElements = new List<TechTreeResearch>();
 				Bonuses = new List<TechEffect>();
 				TeamBonuses = new List<TechEffect>();
 			}
@@ -888,7 +900,20 @@ namespace X2AddOnTechTreeEditor
 				writer.WriteEndElement();
 
 				// Boni schreiben
-				// TODO
+				writer.WriteStartElement("bonuses");
+				{
+					// Effekte schreiben
+					Bonuses.ForEach(be => be.ToXml(writer, elementIDs));
+				}
+				writer.WriteEndElement();
+
+				// Team-Boni schreiben
+				writer.WriteStartElement("teambonuses");
+				{
+					// Effekte schreiben
+					TeamBonuses.ForEach(be => be.ToXml(writer, elementIDs));
+				}
+				writer.WriteEndElement();
 			}
 
 			/// <summary>
@@ -904,12 +929,19 @@ namespace X2AddOnTechTreeEditor
 					BlockedElements.Add(treeElements[(int)dep]);
 
 				// Freie Elemente einlesen
-				FreeElements = new List<TechTreeElement>();
+				FreeElements = new List<TechTreeResearch>();
 				foreach(XElement dep in element.Element("freeelements").Descendants("element"))
-					FreeElements.Add(treeElements[(int)dep]);
+					FreeElements.Add((TechTreeResearch)treeElements[(int)dep]);
 
 				// Boni einlesen
-				// TODO
+				Bonuses = new List<TechEffect>();
+				foreach(XElement dep in element.Element("bonuses").Descendants("effect"))
+					Bonuses.Add(new TechEffect(dep, treeElements));
+
+				// Team-Boni einlesen
+				TeamBonuses = new List<TechEffect>();
+				foreach(XElement dep in element.Element("teambonuses").Descendants("effect"))
+					TeamBonuses.Add(new TechEffect(dep, treeElements));
 			}
 		}
 

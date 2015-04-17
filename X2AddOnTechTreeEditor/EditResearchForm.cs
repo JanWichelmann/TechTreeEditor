@@ -60,7 +60,7 @@ namespace X2AddOnTechTreeEditor
 			{
 				// Zeile erstellen
 				DataGridViewRow row = new DataGridViewRow() { Tag = currD.Key };
-				row.Cells.Add(new DataGridViewTextBoxCell() { Value = currD.Value.ToString() });
+				row.Cells.Add(new DataGridViewCheckBoxCell() { Value = currD.Value });
 				row.Cells.Add(new DataGridViewTextBoxCell() { Value = currD.Key.Name });
 				_buildingDepView.Rows.Add(row);
 			}
@@ -70,24 +70,13 @@ namespace X2AddOnTechTreeEditor
 
 		#region Ereignishandler
 
-		private void _buildingDepView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+		private void _buildingDepView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
 			// Anzahl-Spalte
-			if(e.ColumnIndex == 0)
+			if(e.ColumnIndex == 0 && _research != null) // Verhindert, dass Ereignis schon bei Initialisierung ausgelöst wird
 			{
-				// Der Wert muss numerisch sein
-				int val = 0;
-				if(!int.TryParse((string)e.FormattedValue, out val) || val < 0)
-				{
-					// Fehler
-					MessageBox.Show("Bitte gib eine positive ganze Zahl an!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					e.Cancel = true;
-				}
-				else
-				{
-					// Wert speichern
-					_research.BuildingDependencies[(TechTreeBuilding)_buildingDepView.Rows[e.RowIndex].Tag] = val;
-				}
+				// Wert speichern
+				_research.BuildingDependencies[(TechTreeBuilding)_buildingDepView.Rows[e.RowIndex].Tag] = (bool)_buildingDepView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
 			}
 		}
 

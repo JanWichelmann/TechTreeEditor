@@ -34,6 +34,7 @@
 			this._statusStrip = new System.Windows.Forms.StatusStrip();
 			this._statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this._selectedNameLabel = new System.Windows.Forms.ToolStripStatusLabel();
+			this._renderPanel = new X2AddOnTechTreeEditor.RenderControl();
 			this._toolBoxBar = new System.Windows.Forms.ToolStrip();
 			this._newUnitButton = new System.Windows.Forms.ToolStripButton();
 			this._newBuildingButton = new System.Windows.Forms.ToolStripButton();
@@ -72,21 +73,23 @@
 			this._openProjectButton = new System.Windows.Forms.ToolStripButton();
 			this._saveProjectButton = new System.Windows.Forms.ToolStripButton();
 			this._exportDATButton = new System.Windows.Forms.ToolStripButton();
-			this._addToolsBar = new System.Windows.Forms.ToolStrip();
-			this._ageUpButton = new System.Windows.Forms.ToolStripButton();
-			this._ageDownButton = new System.Windows.Forms.ToolStripButton();
-			this._menuSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-			this._editAttributesButton = new System.Windows.Forms.ToolStripButton();
 			this._mainToolBar = new System.Windows.Forms.ToolStrip();
 			this._civSelectComboBox = new System.Windows.Forms.ToolStripComboBox();
 			this._menuSeparator12 = new System.Windows.Forms.ToolStripSeparator();
 			this._editGraphicsButton = new System.Windows.Forms.ToolStripButton();
+			this._editCivBoniButton = new System.Windows.Forms.ToolStripButton();
 			this._menuSeparator5 = new System.Windows.Forms.ToolStripSeparator();
 			this._editorModeButton = new System.Windows.Forms.ToolStripButton();
 			this._standardModeButton = new System.Windows.Forms.ToolStripButton();
 			this._menuSeparator6 = new System.Windows.Forms.ToolStripSeparator();
 			this._searchTextBox = new System.Windows.Forms.ToolStripTextBox();
 			this._searchLabel = new System.Windows.Forms.ToolStripLabel();
+			this._addToolsBar = new System.Windows.Forms.ToolStrip();
+			this._ageUpButton = new System.Windows.Forms.ToolStripButton();
+			this._ageDownButton = new System.Windows.Forms.ToolStripButton();
+			this._menuSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+			this._editAttributesButton = new System.Windows.Forms.ToolStripButton();
+			this._editElementPropertiesButton = new System.Windows.Forms.ToolStripButton();
 			this._techTreeElementContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this._standardElementCheckButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._menuSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -100,9 +103,6 @@
 			this._editAttributesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._editElementPropertiesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._openProjectDialog = new System.Windows.Forms.OpenFileDialog();
-			this._editElementPropertiesButton = new System.Windows.Forms.ToolStripButton();
-			this._renderPanel = new X2AddOnTechTreeEditor.RenderControl();
-			this._editCivBoniButton = new System.Windows.Forms.ToolStripButton();
 			this._menuContainer.BottomToolStripPanel.SuspendLayout();
 			this._menuContainer.ContentPanel.SuspendLayout();
 			this._menuContainer.LeftToolStripPanel.SuspendLayout();
@@ -113,8 +113,8 @@
 			this._toolBoxBar.SuspendLayout();
 			this._mainMenu.SuspendLayout();
 			this._projectToolBar.SuspendLayout();
-			this._addToolsBar.SuspendLayout();
 			this._mainToolBar.SuspendLayout();
+			this._addToolsBar.SuspendLayout();
 			this._techTreeElementContextMenu.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -165,6 +165,15 @@
 			// 
 			this._selectedNameLabel.Name = "_selectedNameLabel";
 			resources.ApplyResources(this._selectedNameLabel, "_selectedNameLabel");
+			// 
+			// _renderPanel
+			// 
+			resources.ApplyResources(this._renderPanel, "_renderPanel");
+			this._renderPanel.Name = "_renderPanel";
+			this._renderPanel.SelectionChanged += new X2AddOnTechTreeEditor.RenderControl.SelectionChangedEventHandler(this._renderPanel_SelectionChanged);
+			this._renderPanel.DoubleClick += new System.EventHandler(this._renderPanel_DoubleClick);
+			this._renderPanel.KeyDown += new System.Windows.Forms.KeyEventHandler(this._renderPanel_KeyDown);
+			this._renderPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this._renderPanel_MouseClick);
 			// 
 			// _toolBoxBar
 			// 
@@ -393,6 +402,7 @@
 			// _lockAllIDsMenuButton
 			// 
 			resources.ApplyResources(this._lockAllIDsMenuButton, "_lockAllIDsMenuButton");
+			this._lockAllIDsMenuButton.Image = global::X2AddOnTechTreeEditor.Icons.LockAll;
 			this._lockAllIDsMenuButton.Name = "_lockAllIDsMenuButton";
 			this._lockAllIDsMenuButton.Click += new System.EventHandler(this._lockAllIDsMenuButton_Click);
 			// 
@@ -448,47 +458,6 @@
 			this._exportDATButton.Name = "_exportDATButton";
 			this._exportDATButton.Click += new System.EventHandler(this._exportDATButton_Click);
 			// 
-			// _addToolsBar
-			// 
-			resources.ApplyResources(this._addToolsBar, "_addToolsBar");
-			this._addToolsBar.ImageScalingSize = new System.Drawing.Size(32, 32);
-			this._addToolsBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._ageUpButton,
-            this._ageDownButton,
-            this._menuSeparator11,
-            this._editAttributesButton,
-            this._editElementPropertiesButton});
-			this._addToolsBar.Name = "_addToolsBar";
-			// 
-			// _ageUpButton
-			// 
-			this._ageUpButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			resources.ApplyResources(this._ageUpButton, "_ageUpButton");
-			this._ageUpButton.Image = global::X2AddOnTechTreeEditor.Icons.AgeUp;
-			this._ageUpButton.Name = "_ageUpButton";
-			this._ageUpButton.Click += new System.EventHandler(this._ageUpButton_Click);
-			// 
-			// _ageDownButton
-			// 
-			this._ageDownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			resources.ApplyResources(this._ageDownButton, "_ageDownButton");
-			this._ageDownButton.Image = global::X2AddOnTechTreeEditor.Icons.AgeDown;
-			this._ageDownButton.Name = "_ageDownButton";
-			this._ageDownButton.Click += new System.EventHandler(this._ageDownButton_Click);
-			// 
-			// _menuSeparator11
-			// 
-			this._menuSeparator11.Name = "_menuSeparator11";
-			resources.ApplyResources(this._menuSeparator11, "_menuSeparator11");
-			// 
-			// _editAttributesButton
-			// 
-			this._editAttributesButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			resources.ApplyResources(this._editAttributesButton, "_editAttributesButton");
-			this._editAttributesButton.Image = global::X2AddOnTechTreeEditor.Icons.EditAttributes;
-			this._editAttributesButton.Name = "_editAttributesButton";
-			this._editAttributesButton.Click += new System.EventHandler(this._editAttributesButton_Click);
-			// 
 			// _mainToolBar
 			// 
 			resources.ApplyResources(this._mainToolBar, "_mainToolBar");
@@ -524,6 +493,14 @@
 			resources.ApplyResources(this._editGraphicsButton, "_editGraphicsButton");
 			this._editGraphicsButton.Image = global::X2AddOnTechTreeEditor.Icons.EditGraphics;
 			this._editGraphicsButton.Name = "_editGraphicsButton";
+			// 
+			// _editCivBoniButton
+			// 
+			this._editCivBoniButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			resources.ApplyResources(this._editCivBoniButton, "_editCivBoniButton");
+			this._editCivBoniButton.Image = global::X2AddOnTechTreeEditor.Icons.EditCivBoni;
+			this._editCivBoniButton.Name = "_editCivBoniButton";
+			this._editCivBoniButton.Click += new System.EventHandler(this._editCivBoniButton_Click);
 			// 
 			// _menuSeparator5
 			// 
@@ -566,6 +543,55 @@
 			this._searchLabel.BackgroundImage = global::X2AddOnTechTreeEditor.Icons.Search;
 			this._searchLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this._searchLabel.Name = "_searchLabel";
+			// 
+			// _addToolsBar
+			// 
+			resources.ApplyResources(this._addToolsBar, "_addToolsBar");
+			this._addToolsBar.ImageScalingSize = new System.Drawing.Size(32, 32);
+			this._addToolsBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._ageUpButton,
+            this._ageDownButton,
+            this._menuSeparator11,
+            this._editAttributesButton,
+            this._editElementPropertiesButton});
+			this._addToolsBar.Name = "_addToolsBar";
+			// 
+			// _ageUpButton
+			// 
+			this._ageUpButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			resources.ApplyResources(this._ageUpButton, "_ageUpButton");
+			this._ageUpButton.Image = global::X2AddOnTechTreeEditor.Icons.AgeUp;
+			this._ageUpButton.Name = "_ageUpButton";
+			this._ageUpButton.Click += new System.EventHandler(this._ageUpButton_Click);
+			// 
+			// _ageDownButton
+			// 
+			this._ageDownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			resources.ApplyResources(this._ageDownButton, "_ageDownButton");
+			this._ageDownButton.Image = global::X2AddOnTechTreeEditor.Icons.AgeDown;
+			this._ageDownButton.Name = "_ageDownButton";
+			this._ageDownButton.Click += new System.EventHandler(this._ageDownButton_Click);
+			// 
+			// _menuSeparator11
+			// 
+			this._menuSeparator11.Name = "_menuSeparator11";
+			resources.ApplyResources(this._menuSeparator11, "_menuSeparator11");
+			// 
+			// _editAttributesButton
+			// 
+			this._editAttributesButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			resources.ApplyResources(this._editAttributesButton, "_editAttributesButton");
+			this._editAttributesButton.Image = global::X2AddOnTechTreeEditor.Icons.EditAttributes;
+			this._editAttributesButton.Name = "_editAttributesButton";
+			this._editAttributesButton.Click += new System.EventHandler(this._editAttributesButton_Click);
+			// 
+			// _editElementPropertiesButton
+			// 
+			this._editElementPropertiesButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			resources.ApplyResources(this._editElementPropertiesButton, "_editElementPropertiesButton");
+			this._editElementPropertiesButton.Image = global::X2AddOnTechTreeEditor.Icons.EditElementBig;
+			this._editElementPropertiesButton.Name = "_editElementPropertiesButton";
+			this._editElementPropertiesButton.Click += new System.EventHandler(this._editElementPropertiesButton_Click);
 			// 
 			// _techTreeElementContextMenu
 			// 
@@ -661,30 +687,6 @@
 			// 
 			resources.ApplyResources(this._openProjectDialog, "_openProjectDialog");
 			// 
-			// _editElementPropertiesButton
-			// 
-			this._editElementPropertiesButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			resources.ApplyResources(this._editElementPropertiesButton, "_editElementPropertiesButton");
-			this._editElementPropertiesButton.Image = global::X2AddOnTechTreeEditor.Icons.EditElementBig;
-			this._editElementPropertiesButton.Name = "_editElementPropertiesButton";
-			this._editElementPropertiesButton.Click += new System.EventHandler(this._editElementPropertiesButton_Click);
-			// 
-			// _renderPanel
-			// 
-			resources.ApplyResources(this._renderPanel, "_renderPanel");
-			this._renderPanel.Name = "_renderPanel";
-			this._renderPanel.SelectionChanged += new X2AddOnTechTreeEditor.RenderControl.SelectionChangedEventHandler(this._renderPanel_SelectionChanged);
-			this._renderPanel.DoubleClick += new System.EventHandler(this._renderPanel_DoubleClick);
-			this._renderPanel.KeyDown += new System.Windows.Forms.KeyEventHandler(this._renderPanel_KeyDown);
-			this._renderPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this._renderPanel_MouseClick);
-			// 
-			// _editCivBoniButton
-			// 
-			this._editCivBoniButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			resources.ApplyResources(this._editCivBoniButton, "_editCivBoniButton");
-			this._editCivBoniButton.Image = global::X2AddOnTechTreeEditor.Icons.EditCivBoni;
-			this._editCivBoniButton.Name = "_editCivBoniButton";
-			// 
 			// MainForm
 			// 
 			resources.ApplyResources(this, "$this");
@@ -714,10 +716,10 @@
 			this._mainMenu.PerformLayout();
 			this._projectToolBar.ResumeLayout(false);
 			this._projectToolBar.PerformLayout();
-			this._addToolsBar.ResumeLayout(false);
-			this._addToolsBar.PerformLayout();
 			this._mainToolBar.ResumeLayout(false);
 			this._mainToolBar.PerformLayout();
+			this._addToolsBar.ResumeLayout(false);
+			this._addToolsBar.PerformLayout();
 			this._techTreeElementContextMenu.ResumeLayout(false);
 			this.ResumeLayout(false);
 

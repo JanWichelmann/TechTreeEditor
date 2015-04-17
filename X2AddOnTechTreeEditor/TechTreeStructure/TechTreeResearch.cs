@@ -233,7 +233,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			{
 				if(!elementIDs.ContainsKey(d.Key))
 					lastID = d.Key.ToXml(writer, elementIDs, lastID);
-				buildingDepIDs.Add(new KeyValuePair<int, int>(elementIDs[d.Key], d.Value));
+				buildingDepIDs.Add(new KeyValuePair<int, int>(elementIDs[d.Key], d.Value ? 1 : 0));
 			}
 
 			// Sicherstellen, dass alle von den Effekten referenzierten Elemente IDs haben
@@ -325,9 +325,9 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				Dependencies.Add((TechTreeResearch)previousElements[(int)dep]);
 
 			// Gebäude-Abhängigkeiten einlesen
-			BuildingDependencies = new Dictionary<TechTreeBuilding, int>();
+			BuildingDependencies = new Dictionary<TechTreeBuilding, bool>();
 			foreach(XElement dep in element.Element("buildingdependencies").Descendants("dependency"))
-				BuildingDependencies.Add((TechTreeBuilding)previousElements[(int)dep], (int)dep.Attribute("depcount"));
+				BuildingDependencies.Add((TechTreeBuilding)previousElements[(int)dep], ((int)dep.Attribute("depcount") > 0));
 
 			// Effekte lesen
 			Effects = new List<TechEffect>();

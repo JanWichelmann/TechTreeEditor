@@ -107,6 +107,12 @@
     <Compile Include="DoubleBufferedListBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="EditCivBonuses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCivBonuses.Designer.cs">
+      <DependentUpon>EditCivBonuses.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditResearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +192,12 @@
     <Compile Include="EditUnitAttributeForm.Designer.cs">
       <DependentUpon>EditUnitAttributeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TechEffectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TechEffectControl.Designer.cs">
+      <DependentUpon>TechEffectControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="TechTreeStructure\IUpgradeable.cs" />
     <Compile Include="TechTreeStructure\IChildrenContainer.cs" />
     <Compile Include="TechTreeStructure\TechEffect.cs" />
@@ -212,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\LanguageDLLControl.resx">
       <DependentUpon>LanguageDLLControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCivBonuses.resx">
+      <DependentUpon>EditCivBonuses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditResearchForm.en-US.resx">
       <DependentUpon>EditResearchForm.cs</DependentUpon>
@@ -292,6 +307,9 @@
     <EmbeddedResource Include="EditUnitAttributeForm.resx">
       <DependentUpon>EditUnitAttributeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TechEffectControl.resx">
+      <DependentUpon>TechEffectControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -352,6 +370,8 @@
     <Content Include="Icons\BuildingIcon.png" />
     <Content Include="Icons\DeadIcon.png" />
     <Content Include="Icons\DeleteDependency.png" />
+    <Content Include="Icons\DeleteTechEffect.png" />
+    <Content Include="Icons\DownTechEffect.png" />
     <Content Include="Icons\EditAttributes.png" />
     <Content Include="Icons\EditAttributesSmall.png" />
     <Content Include="Icons\EditCivBoni.png" />
@@ -361,13 +381,16 @@
     <Content Include="Icons\EditorMode.png" />
     <Content Include="Icons\ExportProject.png" />
     <Content Include="Icons\EyeCandyIcon.png" />
+    <Content Include="Icons\LockAll.png" />
     <Content Include="Icons\MakeAvailDependency.png" />
     <Content Include="Icons\NewDead.png" />
     <Content Include="Icons\NewEyeCandy.png" />
     <Content Include="Icons\NewProjectile.png" />
+    <Content Include="Icons\NewTechEffect.png" />
     <Content Include="Icons\ProjectileIcon.png" />
     <Content Include="Icons\ResearchIcon.png" />
     <Content Include="Icons\Search.png" />
+    <Content Include="Icons\SortTechEffects.png" />
     <Content Include="Icons\StandardMode.png" />
     <Content Include="Icons\Symbol32.png" />
     <Content Include="Icons\UnitIcon.png" />
@@ -380,6 +403,7 @@
     <None Include="Resources\ArmourClassesEN.txt" />
     <None Include="Resources\AttributesDE.txt" />
     <None Include="Resources\AttributesEN.txt" />
+    <Content Include="Icons\UpTechEffect.png" />
     <Content Include="symbol.ico" />
     <None Include="Resources\RenderFontConsolas.bmp" />
   </ItemGroup>

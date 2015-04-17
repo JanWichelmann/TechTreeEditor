@@ -82,7 +82,7 @@ namespace X2AddOnTechTreeEditor
 #if !DEBUG
 			ToolStripManager.LoadSettings(this, "ToolBarSettings");
 #endif
-			
+
 			// Kultur-Kopier-Leisten-Renderer setzen
 			_civCopyBar.Renderer = new CivCopyButtonRenderer();
 
@@ -460,7 +460,7 @@ namespace X2AddOnTechTreeEditor
 					}
 					else
 					{
-						_freeForCivCheckButton.Enabled = true;
+						_freeForCivCheckButton.Enabled = (_selectedElement.GetType() == typeof(TechTreeResearch));
 						_freeForCivCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.Free) == TechTreeElement.ElementFlags.Free);
 					}
 				}
@@ -1012,20 +1012,20 @@ namespace X2AddOnTechTreeEditor
 		private void _freeForCivCheckButton_CheckedChanged(object sender, EventArgs e)
 		{
 			// Element ausgewählt?
-			if(_selectedElement != null)
+			if(_selectedElement != null && _selectedElement.GetType() == typeof(TechTreeResearch))
 			{
 				// Kultur-Kostenlos-Liste aktualisieren
 				if(_freeForCivCheckButton.Checked)
 				{
 					// Element kostenlos machen
-					if(!_currCivConfig.FreeElements.Contains(_selectedElement))
-						_currCivConfig.FreeElements.Add(_selectedElement);
+					if(!_currCivConfig.FreeElements.Contains((TechTreeResearch)_selectedElement))
+						_currCivConfig.FreeElements.Add((TechTreeResearch)_selectedElement);
 				}
 				else
 				{
 					// Element aus Liste löschen
-					if(_currCivConfig.FreeElements.Contains(_selectedElement))
-						_currCivConfig.FreeElements.Remove(_selectedElement);
+					if(_currCivConfig.FreeElements.Contains((TechTreeResearch)_selectedElement))
+						_currCivConfig.FreeElements.Remove((TechTreeResearch)_selectedElement);
 				}
 
 				// Flag aktualisieren
@@ -1329,6 +1329,13 @@ namespace X2AddOnTechTreeEditor
 			exportDialog.ShowDialog();
 		}
 
+		private void _editCivBoniButton_Click(object sender, EventArgs e)
+		{
+			// Dialog anzeigen
+			EditCivBonuses bonusDialog = new EditCivBonuses(_projectFile, _currCivConfig);
+			bonusDialog.ShowDialog();
+		}
+
 		#endregion Ereignishandler
 
 		#region Enumerationen
@@ -1454,7 +1461,7 @@ namespace X2AddOnTechTreeEditor
 						e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(255, 194, 110)), bounds);
 
 						// Einen schönen "3D"-Rahmen zeichnen
-						e.Graphics.DrawLine(new Pen(Color.FromArgb(138,89,21)), new Point(bounds.Left, bounds.Bottom), new Point(bounds.Left, bounds.Top));
+						e.Graphics.DrawLine(new Pen(Color.FromArgb(138, 89, 21)), new Point(bounds.Left, bounds.Bottom), new Point(bounds.Left, bounds.Top));
 						e.Graphics.DrawLine(new Pen(Color.FromArgb(138, 89, 21)), new Point(bounds.Left, bounds.Top), new Point(bounds.Right, bounds.Top));
 					}
 					else

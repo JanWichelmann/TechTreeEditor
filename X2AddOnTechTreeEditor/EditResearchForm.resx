@@ -117,6 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="_buildingDepViewCountColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_buildingDepViewCountColumn.HeaderText" xml:space="preserve">
+    <value>Weitere?</value>
+  </data>
+  <metadata name="_buildingDepViewNameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_buildingDepViewNameColumn.HeaderText" xml:space="preserve">
+    <value>Gebäude</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_buildingDepView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_buildingDepView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>531, 134</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_buildingDepView.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
   <data name="&gt;&gt;_buildingDepView.Name" xml:space="preserve">
     <value>_buildingDepView</value>
   </data>
@@ -129,14 +152,12 @@
   <data name="&gt;&gt;_buildingDepView.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="_buildingDependencyGroupBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
   </data>
   <data name="_buildingDependencyGroupBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>543, 160</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="_buildingDependencyGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -154,45 +175,6 @@
   </data>
   <data name="&gt;&gt;_buildingDependencyGroupBox.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <metadata name="_buildingDepViewCountColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="_buildingDepViewNameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="_buildingDepView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
-  </data>
-  <data name="_buildingDepView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>531, 134</value>
-  </data>
-  <data name="_buildingDepView.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;_buildingDepView.Name" xml:space="preserve">
-    <value>_buildingDepView</value>
-  </data>
-  <data name="&gt;&gt;_buildingDepView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_buildingDepView.Parent" xml:space="preserve">
-    <value>_buildingDependencyGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_buildingDepView.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="_buildingDepViewCountColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="_buildingDepViewCountColumn.HeaderText" xml:space="preserve">
-    <value>Erforderl.</value>
-  </data>
-  <metadata name="_buildingDepViewNameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="_buildingDepViewNameColumn.HeaderText" xml:space="preserve">
-    <value>Gebäude</value>
   </data>
   <data name="_closeButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>410, 178</value>
@@ -612,7 +594,7 @@
     <value>_buildingDepViewCountColumn</value>
   </data>
   <data name="&gt;&gt;_buildingDepViewCountColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;_buildingDepViewNameColumn.Name" xml:space="preserve">
     <value>_buildingDepViewNameColumn</value>

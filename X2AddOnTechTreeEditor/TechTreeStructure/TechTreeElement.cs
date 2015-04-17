@@ -68,9 +68,9 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		public bool ShadowElement { get; set; }
 
 		/// <summary>
-		/// Enthält die Liste der Gebäude, von denen dieses Element abhängig ist. Die Zahl ist die Anzahl der verbleibenden zusätzlichen Abhängigkeiten.
+		/// Enthält die Liste der Gebäude, von denen dieses Element abhängig ist. Der Boolean-Wert gibt an, ob noch ein weiteres Gebäude erforderlich ist.
 		/// </summary>
-		public Dictionary<TechTreeBuilding, int> BuildingDependencies { get; protected set; }
+		public Dictionary<TechTreeBuilding, bool> BuildingDependencies { get; protected set; }
 
 		#endregion Öffentlich
 
@@ -161,7 +161,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			Selected = false;
 			Hovered = false;
 			ShadowElement = false;
-			BuildingDependencies = new Dictionary<TechTreeBuilding, int>();
+			BuildingDependencies = new Dictionary<TechTreeBuilding, bool>();
 		}
 
 		/// <summary>

@@ -173,6 +173,26 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DeleteTechEffect {
+            get {
+                object obj = ResourceManager.GetObject("DeleteTechEffect", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DownTechEffect {
+            get {
+                object obj = ResourceManager.GetObject("DownTechEffect", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap EditAttributes {
             get {
                 object obj = ResourceManager.GetObject("EditAttributes", resourceCulture);
@@ -313,6 +333,16 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LockAll {
+            get {
+                object obj = ResourceManager.GetObject("LockAll", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MakeAvailDependency {
             get {
                 object obj = ResourceManager.GetObject("MakeAvailDependency", resourceCulture);
@@ -393,6 +423,16 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap NewTechEffect {
+            get {
+                object obj = ResourceManager.GetObject("NewTechEffect", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap NewUnit {
             get {
                 object obj = ResourceManager.GetObject("NewUnit", resourceCulture);
@@ -463,6 +503,16 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SortTechEffects {
+            get {
+                object obj = ResourceManager.GetObject("SortTechEffects", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap StandardMode {
             get {
                 object obj = ResourceManager.GetObject("StandardMode", resourceCulture);
@@ -506,6 +556,16 @@ namespace X2AddOnTechTreeEditor {
         internal static System.Drawing.Bitmap UpgradeDependency {
             get {
                 object obj = ResourceManager.GetObject("UpgradeDependency", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UpTechEffect {
+            get {
+                object obj = ResourceManager.GetObject("UpTechEffect", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

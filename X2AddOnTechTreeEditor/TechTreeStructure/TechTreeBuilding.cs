@@ -27,7 +27,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// Die direkte Weiterentwicklung dieses Elements.
 		/// </summary>
 		public TechTreeUnit Successor { get; set; }
-		
+
 		/// <summary>
 		/// Die Technologie, die dieses Element weiterentwickelt.
 		/// </summary>
@@ -421,7 +421,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			{
 				if(!elementIDs.ContainsKey(d.Key))
 					lastID = d.Key.ToXml(writer, elementIDs, lastID);
-				buildingDepIDs.Add(new Tuple<int, int>(elementIDs[d.Key], d.Value));
+				buildingDepIDs.Add(new Tuple<int, int>(elementIDs[d.Key], d.Value ? 1 : 0));
 			}
 
 			// Age-Upgrade-IDs abrufen
@@ -591,9 +591,9 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 				Children.Add(new Tuple<byte, TechTreeElement>((byte)(uint)child.Attribute("button"), previousElements[(int)child]));
 
 			// Gebäude-Abhängigkeiten einlesen
-			BuildingDependencies = new Dictionary<TechTreeBuilding, int>();
+			BuildingDependencies = new Dictionary<TechTreeBuilding, bool>();
 			foreach(XElement dep in element.Element("buildingdependencies").Descendants("dependency"))
-				BuildingDependencies.Add((TechTreeBuilding)previousElements[(int)dep], (int)dep.Attribute("depcount"));
+				BuildingDependencies.Add((TechTreeBuilding)previousElements[(int)dep], ((int)dep.Attribute("depcount") > 0));
 
 			// Zeitalter-Upgrades einlesen
 			AgeUpgrades = new Dictionary<int, TechTreeBuilding>();
