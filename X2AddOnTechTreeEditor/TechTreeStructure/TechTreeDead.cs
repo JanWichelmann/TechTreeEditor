@@ -32,10 +32,6 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			ShadowElement = true;
 		}
 
-		#endregion
-
-		#region Funktionen
-
 		protected override void DrawChildren(Point position, List<int> ageOffsets, int parentAgeOffset)
 		{
 			// Nichts zu tun
@@ -52,6 +48,12 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		}
 
 		public override List<TechTreeElement> GetChildren()
+		{
+			// Keine Kinder vorhanden
+			return new List<TechTreeElement>();
+		}
+
+		public override List<TechTreeElement> GetVisibleChildren()
 		{
 			// Keine Kinder vorhanden
 			return new List<TechTreeElement>();

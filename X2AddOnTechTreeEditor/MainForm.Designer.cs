@@ -493,6 +493,7 @@
 			resources.ApplyResources(this._editGraphicsButton, "_editGraphicsButton");
 			this._editGraphicsButton.Image = global::X2AddOnTechTreeEditor.Icons.EditGraphics;
 			this._editGraphicsButton.Name = "_editGraphicsButton";
+			this._editGraphicsButton.Click += new System.EventHandler(this._editGraphicsButton_Click);
 			// 
 			// _editCivBoniButton
 			// 

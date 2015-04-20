@@ -917,7 +917,7 @@ namespace X2AddOnTechTreeEditor
 				_projectFile.TechTreeParentElements = new List<TechTreeElement>(buildings);
 				_projectFile.TechTreeParentElements.AddRange(otherUnitsLookup.Select(elem => elem.Value));
 				_projectFile.TechTreeParentElements.Distinct();
-				_projectFile.TechTreeParentElements.RemoveAll(p => _projectFile.TechTreeParentElements.Exists(p2 => p2 != p && p2.HasChild(p)));
+				_projectFile.TechTreeParentElements.RemoveAll(p => _projectFile.TechTreeParentElements.Exists(p2 => p2 != p && !p.ShadowElement && p2.HasChild(p)));
 				_projectFile.TechTreeParentElements.ForEach(elem =>
 				{
 					if(elem.GetType() == typeof(TechTreeBuilding) && elem.ShadowElement)

@@ -278,7 +278,7 @@ namespace X2AddOnTechTreeEditor
 
 				// Suchstring angegeben?
 				if(newVal && !string.IsNullOrWhiteSpace(_currentSearchText))
-					newVal = elem.HasChildWithName(_currentSearchText);
+					newVal = elem.HasChildWithName(_currentSearchText, true);
 
 				// Anzeigewert merken
 				_techTreeParentElements[elem] = newVal;
@@ -546,7 +546,7 @@ namespace X2AddOnTechTreeEditor
 			box.UnlockBits(data);
 			box.Dispose();
 			icon.Dispose();
-			
+
 			// Textur-ID zurückgeben
 			return texID;
 		}

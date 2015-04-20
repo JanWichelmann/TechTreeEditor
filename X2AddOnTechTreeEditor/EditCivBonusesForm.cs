@@ -14,7 +14,7 @@ namespace X2AddOnTechTreeEditor
 	/// <summary>
 	/// Definiert ein Fenster zum Editieren der Kultur-Boni.
 	/// </summary>
-	public partial class EditCivBonuses : Form
+	public partial class EditCivBonusesForm : Form
 	{
 		#region Variablen
 
@@ -35,7 +35,7 @@ namespace X2AddOnTechTreeEditor
 		/// <summary>
 		/// Konstruktor.
 		/// </summary>
-		private EditCivBonuses()
+		private EditCivBonusesForm()
 		{
 			// Steuerelemente laden
 			InitializeComponent();
@@ -46,7 +46,7 @@ namespace X2AddOnTechTreeEditor
 		/// </summary>
 		/// <param name="projectFile">Die zu aktuellen Projektdaten.</param>
 		/// <param name="civConfig">Das zu ändernde Kultur-Baum-Objekt.</param>
-		public EditCivBonuses(TechTreeFile projectFile, TechTreeFile.CivTreeConfig civConfig)
+		public EditCivBonusesForm(TechTreeFile projectFile, TechTreeFile.CivTreeConfig civConfig)
 			: this()
 		{
 			// Parameter merken

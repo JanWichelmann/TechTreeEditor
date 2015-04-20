@@ -63,7 +63,6 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// <summary>
 		/// Gibt an, ob dieses Element ein "Schattenelement" ist, d.h. zwar referenziert, aber im Baum nicht angezeigt wird.
 		/// Wird lediglich als Hilfsvariable beim Zeichnen abgefragt.
-		/// TODO: Entfernen?
 		/// </summary>
 		public bool ShadowElement { get; set; }
 
@@ -117,6 +116,13 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// </summary>
 		/// <returns></returns>
 		public abstract List<TechTreeElement> GetChildren();
+
+		/// <summary>
+		/// Ruft eine Liste mit den sichtbaren (= gerenderten) Kindelementen ab.
+		/// Dies wird zur schöneren Umsetzung der Filterfunktion benutzt, damit Schattenelemente nicht als Kind betrachtet werden.
+		/// </summary>
+		/// <returns></returns>
+		public abstract List<TechTreeElement> GetVisibleChildren();
 
 		/// <summary>
 		/// Gibt das übergebene Element frei, falls es diesem Element untergeordnet sein sollte.
@@ -391,15 +397,19 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		/// Prüft, ob eines der Kindelemente in seinem Namen den gegebenen String enthält.
 		/// </summary>
 		/// <param name="value">Der zu suchende Name.</param>
+		/// <param name="onlyVisibleElements">Optional. Gibt an, ob nur ssichtbare (= gerenderte) Elemente besucht werden sollen.</param>
 		/// <returns></returns>
-		public bool HasChildWithName(string value)
+		public bool HasChildWithName(string value, bool onlyVisibleElements = false)
 		{
 			// Kind-Element?
 			if(Name.Contains(value, StringComparison.OrdinalIgnoreCase))
 				return true;
 
 			// Rekursiver Aufruf
-			return GetChildren().Exists(c => c.HasChildWithName(value));
+			if(onlyVisibleElements)
+				return GetVisibleChildren().Exists(c => c.HasChildWithName(value, true));
+			else
+				return GetChildren().Exists(c => c.HasChildWithName(value));
 		}
 
 		/// <summary>

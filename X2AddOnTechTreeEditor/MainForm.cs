@@ -705,7 +705,8 @@ namespace X2AddOnTechTreeEditor
 						}
 						break;
 
-					// Neue erschaffbare Einheit erstellen
+					// Neue Einheit erstellen
+					// TODO: Das sollte eigentlich nach Typen aufgespalten werden...
 					case TreeOperations.NewCreatable:
 					case TreeOperations.NewBuilding:
 					case TreeOperations.NewEyeCandy:
@@ -721,29 +722,60 @@ namespace X2AddOnTechTreeEditor
 								{
 									newU = (TechTreeUnit)_projectFile.CreateElement("TechTreeCreatable");
 									newU.Flags = _selectedElement.Flags & ~TechTreeElement.ElementFlags.RenderingFlags;
-									((TechTreeCreatable)newU).StandardElement = ((TechTreeCreatable)_selectedElement).StandardElement;
+
+									// Parameter kopieren
+									TechTreeCreatable newUTemp = ((TechTreeCreatable)newU);
+									TechTreeCreatable selUTemp = ((TechTreeCreatable)_selectedElement);
+									newUTemp.DeadUnit = selUTemp.DeadUnit;
+									newUTemp.StandardElement = selUTemp.StandardElement;
+									newUTemp.EnablerResearch = selUTemp.EnablerResearch;
+									newUTemp.TrackingUnit = selUTemp.TrackingUnit;
+									newUTemp.DropSite1Unit = selUTemp.DropSite1Unit;
+									newUTemp.DropSite2Unit = selUTemp.DropSite2Unit;
+									newUTemp.ProjectileUnit = selUTemp.ProjectileUnit;
+									newUTemp.ProjectileDuplicationUnit = selUTemp.ProjectileDuplicationUnit;
 								}
-								if(_selectedElement.GetType() == typeof(TechTreeBuilding))
+								else if(_selectedElement.GetType() == typeof(TechTreeBuilding))
 								{
 									newU = (TechTreeUnit)_projectFile.CreateElement("TechTreeBuilding");
 									newU.Flags = _selectedElement.Flags & ~TechTreeElement.ElementFlags.RenderingFlags;
-									((TechTreeBuilding)newU).StandardElement = ((TechTreeBuilding)_selectedElement).StandardElement;
+
+									// Parameter kopieren
+									TechTreeBuilding newUTemp = ((TechTreeBuilding)newU);
+									TechTreeBuilding selUTemp = ((TechTreeBuilding)_selectedElement);
+									newUTemp.DeadUnit = selUTemp.DeadUnit;
+									newUTemp.StandardElement = selUTemp.StandardElement;
+									newUTemp.EnablerResearch = selUTemp.EnablerResearch;
+									foreach(var au in selUTemp.AgeUpgrades)
+										newUTemp.AgeUpgrades.Add(au.Key, au.Value);
+									newUTemp.ProjectileUnit = selUTemp.ProjectileUnit;
+									newUTemp.ProjectileDuplicationUnit = selUTemp.ProjectileDuplicationUnit;
+									newUTemp.StackUnit = selUTemp.StackUnit;
+									newUTemp.HeadUnit = selUTemp.HeadUnit;
+									newUTemp.TransformUnit = selUTemp.TransformUnit;
+									foreach(var annex in selUTemp.AnnexUnits)
+										newUTemp.AnnexUnits.Add(annex);
 								}
-								if(_selectedElement.GetType() == typeof(TechTreeEyeCandy))
+								else if(_selectedElement.GetType() == typeof(TechTreeEyeCandy))
 								{
 									newU = (TechTreeUnit)_projectFile.CreateElement("TechTreeEyeCandy");
 									newU.Flags = _selectedElement.Flags & ~TechTreeElement.ElementFlags.RenderingFlags;
 								}
-								if(_selectedElement.GetType() == typeof(TechTreeProjectile))
+								else if(_selectedElement.GetType() == typeof(TechTreeProjectile))
 								{
 									newU = (TechTreeUnit)_projectFile.CreateElement("TechTreeProjectile");
 									newU.Flags = _selectedElement.Flags & ~TechTreeElement.ElementFlags.RenderingFlags;
+
+									// Parameter kopieren
+									((TechTreeProjectile)newU).TrackingUnit = ((TechTreeProjectile)_selectedElement).TrackingUnit;
 								}
-								if(_selectedElement.GetType() == typeof(TechTreeDead))
+								else if(_selectedElement.GetType() == typeof(TechTreeDead))
 								{
 									newU = (TechTreeUnit)_projectFile.CreateElement("TechTreeDead");
 									newU.Flags = _selectedElement.Flags & ~TechTreeElement.ElementFlags.RenderingFlags;
 								}
+								else
+									break; // Warum auch immer
 
 								// DAT-Einheit auf Basis der des ausgewählten Elements erstellen
 								GenieLibrary.DataElements.Civ.Unit newUDAT = (GenieLibrary.DataElements.Civ.Unit)((TechTreeUnit)_selectedElement).DATUnit.Clone();
@@ -763,8 +795,9 @@ namespace X2AddOnTechTreeEditor
 								// Technologie als Elternelement setzen und an den Anfang stellen
 								_projectFile.TechTreeParentElements.Insert(0, newU);
 
-								// Icon erstellen
+								// Icon und Namen erstellen
 								newU.CreateIconTexture(_renderPanel.LoadIconAsTexture);
+								newU.UpdateName(_projectFile.LanguageFileWrapper);
 
 								// Baum neu berechnen
 								_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
@@ -1111,74 +1144,6 @@ namespace X2AddOnTechTreeEditor
 		{
 			// Ist etwas ausgewählt?
 			if(_selectedElement != null)
-			{
-				// Typ abrufen
-				Type elemType = _selectedElement.GetType();
-
-				// Nach Typ vom aktuell ausgewählten Element unterscheiden
-				if(elemType == typeof(TechTreeBuilding))
-				{
-					// Gebäude-Dialog anzeigen
-					EditBuildingForm form = new EditBuildingForm(_projectFile, (TechTreeBuilding)_selectedElement);
-					form.ShowDialog();
-				}
-				else if(elemType == typeof(TechTreeCreatable))
-				{
-					// Einheit-Dialog anzeigen
-					EditCreatableForm form = new EditCreatableForm(_projectFile, (TechTreeCreatable)_selectedElement);
-					form.ShowDialog();
-				}
-				else if(elemType == typeof(TechTreeProjectile))
-				{
-					// Einheit-Dialog anzeigen
-					EditProjectileForm form = new EditProjectileForm(_projectFile, (TechTreeProjectile)_selectedElement);
-					form.ShowDialog();
-				}
-				else if(elemType == typeof(TechTreeResearch))
-				{
-					// Einheit-Dialog anzeigen
-					EditResearchForm form = new EditResearchForm(_projectFile, (TechTreeResearch)_selectedElement);
-					form.ShowDialog();
-				}
-			}
-		}
-
-		private void _editElementPropertiesMenuButton_Click(object sender, EventArgs e)
-		{
-			// Kontextmenü ausblenden
-			_techTreeElementContextMenu.AutoClose = true;
-			_techTreeElementContextMenu.Hide();
-
-			// Dasselbe tun wie beim Doppelklick
-			_renderPanel_DoubleClick(sender, e);
-		}
-
-		private void _editElementPropertiesButton_Click(object sender, EventArgs e)
-		{
-			// Dasselbe tun wie beim Doppelklick
-			_renderPanel_DoubleClick(sender, e);
-		}
-
-		private void _searchTextBox_TextChanged(object sender, EventArgs e)
-		{
-			// Such-Befehl weitergeben
-			_renderPanel.UpdateSearchText(_searchTextBox.Text);
-		}
-
-		private void _editAttributesMenuButton_Click(object sender, EventArgs e)
-		{
-			// Kontextmenü ausblenden
-			_techTreeElementContextMenu.AutoClose = true;
-			_techTreeElementContextMenu.Hide();
-
-			// Das gleiche tun wie beim ToolBar-Button
-			_editAttributesButton_Click(sender, e);
-		}
-
-		private void _editAttributesButton_Click(object sender, EventArgs e)
-		{
-			// Nach Typ unterscheiden
-			if(_selectedElement != null)
 				if(_selectedElement.GetType() == typeof(TechTreeResearch))
 				{
 					// Fenster anzeigen
@@ -1203,6 +1168,70 @@ namespace X2AddOnTechTreeEditor
 					};
 					form.ShowDialog();
 				}
+		}
+
+		private void _editElementPropertiesMenuButton_Click(object sender, EventArgs e)
+		{
+			// Kontextmenü ausblenden
+			_techTreeElementContextMenu.AutoClose = true;
+			_techTreeElementContextMenu.Hide();
+
+			// Dasselbe tun wie beim Toolbar-Button
+			_editElementPropertiesButton_Click(sender, e);
+		}
+
+		private void _editElementPropertiesButton_Click(object sender, EventArgs e)
+		{
+			// Typ abrufen
+			Type elemType = _selectedElement.GetType();
+
+			// Nach Typ vom aktuell ausgewählten Element unterscheiden
+			if(elemType == typeof(TechTreeBuilding))
+			{
+				// Gebäude-Dialog anzeigen
+				EditBuildingForm form = new EditBuildingForm(_projectFile, (TechTreeBuilding)_selectedElement);
+				form.ShowDialog();
+			}
+			else if(elemType == typeof(TechTreeCreatable))
+			{
+				// Einheit-Dialog anzeigen
+				EditCreatableForm form = new EditCreatableForm(_projectFile, (TechTreeCreatable)_selectedElement);
+				form.ShowDialog();
+			}
+			else if(elemType == typeof(TechTreeProjectile))
+			{
+				// Einheit-Dialog anzeigen
+				EditProjectileForm form = new EditProjectileForm(_projectFile, (TechTreeProjectile)_selectedElement);
+				form.ShowDialog();
+			}
+			else if(elemType == typeof(TechTreeResearch))
+			{
+				// Einheit-Dialog anzeigen
+				EditResearchForm form = new EditResearchForm(_projectFile, (TechTreeResearch)_selectedElement);
+				form.ShowDialog();
+			}
+		}
+
+		private void _searchTextBox_TextChanged(object sender, EventArgs e)
+		{
+			// Such-Befehl weitergeben
+			_renderPanel.UpdateSearchText(_searchTextBox.Text);
+		}
+
+		private void _editAttributesMenuButton_Click(object sender, EventArgs e)
+		{
+			// Kontextmenü ausblenden
+			_techTreeElementContextMenu.AutoClose = true;
+			_techTreeElementContextMenu.Hide();
+
+			// Das gleiche tun wie beim Doppelklick
+			_renderPanel_DoubleClick(sender, e);
+		}
+
+		private void _editAttributesButton_Click(object sender, EventArgs e)
+		{
+			// Das gleiche tun wie beim Doppelklick
+			_renderPanel_DoubleClick(sender, e);
 		}
 
 		private void _newUnitButton_Click(object sender, EventArgs e)
@@ -1302,8 +1331,11 @@ namespace X2AddOnTechTreeEditor
 					_freeForCivCheckButton.Checked = !_freeForCivCheckButton.Checked;
 
 				// Hotkey zum Anzeigen des Attributfensters
+				if(e.KeyCode == Keys.Space)
+					_editAttributesMenuButton_Click(sender, EventArgs.Empty);
+				// Hotkey zum Anzeigen des Baumeigenschaftenfensters
 				if(e.KeyCode == Keys.Enter)
-					_editAttributesButton_Click(sender, EventArgs.Empty);
+					_editElementPropertiesMenuButton_Click(sender, EventArgs.Empty);
 
 				// Hotkey zum Löschen eines Elements
 				if(e.KeyCode == Keys.Delete)
@@ -1332,8 +1364,15 @@ namespace X2AddOnTechTreeEditor
 		private void _editCivBoniButton_Click(object sender, EventArgs e)
 		{
 			// Dialog anzeigen
-			EditCivBonuses bonusDialog = new EditCivBonuses(_projectFile, _currCivConfig);
+			EditCivBonusesForm bonusDialog = new EditCivBonusesForm(_projectFile, _currCivConfig);
 			bonusDialog.ShowDialog();
+		}
+
+		private void _editGraphicsButton_Click(object sender, EventArgs e)
+		{
+			// Dialog anzeigen
+			EditGraphicsForm graphicDialog = new EditGraphicsForm(_projectFile);
+			graphicDialog.ShowDialog();
 		}
 
 		#endregion Ereignishandler

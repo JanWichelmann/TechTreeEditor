@@ -173,6 +173,16 @@ namespace X2AddOnTechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DeleteGraphic {
+            get {
+                object obj = ResourceManager.GetObject("DeleteGraphic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DeleteTechEffect {
             get {
                 object obj = ResourceManager.GetObject("DeleteTechEffect", resourceCulture);
@@ -386,6 +396,16 @@ namespace X2AddOnTechTreeEditor {
         internal static System.Drawing.Bitmap NewEyeCandy {
             get {
                 object obj = ResourceManager.GetObject("NewEyeCandy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NewGraphic {
+            get {
+                object obj = ResourceManager.GetObject("NewGraphic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

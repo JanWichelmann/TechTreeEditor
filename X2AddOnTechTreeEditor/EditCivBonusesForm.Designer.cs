@@ -1,6 +1,6 @@
 ﻿namespace X2AddOnTechTreeEditor
 {
-	partial class EditCivBonuses
+	partial class EditCivBonusesForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditCivBonuses));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditCivBonusesForm));
 			this._bottomPanel = new System.Windows.Forms.Panel();
 			this._closeButton = new System.Windows.Forms.Button();
 			this._mainPanel = new System.Windows.Forms.Panel();

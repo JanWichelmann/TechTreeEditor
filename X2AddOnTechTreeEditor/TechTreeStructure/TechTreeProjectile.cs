@@ -63,6 +63,12 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 			return new List<TechTreeElement>();
 		}
 
+		public override List<TechTreeElement> GetVisibleChildren()
+		{
+			// Keine Kinder vorhanden
+			return new List<TechTreeElement>();
+		}
+
 		public override void RemoveChild(TechTreeElement child)
 		{
 			// Dieses Element hat keine Kinder

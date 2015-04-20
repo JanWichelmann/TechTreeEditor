@@ -1,9 +1,10 @@
 ﻿using IORAMHelper;
 using System.Collections.Generic;
+using System;
 
 namespace GenieLibrary.DataElements
 {
-	public class Graphic : IGenieDataElement
+	public class Graphic : IGenieDataElement, ICloneable
 	{
 		#region Variablen
 
@@ -24,7 +25,12 @@ namespace GenieLibrary.DataElements
 		public byte PlayerColor;
 		public byte Rainbow;
 		public byte Replay;
+
+		/// <summary>
+		/// Länge: 4.
+		/// </summary>
 		public List<short> Coordinates;
+
 		public short SoundID;
 		public byte AttackSoundUsed;
 		public ushort FrameCount;
@@ -37,6 +43,10 @@ namespace GenieLibrary.DataElements
 		public byte MirroringMode;
 		public byte Unknown3;
 		public List<GraphicDelta> Deltas;
+
+		/// <summary>
+		/// Länge: AngleCount.
+		/// </summary>
 		public List<GraphicAttackSound> AttackSounds;
 
 		#endregion Variablen
@@ -123,6 +133,10 @@ namespace GenieLibrary.DataElements
 			}
 		}
 
+		/// <summary>
+		/// Gibt eine eindeutige Repräsentation dieser Grafik bestehend aus ID und Name zurück.
+		/// </summary>
+		/// <returns></returns>
 		public override string ToString()
 		{
 			if(ID >= 0)
@@ -131,11 +145,36 @@ namespace GenieLibrary.DataElements
 				return "None";
 		}
 
+		/// <summary>
+		/// Gibt eine tiefe Kopie dieses Objekts zurück.
+		/// </summary>
+		/// <returns></returns>
+		public object Clone()
+		{
+			// Erstmal alle Wert-Typen kopieren
+			Graphic clone = (Graphic)this.MemberwiseClone();
+
+			// Referenztypen kopieren
+			clone.Name1 = (string)Name1.Clone();
+			clone.Name2 = (string)Name2.Clone();
+			clone.Coordinates = new List<short>(Coordinates);
+			if(AttackSounds != null)
+			{
+				clone.AttackSounds = new List<GraphicAttackSound>();
+				AttackSounds.ForEach(a => clone.AttackSounds.Add((GraphicAttackSound)a.Clone()));
+			}
+			clone.Deltas = new List<GraphicDelta>(Deltas.Count);
+			Deltas.ForEach(d => clone.Deltas.Add((GraphicDelta)d.Clone()));
+
+			// Fertig
+			return clone;
+		}
+
 		#endregion Funktionen
 
 		#region Strukturen
 
-		public class GraphicAttackSound : IGenieDataElement
+		public class GraphicAttackSound : IGenieDataElement, ICloneable
 		{
 			#region Variablen
 
@@ -170,10 +209,20 @@ namespace GenieLibrary.DataElements
 				buffer.WriteShort(SoundID3);
 			}
 
+			/// <summary>
+			/// Gibt eine tiefe Kopie dieses Objekts zurück.
+			/// </summary>
+			/// <returns></returns>
+			public object Clone()
+			{
+				// Nur Wert-Typen vorhanden
+				return this.MemberwiseClone();
+			}
+
 			#endregion Funktionen
 		}
 
-		public class GraphicDelta : IGenieDataElement
+		public class GraphicDelta : IGenieDataElement, ICloneable
 		{
 			#region Variablen
 
@@ -212,6 +261,16 @@ namespace GenieLibrary.DataElements
 				buffer.WriteShort(DirectionY);
 				buffer.WriteShort(Unknown4);
 				buffer.WriteShort(Unknown5);
+			}
+
+			/// <summary>
+			/// Gibt eine tiefe Kopie dieses Objekts zurück.
+			/// </summary>
+			/// <returns></returns>
+			public object Clone()
+			{
+				// Nur Wert-Typen vorhanden
+				return this.MemberwiseClone();
 			}
 
 			#endregion Funktionen

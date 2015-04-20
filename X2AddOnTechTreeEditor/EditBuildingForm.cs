@@ -59,7 +59,7 @@ namespace X2AddOnTechTreeEditor
 			this.Text += _building.Name;
 
 			// Age-Upgrade-Steuerelement füllen => TODO: hardcoded...
-			for(int i = _building.Age + 1; i < 5; ++i)
+			for(int i = 1; i < 5; ++i)
 			{
 				// Zeile erstellen
 				_ageUpgradeListBox.Items.Add("Zeitalter " + i, _building.AgeUpgrades.ContainsKey(i));
@@ -229,7 +229,7 @@ namespace X2AddOnTechTreeEditor
 				_ageUpgradeComboBox.Enabled = true;
 
 				// Element auswählen
-				_ageUpgradeComboBox.SelectedItem = _building.AgeUpgrades[_ageUpgradeListBox.SelectedIndex + _building.Age + 1];
+				_ageUpgradeComboBox.SelectedItem = _building.AgeUpgrades[_ageUpgradeListBox.SelectedIndex + 1];
 			}
 			else
 			{
@@ -241,7 +241,7 @@ namespace X2AddOnTechTreeEditor
 		private void _ageUpgradeComboBox_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			// Gebäude setzen
-			_building.AgeUpgrades[_ageUpgradeListBox.SelectedIndex + _building.Age + 1] = (TechTreeBuilding)_ageUpgradeComboBox.SelectedItem;
+			_building.AgeUpgrades[_ageUpgradeListBox.SelectedIndex + 1] = (TechTreeBuilding)_ageUpgradeComboBox.SelectedItem;
 		}
 
 		private void _ageUpgradeListBox_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -250,13 +250,13 @@ namespace X2AddOnTechTreeEditor
 			if(e.NewValue == CheckState.Checked)
 			{
 				// Standardwert setzen
-				if(!_building.AgeUpgrades.ContainsKey(e.Index + _building.Age + 1))
-					_building.AgeUpgrades[e.Index + _building.Age + 1] = _building;
+				if(!_building.AgeUpgrades.ContainsKey(e.Index + 1))
+					_building.AgeUpgrades[e.Index + 1] = _building;
 			}
 			else
 			{
 				// Wert löschen
-				_building.AgeUpgrades.Remove(e.Index + _building.Age + 1);
+				_building.AgeUpgrades.Remove(e.Index + 1);
 			}
 		}
 

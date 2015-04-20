@@ -187,6 +187,17 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 		}
 
 		/// <summary>
+		/// Ruft eine Liste mit den sichtbaren (= gerenderten) Kindelementen ab.
+		/// Dies wird zur schöneren Umsetzung der Filterfunktion benutzt, damit Schattenelemente nicht als Kind betrachtet werden.
+		/// </summary>
+		/// <returns></returns>
+		public override List<TechTreeElement> GetVisibleChildren()
+		{
+			// Nachfolger zurückgeben
+			return new List<TechTreeElement>(Successors);
+		}
+
+		/// <summary>
 		/// Gibt das übergebene Element frei, falls es diesem Element untergeordnet sein sollte.
 		/// </summary>
 		/// <param name="child">Das freizugebende Element.</param>

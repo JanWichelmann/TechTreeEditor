@@ -44,12 +44,12 @@
 			this._attributeComboBox = new System.Windows.Forms.ComboBox();
 			this._classLabel = new System.Windows.Forms.Label();
 			this._classComboBox = new System.Windows.Forms.ComboBox();
-			this._effectsListBox = new X2AddOnTechTreeEditor.DoubleBufferedListBox();
 			this._valueField = new X2AddOnTechTreeEditor.Controls.NumberFieldControl();
 			this._modeCheckBox = new X2AddOnTechTreeEditor.Controls.CheckBoxFieldControl();
 			this._researchField = new X2AddOnTechTreeEditor.Controls.DropDownFieldControl();
 			this._destUnitField = new X2AddOnTechTreeEditor.Controls.DropDownFieldControl();
 			this._unitField = new X2AddOnTechTreeEditor.Controls.DropDownFieldControl();
+			this._effectsListBox = new X2AddOnTechTreeEditor.DoubleBufferedListBox();
 			this._effectOptionsPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -109,9 +109,9 @@
 			this._sortEffectsButton.FlatAppearance.BorderSize = 0;
 			this._sortEffectsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this._sortEffectsButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this._sortEffectsButton.Location = new System.Drawing.Point(82, 376);
+			this._sortEffectsButton.Location = new System.Drawing.Point(84, 376);
 			this._sortEffectsButton.Name = "_sortEffectsButton";
-			this._sortEffectsButton.Size = new System.Drawing.Size(52, 32);
+			this._sortEffectsButton.Size = new System.Drawing.Size(32, 32);
 			this._sortEffectsButton.TabIndex = 21;
 			this._sortEffectsButton.UseVisualStyleBackColor = true;
 			this._sortEffectsButton.Click += new System.EventHandler(this._sortEffectsButton_Click);
@@ -256,17 +256,6 @@
 			this._classComboBox.TabIndex = 9;
 			this._classComboBox.SelectedIndexChanged += new System.EventHandler(this._classComboBox_SelectedIndexChanged);
 			// 
-			// _effectsListBox
-			// 
-			this._effectsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this._effectsListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-			this._effectsListBox.HorizontalScrollbar = true;
-			this._effectsListBox.Location = new System.Drawing.Point(0, 0);
-			this._effectsListBox.Name = "_effectsListBox";
-			this._effectsListBox.Size = new System.Drawing.Size(481, 413);
-			this._effectsListBox.TabIndex = 5;
-			this._effectsListBox.SelectedIndexChanged += new System.EventHandler(this._effectsListBox_SelectedIndexChanged);
-			// 
 			// _valueField
 			// 
 			this._valueField.Location = new System.Drawing.Point(296, 219);
@@ -320,6 +309,17 @@
 			this._unitField.TabIndex = 0;
 			this._unitField.Value = null;
 			this._unitField.ValueChanged += new X2AddOnTechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._unitField_ValueChanged);
+			// 
+			// _effectsListBox
+			// 
+			this._effectsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			this._effectsListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+			this._effectsListBox.HorizontalScrollbar = true;
+			this._effectsListBox.Location = new System.Drawing.Point(0, 0);
+			this._effectsListBox.Name = "_effectsListBox";
+			this._effectsListBox.Size = new System.Drawing.Size(481, 413);
+			this._effectsListBox.TabIndex = 5;
+			this._effectsListBox.SelectedIndexChanged += new System.EventHandler(this._effectsListBox_SelectedIndexChanged);
 			// 
 			// TechEffectControl
 			// 

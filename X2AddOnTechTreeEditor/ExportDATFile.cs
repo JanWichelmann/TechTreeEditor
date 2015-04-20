@@ -360,6 +360,13 @@ namespace X2AddOnTechTreeEditor
 							if(unitObj.TrackingUnit != null)
 								newUnit.TrackingUnitID = unitIDMap[unitObj.TrackingUnit];
 						}
+						else if(unit.Key.GetType() == typeof(TechTreeEyeCandy))
+						{
+							// Werte setzen
+							TechTreeEyeCandy unitObj = (TechTreeEyeCandy)unit.Key;
+							if(unitObj.DeadUnit != null)
+								newUnit.DeadUnitID = unitIDMap[unitObj.DeadUnit];
+						}
 
 						// Einheitendaten merken
 						unitData[unit.Value] = newUnit;
@@ -385,7 +392,12 @@ namespace X2AddOnTechTreeEditor
 								});
 
 								// Einheit als aktivierungsbedürftig markieren
-								unitData[unitIDMap[currAU.Value]].NeedsResearch = true;
+								UnitIDContainer auData = unitData[unitIDMap[currAU.Value]];
+								auData.NeedsResearch = true;
+
+								// Bauort und -button erben
+								auData.ButtonID = unitData[unitIDMap[currB]].ButtonID;
+								auData.TrainParentID = unitData[unitIDMap[currB]].TrainParentID;
 							}
 						}
 					}
@@ -699,12 +711,27 @@ namespace X2AddOnTechTreeEditor
 						CreateTechageEffects(newBonusTechage, currCivConfig.Bonuses, unitIDMap, researchIDMap);
 						exportDAT.Techages.Add(newBonusTechage);
 
-						// Technologie-Blockierungen in Effekte umwandeln
+						// Verfügbarkeits-Technologie-Blockierungen in Effekte umwandeln
 						civBlockIDs[c].ForEach(cb => newBonusTechage.Effects.Add(new GenieLibrary.DataElements.Techage.TechageEffect()
 						{
 							Type = (byte)TechEffect.EffectType.ResearchDisable,
 							D = (float)cb
 						}));
+
+						// Baum-Technologie-Blockierungen in Effekte umwandeln
+						currCivConfig.BlockedElements.ForEach(res =>
+						{
+							// Technologie?
+							if(res.GetType() == typeof(TechTreeResearch))
+							{
+								// Technologie blockieren
+								newBonusTechage.Effects.Add(new GenieLibrary.DataElements.Techage.TechageEffect()
+								{
+									Type = (byte)TechEffect.EffectType.ResearchDisable,
+									D = (float)researchIDMap[(TechTreeResearch)res]
+								});
+							}
+						});
 
 						// Freie Technologien in Effekte umwandeln
 						foreach(TechTreeResearch freeRes in currCivConfig.FreeElements)
@@ -1224,7 +1251,7 @@ namespace X2AddOnTechTreeEditor
 				else
 					blocks.ForEach(c => civBlockIDs[c].Add(lastID));
 
-				// Upgrade-Effekt erstellen
+				// Verfügbarkeit-Effekt erstellen
 				availResearch.TechageID = (short)lastID;
 				techages[lastID] = new GenieLibrary.DataElements.Techage()
 				{
@@ -1237,6 +1264,76 @@ namespace X2AddOnTechTreeEditor
 					A = (short)unitID,
 					B = (short)TechEffect.EffectMode.PM_Enable
 				});
+
+				// Nachfolger durchlaufen und schauen, ob nicht blockierte folgen (d.h. z.B. A ist blockiert ab 1. Zeitalter, aber B ab 3. Zeitalter verfügbar)
+				TechTreeUnit currSuccessor = ((IUpgradeable)unit).Successor;
+				TechTreeResearch currSuccRes = ((IUpgradeable)unit).SuccessorResearch;
+				while(currSuccessor != null)
+				{
+					// Upgrade-Technologie-ID abrufen
+					// TODO: Hardcoded [evtl. die Upgrade-Tech-ID merken, um Redundanz zu verhindern?]
+					currSuccRes = ((IUpgradeable)currSuccessor).SuccessorResearch;
+					int succResID = -1;
+					if(currSuccRes != null)
+						succResID = researchIDMap[currSuccRes];
+					else if(currSuccessor.Age > 0)
+						succResID = 100 + currSuccessor.Age;
+
+					// Verfügbarkeits-Technologie erstellen
+					GenieLibrary.DataElements.Research civAvailResearch = new GenieLibrary.DataElements.Research()
+					{
+						Name = "#CivAvail: " + unit.DATUnit.Name1,
+						Civ = -1,
+						ResearchLocation = -1,
+						ResourceCosts = new List<GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>>(3),
+						RequiredTechs = new List<short>(new short[] { (short)succResID, -1, -1, -1, -1, -1 }),
+						RequiredTechCount = 1,
+						LanguageDLLName1 = 7000,
+						LanguageDLLName2 = 157000,
+						LanguageDLLDescription = 8000,
+						LanguageDLLHelp = 107000,
+						Unknown1 = -1,
+						TechageID = availResearch.TechageID
+					};
+					civAvailResearch.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+					civAvailResearch.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+					civAvailResearch.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+
+					// Nachfolger freigegeben?
+					avails.Clear();
+					for(int i = blocks.Count - 1; i >= 0; --i)
+						if(!_projectFile.CivTrees[blocks[i]].BlockedElements.Contains(currSuccessor))
+						{
+							// Technologie ist für diese Kultur verfügbar
+							avails.Add(blocks[i]);
+
+							// Einmalig freigeben reicht
+							blocks.RemoveAt(i);
+						}
+
+					// Technologie benötigt?
+					if(avails.Count > 0)
+					{
+						// Technologie erstellen
+						while(datResearches.ContainsKey(lastID))
+							++lastID;
+						datResearches[lastID] = civAvailResearch;
+
+						// Für alle anderen Kulturen Technologie blocken
+						if(avails.Count == 1)
+							civAvailResearch.Civ = avails[0];
+						else
+							for(int c = 0; c < civBlockIDs.Length; ++c)
+								if(!avails.Contains((short)c))
+									civBlockIDs[c].Add(lastID);
+					}
+
+					// Nächster
+					if(currSuccessor is IUpgradeable)
+						currSuccessor = ((IUpgradeable)currSuccessor).Successor;
+					else
+						break;
+				}
 
 				// Die Einheit muss aktiviert werden
 				return true;
