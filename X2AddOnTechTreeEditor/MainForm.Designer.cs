@@ -360,6 +360,7 @@
 			// _exportDATMenuButton
 			// 
 			resources.ApplyResources(this._exportDATMenuButton, "_exportDATMenuButton");
+			this._exportDATMenuButton.Image = global::X2AddOnTechTreeEditor.Icons.ExportProject;
 			this._exportDATMenuButton.Name = "_exportDATMenuButton";
 			this._exportDATMenuButton.Click += new System.EventHandler(this._exportDATMenuButton_Click);
 			// 

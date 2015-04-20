@@ -200,7 +200,7 @@ namespace X2AddOnTechTreeEditor.TechTreeStructure
 					GL.End();
 
 					// Button-Nummer anzeigen
-					GL.Color3(Color.FromArgb(217, 232, 0));
+					GL.Color3(Color.FromArgb(255, 210, 102));
 					RenderControl.DrawString(child.Item1.ToString(), dotLastChild.X - (child.Item1 < 10 ? 4 : 7), dotLastChild.Y + RenderControl.BOX_SPACE_VERT / 2);
 
 					// Position erhöhen
