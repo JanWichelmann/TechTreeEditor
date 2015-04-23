@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F1889ACD-7680-4AEC-AEF6-9658F4E1F859}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TechTreeEditor</RootNamespace>
+    <AssemblyName>TechTreeEditor</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>symbol.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OpenTK\1.1\Binaries\OpenTK\Release\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OpenTK\1.1\Binaries\OpenTK\Release\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\DropDownFieldControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DropDownFieldControl.Designer.cs">
+      <DependentUpon>DropDownFieldControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CheckBoxFieldControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CheckBoxFieldControl.Designer.cs">
+      <DependentUpon>CheckBoxFieldControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ResourceCostControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ResourceCostControl.Designer.cs">
+      <DependentUpon>ResourceCostControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NumberFieldControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\NumberFieldControl.Designer.cs">
+      <DependentUpon>NumberFieldControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LanguageDLLControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\LanguageDLLControl.Designer.cs">
+      <DependentUpon>LanguageDLLControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoubleBufferedListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EditCivBonusesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCivBonusesForm.Designer.cs">
+      <DependentUpon>EditCivBonusesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditGraphicsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditGraphicsForm.Designer.cs">
+      <DependentUpon>EditGraphicsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditResearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditResearchForm.Designer.cs">
+      <DependentUpon>EditResearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditProjectileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditProjectileForm.Designer.cs">
+      <DependentUpon>EditProjectileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditCreatableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCreatableForm.Designer.cs">
+      <DependentUpon>EditCreatableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditBuildingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditBuildingForm.Designer.cs">
+      <DependentUpon>EditBuildingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditResearchAttributeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditResearchAttributeForm.Designer.cs">
+      <DependentUpon>EditResearchAttributeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="GenieUnitManager.cs" />
+    <Compile Include="ExportDATFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportDATFile.Designer.cs">
+      <DependentUpon>ExportDATFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportDATFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportDATFile.Designer.cs">
+      <DependentUpon>ImportDATFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RenderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RenderControl.Designer.cs">
+      <DependentUpon>RenderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Icons.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Icons.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Strings.en-US.Designer.cs">
+      <DependentUpon>Strings.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="EditUnitAttributeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditUnitAttributeForm.Designer.cs">
+      <DependentUpon>EditUnitAttributeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TechEffectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TechEffectControl.Designer.cs">
+      <DependentUpon>TechEffectControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TechTreeStructure\IUpgradeable.cs" />
+    <Compile Include="TechTreeStructure\IChildrenContainer.cs" />
+    <Compile Include="TechTreeStructure\TechEffect.cs" />
+    <Compile Include="TechTreeStructure\TechTreeBuilding.cs" />
+    <Compile Include="TechTreeStructure\TechTreeProjectile.cs" />
+    <Compile Include="TechTreeStructure\TechTreeEyeCandy.cs" />
+    <Compile Include="TechTreeStructure\TechTreeElement.cs" />
+    <Compile Include="TechTreeFile.cs" />
+    <Compile Include="TechTreeStructure\TechTreeResearch.cs" />
+    <Compile Include="TechTreeStructure\TechTreeDead.cs" />
+    <Compile Include="TechTreeStructure\TechTreeCreatable.cs" />
+    <Compile Include="TechTreeStructure\TechTreeUnit.cs" />
+    <EmbeddedResource Include="Controls\DropDownFieldControl.resx">
+      <DependentUpon>DropDownFieldControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CheckBoxFieldControl.resx">
+      <DependentUpon>CheckBoxFieldControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ResourceCostControl.resx">
+      <DependentUpon>ResourceCostControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NumberFieldControl.resx">
+      <DependentUpon>NumberFieldControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\LanguageDLLControl.resx">
+      <DependentUpon>LanguageDLLControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCivBonusesForm.resx">
+      <DependentUpon>EditCivBonusesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditGraphicsForm.resx">
+      <DependentUpon>EditGraphicsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditResearchForm.en-US.resx">
+      <DependentUpon>EditResearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditResearchForm.resx">
+      <DependentUpon>EditResearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditProjectileForm.en-US.resx">
+      <DependentUpon>EditProjectileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditProjectileForm.resx">
+      <DependentUpon>EditProjectileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCreatableForm.en-US.resx">
+      <DependentUpon>EditCreatableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCreatableForm.resx">
+      <DependentUpon>EditCreatableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditBuildingForm.en-US.resx">
+      <DependentUpon>EditBuildingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditBuildingForm.resx">
+      <DependentUpon>EditBuildingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditResearchAttributeForm.en-US.resx">
+      <DependentUpon>EditResearchAttributeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditResearchAttributeForm.resx">
+      <DependentUpon>EditResearchAttributeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icons.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Icons.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExportDATFile.en-US.resx">
+      <DependentUpon>ExportDATFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExportDATFile.resx">
+      <DependentUpon>ExportDATFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportDATFile.en-US.resx">
+      <DependentUpon>ImportDATFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportDATFile.resx">
+      <DependentUpon>ImportDATFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.en-US.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RenderControl.resx">
+      <DependentUpon>RenderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditUnitAttributeForm.en-US.resx">
+      <DependentUpon>EditUnitAttributeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditUnitAttributeForm.resx">
+      <DependentUpon>EditUnitAttributeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TechEffectControl.resx">
+      <DependentUpon>TechEffectControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\50500.pal" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DRSExplorer\BMPLoaderNew\BMPLoaderNew.csproj">
+      <Project>{328b4638-6a65-4a99-aae4-768d98091a40}</Project>
+      <Name>BMPLoaderNew</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DRSExplorer\IORAMHelper\IORAMHelper.csproj">
+      <Project>{e916caa5-59a9-4f62-a8fb-0ceec2d840b8}</Project>
+      <Name>IORAMHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DRSExplorer\SLPLoader\SLPLoader.csproj">
+      <Project>{a964b92b-bab2-42b0-ab1f-9af65597707f}</Project>
+      <Name>SLPLoader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DRSLibrary\DRSLibrary.csproj">
+      <Project>{4c0ec97d-e156-4aef-9bbb-2dcdacc34512}</Project>
+      <Name>DRSLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenieLibrary\GenieLibrary.csproj">
+      <Project>{999f8815-8f80-403a-95a6-48ade9b5b52a}</Project>
+      <Name>GenieLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\CreateConnection.png" />
+    <None Include="Icons\DeleteConnection.png" />
+    <None Include="Icons\DeleteElement.png" />
+    <None Include="Icons\Exit.png" />
+    <None Include="Icons\Info.png" />
+    <None Include="Icons\NewBuilding.png" />
+    <None Include="Icons\NewProject.png" />
+    <None Include="Icons\NewResearch.png" />
+    <None Include="Icons\NewUnit.png" />
+    <None Include="Icons\OpenProject.png" />
+    <None Include="Icons\Redo.png" />
+    <None Include="Icons\Lock.png" />
+    <None Include="Icons\Undo.png" />
+    <None Include="Icons\MapEditor.png" />
+    <None Include="Icons\Blocked.png" />
+    <None Include="Icons\Gaia.png" />
+    <None Include="Icons\Free.png" />
+    <None Include="Icons\SaveProject.png" />
+    <Content Include="Icons\AgeDown.png" />
+    <Content Include="Icons\AgeUp.png" />
+    <Content Include="Icons\BlockedTexture.png" />
+    <Content Include="Icons\BuildingDependeny.png" />
+    <Content Include="Icons\BuildingIcon.png" />
+    <Content Include="Icons\DeadIcon.png" />
+    <Content Include="Icons\DeleteDependency.png" />
+    <Content Include="Icons\DeleteGraphic.png" />
+    <Content Include="Icons\DeleteTechEffect.png" />
+    <Content Include="Icons\DownTechEffect.png" />
+    <Content Include="Icons\EditAttributes.png" />
+    <Content Include="Icons\EditAttributesSmall.png" />
+    <Content Include="Icons\EditCivBoni.png" />
+    <Content Include="Icons\EditElementBig.png" />
+    <Content Include="Icons\EditElementSmall.png" />
+    <Content Include="Icons\EditGraphics.png" />
+    <Content Include="Icons\EditorMode.png" />
+    <Content Include="Icons\ExportProject.png" />
+    <Content Include="Icons\EyeCandyIcon.png" />
+    <Content Include="Icons\LockAll.png" />
+    <Content Include="Icons\MakeAvailDependency.png" />
+    <Content Include="Icons\NewDead.png" />
+    <Content Include="Icons\NewEyeCandy.png" />
+    <Content Include="Icons\NewGraphic.png" />
+    <Content Include="Icons\NewProjectile.png" />
+    <Content Include="Icons\NewTechEffect.png" />
+    <Content Include="Icons\ProjectileIcon.png" />
+    <Content Include="Icons\ResearchIcon.png" />
+    <Content Include="Icons\Search.png" />
+    <Content Include="Icons\SortTechEffects.png" />
+    <Content Include="Icons\StandardMode.png" />
+    <Content Include="Icons\Symbol32.png" />
+    <Content Include="Icons\UnitIcon.png" />
+    <Content Include="Icons\UpgradeDependency.png" />
+    <None Include="Resources\ResourceTypesDE.txt" />
+    <None Include="Resources\ResourceTypesEN.txt" />
+    <None Include="Resources\ClassNamesDE.txt" />
+    <None Include="Resources\ClassNamesEN.txt" />
+    <None Include="Resources\ArmourClassesDE.txt" />
+    <None Include="Resources\ArmourClassesEN.txt" />
+    <None Include="Resources\AttributesDE.txt" />
+    <None Include="Resources\AttributesEN.txt" />
+    <Content Include="Icons\UpTechEffect.png" />
+    <Content Include="symbol.ico" />
+    <None Include="Resources\RenderFontConsolas.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

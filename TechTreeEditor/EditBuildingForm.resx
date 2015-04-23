@@ -1,0 +1,1479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_ageUpgradeComboBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_ageUpgradeComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 154</value>
+  </data>
+  <data name="_ageUpgradeComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 21</value>
+  </data>
+  <data name="_ageUpgradeComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeComboBox.Name" xml:space="preserve">
+    <value>_ageUpgradeComboBox</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeComboBox.Parent" xml:space="preserve">
+    <value>_ageUpgradeGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeComboBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_ageUpgradeListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_ageUpgradeListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 124</value>
+  </data>
+  <data name="_ageUpgradeListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeListBox.Name" xml:space="preserve">
+    <value>_ageUpgradeListBox</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeListBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeListBox.Parent" xml:space="preserve">
+    <value>_ageUpgradeGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeListBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_ageUpgradeGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="_ageUpgradeGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 182</value>
+  </data>
+  <data name="_ageUpgradeGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_ageUpgradeGroupBox.Text" xml:space="preserve">
+    <value>Zeitalter-Upgrades (0: Dunkle Zeit)</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeGroupBox.Name" xml:space="preserve">
+    <value>_ageUpgradeGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeGroupBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 22</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Tote Einheit:</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 157</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 13</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Aktions-Gebäude:</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_transformUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 154</value>
+  </data>
+  <data name="_transformUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 21</value>
+  </data>
+  <data name="_transformUnitComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;_transformUnitComboBox.Name" xml:space="preserve">
+    <value>_transformUnitComboBox</value>
+  </data>
+  <data name="&gt;&gt;_transformUnitComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_transformUnitComboBox.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_transformUnitComboBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_deadUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 19</value>
+  </data>
+  <data name="_deadUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 21</value>
+  </data>
+  <data name="_deadUnitComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;_deadUnitComboBox.Name" xml:space="preserve">
+    <value>_deadUnitComboBox</value>
+  </data>
+  <data name="&gt;&gt;_deadUnitComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_deadUnitComboBox.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_deadUnitComboBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 130</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 13</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Grundgebäude:</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="_headUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 127</value>
+  </data>
+  <data name="_headUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 21</value>
+  </data>
+  <data name="_headUnitComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;_headUnitComboBox.Name" xml:space="preserve">
+    <value>_headUnitComboBox</value>
+  </data>
+  <data name="&gt;&gt;_headUnitComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_headUnitComboBox.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_headUnitComboBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 103</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 13</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Stapel-Gebäude:</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="_stackUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 100</value>
+  </data>
+  <data name="_stackUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 21</value>
+  </data>
+  <data name="_stackUnitComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;_stackUnitComboBox.Name" xml:space="preserve">
+    <value>_stackUnitComboBox</value>
+  </data>
+  <data name="&gt;&gt;_stackUnitComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_stackUnitComboBox.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_stackUnitComboBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="_projDuplUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 73</value>
+  </data>
+  <data name="_projDuplUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 21</value>
+  </data>
+  <data name="_projDuplUnitComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;_projDuplUnitComboBox.Name" xml:space="preserve">
+    <value>_projDuplUnitComboBox</value>
+  </data>
+  <data name="&gt;&gt;_projDuplUnitComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_projDuplUnitComboBox.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_projDuplUnitComboBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 76</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 13</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Projektil 2:</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 49</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 13</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Projektil 1:</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="_projUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 46</value>
+  </data>
+  <data name="_projUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 21</value>
+  </data>
+  <data name="_projUnitComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_projUnitComboBox.Name" xml:space="preserve">
+    <value>_projUnitComboBox</value>
+  </data>
+  <data name="&gt;&gt;_projUnitComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_projUnitComboBox.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_projUnitComboBox.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="_otherUnitsGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>236, 12</value>
+  </data>
+  <data name="_otherUnitsGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>319, 182</value>
+  </data>
+  <data name="_otherUnitsGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="_otherUnitsGroupBox.Text" xml:space="preserve">
+    <value>Gebäudeeigenschaften</value>
+  </data>
+  <data name="&gt;&gt;_otherUnitsGroupBox.Name" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_otherUnitsGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_otherUnitsGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_otherUnitsGroupBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <metadata name="_buildingDepViewCountColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_buildingDepViewCountColumn.HeaderText" xml:space="preserve">
+    <value>Weitere?</value>
+  </data>
+  <metadata name="_buildingDepViewNameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_buildingDepViewNameColumn.HeaderText" xml:space="preserve">
+    <value>Gebäude</value>
+  </data>
+  <data name="_buildingDepView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_buildingDepView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>531, 134</value>
+  </data>
+  <data name="_buildingDepView.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_buildingDepView.Name" xml:space="preserve">
+    <value>_buildingDepView</value>
+  </data>
+  <data name="&gt;&gt;_buildingDepView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_buildingDepView.Parent" xml:space="preserve">
+    <value>_buildingDependencyGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_buildingDepView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_buildingDependencyGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 200</value>
+  </data>
+  <data name="_buildingDependencyGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>543, 159</value>
+  </data>
+  <data name="_buildingDependencyGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="_buildingDependencyGroupBox.Text" xml:space="preserve">
+    <value>Gebäude-Abhängigkeiten</value>
+  </data>
+  <data name="&gt;&gt;_buildingDependencyGroupBox.Name" xml:space="preserve">
+    <value>_buildingDependencyGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_buildingDependencyGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_buildingDependencyGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_buildingDependencyGroupBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <metadata name="_childrenViewButtonColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_childrenViewButtonColumn.HeaderText" xml:space="preserve">
+    <value>Button</value>
+  </data>
+  <metadata name="_childrenViewChildColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_childrenViewChildColumn.HeaderText" xml:space="preserve">
+    <value>Kind</value>
+  </data>
+  <data name="_childrenView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_childrenView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>330, 156</value>
+  </data>
+  <data name="_childrenView.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_childrenView.Name" xml:space="preserve">
+    <value>_childrenView</value>
+  </data>
+  <data name="&gt;&gt;_childrenView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_childrenView.Parent" xml:space="preserve">
+    <value>_childrenGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_childrenView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_childrenGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>561, 12</value>
+  </data>
+  <data name="_childrenGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>342, 182</value>
+  </data>
+  <data name="_childrenGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="_childrenGroupBox.Text" xml:space="preserve">
+    <value>Kindelemente</value>
+  </data>
+  <data name="&gt;&gt;_childrenGroupBox.Name" xml:space="preserve">
+    <value>_childrenGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_childrenGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_childrenGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_childrenGroupBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_annex4YBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 98</value>
+  </data>
+  <data name="_annex4YBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="_annex4YBox.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;_annex4YBox.Name" xml:space="preserve">
+    <value>_annex4YBox</value>
+  </data>
+  <data name="&gt;&gt;_annex4YBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex4YBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex4YBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_annex4XBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>242, 98</value>
+  </data>
+  <data name="_annex4XBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="_annex4XBox.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;_annex4XBox.Name" xml:space="preserve">
+    <value>_annex4XBox</value>
+  </data>
+  <data name="&gt;&gt;_annex4XBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex4XBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex4XBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_annex4ComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 97</value>
+  </data>
+  <data name="_annex4ComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 21</value>
+  </data>
+  <data name="_annex4ComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;_annex4ComboBox.Name" xml:space="preserve">
+    <value>_annex4ComboBox</value>
+  </data>
+  <data name="&gt;&gt;_annex4ComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex4ComboBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex4ComboBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_annex4CheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_annex4CheckBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_annex4CheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 100</value>
+  </data>
+  <data name="_annex4CheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 14</value>
+  </data>
+  <data name="_annex4CheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;_annex4CheckBox.Name" xml:space="preserve">
+    <value>_annex4CheckBox</value>
+  </data>
+  <data name="&gt;&gt;_annex4CheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex4CheckBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex4CheckBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_annex3YBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 71</value>
+  </data>
+  <data name="_annex3YBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="_annex3YBox.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;_annex3YBox.Name" xml:space="preserve">
+    <value>_annex3YBox</value>
+  </data>
+  <data name="&gt;&gt;_annex3YBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex3YBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex3YBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="_annex3XBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>242, 71</value>
+  </data>
+  <data name="_annex3XBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="_annex3XBox.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;_annex3XBox.Name" xml:space="preserve">
+    <value>_annex3XBox</value>
+  </data>
+  <data name="&gt;&gt;_annex3XBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex3XBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex3XBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="_annex3ComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 70</value>
+  </data>
+  <data name="_annex3ComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 21</value>
+  </data>
+  <data name="_annex3ComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;_annex3ComboBox.Name" xml:space="preserve">
+    <value>_annex3ComboBox</value>
+  </data>
+  <data name="&gt;&gt;_annex3ComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex3ComboBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex3ComboBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="_annex3CheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_annex3CheckBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_annex3CheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 73</value>
+  </data>
+  <data name="_annex3CheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 14</value>
+  </data>
+  <data name="_annex3CheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;_annex3CheckBox.Name" xml:space="preserve">
+    <value>_annex3CheckBox</value>
+  </data>
+  <data name="&gt;&gt;_annex3CheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex3CheckBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex3CheckBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="_annex2YBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 44</value>
+  </data>
+  <data name="_annex2YBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="_annex2YBox.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;_annex2YBox.Name" xml:space="preserve">
+    <value>_annex2YBox</value>
+  </data>
+  <data name="&gt;&gt;_annex2YBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex2YBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex2YBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="_annex2XBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>242, 44</value>
+  </data>
+  <data name="_annex2XBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="_annex2XBox.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;_annex2XBox.Name" xml:space="preserve">
+    <value>_annex2XBox</value>
+  </data>
+  <data name="&gt;&gt;_annex2XBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex2XBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex2XBox.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="_annex2ComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 43</value>
+  </data>
+  <data name="_annex2ComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 21</value>
+  </data>
+  <data name="_annex2ComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;_annex2ComboBox.Name" xml:space="preserve">
+    <value>_annex2ComboBox</value>
+  </data>
+  <data name="&gt;&gt;_annex2ComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex2ComboBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex2ComboBox.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="_annex2CheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_annex2CheckBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_annex2CheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 46</value>
+  </data>
+  <data name="_annex2CheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 14</value>
+  </data>
+  <data name="_annex2CheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;_annex2CheckBox.Name" xml:space="preserve">
+    <value>_annex2CheckBox</value>
+  </data>
+  <data name="&gt;&gt;_annex2CheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex2CheckBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex2CheckBox.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="_annex1YBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 17</value>
+  </data>
+  <data name="_annex1YBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="_annex1YBox.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;_annex1YBox.Name" xml:space="preserve">
+    <value>_annex1YBox</value>
+  </data>
+  <data name="&gt;&gt;_annex1YBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex1YBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex1YBox.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="_annex1XBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>242, 17</value>
+  </data>
+  <data name="_annex1XBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="_annex1XBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;_annex1XBox.Name" xml:space="preserve">
+    <value>_annex1XBox</value>
+  </data>
+  <data name="&gt;&gt;_annex1XBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex1XBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex1XBox.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="_annex1ComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 16</value>
+  </data>
+  <data name="_annex1ComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 21</value>
+  </data>
+  <data name="_annex1ComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;_annex1ComboBox.Name" xml:space="preserve">
+    <value>_annex1ComboBox</value>
+  </data>
+  <data name="&gt;&gt;_annex1ComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex1ComboBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex1ComboBox.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="_annex1CheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_annex1CheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_annex1CheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 14</value>
+  </data>
+  <data name="_annex1CheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_annex1CheckBox.Name" xml:space="preserve">
+    <value>_annex1CheckBox</value>
+  </data>
+  <data name="&gt;&gt;_annex1CheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex1CheckBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex1CheckBox.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="_annexGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>558, 200</value>
+  </data>
+  <data name="_annexGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>345, 127</value>
+  </data>
+  <data name="_annexGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="_annexGroupBox.Text" xml:space="preserve">
+    <value>Angebundene Gebäude</value>
+  </data>
+  <data name="&gt;&gt;_annexGroupBox.Name" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annexGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annexGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_annexGroupBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_closeButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>758, 333</value>
+  </data>
+  <data name="_closeButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 23</value>
+  </data>
+  <data name="_closeButton.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="_closeButton.Text" xml:space="preserve">
+    <value>Fertig</value>
+  </data>
+  <data name="&gt;&gt;_closeButton.Name" xml:space="preserve">
+    <value>_closeButton</value>
+  </data>
+  <data name="&gt;&gt;_closeButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_closeButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_closeButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_buttonIDField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>561, 335</value>
+  </data>
+  <data name="_buttonIDField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 20</value>
+  </data>
+  <data name="_buttonIDField.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;_buttonIDField.Name" xml:space="preserve">
+    <value>_buttonIDField</value>
+  </data>
+  <data name="&gt;&gt;_buttonIDField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_buttonIDField.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_buttonIDField.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>915, 366</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAMAQEAAAAEAIAAoQgAANgAAACAgAAABACAAqBAAAF5CAAAQEAAAAQAgAGgEAAAGUwAAKAAAAEAA
+        AACAAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4AAAABsAGQgAAFCf4ADgz8EBr6OYBZKFewuCdmwMX1pQEkxCNx5gU0koVUg+JGBT
+        SRxdUEYZZVhOG1xPRBdLPjQRKBwRCiodEwM4KyEERzovAx0RBgMjEgQCUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAtKOVBriroRaxqaIbnpqWJ5OTk01/f39ta2pqbmFi
+        YoJbXFydZmZmsV5eXq1fX1+lVVVVplRUVK9VVVWuU1NTqFFRUZ1QUFCUSkpKjEhISHdDQ0NYODMwMx0V
+        DiQUCAAeGg0DEwsAAAoAAAAFUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAmIuBG5WRjmGXl5ebmZmZrpCQ
+        kLyOjo7dfHx89WpqavNkZGT6YmJi/2hoaP9jY2P/Y2Nj/F5eXvpbW1v7W1tb+FZWVvZSUlLzU1NT9U5O
+        TvVISEj0RERE7ERERNQ5OTnANzc3pjc3N4MzMzNqJiIfVxoRCjIIAAAWKx4TDbemmAFQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ADp08IHr6afP56a
+        lpiKiorlhYWF/IWFhf97e3v/hISE/4mJif9/f3//ZmZm/11dXf9fX1//Xl5e/11dXf9dXV3/XV1d/2Zm
+        Zv9kZGT/cnJy/3R0dP9ERET/SUlJ/0tLS/9MTEz/R0dH/0RERP9DQ0P6Pj4+8jY2Nt40NDSzKysriS8v
+        L3c3MzBRJh4XIAAAAAJQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AArKGXR6GhodWfn5/2hoaG/nBwcP9vb2//ZGRk/3R0dP+YmJj/lZWV/2hoaP9PT0//Tk5O/1FR
+        Uf9TU1P/V1dX/1ZWVv9kZGT/ZWVl/4iIiP+VlZX/Nzc3/zw8PP9BQUH/Q0ND/0RERP9JSUn/TExM/0hI
+        SP9FRUX/RERE/z4+PvI4ODjmNTU1zzIyMqYnIx9wIRgRMAAAAAdQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4AA5c6IAOXOiAAAVLe0DGTLaAhcspQETKWsBFSo7ABMpEzlzogA5c6IAOXOiADlz
+        ogA5c6IAOXOiADlzogA5c6IAOXOiAMzCuVC1tbXwrKys/4KCgv9SUlL/WVlZ/1dXV/9fX1//h4eH/6Gh
+        of+IiIj/XFxc/0dHR/9KSkr/UVFR/1RUVP9VVVX/Xl5e/2JiYv+BgYH/kZGR/zAwMP83Nzf/PT09/zw8
+        PP9BQUH/Q0ND/0tLS/9JSUn/SkpK/1NTU/9RUVH/V1dX/0NDQ/81NTX5MDAw6Dg4OLwtKSaHGREKUwAA
+        ABgA8gAAOXOiADlzogBQn+AAUJ/gAFCf4AA5c6IAOXOiADlzogAIIT3+E0N2/ws1ZP8HKlL/CClM/wck
+        Qv8GHjv/Bhw28QceOMoEHDSQBRo0WgUcNisEGzYHOXOiADlzogDh1swX0M3Jg8jHxeWzsrL+hoaG/19f
+        X/9PT0//UVFR/2dnZ/+JiYn/nZ2d/4ODg/9UVFT/R0dH/0tLS/9QUFD/UlJS/1tbW/9hYWH/fHx8/5GR
+        kf8zMzP/ODg4/z4+Pv89PT3/Pj4+/z09Pf9CQkL/QEBA/0lJSf9TU1P/X19f/3h4eP9UVFT/QUFB/zo6
+        Ov84ODj6Nzc37zQ0NN4uKyidMismRw0ZDg05c6IAUJ/gAFCf4ABQn+AAOXOiADlzogA5c6IACiM+/Q08
+        bv9Cjc7/PofI/yxuq/8fWZX/E0h//ws8cf8HMmT/Bi1Z/wYqUP8IJ0v/ByNB/wYeOf4AGTbnABQyuQAV
+        MoScoaWa0MzK7Ly7uv+NjY3/XFxc/09PT/9UVFT/YGBg/4eHh/+dnZ3/d3d3/05OTv9GRkb/TU1N/09P
+        T/9VVVX/X19f/3p6ev+RkZH/OTk5/zU1Nf8+Pj7/Ozs7/z4+Pv89PT3/PDw8/0RERP9OTk7/W1tb/3h4
+        eP90dHT/SkpK/0BAQP9CQkL/PT09/0BAQP84ODj/MjIy+To5OdE4NzRxHBQYF1Cf4ABQn+AAUJ/gADlz
+        ogA5c6IACzhpAQ0nQ/4INmn/TZzc/1yx9P9brfD/XrT1/1209/9csfX/Vqnq/0uZ2v88hcT/LW6s/x1Z
+        lP8RR37/Cjpw/wYxYf8AJVH/ACNK/1dmdf+rqqn/ure1/5WUlP9nZ2f/Tk5O/01NTf9jY2P/kZGR/5SU
+        lP9oaGj/R0dH/0dHR/9OTk7/UVFR/1lZWf96enr/i4uL/z8/P/82Njb/PT09/0BAQP9BQUH/Pz8//0BA
+        QP9LS0v/V1dX/21tbf96enr/VFRU/zw8PP88PDz/RUVF/0lJSf9MTEz/Pz8//y8vL/8tLS3/MjEy2C4p
+        KlElFBMGUJ/gAFCf4AA5c6IAOXOiAAUfOwIPKkb+CTVo/0qX2P9Upej/T57e/1Ki4P9JlNv/Ro/X/0+f
+        3/9Wqef/WrDu/1+29P9gufj/YLn6/1609v9Xq+z/S5ja/zd/wP8fYaL/P2mV/5+jqv++u7f/paSj/3Nz
+        c/9XV1f/WFhY/3x8fP+UlJT/hISE/2JiYv9YWFj/XV1d/19fX/9jY2P/c3Nz/39/f/9TU1P/RkZG/0ND
+        Q/9AQED/QEBA/0NDQ/9JSUn/VlZW/2xsbP9vb2//VlZW/z4+Pv88PDz/QkJC/0lJSf9MTEz/RUVF/zQ0
+        NP8oKCj/JCQk/y0tLv01NzeEOjUpE1Cf4ABQn+AAOXOiADlzogAMMVwCDitG/gk2aP9KmNj/Vabo/1Ce
+        3/9Up+T/N3bL/w8yqf8JKKP/ETSq/xhBsf8jVLj/MGjD/zx8zv9Fjtb/TZzf/1Sl5v9Yq+v/V6zw/1Ku
+        9P9rrN3/lqOt/7KvrP+pqKb/iYmJ/3p6ev+EhIT/jo6O/5GRkf+Dg4P/eXl5/3h4eP94eHj/dHR0/29v
+        b/9wcHD/Y2Nj/1paWv9ZWVn/VlZW/05OTv9JSUn/TU1N/2JiYv9ycnL/Wlpa/0FBQf88PDz/PT09/0hI
+        SP9JSUn/PDw8/zAwMP8oKCj/JSUl/yUlJP8vLzDiPTw8Z29nZwtQn+AAUJ/gADlzogA5c6IABiJAAw0q
+        Rv4JNmn/S5na/1Wm5/9QnuD/Vajl/zh3y/8OLqX/Cyyl/w44qv8ML6f/CSqj/wklo/8IJaH/BiKh/w4v
+        p/85ecz/VKfj/0+e3/9OouT/S5HV/1mHuP93lqv/m6Sm/6mpqP+ioqL/mpqa/5SUlP+UlJT/hoaG/25u
+        bv9mZmb/ZWVl/2xsbP9xcXH/cXFx/1xcXP9SUlL/VFRU/1JSUv9VVVX/V1dX/1RUVP9kZGT/X19f/0VF
+        Rf8/Pz//PT09/z4+Pv9FRUX/Ojo6/yoqKv8oKCf/JiUl/yopKvguMC/ULS0sdCkjIRNQn+AAUJ/gAFCf
+        4AA5c6IAOXOiAAovVwMOKUf+CTdp/0uZ2v9Upuf/UJ7g/1Wp5f84eMv/DzGn/w9Gr/8cfsb/HX3H/xpz
+        wv8Zar//Flu6/w46qv8NKqX/N3XL/1er5v9QnuD/TqXo/1d5t/9qKF3/azVg/4Fuf/+fnZ7/paWl/5KS
+        kv+Ghob/kJCQ/3t7e/9VVVX/Tk5O/1BQUP9dXV3/cnJy/4KCgv9UVFT/MzMz/0BAQP9BQUH/SEhI/1BQ
+        UP9WVlb/XV1d/09PT/9AQED/PDw8/zY2Nv87Ozv/PDw8/y8vL/8mJSX/JiUk/yUmJ/MnKiifNDs6Pzcx
+        Mg45c6IAUJ/gAFCf4ABQn+AAOXOiADlzogAHJEMEDSlG/gk3af9Lmdn/VKbn/1Ce4P9VqeX/OHfL/w4u
+        p/8QQq7/HHvG/x59yP8efMf/HoDI/x59yP8SU7T/Diql/zd2y/9Xq+b/UJ7f/02n6f9Xe7n/bipb/1g3
+        cP9nXID/k4uO/56enP94eHj/aWlp/42Njf9+fn7/UlJS/01NTf9QUFD/WVlZ/3Nzc/+Pj4//ZWVl/zQ0
+        NP9DQ0P/RUVF/0hISP9RUVH/ZGRk/2dnZ/9KSkr/PT09/zU1Nf8uLi7/MDAw/yorK/8oJyX/LCgl/y4v
+        L/4iNEftJS0sK1Cf4AA5c6IAOXOiAFCf4ABQn+AAUJ/gADlzogA5c6IACi9WBA4pRv4JNmn/S5rb/1Sm
+        5/9QnuD/Vanl/zh2yv8OLqf/EEOt/xx6xf8dfMj/HXrG/x18xv8eesb/EU+z/w8ppf83d8v/V6vm/1Ce
+        3/9NqOr/V3y4/28rXP86U5b/LoXE/4aYpf+fnZr/bm5u/19fX/+MjIz/hoaG/1VVVf9ISEj/Tk5O/1dX
+        V/9wcHD/i4uL/2lpaf8yMjL/RkZG/0dHR/9JSUn/VlZW/29vb/9ycnL/SEhI/z4+Pv85OTn/NDQ0/zMz
+        M/8pKCj/KSkp/zZHVP8sV37/DDJa+gAAAAFQn+AAOXOiADlzogBQn+AAUJ/gAFCf4AA5c6IAOXOiAAcm
+        RwUOKUb+CTZq/02a2/9Upef/UJ7g/1Wp5f83dsr/Dy+n/xBGr/8df8j/HoDJ/x57x/8dfcf/HnrG/xFP
+        s/8OKaT/OHfN/1er5v9Qnt//Tajq/1d6uP9wKVn/PlGR/yyGy/+Mo7X/o5+c/21tbf9aWlr/g4OD/4uL
+        i/9bW1v/RUVF/09PT/9VVVX/aWlp/4eHh/9ubm7/Ly8v/0NDQ/9ERET/SkpK/1hYWP9ycnL/dHR0/0ZG
+        Rv9AQED/Pj4+/z09Pf9BQUH/LSwr/y4zN/9Lgav/NX++/wcqT/lQn+AAUJ/gADlzogA5c6IAUJ/gAFCf
+        4ABQn+AAOXOiADlzogAGIj8GDihG/gk4av9Nmtz/VKXn/1Ce4P9VqeX/N3bK/w8wpv8OPKz/GGq//xtz
+        wv8ceMX/Hn/H/x2Ax/8SVLb/Diql/zh3zP9Xq+b/UJ7f/02n6v9Xerf/cClZ/0BSkv8mg8n/gp+3/6qk
+        oP9rbW3/U1NT/3t7e/+SkpL/Y2Nj/0NDQ/9KSkr/U1NT/2dnZ/+EhIT/eHh4/zAwMP9FRUX/R0dH/0tL
+        S/9YWFj/cHBw/3V1df9DQ0P/QUFB/0JCQv9ERET/RERE/yopKP8xNDb/U4iz/zN5uv8JK0j5UJ/gAFCf
+        4AA5c6IAOXOiAFCf4ABQn+AAUJ/gADlzogA5c6IACShLBg4oRv8JN2r/TZvc/1Sl5/9QnuD/VKfk/zVy
+        yf8KKKL/ARqc/wcpo/8MMqr/Dzuw/xBAsP8SRrH/Djqq/w8up/84ecz/V6vm/1Ce3/9Np+r/WHq3/28r
+        W/8+V5j/EYTR/1yXvv+vraj/d3d3/1JSUv9ycnL/lZWV/2pqav9CQkL/RkZG/1NTU/9mZmb/goKC/4CA
+        gP8wMDD/RkZG/0hISP9KSkr/V1dX/3R0dP9zc3P/Pz8//0BAQP9KSkr/Tk5O/zw8PP8nJSP/OTw//1yW
+        wv8zebb/DjNJ+QAAiQNQn+AAAAB5AjlzogBQn+AAUJ/gAFCf4AA5c6IAOXOiAAcjQwcOKkb/CTdr/02b
+        3P9Upef/UJ/g/1Ol4/9Kl9z/O33O/zRxyP8tZML/GT+g/wgfg/8PLJz/EC+q/wchn/8KKKT/NXTL/1ap
+        5f9Qnt//Tafp/1d3s/9vKFn/XjZs/0RNjf9ebqH/q6+x/4iIh/9WVlb/ZGRk/4+Pj/90dHT/RkZG/0dH
+        R/9QUFD/Xl5e/3x8fP9/f3//MTEx/0hISP9JSUn/Tk5O/1xcXP96enr/ampq/zo6Ov9DQ0P/UVFR/1hY
+        WP80MzP/JiQj/z9RXP9Zqun/Jl2x/xA4U/kAAKVeAACgnQAAnT45c6IAUJ/gAFCf4ABQn+AAOXOiADlz
+        ogAGID4IDipG/wk3a/9Om93/VKXm/1Cf4P9RoOD/UqLh/1Ok4/9TpuX/VKbn/zRrnv8FGTf/JVSD/0+f
+        5/9Hkdj/QonU/0qV2/9TpeP/UJ/g/06k5/9WhcL/Z0J4/24tX/9xI1f/gDxl/7Kkqf+ZmZf/Xl5e/1xc
+        XP+JiYn/iIiI/09PT/9HR0f/TU1N/1xcXP+Dg4P/g4OD/zMzM/9JSUn/SEhI/05OTv9dXV3/gICA/11d
+        Xf86Ojr/RUVF/1tbW/9VVVX/Kyoo/y0sI/9DWnb/S5rp/xIspv8TQFT5AACmgAAAoH0AAKs3OXOiAFCf
+        4ABQn+AAUJ/gADlzogA5c6IAByZHCAwqRf8KOWv/Tp3d/1Sk5v9Qn+D/UJ/g/1Cf4P9Qn+D/UqHi/1Sl
+        5/80bJ//ABIr/yVVfv9bsfL/Vafl/1Sl4/9RoeH/UaDg/1Cf4P9QoeL/UKHh/1Cb2/9SnN3/T5HR/yc1
+        W/+IiZf/qqmm/2tqav9cXFz/fX19/5qamv9dXV3/R0dH/0xMTP9ZWVn/hYWF/4KCgv80NDT/SUlJ/0lJ
+        Sf9SUlL/YmJi/4SEhP9QUFD/Ozs7/0pKSv9eXl7/Pz8//yYmIP8xMDL/Rmqo/ypZyv8DCaD/CB12/AAA
+        o8EAAKl9AACyiQAAqj5Qn+AAUJ/gAFCf4AA5c6IAOXOiAAYjQgkMKUT/Cjls/06c3v9Uo+b/UJ7f/1Cf
+        4P9Qn+D/UJ/g/1Gh4v9To+f/NGqe/wASLf8lU3//Vqrw/1Cg4f9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cg
+        4f9RouP/UKjq/1Co7P8HKlD/RFdv/7W6uf+Hhof/X19f/2VlZf+Xl5f/gICA/0pKSv9HR0f/U1NT/35+
+        fv+CgoL/NTU1/0dHR/9KSkr/VlZW/2xsbP97e3v/QkJC/z8/P/9UVFT/TExM/ysrKf8vLiH/IBtW/zts
+        zP8SJbL/H0mn/wMNhf0AAKPDAACnmwAAsnUAAKdvUJ/gAFCf4ABQn+AAOXOiADlzogALKUkLCylE/ws5
+        bv9QoeT/V6nt/1Ok5v9Toub/UqLk/1Ch4/9SoeT/VKTn/zRqnv8AEi3/JVOA/1aq8P9QoOH/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qnt//VJ/d/1Ki5P9Qn+D/EC5T/wUTK/+HjZL/rKmm/3Z2dv9WVlb/c3Nz/5WV
+        lf9mZmb/R0dH/09PT/99fX3/iYmJ/zc3N/9HR0f/UVFR/19fX/9/f3//ZmZm/z09Pf9JSUn/VVVV/zg4
+        OP8pKB//MDNT/xEdnf8sW8n/EB+t/yJQp/8ABIv+AACj8wAAorMAALBxAACqgQAA/wFQn+AAUJ/gADlz
+        ogA5c6IADi5PDAsoRf8LPHH/QYe//0eOx/9Gjcj/SZLO/0qW0/9Nmtn/UJ7f/1Sl6P8zap//ABIt/ydW
+        g/9Zr/b/U6bo/1Ok5v9To+b/UqLk/1Gi4/9RoOH/UKDh/1Cf3/9Qn+H/U6Xm/zh2r/8gVIj/TWmD/6in
+        pf+fnJr/cG9v/1lZWf+BgYH/h4eH/1tbW/9NTU3/dXV1/4qKiv87Ozv/SkpK/1hYWP9wcHD/d3d3/0JC
+        Qv9HR0f/WVlZ/0ZGRv8pKSf/MjEh/xQYfP8QJLX/Bw+m/wcNpf8cQKf/AAmI/QAApfwAAKz8AACwwwAA
+        qYsAALAGUJ/gAFCf4AA5c6IAOXOiAA8yVg0LJkT/DT10/0GEu/9EiL7/QYO5/0CDuP8/gbf/P4G2/z+A
+        tP9Gj8f/MmiZ/wIUMf8kUn//TZrX/0OHv/9FjMb/SJDL/0qU0f9MmNj/T53d/1Cf4f9TouX/UqXn/1Wo
+        6/9Vqu//VKzz/1ao7f+KsMz/ra2t/5uYlv9vb27/bGxs/42Njf+CgoL/VlZW/25ubv+NjY3/SUlJ/01N
+        Tf9kZGT/fX19/1paWv9CQkL/UFBQ/01NTf8sKyv/LCwk/zc1SP8PFZn/J07A/wAAnf8FCaL/FjSs/wAF
+        m/4AAK7XAACvgwAArYgAAK1zAAC3CVCf4ABQn+AAOXOiADlzogASOFwOCyZC/w0/dP9Bhr3/RIrB/0KG
+        vf9Chr3/Qoa9/0KGvf9Bhbz/SZLN/zJpmv8CFTH/JVOA/02a1v9Bg7n/QYS6/0GDuf8+gbb/P4G3/z+A
+        tf8/gLT/P3+1/z6Btv9Agrf/QYW5/0KHv/9Ci8b/TpLH/4Klvv+prbD/n5uZ/4GAgP9/foD/j4+P/3Z2
+        dv9ubm7/hoaG/1VVVf9UVFT/ioqK/3Jycv9DQ0P/T09P/0VFRP8uLSv/Ix8b/z9EO/8oKX3/FCm1/ydO
+        wf8AAKL/AACh/w0drP8GE4z9AACzrgAArWEAALCXAACyNgAA1gNQn+AAUJ/gADlzogA5c6IAEjRZEAsm
+        Qv8NP3T/QYa9/0SKwf9Chr3/Qoa9/0SGwP9FhsL/RoXC/0yU0v8zZ5v/AxIy/ydTgv9Omtf/QoW6/0KG
+        vf9Chr3/Qoa9/0KGvf9Chr3/Qoa9/0KGvf9Chr3/Qoa9/0KGvf9Chrz/QYW8/z2Cu/9ChLn/cZey/5yp
+        r/+rqqX/nZiU/5KRkP+NjYz/gICA/4KCgv9bW1v/dHR0/4yMjP9TUlL/SklJ/05NTP81MS//Ki8y/zxX
+        Y/9JbJD/EBSf/wIGp/8SJLH/AACn/wAAq/8OIbH/BRKO/QAAtN0AALTTAACxhQMApBRQn+AAUJ/gAFCf
+        4AA5c6IAOXOiABMzVBIKJUL/DT90/0GGvf9EicH/Qoa9/0WGwP8+i7r/Nomu/zaHrP8+jrz/KmiQ/wUh
+        Of8lV4D/TZfW/0SGv/9GhsL/RIa//0KGvf9Chr3/Qoa9/z+Jv/89i8L/PozC/z+Kwf8/icD/QYi+/0KH
+        vv9Bh77/P4W+/0GFu/9Ujrv/cpe3/4iWpP+ZmZv/qKOg/6Cfnf+NjY3/cXFx/35+fv9lZWT/UVBO/1FQ
+        UP89QEL/MDc6/zhYcP9DhrH/Klaz/wAAoP8AAJ//GDGx/wIErv8AALD/AQGw/wAEn/8AAMLaAADLkQAA
+        1Rs5c6IAmn5qAVCf4ABQn+AAOXOiADlzogAWPWESCiVB/w0/df9Bh7//RIm//0GGvP9HiMb/L4Kg/xN1
+        a/8NcF3/E3Vm/xBuXf8HXUn/EGpf/yCCg/8efoT/KYeZ/0GRwf9Ehb7/Qoa9/z+Lwf9Ng73/VXSu/1B3
+        sP9MfbX/SIG6/0WGvf9CicD/P4vD/z2Mw/89iMD/Poa+/0KIvP9MjLf/VJCz/3OIlv+Zl5X/oaCf/4eH
+        hP9oZ2T/VVNP/1lYWv9RYnX/R3GS/0F0nP9FhbH/M2y6/xAhpv8AAJz/AQGe/w0arv8NG7P/DRq0/wkX
+        qf8CCp7/AADNrQAA0y05c6IAOXOiAFCf4ABQn+AAUJ/gADlzogA5c6IAFjtfFAolQf8NPnX/Q4e//0SJ
+        wP9Bhrz/SYjH/y+An/8OcmT/DG5w/xRzkf8TdY3/EnWG/xBzfP8Mbm3/BmlV/w5xYP81iKv/RobD/0KG
+        vP89j8f/U2ui/3AyZP9zK1z/dDBh/3U0Zf9yO27/cEJ2/2pKgf9oUor/VYTA/0KPxP85dsj/K2PF/y1u
+        yP8zXKD/R1Fo/4+Sif+Bf23/RkVM/zw+S/9Ga47/Q4i9/0KMxv9Fj8T/PHu//xUsp/8AAJ3/BQ2i/wIG
+        of8AAKr/FCq0/xUqsv8KGa//Ageo/wAAyXQAAO0LOXOiADlzogBQn+AAUJ/gAFCf4AA5c6IAOXOiABY6
+        XBYKJUH/DUB2/0OHv/9EicD/QYa8/0mIx/8ugZ//EHFj/xFxh/8decn/HXrL/x16xv8eesn/HHrB/xBx
+        hP8SdGX/OImw/0eGxP9Chrz/PZDI/1Nro/9wLWD/T0aC/z1Ymv9ET4//S0iF/09Cfv9gMGb/dCBP/1Zw
+        qv9DmMj/IlOz/wMboP8JI6L/BiCk/w0hi/8oN3r/HBx9/wwXiP87dq//Q4zA/0OMwf9Fjb//PoC7/xs4
+        qv8AAJv/AACl/wcPrP8ECqz/Awev/xIks/8JEbn/AADO/wEJq/8AAMZDQoa9ADlzogA5c6IAUJ/gAFCf
+        4ABQn+AAOXOiADlzogAXPWEXCiVB/w1Adv9Dh7//RInA/0GGvP9JiMf/LoGf/xBxYf8RcYX/HHrI/x16
+        y/8desj/HnrN/x56x/8QcIf/EnRj/ziJsP9HhsT/QYS7/z2PxP9TbKL/cipc/zlcnf8Xgc7/GX7M/xp9
+        yv8XgM//OF6g/3QlVP9WdLD/RJrJ/yZVtP8LMKf/G2/A/xpxwf8YcL7/EEzH/wEJxv8AAqr/OHW8/z+A
+        vf80Y7r/MV66/yVJsf8FC6H/AACf/wAAqf8CBrD/ESOz/xQqsP8HD7L/AADE/wcPzP8HHlv/AACKA0KG
+        vQA5c6IAOXOiAFCf4ABQn+AAUJ/gADlzogA5c6IAFjtfGQokQv8NQHb/Q4e//0SJwP9Bhrz/SYjH/y6B
+        n/8QcWH/EXGG/xx6yP8desj/HXrF/x16yv8cesP/EHCE/xJ0Y/84ibD/R4bE/0KGvP89kMn/VGqi/3Mp
+        W/88WZv/GX3L/x17x/8de8b/FoHP/zZfof94I1H/VXSw/0Saz/8kU7r/Ci6n/x2Cxv8Zbc3/DTjO/wEL
+        0v8AANf/AAC//wECpP8AAZn/AACb/wAAnv8AAJ7/AACg/wAApf8AAKz/AQOv/wkTsf8HD7P/AAC//wMF
+        y/8dSbT/BiUs/0KGvQBChr0AOXOiADlzogBQn+AAUJ/gAFCf4AA5c6IAOXOiABY9XxkKJUL/DT92/0OI
+        wP9EiMD/QYa8/0mIx/8ugZ3/EHFi/xJxh/8desv/HnvO/x57zP8ee9D/HnrJ/xBwhv8SdGP/OImx/0eG
+        xP9Chrz/PZDJ/1Rqov9zKVv/Olud/xh/y/8ce8n/HXvG/xh/zv84Xp//eCNR/1V0sP9Em8z/JFO2/wou
+        pv8desj/DDPU/wAA1f8CB8r/AgrP/wAA0P8AAMb/AACr/wAAnv8AAJ7/AgSj/wgPqf8AAaz/AACv/wAA
+        tP8DBrn/AQLC/wIEyf8eOsz/IFG0/wEaLf9Chr0AQoa9ADlzogA5c6IAUJ/gAFCf4ABQn+AAOXOiADlz
+        ogAXO14bCiRC/w0/dv9DiMD/RIjA/0GGvP9JiMf/LYGc/w5xYv8ObnT/FnWj/xd2rP8ZeK7/GXi0/xh3
+        sv8Pb37/E3Ro/zeJsf9HhsT/Qoa8/z2Qyf9Ua6L/cS1e/zxam/8Zfsv/GX7L/xp9yf8VgtH/NmCi/3ck
+        VP9VdbD/RJvJ/yRStP8LMqf/GnPI/wcg0P8AAM3/BBHC/wQUzv8AAMz/AADL/wAAzP8AAL//AACw/wMH
+        tf8KFr7/BAm7/wAAt/8CBLv/Eye//w4cxv8ECcn/HTrM/x1KuP8CGi7/Qoa9AEKGvQA5c6IAOXOiAFCf
+        4ABQn+AAUJ/gADlzogA5c6IAGD5iHAkkQv8OP3j/RIjA/0SIwP9Chr3/R4fE/zKEpP8Ud2//DG9b/w1v
+        Wf8LbVP/CmxR/wlsUv8Ia1X/BmlP/xByZv82h6z/RobD/0KGvP89kMj/VGWd/3ImV/9hMWX/UkN9/1BM
+        if9KUI7/QVSU/09Dfv9zJlX/VXSu/0Sayf8kU7T/CjKl/xNPxv8AAcn/AADA/wAAvv8AANb/AADQ/wAA
+        yv8AANX/AADV/wAA0/8AANX/AADP/wYOzf8ECcT/AwbD/xcvx/8UKMb/Fi7K/y9ezP8mZKH/ARgu/0KG
+        vQBChr0AOXOiADlzogBQn+AAUJ/gAFCf4AA5c6IAOXOiABg+YB4JJkL/DkF4/0SIwP9EiMD/Qoa9/0OG
+        wP9Air3/N4iw/zSFpv8zhqX/MIaj/y+En/8thJ3/LIWa/yeCk/8tiqD/QJDA/0SFv/9Chr3/Po3E/1R4
+        s/9rTYb/bEN4/3BCdf9kIk7/ZyFN/3Q3af9xMWX/bzRp/1V3sv9Dlsf/I1a1/wYcrv8ABMP/AADG/wAA
+        x/8AAML/AADR/wAAy/8AANj/AADT/wAAx/8AAMv/AADN/wEByP8GDcr/AwbJ/wIEzP8jR8v/M2rB/z9/
+        v/9Gi8b/KGaf/wEXL/9Chr0AQoa9ADlzogA5c6IAUJ/gAFCf4ABQn+AAOXOiADlzogAXPGEgCSZC/w5B
+        eP9EiMD/RIi//0KGvf9Chr3/Q4a//0WGwv9Hh8X/SIfG/0iHxv9Ih8b/SIfH/0mHx/9Jh8f/RobE/0OG
+        v/9Chr3/Qoa9/0KHvv9AisD/QIrB/0CJwP9Mm9r/FCxO/xoyWP9Smdb/TojB/1GDvf9OkMz/RpPJ/0CE
+        yv8jTsn/BAnC/xIsqv8ABL3/AADH/wAAyf8AALb/AADE/wAA0v8AAMn/AAC7/wAAyP8CBtD/AQTK/wAA
+        xv8CBNH/Hj7P/y5dvv9Bhrn/SZDF/yVknv8AFi//Qoa9AEKGvQA5c6IAOXOiAFCf4ABQn+AAUJ/gADlz
+        ogA5c6IAFzxfIgkmQv8OQXf/RIrB/0SIv/9Chr3/Qoa9/0KGvf9Chr3/Qoa9/0KGvf9Chr3/Qoa9/0KG
+        vf9Chr3/Qoa9/0KGvf9Chr3/Qoa9/0KGvf9Chr3/Qoa9/0KHvf9Bhbz/T57e/wwoS/8JIkH/M3Cl/zFv
+        ov8zcaX/NXOn/zh1qv88e6r/PHqz/yVJu/8RIrn/AADF/wAA0v8AANv/AADJ/wAAu/8AALb/AADO/wAA
+        1v8AAdP/Dx/H/w4cuv8MGMH/JUzF/y5exv8yZ73/QIO7/0iPxv8lY57/ARcv/0KGvQBChr0AOXOiADlz
+        ogBQn+AAUJ/gAFCf4AA5c6IAOXOiABg/YyMJJUL/DkF3/0SKwf9EiL//Qoa9/0KGvf9Chr3/Qoa9/0KG
+        vf9Chr3/Qoa9/0KGvf9Chr3/Qoa9/0KGvf9Chr3/Qoa9/0KGvf9Chr3/Qoa9/0KGvf9Chr3/QoW8/02a
+        2P8RK03/AAwk/wAJIP8ABh3/AAkh/wANKP8DEi7/AA8o/wEQJP8DFUH/AAC//wAAif8cO7//AgTN/wIE
+        zf8AANj/AAC4/wABtf8AAM3/AADa/xAiz/8rV8T/Pn/D/0mUvP9Gjrz/RIq9/0OIvf9Ij8b/JWKc/wEX
+        L/9Chr0AQoa9ADlzogA5c6IAUJ/gAFCf4ABQn+AAOXOiADlzogAaQmYkCSVB/w1Ad/9Chrz/QIO5/z6B
+        tf8/gbX/P4C1/z+Atf8/gLX/P4C0/z+AtP8/gLT/P4C1/z+Atf8/gLb/P4G3/z+Bt/8/grf/P4O3/z+D
+        t/9Ag7n/QIO5/0GCuP9DisL/P4K7/z+CvP9Ag73/P4K9/z1+t/8VNFj/DydI/zZxpv87ea7/NW+n/wEB
+        zv8jS57/SJbD/wMIzv8dOrr/FzDN/wAAyf8MG8n/AwfS/wMIyP8QIsX/NG3C/zZvv/85dbv/Q4m9/0KG
+        vf9Chr3/SI/G/yRinf8BFS//Qoa9AEKGvQA5c6IAOXOiAFCf4ABQn+AAUJ/gADlzogA5c6IAGkJmJgkl
+        Q/8NPnT/VKbr/1Sl6P9SouX/UaLj/1Gh4/9RoeL/UJ/h/1Cf3/9Qnt7/T53d/0+d2/9Pm9r/TZrZ/02Y
+        1/9Ml9b/TJbV/0qW0v9KlNH/SZPP/0mSzP9HkMv/SI/K/0iQy/9Hkcr/SJDJ/0iQyf9Jksz/HT9o/xMw
+        U/9Gjsj/Ro7E/0OKwP8AAMv/JEqy/0iUuv8KFML/JUyx/z+Buf8TJ77/DBm//y1cvf82b7j/IUO0/x4/
+        vP8fQb7/MGGz/0CCtv8/gLb/P4C1/0WKwP8jX5n/ABUv/0KGvQBChr0AOXOiADlzogBQn+AAUJ/gAFCf
+        4AA5c6IAOXOiABpAYycJJUH/DD1z/1Sl5/9SoeP/UJ/g/1Cf4P9Qn+D/UKDh/1Gg4f9RoOH/UaDh/1Gg
+        4f9RoOH/UaDh/1Gg4/9RouP/UaLj/1Gi5P9RouT/UqLk/1Ki5P9Toub/U6Lm/1Oj5v9To+b/U6Tm/1Ok
+        5v9Upur/UqXo/xg4Xv8QKkz/T53e/1eq7f9Vquf/GTHg/wgPx/9TpOP/Pnzj/0GB4v9ZsOj/SJDj/y5e
+        3/9So+X/Vqvl/1ar5f9UpeT/UqTh/1Ki4P9SoeH/UJ/f/1Ce3v9Xqen/J2ak/wATK/9Chr0AQoa9ADlz
+        ogA5c6IAUJ/gAFCf4ABQn+AAOXOiADlzogAaP2MpCSVC/ww9c/9Upef/UqHj/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qn9//UaDh/1Gg4f8YN13/DytN/02a2f9To+X/VKfg/zlw3/8NGs//SJDe/1Gi
+        4f9So+D/UqLg/1Kj4P9TpOD/UqPg/1Gg4P9Qn+D/UaDg/1Gg4P9RoOH/UaDh/1Gg4f9Qn+H/Wa3v/ydo
+        pf8AEij/UJ/gAFCf4AA5c6IAOXOiAFCf4ABQn+AAUJ/gADlzogA5c6IAGj9jKwklQv8MPnP/VKXn/1Kh
+        4/9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9RoOL/U6Ln/1Wk6/9Toej/GTRe/xIpTv9QnOH/Vqbt/1Sk
+        5/9RoeH/S5Xg/1Kk4f9RoeD/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1ms7v8nZqT/ABAm/1Cf4ABQn+AAOXOiADlzogBQn+AAUJ/gAFCf4AA5c6IAOXOiABpC
+        ZiwJJUL/DD5z/1Sl6P9SoeP/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9RoOL/UZ7h/z+Tw/9Flsv/Q5PJ/xZB
+        Yf8SN1T/QpDE/0mZ0v9Dlsj/UqLk/1Gh4f9RoOD/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9ZrO7/JWaj/wAQJ/9Qn+AAUJ/gADlzogA5c6IAUJ/gAFCf
+        4ABQn+AAOXOiADlzogAaQmYuCSVC/ww+df9Upuj/UqHj/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/U6Lm/0KU
+        xv8DaEr/A2hO/wZsUv8Ib1b/Cm9X/whtVP8EaE3/A2dO/0eY0P9ToeX/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/Wazu/yZkof8AECf/UJ/gAFCf
+        4AA5c6IAOXOiAFCf4ABQn+AAUJ/gADlzogA5c6IAGkJmMAklQv8NPnX/Vabo/1Kh4v9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Si5/9Flcz/B2lS/xFxdv8XdqL/Fnaa/xZ1mv8XdKD/EG90/wdrVv9KnNb/U6Lm/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1mt
+        7/8kY6H/ABAo/1Cf4ABQn+AAOXOiADlzogBQn+AAUJ/gAFCf4AA5c6IAOXOiABpAZTEJJUL/DT90/1Wm
+        6f9SoeL/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Uouf/RZXM/wdpUf8Uc47/IHzd/x970f8ee9H/IXze/xR0
+        jP8Ha1X/SpzX/1Oh5v9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Zre//JGOg/wARJ/9Qn+AAUJ/gADlzogA5c6IAUJ/gAFCf4ABQn+AAOXOiADlz
+        ogAaQGUzCSVC/w0/dv9Vpun/UqHi/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/VKLn/0WVzP8GaVD/FHOJ/x97
+        0/8desX/HXrF/x570v8TcoX/CGtU/0uc1/9Toeb/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn9//Wa3w/yRinv8AEif/UJ/gAFCf4AA5c6IAOXOiAFCf
+        4ABQn+AAUJ/gADlzogA5c6IAGkJkNQklQv8NP3X/Vafp/1Kh4v9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Si
+        5/9Elcz/B2lQ/xRzif8fe9T/HXrG/x16yP8fe9X/E3OG/whrVP9LnNf/U6Hm/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/f/1qt8P8jYp7/ABIn/1Cf
+        4ABQn+AAOXOiADlzogBQn+AAUJ/gAFCf4AA5c6IAOXOiABpCZDcJJUP/DT91/1Wn6f9SoeL/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Uouf/RJXK/wdpUv8Tc47/H33W/x56y/8eesr/H3vT/xNyiP8Ia1b/S5zX/1Oh
+        5v9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        3/9arfD/I2Gd/wASJ/5Qn+AAUJ/gADlzogA5c6IAUJ/gAFCf4ABQn+AAOXOiADlzogAaQmY5CSVC/w0/
+        d/9Vp+v/UqHi/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/VKLn/0OUyP8FZ07/Cmxb/wttZf8LbGD/Cmxe/wts
+        Y/8Ia1X/BmlT/0qa1P9ToeX/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qn9//Wq3w/yFhnP8AESn+UJ/gAFCf4AA5c6IAOXOiAFCf4ABQn+AAUJ/gADlz
+        ogA5c6IAGkBkOgklQ/8NQHf/V6fr/1Kh4v9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf3/9Qn9//T57f/1Kf4/9Elcv/Gnd6/x95
+        f/8geoH/IXyD/yR9iP8lfov/Jn+Q/yeAk/9Mm9z/Up/i/0+e3/9Qnt//UJ7f/1Ce3/9Qnt//UJ/f/1Cf
+        3/9Qn+D/UJ/g/1Cf4P9Qn+D/UaDh/1Gg4f9RoOH/UaDh/1uu8v8iYJ3/ABEp/lCf4ABQn+AAOXOiADlz
+        ogBQn+AAUJ/gAFCf4AA5c6IAOXOiABpAZDwJJkP/DkB2/1ep6v9QoeL/UJ/g/1Cf4P9RoOD/UaDh/1Gg
+        4f9RoOL/UaHi/1Kh4v9SoeT/UqPk/1Sj5f9UpOX/VKTn/1Sm6P9Vp+j/V6fq/1ep6v9Xqez/V6vt/1ms
+        7/9arfH/XrD3/12w9/9gs/z/YbP+/2G1/v9itv//Yrb//2K3//9gtvz/Yrf9/1+0+f9ftPn/X7X5/1+1
+        +P9ftPj/XrT3/16z9v9dsvf/XLH1/1yw9P9br/P/Wa3x/1is7v9Vqez/VKXq/1Gj5v9Wqu7/ImKg/wEV
+        LP5Qn+AAUJ/gADlzogA5c6IAUJ/gAFCf4ABQn+AAOXOiADlzogAbQGQ+CSZD/xFEff9etfn/W7D0/1qu
+        8f9ZrfD/WKru/1ap6/9Vp+n/VKTn/1Gi5P9QoOL/Tp3e/0uZ2/9Jltj/RpLV/0SQ0f9BjM3/P4jI/zyF
+        xP85gcD/N327/zR5t/8wc7L/LW+u/ypsqf8oaKb/JmSh/yNgnf8gXJf/HVeU/xpTjv8YUIv/FUyF/xNI
+        gf8QRH3/D0F5/w0/df8LPHP/CTpv/wg3bP8INmn/BzRm/wYxY/8GMGD/BS5e/wUtWv8ELFj/BCtW/wUo
+        VP8DJ1H/BSlS/w01YP8BFi//UJ/gAFCf4AA5c6IAOXOiAFCf4ABQn+AAUJ/gADlzogA5c6IAHEJmQQso
+        SP8UTIb/DkJ5/ws7cf8KOW3/CTdr/wg2aP8INGb/BzNk/wYyYv8GL2D/By5e/wUtXP8GLVn/BixX/wYr
+        Vf8FKlT/BSlS/wYqUP8GKU//BihN/wcoTP8HJ0v/ByZJ/wgnSP8IJkf/BSE//wIaN/8AFTD/ABQv/wAU
+        Lv8BEy3/ABQs/gASK/sAFCn3AhYq8QEVLOoBFSviAxct2QMVLM4DFizCARYttQIWKqgCFSuZARQoiQES
+        J3oBEihtARIoYAESKFMBFClHARQpOwEUKy8BFCskAA0jGVCf4ABQn+AAOXOiADlzogBQn+AAUJ/gAFCf
+        4AA5c6IAOXOiAAklRjECGDL/ARUt+gEUK/UBFizvARQr6QEVK+ECFSvYAhUszwEUKcUBFCq5ARMprQET
+        KKEBEyiWARQoigESKX8BEylzARMpaAETKlwBEypRARUqRgEVKjsBFSowARUsJgEVLB0BFi4VAhYvDQAS
+        KgZGmM4ARpjOAEaYzgBGmM4ARpjOAEaYzgBPnt8AUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gADlz
+        ogA5c6IAUJ/gAFCf4ABQn+AAOXOiADlzogA5c6IAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf
+        4ABQn+AAUJ/gAFCf4AA5c6IAOXOiAFCf4ABQn+AAUJ/gADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlz
+        ogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlz
+        ogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlz
+        ogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlz
+        ogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogBQn+AAUJ/gAFCf4AA5c6IAOXOiADlz
+        ogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlz
+        ogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlz
+        ogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlz
+        ogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAUJ/gAFCf
+        4ABQn+AAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlz
+        ogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlz
+        ogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlz
+        ogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlz
+        ogBQn+AAUJ/gAFCf4ABQn+AAUJ/gADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlz
+        ogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlz
+        ogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlz
+        ogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlzogA5c6IAOXOiADlz
+        ogA5c6IAUJ/gAFCf4ABQn+AAUJ/gAFCf4ABQn+AAUJ/gAFCf4AD/////////////////////////8AD/
+        //////wAAAP/////8AAAAD/////gAAAAB//j/+AAAAAA/+AH4AAAAAA/4AAAAAAAAB/gAAAAAAAAD+AA
+        AAAAAAAH4AAAAAAAAA/gAAAAAAAAH+AAAAAAAAA/4AAAAAAAAH/gAAAAAAAAf+AAAAAAAAB/4AAAAAAA
+        AH/gAAAAAAAAf+AAAAAAAABf4AAAAAAAAD/gAAAAAAAAL+AAAAAAAAAf4AAAAAAAABfgAAAAAAAAB+AA
+        AAAAAAAP4AAAAAAAAC/gAAAAAAAAD+AAAAAAAAAf4AAAAAAAAD/gAAAAAAAAf+AAAAAAAAB/4AAAAAAA
+        AH/gAAAAAAAAf+AAAAAAAAB/4AAAAAAAAH/gAAAAAAAAf+AAAAAAAAB/4AAAAAAAAH/gAAAAAAAAf+AA
+        AAAAAAB/4AAAAAAAAH/gAAAAAAAAf+AAAAAAAAB/4AAAAAAAAH/gAAAAAAAAf+AAAAAAAAB/4AAAAAAA
+        AH/gAAAAAAAAf+AAAAAAAAB/4AAAAAAAAH/gAAAAAAAAf+AAAAAAAAB/4AAAAAAAAH/gAAAAAAAAf+AA
+        AAAAAAB/4AAAAAAAAH/gAAAAAAD//+AAf///////////////////////////////////////////////
+        /////////////ygAAAAgAAAAQAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/I9cAPyPXAD8j
+        1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j1wCqVVUDf39/CHhpaRFYTk4aWlJSIlVV
+        TB5VTEweSkpKGENDQxM6OjoNAAAABQAAAAM/I9cAPyPXAD8j1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j
+        1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j1wDMmZkFk46OMpGPj2KJh4eEdnZ2o2Ji
+        YrZgYGDDW1tbwFhYWMBWVlW5T09PsEVFRZ49PTt9NTIyYC0tKUMeHh4iIiIiDwAAAAI/I9cAPyPXAD8j
+        1wA/I9cAPyPXAD8j1wAAEiQOABYsFwAAGQoAAAABPyPXAD8j1wA/I9cAv79/BKiloliOjo3Gd3d38Xh4
+        ePiEhIT9ZWVl/lZWVv9YWFj+XV1d/m1tbf1dXV39QUFB/UNDQ/hERETwPz8/4Ds7O7w3NzeTLSoqWSYm
+        HiEAAAAGPyPXAD8j1wA/I9cAPyPXAAQfPmoLMFfEDjNdnwkqT4QEIkRvAx4/TAAdOysjMU0km52hfqGg
+        oOpxcXH+XFxc/319ff96enr/UlJS/05OTv9XV1f/cXFx/2BgYP85OTn/Pj4+/0JCQv9ISEj/VVVV/lFR
+        Ufk6OjnoNDMzuS0qKncrKyUpAAAAAj8j1wA/I9cACihKfiZflf4/hsT/Nniz/y5spfooYpftH1OE4hVC
+        cNceRG3Ian2S5pKWmf1zcnL/X19f/319ff9ubm7/Tk5O/1NTU/9sbGz/YWFh/zs7O/8+Pj7/QEBA/05O
+        Tv9lZWX/VFRU/0FBQf9BQUH9NTQ08y8tLa0pKSkrPyPXAD8j1wAKKkx/K2ad/lKi4/9Iktr/MGrF/zJu
+        x/84eMv/PYHN/z+Gyv9CiMP/b5zC/5Odpf9/f3//fHx8/4eHh/9sbGz/ZmZm/25ubv9lZWX/TU1N/0lJ
+        Sf9KSkr/Xl5e/1dXV/9AQED/Q0ND/zw8PP8sLCz+KSkp2zAwMEU/I9cAPyPXAAoqTn8rZ57+UaHi/0CF
+        0v8TQK7/E1O1/xVTtf8UR7H/K2HA/06e4P9TkM//cGuQ/5GNlf+VlZX/i4uL/3Jycv9eXl7/ampq/2Zm
+        Zv9JSUn/TExM/1RUVP9YWFj/QkJC/zo6Ov83Nzf/Kioq/iUnKdMoKiprLS0tET8j1wA/I9cACSlNgCtn
+        nv5RoeL/QIXS/xVIsf8adMP/HHrF/xZduf8mW73/Tp7g/1WFw/9ZRnz/b3+c/4aGhv95eXn/a2tr/05O
+        Tv9mZmb/bm5u/0FBQf9HR0f/XFxc/1hYWP87Ozv/MzMz/ywtLv8rPU39GzFIiiQkJAc/I9cAPyPXAD8j
+        1wAJKU2ALGef/lGh4v9AhNH/E0Sv/xdnvf8bc8L/FVy5/yZcvf9OnuD/VYXD/1BOiP9airX/g4WG/29v
+        b/9wcHD/TExM/2BgYP9wcHD/QkJC/0lJSf9iYmL/Wlpa/0BAQP88PDz/MztA/zZmjv4SP2h9PyPXAD8j
+        1wA/I9cAPyPXAAsrTYEsaJ//UaHi/0WO1v8mWrz/G0yv/xE9nv8WRrH/KV+//06e3/9VhMP/V0Z//1px
+        oP+Gio//ampq/3Z2dv9MTEz/W1tb/3Fxcf9FRUX/S0tL/2VlZf9WVlb/R0dH/0FAQP83Q0z/OW6k/hA0
+        cZsAAJwsAAB/BD8j1wAAAAABCytMgixpoP9RoOH/UJ/f/06c3/85drH/Hkd6/0KHz/9Hkdj/UJ/g/1GU
+        1P9bbKf/W1yL/4iFjv9ubm3/enp6/1dXV/9XV1f/cnJy/0dHR/9OTk7/aGho/09PT/9MTEz/Ozs5/zRH
+        aP8mTaz+BheGxwAApm0AAKYaPyPXAAAAAAEJKkuDLGmg/1Ce4P9Pnt//UKDh/zx7s/8fSHL/TZvb/1Cg
+        4P9Qn+D/UJ/g/1Cg4f81bKD/Xm19/4CAgP90dHT/bGxs/1VVVf9xcXH/SUlJ/1dXV/9mZmb/S0tL/0RE
+        Q/8rLD7/IzaR/xczqv4EDpXmAAConAAAqjk/I9cAAAAAAQkqTYQnYJT/RYzF/0WMxv9HkMv/OHWq/x5I
+        cf9Iks7/S5bU/0yY1/9Nmtr/Tpzd/0WPzP9PhLL/iZqn/359ff95eXn/aGho/3BwcP9SUlL/ZWVl/1lZ
+        Wf9GRUX/ODc2/yMpZf8QIKj/Cxuj/gMJn+oAAKunAACsQT8j1wAAAAABCSpMhSdfkv9Chr7/QYW8/0GG
+        vf81cKL/Hkdw/0KFvf9Bhbz/QYW9/0KGvf9Bh7//QonB/0SLxP9ek7z/g5em/42Qkv+GhYX/fHx7/2ho
+        aP9paWn/S0tK/zk9P/8xQVv/GSSU/wwZrf8FDaX+Agmk3gAAsoIAAKwiPyPXAAAAAAIJKUyGJl+S/0KG
+        vv87hLL/J32Q/yBwgv8XW2v/Ln+b/zmFr/9Chr3/RIS7/0t3rv9KebD/R320/0R/t/9Oi7v/Y42y/3mO
+        of+LjI3/c3Jx/1pdYf9IW2z/OmGA/ydJof8HDqL/CROs/wYPrP8BBK/QAADDSQAA/wI/I9cAAAAAAgkr
+        TYcnX5P/Q4e+/zaBqf8Tc3v/FnWf/xV0nv8Tc4b/Jn6Q/0GGvf9Ldaz/XkZ9/1FQi/9SUIv/XU6F/0p4
+        sv8oXbf/JU+n/0RXjP8/RXz/P2WP/0F+tP8vYLL/DBum/wMIpv8KFa//CRS2/wEHq6EAAMwPPyPXAD8j
+        1wAAAFUDCStOiCdgk/9Dh7//NoKp/xV0g/8aeMD/HXrI/xZ1of8mfZD/QYe+/0xzqf9PTYj/InO9/yNy
+        u/9QS4b/THOu/xxRtP8UWL3/DDPB/wcRuv8ZNLD/GzWr/w4cpv8AAab/BQyv/wcPt/8KGbH/BR1ugz8j
+        1wA/I9cAPyPXAAAAVQMJKk6JJ1+U/0OHv/82gqn/FHN8/xZ1p/8Yd7H/E3OS/yV8kP9Bh77/THOq/1BL
+        hv8kcbr/InS9/09NiP9Mc67/HVK0/w5Bx/8CDcv/AQXM/wAAvf8AAK//Agaw/wIEtP8FDLr/ChXE/xY2
+        rf8IJk5/PyPXAD8j1wA/I9cAAABVAwksT4ooYJX/Q4e+/zuFs/8mfY//InqK/yB5iP8eeYT/LoGd/0GH
+        vv9Ld6//XkyC/09IgP9NSYL/XkmA/0t2sf8dTLf/BhvA/wABxf8AAcv/AADP/wAAyv8BA8r/AgbG/w8g
+        xv8mTcT/J1um/woqSn8/I9cAPyPXAD8j1wAAAD8ECSxOiyhhlP9Dh77/QYa9/0GGvP9Bhrz/QYW8/0GF
+        u/9Bhrz/QoW9/0KGvf9Hgbn/NFmJ/ytGcf8+ZJj/OXKm/ydXp/8PIrT/AwjA/wAAyP8AAMX/AADH/wMI
+        yv8NHMX/IELF/zl0vv8wbaH/CChKfz8j1wA/I9cAPyPXAAA/PwQKK1CMKGGW/0OIwP9Ch77/Qoa+/0KG
+        vf9Chr3/Qoa9/0GGvf9Bhr3/QYa9/0KHvv82caX/JFF9/yNOef8VNFn/I014/xQsnf8XMbf/Dh/H/woV
+        w/8FC8f/ECLJ/ylWwP88fLz/QYW8/zBtof8IKEh/PyPXAD8j1wA/I9cAAD8/BAkrT40ubKT/T53d/06b
+        2/9Nm9v/TZra/02a2f9Nmdj/TJnY/0uY1/9LmNb/S5fV/0uX1f9Ll9X/RYvH/yJLdv9Ch8D/Ll3P/ypW
+        yP80as7/M2jQ/zBi0P86dc//PHnO/0OIy/9Ikcz/M3Oq/wgmSH8/I9cAPyPXAD8j1wAAMzMFCixOjy9t
+        pv9RoOH/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9JktD/Ikx4/0iQ
+        zf9Gi9//QIDb/06b4P9QoOD/Tpzg/1Cg4P9Qn+D/UJ/g/1Gg4f85fLf/CCZGfz8j1wA/I9cAPyPXAAAz
+        ZgUKLE+QL22m/1Gg4f9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Pnt//OI2y/yR8
+        kf8VXm3/JXuQ/zmPtv9Pn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UaDh/zl7tv8IJER/PyPXAD8j
+        1wA/I9cAACpVBgorUJEvbqf/UaDh/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/0+e
+        3/8ogZb/EnKQ/xh3rf8TcpD/KoSb/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9RoOH/OHu2/wgk
+        RH8/I9cAPyPXAD8j1wAAKlUGCi1QkjBup/9RoOH/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ7f/yiBmP8Xdab/HXrK/xd1pf8rhJ3/UJ/h/1Cf4P9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Gg
+        4f84e7X/CCREfz8j1wA/I9cAPyPXAAAkSAcKLFCUMG+o/1Gg4v9Qn+D/UJ/g/1Cf4P9Qn+D/UJ/g/1Cf
+        4P9Qn+D/UJ/g/1Cf3/9Pnt//KIGX/xJyhv8WdZr/E3KG/yyFnv9Pn+D/UJ7f/1Ce3/9Qn9//UJ/g/1Cf
+        4P9Qn+D/UaDh/zh6tf4IJER/PyPXAD8j1wA/I9cAACRIBwouUpUxcKr/UqLk/1Gg4f9QoOH/UJ/h/1Cf
+        4f9Qn+D/UJ7g/0+e4P9Pnt//T57f/06d3/8/kcH/NImt/zaKr/82i7H/QZLF/02b3P9Mmtv/TJnZ/0uY
+        2P9Ll9f/SpbV/0iU0/9Ik9L/MW+o/ggkRn8/I9cAPyPXAD8j1wAAJG0HCy1Tlh9ViP4vbqb8Lmyk+i1p
+        ofgsaJ/1K2ad8ilkmu8nYpjsJ2CU6SVdkeckW47kIViK4iFUhuAcTH3fGkh23xhDct4WQG7cFD9r2BM/
+        atISPWrKEj1qwBI9abUSPWmqEz5qoBI8apcQOWaOABo4RD8j1wA/I9cAPyPXAAAAAAMDGzdJBCBBfAIe
+        PHcCHTpyABw5awAaOWIAGThaABk4UQAYOEgAGzdAABs8NwAbOy8AHz4pAB06IwAPLyAAECkfABApHwAQ
+        KR8AESMdABIlGwAUKBkADCQVAA4cEgAAJA4AABcLAAAfCAAAAAUAAAABPyPXAD8j1wA/I9cAPyPXAD8j
+        1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j
+        1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j
+        1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j
+        1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j1wA/I9cAPyPXAD8j
+        1wA/I9cA///////4A///4AAf4+AAB+AAAAHgAAAB4AAAA8AAAAPAAAAHwAAAA8AAAAPAAAABwAAAAcAA
+        AAHAAAADwAAAA8AAAAPAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AA
+        AAf///////////////8oAAAAEAAAACAAAAABACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AP//
+        /wD///8A////AH9/fwKJiYkyfHx8Vl9dXW1aWFhxWFhYaEBAQFM0NDQ1LCwhFwAAAAP///8A////AAAX
+        NyAXQm9gETlkRwsvWCtzeYVSiYmJ1nBwcPdpaWn8V1dX+19fX/pBQUH2QkJC50pKSsQ4ODiELCwsOf//
+        /wAONV1HNHOs8zRyufUqZKvlLWOi2mqNrPh5fID/dHR0/2FhYf9lZWX/RkZG/09PT/9RUVH/PDw8/TAw
+        MMItLS0nEThfSD2BvfYtbMT/GWK8/yZmwf9Oh8n/cnqZ/4SDhP9mZmb/Y2Nj/0xMTP9VVVX/PT09/zE4
+        PfkiKS98KioqBhE4X0g8grz3M3LI/xdXrv8mY7//T4fJ/19ol/93fYL/YWFh/2JiYv9NTU3/Wlpa/0FA
+        QP8yTWn2GDuEXgAAAAERN15JPIG690yY2v8waKP/QYbL/1Cc3f9Sd6z/bXWA/2dnZ/9gYGD/VFRU/1hY
+        WP88PkX/IjiI/AQPm6YAAKYaDTddSjV0qvdDi8L/LWSS/0KHwP9HkMv/Ro/K/2KOsf99iZH/dnZ2/2Fg
+        YP9LTU//KDFq/w0cpvwBB6a2AACqHg02X0szcaX3LX6e/xlsjP8qfZz/RH6y/0toof9Ka6T/T3qx/1Zv
+        mf9TYYL/OFiM/xQmo/8GDa77AgitdAAA/wEQNFxNM3Gm9yd8nP8Ydqr/IHma/0V5rf8/XZ3/P16e/zVh
+        rv8ML77/Cha4/w0bsf8DCLH/DiGv9wolfUv///8AEDdeTjRxpvg4gqz/MX+m/zOApv9Egbf/RWCW/z5S
+        hf8vVqT/CBe+/wACyf8BA8j/FSvD/ydUr/cRPWRH////ABA6YE85erL4SJHN/0iQzP9HkMv/R4/K/0SK
+        xP81b6P/KluP/yNJvf8iRcr/IkXM/zdvx/85erL3ETlgR////wAPOGFRPoTA+FCf4P9Qnt//T57f/0+e
+        3/9Pnt//OIey/yx1nf9BidL/Tpze/06d3/9OnN7/QonF9xU9ZEf///8AEjtjUj6EwfhQn+D/UJ/g/1Cf
+        4P9Qn+D/TZza/yN9of8XdaD/PJHA/1Cf4P9Qn+D/UJ/f/0KKxvcVPWRH////ABI5ZFQ9g7/4Tpzd/02b
+        3P9Nmtv/TJra/0mX1P8sgKT/JHqg/zyLu/5JldT9SJPT/EiT0/o6fbfwET1kR////wAIKEw/IFKDrSRZ
+        iq0jWYujJFqMmSVajI8kW4yGH1OAgRxMeH8cSnd8Gkp3dRxKemodTnxeHk+BUwAOKhL///8A////AAAA
+        JAcAACoGAAAABQAAAAMAAAACAAAAAf///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        AAD4AwAAgAEAAIADAACAAwAAgAEAAIABAACAAwAAgAMAAIADAACAAwAAgAMAAIADAACAAwAAgP8AAP//
+        AAA=
+</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Gebäude editieren: </value>
+  </data>
+  <data name="&gt;&gt;_buildingDepViewCountColumn.Name" xml:space="preserve">
+    <value>_buildingDepViewCountColumn</value>
+  </data>
+  <data name="&gt;&gt;_buildingDepViewCountColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_buildingDepViewNameColumn.Name" xml:space="preserve">
+    <value>_buildingDepViewNameColumn</value>
+  </data>
+  <data name="&gt;&gt;_buildingDepViewNameColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_childrenViewButtonColumn.Name" xml:space="preserve">
+    <value>_childrenViewButtonColumn</value>
+  </data>
+  <data name="&gt;&gt;_childrenViewButtonColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_childrenViewChildColumn.Name" xml:space="preserve">
+    <value>_childrenViewChildColumn</value>
+  </data>
+  <data name="&gt;&gt;_childrenViewChildColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>EditBuildingForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>
