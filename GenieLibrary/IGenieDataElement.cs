@@ -61,7 +61,7 @@ namespace GenieLibrary
 
 		/// <summary>
 		/// Liest Daten ab der gegebenen Position im Puffer und gibt dieses Objekt dann zurück.
-		/// 
+		///
 		/// TODO: Sehr hässlich...siehe http://stackoverflow.com/questions/7798256/can-a-base-class-method-return-this-even-in-a-derived-class
 		/// </summary>
 		/// <param name="buffer">Der Puffer, aus dem die Daten gelesen werden sollen.</param>

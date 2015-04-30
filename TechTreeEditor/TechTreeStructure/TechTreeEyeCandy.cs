@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using OpenTK;
-using OpenTK.Graphics.OpenGL;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 
 namespace TechTreeEditor.TechTreeStructure
 {
@@ -15,10 +10,6 @@ namespace TechTreeEditor.TechTreeStructure
 	[System.Diagnostics.DebuggerDisplay("ID: #{ID}, Name: {Name}")]
 	public class TechTreeEyeCandy : TechTreeUnit
 	{
-		#region Variablen
-
-		#endregion
-
 		#region Funktionen
 
 		/// <summary>
@@ -28,7 +19,6 @@ namespace TechTreeEditor.TechTreeStructure
 		public TechTreeEyeCandy()
 			: base()
 		{
-
 		}
 
 		protected override void DrawChildren(Point position, List<int> ageOffsets, int parentAgeOffset)
@@ -108,7 +98,7 @@ namespace TechTreeEditor.TechTreeStructure
 			return lastID;
 		}
 
-		#endregion
+		#endregion Funktionen
 
 		#region Eigenschaften
 
@@ -120,6 +110,6 @@ namespace TechTreeEditor.TechTreeStructure
 			get { return "TechTreeEyeCandy"; }
 		}
 
-		#endregion
+		#endregion Eigenschaften
 	}
 }

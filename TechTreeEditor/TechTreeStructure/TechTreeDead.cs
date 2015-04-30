@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using OpenTK;
-using OpenTK.Graphics.OpenGL;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 
 namespace TechTreeEditor.TechTreeStructure
 {
@@ -15,10 +10,6 @@ namespace TechTreeEditor.TechTreeStructure
 	[System.Diagnostics.DebuggerDisplay("ID: #{ID}, Name: {Name}")]
 	public class TechTreeDead : TechTreeUnit
 	{
-		#region Variablen
-
-		#endregion
-
 		#region Funktionen
 
 		/// <summary>
@@ -81,8 +72,8 @@ namespace TechTreeEditor.TechTreeStructure
 			if(DeadUnit != null)
 			{
 				if(!elementIDs.ContainsKey(DeadUnit))
-					 lastID = DeadUnit.ToXml(writer, elementIDs, lastID);
-					deadUnitID = elementIDs[DeadUnit];
+					lastID = DeadUnit.ToXml(writer, elementIDs, lastID);
+				deadUnitID = elementIDs[DeadUnit];
 			}
 
 			// Element-Anfangstag schreiben
@@ -109,7 +100,7 @@ namespace TechTreeEditor.TechTreeStructure
 			return lastID;
 		}
 
-		#endregion
+		#endregion Funktionen
 
 		#region Eigenschaften
 
@@ -121,6 +112,6 @@ namespace TechTreeEditor.TechTreeStructure
 			get { return "TechTreeDead"; }
 		}
 
-		#endregion
+		#endregion Eigenschaften
 	}
 }

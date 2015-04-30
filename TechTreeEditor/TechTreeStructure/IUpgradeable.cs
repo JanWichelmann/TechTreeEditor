@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TechTreeEditor.TechTreeStructure
+﻿namespace TechTreeEditor.TechTreeStructure
 {
 	/// <summary>
 	/// Definiert ein Interface für Klassen, die ein Weiterentwicklungs-Element enthalten.

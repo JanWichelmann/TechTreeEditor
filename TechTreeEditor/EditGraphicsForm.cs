@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TechTreeEditor
@@ -20,29 +16,29 @@ namespace TechTreeEditor
 		/// <summary>
 		/// Das zu bearbeitende Projekt.
 		/// </summary>
-		TechTreeFile _projectFile;
+		private TechTreeFile _projectFile;
 
 		/// <summary>
 		/// Die angezeigten und bearbeiteten Grafiken, nach ID sortiert.
 		/// </summary>
-		SortedDictionary<int, GenieLibrary.DataElements.Graphic> _graphics;
+		private SortedDictionary<int, GenieLibrary.DataElements.Graphic> _graphics;
 
 		/// <summary>
 		/// Die aktuell ausgewählte Grafik.
 		/// </summary>
-		GenieLibrary.DataElements.Graphic _selectedGraphic = null;
+		private GenieLibrary.DataElements.Graphic _selectedGraphic = null;
 
 		/// <summary>
 		/// Gibt an, ob die letzten Änderungen gespeichert wurden.
 		/// </summary>
-		bool _saved = true;
+		private bool _saved = true;
 
 		/// <summary>
 		/// Gibt an, ob gerade Werte geladen werden und deshalb Ereignisse unterbunden werden sollen.
 		/// </summary>
 		private bool _updating = false;
 
-		#endregion
+		#endregion Variablen
 
 		#region Funktionen
 
@@ -109,7 +105,7 @@ namespace TechTreeEditor
 			_updating = false;
 		}
 
-		#endregion
+		#endregion Funktionen
 
 		#region Ereignishandler
 
@@ -843,6 +839,6 @@ namespace TechTreeEditor
 			}
 		}
 
-		#endregion
+		#endregion Ereignishandler
 	}
 }

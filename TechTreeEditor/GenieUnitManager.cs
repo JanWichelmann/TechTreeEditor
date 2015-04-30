@@ -1,10 +1,6 @@
 ﻿using GenieLibrary;
 using GenieLibrary.DataElements;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TechTreeEditor
 {
@@ -18,44 +14,44 @@ namespace TechTreeEditor
 		/// <summary>
 		/// Die Genie-Datenstruktur mit den Einheitenlisten.
 		/// </summary>
-		GenieFile _dat;
+		private GenieFile _dat;
 
 		/// <summary>
 		/// Die Kopier-Informationen der einzelnen Kulturen.
 		/// </summary>
-		bool[] _copyCivs;
+		private bool[] _copyCivs;
 
 		/// <summary>
 		/// Der Index der aktuell ausgewählten Kultur.
 		/// </summary>
-		int _currCivIndex = 0;
+		private int _currCivIndex = 0;
 
 		/// <summary>
 		/// Die aktuell ausgewählte Kultur.
 		/// </summary>
-		Civ _currCiv = null;
+		private Civ _currCiv = null;
 
 		/// <summary>
 		/// Der Index der aktuell ausgewählten Einheit.
 		/// </summary>
-		int _currUnitIndex = -1;
+		private int _currUnitIndex = -1;
 
 		/// <summary>
 		/// Die aktuell ausgewählte Einheit.
 		/// </summary>
-		Civ.Unit _currUnit = null;
+		private Civ.Unit _currUnit = null;
 
 		/// <summary>
 		/// Gibt an, ob die Einheiten für Änderungsvorgänge aktuell gesperrt sind.
 		/// </summary>
-		bool _locked = false;
+		private bool _locked = false;
 
 		/// <summary>
 		/// Gibt an, ob diese Einheit nur für Gaia verfügbar ist. Auto-Kopier-Vorgänge werden dann für alle Einheiten durchgeführt.
 		/// </summary>
-		bool _gaiaUnit = false;
+		private bool _gaiaUnit = false;
 
-		#endregion
+		#endregion Variablen
 
 		#region Funktionen
 
@@ -142,7 +138,7 @@ namespace TechTreeEditor
 			_locked = false;
 		}
 
-		#endregion
+		#endregion Funktionen
 
 		#region Eigenschaften
 
@@ -229,6 +225,6 @@ namespace TechTreeEditor
 			set { _gaiaUnit = value; }
 		}
 
-		#endregion
+		#endregion Eigenschaften
 	}
 }

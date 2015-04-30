@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechTreeEditor.TechTreeStructure;
 
@@ -18,24 +13,24 @@ namespace TechTreeEditor
 		/// <summary>
 		/// Die referenzierte Baum-Einheit.
 		/// </summary>
-		TechTreeUnit _treeUnit;
+		private TechTreeUnit _treeUnit;
 
 		/// <summary>
 		/// Der Einheiten-Manager zum korrekten Kopieren der veränderten Attribute.
 		/// </summary>
-		GenieUnitManager _unitManager;
+		private GenieUnitManager _unitManager;
 
 		/// <summary>
 		/// Die aktuelle Projektdatei.
 		/// </summary>
-		TechTreeFile _projectFile;
+		private TechTreeFile _projectFile;
 
 		/// <summary>
 		/// Gibt an, ob das Formular komplett geladen ist.
 		/// </summary>
-		bool _formLoaded = false;
+		private bool _formLoaded = false;
 
-		#endregion
+		#endregion Variablen
 
 		#region Funktionen
 
@@ -61,7 +56,7 @@ namespace TechTreeEditor
 			_projectFile = projectFile;
 			_treeUnit = treeUnit;
 			_unitManager = unitManager;
-			
+
 			// Einheiten-Änderungen sperren, damit die Zuweisungen nicht alle Auto-Kopier-Einheiten überschreiben
 			_unitManager.Lock();
 
@@ -404,7 +399,7 @@ namespace TechTreeEditor
 			_formLoaded = true;
 		}
 
-		#endregion
+		#endregion Funktionen
 
 		#region Ereignishandler
 
@@ -428,7 +423,7 @@ namespace TechTreeEditor
 			this.ResumeLayout();
 		}
 
-		#endregion
+		#endregion Fenster
 
 		#region Tab: Allgemein
 
@@ -909,7 +904,7 @@ namespace TechTreeEditor
 			_unitManager.UpdateUnitAttribute(u => u.DyingGraphic2 = ((GenieLibrary.DataElements.Graphic)e.NewValue).ID);
 		}
 
-		#endregion
+		#endregion Tab: Allgemein
 
 		#region Tab: Tote Einheiten/Fisch
 
@@ -979,7 +974,7 @@ namespace TechTreeEditor
 			_unitManager.UpdateUnitAttribute(u => u.DeadFish.Unknown16B[4] = e.NewValue.SafeConvert<int>());
 		}
 
-		#endregion
+		#endregion Tab: Tote Einheiten/Fisch
 
 		#region Tab: Zivilwerte
 
@@ -1025,7 +1020,7 @@ namespace TechTreeEditor
 			_unitManager.UpdateUnitAttribute(u => u.Bird.WorkRate = e.NewValue.SafeConvert<float>());
 		}
 
-		#endregion
+		#endregion Tab: Zivilwerte
 
 		#region Tab: Angriffswerte
 
@@ -1247,7 +1242,7 @@ namespace TechTreeEditor
 			_unitManager.UpdateUnitAttribute(u => u.Type50.AttackGraphic = ((GenieLibrary.DataElements.Graphic)e.NewValue).ID);
 		}
 
-		#endregion
+		#endregion Tab: Angriffswerte
 
 		#region Tab: Projektile
 
@@ -1287,7 +1282,7 @@ namespace TechTreeEditor
 			_unitManager.UpdateUnitAttribute(u => u.Projectile.ProjectileArc = e.NewValue.SafeConvert<float>());
 		}
 
-		#endregion
+		#endregion Tab: Projektile
 
 		#region Tab: Erschaffbare Einheiten
 
@@ -1408,7 +1403,7 @@ namespace TechTreeEditor
 			_unitManager.UpdateUnitAttribute(u => u.Creatable.Unknown28 = e.NewValue.SafeConvert<byte>());
 		}
 
-		#endregion
+		#endregion Tab: Erschaffbare Einheiten
 
 		#region Tab: Gebäude
 
@@ -1508,9 +1503,9 @@ namespace TechTreeEditor
 			_unitManager.UpdateUnitAttribute(u => u.Building.LootingTable[0] = (byte)(e.NewValue ? 1 : 0));
 		}
 
-		#endregion
+		#endregion Tab: Gebäude
 
-		#endregion
+		#endregion Ereignishandler
 
 		#region Ereignisse
 
@@ -1572,8 +1567,8 @@ namespace TechTreeEditor
 			}
 		}
 
-		#endregion
+		#endregion Event: Geändertes Icon
 
-		#endregion
+		#endregion Ereignisse
 	}
 }

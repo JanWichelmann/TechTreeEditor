@@ -451,6 +451,6 @@ namespace GenieLibrary
 			return new RAMBuffer(output.ToArray());
 		}
 
-		#endregion
+		#endregion Statische Funktionen
 	}
 }

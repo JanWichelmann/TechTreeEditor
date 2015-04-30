@@ -627,7 +627,7 @@ namespace TechTreeEditor.TechTreeStructure
 		/// <returns></returns>
 		public override int CountReferencesToElement(TechTreeElement element)
 		{
-			// Oberklassen zählen lassen	
+			// Oberklassen zählen lassen
 			int counter = base.CountReferencesToElement(element);
 
 			// Zählen

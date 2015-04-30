@@ -367,7 +367,6 @@ namespace TechTreeEditor
 					});
 			});
 
-
 			// Element suchen und als Kind entfernen
 			_allElements.ForEach(e => e.RemoveChild(element));
 

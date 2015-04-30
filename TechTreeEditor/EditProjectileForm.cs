@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechTreeEditor.TechTreeStructure;
 
@@ -18,14 +11,14 @@ namespace TechTreeEditor
 		/// <summary>
 		/// Das in diesem Fenster bearbeitbare Gebäude.
 		/// </summary>
-		TechTreeProjectile _projectile = null;
+		private TechTreeProjectile _projectile = null;
 
 		/// <summary>
 		/// Die zugrundeliegenden Projektdaten.
 		/// </summary>
-		TechTreeFile _projectFile = null;
+		private TechTreeFile _projectFile = null;
 
-		#endregion
+		#endregion Variablen
 
 		#region Funktionen
 
@@ -79,7 +72,7 @@ namespace TechTreeEditor
 			_trackUnitComboBox.SelectedItem = (_projectile.TrackingUnit == null ? emptyEyeCandy : _projectile.TrackingUnit);
 		}
 
-		#endregion
+		#endregion Funktionen
 
 		#region Ereignishandler
 
@@ -103,6 +96,6 @@ namespace TechTreeEditor
 			this.Close();
 		}
 
-		#endregion
+		#endregion Ereignishandler
 	}
 }

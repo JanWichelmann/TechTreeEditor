@@ -1,6 +1,6 @@
 ﻿using IORAMHelper;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 
 namespace GenieLibrary.DataElements.UnitTypes
 {

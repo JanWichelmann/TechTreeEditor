@@ -150,7 +150,7 @@ namespace TechTreeEditor
 		/// <summary>
 		/// Der aktuelle Suchtext.
 		/// </summary>
-		string _currentSearchText = "";
+		private string _currentSearchText = "";
 
 		#endregion Variablen
 

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Drawing;
 using System.Windows.Forms;
 using TechTreeEditor.TechTreeStructure;
-using System.Drawing;
 
 namespace TechTreeEditor
 {

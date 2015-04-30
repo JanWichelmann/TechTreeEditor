@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using TechTreeEditor.TechTreeStructure;
-using System.IO;
 
 namespace TechTreeEditor
 {
@@ -1393,6 +1393,7 @@ namespace TechTreeEditor
 				// Hotkey zum Anzeigen des Attributfensters
 				if(e.KeyCode == Keys.Space)
 					_editAttributesMenuButton_Click(sender, EventArgs.Empty);
+
 				// Hotkey zum Anzeigen des Baumeigenschaftenfensters
 				if(e.KeyCode == Keys.Enter)
 					_editElementPropertiesMenuButton_Click(sender, EventArgs.Empty);

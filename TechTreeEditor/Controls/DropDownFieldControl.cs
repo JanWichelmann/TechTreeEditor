@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TechTreeEditor.Controls
@@ -45,7 +42,7 @@ namespace TechTreeEditor.Controls
 		/// </summary>
 		private object _value = null;
 
-		#endregion
+		#endregion Variablen
 
 		#region Funktionen
 
@@ -78,7 +75,7 @@ namespace TechTreeEditor.Controls
 			_elementListBox.DoubleClick += _elementListBox_DoubleClick;
 		}
 
-		#endregion
+		#endregion Funktionen
 
 		#region Eventhandler
 
@@ -128,7 +125,7 @@ namespace TechTreeEditor.Controls
 			}
 		}
 
-		void _elementListBox_KeyUp(object sender, KeyEventArgs e)
+		private void _elementListBox_KeyUp(object sender, KeyEventArgs e)
 		{
 			// Enter-Taste bestätigt die Auswahl
 			if(e.KeyCode == Keys.Enter)
@@ -141,7 +138,7 @@ namespace TechTreeEditor.Controls
 			}
 		}
 
-		void _elementListBox_DoubleClick(object sender, EventArgs e)
+		private void _elementListBox_DoubleClick(object sender, EventArgs e)
 		{
 			// Ausgewähltes Element in die TextBox schreiben
 			_idTextBox.Text = (string)_elementListBox.SelectedItem;
@@ -157,7 +154,7 @@ namespace TechTreeEditor.Controls
 				_listBoxForm.Hide();
 		}
 
-		void _elementListBox_Leave(object sender, EventArgs e)
+		private void _elementListBox_Leave(object sender, EventArgs e)
 		{
 			// ListBox-Formular schließen
 			_listBoxForm.Hide();
@@ -188,7 +185,7 @@ namespace TechTreeEditor.Controls
 			}
 		}
 
-		#endregion
+		#endregion Eventhandler
 
 		#region Eigenschaften
 
@@ -244,7 +241,7 @@ namespace TechTreeEditor.Controls
 			}
 		}
 
-		#endregion
+		#endregion Eigenschaften
 
 		#region Ereignisse
 
@@ -306,8 +303,8 @@ namespace TechTreeEditor.Controls
 			}
 		}
 
-		#endregion
+		#endregion Event: Geänderte ID
 
-		#endregion
+		#endregion Ereignisse
 	}
 }

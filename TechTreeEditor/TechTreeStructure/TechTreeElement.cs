@@ -1,6 +1,5 @@
 ﻿using OpenTK.Graphics.OpenGL;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Xml;
@@ -499,6 +498,6 @@ namespace TechTreeEditor.TechTreeStructure
 			RenderingFlags = 24
 		}
 
-		#endregion
+		#endregion Enumerationen
 	}
 }

@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechTreeEditor.TechTreeStructure;
 
@@ -62,7 +57,7 @@ namespace TechTreeEditor.Controls
 		/// </summary>
 		private static TechTreeResearch _emptyResearch = new TechTreeResearch() { ID = -1, Name = "[Keine]" };
 
-		#endregion
+		#endregion Variablen
 
 		#region Funktionen
 
@@ -124,7 +119,7 @@ namespace TechTreeEditor.Controls
 			_updating = false;
 		}
 
-		#endregion
+		#endregion Funktionen
 
 		#region Ereignishandler
 
@@ -508,7 +503,7 @@ namespace TechTreeEditor.Controls
 			}
 		}
 
-		#endregion
+		#endregion Ereignishandler
 
 		#region Eigenschaften
 
@@ -571,6 +566,6 @@ namespace TechTreeEditor.Controls
 			}
 		}
 
-		#endregion
+		#endregion Eigenschaften
 	}
 }

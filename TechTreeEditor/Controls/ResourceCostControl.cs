@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Globalization;
+using System.Windows.Forms;
 
 namespace TechTreeEditor.Controls
 {
@@ -29,7 +24,7 @@ namespace TechTreeEditor.Controls
 		/// </summary>
 		private GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool> _value;
 
-		#endregion
+		#endregion Variablen
 
 		#region Funktionen
 
@@ -52,7 +47,7 @@ namespace TechTreeEditor.Controls
 			_typeComboBox.Items.AddRange(_resourceList);
 		}
 
-		#endregion
+		#endregion Funktionen
 
 		#region Eventhandler
 
@@ -98,7 +93,7 @@ namespace TechTreeEditor.Controls
 			OnValueChanged(new ValueChangedEventArgs(_value));
 		}
 
-		#endregion
+		#endregion Eventhandler
 
 		#region Eigenschaften
 
@@ -135,7 +130,7 @@ namespace TechTreeEditor.Controls
 			}
 		}
 
-		#endregion
+		#endregion Eigenschaften
 
 		#region Ereignisse
 
@@ -197,8 +192,8 @@ namespace TechTreeEditor.Controls
 			}
 		}
 
-		#endregion
+		#endregion Event: Geänderter Wert
 
-		#endregion
+		#endregion Ereignisse
 	}
 }

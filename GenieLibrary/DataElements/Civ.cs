@@ -1,7 +1,7 @@
 ﻿using IORAMHelper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
 
 namespace GenieLibrary.DataElements
 {

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using OpenTK;
-using OpenTK.Graphics.OpenGL;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Xml.Linq;
 
 namespace TechTreeEditor.TechTreeStructure
@@ -23,7 +18,7 @@ namespace TechTreeEditor.TechTreeStructure
 		/// </summary>
 		public TechTreeEyeCandy TrackingUnit { get; set; }
 
-		#endregion
+		#endregion Variablen
 
 		#region Funktionen
 
@@ -38,7 +33,7 @@ namespace TechTreeEditor.TechTreeStructure
 			ShadowElement = true;
 		}
 
-		#endregion
+		#endregion Funktionen
 
 		#region Funktionen
 
@@ -156,7 +151,7 @@ namespace TechTreeEditor.TechTreeStructure
 		/// <returns></returns>
 		public override int CountReferencesToElement(TechTreeElement element)
 		{
-			// Oberklassen zählen lassen	
+			// Oberklassen zählen lassen
 			int counter = base.CountReferencesToElement(element);
 
 			// Zählen
@@ -166,7 +161,7 @@ namespace TechTreeEditor.TechTreeStructure
 			return counter;
 		}
 
-		#endregion
+		#endregion Funktionen
 
 		#region Eigenschaften
 
@@ -178,6 +173,6 @@ namespace TechTreeEditor.TechTreeStructure
 			get { return "TechTreeProjectile"; }
 		}
 
-		#endregion
+		#endregion Eigenschaften
 	}
 }

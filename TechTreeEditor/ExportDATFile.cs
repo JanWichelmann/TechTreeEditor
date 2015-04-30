@@ -1,11 +1,11 @@
-﻿using System;
+﻿using IORAMHelper;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechTreeEditor.TechTreeStructure;
-using IORAMHelper;
 
 namespace TechTreeEditor
 {
@@ -19,7 +19,7 @@ namespace TechTreeEditor
 		/// <summary>
 		/// Die zu exportierenden Projektdaten.
 		/// </summary>
-		TechTreeFile _projectFile = null;
+		private TechTreeFile _projectFile = null;
 
 		#endregion Variablen
 
@@ -968,6 +968,7 @@ namespace TechTreeEditor
 					datResearches[lastID] = buildingDepSubNode;
 					buildingDepMainNode.RequiredTechs[mainDepSlotNum++] = (short)lastID;
 				}
+
 				// Abhängigkeitsknoten für Gebäude mit weiterer Anzahl erstellen
 				if(research.BuildingDependencies.Any(d => d.Value))
 				{
@@ -1183,6 +1184,7 @@ namespace TechTreeEditor
 					datResearches[lastID] = buildingDepSubNode;
 					buildingDepMainNode.RequiredTechs[mainDepSlotNum++] = (short)lastID;
 				}
+
 				// Abhängigkeitsknoten für Gebäude mit weiterer Anzahl erstellen
 				if(unit.BuildingDependencies.Any(d => d.Value))
 				{
@@ -1463,7 +1465,7 @@ namespace TechTreeEditor
 			}
 		}
 
-		#endregion
+		#endregion Hilfsfunktionen
 
 		#region Strukturen
 
@@ -1549,6 +1551,6 @@ namespace TechTreeEditor
 			public int DropSite2UnitID;
 		}
 
-		#endregion
+		#endregion Strukturen
 	}
 }

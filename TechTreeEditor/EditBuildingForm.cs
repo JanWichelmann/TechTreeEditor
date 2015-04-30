@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechTreeEditor.TechTreeStructure;
 
@@ -18,19 +11,19 @@ namespace TechTreeEditor
 		/// <summary>
 		/// Das in diesem Fenster bearbeitbare Gebäude.
 		/// </summary>
-		TechTreeBuilding _building = null;
+		private TechTreeBuilding _building = null;
 
 		/// <summary>
 		/// Die zugrundeliegenden Projektdaten.
 		/// </summary>
-		TechTreeFile _projectFile = null;
+		private TechTreeFile _projectFile = null;
 
 		/// <summary>
 		/// Gibt an, ob die Daten noch geladen werden.
 		/// </summary>
-		bool _loading = true;
+		private bool _loading = true;
 
-		#endregion
+		#endregion Variablen
 
 		#region Funktionen
 
@@ -216,7 +209,7 @@ namespace TechTreeEditor
 				_building.AnnexUnits.Add(new Tuple<TechTreeBuilding, float, float>((TechTreeBuilding)_annex4ComboBox.SelectedItem, (float)_annex4XBox.Value, (float)_annex4YBox.Value));
 		}
 
-		#endregion
+		#endregion Funktionen
 
 		#region Ereignishandler
 
@@ -462,6 +455,6 @@ namespace TechTreeEditor
 			_building.ButtonID = (int)e.NewValue;
 		}
 
-		#endregion
+		#endregion Ereignishandler
 	}
 }
