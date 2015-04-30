@@ -99,6 +99,32 @@ namespace TechTreeEditor
 		}
 
 		/// <summary>
+		/// Führt die angegebene Funktion für alle markierten Kulturen aus.
+		/// </summary>
+		/// <param name="action">Die auszuführende Aktion. Es wird jeweils die Kultur-ID übergeben.</param>
+		public void ForEachCiv(Action<int> action)
+		{
+			// Gesperrt?
+			if(_locked)
+				return;
+
+			// Aktion für alle ausgewählten Kulturen durchführen
+			for(int i = 0; i < _copyCivs.Length; ++i)
+			{
+				// Kultur ausgewählt?
+				if(_copyCivs[i] || _gaiaUnit)
+				{
+					// Aktion ausführen
+					action(i);
+				}
+			}
+
+			// Falls die ausgewählte Kultur nicht enthalten ist, auch für diese die Aktion durchführen
+			if(!_copyCivs[_currCivIndex] && !GaiaUnit)
+				action(_currCivIndex);
+		}
+
+		/// <summary>
 		/// Sperrt die Einheiten für Bearbeitungsvorgänge.
 		/// </summary>
 		public void Lock()

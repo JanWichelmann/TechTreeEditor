@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using TechTreeEditor.TechTreeStructure;
+using System.Drawing;
 
 namespace TechTreeEditor
 {
@@ -60,6 +61,11 @@ namespace TechTreeEditor
 			_dllDescriptionField.Value = treeResearch.DATResearch.LanguageDLLDescription;
 			_dllHelpField.ProjectFile = _projectFile;
 			_dllHelpField.Value = (treeResearch.DATResearch.LanguageDLLHelp - 79000);
+
+			// Wenn alle vier Language-IDs denselben relativen Wert haben, diesen anzeigen
+			int relID = _dllName1Field.Value % 1000;
+			if(relID == _dllName2Field.Value % 1000 && relID == _dllDescriptionField.Value % 1000 && relID == _dllHelpField.Value % 1000)
+				_relIDTextBox.Text = relID.ToString();
 
 			// Ressourcen-Kosten setzen
 			_cost1Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
@@ -192,6 +198,28 @@ namespace TechTreeEditor
 				Type = (short)e.NewValue.Type,
 				Amount = (short)e.NewValue.Amount
 			};
+		}
+
+		private void _relIDTextBox_TextChanged(object sender, EventArgs e)
+		{
+			// Wert parsen
+			int relID;
+			if(int.TryParse(_relIDTextBox.Text, out relID) && relID >= 0 && relID < 1000)
+			{
+				// Wert ist gültig
+				_relIDTextBox.BackColor = SystemColors.Window;
+
+				// Wert in alle vier Felder übertragen
+				_dllName1Field.Value = 7000 + relID;
+				_dllName2Field.Value = 17000 + relID;
+				_dllDescriptionField.Value = 8000 + relID;
+				_dllHelpField.Value = 28000 + relID;
+			}
+			else
+			{
+				// Den User auf die Falscheingabe hinweisen
+				_relIDTextBox.BackColor = Color.Red;
+			}
 		}
 
 		private void EditResearchAttributeForm_ResizeBegin(object sender, EventArgs e)

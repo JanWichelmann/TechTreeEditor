@@ -186,150 +186,6 @@
   <data name="&gt;&gt;_closeButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
-    <value>_mainTabPage</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;groupBox4.Name" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;groupBox4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox4.Parent" xml:space="preserve">
-    <value>_mainTabPage</value>
-  </data>
-  <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
-    <value>_mainTabPage</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>_mainTabPage</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="_mainTabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="_mainTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>864, 508</value>
-  </data>
-  <data name="_mainTabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="_mainTabPage.Text" xml:space="preserve">
-    <value>Allgemein</value>
-  </data>
-  <data name="&gt;&gt;_mainTabPage.Name" xml:space="preserve">
-    <value>_mainTabPage</value>
-  </data>
-  <data name="&gt;&gt;_mainTabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_mainTabPage.Parent" xml:space="preserve">
-    <value>_mainTabControl</value>
-  </data>
-  <data name="&gt;&gt;_mainTabPage.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="_techEffectField.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="_techEffectField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="_techEffectField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>864, 508</value>
-  </data>
-  <data name="_techEffectField.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;_techEffectField.Name" xml:space="preserve">
-    <value>_techEffectField</value>
-  </data>
-  <data name="&gt;&gt;_techEffectField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.TechEffectControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_techEffectField.Parent" xml:space="preserve">
-    <value>_effectTabPage</value>
-  </data>
-  <data name="&gt;&gt;_techEffectField.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="_effectTabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="_effectTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>864, 508</value>
-  </data>
-  <data name="_effectTabPage.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="_effectTabPage.Text" xml:space="preserve">
-    <value>Weitere Effekte</value>
-  </data>
-  <data name="&gt;&gt;_effectTabPage.Name" xml:space="preserve">
-    <value>_effectTabPage</value>
-  </data>
-  <data name="&gt;&gt;_effectTabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_effectTabPage.Parent" xml:space="preserve">
-    <value>_mainTabControl</value>
-  </data>
-  <data name="&gt;&gt;_effectTabPage.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="_mainTabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="_mainTabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="_mainTabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>872, 534</value>
-  </data>
-  <data name="_mainTabControl.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;_mainTabControl.Name" xml:space="preserve">
-    <value>_mainTabControl</value>
-  </data>
-  <data name="&gt;&gt;_mainTabControl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_mainTabControl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_mainTabControl.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;_unknown1Field.Name" xml:space="preserve">
     <value>_unknown1Field</value>
   </data>
@@ -355,10 +211,10 @@
     <value>1</value>
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>353, 139</value>
+    <value>8, 138</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 73</value>
+    <value>231, 73</value>
   </data>
   <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -377,48 +233,6 @@
   </data>
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="_unknown1Field.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 45</value>
-  </data>
-  <data name="_unknown1Field.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 20</value>
-  </data>
-  <data name="_unknown1Field.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;_unknown1Field.Name" xml:space="preserve">
-    <value>_unknown1Field</value>
-  </data>
-  <data name="&gt;&gt;_unknown1Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_unknown1Field.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;_unknown1Field.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="_timeField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 18</value>
-  </data>
-  <data name="_timeField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 20</value>
-  </data>
-  <data name="_timeField.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;_timeField.Name" xml:space="preserve">
-    <value>_timeField</value>
-  </data>
-  <data name="&gt;&gt;_timeField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_timeField.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;_timeField.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;_cost3Field.Name" xml:space="preserve">
     <value>_cost3Field</value>
@@ -457,10 +271,10 @@
     <value>2</value>
   </data>
   <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 138</value>
+    <value>245, 166</value>
   </data>
   <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>339, 101</value>
+    <value>339, 91</value>
   </data>
   <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -479,69 +293,6 @@
   </data>
   <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="_cost3Field.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 73</value>
-  </data>
-  <data name="_cost3Field.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 21</value>
-  </data>
-  <data name="_cost3Field.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;_cost3Field.Name" xml:space="preserve">
-    <value>_cost3Field</value>
-  </data>
-  <data name="&gt;&gt;_cost3Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.ResourceCostControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_cost3Field.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;_cost3Field.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="_cost2Field.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 46</value>
-  </data>
-  <data name="_cost2Field.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 21</value>
-  </data>
-  <data name="_cost2Field.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;_cost2Field.Name" xml:space="preserve">
-    <value>_cost2Field</value>
-  </data>
-  <data name="&gt;&gt;_cost2Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.ResourceCostControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_cost2Field.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;_cost2Field.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="_cost1Field.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
-  </data>
-  <data name="_cost1Field.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 21</value>
-  </data>
-  <data name="_cost1Field.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;_cost1Field.Name" xml:space="preserve">
-    <value>_cost1Field</value>
-  </data>
-  <data name="&gt;&gt;_cost1Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.ResourceCostControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_cost1Field.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;_cost1Field.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="&gt;&gt;_fullTechModeField.Name" xml:space="preserve">
     <value>_fullTechModeField</value>
@@ -625,6 +376,351 @@
     <value>_mainTabPage</value>
   </data>
   <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 24</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 13</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>[Relative ID]</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_relIDTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>106, 21</value>
+  </data>
+  <data name="_relIDTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 20</value>
+  </data>
+  <data name="_relIDTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;_relIDTextBox.Name" xml:space="preserve">
+    <value>_relIDTextBox</value>
+  </data>
+  <data name="&gt;&gt;_relIDTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_relIDTextBox.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_relIDTextBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_dllHelpField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 125</value>
+  </data>
+  <data name="_dllHelpField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>599, 20</value>
+  </data>
+  <data name="_dllHelpField.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_dllHelpField.Name" xml:space="preserve">
+    <value>_dllHelpField</value>
+  </data>
+  <data name="&gt;&gt;_dllHelpField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.LanguageDLLControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_dllHelpField.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_dllHelpField.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_dllName2Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 73</value>
+  </data>
+  <data name="_dllName2Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>599, 20</value>
+  </data>
+  <data name="_dllName2Field.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_dllName2Field.Name" xml:space="preserve">
+    <value>_dllName2Field</value>
+  </data>
+  <data name="&gt;&gt;_dllName2Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.LanguageDLLControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_dllName2Field.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_dllName2Field.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_dllDescriptionField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 99</value>
+  </data>
+  <data name="_dllDescriptionField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>599, 20</value>
+  </data>
+  <data name="_dllDescriptionField.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_dllDescriptionField.Name" xml:space="preserve">
+    <value>_dllDescriptionField</value>
+  </data>
+  <data name="&gt;&gt;_dllDescriptionField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.LanguageDLLControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_dllDescriptionField.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_dllDescriptionField.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="_dllName1Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 47</value>
+  </data>
+  <data name="_dllName1Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>599, 20</value>
+  </data>
+  <data name="_dllName1Field.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_dllName1Field.Name" xml:space="preserve">
+    <value>_dllName1Field</value>
+  </data>
+  <data name="&gt;&gt;_dllName1Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.LanguageDLLControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_dllName1Field.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_dllName1Field.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>245, 5</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>611, 155</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Language-DLL-Texte</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>_mainTabPage</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_mainTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="_mainTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>864, 508</value>
+  </data>
+  <data name="_mainTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_mainTabPage.Text" xml:space="preserve">
+    <value>Allgemein</value>
+  </data>
+  <data name="&gt;&gt;_mainTabPage.Name" xml:space="preserve">
+    <value>_mainTabPage</value>
+  </data>
+  <data name="&gt;&gt;_mainTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_mainTabPage.Parent" xml:space="preserve">
+    <value>_mainTabControl</value>
+  </data>
+  <data name="&gt;&gt;_mainTabPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_techEffectField.Name" xml:space="preserve">
+    <value>_techEffectField</value>
+  </data>
+  <data name="&gt;&gt;_techEffectField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.TechEffectControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_techEffectField.Parent" xml:space="preserve">
+    <value>_effectTabPage</value>
+  </data>
+  <data name="&gt;&gt;_techEffectField.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_effectTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="_effectTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>864, 508</value>
+  </data>
+  <data name="_effectTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="_effectTabPage.Text" xml:space="preserve">
+    <value>Weitere Effekte</value>
+  </data>
+  <data name="&gt;&gt;_effectTabPage.Name" xml:space="preserve">
+    <value>_effectTabPage</value>
+  </data>
+  <data name="&gt;&gt;_effectTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_effectTabPage.Parent" xml:space="preserve">
+    <value>_mainTabControl</value>
+  </data>
+  <data name="&gt;&gt;_effectTabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_mainTabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="_mainTabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="_mainTabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>872, 534</value>
+  </data>
+  <data name="_mainTabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_mainTabControl.Name" xml:space="preserve">
+    <value>_mainTabControl</value>
+  </data>
+  <data name="&gt;&gt;_mainTabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_mainTabControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_mainTabControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_unknown1Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="_unknown1Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 20</value>
+  </data>
+  <data name="_unknown1Field.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_unknown1Field.Name" xml:space="preserve">
+    <value>_unknown1Field</value>
+  </data>
+  <data name="&gt;&gt;_unknown1Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_unknown1Field.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;_unknown1Field.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_timeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 18</value>
+  </data>
+  <data name="_timeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 20</value>
+  </data>
+  <data name="_timeField.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_timeField.Name" xml:space="preserve">
+    <value>_timeField</value>
+  </data>
+  <data name="&gt;&gt;_timeField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_timeField.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;_timeField.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_cost3Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 73</value>
+  </data>
+  <data name="_cost3Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 21</value>
+  </data>
+  <data name="_cost3Field.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_cost3Field.Name" xml:space="preserve">
+    <value>_cost3Field</value>
+  </data>
+  <data name="&gt;&gt;_cost3Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.ResourceCostControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_cost3Field.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;_cost3Field.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_cost2Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 46</value>
+  </data>
+  <data name="_cost2Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 21</value>
+  </data>
+  <data name="_cost2Field.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_cost2Field.Name" xml:space="preserve">
+    <value>_cost2Field</value>
+  </data>
+  <data name="&gt;&gt;_cost2Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.ResourceCostControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_cost2Field.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;_cost2Field.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_cost1Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_cost1Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 21</value>
+  </data>
+  <data name="_cost1Field.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_cost1Field.Name" xml:space="preserve">
+    <value>_cost1Field</value>
+  </data>
+  <data name="&gt;&gt;_cost1Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.ResourceCostControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_cost1Field.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;_cost1Field.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="_fullTechModeField.Location" type="System.Drawing.Point, System.Drawing">
@@ -741,161 +837,29 @@
   <data name="&gt;&gt;_nameTextBox.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;_dllHelpField.Name" xml:space="preserve">
-    <value>_dllHelpField</value>
+  <data name="_techEffectField.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="&gt;&gt;_dllHelpField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.LanguageDLLControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="_techEffectField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;_dllHelpField.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+  <data name="_techEffectField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>864, 508</value>
   </data>
-  <data name="&gt;&gt;_dllHelpField.ZOrder" xml:space="preserve">
+  <data name="_techEffectField.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;_dllName2Field.Name" xml:space="preserve">
-    <value>_dllName2Field</value>
+  <data name="&gt;&gt;_techEffectField.Name" xml:space="preserve">
+    <value>_techEffectField</value>
   </data>
-  <data name="&gt;&gt;_dllName2Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.LanguageDLLControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;_techEffectField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.TechEffectControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;_dllName2Field.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+  <data name="&gt;&gt;_techEffectField.Parent" xml:space="preserve">
+    <value>_effectTabPage</value>
   </data>
-  <data name="&gt;&gt;_dllName2Field.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;_dllDescriptionField.Name" xml:space="preserve">
-    <value>_dllDescriptionField</value>
-  </data>
-  <data name="&gt;&gt;_dllDescriptionField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.LanguageDLLControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_dllDescriptionField.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;_dllDescriptionField.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;_dllName1Field.Name" xml:space="preserve">
-    <value>_dllName1Field</value>
-  </data>
-  <data name="&gt;&gt;_dllName1Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.LanguageDLLControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_dllName1Field.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;_dllName1Field.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>245, 5</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>611, 127</value>
-  </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Language-DLL-Texte</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>_mainTabPage</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="_dllHelpField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 97</value>
-  </data>
-  <data name="_dllHelpField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>599, 20</value>
-  </data>
-  <data name="_dllHelpField.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;_dllHelpField.Name" xml:space="preserve">
-    <value>_dllHelpField</value>
-  </data>
-  <data name="&gt;&gt;_dllHelpField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.LanguageDLLControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_dllHelpField.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;_dllHelpField.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_techEffectField.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="_dllName2Field.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 45</value>
-  </data>
-  <data name="_dllName2Field.Size" type="System.Drawing.Size, System.Drawing">
-    <value>599, 20</value>
-  </data>
-  <data name="_dllName2Field.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;_dllName2Field.Name" xml:space="preserve">
-    <value>_dllName2Field</value>
-  </data>
-  <data name="&gt;&gt;_dllName2Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.LanguageDLLControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_dllName2Field.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;_dllName2Field.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="_dllDescriptionField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 71</value>
-  </data>
-  <data name="_dllDescriptionField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>599, 20</value>
-  </data>
-  <data name="_dllDescriptionField.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;_dllDescriptionField.Name" xml:space="preserve">
-    <value>_dllDescriptionField</value>
-  </data>
-  <data name="&gt;&gt;_dllDescriptionField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.LanguageDLLControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_dllDescriptionField.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;_dllDescriptionField.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="_dllName1Field.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
-  </data>
-  <data name="_dllName1Field.Size" type="System.Drawing.Size, System.Drawing">
-    <value>599, 20</value>
-  </data>
-  <data name="_dllName1Field.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;_dllName1Field.Name" xml:space="preserve">
-    <value>_dllName1Field</value>
-  </data>
-  <data name="&gt;&gt;_dllName1Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.LanguageDLLControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_dllName1Field.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;_dllName1Field.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

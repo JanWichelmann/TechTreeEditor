@@ -52,7 +52,9 @@
 			this._dllDescriptionField = new TechTreeEditor.Controls.LanguageDLLControl();
 			this._dllName1Field = new TechTreeEditor.Controls.LanguageDLLControl();
 			this._effectTabPage = new System.Windows.Forms.TabPage();
-			this._techEffectField = new Controls.TechEffectControl();
+			this._techEffectField = new TechTreeEditor.Controls.TechEffectControl();
+			this._relIDTextBox = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
 			this._bottomPanel.SuspendLayout();
 			this._mainTabControl.SuspendLayout();
 			this._mainTabPage.SuspendLayout();
@@ -208,6 +210,8 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.label1);
+			this.groupBox1.Controls.Add(this._relIDTextBox);
 			this.groupBox1.Controls.Add(this._dllHelpField);
 			this.groupBox1.Controls.Add(this._dllName2Field);
 			this.groupBox1.Controls.Add(this._dllDescriptionField);
@@ -262,7 +266,20 @@
 			// _techEffectField
 			// 
 			resources.ApplyResources(this._techEffectField, "_techEffectField");
+			this._techEffectField.EffectList = null;
 			this._techEffectField.Name = "_techEffectField";
+			this._techEffectField.ProjectFile = null;
+			// 
+			// _relIDTextBox
+			// 
+			resources.ApplyResources(this._relIDTextBox, "_relIDTextBox");
+			this._relIDTextBox.Name = "_relIDTextBox";
+			this._relIDTextBox.TextChanged += new System.EventHandler(this._relIDTextBox_TextChanged);
+			// 
+			// label1
+			// 
+			resources.ApplyResources(this.label1, "label1");
+			this.label1.Name = "label1";
 			// 
 			// EditResearchAttributeForm
 			// 
@@ -281,6 +298,7 @@
 			this.groupBox3.ResumeLayout(false);
 			this.groupBox3.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			this._effectTabPage.ResumeLayout(false);
 			this.ResumeLayout(false);
 
@@ -312,6 +330,8 @@
 		private Controls.NumberFieldControl _unknown1Field;
 		private Controls.NumberFieldControl _timeField;
 		private Controls.TechEffectControl _techEffectField;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.TextBox _relIDTextBox;
 
 	}
 }

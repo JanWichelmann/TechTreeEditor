@@ -254,8 +254,27 @@ namespace TechTreeEditor.Controls
 
 		private void _newEffectButton_Click(object sender, EventArgs e)
 		{
-			// Neuen Effekt hinzufügen
-			_effectList.Add(new TechEffect());
+			// Ist ein Effekt ausgewählt?
+			if(_effectsListBox.SelectedIndex >= 0)
+			{
+				// Effekt kopieren
+				TechEffect baseEff = _effectList[_effectsListBox.SelectedIndex];
+				_effectList.Add(new TechEffect()
+				{
+					ClassID = baseEff.ClassID,
+					DestinationElement = baseEff.DestinationElement,
+					Element = baseEff.Element,
+					Mode = baseEff.Mode,
+					ParameterID = baseEff.ParameterID,
+					Type = baseEff.Type,
+					Value = baseEff.Value
+				});
+			}
+			else
+			{
+				// Neuen leeren Effekt hinzufügen
+				_effectList.Add(new TechEffect());
+			}
 
 			// Aktualisieren
 			UpdateEffectList();
@@ -320,6 +339,8 @@ namespace TechTreeEditor.Controls
 			{
 				// Einheit ändern
 				sel.Element = (TechTreeElement)_unitField.Value;
+				if(sel.Element == _emptyUnit)
+					sel.Element = null;
 
 				// Aktualisieren
 				UpdateEffectList();
@@ -338,6 +359,8 @@ namespace TechTreeEditor.Controls
 			{
 				// Einheit ändern
 				sel.DestinationElement = (TechTreeElement)_destUnitField.Value;
+				if(sel.DestinationElement == _emptyUnit)
+					sel.DestinationElement = null;
 
 				// Aktualisieren
 				UpdateEffectList();
@@ -356,6 +379,8 @@ namespace TechTreeEditor.Controls
 			{
 				// Technologie ändern
 				sel.Element = (TechTreeElement)_researchField.Value;
+				if(sel.Element == _emptyResearch)
+					sel.Element = null;
 
 				// Aktualisieren
 				UpdateEffectList();

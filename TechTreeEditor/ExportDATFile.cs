@@ -1238,6 +1238,7 @@ namespace TechTreeEditor
 			}
 
 			// Gibt es überhaupt Abhängigkeiten?
+			// Oder ist die Einheit für mindestens ein Volk gesperrt?
 			if(availResearch.RequiredTechCount > 0 || blocks.Count > 0)
 			{
 				// Neue DAT-Technologie speichern
@@ -1245,8 +1246,9 @@ namespace TechTreeEditor
 					++lastID;
 				datResearches[lastID] = availResearch;
 
-				// Nur für eine Kultur?
-				if(avails.Count == 1)
+				// Nur für eine Kultur, die nicht Gaia ist?
+				// Gaia darf hier nicht gesetzt werden, da sonst die Technologie automatisch für alle Völker verfügbar ist!
+				if(avails.Count == 1 && avails[0] != 0)
 					availResearch.Civ = avails[0];
 				else
 					blocks.ForEach(c => civBlockIDs[c].Add(lastID));

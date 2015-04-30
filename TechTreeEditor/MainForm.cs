@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using TechTreeEditor.TechTreeStructure;
+using System.IO;
 
 namespace TechTreeEditor
 {
@@ -239,10 +240,35 @@ namespace TechTreeEditor
 			// Projekt im angegebenen Pfad speichern
 			if(_projectFile != null)
 			{
+				// Existiert die Datei bereits?
+				string backupPath = "";
+				if(File.Exists(_projectFileName))
+				{
+					// Sicherungskopie anlegen
+					backupPath = Path.ChangeExtension(_projectFileName, DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".backup.tpp");
+					File.Copy(_projectFileName, backupPath, true);
+				}
+
 				// Speichern
 				SetStatus(Strings.MainForm_Status_Saving);
-				_projectFile.WriteData(_projectFileName);
-				_saved = true;
+				try
+				{
+					_projectFile.WriteData(_projectFileName);
+					_saved = true;
+				}
+				catch
+				{
+					// BackUp wiederherstellen und Exception weiterreichen
+					if(backupPath != "" && File.Exists(backupPath))
+						File.Copy(backupPath, _projectFileName, true);
+					throw;
+				}
+				finally
+				{
+					// Sicherungskopie ggf. löschen
+					if(backupPath != "" && File.Exists(backupPath))
+						File.Delete(backupPath);
+				}
 
 				// Fenstertitel aktualisieren
 				UpdateFormTitle();
@@ -784,11 +810,11 @@ namespace TechTreeEditor
 								int newUID = _projectFile.BasicGenieFile.UnitHeaders.Count;
 								newU.ID = newUID;
 								newUDAT.ID1 = newUDAT.ID2 = newUDAT.ID3 = (short)newUID;
-								_projectFile.BasicGenieFile.UnitHeaders.Add(new GenieLibrary.DataElements.UnitHeader() { Exists = 1, Commands = new List<GenieLibrary.DataElements.UnitHeader.UnitCommand>() });
+								_projectFile.BasicGenieFile.UnitHeaders.Add(new GenieLibrary.DataElements.UnitHeader() { Exists = 1, Commands = new List<GenieLibrary.DataElements.UnitHeader.UnitCommand>(_projectFile.BasicGenieFile.UnitHeaders[_selectedElement.ID].Commands) });
 								foreach(var civ in _projectFile.BasicGenieFile.Civs)
 								{
 									civ.UnitPointers.Add(newUID);
-									civ.Units.Add(newUID, newUDAT);
+									civ.Units.Add(newUID, (GenieLibrary.DataElements.Civ.Unit)newUDAT.Clone()); // Klonen, da sonst alle Civs in dieselbe DAT-Einheit schreiben
 								}
 
 								// Technologie als Elternelement setzen und an den Anfang stellen
@@ -1013,8 +1039,12 @@ namespace TechTreeEditor
 				if(_blockForCivCheckButton.Checked)
 				{
 					// Element blockieren
-					if(!_currCivConfig.BlockedElements.Contains(_selectedElement))
-						_currCivConfig.BlockedElements.Add(_selectedElement);
+					_unitManager.ForEachCiv(c =>
+					{
+						// Element noch nicht blockiert?
+						if(!_projectFile.CivTrees[c].BlockedElements.Contains(_selectedElement))
+							_projectFile.CivTrees[c].BlockedElements.Add(_selectedElement);
+					});
 
 					// Element kann nicht mehr kostenlos sein
 					_freeForCivCheckButton.Checked = false;
@@ -1023,8 +1053,12 @@ namespace TechTreeEditor
 				else
 				{
 					// Element freigeben
-					if(_currCivConfig.BlockedElements.Contains(_selectedElement))
-						_currCivConfig.BlockedElements.Remove(_selectedElement);
+					_unitManager.ForEachCiv(c =>
+					{
+						// Element blockiert?
+						if(_projectFile.CivTrees[c].BlockedElements.Contains(_selectedElement))
+							_projectFile.CivTrees[c].BlockedElements.Remove(_selectedElement);
+					});
 
 					// Element kann kostenlos sein
 					_freeForCivCheckButton.Enabled = true;
@@ -1050,14 +1084,22 @@ namespace TechTreeEditor
 				if(_freeForCivCheckButton.Checked)
 				{
 					// Element kostenlos machen
-					if(!_currCivConfig.FreeElements.Contains((TechTreeResearch)_selectedElement))
-						_currCivConfig.FreeElements.Add((TechTreeResearch)_selectedElement);
+					_unitManager.ForEachCiv(c =>
+					{
+						// Element noch nicht kostenlos?
+						if(!_projectFile.CivTrees[c].FreeElements.Contains((TechTreeResearch)_selectedElement))
+							_projectFile.CivTrees[c].FreeElements.Add((TechTreeResearch)_selectedElement);
+					});
 				}
 				else
 				{
 					// Element aus Liste löschen
-					if(_currCivConfig.FreeElements.Contains((TechTreeResearch)_selectedElement))
-						_currCivConfig.FreeElements.Remove((TechTreeResearch)_selectedElement);
+					_unitManager.ForEachCiv(c =>
+					{
+						// Element kostenlos?
+						if(_projectFile.CivTrees[c].FreeElements.Contains((TechTreeResearch)_selectedElement))
+							_projectFile.CivTrees[c].FreeElements.Remove((TechTreeResearch)_selectedElement);
+					});
 				}
 
 				// Flag aktualisieren
@@ -1257,7 +1299,8 @@ namespace TechTreeEditor
 				LanguageDLLName2 = 157000,
 				LanguageDLLDescription = 8000,
 				LanguageDLLHelp = 107000,
-				Unknown1 = -1
+				Unknown1 = -1,
+				RequiredTechs = new List<short>(new short[] { -1, -1, -1, -1, -1, -1 })
 			};
 			newResearchDAT.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>());
 			newResearchDAT.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>());
@@ -1269,8 +1312,26 @@ namespace TechTreeEditor
 			_projectFile.BasicGenieFile.Researches.Add(newResearchDAT);
 			newResearch.ID = newID;
 
-			// Technologie als Elternelement setzen und an den Anfang stellen
-			_projectFile.TechTreeParentElements.Insert(0, newResearch);
+			// Ist eine Einheit mit Kindern ausgewählt?
+			IChildrenContainer selUnit = _selectedElement as IChildrenContainer;
+			TechTreeResearch selResearch = _selectedElement as TechTreeResearch;
+			if(selUnit != null)
+			{
+				// Unterordnen
+				selUnit.Children.Add(new Tuple<byte, TechTreeElement>(0, newResearch));
+				newResearch.Age = Math.Max(newResearch.Age, ((TechTreeElement)selUnit).Age);
+			}
+			else if(selResearch != null)
+			{
+				// Unterordnen
+				selResearch.Successors.Add(newResearch);
+				newResearch.Age = Math.Max(newResearch.Age, selResearch.Age);
+			}
+			else
+			{
+				// Technologie als Elternelement setzen und an den Anfang stellen
+				_projectFile.TechTreeParentElements.Insert(0, newResearch);
+			}
 
 			// Icon erstellen
 			newResearch.CreateIconTexture(_renderPanel.LoadIconAsTexture);

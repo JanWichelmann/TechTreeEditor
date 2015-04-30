@@ -598,6 +598,9 @@ namespace TechTreeEditor
 				// Element aus Stammelement-Liste löschen
 				_techTreeParentElements.Remove(child);
 			}
+
+			// Das Kind muss mindestens dasselbe Zeitalter wie das Elternelement haben
+			child.Age = Math.Max(parent.Age, child.Age);
 		}
 
 		/// <summary>
