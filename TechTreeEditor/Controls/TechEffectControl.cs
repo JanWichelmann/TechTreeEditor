@@ -224,7 +224,6 @@ namespace TechTreeEditor.Controls
 				TechEffect temp = _effectList[_effectsListBox.SelectedIndex - 1];
 				_effectList[_effectsListBox.SelectedIndex - 1] = _effectList[_effectsListBox.SelectedIndex];
 				_effectList[_effectsListBox.SelectedIndex] = temp;
-				--_effectsListBox.SelectedIndex;
 
 				// Aktualisieren
 				UpdateEffectList();
@@ -240,7 +239,6 @@ namespace TechTreeEditor.Controls
 				TechEffect temp = _effectList[_effectsListBox.SelectedIndex + 1];
 				_effectList[_effectsListBox.SelectedIndex + 1] = _effectList[_effectsListBox.SelectedIndex];
 				_effectList[_effectsListBox.SelectedIndex] = temp;
-				++_effectsListBox.SelectedIndex;
 
 				// Aktualisieren
 				UpdateEffectList();
