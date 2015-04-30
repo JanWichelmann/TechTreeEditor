@@ -408,6 +408,47 @@ namespace TechTreeEditor.TechTreeStructure
 			Name = langFiles.GetString(DATResearch.LanguageDLLName1) + " [ID " + ID.ToString() + ", " + DATResearch.Name.TrimEnd('\0') + "]";
 		}
 
+		/// <summary>
+		/// Gibt eine Kopie dieser Technologie zurück.
+		/// </summary>
+		/// <param name="cloneChildren">Gibt an, ob auch Kinder kopiert oder diese übersprungen werden sollen.</param>
+		/// <param name="genieFile">Die DAT, in der die zugehörige DAT-Technologie kopiert werden soll.</param>
+		/// <returns></returns>
+		public TechTreeResearch Clone(bool cloneChildren, GenieLibrary.GenieFile genieFile)
+		{
+			// Allgemeine Member kopieren
+			TechTreeResearch clone = (TechTreeResearch)this.MemberwiseClone();
+
+			// Abähngigkeitslisten kopieren
+			clone.Dependencies = new List<TechTreeResearch>(Dependencies);
+			clone.BuildingDependencies = new Dictionary<TechTreeBuilding, bool>(BuildingDependencies);
+
+			// Effekte kopieren
+			clone.Effects = new List<TechEffect>(Effects.Count);
+			Effects.ForEach(eff => clone.Effects.Add(eff.Clone()));
+			
+			// DAT-Technologie kopieren
+			GenieLibrary.DataElements.Research cloneDAT = (GenieLibrary.DataElements.Research)clone.DATResearch.Clone();
+			clone.DATResearch = cloneDAT;
+
+			// Technologie in die DAT schreiben
+			int newID = genieFile.Researches.Count;
+			genieFile.Researches.Add(cloneDAT);
+			clone.ID = newID;
+
+			// Kinder kopieren
+			if(cloneChildren)
+			{
+				clone.Successors = new List<TechTreeResearch>(Successors.Count);
+				Successors.ForEach(succ => clone.Successors.Add(succ.Clone(cloneChildren, genieFile)));
+			}
+			else
+				clone.Successors = new List<TechTreeResearch>();
+
+			// Fertig
+			return clone;
+		}
+
 		#endregion Funktionen
 
 		#region Eigenschaften

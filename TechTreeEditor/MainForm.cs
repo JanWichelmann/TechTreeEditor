@@ -38,6 +38,11 @@ namespace TechTreeEditor
 		private TechTreeElement _selectedElement = null;
 
 		/// <summary>
+		/// Das aktuell zum Kopieren markierte Techtree-Element.
+		/// </summary>
+		private TechTreeElement _copyElement = null;
+
+		/// <summary>
 		/// Die Konfiguration der aktuell ausgewählten Kultur.
 		/// </summary>
 		private TechTreeFile.CivTreeConfig _currCivConfig = null;
@@ -202,6 +207,9 @@ namespace TechTreeEditor
 			_saveProjectButton.Enabled = true;
 			_exportDATMenuButton.Enabled = true;
 			_exportDATButton.Enabled = true;
+			_copyMenuButton.Enabled = true;
+			_pasteMenuButton.Enabled = true;
+			_pasteTreeMenuButton.Enabled = true;
 			_civSelectComboBox.Enabled = true;
 			_editGraphicsButton.Enabled = true;
 			_editCivBoniButton.Enabled = true;
@@ -308,7 +316,7 @@ namespace TechTreeEditor
 		/// <param name="text">Der Status-Text.</param>
 		private void SetStatus(string text)
 		{
-			// Test setzen
+			// Text setzen
 			_statusLabel.Text = text;
 
 			// Fenster aktualisieren
@@ -378,6 +386,60 @@ namespace TechTreeEditor
 				case TreeOperations.DeleteDependencySecondElement:
 					SetStatus("Bitte das referenzierte Element auswählen...");
 					break;
+			}
+		}
+
+		/// <summary>
+		/// Setzt das ausgewählte Element als Kopier-Element.
+		/// </summary>
+		private void CopyElement()
+		{
+			// Element ausgewählt?
+			// Aktuell werden nur Technologien unterstützt, Einheiten müssen über das Menü kopiert werden
+			if(_selectedElement != null && _selectedElement.GetType() == typeof(TechTreeResearch))
+			{
+				// Element merken
+				_copyElement = _selectedElement;
+			}
+		}
+
+		/// <summary>
+		/// Kopiert das aktuell ausgewählte Kopier-Element und fügt es ein.
+		/// </summary>
+		/// <param name="copyChildren">Gibt an, ob die Kindelemente des Kopier-Elements kopiert oder entfernt werden sollen.</param>
+		private void PasteElement(bool copyChildren)
+		{
+			// Ist ein Kopierelement ausgewählt?
+			if(_copyElement != null)
+			{
+				// Technologie kopieren
+				TechTreeResearch newResearch = (_copyElement as TechTreeResearch).Clone(copyChildren, _projectFile.BasicGenieFile);
+
+				// Ist eine Einheit mit Kindern ausgewählt?
+				IChildrenContainer selUnit = _selectedElement as IChildrenContainer;
+				TechTreeResearch selResearch = _selectedElement as TechTreeResearch;
+				if(selUnit != null)
+				{
+					// Unterordnen
+					selUnit.Children.Add(new Tuple<byte, TechTreeElement>(0, newResearch));
+					newResearch.Age = Math.Max(newResearch.Age, ((TechTreeElement)selUnit).Age);
+					newResearch.GetChildren().ForEach(c => c.Age = Math.Max(newResearch.Age, c.Age));
+				}
+				else if(selResearch != null)
+				{
+					// Unterordnen
+					selResearch.Successors.Add(newResearch);
+					newResearch.Age = Math.Max(newResearch.Age, selResearch.Age);
+					newResearch.GetChildren().ForEach(c => c.Age = Math.Max(newResearch.Age, c.Age));
+				}
+				else
+				{
+					// Technologie als Elternelement setzen und an den Anfang stellen
+					_projectFile.TechTreeParentElements.Insert(0, newResearch);
+				}
+
+				// Baum neu berechnen
+				_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
 			}
 		}
 
@@ -582,6 +644,13 @@ namespace TechTreeEditor
 									// Es wurden noch nicht alle Referenzen entfernt
 									MessageBox.Show("Fehler: Es wurden noch nicht alle Referenzen gelöscht!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 								}
+
+							// Falls es sich um das Kopierelement handelt, dieses leeren
+							if(_selectedElement == _copyElement)
+								_copyElement = null;
+
+							// Auswahl aktualisieren
+							_renderPanel_SelectionChanged(sender, new RenderControl.SelectionChangedEventArgs(null));
 
 							// Fertig
 							UpdateCurrentOperation(TreeOperations.None);
@@ -1398,6 +1467,12 @@ namespace TechTreeEditor
 				if(e.KeyCode == Keys.Enter)
 					_editElementPropertiesMenuButton_Click(sender, EventArgs.Empty);
 
+				// Hotkey zum Verschieben eines Elements um ein Zeitalter
+				if(e.KeyCode == Keys.Down)
+					_ageDownButton_Click(sender, e);
+				if(e.KeyCode == Keys.Up)
+					_ageUpButton_Click(sender, e);
+
 				// Hotkey zum Löschen eines Elements
 				if(e.KeyCode == Keys.Delete)
 				{
@@ -1434,6 +1509,24 @@ namespace TechTreeEditor
 			// Dialog anzeigen
 			EditGraphicsForm graphicDialog = new EditGraphicsForm(_projectFile);
 			graphicDialog.ShowDialog();
+		}
+
+		private void _copyMenuButton_Click(object sender, EventArgs e)
+		{
+			// Kopieren
+			CopyElement();
+		}
+
+		private void _pasteMenuButton_Click(object sender, EventArgs e)
+		{
+			// Element ohne Kinder einfügen
+			PasteElement(false);
+		}
+
+		private void _pasteTreeMenuButton_Click(object sender, EventArgs e)
+		{
+			// Element mit Kindern einfügen
+			PasteElement(true);
 		}
 
 		#endregion Ereignishandler

@@ -1,9 +1,10 @@
 ﻿using IORAMHelper;
 using System.Collections.Generic;
+using System;
 
 namespace GenieLibrary.DataElements
 {
-	public class Research : IGenieDataElement
+	public class Research : IGenieDataElement,ICloneable
 	{
 		#region Variablen
 
@@ -96,6 +97,23 @@ namespace GenieLibrary.DataElements
 
 			buffer.WriteUShort((ushort)Name.Length);
 			buffer.WriteString(Name);
+		}
+
+		/// <summary>
+		/// Gibt eine tiefe Kopie dieses Objekts zurück.
+		/// </summary>
+		/// <returns></returns>
+		public object Clone()
+		{
+			// Erstmal alle Wert-Typen kopieren
+			Research clone = (Research)this.MemberwiseClone();
+
+			// Referenztypen kopieren
+			clone.RequiredTechs = new List<short>(RequiredTechs);
+			clone.ResourceCosts = new List<ResourceTuple<short, short, byte>>(ResourceCosts); // Ressourcen-Kosten sind Strukturen und damit Werttypen
+
+			// Fertig
+			return clone;
 		}
 
 		#endregion Funktionen

@@ -34,7 +34,6 @@
 			this._statusStrip = new System.Windows.Forms.StatusStrip();
 			this._statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this._selectedNameLabel = new System.Windows.Forms.ToolStripStatusLabel();
-			this._renderPanel = new TechTreeEditor.RenderControl();
 			this._toolBoxBar = new System.Windows.Forms.ToolStrip();
 			this._newUnitButton = new System.Windows.Forms.ToolStripButton();
 			this._newBuildingButton = new System.Windows.Forms.ToolStripButton();
@@ -64,6 +63,10 @@
 			this._editMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._undoMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._redoMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._menuSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+			this._copyMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._pasteMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._pasteTreeMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._menuSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this._lockAllIDsMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._helpMenuButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,6 +106,7 @@
 			this._editAttributesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._editElementPropertiesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._openProjectDialog = new System.Windows.Forms.OpenFileDialog();
+			this._renderPanel = new TechTreeEditor.RenderControl();
 			this._menuContainer.BottomToolStripPanel.SuspendLayout();
 			this._menuContainer.ContentPanel.SuspendLayout();
 			this._menuContainer.LeftToolStripPanel.SuspendLayout();
@@ -165,15 +169,6 @@
 			// 
 			this._selectedNameLabel.Name = "_selectedNameLabel";
 			resources.ApplyResources(this._selectedNameLabel, "_selectedNameLabel");
-			// 
-			// _renderPanel
-			// 
-			resources.ApplyResources(this._renderPanel, "_renderPanel");
-			this._renderPanel.Name = "_renderPanel";
-			this._renderPanel.SelectionChanged += new TechTreeEditor.RenderControl.SelectionChangedEventHandler(this._renderPanel_SelectionChanged);
-			this._renderPanel.DoubleClick += new System.EventHandler(this._renderPanel_DoubleClick);
-			this._renderPanel.KeyDown += new System.Windows.Forms.KeyEventHandler(this._renderPanel_KeyDown);
-			this._renderPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this._renderPanel_MouseClick);
 			// 
 			// _toolBoxBar
 			// 
@@ -380,6 +375,10 @@
 			this._editMenuButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._undoMenuButton,
             this._redoMenuButton,
+            this._menuSeparator13,
+            this._copyMenuButton,
+            this._pasteMenuButton,
+            this._pasteTreeMenuButton,
             this._menuSeparator2,
             this._lockAllIDsMenuButton});
 			this._editMenuButton.Name = "_editMenuButton";
@@ -394,6 +393,29 @@
 			// 
 			resources.ApplyResources(this._redoMenuButton, "_redoMenuButton");
 			this._redoMenuButton.Name = "_redoMenuButton";
+			// 
+			// _menuSeparator13
+			// 
+			this._menuSeparator13.Name = "_menuSeparator13";
+			resources.ApplyResources(this._menuSeparator13, "_menuSeparator13");
+			// 
+			// _copyMenuButton
+			// 
+			resources.ApplyResources(this._copyMenuButton, "_copyMenuButton");
+			this._copyMenuButton.Name = "_copyMenuButton";
+			this._copyMenuButton.Click += new System.EventHandler(this._copyMenuButton_Click);
+			// 
+			// _pasteMenuButton
+			// 
+			resources.ApplyResources(this._pasteMenuButton, "_pasteMenuButton");
+			this._pasteMenuButton.Name = "_pasteMenuButton";
+			this._pasteMenuButton.Click += new System.EventHandler(this._pasteMenuButton_Click);
+			// 
+			// _pasteTreeMenuButton
+			// 
+			resources.ApplyResources(this._pasteTreeMenuButton, "_pasteTreeMenuButton");
+			this._pasteTreeMenuButton.Name = "_pasteTreeMenuButton";
+			this._pasteTreeMenuButton.Click += new System.EventHandler(this._pasteTreeMenuButton_Click);
 			// 
 			// _menuSeparator2
 			// 
@@ -689,6 +711,15 @@
 			// 
 			resources.ApplyResources(this._openProjectDialog, "_openProjectDialog");
 			// 
+			// _renderPanel
+			// 
+			resources.ApplyResources(this._renderPanel, "_renderPanel");
+			this._renderPanel.Name = "_renderPanel";
+			this._renderPanel.SelectionChanged += new TechTreeEditor.RenderControl.SelectionChangedEventHandler(this._renderPanel_SelectionChanged);
+			this._renderPanel.DoubleClick += new System.EventHandler(this._renderPanel_DoubleClick);
+			this._renderPanel.KeyDown += new System.Windows.Forms.KeyEventHandler(this._renderPanel_KeyDown);
+			this._renderPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this._renderPanel_MouseClick);
+			// 
 			// MainForm
 			// 
 			resources.ApplyResources(this, "$this");
@@ -802,6 +833,10 @@
 		private System.Windows.Forms.ToolStripButton _exportDATButton;
 		private System.Windows.Forms.ToolStripButton _editElementPropertiesButton;
 		private System.Windows.Forms.ToolStripButton _editCivBoniButton;
+		private System.Windows.Forms.ToolStripSeparator _menuSeparator13;
+		private System.Windows.Forms.ToolStripMenuItem _pasteTreeMenuButton;
+		private System.Windows.Forms.ToolStripMenuItem _copyMenuButton;
+		private System.Windows.Forms.ToolStripMenuItem _pasteMenuButton;
 	}
 }
 

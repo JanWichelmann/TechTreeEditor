@@ -505,13 +505,13 @@
     <value>Magenta</value>
   </data>
   <data name="_deleteDepButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 36</value>
+    <value>36, 36</value>
   </data>
   <data name="_deleteDepButton.ToolTipText" xml:space="preserve">
     <value>Eine Abhängigkeit löschen.</value>
   </data>
   <data name="_menuSeparator9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 6</value>
+    <value>6, 39</value>
   </data>
   <data name="_deleteElementButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -523,7 +523,7 @@
     <value>Magenta</value>
   </data>
   <data name="_deleteElementButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 36</value>
+    <value>36, 36</value>
   </data>
   <data name="_deleteElementButton.ToolTipText" xml:space="preserve">
     <value>Ein Element löschen.</value>
@@ -837,8 +837,11 @@
         AAAASUVORK5CYII=
 </value>
   </data>
+  <data name="_undoMenuButton.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+Z</value>
+  </data>
   <data name="_undoMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 22</value>
+    <value>301, 38</value>
   </data>
   <data name="_undoMenuButton.Text" xml:space="preserve">
     <value>Rückgängig</value>
@@ -886,8 +889,11 @@
         AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="_redoMenuButton.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+Y</value>
+  </data>
   <data name="_redoMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 22</value>
+    <value>301, 38</value>
   </data>
   <data name="_redoMenuButton.Text" xml:space="preserve">
     <value>Wiederholen</value>
@@ -895,14 +901,56 @@
   <data name="_redoMenuButton.ToolTipText" xml:space="preserve">
     <value>Die letzte rückgängig gemachte Änderung wiederherstellen.</value>
   </data>
+  <data name="_menuSeparator13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>298, 6</value>
+  </data>
+  <data name="_copyMenuButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_copyMenuButton.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+C</value>
+  </data>
+  <data name="_copyMenuButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>301, 38</value>
+  </data>
+  <data name="_copyMenuButton.Text" xml:space="preserve">
+    <value>Kopieren</value>
+  </data>
+  <data name="_pasteMenuButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_pasteMenuButton.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+V</value>
+  </data>
+  <data name="_pasteMenuButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>301, 38</value>
+  </data>
+  <data name="_pasteMenuButton.Text" xml:space="preserve">
+    <value>Einfügen</value>
+  </data>
+  <data name="_pasteTreeMenuButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_pasteTreeMenuButton.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+Umschalttaste+V</value>
+  </data>
+  <data name="_pasteTreeMenuButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>301, 38</value>
+  </data>
+  <data name="_pasteTreeMenuButton.Text" xml:space="preserve">
+    <value>Baum einfügen</value>
+  </data>
   <data name="_menuSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 6</value>
+    <value>298, 6</value>
   </data>
   <data name="_lockAllIDsMenuButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="_lockAllIDsMenuButton.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+Umschalttaste+I</value>
+  </data>
   <data name="_lockAllIDsMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 22</value>
+    <value>301, 38</value>
   </data>
   <data name="_lockAllIDsMenuButton.Text" xml:space="preserve">
     <value>Alle IDs schützen</value>
@@ -932,7 +980,7 @@
 </value>
   </data>
   <data name="_infoMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 22</value>
+    <value>120, 38</value>
   </data>
   <data name="_infoMenuButton.Text" xml:space="preserve">
     <value>Info...</value>
@@ -2036,6 +2084,9 @@
         AAA=
 </value>
   </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>X2-AddOn :: Technologiebaum bearbeiten</value>
   </data>
@@ -2205,6 +2256,30 @@
     <value>_redoMenuButton</value>
   </data>
   <data name="&gt;&gt;_redoMenuButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_menuSeparator13.Name" xml:space="preserve">
+    <value>_menuSeparator13</value>
+  </data>
+  <data name="&gt;&gt;_menuSeparator13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_copyMenuButton.Name" xml:space="preserve">
+    <value>_copyMenuButton</value>
+  </data>
+  <data name="&gt;&gt;_copyMenuButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_pasteMenuButton.Name" xml:space="preserve">
+    <value>_pasteMenuButton</value>
+  </data>
+  <data name="&gt;&gt;_pasteMenuButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_pasteTreeMenuButton.Name" xml:space="preserve">
+    <value>_pasteTreeMenuButton</value>
+  </data>
+  <data name="&gt;&gt;_pasteTreeMenuButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;_menuSeparator2.Name" xml:space="preserve">

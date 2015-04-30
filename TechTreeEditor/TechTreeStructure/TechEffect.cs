@@ -234,6 +234,16 @@ namespace TechTreeEditor.TechTreeStructure
 			}
 		}
 
+		/// <summary>
+		/// Gibt eine Kopie dieses Effekts zurück.
+		/// </summary>
+		/// <returns></returns>
+		public TechEffect Clone()
+		{
+			// Es sind nur Werttypen enthalten, die Referenzen zeigen auf Baumobjekte
+			return (TechEffect)this.MemberwiseClone();
+		}
+
 		#endregion Funktionen
 
 		#region Enumerationen
