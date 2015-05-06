@@ -377,6 +377,7 @@
     <Content Include="Icons\BlockedTexture.png" />
     <Content Include="Icons\BuildingDependeny.png" />
     <Content Include="Icons\BuildingIcon.png" />
+    <Content Include="Icons\Copy.png" />
     <Content Include="Icons\DeadIcon.png" />
     <Content Include="Icons\DeleteDependency.png" />
     <Content Include="Icons\DeleteGraphic.png" />
@@ -398,6 +399,8 @@
     <Content Include="Icons\NewGraphic.png" />
     <Content Include="Icons\NewProjectile.png" />
     <Content Include="Icons\NewTechEffect.png" />
+    <Content Include="Icons\PasteElement.png" />
+    <Content Include="Icons\PasteTree.png" />
     <Content Include="Icons\ProjectileIcon.png" />
     <Content Include="Icons\ResearchIcon.png" />
     <Content Include="Icons\Search.png" />

@@ -123,6 +123,16 @@ namespace TechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Copy {
+            get {
+                object obj = ResourceManager.GetObject("Copy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CreateConnection {
             get {
                 object obj = ResourceManager.GetObject("CreateConnection", resourceCulture);
@@ -466,6 +476,26 @@ namespace TechTreeEditor {
         internal static System.Drawing.Bitmap OpenProject {
             get {
                 object obj = ResourceManager.GetObject("OpenProject", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PasteElement {
+            get {
+                object obj = ResourceManager.GetObject("PasteElement", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PasteTree {
+            get {
+                object obj = ResourceManager.GetObject("PasteTree", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

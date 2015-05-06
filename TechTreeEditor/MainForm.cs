@@ -207,9 +207,6 @@ namespace TechTreeEditor
 			_saveProjectButton.Enabled = true;
 			_exportDATMenuButton.Enabled = true;
 			_exportDATButton.Enabled = true;
-			_copyMenuButton.Enabled = true;
-			_pasteMenuButton.Enabled = true;
-			_pasteTreeMenuButton.Enabled = true;
 			_civSelectComboBox.Enabled = true;
 			_editGraphicsButton.Enabled = true;
 			_editCivBoniButton.Enabled = true;
@@ -400,6 +397,10 @@ namespace TechTreeEditor
 			{
 				// Element merken
 				_copyElement = _selectedElement;
+				
+				// Einfüge-Buttons freigeben
+				_pasteMenuButton.Enabled = true;
+				_pasteTreeMenuButton.Enabled = true;
 			}
 		}
 
@@ -558,6 +559,7 @@ namespace TechTreeEditor
 				_ageDownButton.Enabled = true;
 				_editAttributesButton.Enabled = true;
 				_editElementPropertiesButton.Enabled = true;
+				_copyMenuButton.Enabled = true;
 			}
 			else
 			{
@@ -569,6 +571,7 @@ namespace TechTreeEditor
 				_ageDownButton.Enabled = false;
 				_editAttributesButton.Enabled = false;
 				_editElementPropertiesButton.Enabled = false;
+				_copyMenuButton.Enabled = false;
 			}
 		}
 
