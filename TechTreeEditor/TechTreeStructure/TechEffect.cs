@@ -232,6 +232,10 @@ namespace TechTreeEditor.TechTreeStructure
 			{
 				return "?";
 			}
+			catch(KeyNotFoundException)
+			{
+				return "?";
+			}
 		}
 
 		/// <summary>

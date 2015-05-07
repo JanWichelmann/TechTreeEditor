@@ -423,6 +423,10 @@ namespace TechTreeEditor
 				// Alte Rendering-Flags löschen
 				elem.Flags &= ~TechTreeElement.ElementFlags.RenderingFlags;
 
+				// Alte Sperr-/Kostenlos-Flags löschen
+				elem.Flags &= ~TechTreeElement.ElementFlags.Blocked;
+				elem.Flags &= ~TechTreeElement.ElementFlags.Free;
+
 				// Flags setzen
 				elem.Flags |= flags;
 			}

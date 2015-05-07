@@ -44,6 +44,7 @@ namespace TechTreeEditor.Controls
 			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.AttributeMult, "Attribut multiplikativ ändern"),
 			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResourceMult, "Ressource multiplikativ ändern"),
 			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchCostSetPM, "Technologie-Kosten setzen/additiv ändern"),
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchDisable, "Technologie deaktivieren"),
 			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchTimeSetPM, "Technologie-Entwicklungszeit setzen/additiv ändern")
 		}).ToList();
 
@@ -197,6 +198,11 @@ namespace TechTreeEditor.Controls
 						_modeCheckBox.Value = sel.Mode == TechEffect.EffectMode.PM_Enable;
 						_valueField.Visible = true;
 						_valueField.Value = (decimal)sel.Value;
+						break;
+
+					case TechEffect.EffectType.ResearchDisable:
+						_researchField.Visible = true;
+						_researchField.Value = (sel.Element == null ? _emptyResearch : sel.Element);
 						break;
 
 					case TechEffect.EffectType.ResearchTimeSetPM:

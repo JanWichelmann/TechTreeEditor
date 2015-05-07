@@ -394,6 +394,9 @@ namespace TechTreeEditor.TechTreeStructure
 			counter += Dependencies.Count(c => c == element);
 			counter += Successors.Count(c => c == element);
 
+			// Referenzen in Effekten suchen
+			counter += Effects.Count(eff => eff.Element == element || eff.DestinationElement == element);
+
 			// Fertig
 			return counter;
 		}
