@@ -59,11 +59,6 @@ namespace TechTreeEditor
 		public const int DRAW_PANEL_PADDING = 17;
 
 		/// <summary>
-		/// Der Pixel-Scroll-Faktor der Zeichenfeld-Scrollleiste.
-		/// </summary>
-		private const int DRAW_PANEL_SCROLL_MULT = 1;
-
-		/// <summary>
 		/// Die Hälfte der Breite einer Pfeilspitze.
 		/// </summary>
 		public const int ARROW_WIDTH_HALF = 5;
@@ -138,6 +133,11 @@ namespace TechTreeEditor
 		private int _fullTreeWidth = 0;
 
 		/// <summary>
+		/// Die berechnete Gesamt-Baumhöhe.
+		/// </summary>
+		private int _fullTreeHeight = 0;
+
+		/// <summary>
 		/// Legt fest, ob nur Standard-Elemente gezeichnet werden sollen.
 		/// </summary>
 		private bool _drawOnlyStandardElements = false;
@@ -168,8 +168,8 @@ namespace TechTreeEditor
 			_drawPanel.MouseWheel += new MouseEventHandler((sender, e) =>
 			{
 				// Scrollleiste scrollen
-				int newVal = _drawPanelScrollBar.Value + (Control.ModifierKeys == Keys.Shift ? (e.Delta / 12) : (e.Delta / 120));
-				_drawPanelScrollBar.Value = (newVal < 0 ? 0 : (newVal > _drawPanelScrollBar.Maximum ? _drawPanelScrollBar.Maximum : newVal));
+				int newVal = _drawPanelVScrollBar.Value - (e.Delta / 12);
+				_drawPanelVScrollBar.Value = (newVal < 0 ? 0 : (newVal > _drawPanelVScrollBar.Maximum - _drawPanel.Height ? _drawPanelVScrollBar.Maximum - _drawPanel.Height : newVal));
 			});
 		}
 
@@ -217,9 +217,6 @@ namespace TechTreeEditor
 				ageCounts = ageCounts.Zip(childAgeCounts, (a1, a2) => Math.Max(a1, a2)).ToList();
 			}
 
-			// Scrollbar einstellen
-			_drawPanelScrollBar.Maximum = (Math.Max(_fullTreeWidth * (BOX_BOUNDS + 2 * BOX_SPACE_HORI) + 2 * DRAW_PANEL_PADDING, _drawPanel.Width) - _drawPanel.Width) / DRAW_PANEL_SCROLL_MULT;
-
 			// Zeitalter-Offsets erstellen
 			int currOffset = 0;
 			int tempOffset = 0;
@@ -230,6 +227,15 @@ namespace TechTreeEditor
 				currOffset += c;
 				return tempOffset;
 			}).ToList();
+
+			// Baumhöhe berechnen
+			_fullTreeHeight = _ageOffsets.Last() + ageCounts.Last();
+
+			// Scrollbars einstellen
+			_drawPanelHScrollBar.Maximum = Math.Max(_fullTreeWidth * (BOX_BOUNDS + 2 * BOX_SPACE_HORI) + 2 * DRAW_PANEL_PADDING, _drawPanel.Width);
+			_drawPanelHScrollBar.LargeChange = _drawPanel.Width;
+			_drawPanelVScrollBar.Maximum = Math.Max(_fullTreeHeight * (BOX_BOUNDS + 2 * BOX_SPACE_VERT) + 2 * DRAW_PANEL_PADDING, _drawPanel.Height);
+			_drawPanelVScrollBar.LargeChange = _drawPanel.Height;
 
 			// Filter erneut anwenden
 			ApplyFilters();
@@ -605,6 +611,9 @@ namespace TechTreeEditor
 			// Wurden alle Daten geladen?
 			if(_dataLoaded)
 			{
+				// Der Hintergrund wird ggf. vertikal verschoben
+				GL.Translate(0, -_drawPanelVScrollBar.Value, 0);
+
 				// Jedes zweite Zeitalter etwas dunkler unterlegen
 				const int vertBoxBounds = (2 * BOX_SPACE_VERT + BOX_BOUNDS);
 				for(int i = 1; i < 5; i += 2) // TODO: Hardcoded für 5 Zeitalter
@@ -621,8 +630,8 @@ namespace TechTreeEditor
 					GL.End();
 				}
 
-				// Zeichnung der ScrollBar entsprechend verschieben
-				GL.Translate(-_drawPanelScrollBar.Value * DRAW_PANEL_SCROLL_MULT, 0, 0);
+				// Zeichnung der horizontalen ScrollBar entsprechend verschieben
+				GL.Translate(-_drawPanelHScrollBar.Value, 0, 0);
 
 				// Elternelemente zeichnen
 				Point currPos = new Point(DRAW_PANEL_PADDING, DRAW_PANEL_PADDING);
@@ -689,15 +698,24 @@ namespace TechTreeEditor
 				// Blickwinkel neu laden
 				SetupDrawPanelViewPort();
 
-				// Scrollbar einstellen
-				_drawPanelScrollBar.Maximum = (Math.Max(_fullTreeWidth * (BOX_BOUNDS + 2 * BOX_SPACE_HORI) + 2 * DRAW_PANEL_PADDING, _drawPanel.Width) - _drawPanel.Width) / DRAW_PANEL_SCROLL_MULT;
+				// Scrollbars einstellen
+				_drawPanelHScrollBar.Maximum = Math.Max(_fullTreeWidth * (BOX_BOUNDS + 2 * BOX_SPACE_HORI) + 2 * DRAW_PANEL_PADDING, _drawPanel.Width);
+				_drawPanelHScrollBar.LargeChange = _drawPanel.Width;
+				_drawPanelVScrollBar.Maximum = Math.Max(_fullTreeHeight * (BOX_BOUNDS + 2 * BOX_SPACE_VERT) + 2 * DRAW_PANEL_PADDING, _drawPanel.Height);
+				_drawPanelVScrollBar.LargeChange = _drawPanel.Height;
 
 				// Neuzeichnen erzwingen
 				_drawPanel.Invalidate();
 			}
 		}
 
-		private void _drawPanelScrollBar_ValueChanged(object sender, EventArgs e)
+		private void _drawPanelHScrollBar_ValueChanged(object sender, EventArgs e)
+		{
+			// Neuzeichnen erzwingen
+			_drawPanel.Invalidate();
+		}
+
+		private void _drawPanelVScrollBar_ValueChanged(object sender, EventArgs e)
 		{
 			// Neuzeichnen erzwingen
 			_drawPanel.Invalidate();
@@ -740,7 +758,7 @@ namespace TechTreeEditor
 			TechTreeStructure.TechTreeElement hovered = null;
 			foreach(var elem in _techTreeParentElements)
 			{
-				if(elem.Value && (hovered = elem.Key.FindBox(new Point(e.X + _drawPanelScrollBar.Value * DRAW_PANEL_SCROLL_MULT, e.Y))) != null)
+				if(elem.Value && (hovered = elem.Key.FindBox(new Point(e.X + _drawPanelHScrollBar.Value, e.Y + _drawPanelVScrollBar.Value))) != null)
 					break;
 			}
 

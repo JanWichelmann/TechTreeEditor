@@ -34,27 +34,27 @@
 			this._mainTabControl = new System.Windows.Forms.TabControl();
 			this._mainTabPage = new System.Windows.Forms.TabPage();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this._unknown1Field = new TechTreeEditor.Controls.NumberFieldControl();
-			this._timeField = new TechTreeEditor.Controls.NumberFieldControl();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this._cost3Field = new TechTreeEditor.Controls.ResourceCostControl();
-			this._cost2Field = new TechTreeEditor.Controls.ResourceCostControl();
-			this._cost1Field = new TechTreeEditor.Controls.ResourceCostControl();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
-			this._fullTechModeField = new TechTreeEditor.Controls.CheckBoxFieldControl();
-			this._isAgeField = new TechTreeEditor.Controls.CheckBoxFieldControl();
-			this._iconIDField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._nameLabel = new System.Windows.Forms.Label();
 			this._nameTextBox = new System.Windows.Forms.TextBox();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this._relIDTextBox = new System.Windows.Forms.TextBox();
+			this._effectTabPage = new System.Windows.Forms.TabPage();
+			this._unknown1Field = new TechTreeEditor.Controls.NumberFieldControl();
+			this._timeField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._cost3Field = new TechTreeEditor.Controls.ResourceCostControl();
+			this._cost2Field = new TechTreeEditor.Controls.ResourceCostControl();
+			this._cost1Field = new TechTreeEditor.Controls.ResourceCostControl();
+			this._fullTechModeField = new TechTreeEditor.Controls.CheckBoxFieldControl();
+			this._isAgeField = new TechTreeEditor.Controls.CheckBoxFieldControl();
+			this._iconIDField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._dllHelpField = new TechTreeEditor.Controls.LanguageDLLControl();
 			this._dllName2Field = new TechTreeEditor.Controls.LanguageDLLControl();
 			this._dllDescriptionField = new TechTreeEditor.Controls.LanguageDLLControl();
 			this._dllName1Field = new TechTreeEditor.Controls.LanguageDLLControl();
-			this._effectTabPage = new System.Windows.Forms.TabPage();
 			this._techEffectField = new TechTreeEditor.Controls.TechEffectControl();
-			this._relIDTextBox = new System.Windows.Forms.TextBox();
-			this.label1 = new System.Windows.Forms.Label();
 			this._bottomPanel.SuspendLayout();
 			this._mainTabControl.SuspendLayout();
 			this._mainTabPage.SuspendLayout();
@@ -104,6 +104,67 @@
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.TabStop = false;
 			// 
+			// groupBox4
+			// 
+			this.groupBox4.Controls.Add(this._cost3Field);
+			this.groupBox4.Controls.Add(this._cost2Field);
+			this.groupBox4.Controls.Add(this._cost1Field);
+			resources.ApplyResources(this.groupBox4, "groupBox4");
+			this.groupBox4.Name = "groupBox4";
+			this.groupBox4.TabStop = false;
+			// 
+			// groupBox3
+			// 
+			this.groupBox3.Controls.Add(this._fullTechModeField);
+			this.groupBox3.Controls.Add(this._isAgeField);
+			this.groupBox3.Controls.Add(this._iconIDField);
+			this.groupBox3.Controls.Add(this._nameLabel);
+			this.groupBox3.Controls.Add(this._nameTextBox);
+			resources.ApplyResources(this.groupBox3, "groupBox3");
+			this.groupBox3.Name = "groupBox3";
+			this.groupBox3.TabStop = false;
+			// 
+			// _nameLabel
+			// 
+			resources.ApplyResources(this._nameLabel, "_nameLabel");
+			this._nameLabel.Name = "_nameLabel";
+			// 
+			// _nameTextBox
+			// 
+			resources.ApplyResources(this._nameTextBox, "_nameTextBox");
+			this._nameTextBox.Name = "_nameTextBox";
+			this._nameTextBox.TextChanged += new System.EventHandler(this._nameTextBox_TextChanged);
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.label1);
+			this.groupBox1.Controls.Add(this._relIDTextBox);
+			this.groupBox1.Controls.Add(this._dllHelpField);
+			this.groupBox1.Controls.Add(this._dllName2Field);
+			this.groupBox1.Controls.Add(this._dllDescriptionField);
+			this.groupBox1.Controls.Add(this._dllName1Field);
+			resources.ApplyResources(this.groupBox1, "groupBox1");
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.TabStop = false;
+			// 
+			// label1
+			// 
+			resources.ApplyResources(this.label1, "label1");
+			this.label1.Name = "label1";
+			// 
+			// _relIDTextBox
+			// 
+			resources.ApplyResources(this._relIDTextBox, "_relIDTextBox");
+			this._relIDTextBox.Name = "_relIDTextBox";
+			this._relIDTextBox.TextChanged += new System.EventHandler(this._relIDTextBox_TextChanged);
+			// 
+			// _effectTabPage
+			// 
+			this._effectTabPage.Controls.Add(this._techEffectField);
+			resources.ApplyResources(this._effectTabPage, "_effectTabPage");
+			this._effectTabPage.Name = "_effectTabPage";
+			this._effectTabPage.UseVisualStyleBackColor = true;
+			// 
 			// _unknown1Field
 			// 
 			resources.ApplyResources(this._unknown1Field, "_unknown1Field");
@@ -128,15 +189,6 @@
             0});
 			this._timeField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._timeField_ValueChanged);
 			// 
-			// groupBox4
-			// 
-			this.groupBox4.Controls.Add(this._cost3Field);
-			this.groupBox4.Controls.Add(this._cost2Field);
-			this.groupBox4.Controls.Add(this._cost1Field);
-			resources.ApplyResources(this.groupBox4, "groupBox4");
-			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.TabStop = false;
-			// 
 			// _cost3Field
 			// 
 			resources.ApplyResources(this._cost3Field, "_cost3Field");
@@ -157,17 +209,6 @@
 			this._cost1Field.Name = "_cost1Field";
 			this._cost1Field.NameString = "Kosten 1:";
 			this._cost1Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._cost1Field_ValueChanged);
-			// 
-			// groupBox3
-			// 
-			this.groupBox3.Controls.Add(this._fullTechModeField);
-			this.groupBox3.Controls.Add(this._isAgeField);
-			this.groupBox3.Controls.Add(this._iconIDField);
-			this.groupBox3.Controls.Add(this._nameLabel);
-			this.groupBox3.Controls.Add(this._nameTextBox);
-			resources.ApplyResources(this.groupBox3, "groupBox3");
-			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.TabStop = false;
 			// 
 			// _fullTechModeField
 			// 
@@ -196,29 +237,6 @@
             0,
             0});
 			this._iconIDField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._iconIDField_ValueChanged);
-			// 
-			// _nameLabel
-			// 
-			resources.ApplyResources(this._nameLabel, "_nameLabel");
-			this._nameLabel.Name = "_nameLabel";
-			// 
-			// _nameTextBox
-			// 
-			resources.ApplyResources(this._nameTextBox, "_nameTextBox");
-			this._nameTextBox.Name = "_nameTextBox";
-			this._nameTextBox.TextChanged += new System.EventHandler(this._nameTextBox_TextChanged);
-			// 
-			// groupBox1
-			// 
-			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Controls.Add(this._relIDTextBox);
-			this.groupBox1.Controls.Add(this._dllHelpField);
-			this.groupBox1.Controls.Add(this._dllName2Field);
-			this.groupBox1.Controls.Add(this._dllDescriptionField);
-			this.groupBox1.Controls.Add(this._dllName1Field);
-			resources.ApplyResources(this.groupBox1, "groupBox1");
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.TabStop = false;
 			// 
 			// _dllHelpField
 			// 
@@ -256,30 +274,12 @@
 			this._dllName1Field.Value = 0;
 			this._dllName1Field.ValueChanged += new TechTreeEditor.Controls.LanguageDLLControl.ValueChangedEventHandler(this._dllName1Field_ValueChanged);
 			// 
-			// _effectTabPage
-			// 
-			this._effectTabPage.Controls.Add(this._techEffectField);
-			resources.ApplyResources(this._effectTabPage, "_effectTabPage");
-			this._effectTabPage.Name = "_effectTabPage";
-			this._effectTabPage.UseVisualStyleBackColor = true;
-			// 
 			// _techEffectField
 			// 
 			resources.ApplyResources(this._techEffectField, "_techEffectField");
 			this._techEffectField.EffectList = null;
 			this._techEffectField.Name = "_techEffectField";
 			this._techEffectField.ProjectFile = null;
-			// 
-			// _relIDTextBox
-			// 
-			resources.ApplyResources(this._relIDTextBox, "_relIDTextBox");
-			this._relIDTextBox.Name = "_relIDTextBox";
-			this._relIDTextBox.TextChanged += new System.EventHandler(this._relIDTextBox_TextChanged);
-			// 
-			// label1
-			// 
-			resources.ApplyResources(this.label1, "label1");
-			this.label1.Name = "label1";
 			// 
 			// EditResearchAttributeForm
 			// 

@@ -415,6 +415,12 @@ namespace TechTreeEditor
 			{
 				// Technologie kopieren
 				TechTreeResearch newResearch = (_copyElement as TechTreeResearch).Clone(copyChildren, _projectFile.BasicGenieFile);
+				
+				// Auswahl zurücksetzen
+				newResearch.Selected = false;
+
+				// Icon-Textur neu erstellen, damit nicht von zwei Elementen auf dieselbe Textur verwiesen wird
+				newResearch.CreateIconTexture(_renderPanel.LoadIconAsTexture);
 
 				// Ist eine Einheit mit Kindern ausgewählt?
 				IChildrenContainer selUnit = _selectedElement as IChildrenContainer;
