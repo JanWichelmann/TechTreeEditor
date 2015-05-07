@@ -394,7 +394,7 @@ namespace TechTreeEditor
 			int minAge = (parentElem == null ? 0 : parentElem.Age);
 
 			// Nachfolger-Element mit minimalem Zeitalter bestimmen
-			int maxAge = (element.HasChildren() ? element.GetChildren().Min(e => e.Age) : 4); // TODO: hardcoded...
+			int maxAge = (element.HasChildren() ? element.GetVisibleChildren().Min(e => e.Age) : 4); // TODO: hardcoded...
 
 			// Neues Zeitalter berechnen
 			int newAge = element.Age + offset;

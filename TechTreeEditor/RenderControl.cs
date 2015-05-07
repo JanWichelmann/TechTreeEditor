@@ -582,6 +582,37 @@ namespace TechTreeEditor
 			_drawPanel.Invalidate();
 		}
 
+		/// <summary>
+		/// Gibt an, ob der übergebene Tastendruck von den Steuerelementen automatisch behandelt werden soll.
+		/// </summary>
+		/// <param name="keyData">Der zu behandelnde Tastendruck.</param>
+		/// <returns></returns>
+		protected override bool ProcessDialogKey(Keys keyData)
+		{
+			// Eigene Hotkeys abfangen
+			int temp;
+			switch(keyData)
+			{
+				// Zeitalter-Verschiebungen
+				case Keys.Up:
+				case Keys.Down:
+					return false;
+
+				// Horizontale Scrollbar
+				case Keys.Left:
+					temp = _drawPanelHScrollBar.Value - 20;
+					_drawPanelHScrollBar.Value = (temp < 0 ? 0 : (temp > _drawPanelHScrollBar.Maximum - _drawPanel.Width ? _drawPanelHScrollBar.Maximum - _drawPanel.Width : temp));
+					return false;
+				case Keys.Right:
+					temp = _drawPanelHScrollBar.Value + 20;
+					_drawPanelHScrollBar.Value = (temp < 0 ? 0 : (temp > _drawPanelHScrollBar.Maximum - _drawPanel.Width ? _drawPanelHScrollBar.Maximum - _drawPanel.Width : temp));
+					return false;
+			}
+
+			// Andere Tastendrücke mit der Original-Funktion behandeln
+			return base.ProcessDialogKey(keyData);
+		}
+
 		#endregion Funktionen
 
 		#region Ereignishandler
@@ -602,11 +633,14 @@ namespace TechTreeEditor
 			// Zeichenfläche leeren
 			GL.Clear(ClearBufferMask.ColorBufferBit);
 
+			// Texturbindung löschen, falls vorhanden
+			GL.BindTexture(TextureTarget.Texture2D, 0);
+
 			// Zeichenmatrix zurücksetzen
 			GL.LoadIdentity();
 
-			GL.Color3(COLOR_BACKGROUND);
-			DrawString("[Render Mode: " + (_drawOnlyStandardElements ? "StandardOnly" : "All") + "]", 6, 6);
+			//GL.Color3(COLOR_BACKGROUND);
+			//DrawString("[Render Mode: " + (_drawOnlyStandardElements ? "StandardOnly" : "All") + "]", 6, 6);
 
 			// Wurden alle Daten geladen?
 			if(_dataLoaded)
