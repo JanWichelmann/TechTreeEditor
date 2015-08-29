@@ -7,6 +7,6 @@ Currently this software is under heavy development and by far not finished, so i
 
 This software is published under the MIT/X11 license. Please read the LICENSE file for further information.
 
-Lots of credit goes to the creators of the Advanced Genie Editor (http://aok.heavengames.com/blacksmith/showfile.php?fileid=11002) which source code I used to create a C# port of its genieutils library.
+Lots of credit goes to the creators of the Advanced Genie Editor (http://aok.heavengames.com/blacksmith/showfile.php?fileid=11002) which source code I used to create a C# port of its genieutils library (see "GenieLibrary" repository).
 
 Also I'd like to thank the developers of OpenTK (http://www.opentk.com/) for their wonderful C# OpenGL wrapper allowing me to write an efficient renderer for my technology tree data structure.
