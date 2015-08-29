@@ -14,3 +14,7 @@
 	path = GenieLibrary
 	url = git@github.com:Janworks/GenieLibrary.git
 	branch = master
+[submodule "SLPLibrary"]
+	path = SLPLibrary
+	url = git@github.com:Janworks/SLPLibrary.git
+	branch = master
