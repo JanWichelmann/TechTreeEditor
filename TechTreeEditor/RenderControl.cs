@@ -2,6 +2,7 @@
 using OpenTK.Graphics.OpenGL;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
@@ -726,6 +727,10 @@ namespace TechTreeEditor
 
 		private void _drawPanel_Resize(object sender, EventArgs e)
 		{
+			// Visual Studio Designer-Crash verhindern
+			if(DesignMode)
+				return;
+
 			// Prüfen, ob das Panel überhaupt eine Größe hat (Fenster minimiert?)
 			if(_drawPanel.Width != 0 && _drawPanel.Height != 0)
 			{

@@ -895,10 +895,10 @@ namespace TechTreeEditor
 			// TODO: Hardcoded...
 			int slotNum = 0;
 			if(research.Age > 0)
-			{
 				datResearch.RequiredTechs[slotNum++] = (short)(100 + research.Age);
-				++datResearch.RequiredTechCount;
-			}
+			else
+				datResearch.RequiredTechs[slotNum++] = 105; // Dunkle Zeit
+			++datResearch.RequiredTechCount;
 
 			// Gebäude-Abhängigkeiten bekommen einen eigenen Knoten und landen dann im 2. Slot
 			if(research.BuildingDependencies.Count > 0)

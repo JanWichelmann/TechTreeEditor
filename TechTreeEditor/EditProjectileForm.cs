@@ -57,6 +57,7 @@ namespace TechTreeEditor
 			{
 				_deadUnitComboBox.Items.Add(u);
 			});
+			_deadUnitComboBox.ResumeLayout();
 
 			// Trackingliste erstellen
 			_trackUnitComboBox.SuspendLayout();

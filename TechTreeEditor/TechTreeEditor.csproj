@@ -41,7 +41,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -163,6 +163,7 @@
     <Compile Include="ImportDATFile.Designer.cs">
       <DependentUpon>ImportDATFile.cs</DependentUpon>
     </Compile>
+    <Compile Include="IPlugin.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -332,23 +333,23 @@
     <None Include="Resources\50500.pal" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DRSExplorer\BMPLoaderNew\BMPLoaderNew.csproj">
+    <ProjectReference Include="..\..\BitmapLibrary\BitmapLibrary\BitmapLibrary.csproj">
       <Project>{328b4638-6a65-4a99-aae4-768d98091a40}</Project>
       <Name>BMPLoaderNew</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\DRSExplorer\IORAMHelper\IORAMHelper.csproj">
+    <ProjectReference Include="..\..\IORAMHelper\IORAMHelper\IORAMHelper.csproj">
       <Project>{e916caa5-59a9-4f62-a8fb-0ceec2d840b8}</Project>
       <Name>IORAMHelper</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\DRSExplorer\SLPLoader\SLPLoader.csproj">
+    <ProjectReference Include="..\..\SLPLibrary\SLPLibrary\SLPLibrary.csproj">
       <Project>{a964b92b-bab2-42b0-ab1f-9af65597707f}</Project>
       <Name>SLPLoader</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DRSLibrary\DRSLibrary.csproj">
+    <ProjectReference Include="..\..\DRSLibrary\DRSLibrary\DRSLibrary.csproj">
       <Project>{4c0ec97d-e156-4aef-9bbb-2dcdacc34512}</Project>
       <Name>DRSLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GenieLibrary\GenieLibrary.csproj">
+    <ProjectReference Include="..\..\GenieLibrary\GenieLibrary\GenieLibrary.csproj">
       <Project>{999f8815-8f80-403a-95a6-48ade9b5b52a}</Project>
       <Name>GenieLibrary</Name>
     </ProjectReference>

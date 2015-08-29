@@ -3,14 +3,25 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 using TechTreeEditor.TechTreeStructure;
 
 namespace TechTreeEditor
 {
-	public partial class MainForm : Form
+	public sealed partial class MainForm : Form
 	{
 		#region Variablen
+
+		/// <summary>
+		/// Die geladenen Plugins.
+		/// </summary>
+		private List<IPlugin> _plugins = null;
+
+		/// <summary>
+		/// Die Plugin-Kommunikationsschnittstelle.
+		/// </summary>
+		private PluginCommunicator _communicator = null;
 
 		/// <summary>
 		/// Gibt an, ob die Daten bereits geladen wurden.
@@ -85,12 +96,41 @@ namespace TechTreeEditor
 			InitializeComponent();
 
 			// ToolBar-Einstellungen laden
-#if !DEBUG
+//#if !DEBUG
 			ToolStripManager.LoadSettings(this, "ToolBarSettings");
-#endif
+//#endif
 
 			// Kultur-Kopier-Leisten-Renderer setzen
 			_civCopyBar.Renderer = new CivCopyButtonRenderer();
+
+			// Plugin-Kommunikator erstellen
+			_communicator = new PluginCommunicator(this);
+
+			// Plugins laden
+			_plugins = new List<IPlugin>();
+			if(Directory.Exists("plugins"))
+			{
+				// Alle gefundenen DLLs nach passenden Typen absuchen
+				foreach(string dll in Directory.GetFiles("plugins", "*.dll"))
+				{
+					// Assembly laden
+					Assembly dllA = Assembly.Load(AssemblyName.GetAssemblyName(dll));
+					if(dllA != null)
+					{
+						// Nach Plugin-Typ suchen
+						foreach(Type type in dllA.GetTypes())
+							if(!type.IsInterface && !type.IsAbstract && type.GetInterface(typeof(IPlugin).FullName) != null)
+							{
+								// Plugin-Objekt erstellen und Kommunikator zuweisen
+								IPlugin plugin = (IPlugin)Activator.CreateInstance(type);
+								plugin.AssignCommunicator(_communicator);
+
+								// Plugin speichern
+								_plugins.Add(plugin);
+							}
+					}
+				}
+			}
 
 			// Fenstertitel setzen
 			UpdateFormTitle();
@@ -202,7 +242,11 @@ namespace TechTreeEditor
 			SetStatus(Strings.MainForm_Status_PreparingTreeRendering);
 			_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
 
+			// Projektdaten an Plugins übergeben
+			_plugins.ForEach(p => p.AssignProject(_projectFile));
+
 			// Buttons freischalten
+			_pluginMenuButton.Enabled = true;
 			_saveProjectMenuButton.Enabled = true;
 			_saveProjectButton.Enabled = true;
 			_exportDATMenuButton.Enabled = true;
@@ -397,7 +441,7 @@ namespace TechTreeEditor
 			{
 				// Element merken
 				_copyElement = _selectedElement;
-				
+
 				// Einfüge-Buttons freigeben
 				_pasteMenuButton.Enabled = true;
 				_pasteTreeMenuButton.Enabled = true;
@@ -415,7 +459,7 @@ namespace TechTreeEditor
 			{
 				// Technologie kopieren
 				TechTreeResearch newResearch = (_copyElement as TechTreeResearch).Clone(copyChildren, _projectFile.BasicGenieFile);
-				
+
 				// Auswahl zurücksetzen
 				newResearch.Selected = false;
 
@@ -458,6 +502,15 @@ namespace TechTreeEditor
 		{
 			// Dummy-Namen anzeigen
 			_selectedNameLabel.Text = "";
+
+			// Plugin-Buttons abrufen
+			foreach(IPlugin plugin in _plugins)
+			{
+				// Menü-Element erstellen
+				ToolStripMenuItem menuElem = new ToolStripMenuItem(plugin.Name);
+				menuElem.DropDownItems.AddRange(plugin.GetPluginMenu().ToArray());
+				_pluginMenuButton.DropDownItems.Add(menuElem);
+			}
 		}
 
 		private void MainForm_Shown(object sender, EventArgs e)
@@ -505,59 +558,55 @@ namespace TechTreeEditor
 				_selectedElement.UpdateName(_projectFile.LanguageFileWrapper);
 				_selectedNameLabel.Text = string.Format(Strings.MainForm_CurrentSelection, _selectedElement.Name);
 
-				// Nach Operationsmodus vorgehen
-				if(_currentOperation == TreeOperations.None)
+				// Standard-Element-Button aktualisieren
+				if(_selectedElement.GetType() == typeof(TechTreeBuilding))
 				{
-					// Standard-Element-Button aktualisieren
-					if(_selectedElement.GetType() == typeof(TechTreeBuilding))
-					{
-						_standardElementCheckButton.Enabled = true;
-						_standardElementCheckButton.Checked = ((TechTreeBuilding)_selectedElement).StandardElement;
-					}
-					else if(_selectedElement.GetType() == typeof(TechTreeCreatable))
-					{
-						_standardElementCheckButton.Enabled = true;
-						_standardElementCheckButton.Checked = ((TechTreeCreatable)_selectedElement).StandardElement;
-					}
-					else
-					{
-						_standardElementCheckButton.Enabled = (_selectedElement.GetType() == typeof(TechTreeResearch)); // Technologien sind immer Standard-Elemente
-						_standardElementCheckButton.Checked = false;
-					}
+					_standardElementCheckButton.Enabled = true;
+					_standardElementCheckButton.Checked = ((TechTreeBuilding)_selectedElement).StandardElement;
+				}
+				else if(_selectedElement.GetType() == typeof(TechTreeCreatable))
+				{
+					_standardElementCheckButton.Enabled = true;
+					_standardElementCheckButton.Checked = ((TechTreeCreatable)_selectedElement).StandardElement;
+				}
+				else
+				{
+					_standardElementCheckButton.Enabled = false; // Technologien sind immer Standard-Elemente
+					_standardElementCheckButton.Checked = false;
+				}
 
-					// Editor-Button aktualisieren
-					_showInEditorCheckButton.Enabled = (_selectedElement.GetType() != typeof(TechTreeResearch));
-					_showInEditorCheckButton.Checked = _selectedElement.Flags.HasFlag(TechTreeElement.ElementFlags.ShowInEditor) && _showInEditorCheckButton.Enabled;
+				// Editor-Button aktualisieren
+				_showInEditorCheckButton.Enabled = (_selectedElement.GetType() != typeof(TechTreeResearch));
+				_showInEditorCheckButton.Checked = _selectedElement.Flags.HasFlag(TechTreeElement.ElementFlags.ShowInEditor) && _showInEditorCheckButton.Enabled;
 
-					// Gaia-Button aktualisieren
-					if(_standardElementCheckButton.Checked)
-					{
-						_gaiaOnlyCheckButton.Enabled = false;
-						_gaiaOnlyCheckButton.Checked = false;
-					}
-					else
-					{
-						_gaiaOnlyCheckButton.Enabled = (_selectedElement.GetType() != typeof(TechTreeResearch));
-						_gaiaOnlyCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.GaiaOnly) == TechTreeElement.ElementFlags.GaiaOnly);
-					}
+				// Gaia-Button aktualisieren
+				if(_standardElementCheckButton.Checked)
+				{
+					_gaiaOnlyCheckButton.Enabled = false;
+					_gaiaOnlyCheckButton.Checked = false;
+				}
+				else
+				{
+					_gaiaOnlyCheckButton.Enabled = (_selectedElement.GetType() != typeof(TechTreeResearch));
+					_gaiaOnlyCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.GaiaOnly) == TechTreeElement.ElementFlags.GaiaOnly);
+				}
 
-					// ID-Sperr-Button aktualisieren
-					_lockIDCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.LockID) == TechTreeElement.ElementFlags.LockID);
+				// ID-Sperr-Button aktualisieren
+				_lockIDCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.LockID) == TechTreeElement.ElementFlags.LockID);
 
-					// Blockier-Button aktualisieren
-					_blockForCivCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.Blocked) == TechTreeElement.ElementFlags.Blocked);
+				// Blockier-Button aktualisieren
+				_blockForCivCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.Blocked) == TechTreeElement.ElementFlags.Blocked);
 
-					// Kostenlos-Button aktualisieren
-					if(_blockForCivCheckButton.Checked)
-					{
-						_freeForCivCheckButton.Enabled = false;
-						_freeForCivCheckButton.Checked = false;
-					}
-					else
-					{
-						_freeForCivCheckButton.Enabled = (_selectedElement.GetType() == typeof(TechTreeResearch));
-						_freeForCivCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.Free) == TechTreeElement.ElementFlags.Free);
-					}
+				// Kostenlos-Button aktualisieren
+				if(_blockForCivCheckButton.Checked)
+				{
+					_freeForCivCheckButton.Enabled = false;
+					_freeForCivCheckButton.Checked = false;
+				}
+				else
+				{
+					_freeForCivCheckButton.Enabled = (_selectedElement.GetType() == typeof(TechTreeResearch));
+					_freeForCivCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.Free) == TechTreeElement.ElementFlags.Free);
 				}
 
 				// Buttons aktivieren
@@ -831,7 +880,6 @@ namespace TechTreeEditor
 									TechTreeCreatable selUTemp = ((TechTreeCreatable)_selectedElement);
 									newUTemp.DeadUnit = selUTemp.DeadUnit;
 									newUTemp.StandardElement = selUTemp.StandardElement;
-									newUTemp.EnablerResearch = selUTemp.EnablerResearch;
 									newUTemp.TrackingUnit = selUTemp.TrackingUnit;
 									newUTemp.DropSite1Unit = selUTemp.DropSite1Unit;
 									newUTemp.DropSite2Unit = selUTemp.DropSite2Unit;
@@ -847,7 +895,7 @@ namespace TechTreeEditor
 									TechTreeBuilding selUTemp = ((TechTreeBuilding)_selectedElement);
 									newUTemp.DeadUnit = selUTemp.DeadUnit;
 									newUTemp.StandardElement = selUTemp.StandardElement;
-									newUTemp.EnablerResearch = selUTemp.EnablerResearch;
+
 									foreach(var au in selUTemp.AgeUpgrades)
 										newUTemp.AgeUpgrades.Add(au.Key, au.Value);
 									newUTemp.ProjectileUnit = selUTemp.ProjectileUnit;
@@ -880,7 +928,7 @@ namespace TechTreeEditor
 								newU.Flags = _selectedElement.Flags & ~TechTreeElement.ElementFlags.RenderingFlags;
 								newU.Age = _selectedElement.Age;
 
-								// DAT-Einheit auf Basis der des ausgewählten Elements erstellen
+								// DAT-Einheit auf Basis des ausgewählten Elements erstellen
 								GenieLibrary.DataElements.Civ.Unit newUDAT = (GenieLibrary.DataElements.Civ.Unit)((TechTreeUnit)_selectedElement).DATUnit.Clone();
 								newU.DATUnit = newUDAT;
 
@@ -895,7 +943,7 @@ namespace TechTreeEditor
 									civ.Units.Add(newUID, (GenieLibrary.DataElements.Civ.Unit)newUDAT.Clone()); // Klonen, da sonst alle Civs in dieselbe DAT-Einheit schreiben
 								}
 
-								// Technologie als Elternelement setzen und an den Anfang stellen
+								// Einheit als Elternelement setzen und an den Anfang stellen
 								_projectFile.TechTreeParentElements.Insert(0, newU);
 
 								// Icon und Namen erstellen
@@ -1389,6 +1437,7 @@ namespace TechTreeEditor
 			int newID = _projectFile.BasicGenieFile.Researches.Count;
 			_projectFile.BasicGenieFile.Researches.Add(newResearchDAT);
 			newResearch.ID = newID;
+			newResearch.Name = "New Research";
 
 			// Ist eine Einheit mit Kindern ausgewählt?
 			IChildrenContainer selUnit = _selectedElement as IChildrenContainer;
@@ -1675,6 +1724,75 @@ namespace TechTreeEditor
 				else
 					base.OnRenderButtonBackground(e);
 			}
+		}
+
+		/// <summary>
+		/// Stellt Funktionen für die Kommunikation zwischen Hauptanwendung und Plugins bereit.
+		/// Dies vermeidet das direkte Übergeben des Hauptformulars an die Plugins und erhöht so die Sicherheit und Stabilität der Anwendung.
+		/// </summary>
+		public sealed class PluginCommunicator
+		{
+			#region Variablen
+
+			/// <summary>
+			/// Das Hauptformular, mit dem kommuniziert werden soll.
+			/// </summary>
+			MainForm _mainForm;
+
+			#endregion
+
+			#region Funktionen
+
+			/// <summary>
+			/// Konstruktor.
+			/// </summary>
+			/// <param name="mainForm">Das verwaltete Hauptformular.</param>
+			public PluginCommunicator(MainForm mainForm)
+			{
+				// Hauptformular merken
+				_mainForm = mainForm;
+			}
+
+			/// <summary>
+			/// Löst eine Aktualisierung und ein Neuzeichnen des gesamten Baums aus.
+			/// </summary>
+			public void IssueTreeUpdate()
+			{
+				// Baum neu berechnen
+				_mainForm._renderPanel.UpdateTreeData(_mainForm._projectFile.TechTreeParentElements);
+			}
+
+			/// <summary>
+			/// Erstellt die Icon-Textur für das gegebene Element.
+			/// </summary>
+			/// <param name="element">Das Element, dessen Icon-Textur erstellen werden soll.</param>
+			public void CreateElementIconTexture(TechTreeElement element)
+			{
+				// Textur erstellen
+				element.CreateIconTexture(_mainForm._renderPanel.LoadIconAsTexture);
+			}
+
+			#endregion
+
+				#region Eigenschaften
+
+				/// <summary>
+				/// Ruft das aktuell ausgewählte Element ab.
+				/// </summary>
+			public TechTreeElement CurrentSelection
+			{
+				get { return _mainForm._selectedElement; }
+			}
+
+			/// <summary>
+			/// Ruft die ID-Namen-Zuordnung der im Projekt enthaltenen Kulturen ab.
+			/// </summary>
+			public List<KeyValuePair<uint,string>> Civs
+			{
+				get { return _mainForm._civs; }
+			}
+
+			#endregion
 		}
 
 		#endregion Hilfsklassen
