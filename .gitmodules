@@ -1,0 +1,16 @@
+[submodule "DRSLibrary"]
+	path = DRSLibrary
+	url = git@github.com:Janworks/DRSLibrary.git
+	branch = master
+[submodule "IORAMHelper"]
+	path = IORAMHelper
+	url = git@github.com:Janworks/IORAMHelper.git
+	branch = master
+[submodule "BitmapLibrary"]
+	path = BitmapLibrary
+	url = git@github.com:Janworks/BitmapLibrary.git
+	branch = master
+[submodule "GenieLibrary"]
+	path = GenieLibrary
+	url = git@github.com:Janworks/GenieLibrary.git
+	branch = master
