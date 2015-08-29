@@ -5,15 +5,15 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechTreeEditor", "TechTreeEditor\TechTreeEditor.csproj", "{F1889ACD-7680-4AEC-AEF6-9658F4E1F859}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DRSLibrary", "..\DRSLibrary\DRSLibrary\DRSLibrary.csproj", "{4C0EC97D-E156-4AEF-9BBB-2DCDACC34512}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DRSLibrary", "DRSLibrary\DRSLibrary\DRSLibrary.csproj", "{4C0EC97D-E156-4AEF-9BBB-2DCDACC34512}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IORAMHelper", "..\IORAMHelper\IORAMHelper\IORAMHelper.csproj", "{E916CAA5-59A9-4F62-A8FB-0CEEC2D840B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IORAMHelper", "IORAMHelper\IORAMHelper\IORAMHelper.csproj", "{E916CAA5-59A9-4F62-A8FB-0CEEC2D840B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLPLibrary", "..\SLPLibrary\SLPLibrary\SLPLibrary.csproj", "{A964B92B-BAB2-42B0-AB1F-9AF65597707F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLPLibrary", "SLPLibrary\SLPLibrary\SLPLibrary.csproj", "{A964B92B-BAB2-42B0-AB1F-9AF65597707F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitmapLibrary", "..\BitmapLibrary\BitmapLibrary\BitmapLibrary.csproj", "{328B4638-6A65-4A99-AAE4-768D98091A40}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitmapLibrary", "BitmapLibrary\BitmapLibrary\BitmapLibrary.csproj", "{328B4638-6A65-4A99-AAE4-768D98091A40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenieLibrary", "..\GenieLibrary\GenieLibrary\GenieLibrary.csproj", "{999F8815-8F80-403A-95A6-48ADE9B5B52A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenieLibrary", "GenieLibrary\GenieLibrary\GenieLibrary.csproj", "{999F8815-8F80-403A-95A6-48ADE9B5B52A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "X2AddOnPlugin", "X2AddOnPlugin\X2AddOnPlugin.csproj", "{849E2F9A-2663-409F-9A7A-A1BADBEF2F22}"
 EndProject
