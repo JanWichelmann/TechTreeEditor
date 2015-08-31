@@ -2,6 +2,7 @@ This application allows to edit the technology tree of "Age of Empires II: The C
 
 Currently this software is under heavy development and by far not finished, so it is not recommended to use it in real modding projects for the time being.
 
+Important: At the moment the GUI is only available in german, but an english translation is planned when the software is more advanced.
 
 -- LEGAL INFO & CREDITS --
 
