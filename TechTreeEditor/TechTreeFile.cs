@@ -370,6 +370,34 @@ namespace TechTreeEditor
 			// Element suchen und als Kind entfernen
 			_allElements.ForEach(e => e.RemoveChild(element));
 
+			// Element aus Kultur-Ínformationen entfernen
+			_civTrees.ForEach(c =>
+			{
+				// Existiert das Element? => Löschen
+				if(c.BlockedElements.Contains(element))
+					c.BlockedElements.Remove(element);
+				if(element is TechTreeResearch && c.FreeElements.Contains((TechTreeResearch)element))
+					c.FreeElements.Remove((TechTreeResearch)element);
+				
+				// Ggf. aus Bonus-Effekten löschen
+				c.Bonuses.ForEach(eff =>
+				{
+					// Elementverweis löschen
+					if(eff.Element == element)
+						eff.Element = null;
+					if(eff.DestinationElement == element)
+						eff.DestinationElement = null;
+				});
+				c.TeamBonuses.ForEach(eff =>
+				{
+					// Elementverweis löschen
+					if(eff.Element == element)
+						eff.Element = null;
+					if(eff.DestinationElement == element)
+						eff.DestinationElement = null;
+				});
+			});
+
 			// Element aus Liste nehmen
 			_allElements.Remove(element);
 			_techTreeParentElements.Remove(element);

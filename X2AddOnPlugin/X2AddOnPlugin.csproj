@@ -62,6 +62,18 @@
       <Project>{999f8815-8f80-403a-95a6-48ade9b5b52a}</Project>
       <Name>GenieLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DRSLibrary\DRSLibrary\DRSLibrary.csproj">
+      <Project>{4c0ec97d-e156-4aef-9bbb-2dcdacc34512}</Project>
+      <Name>DRSLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IORAMHelper\IORAMHelper\IORAMHelper.csproj">
+      <Project>{e916caa5-59a9-4f62-a8fb-0ceec2d840b8}</Project>
+      <Name>IORAMHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SLPLibrary\SLPLibrary\SLPLibrary.csproj">
+      <Project>{a964b92b-bab2-42b0-ab1f-9af65597707f}</Project>
+      <Name>SLPLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TechTreeEditor\TechTreeEditor.csproj">
       <Project>{f1889acd-7680-4aec-aef6-9658f4e1f859}</Project>
       <Name>TechTreeEditor</Name>

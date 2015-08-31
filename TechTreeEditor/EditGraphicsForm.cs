@@ -701,6 +701,7 @@ namespace TechTreeEditor
 
 					// Daten einfügen
 					GenieLibrary.DataElements.Graphic.GraphicDelta delta = new GenieLibrary.DataElements.Graphic.GraphicDelta();
+					delta.Unknown4 = -1;
 					delta.GraphicID = (currRow.Cells[0].Value.GetType() == typeof(short) ? (short)currRow.Cells[0].Value : short.Parse((string)currRow.Cells[0].Value));
 					delta.DirectionX = (currRow.Cells[1].Value.GetType() == typeof(short) ? (short)currRow.Cells[1].Value : short.Parse((string)currRow.Cells[1].Value));
 					delta.DirectionY = (currRow.Cells[2].Value.GetType() == typeof(short) ? (short)currRow.Cells[2].Value : short.Parse((string)currRow.Cells[2].Value));

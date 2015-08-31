@@ -87,6 +87,7 @@ namespace TechTreeEditor.Controls
 				// Nicht beim Zuweisen ein Ereignis auslösen
 				_valueTextBox.TextChanged -= _valueTextBox_TextChanged;
 				_valueTextBox.Text = value.ToString(CultureInfo.InvariantCulture);
+				_value = value;
 				_valueTextBox.TextChanged += _valueTextBox_TextChanged;
 			}
 		}

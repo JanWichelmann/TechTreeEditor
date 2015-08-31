@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TechTreeEditor;
 using System.Windows.Forms;
 using TechTreeEditor.TechTreeStructure;
+using DRSLibrary;
 
 namespace X2AddOnPlugin
 {
@@ -30,6 +32,15 @@ namespace X2AddOnPlugin
 		/// Das Menü-Element für eine neue Einheit.
 		/// </summary>
 		private ToolStripMenuItem _newCreatableMenuButton;
+
+		/// <summary>
+		/// Ruft die geladene Graphics-DRS-Datei ab.
+		/// </summary>
+		internal static DRSFile GraphicsDRS
+		{
+			get;
+			private set;
+		}
 
 		#endregion
 
@@ -71,6 +82,27 @@ namespace X2AddOnPlugin
 		{
 			// Projekt merken
 			_projectFile = projectFile;
+
+			// Asynchron im Hintergrund Graphics-DRS laden
+			(new Task(() =>
+			{
+				// Graphics-DRS laden
+				try
+				{
+					// Datei laden, falls in Projektverzeichnis auffindbar
+					string graphicsDRSPath = Path.GetDirectoryName(_projectFile.InterfacDRSPath) + "\\graphics.drs";
+					if(File.Exists(graphicsDRSPath))
+						GraphicsDRS = new DRSFile(graphicsDRSPath);
+					else
+						GraphicsDRS = null;
+				}
+				catch
+				{
+					// Egal, Pech gehabt
+					GraphicsDRS = null;
+				}
+
+			})).Start();
 		}
 
 		/// <summary>
@@ -81,7 +113,7 @@ namespace X2AddOnPlugin
 		{
 			// Kommunikator merken
 			_communicator = communicator;
-        }
+		}
 
 		/// <summary>
 		/// Ruft das dem Plugin zugehörige Menü ab.

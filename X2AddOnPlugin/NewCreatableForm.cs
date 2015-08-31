@@ -11,6 +11,7 @@ using TechTreeEditor;
 using TechTreeEditor.Controls;
 using TechTreeEditor.TechTreeStructure;
 using GenieLibrary;
+using IORAMHelper;
 
 namespace X2AddOnPlugin
 {
@@ -63,7 +64,9 @@ namespace X2AddOnPlugin
 				_attackSoundTypes = new List<KeyValuePair<int, string>>(new KeyValuePair<int, string>[] {
 					new KeyValuePair<int, string>(0,"Schwertträger"),
 					new KeyValuePair<int, string>(1,"Bogenschütze"),
-					new KeyValuePair<int, string>(2,"Schütze")
+					new KeyValuePair<int, string>(2,"Handkanone"),
+					new KeyValuePair<int, string>(3,"Schwere Kanone"),
+					new KeyValuePair<int, string>(4,"Bolzenschütze")
 				});
 		}
 
@@ -82,8 +85,14 @@ namespace X2AddOnPlugin
 			_civs = _communicator.Civs;
 
 			// Basiseinheit prüfen und ggf. merken
-			if(baseUnit is TechTreeBuilding || baseUnit is TechTreeCreatable)
+			if(baseUnit is TechTreeBuilding)
 				_baseUnit = baseUnit;
+			else if(baseUnit is TechTreeCreatable)
+			{
+				// Merken und Button-Feld sperren
+				_baseUnit = baseUnit;
+				_buttonField.Enabled = false;
+			}
 
 			// Einheitenliste erstellen
 			_baseUnitComboBox.SuspendLayout();
@@ -99,6 +108,11 @@ namespace X2AddOnPlugin
 				_baseUnitComboBox.SelectedItem = _baseUnit;
 			else
 				_baseUnitComboBox.SelectedIndex = 0;
+
+			// Zeitalter-Liste abhängig von Basiseinheit erstellen
+			for(int i = _baseUnit.Age; i < 5; ++i)
+				_ageComboBox.Items.Add(i);
+			_ageComboBox.SelectedItem = _baseUnit.Age;
 
 			// DLL-Felder versorgen
 			_dllNameField.ProjectFile = _projectFile;
@@ -117,7 +131,12 @@ namespace X2AddOnPlugin
 
 			// Kulturenliste zuweisen
 			_civListBox.DisplayMember = "Value";
-			_civs.ForEach(c => _civListBox.Items.Add(c, false));
+			_civs.ForEach(c =>
+			{
+				// Gaia ignorieren
+				if(c.Key > 0)
+					_civListBox.Items.Add(c, false);
+			});
 
 			// Angriffssoundliste setzen
 			_soundTypeComboBox.DisplayMember = "Value";
@@ -155,10 +174,30 @@ namespace X2AddOnPlugin
 					sound.SoundDelay3 = -1;
 					break;
 
-				// Schütze (Schießpulver)
+				// Handkanone
 				case 2:
 					sound.SoundID1 = 385;
-					sound.SoundDelay1 = 2;
+					sound.SoundDelay1 = 7;
+					sound.SoundID2 = -1;
+					sound.SoundDelay2 = -1;
+					sound.SoundID3 = -1;
+					sound.SoundDelay3 = -1;
+					break;
+
+				// Schwere Kanone
+				case 3:
+					sound.SoundID1 = 411;
+					sound.SoundDelay1 = 7;
+					sound.SoundID2 = -1;
+					sound.SoundDelay2 = -1;
+					sound.SoundID3 = -1;
+					sound.SoundDelay3 = -1;
+					break;
+
+				// Bolzenschütze
+				case 4:
+					sound.SoundID1 = 384;
+					sound.SoundDelay1 = 6;
 					sound.SoundID2 = -1;
 					sound.SoundDelay2 = -1;
 					sound.SoundID3 = -1;
@@ -186,7 +225,8 @@ namespace X2AddOnPlugin
 				{
 					GraphicID = -1,
 					DirectionX = 0,
-					DirectionY = 0
+					DirectionY = 0,
+					Unknown4 = -1
 				};
 
 				// A
@@ -200,7 +240,7 @@ namespace X2AddOnPlugin
 					(GenieLibrary.DataElements.Graphic.GraphicDelta)emptyDelta.Clone(),
 					(GenieLibrary.DataElements.Graphic.GraphicDelta)emptyDelta.Clone()
 				});
-				graA.FrameCount = (ushort)_slpAFrameField.Value;
+				graA.FrameCount = (ushort)(_slpAFrameField.Value / 5);
 				graA.FrameRate = 0.1f;
 				graA.ID = graBaseID;
 				graA.Layer = 20;
@@ -228,7 +268,7 @@ namespace X2AddOnPlugin
 				graD.AttackSounds = new List<GenieLibrary.DataElements.Graphic.GraphicAttackSound>();
 				graD.Coordinates = new List<short>(new short[] { 0, 0, 0, 0 });
 				graD.Deltas = new List<GenieLibrary.DataElements.Graphic.GraphicDelta>();
-				graD.FrameCount = (ushort)_slpDFrameField.Value;
+				graD.FrameCount = (ushort)(_slpDFrameField.Value / 5);
 				graD.FrameRate = 6.0f;
 				graD.ID = (short)(graBaseID + 1);
 				graD.Layer = 10;
@@ -260,7 +300,7 @@ namespace X2AddOnPlugin
 					(GenieLibrary.DataElements.Graphic.GraphicDelta)emptyDelta.Clone(),
 					(GenieLibrary.DataElements.Graphic.GraphicDelta)emptyDelta.Clone()
 				});
-				graF.FrameCount = (ushort)_slpFFrameField.Value;
+				graF.FrameCount = (ushort)(_slpFFrameField.Value / 5);
 				graF.FrameRate = 0.1f;
 				graF.ID = (short)(graBaseID + 2);
 				graF.Layer = 20;
@@ -292,7 +332,7 @@ namespace X2AddOnPlugin
 					(GenieLibrary.DataElements.Graphic.GraphicDelta)emptyDelta.Clone(),
 					(GenieLibrary.DataElements.Graphic.GraphicDelta)emptyDelta.Clone()
 				});
-				graM.FrameCount = (ushort)_slpMFrameField.Value;
+				graM.FrameCount = (ushort)(_slpMFrameField.Value / 5);
 				graM.FrameRate = 0.07f;
 				graM.ID = (short)(graBaseID + 3);
 				graM.Layer = 20;
@@ -324,7 +364,7 @@ namespace X2AddOnPlugin
 					(GenieLibrary.DataElements.Graphic.GraphicDelta)emptyDelta.Clone(),
 					(GenieLibrary.DataElements.Graphic.GraphicDelta)emptyDelta.Clone()
 				});
-				graS.FrameCount = (ushort)_slpSFrameField.Value;
+				graS.FrameCount = (ushort)(_slpSFrameField.Value / 5);
 				graS.FrameRate = 0.3f;
 				graS.ID = (short)(graBaseID + 4);
 				graS.Layer = 20;
@@ -395,7 +435,7 @@ namespace X2AddOnPlugin
 			newUnit.ProjectileDuplicationUnit = baseUnit.ProjectileDuplicationUnit;
 
 			// Flags kopieren
-			newUnit.Flags = baseUnit.Flags & ~TechTreeElement.ElementFlags.RenderingFlags;
+			newUnit.Flags = TechTreeElement.ElementFlags.ShowInEditor;
 
 			// Zeitalter setzen
 			newUnit.Age = (int)_ageComboBox.SelectedItem;
@@ -455,7 +495,7 @@ namespace X2AddOnPlugin
 			{
 				// Nach Typ unterscheiden
 				if(_baseUnit is TechTreeBuilding)
-					((TechTreeBuilding)_baseUnit).Children.Add(new Tuple<byte, TechTreeElement>(0, newUnit));
+					((TechTreeBuilding)_baseUnit).Children.Add(new Tuple<byte, TechTreeElement>((byte)_buttonField.Value, newUnit));
 				else if(_baseUnit is TechTreeCreatable && ((TechTreeCreatable)_baseUnit).Successor == null)
 					((TechTreeCreatable)_baseUnit).Successor = newUnit;
 				else
@@ -505,22 +545,6 @@ namespace X2AddOnPlugin
 			}
 		}
 
-		private void _baseUnitComboBox_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			// Gewählte Einheit abrufen
-			TechTreeCreatable selUnit = (TechTreeCreatable)_baseUnitComboBox.SelectedItem;
-
-			// Zeitalter-Combobox neu füllen
-			int lastSel = (int?)_ageComboBox.SelectedItem ?? 0;
-			_ageComboBox.Items.Clear();
-			for(int i = selUnit.Age; i < 5; ++i)
-				_ageComboBox.Items.Add(i);
-			if(lastSel >= selUnit.Age)
-				_ageComboBox.SelectedItem = lastSel;
-			else
-				_ageComboBox.SelectedItem = selUnit.Age;
-		}
-
 		private void _civListBox_Format(object sender, ListControlConvertEventArgs e)
 		{
 			// Kulturnamen anzeigen
@@ -539,6 +563,60 @@ namespace X2AddOnPlugin
 			// Alle Kulturen demarkieren
 			for(int i = 0; i < _civListBox.Items.Count; ++i)
 				_civListBox.SetItemChecked(i, false);
+		}
+
+		private void _slpAIDField_ValueChanged(object sender, NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Fehler abfangen
+			try
+			{
+				// Ist eine Graphics-DRS geladen? => SLPs versuchen zu laden und Frameraten auslesen
+				if(Main.GraphicsDRS != null)
+				{
+					// A
+					ushort baseID = (ushort)e.NewValue;
+					SLPLoader.Loader slp = new SLPLoader.Loader(new RAMBuffer(Main.GraphicsDRS.GetResourceData(baseID)));
+					_slpAFrameField.Value = slp.FrameCount;
+
+					// D
+					if(_slpDIDField.Value == 0)
+					{
+						slp = new SLPLoader.Loader(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
+						_slpDIDField.Value = baseID;
+						MessageBox.Show(_slpDIDField.Value.ToString());
+						_slpDFrameField.Value = slp.FrameCount;
+						MessageBox.Show(_slpDFrameField.Value.ToString());
+					}
+
+					// F
+					if(_slpFIDField.Value == 0)
+					{
+						slp = new SLPLoader.Loader(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
+						_slpFIDField.Value = baseID;
+						_slpFFrameField.Value = slp.FrameCount;
+					}
+
+					// M
+					if(_slpMIDField.Value == 0)
+					{
+						slp = new SLPLoader.Loader(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
+						_slpMIDField.Value = baseID;
+						_slpMFrameField.Value = slp.FrameCount;
+					}
+
+					// S
+					if(_slpSIDField.Value == 0)
+					{
+						slp = new SLPLoader.Loader(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
+						_slpSIDField.Value = baseID;
+						_slpSFrameField.Value = slp.FrameCount;
+					}
+				}
+			}
+			catch
+			{
+				// Schade, aber gut, seis drum
+			}
 		}
 
 		#endregion

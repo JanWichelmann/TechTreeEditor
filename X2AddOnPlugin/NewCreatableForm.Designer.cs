@@ -34,24 +34,20 @@
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this._relIDTextBox = new System.Windows.Forms.TextBox();
+			this._dllHotkeyField = new TechTreeEditor.Controls.LanguageDLLControl();
+			this._dllDescriptionField = new TechTreeEditor.Controls.LanguageDLLControl();
+			this._dllHelpField = new TechTreeEditor.Controls.LanguageDLLControl();
+			this._dllNameField = new TechTreeEditor.Controls.LanguageDLLControl();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.label5 = new System.Windows.Forms.Label();
+			this._baseUnitComboBox = new System.Windows.Forms.ComboBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this._ageComboBox = new System.Windows.Forms.ComboBox();
+			this._timeField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._iconField = new TechTreeEditor.Controls.NumberFieldControl();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this._soundTypeComboBox = new System.Windows.Forms.ComboBox();
 			this.label3 = new System.Windows.Forms.Label();
-			this.groupBox25 = new System.Windows.Forms.GroupBox();
-			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this._civListBox = new System.Windows.Forms.CheckedListBox();
-			this._noCivsButton = new System.Windows.Forms.Button();
-			this._allCivsButton = new System.Windows.Forms.Button();
-			this._okButton = new System.Windows.Forms.Button();
-			this._cancelButton = new System.Windows.Forms.Button();
-			this._baseUnitComboBox = new System.Windows.Forms.ComboBox();
-			this.label5 = new System.Windows.Forms.Label();
-			this._cost3Field = new TechTreeEditor.Controls.ResourceCostControl();
-			this._cost2Field = new TechTreeEditor.Controls.ResourceCostControl();
-			this._cost1Field = new TechTreeEditor.Controls.ResourceCostControl();
 			this._slpSFrameField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._slpSIDField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._slpMFrameField = new TechTreeEditor.Controls.NumberFieldControl();
@@ -62,12 +58,17 @@
 			this._slpDIDField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._slpAFrameField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._slpAIDField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._timeField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._iconField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._dllHotkeyField = new TechTreeEditor.Controls.LanguageDLLControl();
-			this._dllDescriptionField = new TechTreeEditor.Controls.LanguageDLLControl();
-			this._dllHelpField = new TechTreeEditor.Controls.LanguageDLLControl();
-			this._dllNameField = new TechTreeEditor.Controls.LanguageDLLControl();
+			this.groupBox25 = new System.Windows.Forms.GroupBox();
+			this._cost3Field = new TechTreeEditor.Controls.ResourceCostControl();
+			this._cost2Field = new TechTreeEditor.Controls.ResourceCostControl();
+			this._cost1Field = new TechTreeEditor.Controls.ResourceCostControl();
+			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this._civListBox = new System.Windows.Forms.CheckedListBox();
+			this._noCivsButton = new System.Windows.Forms.Button();
+			this._allCivsButton = new System.Windows.Forms.Button();
+			this._okButton = new System.Windows.Forms.Button();
+			this._cancelButton = new System.Windows.Forms.Button();
+			this._buttonField = new TechTreeEditor.Controls.NumberFieldControl();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
@@ -108,8 +109,41 @@
 			this._relIDTextBox.Name = "_relIDTextBox";
 			this._relIDTextBox.TextChanged += new System.EventHandler(this._relIDTextBox_TextChanged);
 			// 
+			// _dllHotkeyField
+			// 
+			resources.ApplyResources(this._dllHotkeyField, "_dllHotkeyField");
+			this._dllHotkeyField.Name = "_dllHotkeyField";
+			this._dllHotkeyField.NameString = "Hotkey: ";
+			this._dllHotkeyField.ProjectFile = null;
+			this._dllHotkeyField.Value = 0;
+			// 
+			// _dllDescriptionField
+			// 
+			resources.ApplyResources(this._dllDescriptionField, "_dllDescriptionField");
+			this._dllDescriptionField.Name = "_dllDescriptionField";
+			this._dllDescriptionField.NameString = "Beschreibung: ";
+			this._dllDescriptionField.ProjectFile = null;
+			this._dllDescriptionField.Value = 0;
+			// 
+			// _dllHelpField
+			// 
+			resources.ApplyResources(this._dllHelpField, "_dllHelpField");
+			this._dllHelpField.Name = "_dllHelpField";
+			this._dllHelpField.NameString = "Hilfe: ";
+			this._dllHelpField.ProjectFile = null;
+			this._dllHelpField.Value = 0;
+			// 
+			// _dllNameField
+			// 
+			resources.ApplyResources(this._dllNameField, "_dllNameField");
+			this._dllNameField.Name = "_dllNameField";
+			this._dllNameField.NameString = "Name: ";
+			this._dllNameField.ProjectFile = null;
+			this._dllNameField.Value = 0;
+			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this._buttonField);
 			this.groupBox2.Controls.Add(this.label5);
 			this.groupBox2.Controls.Add(this._baseUnitComboBox);
 			this.groupBox2.Controls.Add(this.label4);
@@ -122,6 +156,19 @@
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.TabStop = false;
 			// 
+			// label5
+			// 
+			resources.ApplyResources(this.label5, "label5");
+			this.label5.Name = "label5";
+			// 
+			// _baseUnitComboBox
+			// 
+			this._baseUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this._baseUnitComboBox.FormattingEnabled = true;
+			resources.ApplyResources(this._baseUnitComboBox, "_baseUnitComboBox");
+			this._baseUnitComboBox.Name = "_baseUnitComboBox";
+			this._baseUnitComboBox.Sorted = true;
+			// 
 			// label4
 			// 
 			resources.ApplyResources(this.label4, "label4");
@@ -133,6 +180,28 @@
 			this._ageComboBox.FormattingEnabled = true;
 			resources.ApplyResources(this._ageComboBox, "_ageComboBox");
 			this._ageComboBox.Name = "_ageComboBox";
+			// 
+			// _timeField
+			// 
+			resources.ApplyResources(this._timeField, "_timeField");
+			this._timeField.Name = "_timeField";
+			this._timeField.NameString = "Erschaff-Zeit:";
+			this._timeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			// 
+			// _iconField
+			// 
+			resources.ApplyResources(this._iconField, "_iconField");
+			this._iconField.Name = "_iconField";
+			this._iconField.NameString = "Icon-ID:";
+			this._iconField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// groupBox3
 			// 
@@ -163,93 +232,6 @@
 			// 
 			resources.ApplyResources(this.label3, "label3");
 			this.label3.Name = "label3";
-			// 
-			// groupBox25
-			// 
-			this.groupBox25.Controls.Add(this._cost3Field);
-			this.groupBox25.Controls.Add(this._cost2Field);
-			this.groupBox25.Controls.Add(this._cost1Field);
-			resources.ApplyResources(this.groupBox25, "groupBox25");
-			this.groupBox25.Name = "groupBox25";
-			this.groupBox25.TabStop = false;
-			// 
-			// groupBox4
-			// 
-			this.groupBox4.Controls.Add(this._civListBox);
-			this.groupBox4.Controls.Add(this._noCivsButton);
-			this.groupBox4.Controls.Add(this._allCivsButton);
-			resources.ApplyResources(this.groupBox4, "groupBox4");
-			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.TabStop = false;
-			// 
-			// _civListBox
-			// 
-			this._civListBox.CheckOnClick = true;
-			this._civListBox.FormattingEnabled = true;
-			resources.ApplyResources(this._civListBox, "_civListBox");
-			this._civListBox.Name = "_civListBox";
-			this._civListBox.Sorted = true;
-			this._civListBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this._civListBox_Format);
-			// 
-			// _noCivsButton
-			// 
-			resources.ApplyResources(this._noCivsButton, "_noCivsButton");
-			this._noCivsButton.Name = "_noCivsButton";
-			this._noCivsButton.UseVisualStyleBackColor = true;
-			this._noCivsButton.Click += new System.EventHandler(this._noCivsButton_Click);
-			// 
-			// _allCivsButton
-			// 
-			resources.ApplyResources(this._allCivsButton, "_allCivsButton");
-			this._allCivsButton.Name = "_allCivsButton";
-			this._allCivsButton.UseVisualStyleBackColor = true;
-			this._allCivsButton.Click += new System.EventHandler(this._allCivsButton_Click);
-			// 
-			// _okButton
-			// 
-			resources.ApplyResources(this._okButton, "_okButton");
-			this._okButton.Name = "_okButton";
-			this._okButton.UseVisualStyleBackColor = true;
-			this._okButton.Click += new System.EventHandler(this._okButton_Click);
-			// 
-			// _cancelButton
-			// 
-			resources.ApplyResources(this._cancelButton, "_cancelButton");
-			this._cancelButton.Name = "_cancelButton";
-			this._cancelButton.UseVisualStyleBackColor = true;
-			this._cancelButton.Click += new System.EventHandler(this._cancelButton_Click);
-			// 
-			// _baseUnitComboBox
-			// 
-			this._baseUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this._baseUnitComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this._baseUnitComboBox, "_baseUnitComboBox");
-			this._baseUnitComboBox.Name = "_baseUnitComboBox";
-			this._baseUnitComboBox.Sorted = true;
-			this._baseUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._baseUnitComboBox_SelectedIndexChanged);
-			// 
-			// label5
-			// 
-			resources.ApplyResources(this.label5, "label5");
-			this.label5.Name = "label5";
-			// 
-			// _cost3Field
-			// 
-			resources.ApplyResources(this._cost3Field, "_cost3Field");
-			this._cost3Field.Name = "_cost3Field";
-			this._cost3Field.NameString = "Kosten 3:";
-			// 
-			// _cost2Field
-			// 
-			resources.ApplyResources(this._cost2Field, "_cost2Field");
-			this._cost2Field.Name = "_cost2Field";
-			this._cost2Field.NameString = "Kosten 2:";
-			// 
-			// _cost1Field
-			// 
-			resources.ApplyResources(this._cost1Field, "_cost1Field");
-			this._cost1Field.Name = "_cost1Field";
-			this._cost1Field.NameString = "Kosten 1:";
 			// 
 			// _slpSFrameField
 			// 
@@ -360,60 +342,91 @@
             0,
             0,
             0});
+			this._slpAIDField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._slpAIDField_ValueChanged);
 			// 
-			// _timeField
+			// groupBox25
 			// 
-			resources.ApplyResources(this._timeField, "_timeField");
-			this._timeField.Name = "_timeField";
-			this._timeField.NameString = "Erschaff-Zeit:";
-			this._timeField.Value = new decimal(new int[] {
+			this.groupBox25.Controls.Add(this._cost3Field);
+			this.groupBox25.Controls.Add(this._cost2Field);
+			this.groupBox25.Controls.Add(this._cost1Field);
+			resources.ApplyResources(this.groupBox25, "groupBox25");
+			this.groupBox25.Name = "groupBox25";
+			this.groupBox25.TabStop = false;
+			// 
+			// _cost3Field
+			// 
+			resources.ApplyResources(this._cost3Field, "_cost3Field");
+			this._cost3Field.Name = "_cost3Field";
+			this._cost3Field.NameString = "Kosten 3:";
+			// 
+			// _cost2Field
+			// 
+			resources.ApplyResources(this._cost2Field, "_cost2Field");
+			this._cost2Field.Name = "_cost2Field";
+			this._cost2Field.NameString = "Kosten 2:";
+			// 
+			// _cost1Field
+			// 
+			resources.ApplyResources(this._cost1Field, "_cost1Field");
+			this._cost1Field.Name = "_cost1Field";
+			this._cost1Field.NameString = "Kosten 1:";
+			// 
+			// groupBox4
+			// 
+			this.groupBox4.Controls.Add(this._civListBox);
+			this.groupBox4.Controls.Add(this._noCivsButton);
+			this.groupBox4.Controls.Add(this._allCivsButton);
+			resources.ApplyResources(this.groupBox4, "groupBox4");
+			this.groupBox4.Name = "groupBox4";
+			this.groupBox4.TabStop = false;
+			// 
+			// _civListBox
+			// 
+			this._civListBox.CheckOnClick = true;
+			this._civListBox.FormattingEnabled = true;
+			resources.ApplyResources(this._civListBox, "_civListBox");
+			this._civListBox.Name = "_civListBox";
+			this._civListBox.Sorted = true;
+			this._civListBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this._civListBox_Format);
+			// 
+			// _noCivsButton
+			// 
+			resources.ApplyResources(this._noCivsButton, "_noCivsButton");
+			this._noCivsButton.Name = "_noCivsButton";
+			this._noCivsButton.UseVisualStyleBackColor = true;
+			this._noCivsButton.Click += new System.EventHandler(this._noCivsButton_Click);
+			// 
+			// _allCivsButton
+			// 
+			resources.ApplyResources(this._allCivsButton, "_allCivsButton");
+			this._allCivsButton.Name = "_allCivsButton";
+			this._allCivsButton.UseVisualStyleBackColor = true;
+			this._allCivsButton.Click += new System.EventHandler(this._allCivsButton_Click);
+			// 
+			// _okButton
+			// 
+			resources.ApplyResources(this._okButton, "_okButton");
+			this._okButton.Name = "_okButton";
+			this._okButton.UseVisualStyleBackColor = true;
+			this._okButton.Click += new System.EventHandler(this._okButton_Click);
+			// 
+			// _cancelButton
+			// 
+			resources.ApplyResources(this._cancelButton, "_cancelButton");
+			this._cancelButton.Name = "_cancelButton";
+			this._cancelButton.UseVisualStyleBackColor = true;
+			this._cancelButton.Click += new System.EventHandler(this._cancelButton_Click);
+			// 
+			// _buttonField
+			// 
+			resources.ApplyResources(this._buttonField, "_buttonField");
+			this._buttonField.Name = "_buttonField";
+			this._buttonField.NameString = "Button:";
+			this._buttonField.Value = new decimal(new int[] {
             0,
             0,
             0,
             0});
-			// 
-			// _iconField
-			// 
-			resources.ApplyResources(this._iconField, "_iconField");
-			this._iconField.Name = "_iconField";
-			this._iconField.NameString = "Icon-ID:";
-			this._iconField.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			// 
-			// _dllHotkeyField
-			// 
-			resources.ApplyResources(this._dllHotkeyField, "_dllHotkeyField");
-			this._dllHotkeyField.Name = "_dllHotkeyField";
-			this._dllHotkeyField.NameString = "Hotkey: ";
-			this._dllHotkeyField.ProjectFile = null;
-			this._dllHotkeyField.Value = 0;
-			// 
-			// _dllDescriptionField
-			// 
-			resources.ApplyResources(this._dllDescriptionField, "_dllDescriptionField");
-			this._dllDescriptionField.Name = "_dllDescriptionField";
-			this._dllDescriptionField.NameString = "Beschreibung: ";
-			this._dllDescriptionField.ProjectFile = null;
-			this._dllDescriptionField.Value = 0;
-			// 
-			// _dllHelpField
-			// 
-			resources.ApplyResources(this._dllHelpField, "_dllHelpField");
-			this._dllHelpField.Name = "_dllHelpField";
-			this._dllHelpField.NameString = "Hilfe: ";
-			this._dllHelpField.ProjectFile = null;
-			this._dllHelpField.Value = 0;
-			// 
-			// _dllNameField
-			// 
-			resources.ApplyResources(this._dllNameField, "_dllNameField");
-			this._dllNameField.Name = "_dllNameField";
-			this._dllNameField.NameString = "Name: ";
-			this._dllNameField.ProjectFile = null;
-			this._dllNameField.Value = 0;
 			// 
 			// NewCreatableForm
 			// 
@@ -481,5 +494,6 @@
 		private System.Windows.Forms.Button _cancelButton;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.ComboBox _baseUnitComboBox;
+		private TechTreeEditor.Controls.NumberFieldControl _buttonField;
 	}
 }

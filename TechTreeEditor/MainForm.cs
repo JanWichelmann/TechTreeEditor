@@ -294,7 +294,7 @@ namespace TechTreeEditor
 				if(File.Exists(_projectFileName))
 				{
 					// Sicherungskopie anlegen
-					backupPath = Path.ChangeExtension(_projectFileName, DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".backup.tpp");
+					backupPath = Path.ChangeExtension(_projectFileName, DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".backup.ttp");
 					File.Copy(_projectFileName, backupPath, true);
 				}
 
