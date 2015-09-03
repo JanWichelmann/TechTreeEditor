@@ -121,9 +121,7 @@ namespace TechTreeEditor
 
 				// DAT-Datei laden
 				using(Stream currFile = archive.GetEntry("dat.unz").Open())
-				{
 					_basicGenieFile = new GenieLibrary.GenieFile(new RAMBuffer(currFile));
-				}
 
 				// Technologiebaum lesen
 				_techTreeParentElements = new List<TechTreeElement>();
