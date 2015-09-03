@@ -47,6 +47,11 @@ namespace X2AddOnPlugin
 		/// </summary>
 		private static List<KeyValuePair<int, string>> _attackSoundTypes = null;
 
+		/// <summary>
+		/// Die Sterbesound-Typen.
+		/// </summary>
+		private static List<KeyValuePair<int, string>> _fallingSoundTypes = null;
+
 		#endregion
 
 		#region Funktionen
@@ -59,7 +64,7 @@ namespace X2AddOnPlugin
 			// Steuerelement laden
 			InitializeComponent();
 
-			// Ggf. Angriffssound-Liste erstellen
+			// Ggf. Sound-Listen erstellen
 			if(_attackSoundTypes == null)
 				_attackSoundTypes = new List<KeyValuePair<int, string>>(new KeyValuePair<int, string>[] {
 					new KeyValuePair<int, string>(0,"Schwertträger"),
@@ -67,6 +72,14 @@ namespace X2AddOnPlugin
 					new KeyValuePair<int, string>(2,"Handkanone"),
 					new KeyValuePair<int, string>(3,"Schwere Kanone"),
 					new KeyValuePair<int, string>(4,"Bolzenschütze")
+				});
+			if(_fallingSoundTypes == null)
+				_fallingSoundTypes = new List<KeyValuePair<int, string>>(new KeyValuePair<int, string>[] {
+					new KeyValuePair<int, string>(0,"Fußsoldat"),
+					new KeyValuePair<int, string>(1,"Kavallerie"),
+					new KeyValuePair<int, string>(2,"Gerät"),
+					new KeyValuePair<int, string>(3,"Kamelreiter"),
+					new KeyValuePair<int, string>(4,"Wagen")
 				});
 		}
 
@@ -140,8 +153,13 @@ namespace X2AddOnPlugin
 
 			// Angriffssoundliste setzen
 			_soundTypeComboBox.DisplayMember = "Value";
-			_attackSoundTypes.ForEach(a => _soundTypeComboBox.Items.Add(a));
+			_attackSoundTypes.ForEach(s => _soundTypeComboBox.Items.Add(s));
 			_soundTypeComboBox.SelectedIndex = 0;
+
+			// Sterbesoundliste setzen
+			_fallingSoundTypeComboBox.DisplayMember = "Value";
+			_fallingSoundTypes.ForEach(s => _fallingSoundTypeComboBox.Items.Add(s));
+			_fallingSoundTypeComboBox.SelectedIndex = 0;
 		}
 
 		/// <summary>
@@ -211,6 +229,71 @@ namespace X2AddOnPlugin
 				graphic.AttackSounds.Add((GenieLibrary.DataElements.Graphic.GraphicAttackSound)sound.Clone());
 		}
 
+		/// <summary>
+		/// Erstellt den Sterbesound für die gegebene Grafik.
+		/// </summary>
+		/// <param name="graphic">Die Grafik, für die der Sterbesound erstellt werden sollen.</param>
+		private void CreateFallingSounds(GenieLibrary.DataElements.Graphic graphic)
+		{
+			// Sound erstellen, nach Sound-Typ unterscheiden
+			GenieLibrary.DataElements.Graphic.GraphicAttackSound sound = null;
+			switch(((KeyValuePair<int, string>)_fallingSoundTypeComboBox.SelectedItem).Key)
+			{
+				// Fußsoldat
+				case 0:
+					graphic.SoundID = 294;
+					break;
+
+				// Kavallerie
+				case 1:
+					sound = new GenieLibrary.DataElements.Graphic.GraphicAttackSound();
+					sound.SoundID1 = 410;
+					sound.SoundDelay1 = 1;
+					sound.SoundID2 = 409;
+					sound.SoundDelay2 = 6;
+					sound.SoundID3 = -1;
+					sound.SoundDelay3 = -1;
+					break;
+
+				// Gerät
+				case 2:
+					graphic.SoundID = 293;
+					break;
+
+				// Kamelreiter
+				case 3:
+					sound = new GenieLibrary.DataElements.Graphic.GraphicAttackSound();
+					sound.SoundID1 = 431;
+					sound.SoundDelay1 = 1;
+					sound.SoundID2 = 409;
+					sound.SoundDelay2 = 6;
+					sound.SoundID3 = -1;
+					sound.SoundDelay3 = -1;
+					break;
+
+				// Wagen
+				case 4:
+					sound = new GenieLibrary.DataElements.Graphic.GraphicAttackSound();
+					sound.SoundID1 = 410;
+					sound.SoundDelay1 = 1;
+					sound.SoundID2 = 315;
+					sound.SoundDelay2 = 8;
+					sound.SoundID3 = -1;
+					sound.SoundDelay3 = -1;
+					break;
+			}
+
+			// Sounds gesetzt?
+			if(sound != null)
+			{
+				// Alle Achsen bekommen denselben Sound
+				graphic.AttackSoundUsed = 1;
+				graphic.AttackSounds = new List<GenieLibrary.DataElements.Graphic.GraphicAttackSound>();
+				for(int i = 0; i < graphic.AngleCount; ++i)
+					graphic.AttackSounds.Add((GenieLibrary.DataElements.Graphic.GraphicAttackSound)sound.Clone());
+			}
+		}
+
 		#endregion
 
 		#region Ereignishandler
@@ -219,6 +302,7 @@ namespace X2AddOnPlugin
 		{
 			// Grafiken erstellen
 			short graBaseID = (short)_projectFile.BasicGenieFile.GraphicPointers.Count;
+			if(_createGraphicsCheckBox.Checked)
 			{
 				// Leeres Delta
 				GenieLibrary.DataElements.Graphic.GraphicDelta emptyDelta = new GenieLibrary.DataElements.Graphic.GraphicDelta()
@@ -313,10 +397,11 @@ namespace X2AddOnPlugin
 				graF.ReplayDelay = 0;
 				graF.SequenceType = 11;
 				graF.SLP = (int)_slpFIDField.Value;
-				graF.SoundID = 294; // "Männlicher" Sterbesound
+				graF.SoundID = -1;
 				graF.Unknown1 = 0;
 				graF.Unknown2 = 1;
 				graF.Unknown3 = 0;
+				CreateFallingSounds(graF);
 				_projectFile.BasicGenieFile.Graphics.Add(graF.ID, graF);
 				_projectFile.BasicGenieFile.GraphicPointers.Add(1);
 
@@ -390,12 +475,12 @@ namespace X2AddOnPlugin
 
 			// Tote Einheit erstellen
 			TechTreeDead deadUnit = null;
-			if(baseUnit.DeadUnit != null)
+			if(baseUnit.DeadUnit != null && _createGraphicsCheckBox.Checked)
 			{
 				// Tote Einheit erstellen
 				deadUnit = (TechTreeDead)_projectFile.CreateElement("TechTreeDead");
 				deadUnit.Age = 0;
-				deadUnit.Flags = baseUnit.DeadUnit.Flags & ~TechTreeElement.ElementFlags.RenderingFlags;
+				deadUnit.Flags = TechTreeElement.ElementFlags.None;
 
 				// DAT-Einheit erstellen
 				GenieLibrary.DataElements.Civ.Unit deadUnitDAT = (GenieLibrary.DataElements.Civ.Unit)baseUnit.DeadUnit.DATUnit.Clone();
@@ -421,6 +506,8 @@ namespace X2AddOnPlugin
 				// Einheit als Elternelement setzen und an den Anfang stellen
 				_projectFile.TechTreeParentElements.Insert(0, deadUnit);
 			}
+			else if(baseUnit.DeadUnit != null && baseUnit.DeadUnit is TechTreeDead)
+				deadUnit = (TechTreeDead)baseUnit.DeadUnit;
 
 			// Neue Einheit ausgehend von der gewählten Basiseinheit erstellen
 			TechTreeCreatable newUnit = (TechTreeCreatable)_projectFile.CreateElement("TechTreeCreatable");
@@ -446,7 +533,7 @@ namespace X2AddOnPlugin
 
 			// DAT-Einheit mit gewählten Parametern ausstatten
 			newUnitDAT.Name1 = _nameTextBox.Text + "\0";
-			newUnitDAT.DeadUnitID = (short)deadUnit?.ID;
+			newUnitDAT.DeadUnitID = (short)(deadUnit?.ID ?? 0);
 			newUnitDAT.IconID = (short)_iconField.Value;
 			newUnitDAT.Creatable.TrainTime = (short)_timeField.Value;
 			newUnitDAT.LanguageDLLName = (ushort)_dllNameField.Value;
@@ -472,10 +559,15 @@ namespace X2AddOnPlugin
 				Type = (short)_cost3Field.Value.Type,
 				Amount = (short)_cost3Field.Value.Amount
 			};
-			newUnitDAT.Type50.AttackGraphic = graBaseID;
-			newUnitDAT.DyingGraphic1 = (short)(graBaseID + 2);
-			newUnitDAT.DeadFish.WalkingGraphic1 = (short)(graBaseID + 3);
-			newUnitDAT.StandingGraphic1 = (short)(graBaseID + 4);
+
+			// Grafiken zuweisen
+			if(_createGraphicsCheckBox.Checked)
+			{
+				newUnitDAT.Type50.AttackGraphic = graBaseID;
+				newUnitDAT.DyingGraphic1 = (short)(graBaseID + 2);
+				newUnitDAT.DeadFish.WalkingGraphic1 = (short)(graBaseID + 3);
+				newUnitDAT.StandingGraphic1 = (short)(graBaseID + 4);
+			}
 
 			// Neue ID abrufen und DAT-Einheit auf alle Zivilisationen verteilen
 			int newUnitID = _projectFile.BasicGenieFile.UnitHeaders.Count;
@@ -579,44 +671,36 @@ namespace X2AddOnPlugin
 					_slpAFrameField.Value = slp.FrameCount;
 
 					// D
-					if(_slpDIDField.Value == 0)
-					{
-						slp = new SLPLoader.Loader(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
-						_slpDIDField.Value = baseID;
-						MessageBox.Show(_slpDIDField.Value.ToString());
-						_slpDFrameField.Value = slp.FrameCount;
-						MessageBox.Show(_slpDFrameField.Value.ToString());
-					}
+					slp = new SLPLoader.Loader(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
+					_slpDIDField.Value = baseID;
+					_slpDFrameField.Value = slp.FrameCount;
 
 					// F
-					if(_slpFIDField.Value == 0)
-					{
-						slp = new SLPLoader.Loader(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
-						_slpFIDField.Value = baseID;
-						_slpFFrameField.Value = slp.FrameCount;
-					}
+					slp = new SLPLoader.Loader(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
+					_slpFIDField.Value = baseID;
+					_slpFFrameField.Value = slp.FrameCount;
 
 					// M
-					if(_slpMIDField.Value == 0)
-					{
-						slp = new SLPLoader.Loader(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
-						_slpMIDField.Value = baseID;
-						_slpMFrameField.Value = slp.FrameCount;
-					}
+					slp = new SLPLoader.Loader(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
+					_slpMIDField.Value = baseID;
+					_slpMFrameField.Value = slp.FrameCount;
 
 					// S
-					if(_slpSIDField.Value == 0)
-					{
-						slp = new SLPLoader.Loader(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
-						_slpSIDField.Value = baseID;
-						_slpSFrameField.Value = slp.FrameCount;
-					}
+					slp = new SLPLoader.Loader(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
+					_slpSIDField.Value = baseID;
+					_slpSFrameField.Value = slp.FrameCount;
 				}
 			}
 			catch
 			{
 				// Schade, aber gut, seis drum
 			}
+		}
+
+		private void _createGraphicsCheckBox_CheckedChanged(object sender, EventArgs e)
+		{
+			// Grafik-Felder (de-)aktivieren
+			_graphicsGroupBox.Enabled = _createGraphicsCheckBox.Checked;
 		}
 
 		#endregion

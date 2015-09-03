@@ -29,7 +29,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -381,6 +381,7 @@
     <Content Include="Icons\PasteElement.png" />
     <Content Include="Icons\PasteTree.png" />
     <Content Include="Icons\ProjectileIcon.png" />
+    <Content Include="Icons\RenderScreenshot.png" />
     <Content Include="Icons\ResearchIcon.png" />
     <Content Include="Icons\Search.png" />
     <Content Include="Icons\SortTechEffects.png" />

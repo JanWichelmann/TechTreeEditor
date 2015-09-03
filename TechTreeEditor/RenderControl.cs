@@ -1,10 +1,12 @@
-﻿using OpenTK;
+﻿using IORAMHelper;
+using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -96,7 +98,7 @@ namespace TechTreeEditor
 		/// <summary>
 		/// Die 50500er-Palette.
 		/// </summary>
-		private BMPLoaderNew.ColorTable _pal50500 = null;
+		private BitmapLibrary.ColorTable _pal50500 = null;
 
 		/// <summary>
 		/// Die Technologie-Icon-SLP.
@@ -181,7 +183,7 @@ namespace TechTreeEditor
 		/// <param name="iconsResearches">Die Technologie-Icon-SLP.</param>
 		/// <param name="iconsUnits">Die Einheit-Icon-SLP.</param>
 		/// <param name="iconsBuildings">Die Gebäude-Icon-SLP.</param>
-		public void UpdateIconData(BMPLoaderNew.ColorTable pal50500, SLPLoader.Loader iconsResearches, SLPLoader.Loader iconsUnits, SLPLoader.Loader iconsBuildings)
+		public void UpdateIconData(BitmapLibrary.ColorTable pal50500, SLPLoader.Loader iconsResearches, SLPLoader.Loader iconsUnits, SLPLoader.Loader iconsBuildings)
 		{
 			// Parameter speichern
 			_pal50500 = pal50500;
@@ -559,6 +561,75 @@ namespace TechTreeEditor
 		}
 
 		/// <summary>
+		/// Rendert der Baum mit der gegebenen Verschiebung in den internen Puffer.
+		/// </summary>
+		/// <param name="offsetX">Die horizontale Verschiebung.</param>
+		/// <param name="offsetY">Die vertikale Verschiebung.</param>
+		/// <returns>Die ungefähre Pixel-Breite des gezeichneten Baums.</returns>
+		public int RenderTree(int offsetX, int offsetY)
+		{
+			// Zeichenfläche leeren
+			GL.Clear(ClearBufferMask.ColorBufferBit);
+
+			// Texturbindung löschen, falls vorhanden
+			GL.BindTexture(TextureTarget.Texture2D, 0);
+
+			// Zeichenmatrix zurücksetzen
+			GL.LoadIdentity();
+
+			// Wurden alle Daten geladen?
+			if(_dataLoaded)
+			{
+				// Der Hintergrund wird ggf. vertikal verschoben
+				GL.Translate(0, -offsetY, 0);
+
+				// Jedes zweite Zeitalter etwas dunkler unterlegen
+				const int vertBoxBounds = (2 * BOX_SPACE_VERT + BOX_BOUNDS);
+				for(int i = 1; i < 5; i += 2) // TODO: Hardcoded für 5 Zeitalter
+				{
+					// Hintergrund zeichnen
+					GL.Color3(COLOR_BACKGROUND_DARK);
+					GL.Begin(PrimitiveType.Quads);
+					{
+						GL.Vertex2(0, DRAW_PANEL_PADDING + _ageOffsets[i] * vertBoxBounds);
+						GL.Vertex2(_drawPanel.Width, DRAW_PANEL_PADDING + _ageOffsets[i] * vertBoxBounds);
+						GL.Vertex2(_drawPanel.Width, DRAW_PANEL_PADDING + _ageOffsets[i + 1] * vertBoxBounds);
+						GL.Vertex2(0, DRAW_PANEL_PADDING + _ageOffsets[i + 1] * vertBoxBounds);
+					}
+					GL.End();
+				}
+
+				// Zeichnung der horizontalen ScrollBar entsprechend verschieben
+				GL.Translate(-offsetX, 0, 0);
+
+				// Elternelemente zeichnen
+				Point currPos = new Point(DRAW_PANEL_PADDING, DRAW_PANEL_PADDING);
+				foreach(var parent in _techTreeParentElements)
+				{
+					// Element angezeigt?
+					if(!parent.Value)
+						continue;
+
+					// Element zeichnen
+					parent.Key.Draw(currPos, _ageOffsets, 0);
+
+					// Position um die Breite verschieben
+					currPos.X += parent.Key.TreeWidth * (BOX_BOUNDS + 2 * BOX_SPACE_HORI);
+				}
+
+				// Ggf. Abhängigkeitspfeile des ausgewählten Elements zeichnen
+				if(_selectedElement != null)
+					_selectedElement.DrawDependencies();
+
+				// Pixelbreite des Baums zurückgeben
+				return currPos.X;
+			}
+
+			// Nichts zu rendern
+			return 0;
+		}
+
+		/// <summary>
 		/// Zeichnet den Baum neu.
 		/// </summary>
 		public void Redraw()
@@ -581,6 +652,105 @@ namespace TechTreeEditor
 
 			// Neuzeichnen
 			_drawPanel.Invalidate();
+		}
+
+		/// <summary>
+		/// Zeichnet den kompletten Baum in eine Bitmapdatei (der aktuelle Zustand wird hierbei verwendet).
+		/// </summary>
+		/// <param name="filename">Die Datei, in die der gerenderte Baum gespeichert werden soll.</param>
+		/// <returns></returns>
+		public void RenderToBitmap(string filename)
+		{
+			// Baumabmessungen berechnen
+			int width = RenderTree(0, 0) + BORDER_WIDTH;
+			int height = Math.Max(_fullTreeHeight * (BOX_BOUNDS + 2 * BOX_SPACE_VERT) + 2 * DRAW_PANEL_PADDING, _drawPanel.Height);
+
+			// Bitmap-Header schreiben
+			int bitmapPaddingBytes = width % 4;
+			byte[] bitmap = new byte[54 + (3 * width + bitmapPaddingBytes) * height];
+			bitmap[0] = (byte)'B';
+			bitmap[1] = (byte)'M';
+			BitConverter.GetBytes(54 + (3 * width + bitmapPaddingBytes) * height).CopyTo(bitmap, 2); // Dateigröße
+			bitmap[10] = 54; // Bilddaten-Offset von Dateibeginn
+			bitmap[14] = 40; // Größe der Info-Struktur
+			BitConverter.GetBytes(width).CopyTo(bitmap, 18);
+			BitConverter.GetBytes(height).CopyTo(bitmap, 22);
+			bitmap[26] = 1; // Ebenen
+			bitmap[28] = 24; // Farbtiefe
+			BitConverter.GetBytes((3 * width + bitmapPaddingBytes) * height).CopyTo(bitmap, 34); // Bildgröße
+
+			// Temporäres Array für gelesene Bilddaten erstellen
+			byte[] tmp = new byte[_drawPanel.Height * _drawPanel.Width * 3];
+
+			// Anzahl vollständiger Blöcke bestimmen und diese zeichnen
+			int lowerSegmentHeight = height % _drawPanel.Height;
+			for(int x = 0; x < width / _drawPanel.Width; ++x)
+			{
+				// Vertikal
+				for(int y = 0; y < height / _drawPanel.Height; ++y)
+				{
+					// Baum rendern
+					RenderTree(x * _drawPanel.Width, y * _drawPanel.Height);
+
+					// Gerenderten Bereich auslesen
+					GL.PixelStore(PixelStoreParameter.PackAlignment, 1); // Kein Padding vornehmen (=> 1-Byte-Padding)
+					GL.ReadPixels(0, 0, _drawPanel.Width, _drawPanel.Height, OpenTK.Graphics.OpenGL.PixelFormat.Bgr, PixelType.UnsignedByte, tmp);
+
+					// Gelesenen Bereich zeilenweise in Puffer schreiben
+					for(int i = 0; i < _drawPanel.Height; ++i)
+						Buffer.BlockCopy(tmp, 3 * _drawPanel.Width * i, bitmap, 54 + (3 * width + bitmapPaddingBytes) * ((height / _drawPanel.Height - y - 1) * _drawPanel.Height + i + lowerSegmentHeight) + x * 3 * _drawPanel.Width, _drawPanel.Width * 3);
+				}
+
+				// Unterer Rand
+				if(lowerSegmentHeight > 0)
+				{
+					// Baum rendern
+					RenderTree(x * _drawPanel.Width, height - _drawPanel.Height);
+
+					// Gerenderten Bereich auslesen
+					GL.PixelStore(PixelStoreParameter.PackAlignment, 1); // Kein Padding vornehmen (=> 1-Byte-Padding)
+					GL.ReadPixels(0, 0, _drawPanel.Width, _drawPanel.Height, OpenTK.Graphics.OpenGL.PixelFormat.Bgr, PixelType.UnsignedByte, tmp);
+
+					// Gelesenen Bereich zeilenweise in Puffer schreiben
+					for(int i = 0; i < lowerSegmentHeight; ++i)
+						Buffer.BlockCopy(tmp, 3 * _drawPanel.Width * i, bitmap, 54 + (3 * width + bitmapPaddingBytes) * i + x * 3 * _drawPanel.Width, _drawPanel.Width * 3);
+				}
+			}
+
+			// Rechter Rand
+			int rightSegmentWidth = width % _drawPanel.Width;
+			if(rightSegmentWidth > 0)
+				for(int y = 0; y < height / _drawPanel.Height; ++y)
+				{
+					// Baum rendern
+					RenderTree(width - _drawPanel.Width, y * _drawPanel.Height);
+
+					// Gerenderten Bereich auslesen
+					GL.PixelStore(PixelStoreParameter.PackAlignment, 1); // Kein Padding vornehmen (=> 1-Byte-Padding)
+					GL.ReadPixels(0, 0, _drawPanel.Width, _drawPanel.Height, OpenTK.Graphics.OpenGL.PixelFormat.Bgr, PixelType.UnsignedByte, tmp);
+
+					// Gelesenen Bereich zeilenweise in Puffer schreiben
+					for(int i = 0; i < _drawPanel.Height; ++i)
+						Buffer.BlockCopy(tmp, 3 * (_drawPanel.Width * i + _drawPanel.Width - rightSegmentWidth), bitmap, 54 + (3 * width + bitmapPaddingBytes) * ((height / _drawPanel.Height - y - 1) * _drawPanel.Height + i + lowerSegmentHeight) + (width - rightSegmentWidth) * 3, rightSegmentWidth * 3);
+				}
+
+			// Segment unten rechts
+			if(rightSegmentWidth > 0 && lowerSegmentHeight > 0)
+			{
+				// Baum rendern
+				RenderTree(width - _drawPanel.Width, height - _drawPanel.Height);
+
+				// Gerenderten Bereich auslesen
+				GL.PixelStore(PixelStoreParameter.PackAlignment, 1); // Kein Padding vornehmen (=> 1-Byte-Padding)
+				GL.ReadPixels(0, 0, _drawPanel.Width, _drawPanel.Height, OpenTK.Graphics.OpenGL.PixelFormat.Bgr, PixelType.UnsignedByte, tmp);
+
+				// Gelesenen Bereich zeilenweise in Puffer schreiben
+				for(int i = 0; i < lowerSegmentHeight; ++i)
+					Buffer.BlockCopy(tmp, 3 * (_drawPanel.Width * i + _drawPanel.Width - rightSegmentWidth), bitmap, 54 + (3 * width + bitmapPaddingBytes) * i + (width - rightSegmentWidth) * 3, rightSegmentWidth * 3);
+			}
+
+			// Bitmap speichern
+			File.WriteAllBytes(filename, bitmap);
 		}
 
 		/// <summary>
@@ -631,62 +801,11 @@ namespace TechTreeEditor
 			if(!_glLoaded)
 				return;
 
-			// Zeichenfläche leeren
-			GL.Clear(ClearBufferMask.ColorBufferBit);
-
-			// Texturbindung löschen, falls vorhanden
-			GL.BindTexture(TextureTarget.Texture2D, 0);
-
-			// Zeichenmatrix zurücksetzen
-			GL.LoadIdentity();
+			// Baum rendern
+			RenderTree(_drawPanelHScrollBar.Value, _drawPanelVScrollBar.Value);
 
 			//GL.Color3(COLOR_BACKGROUND);
 			//DrawString("[Render Mode: " + (_drawOnlyStandardElements ? "StandardOnly" : "All") + "]", 6, 6);
-
-			// Wurden alle Daten geladen?
-			if(_dataLoaded)
-			{
-				// Der Hintergrund wird ggf. vertikal verschoben
-				GL.Translate(0, -_drawPanelVScrollBar.Value, 0);
-
-				// Jedes zweite Zeitalter etwas dunkler unterlegen
-				const int vertBoxBounds = (2 * BOX_SPACE_VERT + BOX_BOUNDS);
-				for(int i = 1; i < 5; i += 2) // TODO: Hardcoded für 5 Zeitalter
-				{
-					// Hintergrund zeichnen
-					GL.Color3(COLOR_BACKGROUND_DARK);
-					GL.Begin(PrimitiveType.Quads);
-					{
-						GL.Vertex2(0, DRAW_PANEL_PADDING + _ageOffsets[i] * vertBoxBounds);
-						GL.Vertex2(_drawPanel.Width, DRAW_PANEL_PADDING + _ageOffsets[i] * vertBoxBounds);
-						GL.Vertex2(_drawPanel.Width, DRAW_PANEL_PADDING + _ageOffsets[i + 1] * vertBoxBounds);
-						GL.Vertex2(0, DRAW_PANEL_PADDING + _ageOffsets[i + 1] * vertBoxBounds);
-					}
-					GL.End();
-				}
-
-				// Zeichnung der horizontalen ScrollBar entsprechend verschieben
-				GL.Translate(-_drawPanelHScrollBar.Value, 0, 0);
-
-				// Elternelemente zeichnen
-				Point currPos = new Point(DRAW_PANEL_PADDING, DRAW_PANEL_PADDING);
-				foreach(var parent in _techTreeParentElements)
-				{
-					// Element angezeigt?
-					if(!parent.Value)
-						continue;
-
-					// Element zeichnen
-					parent.Key.Draw(currPos, _ageOffsets, 0);
-
-					// Position um die Breite verschieben
-					currPos.X += parent.Key.TreeWidth * (BOX_BOUNDS + 2 * BOX_SPACE_HORI);
-				}
-
-				// Ggf. Abhängigkeitspfeile des ausgewählten Elements zeichnen
-				if(_selectedElement != null)
-					_selectedElement.DrawDependencies();
-			}
 
 			// Zeichenmatrix zurücksetzen
 			GL.LoadIdentity();

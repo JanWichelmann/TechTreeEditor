@@ -55,10 +55,16 @@ namespace X2AddOnPlugin
 			_newCreatableMenuButton = new ToolStripMenuItem("Neue Einheit erstellen");
 			_newCreatableMenuButton.Click += new EventHandler((sender, e) =>
 			{
-				// Neue Einheit-Fenster öffnen
-				NewCreatableForm form = new NewCreatableForm(_projectFile, _communicator.CurrentSelection as TechTreeUnit, _communicator);
-				if(form.ShowDialog() == DialogResult.OK)
-					_communicator.IssueTreeUpdate();
+				// Es muss was ausgewählt sein
+				if(_communicator.CurrentSelection == null)
+					MessageBox.Show("Bitte eine Basiseinheit markieren!");
+				else
+				{
+					// Neue Einheit-Fenster öffnen
+					NewCreatableForm form = new NewCreatableForm(_projectFile, _communicator.CurrentSelection as TechTreeUnit, _communicator);
+					if(form.ShowDialog() == DialogResult.OK)
+						_communicator.IssueTreeUpdate();
+				}
 			});
 		}
 

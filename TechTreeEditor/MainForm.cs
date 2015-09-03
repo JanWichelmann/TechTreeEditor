@@ -76,7 +76,7 @@ namespace TechTreeEditor
 		/// <summary>
 		/// Die Farbtabelle zu Rendern von Grafiken.
 		/// </summary>
-		private BMPLoaderNew.ColorTable _pal50500 = null;
+		private BitmapLibrary.ColorTable _pal50500 = null;
 
 		/// <summary>
 		/// Der Einheiten-Manager.
@@ -176,7 +176,7 @@ namespace TechTreeEditor
 
 			// Farb-Palette laden
 			SetStatus(Strings.MainForm_Status_LoadingPal);
-			_pal50500 = new BMPLoaderNew.ColorTable(new BMPLoaderNew.JASCPalette(new IORAMHelper.RAMBuffer(Properties.Resources.pal50500)));
+			_pal50500 = new BitmapLibrary.ColorTable(new BitmapLibrary.JASCPalette(new IORAMHelper.RAMBuffer(Properties.Resources.pal50500)));
 
 			// Daten an Render-Control übergeben
 			SetStatus(Strings.MainForm_Status_PassRenderData);
@@ -272,6 +272,7 @@ namespace TechTreeEditor
 			_deleteElementButton.Enabled = true;
 			_civCopyBar.Enabled = true;
 			_lockAllIDsMenuButton.Enabled = true;
+			_renderScreenshotMenuButton.Enabled = true;
 
 			// Fertig
 			_saved = true;
@@ -1585,6 +1586,24 @@ namespace TechTreeEditor
 		{
 			// Element mit Kindern einfügen
 			PasteElement(true);
+		}
+
+		private void _renderScreenshotMenuButton_Click(object sender, EventArgs e)
+		{
+			// Zieldatei abfragen
+			if(_renderScreenshotDialog.ShowDialog() == DialogResult.OK)
+			{
+				// Schönen Cursor zeigen, das wird vermutlich etwas dauern
+				this.Cursor = Cursors.WaitCursor;
+				SetStatus("Rendere Baum...");
+
+				// Screenshot erstellen
+				_renderPanel.RenderToBitmap(_renderScreenshotDialog.FileName);
+
+				// Fertig
+				this.Cursor = Cursors.Default;
+				SetStatus(Strings.MainForm_Status_Ready);
+			}
 		}
 
 		#endregion Ereignishandler

@@ -39,13 +39,15 @@
 			this._dllHelpField = new TechTreeEditor.Controls.LanguageDLLControl();
 			this._dllNameField = new TechTreeEditor.Controls.LanguageDLLControl();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this._buttonField = new TechTreeEditor.Controls.NumberFieldControl();
 			this.label5 = new System.Windows.Forms.Label();
 			this._baseUnitComboBox = new System.Windows.Forms.ComboBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this._ageComboBox = new System.Windows.Forms.ComboBox();
 			this._timeField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._iconField = new TechTreeEditor.Controls.NumberFieldControl();
-			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this._graphicsGroupBox = new System.Windows.Forms.GroupBox();
+			this._createGraphicsCheckBox = new System.Windows.Forms.CheckBox();
 			this._soundTypeComboBox = new System.Windows.Forms.ComboBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this._slpSFrameField = new TechTreeEditor.Controls.NumberFieldControl();
@@ -68,10 +70,11 @@
 			this._allCivsButton = new System.Windows.Forms.Button();
 			this._okButton = new System.Windows.Forms.Button();
 			this._cancelButton = new System.Windows.Forms.Button();
-			this._buttonField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._fallingSoundTypeComboBox = new System.Windows.Forms.ComboBox();
+			this.label6 = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
-			this.groupBox3.SuspendLayout();
+			this._graphicsGroupBox.SuspendLayout();
 			this.groupBox25.SuspendLayout();
 			this.groupBox4.SuspendLayout();
 			this.SuspendLayout();
@@ -156,6 +159,17 @@
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.TabStop = false;
 			// 
+			// _buttonField
+			// 
+			resources.ApplyResources(this._buttonField, "_buttonField");
+			this._buttonField.Name = "_buttonField";
+			this._buttonField.NameString = "Button:";
+			this._buttonField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			// 
 			// label5
 			// 
 			resources.ApplyResources(this.label5, "label5");
@@ -203,23 +217,34 @@
             0,
             0});
 			// 
-			// groupBox3
+			// _graphicsGroupBox
 			// 
-			this.groupBox3.Controls.Add(this._soundTypeComboBox);
-			this.groupBox3.Controls.Add(this.label3);
-			this.groupBox3.Controls.Add(this._slpSFrameField);
-			this.groupBox3.Controls.Add(this._slpSIDField);
-			this.groupBox3.Controls.Add(this._slpMFrameField);
-			this.groupBox3.Controls.Add(this._slpMIDField);
-			this.groupBox3.Controls.Add(this._slpFFrameField);
-			this.groupBox3.Controls.Add(this._slpFIDField);
-			this.groupBox3.Controls.Add(this._slpDFrameField);
-			this.groupBox3.Controls.Add(this._slpDIDField);
-			this.groupBox3.Controls.Add(this._slpAFrameField);
-			this.groupBox3.Controls.Add(this._slpAIDField);
-			resources.ApplyResources(this.groupBox3, "groupBox3");
-			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.TabStop = false;
+			this._graphicsGroupBox.Controls.Add(this.label6);
+			this._graphicsGroupBox.Controls.Add(this._soundTypeComboBox);
+			this._graphicsGroupBox.Controls.Add(this._fallingSoundTypeComboBox);
+			this._graphicsGroupBox.Controls.Add(this.label3);
+			this._graphicsGroupBox.Controls.Add(this._slpSFrameField);
+			this._graphicsGroupBox.Controls.Add(this._slpSIDField);
+			this._graphicsGroupBox.Controls.Add(this._slpMFrameField);
+			this._graphicsGroupBox.Controls.Add(this._slpMIDField);
+			this._graphicsGroupBox.Controls.Add(this._slpFFrameField);
+			this._graphicsGroupBox.Controls.Add(this._slpFIDField);
+			this._graphicsGroupBox.Controls.Add(this._slpDFrameField);
+			this._graphicsGroupBox.Controls.Add(this._slpDIDField);
+			this._graphicsGroupBox.Controls.Add(this._slpAFrameField);
+			this._graphicsGroupBox.Controls.Add(this._slpAIDField);
+			resources.ApplyResources(this._graphicsGroupBox, "_graphicsGroupBox");
+			this._graphicsGroupBox.Name = "_graphicsGroupBox";
+			this._graphicsGroupBox.TabStop = false;
+			// 
+			// _createGraphicsCheckBox
+			// 
+			resources.ApplyResources(this._createGraphicsCheckBox, "_createGraphicsCheckBox");
+			this._createGraphicsCheckBox.Checked = true;
+			this._createGraphicsCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+			this._createGraphicsCheckBox.Name = "_createGraphicsCheckBox";
+			this._createGraphicsCheckBox.UseVisualStyleBackColor = true;
+			this._createGraphicsCheckBox.CheckedChanged += new System.EventHandler(this._createGraphicsCheckBox_CheckedChanged);
 			// 
 			// _soundTypeComboBox
 			// 
@@ -417,26 +442,28 @@
 			this._cancelButton.UseVisualStyleBackColor = true;
 			this._cancelButton.Click += new System.EventHandler(this._cancelButton_Click);
 			// 
-			// _buttonField
+			// _fallingSoundTypeComboBox
 			// 
-			resources.ApplyResources(this._buttonField, "_buttonField");
-			this._buttonField.Name = "_buttonField";
-			this._buttonField.NameString = "Button:";
-			this._buttonField.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
+			this._fallingSoundTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this._fallingSoundTypeComboBox.FormattingEnabled = true;
+			resources.ApplyResources(this._fallingSoundTypeComboBox, "_fallingSoundTypeComboBox");
+			this._fallingSoundTypeComboBox.Name = "_fallingSoundTypeComboBox";
+			// 
+			// label6
+			// 
+			resources.ApplyResources(this.label6, "label6");
+			this.label6.Name = "label6";
 			// 
 			// NewCreatableForm
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this._cancelButton);
+			this.Controls.Add(this._createGraphicsCheckBox);
 			this.Controls.Add(this._okButton);
 			this.Controls.Add(this.groupBox4);
 			this.Controls.Add(this.groupBox25);
-			this.Controls.Add(this.groupBox3);
+			this.Controls.Add(this._graphicsGroupBox);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -446,11 +473,12 @@
 			this.groupBox1.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
-			this.groupBox3.ResumeLayout(false);
-			this.groupBox3.PerformLayout();
+			this._graphicsGroupBox.ResumeLayout(false);
+			this._graphicsGroupBox.PerformLayout();
 			this.groupBox25.ResumeLayout(false);
 			this.groupBox4.ResumeLayout(false);
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -466,7 +494,7 @@
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox _relIDTextBox;
-		private System.Windows.Forms.GroupBox groupBox3;
+		private System.Windows.Forms.GroupBox _graphicsGroupBox;
 		private TechTreeEditor.Controls.NumberFieldControl _slpSFrameField;
 		private TechTreeEditor.Controls.NumberFieldControl _slpSIDField;
 		private TechTreeEditor.Controls.NumberFieldControl _slpMFrameField;
@@ -495,5 +523,8 @@
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.ComboBox _baseUnitComboBox;
 		private TechTreeEditor.Controls.NumberFieldControl _buttonField;
+		private System.Windows.Forms.CheckBox _createGraphicsCheckBox;
+		private System.Windows.Forms.ComboBox _fallingSoundTypeComboBox;
+		private System.Windows.Forms.Label label6;
 	}
 }

@@ -59,6 +59,7 @@
 			this._openProjectMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._saveProjectMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._exportDATMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._renderScreenshotMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._menuSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this._exitMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._editMenuButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -108,6 +109,7 @@
 			this._editAttributesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._editElementPropertiesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._openProjectDialog = new System.Windows.Forms.OpenFileDialog();
+			this._renderScreenshotDialog = new System.Windows.Forms.SaveFileDialog();
 			this._menuContainer.BottomToolStripPanel.SuspendLayout();
 			this._menuContainer.ContentPanel.SuspendLayout();
 			this._menuContainer.LeftToolStripPanel.SuspendLayout();
@@ -340,6 +342,7 @@
             this._openProjectMenuButton,
             this._saveProjectMenuButton,
             this._exportDATMenuButton,
+            this._renderScreenshotMenuButton,
             this._menuSeparator1,
             this._exitMenuButton});
 			this._fileMenuButton.Name = "_fileMenuButton";
@@ -369,6 +372,13 @@
 			this._exportDATMenuButton.Image = global::TechTreeEditor.Icons.ExportProject;
 			this._exportDATMenuButton.Name = "_exportDATMenuButton";
 			this._exportDATMenuButton.Click += new System.EventHandler(this._exportDATMenuButton_Click);
+			// 
+			// _renderScreenshotMenuButton
+			// 
+			resources.ApplyResources(this._renderScreenshotMenuButton, "_renderScreenshotMenuButton");
+			this._renderScreenshotMenuButton.Image = global::TechTreeEditor.Icons.RenderScreenshot;
+			this._renderScreenshotMenuButton.Name = "_renderScreenshotMenuButton";
+			this._renderScreenshotMenuButton.Click += new System.EventHandler(this._renderScreenshotMenuButton_Click);
 			// 
 			// _menuSeparator1
 			// 
@@ -730,6 +740,10 @@
 			// 
 			resources.ApplyResources(this._openProjectDialog, "_openProjectDialog");
 			// 
+			// _renderScreenshotDialog
+			// 
+			resources.ApplyResources(this._renderScreenshotDialog, "_renderScreenshotDialog");
+			// 
 			// MainForm
 			// 
 			resources.ApplyResources(this, "$this");
@@ -848,6 +862,8 @@
 		private System.Windows.Forms.ToolStripMenuItem _copyMenuButton;
 		private System.Windows.Forms.ToolStripMenuItem _pasteMenuButton;
 		private System.Windows.Forms.ToolStripMenuItem _pluginMenuButton;
+		private System.Windows.Forms.ToolStripMenuItem _renderScreenshotMenuButton;
+		private System.Windows.Forms.SaveFileDialog _renderScreenshotDialog;
 	}
 }
 
