@@ -655,7 +655,7 @@
 </value>
   </data>
   <data name="_importDATMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 38</value>
+    <value>203, 22</value>
   </data>
   <data name="_importDATMenuButton.Text" xml:space="preserve">
     <value>DAT importieren...</value>
@@ -691,7 +691,7 @@
 </value>
   </data>
   <data name="_openProjectMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 38</value>
+    <value>203, 22</value>
   </data>
   <data name="_openProjectMenuButton.Text" xml:space="preserve">
     <value>Projekt öffnen...</value>
@@ -731,7 +731,7 @@
 </value>
   </data>
   <data name="_saveProjectMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 38</value>
+    <value>203, 22</value>
   </data>
   <data name="_saveProjectMenuButton.Text" xml:space="preserve">
     <value>Projekt speichern</value>
@@ -743,7 +743,7 @@
     <value>False</value>
   </data>
   <data name="_exportDATMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 38</value>
+    <value>203, 22</value>
   </data>
   <data name="_exportDATMenuButton.Text" xml:space="preserve">
     <value>DAT exportieren...</value>
@@ -755,7 +755,7 @@
     <value>False</value>
   </data>
   <data name="_renderScreenshotMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 38</value>
+    <value>203, 22</value>
   </data>
   <data name="_renderScreenshotMenuButton.Text" xml:space="preserve">
     <value>Screenshot exportieren...</value>
@@ -764,7 +764,7 @@
     <value>Den vollständigen Baum in eine Bitmap-Datei rendern.</value>
   </data>
   <data name="_menuSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 6</value>
+    <value>200, 6</value>
   </data>
   <data name="_exitMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -786,7 +786,7 @@
 </value>
   </data>
   <data name="_exitMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 38</value>
+    <value>203, 22</value>
   </data>
   <data name="_exitMenuButton.Text" xml:space="preserve">
     <value>Beenden</value>
@@ -1685,8 +1685,17 @@
   <data name="_editElementPropertiesMenuButton.Text" xml:space="preserve">
     <value>Baum-Verknüpfungsoptionen...</value>
   </data>
+  <data name="_menuSeparator14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>271, 6</value>
+  </data>
+  <data name="_sortChildrenMenuButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>274, 22</value>
+  </data>
+  <data name="_sortChildrenMenuButton.Text" xml:space="preserve">
+    <value>Kindelemente sortieren</value>
+  </data>
   <data name="_techTreeElementContextMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>275, 198</value>
+    <value>275, 248</value>
   </data>
   <data name="&gt;&gt;_techTreeElementContextMenu.Name" xml:space="preserve">
     <value>_techTreeElementContextMenu</value>
@@ -2524,6 +2533,18 @@
   </data>
   <data name="&gt;&gt;_renderScreenshotDialog.Type" xml:space="preserve">
     <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_sortChildrenMenuButton.Name" xml:space="preserve">
+    <value>_sortChildrenMenuButton</value>
+  </data>
+  <data name="&gt;&gt;_sortChildrenMenuButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_menuSeparator14.Name" xml:space="preserve">
+    <value>_menuSeparator14</value>
+  </data>
+  <data name="&gt;&gt;_menuSeparator14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

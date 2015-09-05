@@ -559,21 +559,24 @@ namespace TechTreeEditor
 				_selectedElement.UpdateName(_projectFile.LanguageFileWrapper);
 				_selectedNameLabel.Text = string.Format(Strings.MainForm_CurrentSelection, _selectedElement.Name);
 
-				// Standard-Element-Button aktualisieren
+				// Standard-Element-Button und Sortier-Button aktualisieren
 				if(_selectedElement.GetType() == typeof(TechTreeBuilding))
 				{
 					_standardElementCheckButton.Enabled = true;
 					_standardElementCheckButton.Checked = ((TechTreeBuilding)_selectedElement).StandardElement;
+					_sortChildrenMenuButton.Enabled = true;
 				}
 				else if(_selectedElement.GetType() == typeof(TechTreeCreatable))
 				{
 					_standardElementCheckButton.Enabled = true;
 					_standardElementCheckButton.Checked = ((TechTreeCreatable)_selectedElement).StandardElement;
+					_sortChildrenMenuButton.Enabled = true;
 				}
 				else
 				{
 					_standardElementCheckButton.Enabled = false; // Technologien sind immer Standard-Elemente
 					_standardElementCheckButton.Checked = false;
+					_sortChildrenMenuButton.Enabled = false;
 				}
 
 				// Editor-Button aktualisieren
@@ -1604,6 +1607,20 @@ namespace TechTreeEditor
 				this.Cursor = Cursors.Default;
 				SetStatus(Strings.MainForm_Status_Ready);
 			}
+		}
+
+		private void _sortChildrenMenuButton_Click(object sender, EventArgs e)
+		{
+			// Gewähltes Gebäude/gewählte Einheit abrufen
+			IChildrenContainer sel = _selectedElement as IChildrenContainer;
+			if(sel != null)
+			{
+				// Kindelemente sortieren
+				sel.Children.Sort((e1, e2) => e1.Item1.CompareTo(e2.Item1));
+			}
+
+			// Neuzeichnen
+			_renderPanel.Redraw();
 		}
 
 		#endregion Ereignishandler

@@ -116,22 +116,28 @@ namespace TechTreeEditor
 				// Ressourcen-Speicher setzen
 				_resourceStorage1Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
 				{
-					Enabled = unit.ResourceStorages[0].Enabled > 0,
+					Enabled = unit.ResourceStorages[0].Type >= 0,
 					Type = unit.ResourceStorages[0].Type,
 					Amount = unit.ResourceStorages[0].Amount
 				};
+				_resourceStorage1ModeField.Enabled = unit.ResourceStorages[0].Type >= 0;
+				_resourceStorage1ModeField.Value = unit.ResourceStorages[0].Enabled ;
 				_resourceStorage2Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
 				{
-					Enabled = unit.ResourceStorages[1].Enabled > 0,
+					Enabled = unit.ResourceStorages[1].Type >= 0,
 					Type = unit.ResourceStorages[1].Type,
 					Amount = unit.ResourceStorages[1].Amount
 				};
+				_resourceStorage2ModeField.Enabled = unit.ResourceStorages[1].Type >= 0;
+				_resourceStorage2ModeField.Value = unit.ResourceStorages[1].Enabled;
 				_resourceStorage3Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
 				{
-					Enabled = unit.ResourceStorages[2].Enabled > 0,
+					Enabled = unit.ResourceStorages[2].Type >= 0,
 					Type = unit.ResourceStorages[2].Type,
 					Amount = unit.ResourceStorages[2].Amount
 				};
+				_resourceStorage3ModeField.Enabled = unit.ResourceStorages[2].Type >= 0;
+				_resourceStorage3ModeField.Value = unit.ResourceStorages[2].Enabled;
 
 				// Klassenliste in ComboBox einfügen
 				_classComboBox.Items.AddRange(Strings.ClassNames.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries));
@@ -202,9 +208,22 @@ namespace TechTreeEditor
 				}
 			}
 
-			// Tab-Seiten je nach Typ sperren, sonst jeweilige Steuerelemente füllen
-			if(_deadTabPage.Enabled = (unit.Type >= GenieLibrary.DataElements.Civ.Unit.UnitType.DeadFish))
+			// Elemente je nach Typ aktivieren, sonst jeweilige Steuerelemente füllen
+			if(unit.Type >= GenieLibrary.DataElements.Civ.Unit.UnitType.DeadFish)
 			{
+				// Elemente aktivieren
+				_unknown9EField.Enabled = true;
+				_unknown9DField.Enabled = true;
+				_unknown9CField.Enabled = true;
+				_unknown9BField.Enabled = true;
+				_unknown9AField.Enabled = true;
+				_unknown8Field.Enabled = true;
+				_unknown7Field.Enabled = true;
+				_trackUnitDensityField.Enabled = true;
+				_rotationSpeedField.Enabled = true;
+				_graMoving2Field.Enabled = true;
+				_graMoving1Field.Enabled = true;
+
 				// Verschiedene Werte setzen
 				_graMoving1Field.ElementList = tmpGrList;
 				_graMoving1Field.Value = (unit.DeadFish.WalkingGraphic1 < 0 ? emptyG : graphicList.FirstOrDefault(g => g.ID == unit.DeadFish.WalkingGraphic1));
@@ -222,8 +241,17 @@ namespace TechTreeEditor
 				_unknown9DField.Value = unit.DeadFish.Unknown16B[3];
 				_unknown9EField.Value = unit.DeadFish.Unknown16B[4];
 			}
-			if(_birdTabPage.Enabled = (unit.Type >= GenieLibrary.DataElements.Civ.Unit.UnitType.Bird))
+			if(unit.Type >= GenieLibrary.DataElements.Civ.Unit.UnitType.Bird)
 			{
+				// Elemente aktivieren
+				_soundMoveField.Enabled = true;
+				_soundAttackField.Enabled = true;
+				_animalModeField.Enabled = true;
+				_workRateField.Enabled = true;
+				_villagerModeField.Enabled = true;
+				_searchRadiusField.Enabled = true;
+				_sheepConvField.Enabled = true;
+
 				// Verschiedene Werte setzen
 				_sheepConvField.Value = unit.Bird.SheepConversion;
 				_searchRadiusField.Value = (decimal)unit.Bird.SearchRadius;
@@ -233,8 +261,31 @@ namespace TechTreeEditor
 				_soundMoveField.Value = unit.Bird.MoveSound;
 				_workRateField.Value = (decimal)unit.Bird.WorkRate;
 			}
-			if(_type50TabPage.Enabled = (unit.Type >= GenieLibrary.DataElements.Civ.Unit.UnitType.Type50))
+			if(unit.Type >= GenieLibrary.DataElements.Civ.Unit.UnitType.Type50)
 			{
+				// Elemente aktivieren
+				_graAttackField.Enabled = true;
+				_terrainMultField.Enabled = true;
+				_towerModeField.Enabled = true;
+				_blastLevelField.Enabled = true;
+				_blastRadiusField.Enabled = true;
+				_graphicDisplacementZField.Enabled = true;
+				_graphicDisplacementYField.Enabled = true;
+				_graphicDisplacementXField.Enabled = true;
+				_frameDelayField.Enabled = true;
+				_accuracyErrorField.Enabled = true;
+				_accuracyPercentField.Enabled = true;
+				_attackReloadTimeDisplayedField.Enabled = true;
+				_attackReloadTimeField.Enabled = true;
+				_rangeDisplayedField.Enabled = true;
+				_rangeMaxField.Enabled = true;
+				_rangeMinField.Enabled = true;
+				_defaultArmorField.Enabled = true;
+				_armourValuesField.Enabled = true;
+				_displayedMeleeArmourField.Enabled = true;
+				_attackValuesField.Enabled = true;
+				_displayedAttackField.Enabled = true;
+
 				// Rüstungsklassenliste in ComboBox einfügen
 				// Diese werden vorher in eine Liste geschrieben, um Indizierung zu ermöglichen, da die DataGridViewCombobox das offenbar nicht unterstützt
 				string[] armourClassesArr = Strings.ArmourClasses.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
@@ -308,8 +359,16 @@ namespace TechTreeEditor
 				_graAttackField.ElementList = tmpGrList;
 				_graAttackField.Value = (unit.Type50.AttackGraphic < 0 ? emptyG : graphicList.FirstOrDefault(g => g.ID == unit.Type50.AttackGraphic));
 			}
-			if(_projectileTabPage.Enabled = (unit.Type == GenieLibrary.DataElements.Civ.Unit.UnitType.Projectile))
+			if(unit.Type == GenieLibrary.DataElements.Civ.Unit.UnitType.Projectile)
 			{
+				// Elemente aktivieren
+				_projectileArcField.Enabled = true;
+				_unknown10Field.Enabled = true;
+				_penetrationModeField.Enabled = true;
+				_dropAnimationModeField.Enabled = true;
+				_compensationModeField.Enabled = true;
+				_stretchModeField.Enabled = true;
+
 				// Verschiedene Werte setzen
 				_stretchModeField.Value = unit.Projectile.StretchMode;
 				_compensationModeField.Value = unit.Projectile.CompensationMode;
@@ -318,8 +377,27 @@ namespace TechTreeEditor
 				_unknown10Field.Value = unit.Projectile.Unknown24;
 				_projectileArcField.Value = (decimal)unit.Projectile.ProjectileArc;
 			}
-			if(_creatableTabPage.Enabled = (unit.Type >= GenieLibrary.DataElements.Civ.Unit.UnitType.Creatable))
+			if(unit.Type >= GenieLibrary.DataElements.Civ.Unit.UnitType.Creatable)
 			{
+				// Elemente aktivieren
+				_unknown12Field.Enabled = true;
+				_unknown13Field.Enabled = true;
+				_unknown11Field.Enabled = true;
+				_graChargeField.Enabled = true;
+				_graGarrisonField.Enabled = true;
+				_displayedPierceArmorField.Enabled = true;
+				_chargeModeField.Enabled = true;
+				_heroModeField.Enabled = true;
+				_trainTimeField.Enabled = true;
+				_missileSpawnZField.Enabled = true;
+				_missileSpawnYField.Enabled = true;
+				_missileSpawnXField.Enabled = true;
+				_missileDuplMaxField.Enabled = true;
+				_missileDuplMinField.Enabled = true;
+				_cost3Field.Enabled = true;
+				_cost2Field.Enabled = true;
+				_cost1Field.Enabled = true;
+
 				// Ressourcen-Kosten setzen
 				_cost1Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
 				{
@@ -364,8 +442,26 @@ namespace TechTreeEditor
 				_unknown12Field.Value = unit.Creatable.Unknown27;
 				_unknown13Field.Value = unit.Creatable.Unknown28;
 			}
-			if(_buildingTabPage.Enabled = (unit.Type == GenieLibrary.DataElements.Civ.Unit.UnitType.Building))
+			if(unit.Type == GenieLibrary.DataElements.Civ.Unit.UnitType.Building)
 			{
+				// Elemente aktivieren
+				_lootStoneField.Enabled = true;
+				_lootGoldField.Enabled = true;
+				_lootFoodField.Enabled = true;
+				_lootWoodField.Enabled = true;
+				_unknown15Field.Enabled = true;
+				_unknown14Field.Enabled = true;
+				_disappearsField.Enabled = true;
+				_garrisonHealRateField.Enabled = true;
+				_garrisonTypeField.Enabled = true;
+				_unknownSoundField.Enabled = true;
+				_constructionSoundField.Enabled = true;
+				_foundTerrainField.Enabled = true;
+				_graphicAngleField.Enabled = true;
+				_adjacentModeField.Enabled = true;
+				_graSnowField.Enabled = true;
+				_graConstructionField.Enabled = true;
+
 				// Grafiken setzen
 				_graConstructionField.ElementList = tmpGrList;
 				_graConstructionField.Value = (unit.Building.ConstructionGraphicID < 0 ? emptyG : graphicList.FirstOrDefault(g => g.ID == unit.Building.ConstructionGraphicID));
@@ -547,9 +643,21 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.ResourceStorages[0] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, float, byte>()
 			{
-				Enabled = (byte)(e.NewValue.Enabled ? 1 : 0),
-				Type = (short)e.NewValue.Type,
-				Amount = e.NewValue.Amount
+				Enabled = (byte)(e.NewValue.Enabled ? _resourceStorage1ModeField.Value.SafeConvert<byte>() : 0),
+				Type = (short)(e.NewValue.Enabled ? e.NewValue.Type : -1),
+				Amount = (e.NewValue.Enabled ? e.NewValue.Amount : 0)
+			});
+			_resourceStorage1ModeField.Enabled = e.NewValue.Enabled;
+		}
+
+		private void _resourceStorage1ModeField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unitManager.UpdateUnitAttribute(u => u.ResourceStorages[0] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, float, byte>()
+			{
+				Enabled = _resourceStorage1ModeField.Value.SafeConvert<byte>(),
+				Type = (short)_resourceStorage1Field.Value.Type,
+				Amount = _resourceStorage1Field.Value.Amount
 			});
 		}
 
@@ -558,9 +666,21 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.ResourceStorages[1] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, float, byte>()
 			{
-				Enabled = (byte)(e.NewValue.Enabled ? 1 : 0),
-				Type = (short)e.NewValue.Type,
-				Amount = e.NewValue.Amount
+				Enabled = (byte)(e.NewValue.Enabled ? _resourceStorage2ModeField.Value.SafeConvert<byte>() : 0),
+				Type = (short)(e.NewValue.Enabled ? e.NewValue.Type : -1),
+				Amount = (e.NewValue.Enabled ? e.NewValue.Amount : 0)
+			});
+			_resourceStorage2ModeField.Enabled = e.NewValue.Enabled;
+		}
+
+		private void _resourceStorage2ModeField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unitManager.UpdateUnitAttribute(u => u.ResourceStorages[1] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, float, byte>()
+			{
+				Enabled = _resourceStorage2ModeField.Value.SafeConvert<byte>(),
+				Type = (short)_resourceStorage2Field.Value.Type,
+				Amount = _resourceStorage2Field.Value.Amount
 			});
 		}
 
@@ -569,9 +689,21 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.ResourceStorages[2] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, float, byte>()
 			{
-				Enabled = (byte)(e.NewValue.Enabled ? 1 : 0),
-				Type = (short)e.NewValue.Type,
-				Amount = e.NewValue.Amount
+				Enabled = (byte)(e.NewValue.Enabled ? _resourceStorage3ModeField.Value.SafeConvert<byte>() : 0),
+				Type = (short)(e.NewValue.Enabled ? e.NewValue.Type : -1),
+				Amount = (e.NewValue.Enabled ? e.NewValue.Amount : 0)
+			});
+			_resourceStorage3ModeField.Enabled = e.NewValue.Enabled;
+		}
+
+		private void _resourceStorage3ModeField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Wert aktualisieren
+			_unitManager.UpdateUnitAttribute(u => u.ResourceStorages[2] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, float, byte>()
+			{
+				Enabled = _resourceStorage3ModeField.Value.SafeConvert<byte>(),
+				Type = (short)_resourceStorage3Field.Value.Type,
+				Amount = _resourceStorage3Field.Value.Amount
 			});
 		}
 
@@ -1569,6 +1701,6 @@ namespace TechTreeEditor
 
 		#endregion Event: Geändertes Icon
 
-		#endregion Ereignisse
+		#endregion
 	}
 }

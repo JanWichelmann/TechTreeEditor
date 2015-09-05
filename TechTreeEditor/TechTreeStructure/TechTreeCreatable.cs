@@ -18,7 +18,7 @@ namespace TechTreeEditor.TechTreeStructure
 
 		/// <summary>
 		/// Die in diesem Gebäude enthaltenen Kindelemente.
-		/// Dies sind Elemente, die in diesem Gebäude entwickelt oder erschaffen werden können, samt deren Button-IDs.
+		/// Dies sind Elemente, die in dieser Einheit entwickelt oder erschaffen werden können, samt deren Button-IDs.
 		/// Die Button-IDs sind nicht zwingend eindeutig!
 		/// </summary>
 		public List<Tuple<byte, TechTreeElement>> Children { get; private set; }

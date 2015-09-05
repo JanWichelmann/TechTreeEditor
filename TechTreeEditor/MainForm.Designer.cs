@@ -110,6 +110,8 @@
 			this._editElementPropertiesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._openProjectDialog = new System.Windows.Forms.OpenFileDialog();
 			this._renderScreenshotDialog = new System.Windows.Forms.SaveFileDialog();
+			this._sortChildrenMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._menuSeparator14 = new System.Windows.Forms.ToolStripSeparator();
 			this._menuContainer.BottomToolStripPanel.SuspendLayout();
 			this._menuContainer.ContentPanel.SuspendLayout();
 			this._menuContainer.LeftToolStripPanel.SuspendLayout();
@@ -659,7 +661,9 @@
             this._freeForCivCheckButton,
             this._menuSeparator10,
             this._editAttributesMenuButton,
-            this._editElementPropertiesMenuButton});
+            this._editElementPropertiesMenuButton,
+            this._menuSeparator14,
+            this._sortChildrenMenuButton});
 			this._techTreeElementContextMenu.Name = "_techTreeElementContextMenu";
 			resources.ApplyResources(this._techTreeElementContextMenu, "_techTreeElementContextMenu");
 			this._techTreeElementContextMenu.MouseEnter += new System.EventHandler(this._techTreeElementContextMenu_MouseEnter);
@@ -743,6 +747,17 @@
 			// _renderScreenshotDialog
 			// 
 			resources.ApplyResources(this._renderScreenshotDialog, "_renderScreenshotDialog");
+			// 
+			// _sortChildrenMenuButton
+			// 
+			this._sortChildrenMenuButton.Name = "_sortChildrenMenuButton";
+			resources.ApplyResources(this._sortChildrenMenuButton, "_sortChildrenMenuButton");
+			this._sortChildrenMenuButton.Click += new System.EventHandler(this._sortChildrenMenuButton_Click);
+			// 
+			// _menuSeparator14
+			// 
+			this._menuSeparator14.Name = "_menuSeparator14";
+			resources.ApplyResources(this._menuSeparator14, "_menuSeparator14");
 			// 
 			// MainForm
 			// 
@@ -864,6 +879,8 @@
 		private System.Windows.Forms.ToolStripMenuItem _pluginMenuButton;
 		private System.Windows.Forms.ToolStripMenuItem _renderScreenshotMenuButton;
 		private System.Windows.Forms.SaveFileDialog _renderScreenshotDialog;
+		private System.Windows.Forms.ToolStripSeparator _menuSeparator14;
+		private System.Windows.Forms.ToolStripMenuItem _sortChildrenMenuButton;
 	}
 }
 
