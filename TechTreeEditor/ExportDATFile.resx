@@ -144,52 +144,52 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>9</value>
   </data>
-  <data name="_datTextBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="_baseDATTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>160, 12</value>
   </data>
-  <data name="_datTextBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_baseDATTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>360, 20</value>
   </data>
-  <data name="_datTextBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="_baseDATTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;_datTextBox.Name" xml:space="preserve">
-    <value>_datTextBox</value>
+  <data name="&gt;&gt;_baseDATTextBox.Name" xml:space="preserve">
+    <value>_baseDATTextBox</value>
   </data>
-  <data name="&gt;&gt;_datTextBox.Type" xml:space="preserve">
+  <data name="&gt;&gt;_baseDATTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_datTextBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_baseDATTextBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;_datTextBox.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;_baseDATTextBox.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
-  <data name="_datButton.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="_baseDATButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>526, 10</value>
   </data>
-  <data name="_datButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_baseDATButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>31, 23</value>
   </data>
-  <data name="_datButton.TabIndex" type="System.Int32, mscorlib">
+  <data name="_baseDATButton.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="_datButton.Text" xml:space="preserve">
+  <data name="_baseDATButton.Text" xml:space="preserve">
     <value>...</value>
   </data>
-  <data name="&gt;&gt;_datButton.Name" xml:space="preserve">
-    <value>_datButton</value>
+  <data name="&gt;&gt;_baseDATButton.Name" xml:space="preserve">
+    <value>_baseDATButton</value>
   </data>
-  <data name="&gt;&gt;_datButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;_baseDATButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_datButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_baseDATButton.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;_datButton.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;_baseDATButton.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <metadata name="_openDATDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -201,10 +201,10 @@
     <value>DAT-Datei öffnen...</value>
   </data>
   <data name="_finishButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>311, 38</value>
+    <value>312, 87</value>
   </data>
   <data name="_finishButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 23</value>
+    <value>119, 23</value>
   </data>
   <data name="_finishButton.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -222,10 +222,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_finishButton.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>6</value>
   </data>
   <data name="_cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>437, 39</value>
+    <value>437, 87</value>
   </data>
   <data name="_cancelButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 23</value>
@@ -246,10 +246,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_cancelButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>5</value>
   </data>
   <data name="_finishProgressBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 38</value>
+    <value>161, 87</value>
   </data>
   <data name="_finishProgressBar.Size" type="System.Drawing.Size, System.Drawing">
     <value>145, 23</value>
@@ -270,7 +270,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_finishProgressBar.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>4</value>
   </data>
   <metadata name="_saveDATDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>160, 17</value>
@@ -281,6 +281,112 @@
   <data name="_saveDATDialog.Title" xml:space="preserve">
     <value>Exportierte DAT-Datei speichern...</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_outputDATButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_outputDATButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>526, 36</value>
+  </data>
+  <data name="_outputDATButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 23</value>
+  </data>
+  <data name="_outputDATButton.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="_outputDATButton.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;_outputDATButton.Name" xml:space="preserve">
+    <value>_outputDATButton</value>
+  </data>
+  <data name="&gt;&gt;_outputDATButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_outputDATButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_outputDATButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_outputDATTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 38</value>
+  </data>
+  <data name="_outputDATTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>360, 20</value>
+  </data>
+  <data name="_outputDATTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;_outputDATTextBox.Name" xml:space="preserve">
+    <value>_outputDATTextBox</value>
+  </data>
+  <data name="&gt;&gt;_outputDATTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_outputDATTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_outputDATTextBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 41</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 13</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Ausgabe-DAT-Datei:</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_updateProjectIDsCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_updateProjectIDsCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>161, 64</value>
+  </data>
+  <data name="_updateProjectIDsCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>335, 17</value>
+  </data>
+  <data name="_updateProjectIDsCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="_updateProjectIDsCheckBox.Text" xml:space="preserve">
+    <value>Generierte ID-Zuordnung in Projektdatei übernehmen und sperren</value>
+  </data>
+  <data name="&gt;&gt;_updateProjectIDsCheckBox.Name" xml:space="preserve">
+    <value>_updateProjectIDsCheckBox</value>
+  </data>
+  <data name="&gt;&gt;_updateProjectIDsCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_updateProjectIDsCheckBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_updateProjectIDsCheckBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -288,7 +394,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>570, 76</value>
+    <value>570, 121</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

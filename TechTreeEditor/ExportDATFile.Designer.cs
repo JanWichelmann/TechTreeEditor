@@ -30,13 +30,17 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExportDATFile));
 			this.label1 = new System.Windows.Forms.Label();
-			this._datTextBox = new System.Windows.Forms.TextBox();
-			this._datButton = new System.Windows.Forms.Button();
+			this._baseDATTextBox = new System.Windows.Forms.TextBox();
+			this._baseDATButton = new System.Windows.Forms.Button();
 			this._openDATDialog = new System.Windows.Forms.OpenFileDialog();
 			this._finishButton = new System.Windows.Forms.Button();
 			this._cancelButton = new System.Windows.Forms.Button();
 			this._finishProgressBar = new System.Windows.Forms.ProgressBar();
 			this._saveDATDialog = new System.Windows.Forms.SaveFileDialog();
+			this._outputDATButton = new System.Windows.Forms.Button();
+			this._outputDATTextBox = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this._updateProjectIDsCheckBox = new System.Windows.Forms.CheckBox();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -44,17 +48,17 @@
 			resources.ApplyResources(this.label1, "label1");
 			this.label1.Name = "label1";
 			// 
-			// _datTextBox
+			// _baseDATTextBox
 			// 
-			resources.ApplyResources(this._datTextBox, "_datTextBox");
-			this._datTextBox.Name = "_datTextBox";
+			resources.ApplyResources(this._baseDATTextBox, "_baseDATTextBox");
+			this._baseDATTextBox.Name = "_baseDATTextBox";
 			// 
-			// _datButton
+			// _baseDATButton
 			// 
-			resources.ApplyResources(this._datButton, "_datButton");
-			this._datButton.Name = "_datButton";
-			this._datButton.UseVisualStyleBackColor = true;
-			this._datButton.Click += new System.EventHandler(this._datButton_Click);
+			resources.ApplyResources(this._baseDATButton, "_baseDATButton");
+			this._baseDATButton.Name = "_baseDATButton";
+			this._baseDATButton.UseVisualStyleBackColor = true;
+			this._baseDATButton.Click += new System.EventHandler(this._baseDATButton_Click);
 			// 
 			// _openDATDialog
 			// 
@@ -84,15 +88,42 @@
 			// 
 			resources.ApplyResources(this._saveDATDialog, "_saveDATDialog");
 			// 
+			// _outputDATButton
+			// 
+			resources.ApplyResources(this._outputDATButton, "_outputDATButton");
+			this._outputDATButton.Name = "_outputDATButton";
+			this._outputDATButton.UseVisualStyleBackColor = true;
+			this._outputDATButton.Click += new System.EventHandler(this._outputDATButton_Click);
+			// 
+			// _outputDATTextBox
+			// 
+			resources.ApplyResources(this._outputDATTextBox, "_outputDATTextBox");
+			this._outputDATTextBox.Name = "_outputDATTextBox";
+			// 
+			// label2
+			// 
+			resources.ApplyResources(this.label2, "label2");
+			this.label2.Name = "label2";
+			// 
+			// _updateProjectIDsCheckBox
+			// 
+			resources.ApplyResources(this._updateProjectIDsCheckBox, "_updateProjectIDsCheckBox");
+			this._updateProjectIDsCheckBox.Name = "_updateProjectIDsCheckBox";
+			this._updateProjectIDsCheckBox.UseVisualStyleBackColor = true;
+			// 
 			// ExportDATFile
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this._updateProjectIDsCheckBox);
+			this.Controls.Add(this._outputDATButton);
+			this.Controls.Add(this._outputDATTextBox);
+			this.Controls.Add(this.label2);
 			this.Controls.Add(this._finishProgressBar);
 			this.Controls.Add(this._cancelButton);
 			this.Controls.Add(this._finishButton);
-			this.Controls.Add(this._datButton);
-			this.Controls.Add(this._datTextBox);
+			this.Controls.Add(this._baseDATButton);
+			this.Controls.Add(this._baseDATTextBox);
 			this.Controls.Add(this.label1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
@@ -105,12 +136,16 @@
 		#endregion
 
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox _datTextBox;
-		private System.Windows.Forms.Button _datButton;
+		private System.Windows.Forms.TextBox _baseDATTextBox;
+		private System.Windows.Forms.Button _baseDATButton;
 		private System.Windows.Forms.OpenFileDialog _openDATDialog;
 		private System.Windows.Forms.Button _finishButton;
 		private System.Windows.Forms.Button _cancelButton;
 		private System.Windows.Forms.SaveFileDialog _saveDATDialog;
 		private System.Windows.Forms.ProgressBar _finishProgressBar;
+		private System.Windows.Forms.Button _outputDATButton;
+		private System.Windows.Forms.TextBox _outputDATTextBox;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.CheckBox _updateProjectIDsCheckBox;
 	}
 }

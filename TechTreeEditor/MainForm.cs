@@ -96,9 +96,9 @@ namespace TechTreeEditor
 			InitializeComponent();
 
 			// ToolBar-Einstellungen laden
-//#if !DEBUG
+			//#if !DEBUG
 			ToolStripManager.LoadSettings(this, "ToolBarSettings");
-//#endif
+			//#endif
 
 			// Kultur-Kopier-Leisten-Renderer setzen
 			_civCopyBar.Renderer = new CivCopyButtonRenderer();
@@ -1547,9 +1547,8 @@ namespace TechTreeEditor
 
 		private void _exportDATMenuButton_Click(object sender, EventArgs e)
 		{
-			// Dialog anzeigen
-			ExportDATFile exportDialog = new ExportDATFile(_projectFile);
-			exportDialog.ShowDialog();
+			// Der Toolbar-Button macht dasselbe
+			_exportDATButton_Click(sender, e);
 		}
 
 		private void _exportDATButton_Click(object sender, EventArgs e)
@@ -1557,6 +1556,35 @@ namespace TechTreeEditor
 			// Dialog anzeigen
 			ExportDATFile exportDialog = new ExportDATFile(_projectFile);
 			exportDialog.ShowDialog();
+
+			// Muss das Projekt neu geladen werden?
+			if(exportDialog.ProjectReloadNeeded)
+			{
+				// Fehler abfangen
+				try
+				{
+					// Alten Projektpfad merken
+					string oldProjectPath = _projectFileName;
+
+					// Temporäre Datei erstellen
+					_projectFileName = Path.GetTempFileName();
+
+					// Projekt darin speichern
+					SaveProject();
+
+					// Projekt laden
+					LoadProject(_projectFileName);
+
+					// Pfade zurücksetzen
+					_projectFileName = oldProjectPath;
+					UpdateFormTitle();
+				}
+				catch(IOException ex)
+				{
+					// Fehlermeldung
+					MessageBox.Show("Fehler: Das Projekt konnte nicht neu geladen werden. Bitte speichern Sie das Projekt manuell und laden sie es anschließend neu.\n\nException: " + ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
 		}
 
 		private void _editCivBoniButton_Click(object sender, EventArgs e)
@@ -1810,11 +1838,11 @@ namespace TechTreeEditor
 
 			#endregion
 
-				#region Eigenschaften
+			#region Eigenschaften
 
-				/// <summary>
-				/// Ruft das aktuell ausgewählte Element ab.
-				/// </summary>
+			/// <summary>
+			/// Ruft das aktuell ausgewählte Element ab.
+			/// </summary>
 			public TechTreeElement CurrentSelection
 			{
 				get { return _mainForm._selectedElement; }
@@ -1823,7 +1851,7 @@ namespace TechTreeEditor
 			/// <summary>
 			/// Ruft die ID-Namen-Zuordnung der im Projekt enthaltenen Kulturen ab.
 			/// </summary>
-			public List<KeyValuePair<uint,string>> Civs
+			public List<KeyValuePair<uint, string>> Civs
 			{
 				get { return _mainForm._civs; }
 			}
