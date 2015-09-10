@@ -376,8 +376,7 @@ namespace TechTreeEditor.TechTreeStructure
 		public override void CreateIconTexture(Func<string, short, int> textureFunc)
 		{
 			// Icon erstellen
-			if(DATResearch.IconID >= 0)
-				IconTextureID = textureFunc(Type, DATResearch.IconID);
+			IconTextureID = textureFunc(Type, DATResearch.IconID);
 		}
 
 		/// <summary>

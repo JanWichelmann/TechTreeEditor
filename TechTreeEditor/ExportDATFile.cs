@@ -107,6 +107,8 @@ namespace TechTreeEditor
 			// Steuerelemente sperren
 			_baseDATTextBox.Enabled = false;
 			_baseDATButton.Enabled = false;
+			_outputDATTextBox.Enabled = false;
+			_outputDATButton.Enabled = false;
 			_finishButton.Enabled = false;
 
 			// Ladebalken anzeigen
@@ -234,7 +236,8 @@ namespace TechTreeEditor
 				// TODO: Hardcoded...
 				TechTreeResearch darkAgeResearch = new TechTreeResearch()
 				{
-					DATResearch = _projectFile.BasicGenieFile.Researches[105]
+					DATResearch = _projectFile.BasicGenieFile.Researches[105],
+					ID = 105
 				};
 				darkAgeResearch.Effects.Add(new TechEffect() { Type = TechEffect.EffectType.ResourceSetPM, Mode = TechEffect.EffectMode.Set_Disable, ParameterID = 6, Value = 0 });
 				darkAgeResearch.Effects.Add(new TechEffect() { Type = TechEffect.EffectType.ResourceSetPM, Mode = TechEffect.EffectMode.Set_Disable, ParameterID = 67, Value = 0 });
@@ -935,9 +938,13 @@ namespace TechTreeEditor
 			// DAT-Technologie der aktuellen Technologie abrufen
 			GenieLibrary.DataElements.Research datResearch = datResearches[researchIDMap[research]];
 
-			// Slots ggf. leeren
+			// Slots leeren
 			datResearch.RequiredTechCount = 0;
 			datResearch.RequiredTechs = new List<short>(new short[] { -1, -1, -1, -1, -1, -1 });
+
+			// Die Dunkle Zeit darf keine Abhängigkeiten haben (TODO: Hardcoded)
+			if(research.ID == 105)
+				return;
 
 			// Der erste Slot ist für das Zeitalter
 			// TODO: Hardcoded...
