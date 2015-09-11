@@ -1,61 +1,61 @@
 Archer
-Artifact
-Trade boat
+Artifact/Ruins
+Trade Boat
 Building
 Civilian
-Sea fish
-Soldier
-Berry bush
-Stone mine
-Prey animal
-Predator animal
-Other
+Ocean Fish
+Infantry
+Berry Bush
+Stone Mine
+Prey Animal
+Predator Animal
+Other/Dead/Projectile
 Cavalry
-Siege weapon
-Map decoration
-Trees
-Unused
+Siege Weapon
+Terrain
+Tree
+Tree Stump
 Unused
 Priest
-Trade cart
-Transport boat
-Fishing boat
-War_boat
+Trade Cart
+Transport Boat
+Fishing Boat
+Warship
 Conquistador
-Unused
-Unused
-Unused
-Walls
+War Elephant
+Hero
+Elephant Archer
+Wall
 Phalanx
-Unused
-Flags
-Unused
-Gold mine
+Domesticated Animal
+Flag
+Unknown Fish
+Gold Mine
 Shore fish
 Cliff
 Petard
-Cavalry archer
-Dolphin
-Birds
-Gates
-Piles
-Resource
+Cavalry Archer
+Dolphin/Smoke
+Bird
+Gate
+Pile
+Pile of Resource
 Relic
-Monk with relic
-Hand cannoneer
-Two handed sword
+Monk with Relic
+Hand Cannoneer
+Two Handed Swordsman
 Pikeman
-Scout cavalry
-Ore mine
+Scout Cavalry
+Ore Mine
 Farm
 Spearman
-Packed siege units
+Packed Siege Unit
 Tower
-Boarding boat
-Unpacked siege units
+Boarding Boat
+Unpacked Siege Unit
 Scorpion
 Raider
-Cavalry raider
+Cavalry Raider
 Sheep
 King
 Unused

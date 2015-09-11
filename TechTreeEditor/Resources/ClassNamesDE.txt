@@ -1,62 +1,62 @@
 Bogenschütze
-Artefakt
+Artefakt/Ruine
 Handelsschiff
 Gebäude
 Zivilist
-Sea fish
-Soldier
-Berry bush
-Stone mine
-Prey animal
-Predator animal
-Other
-Cavalry
-Siege weapon
-Map decoration
-Trees
-Unused
-Unused
-Priest
-Trade cart
-Transport boat
-Fishing boat
-War boat
-Conquistador
-Unused
-Unused
-Unused
-Walls
+Meeresfisch
+Infanterie
+Beerenstrauch
+Steinmine
+Beutetier
+Jagdtier
+Sonstige/Tote/Projektile
+Kavallerie
+Belagerungswaffe
+Terrain
+Baum
+Baumstumpf
+Ungenutzt
+Mönch
+Marktkarren
+Transportschiff
+Fischkutter
+Kriegsschiff
+Konquistador
+Kriegselefant
+Held
+Schützenelefant
+Wall
 Phalanx
-Unused
-Flags
-Unused
-Gold mine
-Shore fish
-Cliff
-Petard
-Cavalry archer
-Dolphin
-Birds
-Gates
-Piles
-Resource
-Relic
-Monk with relic
-Hand cannoneer
-Two handed sword
-Pikeman
-Scout cavalry
-Ore mine
-Farm
-Spearman
-Packed siege units
-Tower
-Boarding boat
-Unpacked siege units
-Scorpion
-Raider
-Cavalry raider
-Sheep
-King
-Unused
-Horse
+Domestiziertes Tier
+Flagge
+Unbekannter Fisch
+Goldmine
+Küstenfisch
+Klippe
+Petarde
+Berittener Bogenschütze
+Delfin/Rauch
+Vogel
+Tor
+Stapel
+Ressourcenstapel
+Reliquie
+Mönch mit Reliquie
+Handkanonier
+Zwei-Hand-Schwertkämpfer
+Pikenier
+Berittener Späher
+Erzmine
+Feld
+Speerkämpfer
+Gepackte Belagerungswaffe
+Turm
+Kaperschiff
+Entpackte Belagerungswaffe
+Skorpion
+Räuber
+Berittener Räuber
+Schaf/Truthahn
+König
+Ungenutzt
+Pferd

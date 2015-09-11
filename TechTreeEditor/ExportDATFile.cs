@@ -1331,7 +1331,6 @@ namespace TechTreeEditor
 				{
 					// Upgrade-Technologie-ID abrufen
 					// TODO: Hardcoded [evtl. die Upgrade-Tech-ID merken, um Redundanz zu verhindern?]
-					currSuccRes = ((IUpgradeable)currSuccessor).SuccessorResearch;
 					int succResID = -1;
 					if(currSuccRes != null)
 						succResID = researchIDMap[currSuccRes];
@@ -1392,6 +1391,7 @@ namespace TechTreeEditor
 						currSuccessor = ((IUpgradeable)currSuccessor).Successor;
 					else
 						break;
+					currSuccRes = ((IUpgradeable)currSuccessor)?.SuccessorResearch;
 				}
 
 				// Die Einheit muss aktiviert werden
