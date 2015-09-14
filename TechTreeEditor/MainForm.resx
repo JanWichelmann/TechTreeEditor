@@ -228,6 +228,270 @@
   <data name="_toolBoxBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>None</value>
   </data>
+  <data name="_toolBoxBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 3</value>
+  </data>
+  <data name="_toolBoxBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 467</value>
+  </data>
+  <data name="_toolBoxBar.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_toolBoxBar.Name" xml:space="preserve">
+    <value>_toolBoxBar</value>
+  </data>
+  <data name="&gt;&gt;_toolBoxBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_toolBoxBar.Parent" xml:space="preserve">
+    <value>_menuContainer.LeftToolStripPanel</value>
+  </data>
+  <data name="&gt;&gt;_toolBoxBar.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_menuContainer.LeftToolStripPanel.Name" xml:space="preserve">
+    <value>_menuContainer.LeftToolStripPanel</value>
+  </data>
+  <data name="&gt;&gt;_menuContainer.LeftToolStripPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_menuContainer.LeftToolStripPanel.Parent" xml:space="preserve">
+    <value>_menuContainer</value>
+  </data>
+  <data name="&gt;&gt;_menuContainer.LeftToolStripPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_menuContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <metadata name="_civCopyBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1127, 17</value>
+  </metadata>
+  <data name="_civCopyBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="_civCopyBar.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_civCopyBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 3</value>
+  </data>
+  <data name="_civCopyBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 111</value>
+  </data>
+  <data name="_civCopyBar.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="_civCopyBar.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;_civCopyBar.Name" xml:space="preserve">
+    <value>_civCopyBar</value>
+  </data>
+  <data name="&gt;&gt;_civCopyBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_civCopyBar.Parent" xml:space="preserve">
+    <value>_menuContainer.RightToolStripPanel</value>
+  </data>
+  <data name="&gt;&gt;_civCopyBar.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_menuContainer.RightToolStripPanel.Name" xml:space="preserve">
+    <value>_menuContainer.RightToolStripPanel</value>
+  </data>
+  <data name="&gt;&gt;_menuContainer.RightToolStripPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_menuContainer.RightToolStripPanel.Parent" xml:space="preserve">
+    <value>_menuContainer</value>
+  </data>
+  <data name="&gt;&gt;_menuContainer.RightToolStripPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_menuContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1137, 633</value>
+  </data>
+  <data name="_menuContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="_menuContainer.Text" xml:space="preserve">
+    <value>toolStripContainer1</value>
+  </data>
+  <metadata name="_mainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="_mainMenu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="_fileMenuButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 20</value>
+  </data>
+  <data name="_fileMenuButton.Text" xml:space="preserve">
+    <value>Datei</value>
+  </data>
+  <data name="_editMenuButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 20</value>
+  </data>
+  <data name="_editMenuButton.Text" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="_unitRendererMenuButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_unitRendererMenuButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 22</value>
+  </data>
+  <data name="_unitRendererMenuButton.Text" xml:space="preserve">
+    <value>Einheiten-Renderer</value>
+  </data>
+  <data name="_viewMenuButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 20</value>
+  </data>
+  <data name="_viewMenuButton.Text" xml:space="preserve">
+    <value>Ansicht</value>
+  </data>
+  <data name="_pluginMenuButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_pluginMenuButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 20</value>
+  </data>
+  <data name="_pluginMenuButton.Text" xml:space="preserve">
+    <value>Plugins</value>
+  </data>
+  <data name="_helpMenuButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 20</value>
+  </data>
+  <data name="_helpMenuButton.Text" xml:space="preserve">
+    <value>?</value>
+  </data>
+  <data name="_mainMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="_mainMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1137, 24</value>
+  </data>
+  <data name="_mainMenu.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_mainMenu.Name" xml:space="preserve">
+    <value>_mainMenu</value>
+  </data>
+  <data name="&gt;&gt;_mainMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_mainMenu.Parent" xml:space="preserve">
+    <value>_menuContainer.TopToolStripPanel</value>
+  </data>
+  <data name="&gt;&gt;_mainMenu.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="_projectToolBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>867, 17</value>
+  </metadata>
+  <data name="_projectToolBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="_projectToolBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 24</value>
+  </data>
+  <data name="_projectToolBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 39</value>
+  </data>
+  <data name="_projectToolBar.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_projectToolBar.Name" xml:space="preserve">
+    <value>_projectToolBar</value>
+  </data>
+  <data name="&gt;&gt;_projectToolBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_projectToolBar.Parent" xml:space="preserve">
+    <value>_menuContainer.TopToolStripPanel</value>
+  </data>
+  <data name="&gt;&gt;_projectToolBar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="_mainToolBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>246, 17</value>
+  </metadata>
+  <data name="_mainToolBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="_mainToolBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 63</value>
+  </data>
+  <data name="_mainToolBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>523, 39</value>
+  </data>
+  <data name="_mainToolBar.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_mainToolBar.Name" xml:space="preserve">
+    <value>_mainToolBar</value>
+  </data>
+  <data name="&gt;&gt;_mainToolBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_mainToolBar.Parent" xml:space="preserve">
+    <value>_menuContainer.TopToolStripPanel</value>
+  </data>
+  <data name="&gt;&gt;_mainToolBar.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="_addToolsBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1003, 17</value>
+  </metadata>
+  <data name="_addToolsBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="_addToolsBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 102</value>
+  </data>
+  <data name="_addToolsBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 39</value>
+  </data>
+  <data name="_addToolsBar.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_addToolsBar.Name" xml:space="preserve">
+    <value>_addToolsBar</value>
+  </data>
+  <data name="&gt;&gt;_addToolsBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_addToolsBar.Parent" xml:space="preserve">
+    <value>_menuContainer.TopToolStripPanel</value>
+  </data>
+  <data name="&gt;&gt;_addToolsBar.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_menuContainer.TopToolStripPanel.Name" xml:space="preserve">
+    <value>_menuContainer.TopToolStripPanel</value>
+  </data>
+  <data name="&gt;&gt;_menuContainer.TopToolStripPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_menuContainer.TopToolStripPanel.Parent" xml:space="preserve">
+    <value>_menuContainer</value>
+  </data>
+  <data name="&gt;&gt;_menuContainer.TopToolStripPanel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_menuContainer.Name" xml:space="preserve">
+    <value>_menuContainer</value>
+  </data>
+  <data name="&gt;&gt;_menuContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_menuContainer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_menuContainer.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="_newUnitButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -528,102 +792,6 @@
   <data name="_deleteElementButton.ToolTipText" xml:space="preserve">
     <value>Ein Element löschen.</value>
   </data>
-  <data name="_toolBoxBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 3</value>
-  </data>
-  <data name="_toolBoxBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 467</value>
-  </data>
-  <data name="_toolBoxBar.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;_toolBoxBar.Name" xml:space="preserve">
-    <value>_toolBoxBar</value>
-  </data>
-  <data name="&gt;&gt;_toolBoxBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_toolBoxBar.Parent" xml:space="preserve">
-    <value>_menuContainer.LeftToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;_toolBoxBar.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;_menuContainer.LeftToolStripPanel.Name" xml:space="preserve">
-    <value>_menuContainer.LeftToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;_menuContainer.LeftToolStripPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_menuContainer.LeftToolStripPanel.Parent" xml:space="preserve">
-    <value>_menuContainer</value>
-  </data>
-  <data name="&gt;&gt;_menuContainer.LeftToolStripPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="_menuContainer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <metadata name="_civCopyBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1127, 17</value>
-  </metadata>
-  <data name="_civCopyBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="_civCopyBar.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="_civCopyBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 3</value>
-  </data>
-  <data name="_civCopyBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 111</value>
-  </data>
-  <data name="_civCopyBar.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="_civCopyBar.Text" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;_civCopyBar.Name" xml:space="preserve">
-    <value>_civCopyBar</value>
-  </data>
-  <data name="&gt;&gt;_civCopyBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_civCopyBar.Parent" xml:space="preserve">
-    <value>_menuContainer.RightToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;_civCopyBar.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;_menuContainer.RightToolStripPanel.Name" xml:space="preserve">
-    <value>_menuContainer.RightToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;_menuContainer.RightToolStripPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_menuContainer.RightToolStripPanel.Parent" xml:space="preserve">
-    <value>_menuContainer</value>
-  </data>
-  <data name="&gt;&gt;_menuContainer.RightToolStripPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="_menuContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1137, 633</value>
-  </data>
-  <data name="_menuContainer.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="_menuContainer.Text" xml:space="preserve">
-    <value>toolStripContainer1</value>
-  </data>
-  <metadata name="_mainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="_mainMenu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
-  </data>
   <data name="_importDATMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -655,7 +823,7 @@
 </value>
   </data>
   <data name="_importDATMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
+    <value>219, 38</value>
   </data>
   <data name="_importDATMenuButton.Text" xml:space="preserve">
     <value>DAT importieren...</value>
@@ -691,7 +859,7 @@
 </value>
   </data>
   <data name="_openProjectMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
+    <value>219, 38</value>
   </data>
   <data name="_openProjectMenuButton.Text" xml:space="preserve">
     <value>Projekt öffnen...</value>
@@ -731,7 +899,7 @@
 </value>
   </data>
   <data name="_saveProjectMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
+    <value>219, 38</value>
   </data>
   <data name="_saveProjectMenuButton.Text" xml:space="preserve">
     <value>Projekt speichern</value>
@@ -743,7 +911,7 @@
     <value>False</value>
   </data>
   <data name="_exportDATMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
+    <value>219, 38</value>
   </data>
   <data name="_exportDATMenuButton.Text" xml:space="preserve">
     <value>DAT exportieren...</value>
@@ -755,7 +923,7 @@
     <value>False</value>
   </data>
   <data name="_renderScreenshotMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
+    <value>219, 38</value>
   </data>
   <data name="_renderScreenshotMenuButton.Text" xml:space="preserve">
     <value>Screenshot exportieren...</value>
@@ -763,8 +931,17 @@
   <data name="_renderScreenshotMenuButton.ToolTipText" xml:space="preserve">
     <value>Den vollständigen Baum in eine Bitmap-Datei rendern.</value>
   </data>
+  <data name="_projectSettingsMenuButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_projectSettingsMenuButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 38</value>
+  </data>
+  <data name="_projectSettingsMenuButton.Text" xml:space="preserve">
+    <value>Projekteigenschaften...</value>
+  </data>
   <data name="_menuSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 6</value>
+    <value>216, 6</value>
   </data>
   <data name="_exitMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -786,19 +963,13 @@
 </value>
   </data>
   <data name="_exitMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
+    <value>219, 38</value>
   </data>
   <data name="_exitMenuButton.Text" xml:space="preserve">
     <value>Beenden</value>
   </data>
   <data name="_exitMenuButton.ToolTipText" xml:space="preserve">
     <value>Das Programm beenden.</value>
-  </data>
-  <data name="_fileMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 20</value>
-  </data>
-  <data name="_fileMenuButton.Text" xml:space="preserve">
-    <value>Datei</value>
   </data>
   <data name="_undoMenuButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -850,7 +1021,7 @@
     <value>Strg+Z</value>
   </data>
   <data name="_undoMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>285, 22</value>
+    <value>301, 38</value>
   </data>
   <data name="_undoMenuButton.Text" xml:space="preserve">
     <value>Rückgängig</value>
@@ -900,7 +1071,7 @@
     <value>Strg+Y</value>
   </data>
   <data name="_redoMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>285, 22</value>
+    <value>301, 38</value>
   </data>
   <data name="_redoMenuButton.Text" xml:space="preserve">
     <value>Wiederholen</value>
@@ -909,7 +1080,7 @@
     <value>Die letzte rückgängig gemachte Änderung wiederherstellen.</value>
   </data>
   <data name="_menuSeparator13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>282, 6</value>
+    <value>298, 6</value>
   </data>
   <data name="_copyMenuButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -918,7 +1089,7 @@
     <value>Strg+C</value>
   </data>
   <data name="_copyMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>285, 22</value>
+    <value>301, 38</value>
   </data>
   <data name="_copyMenuButton.Text" xml:space="preserve">
     <value>Kopieren</value>
@@ -930,7 +1101,7 @@
     <value>Strg+V</value>
   </data>
   <data name="_pasteMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>285, 22</value>
+    <value>301, 38</value>
   </data>
   <data name="_pasteMenuButton.Text" xml:space="preserve">
     <value>Einfügen</value>
@@ -942,13 +1113,13 @@
     <value>Strg+Umschalttaste+V</value>
   </data>
   <data name="_pasteTreeMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>285, 22</value>
+    <value>301, 38</value>
   </data>
   <data name="_pasteTreeMenuButton.Text" xml:space="preserve">
     <value>Baum einfügen</value>
   </data>
   <data name="_menuSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>282, 6</value>
+    <value>298, 6</value>
   </data>
   <data name="_lockAllIDsMenuButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -957,25 +1128,10 @@
     <value>Strg+Umschalttaste+I</value>
   </data>
   <data name="_lockAllIDsMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>285, 22</value>
+    <value>301, 38</value>
   </data>
   <data name="_lockAllIDsMenuButton.Text" xml:space="preserve">
     <value>Alle IDs schützen</value>
-  </data>
-  <data name="_editMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 20</value>
-  </data>
-  <data name="_editMenuButton.Text" xml:space="preserve">
-    <value>Bearbeiten</value>
-  </data>
-  <data name="_pluginMenuButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="_pluginMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 20</value>
-  </data>
-  <data name="_pluginMenuButton.Text" xml:space="preserve">
-    <value>Plugins</value>
   </data>
   <data name="_infoMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1002,39 +1158,6 @@
   </data>
   <data name="_infoMenuButton.ToolTipText" xml:space="preserve">
     <value>Informationen über dieses Programm anzeigen.</value>
-  </data>
-  <data name="_helpMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 20</value>
-  </data>
-  <data name="_helpMenuButton.Text" xml:space="preserve">
-    <value>?</value>
-  </data>
-  <data name="_mainMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="_mainMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1137, 24</value>
-  </data>
-  <data name="_mainMenu.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;_mainMenu.Name" xml:space="preserve">
-    <value>_mainMenu</value>
-  </data>
-  <data name="&gt;&gt;_mainMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_mainMenu.Parent" xml:space="preserve">
-    <value>_menuContainer.TopToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;_mainMenu.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="_projectToolBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>867, 17</value>
-  </metadata>
-  <data name="_projectToolBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
   </data>
   <data name="_importDATButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1175,33 +1298,6 @@
   </data>
   <data name="_exportDATButton.ToolTipText" xml:space="preserve">
     <value>Das Projekt zu einer neuen DAT-Datei exportieren.</value>
-  </data>
-  <data name="_projectToolBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 24</value>
-  </data>
-  <data name="_projectToolBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 39</value>
-  </data>
-  <data name="_projectToolBar.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;_projectToolBar.Name" xml:space="preserve">
-    <value>_projectToolBar</value>
-  </data>
-  <data name="&gt;&gt;_projectToolBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_projectToolBar.Parent" xml:space="preserve">
-    <value>_menuContainer.TopToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;_projectToolBar.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <metadata name="_mainToolBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>246, 17</value>
-  </metadata>
-  <data name="_mainToolBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
   </data>
   <data name="_civSelectComboBox.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1370,33 +1466,6 @@
   <data name="_searchLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
   </data>
-  <data name="_mainToolBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 63</value>
-  </data>
-  <data name="_mainToolBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>523, 39</value>
-  </data>
-  <data name="_mainToolBar.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;_mainToolBar.Name" xml:space="preserve">
-    <value>_mainToolBar</value>
-  </data>
-  <data name="&gt;&gt;_mainToolBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_mainToolBar.Parent" xml:space="preserve">
-    <value>_menuContainer.TopToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;_mainToolBar.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <metadata name="_addToolsBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1003, 17</value>
-  </metadata>
-  <data name="_addToolsBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
-  </data>
   <data name="_ageUpButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -1460,54 +1529,18 @@
   <data name="_editElementPropertiesButton.ToolTipText" xml:space="preserve">
     <value>Die Attribute dieses Elements bearbeiten.</value>
   </data>
-  <data name="_addToolsBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 102</value>
-  </data>
-  <data name="_addToolsBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 39</value>
-  </data>
-  <data name="_addToolsBar.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;_addToolsBar.Name" xml:space="preserve">
-    <value>_addToolsBar</value>
-  </data>
-  <data name="&gt;&gt;_addToolsBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_addToolsBar.Parent" xml:space="preserve">
-    <value>_menuContainer.TopToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;_addToolsBar.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;_menuContainer.TopToolStripPanel.Name" xml:space="preserve">
-    <value>_menuContainer.TopToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;_menuContainer.TopToolStripPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_menuContainer.TopToolStripPanel.Parent" xml:space="preserve">
-    <value>_menuContainer</value>
-  </data>
-  <data name="&gt;&gt;_menuContainer.TopToolStripPanel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;_menuContainer.Name" xml:space="preserve">
-    <value>_menuContainer</value>
-  </data>
-  <data name="&gt;&gt;_menuContainer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_menuContainer.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_menuContainer.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <metadata name="_techTreeElementContextMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>371, 17</value>
   </metadata>
+  <data name="_techTreeElementContextMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>275, 226</value>
+  </data>
+  <data name="&gt;&gt;_techTreeElementContextMenu.Name" xml:space="preserve">
+    <value>_techTreeElementContextMenu</value>
+  </data>
+  <data name="&gt;&gt;_techTreeElementContextMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="_standardElementCheckButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -1693,15 +1726,6 @@
   </data>
   <data name="_sortChildrenMenuButton.Text" xml:space="preserve">
     <value>Kindelemente sortieren</value>
-  </data>
-  <data name="_techTreeElementContextMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>275, 248</value>
-  </data>
-  <data name="&gt;&gt;_techTreeElementContextMenu.Name" xml:space="preserve">
-    <value>_techTreeElementContextMenu</value>
-  </data>
-  <data name="&gt;&gt;_techTreeElementContextMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="_openProjectDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>593, 17</value>
@@ -2258,6 +2282,12 @@
   <data name="&gt;&gt;_renderScreenshotMenuButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;_projectSettingsMenuButton.Name" xml:space="preserve">
+    <value>_projectSettingsMenuButton</value>
+  </data>
+  <data name="&gt;&gt;_projectSettingsMenuButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;_menuSeparator1.Name" xml:space="preserve">
     <value>_menuSeparator1</value>
   </data>
@@ -2522,6 +2552,18 @@
   <data name="&gt;&gt;_editElementPropertiesMenuButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;_menuSeparator14.Name" xml:space="preserve">
+    <value>_menuSeparator14</value>
+  </data>
+  <data name="&gt;&gt;_menuSeparator14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_sortChildrenMenuButton.Name" xml:space="preserve">
+    <value>_sortChildrenMenuButton</value>
+  </data>
+  <data name="&gt;&gt;_sortChildrenMenuButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;_openProjectDialog.Name" xml:space="preserve">
     <value>_openProjectDialog</value>
   </data>
@@ -2534,17 +2576,17 @@
   <data name="&gt;&gt;_renderScreenshotDialog.Type" xml:space="preserve">
     <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_sortChildrenMenuButton.Name" xml:space="preserve">
-    <value>_sortChildrenMenuButton</value>
+  <data name="&gt;&gt;_viewMenuButton.Name" xml:space="preserve">
+    <value>_viewMenuButton</value>
   </data>
-  <data name="&gt;&gt;_sortChildrenMenuButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;_viewMenuButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_menuSeparator14.Name" xml:space="preserve">
-    <value>_menuSeparator14</value>
+  <data name="&gt;&gt;_unitRendererMenuButton.Name" xml:space="preserve">
+    <value>_unitRendererMenuButton</value>
   </data>
-  <data name="&gt;&gt;_menuSeparator14.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;_unitRendererMenuButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

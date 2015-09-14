@@ -60,6 +60,7 @@
 			this._saveProjectMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._exportDATMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._renderScreenshotMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._projectSettingsMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._menuSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this._exitMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._editMenuButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -108,10 +109,12 @@
 			this._menuSeparator10 = new System.Windows.Forms.ToolStripSeparator();
 			this._editAttributesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._editElementPropertiesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._menuSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+			this._sortChildrenMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._openProjectDialog = new System.Windows.Forms.OpenFileDialog();
 			this._renderScreenshotDialog = new System.Windows.Forms.SaveFileDialog();
-			this._sortChildrenMenuButton = new System.Windows.Forms.ToolStripMenuItem();
-			this._menuSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+			this._viewMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._unitRendererMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._menuContainer.BottomToolStripPanel.SuspendLayout();
 			this._menuContainer.ContentPanel.SuspendLayout();
 			this._menuContainer.LeftToolStripPanel.SuspendLayout();
@@ -333,6 +336,7 @@
 			this._mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._fileMenuButton,
             this._editMenuButton,
+            this._viewMenuButton,
             this._pluginMenuButton,
             this._helpMenuButton});
 			this._mainMenu.Name = "_mainMenu";
@@ -345,6 +349,7 @@
             this._saveProjectMenuButton,
             this._exportDATMenuButton,
             this._renderScreenshotMenuButton,
+            this._projectSettingsMenuButton,
             this._menuSeparator1,
             this._exitMenuButton});
 			this._fileMenuButton.Name = "_fileMenuButton";
@@ -381,6 +386,12 @@
 			this._renderScreenshotMenuButton.Image = global::TechTreeEditor.Icons.RenderScreenshot;
 			this._renderScreenshotMenuButton.Name = "_renderScreenshotMenuButton";
 			this._renderScreenshotMenuButton.Click += new System.EventHandler(this._renderScreenshotMenuButton_Click);
+			// 
+			// _projectSettingsMenuButton
+			// 
+			resources.ApplyResources(this._projectSettingsMenuButton, "_projectSettingsMenuButton");
+			this._projectSettingsMenuButton.Name = "_projectSettingsMenuButton";
+			this._projectSettingsMenuButton.Click += new System.EventHandler(this._projectSettingsButton_Click);
 			// 
 			// _menuSeparator1
 			// 
@@ -740,6 +751,17 @@
 			resources.ApplyResources(this._editElementPropertiesMenuButton, "_editElementPropertiesMenuButton");
 			this._editElementPropertiesMenuButton.Click += new System.EventHandler(this._editElementPropertiesMenuButton_Click);
 			// 
+			// _menuSeparator14
+			// 
+			this._menuSeparator14.Name = "_menuSeparator14";
+			resources.ApplyResources(this._menuSeparator14, "_menuSeparator14");
+			// 
+			// _sortChildrenMenuButton
+			// 
+			this._sortChildrenMenuButton.Name = "_sortChildrenMenuButton";
+			resources.ApplyResources(this._sortChildrenMenuButton, "_sortChildrenMenuButton");
+			this._sortChildrenMenuButton.Click += new System.EventHandler(this._sortChildrenMenuButton_Click);
+			// 
 			// _openProjectDialog
 			// 
 			resources.ApplyResources(this._openProjectDialog, "_openProjectDialog");
@@ -748,16 +770,18 @@
 			// 
 			resources.ApplyResources(this._renderScreenshotDialog, "_renderScreenshotDialog");
 			// 
-			// _sortChildrenMenuButton
+			// _viewMenuButton
 			// 
-			this._sortChildrenMenuButton.Name = "_sortChildrenMenuButton";
-			resources.ApplyResources(this._sortChildrenMenuButton, "_sortChildrenMenuButton");
-			this._sortChildrenMenuButton.Click += new System.EventHandler(this._sortChildrenMenuButton_Click);
+			this._viewMenuButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._unitRendererMenuButton});
+			this._viewMenuButton.Name = "_viewMenuButton";
+			resources.ApplyResources(this._viewMenuButton, "_viewMenuButton");
 			// 
-			// _menuSeparator14
+			// _unitRendererMenuButton
 			// 
-			this._menuSeparator14.Name = "_menuSeparator14";
-			resources.ApplyResources(this._menuSeparator14, "_menuSeparator14");
+			resources.ApplyResources(this._unitRendererMenuButton, "_unitRendererMenuButton");
+			this._unitRendererMenuButton.Name = "_unitRendererMenuButton";
+			this._unitRendererMenuButton.Click += new System.EventHandler(this._unitRendererMenuButton_Click);
 			// 
 			// MainForm
 			// 
@@ -881,6 +905,9 @@
 		private System.Windows.Forms.SaveFileDialog _renderScreenshotDialog;
 		private System.Windows.Forms.ToolStripSeparator _menuSeparator14;
 		private System.Windows.Forms.ToolStripMenuItem _sortChildrenMenuButton;
+		private System.Windows.Forms.ToolStripMenuItem _projectSettingsMenuButton;
+		private System.Windows.Forms.ToolStripMenuItem _viewMenuButton;
+		private System.Windows.Forms.ToolStripMenuItem _unitRendererMenuButton;
 	}
 }
 

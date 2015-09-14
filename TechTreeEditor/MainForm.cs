@@ -59,7 +59,7 @@ namespace TechTreeEditor
 		private TechTreeFile.CivTreeConfig _currCivConfig = null;
 
 		/// <summary>
-		/// Gibt an, ob die letzten Änderungen gespeichert wurden.
+		/// Gibt an, ob die letzten Änderungen gespeichert wurden. TODO: Aktuell halten...
 		/// </summary>
 		private bool _saved = true;
 
@@ -83,6 +83,16 @@ namespace TechTreeEditor
 		/// </summary>
 		private GenieUnitManager _unitManager = null;
 
+		/// <summary>
+		/// Das Einheiten-Render-Fenster.
+		/// </summary>
+		private UnitRenderForm _unitRenderForm = null;
+
+		/// <summary>
+		/// Die allgemeinen Steuerbuttons der Kultur-Kopier-Leiste für Aktivitäten wie "alle markieren".
+		/// </summary>
+		private ToolStripButton[] _civCopyBarDefaultButtons;
+
 		#endregion Variablen
 
 		#region Funktionen
@@ -97,11 +107,69 @@ namespace TechTreeEditor
 
 			// ToolBar-Einstellungen laden
 			//#if !DEBUG
-			ToolStripManager.LoadSettings(this, "ToolBarSettings");
+			//ToolStripManager.LoadSettings(this, "ToolBarSettings");
 			//#endif
 
 			// Kultur-Kopier-Leisten-Renderer setzen
 			_civCopyBar.Renderer = new CivCopyButtonRenderer();
+
+			// Kultur-Kopier-Leiste-Buttons erstellen
+			_civCopyBarDefaultButtons = new ToolStripButton[3];
+			{
+				// Alles markieren
+				ToolStripButton selectAllButton = new ToolStripButton("alle");
+				selectAllButton.Name = "_civCopyDefaultButtonSelectAll";
+				selectAllButton.Margin = new System.Windows.Forms.Padding(1, 0, 0, 1);
+				selectAllButton.Click += (sender, e) =>
+				{
+					// Alle Elemente auswählen
+					foreach(var elem in _civCopyBar.Items)
+					{
+						// Button abrufen
+						ToolStripButton button = elem as ToolStripButton;
+						if(button != null && button.CheckOnClick)
+							button.Checked = true;
+                    }
+				};
+				selectAllButton.ToolTipText = "Alle auswählen";
+				_civCopyBarDefaultButtons[0] = selectAllButton;
+
+				// Nichts markieren
+				ToolStripButton deselectAllButton = new ToolStripButton("keine");
+				deselectAllButton.Name = "_civCopyDefaultButtonDeselectAll";
+				deselectAllButton.Margin = new System.Windows.Forms.Padding(1, 0, 0, 1);
+				deselectAllButton.Click += (sender, e) =>
+				{
+					// Alle Elemente auswählen
+					foreach(var elem in _civCopyBar.Items)
+					{
+						// Button abrufen
+						ToolStripButton button = elem as ToolStripButton;
+						if(button != null && button.CheckOnClick)
+							button.Checked = false;
+					}
+				};
+				deselectAllButton.ToolTipText = "Keine auswählen";
+				_civCopyBarDefaultButtons[1] = deselectAllButton;
+
+				// Invertieren
+				ToolStripButton invertAllButton = new ToolStripButton("invertieren");
+				invertAllButton.Name = "_civCopyDefaultButtonInvertAll";
+				invertAllButton.Margin = new System.Windows.Forms.Padding(1, 0, 0, 1);
+				invertAllButton.Click += (sender, e) =>
+				{
+					// Alle Elemente auswählen
+					foreach(var elem in _civCopyBar.Items)
+					{
+						// Button abrufen
+						ToolStripButton button = elem as ToolStripButton;
+						if(button != null && button.CheckOnClick)
+							button.Checked = !button.Checked;
+					}
+				};
+				invertAllButton.ToolTipText = "Auswahl invertieren";
+				_civCopyBarDefaultButtons[2] = invertAllButton;
+			}
 
 			// Plugin-Kommunikator erstellen
 			_communicator = new PluginCommunicator(this);
@@ -164,6 +232,9 @@ namespace TechTreeEditor
 			_projectFileName = filename;
 			_projectFile = new TechTreeFile(_projectFileName);
 
+			// Arbeitsverzeichnis entsprechend setzen, um relative Pfade korrekt auszulösen
+			Directory.SetCurrentDirectory(Path.GetDirectoryName(_projectFileName));
+
 			// Interfac-DRS laden
 			SetStatus("Lade Interfac-DRS...");
 			DRSFile interfacDRS = new DRSFile(_projectFile.InterfacDRSPath);
@@ -214,6 +285,7 @@ namespace TechTreeEditor
 
 			// Kultur-Kopier-Leiste füllen
 			_civCopyBar.Items.Clear();
+			_civCopyBar.Items.AddRange(_civCopyBarDefaultButtons);
 			foreach(var civ in _civs)
 			{
 				// Button erstellen
@@ -241,6 +313,10 @@ namespace TechTreeEditor
 			// Daten an Render-Control übergeben
 			SetStatus(Strings.MainForm_Status_PreparingTreeRendering);
 			_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
+
+			// Projektdaten ggf. an Render-Fenster übergeben
+			if(_unitRenderForm != null)
+				_unitRenderForm.UpdateProjectFile(_projectFile);
 
 			// Projektdaten an Plugins übergeben
 			_plugins.ForEach(p => p.AssignProject(_projectFile));
@@ -273,6 +349,8 @@ namespace TechTreeEditor
 			_civCopyBar.Enabled = true;
 			_lockAllIDsMenuButton.Enabled = true;
 			_renderScreenshotMenuButton.Enabled = true;
+			_projectSettingsMenuButton.Enabled = true;
+			_unitRendererMenuButton.Enabled = true;
 
 			// Fertig
 			_saved = true;
@@ -1785,9 +1863,60 @@ namespace TechTreeEditor
 						e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(255, 221, 140)), bounds);
 					}
 				}
+				else if(button != null) // Steuerbutton
+				{
+					// Button-Abmessungen abrufen
+					Rectangle bounds = new Rectangle(Point.Empty, button.Size);
+
+					// Button zeichnen
+					if(button.Pressed)
+					{
+						// Der Button ist gedrückt
+						e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(147, 255, 110)), bounds);
+
+						// Rahmen zeichnen
+						e.Graphics.DrawLine(new Pen(Color.FromArgb(48, 138, 21)), new Point(bounds.Left, bounds.Bottom), new Point(bounds.Left, bounds.Top));
+						e.Graphics.DrawLine(new Pen(Color.FromArgb(48, 138, 21)), new Point(bounds.Left, bounds.Top), new Point(bounds.Right, bounds.Top));
+					}
+					else
+					{
+						// Der Button ist nicht gedrückt
+						e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(156, 255, 141)), bounds);
+					}
+				}
 				else
 					base.OnRenderButtonBackground(e);
 			}
+		}
+
+		private void _projectSettingsButton_Click(object sender, EventArgs e)
+		{
+			// Einstellungsfenster anzeigen
+			ProjectSettingsForm settingsDialog = new ProjectSettingsForm(_projectFile);
+			if(settingsDialog.ShowDialog() == DialogResult.OK)
+			{
+				// Meldung ausgeben
+				if(MessageBox.Show("Bei geänderten Einstellungen sollte das Projekt neu geladen werden. Jetzt neu laden?", "Projekt neu laden",  MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+				{
+					// Projekt speichern
+					SaveProject();
+
+					// Projekt neu laden
+					LoadProject(_projectFileName);
+				}
+			}
+		}
+
+		private void _unitRendererMenuButton_Click(object sender, EventArgs e)
+		{
+			// Render-Fenster erstellen
+			_unitRenderForm = new UnitRenderForm(_projectFile);
+			_unitRenderForm.FormClosed += (sender2, e2) =>
+			{
+				// Variable löschen und Objekt damit freigeben
+				_unitRenderForm = null;
+			};
+			_unitRenderForm.Show();
 		}
 
 		/// <summary>

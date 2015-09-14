@@ -299,6 +299,9 @@ namespace TechTreeEditor
 		/// </summary>
 		private void InitDrawPanel()
 		{
+			// Ich bin dran
+			_drawPanel.MakeCurrent();
+			
 			// Panel leeren
 			GL.ClearColor(COLOR_BACKGROUND);
 
@@ -425,6 +428,9 @@ namespace TechTreeEditor
 		/// </summary>
 		private void SetupDrawPanelViewPort()
 		{
+			// Ich bin dran
+			_drawPanel.MakeCurrent();
+
 			// Blickwinkel erstellen
 			GL.MatrixMode(MatrixMode.Projection);
 			GL.LoadIdentity();
@@ -443,6 +449,9 @@ namespace TechTreeEditor
 		/// <returns></returns>
 		public int LoadIconAsTexture(string type, short iconID)
 		{
+			// Ich bin dran
+			_drawPanel.MakeCurrent();
+
 			// Texturobjekt vorbereiten
 			int texID = GL.GenTexture();
 			GL.BindTexture(TextureTarget.Texture2D, texID);
@@ -568,6 +577,9 @@ namespace TechTreeEditor
 		/// <returns>Die ungefähre Pixel-Breite des gezeichneten Baums.</returns>
 		public int RenderTree(int offsetX, int offsetY)
 		{
+			// Ich bin dran
+			_drawPanel.MakeCurrent();
+
 			// Zeichenfläche leeren
 			GL.Clear(ClearBufferMask.ColorBufferBit);
 
@@ -661,6 +673,9 @@ namespace TechTreeEditor
 		/// <returns></returns>
 		public void RenderToBitmap(string filename)
 		{
+			// Ich bin dran
+			_drawPanel.MakeCurrent();
+
 			// Baumabmessungen berechnen
 			int width = RenderTree(0, 0) + BORDER_WIDTH;
 			int height = Math.Max(_fullTreeHeight * (BOX_BOUNDS + 2 * BOX_SPACE_VERT) + 2 * DRAW_PANEL_PADDING, _drawPanel.Height);
@@ -797,6 +812,9 @@ namespace TechTreeEditor
 
 		private void _drawPanel_Paint(object sender, PaintEventArgs e)
 		{
+			// Ich bin dran
+			_drawPanel.MakeCurrent();
+
 			// Wurde OpenGL schon geladen?
 			if(!_glLoaded)
 				return;
