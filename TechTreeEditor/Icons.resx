@@ -289,4 +289,22 @@
   <data name="RenderScreenshot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons\renderscreenshot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ProjectSettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons\projectsettings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RenderStart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons\renderstart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RenderStop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons\renderstop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RenderWindow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons\renderwindow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SetRenderUnit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons\setrenderunit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SortChildren" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons\sortchildren.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

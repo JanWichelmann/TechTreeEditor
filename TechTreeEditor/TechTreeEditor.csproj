@@ -399,9 +399,15 @@
     <Content Include="Icons\PasteElement.png" />
     <Content Include="Icons\PasteTree.png" />
     <Content Include="Icons\ProjectileIcon.png" />
+    <Content Include="Icons\ProjectSettings.png" />
     <Content Include="Icons\RenderScreenshot.png" />
+    <Content Include="Icons\RenderStart.png" />
+    <Content Include="Icons\RenderStop.png" />
+    <Content Include="Icons\RenderWindow.png" />
     <Content Include="Icons\ResearchIcon.png" />
     <Content Include="Icons\Search.png" />
+    <Content Include="Icons\SetRenderUnit.png" />
+    <Content Include="Icons\SortChildren.png" />
     <Content Include="Icons\SortTechEffects.png" />
     <Content Include="Icons\StandardMode.png" />
     <Content Include="Icons\Symbol32.png" />

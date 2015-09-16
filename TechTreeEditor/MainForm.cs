@@ -227,13 +227,11 @@ namespace TechTreeEditor
 			// Schönen Cursor zeigen
 			this.Cursor = Cursors.WaitCursor;
 
-			// Projektdatei laden
+			// Projektdatei laden; Arbeitsverzeichnis entsprechend setzen, um relative Pfade korrekt auszulösen
 			SetStatus(Strings.MainForm_Status_LoadingProjectFile);
 			_projectFileName = filename;
-			_projectFile = new TechTreeFile(_projectFileName);
-
-			// Arbeitsverzeichnis entsprechend setzen, um relative Pfade korrekt auszulösen
 			Directory.SetCurrentDirectory(Path.GetDirectoryName(_projectFileName));
+			_projectFile = new TechTreeFile(_projectFileName);
 
 			// Interfac-DRS laden
 			SetStatus("Lade Interfac-DRS...");
@@ -643,18 +641,21 @@ namespace TechTreeEditor
 					_standardElementCheckButton.Enabled = true;
 					_standardElementCheckButton.Checked = ((TechTreeBuilding)_selectedElement).StandardElement;
 					_sortChildrenMenuButton.Enabled = true;
+					_showUnitInRendererMenuButton.Enabled = true;
 				}
 				else if(_selectedElement.GetType() == typeof(TechTreeCreatable))
 				{
 					_standardElementCheckButton.Enabled = true;
 					_standardElementCheckButton.Checked = ((TechTreeCreatable)_selectedElement).StandardElement;
 					_sortChildrenMenuButton.Enabled = true;
+					_showUnitInRendererMenuButton.Enabled = true;
 				}
 				else
 				{
 					_standardElementCheckButton.Enabled = false; // Technologien sind immer Standard-Elemente
 					_standardElementCheckButton.Checked = false;
 					_sortChildrenMenuButton.Enabled = false;
+					_showUnitInRendererMenuButton.Enabled = false;
 				}
 
 				// Editor-Button aktualisieren
@@ -1729,6 +1730,59 @@ namespace TechTreeEditor
 			_renderPanel.Redraw();
 		}
 
+		private void _projectSettingsButton_Click(object sender, EventArgs e)
+		{
+			// Einstellungsfenster anzeigen
+			ProjectSettingsForm settingsDialog = new ProjectSettingsForm(_projectFile);
+			if(settingsDialog.ShowDialog() == DialogResult.OK)
+			{
+				// Meldung ausgeben
+				if(MessageBox.Show("Bei geänderten Einstellungen sollte das Projekt neu geladen werden. Jetzt neu laden?", "Projekt neu laden", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+				{
+					// Projekt speichern
+					SaveProject();
+
+					// Projekt neu laden
+					LoadProject(_projectFileName);
+				}
+			}
+		}
+
+		private void _unitRendererMenuButton_Click(object sender, EventArgs e)
+		{
+			// Render-Fenster schon offen?
+			if(_unitRenderForm != null)
+			{
+				// In den Vordergrund bringen
+				_unitRenderForm.BringToFront();
+				_unitRenderForm.Focus();
+				return;
+			}
+
+			// Render-Fenster erstellen
+			_unitRenderForm = new UnitRenderForm(_projectFile);
+			_unitRenderForm.FormClosed += (sender2, e2) =>
+			{
+				// Variable löschen und Objekt damit freigeben
+				_unitRenderForm = null;
+			};
+			_unitRenderForm.Show();
+		}
+
+		private void _showUnitInRendererMenuButton_Click(object sender, EventArgs e)
+		{
+			// Gegebenenfalls Fenster anzeigen
+			_unitRendererMenuButton_Click(sender, e);
+			
+			// Kontextmenü ausblenden
+			_techTreeElementContextMenu.AutoClose = true;
+			_techTreeElementContextMenu.Hide();
+
+			// Markierte Einheit übergeben
+			if(_selectedElement != null && _selectedElement is TechTreeUnit)
+				_unitRenderForm.UpdateRenderUnit((TechTreeUnit)_selectedElement);
+		}
+
 		#endregion Ereignishandler
 
 		#region Enumerationen
@@ -1887,36 +1941,6 @@ namespace TechTreeEditor
 				else
 					base.OnRenderButtonBackground(e);
 			}
-		}
-
-		private void _projectSettingsButton_Click(object sender, EventArgs e)
-		{
-			// Einstellungsfenster anzeigen
-			ProjectSettingsForm settingsDialog = new ProjectSettingsForm(_projectFile);
-			if(settingsDialog.ShowDialog() == DialogResult.OK)
-			{
-				// Meldung ausgeben
-				if(MessageBox.Show("Bei geänderten Einstellungen sollte das Projekt neu geladen werden. Jetzt neu laden?", "Projekt neu laden",  MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-				{
-					// Projekt speichern
-					SaveProject();
-
-					// Projekt neu laden
-					LoadProject(_projectFileName);
-				}
-			}
-		}
-
-		private void _unitRendererMenuButton_Click(object sender, EventArgs e)
-		{
-			// Render-Fenster erstellen
-			_unitRenderForm = new UnitRenderForm(_projectFile);
-			_unitRenderForm.FormClosed += (sender2, e2) =>
-			{
-				// Variable löschen und Objekt damit freigeben
-				_unitRenderForm = null;
-			};
-			_unitRenderForm.Show();
 		}
 
 		/// <summary>
