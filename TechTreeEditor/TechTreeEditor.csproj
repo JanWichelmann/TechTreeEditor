@@ -189,6 +189,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Icons.resx</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="Strings.en-US.Designer.cs">
       <DependentUpon>Strings.en-US.resx</DependentUpon>
       <AutoGen>True</AutoGen>

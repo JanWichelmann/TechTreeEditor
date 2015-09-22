@@ -52,6 +52,11 @@ namespace TechTreeEditor
 		private string _interfacDRSPath = "";
 
 		/// <summary>
+		/// Der Pfad zur Graphics-DRS.
+		/// </summary>
+		private string _graphicsDRSPath = "";
+
+		/// <summary>
 		/// Die Kultur-Baum-Konfigurationen.
 		/// </summary>
 		private List<CivTreeConfig> _civTrees = null;
@@ -114,6 +119,12 @@ namespace TechTreeEditor
 
 					// Interfac-DRS-Pfad lesen
 					_interfacDRSPath = mainElement.Element("interfacdrs").Value;
+
+					// Graphics-DRS-Pfad lesen
+					if(mainElement.Elements("graphicsdrs").Count() > 0)
+						_graphicsDRSPath = mainElement.Element("graphicsdrs").Value;
+					else
+						_graphicsDRSPath = "graphics.drs";
 				}
 
 				// DLL-Handles erstellen
@@ -219,6 +230,7 @@ namespace TechTreeEditor
 
 							// Interfac-DRS-Pfad schreiben
 							writer.WriteElementString("interfacdrs", _interfacDRSPath);
+                            writer.WriteElementString("graphicsdrs", _graphicsDRSPath);
 
 							// Haupt- und Dokumentelement schließen
 							writer.WriteEndElement();
@@ -857,6 +869,15 @@ namespace TechTreeEditor
 		{
 			get { return _interfacDRSPath; }
 			set { _interfacDRSPath = value; }
+		}
+
+		/// <summary>
+		/// Der Graphics-DRS-Pfad.
+		/// </summary>
+		public string GraphicsDRSPath
+		{
+			get { return _graphicsDRSPath; }
+			set { _graphicsDRSPath = value; }
 		}
 
 		/// <summary>

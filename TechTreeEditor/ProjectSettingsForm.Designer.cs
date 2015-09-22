@@ -32,22 +32,26 @@
 			this._cancelButton = new System.Windows.Forms.Button();
 			this._okButton = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.label2 = new System.Windows.Forms.Label();
 			this._dllButton = new System.Windows.Forms.Button();
 			this.label3 = new System.Windows.Forms.Label();
 			this._dllTextBox = new System.Windows.Forms.TextBox();
-			this._openDLLDialog = new System.Windows.Forms.OpenFileDialog();
-			this._openInterfacDRSDialog = new System.Windows.Forms.OpenFileDialog();
 			this._interfacDRSButton = new System.Windows.Forms.Button();
 			this.label4 = new System.Windows.Forms.Label();
 			this._interfacDRSTextBox = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this._openDLLDialog = new System.Windows.Forms.OpenFileDialog();
+			this._openInterfacDRSDialog = new System.Windows.Forms.OpenFileDialog();
+			this._graphicsDRSButton = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
+			this._graphicsDRSTextBox = new System.Windows.Forms.TextBox();
+			this._openGraphicsDRSDialog = new System.Windows.Forms.OpenFileDialog();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// _cancelButton
 			// 
 			this._cancelButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this._cancelButton.Location = new System.Drawing.Point(447, 111);
+			this._cancelButton.Location = new System.Drawing.Point(447, 135);
 			this._cancelButton.Name = "_cancelButton";
 			this._cancelButton.Size = new System.Drawing.Size(120, 23);
 			this._cancelButton.TabIndex = 9;
@@ -58,7 +62,7 @@
 			// _okButton
 			// 
 			this._okButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this._okButton.Location = new System.Drawing.Point(322, 111);
+			this._okButton.Location = new System.Drawing.Point(322, 135);
 			this._okButton.Name = "_okButton";
 			this._okButton.Size = new System.Drawing.Size(119, 23);
 			this._okButton.TabIndex = 8;
@@ -68,6 +72,9 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this._graphicsDRSButton);
+			this.groupBox1.Controls.Add(this.label1);
+			this.groupBox1.Controls.Add(this._graphicsDRSTextBox);
 			this.groupBox1.Controls.Add(this._dllButton);
 			this.groupBox1.Controls.Add(this.label3);
 			this.groupBox1.Controls.Add(this._dllTextBox);
@@ -77,19 +84,10 @@
 			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Location = new System.Drawing.Point(12, 12);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(555, 93);
+			this.groupBox1.Size = new System.Drawing.Size(555, 117);
 			this.groupBox1.TabIndex = 12;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Pfade";
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(5, 16);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(160, 13);
-			this.label2.TabIndex = 0;
-			this.label2.Text = "Auch relative Pfade sind erlaubt.";
 			// 
 			// _dllButton
 			// 
@@ -119,17 +117,6 @@
 			this._dllTextBox.Size = new System.Drawing.Size(360, 20);
 			this._dllTextBox.TabIndex = 15;
 			// 
-			// _openDLLDialog
-			// 
-			this._openDLLDialog.Filter = "Age of Empires II String-Dateien (*.dll)|*.dll";
-			this._openDLLDialog.Multiselect = true;
-			this._openDLLDialog.Title = "Language-DLL-Dateien laden...";
-			// 
-			// _openInterfacDRSDialog
-			// 
-			this._openInterfacDRSDialog.Filter = "DRS-Dateien (*.drs)|*.drs";
-			this._openInterfacDRSDialog.Title = "Interfac-DRS-Datei öffnen...";
-			// 
 			// _interfacDRSButton
 			// 
 			this._interfacDRSButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -158,11 +145,64 @@
 			this._interfacDRSTextBox.Size = new System.Drawing.Size(360, 20);
 			this._interfacDRSTextBox.TabIndex = 18;
 			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(5, 16);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(160, 13);
+			this.label2.TabIndex = 0;
+			this.label2.Text = "Auch relative Pfade sind erlaubt.";
+			// 
+			// _openDLLDialog
+			// 
+			this._openDLLDialog.Filter = "Age of Empires II String-Dateien (*.dll)|*.dll";
+			this._openDLLDialog.Multiselect = true;
+			this._openDLLDialog.Title = "Language-DLL-Dateien laden...";
+			// 
+			// _openInterfacDRSDialog
+			// 
+			this._openInterfacDRSDialog.Filter = "DRS-Dateien (*.drs)|*.drs";
+			this._openInterfacDRSDialog.Title = "Interfac-DRS-Datei öffnen...";
+			// 
+			// _graphicsDRSButton
+			// 
+			this._graphicsDRSButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this._graphicsDRSButton.Location = new System.Drawing.Point(516, 87);
+			this._graphicsDRSButton.Name = "_graphicsDRSButton";
+			this._graphicsDRSButton.Size = new System.Drawing.Size(31, 23);
+			this._graphicsDRSButton.TabIndex = 23;
+			this._graphicsDRSButton.Text = "...";
+			this._graphicsDRSButton.UseVisualStyleBackColor = true;
+			this._graphicsDRSButton.Click += new System.EventHandler(this._graphicsDRSButton_Click);
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.label1.Location = new System.Drawing.Point(5, 92);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(124, 13);
+			this.label1.TabIndex = 22;
+			this.label1.Text = "Graphics-DRS (optional):";
+			// 
+			// _graphicsDRSTextBox
+			// 
+			this._graphicsDRSTextBox.Location = new System.Drawing.Point(150, 89);
+			this._graphicsDRSTextBox.Name = "_graphicsDRSTextBox";
+			this._graphicsDRSTextBox.Size = new System.Drawing.Size(360, 20);
+			this._graphicsDRSTextBox.TabIndex = 21;
+			// 
+			// _openGraphicsDRSDialog
+			// 
+			this._openGraphicsDRSDialog.Filter = "DRS-Dateien (*.drs)|*.drs";
+			this._openGraphicsDRSDialog.Title = "Graphics-DRS-Datei öffnen...";
+			// 
 			// ProjectSettingsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(574, 140);
+			this.ClientSize = new System.Drawing.Size(574, 166);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this._cancelButton);
 			this.Controls.Add(this._okButton);
@@ -191,5 +231,9 @@
 		private System.Windows.Forms.TextBox _interfacDRSTextBox;
 		private System.Windows.Forms.OpenFileDialog _openDLLDialog;
 		private System.Windows.Forms.OpenFileDialog _openInterfacDRSDialog;
+		private System.Windows.Forms.Button _graphicsDRSButton;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.TextBox _graphicsDRSTextBox;
+		private System.Windows.Forms.OpenFileDialog _openGraphicsDRSDialog;
 	}
 }

@@ -31,9 +31,16 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UnitRenderForm));
 			this._bottomPanel = new System.Windows.Forms.Panel();
+			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this._centerUnitButton = new System.Windows.Forms.Button();
+			this.label3 = new System.Windows.Forms.Label();
+			this._angleField = new System.Windows.Forms.NumericUpDown();
+			this.label2 = new System.Windows.Forms.Label();
+			this._zoomField = new System.Windows.Forms.NumericUpDown();
 			this._closeButton = new System.Windows.Forms.Button();
 			this._drawPanel = new OpenTK.GLControl();
 			this._topPanel = new System.Windows.Forms.Panel();
+			this._stopButton = new System.Windows.Forms.Button();
 			this._playButton = new System.Windows.Forms.Button();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this._speedCustomField = new System.Windows.Forms.NumericUpDown();
@@ -41,9 +48,6 @@
 			this._speedFastButton = new System.Windows.Forms.RadioButton();
 			this._speedNormalButton = new System.Windows.Forms.RadioButton();
 			this._speedSlowButton = new System.Windows.Forms.RadioButton();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this._zoomField = new System.Windows.Forms.NumericUpDown();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this._graStandingButton = new System.Windows.Forms.RadioButton();
 			this._graFallingButton = new System.Windows.Forms.RadioButton();
@@ -54,29 +58,131 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this._graphicsDRSTextBox = new System.Windows.Forms.TextBox();
 			this._openGraphicsDRSDialog = new System.Windows.Forms.OpenFileDialog();
-			this._stopButton = new System.Windows.Forms.Button();
 			this._renderTimer = new System.Windows.Forms.Timer(this.components);
+			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this._radiusSizeCheckBox = new System.Windows.Forms.CheckBox();
+			this._radiusEditorCheckBox = new System.Windows.Forms.CheckBox();
+			this._radiusSelectionCheckBox = new System.Windows.Forms.CheckBox();
+			this._radiusCustomCheckBox = new System.Windows.Forms.CheckBox();
+			this._radiusCustom1Field = new System.Windows.Forms.NumericUpDown();
+			this._radiusCustom2Field = new System.Windows.Forms.NumericUpDown();
 			this._bottomPanel.SuspendLayout();
+			this.groupBox3.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this._angleField)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this._zoomField)).BeginInit();
 			this._topPanel.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this._speedCustomField)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this._zoomField)).BeginInit();
 			this.groupBox1.SuspendLayout();
+			this.groupBox4.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this._radiusCustom1Field)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this._radiusCustom2Field)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// _bottomPanel
 			// 
+			this._bottomPanel.Controls.Add(this.groupBox4);
+			this._bottomPanel.Controls.Add(this.groupBox3);
 			this._bottomPanel.Controls.Add(this._closeButton);
 			this._bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this._bottomPanel.Location = new System.Drawing.Point(0, 538);
+			this._bottomPanel.Location = new System.Drawing.Point(0, 520);
 			this._bottomPanel.Name = "_bottomPanel";
-			this._bottomPanel.Size = new System.Drawing.Size(967, 50);
+			this._bottomPanel.Size = new System.Drawing.Size(1129, 90);
 			this._bottomPanel.TabIndex = 1;
+			// 
+			// groupBox3
+			// 
+			this.groupBox3.Controls.Add(this._centerUnitButton);
+			this.groupBox3.Controls.Add(this.label3);
+			this.groupBox3.Controls.Add(this._angleField);
+			this.groupBox3.Controls.Add(this.label2);
+			this.groupBox3.Controls.Add(this._zoomField);
+			this.groupBox3.Location = new System.Drawing.Point(3, 3);
+			this.groupBox3.Name = "groupBox3";
+			this.groupBox3.Size = new System.Drawing.Size(567, 46);
+			this.groupBox3.TabIndex = 1;
+			this.groupBox3.TabStop = false;
+			this.groupBox3.Text = "Rendering";
+			// 
+			// _centerUnitButton
+			// 
+			this._centerUnitButton.Location = new System.Drawing.Point(197, 17);
+			this._centerUnitButton.Name = "_centerUnitButton";
+			this._centerUnitButton.Size = new System.Drawing.Size(139, 23);
+			this._centerUnitButton.TabIndex = 4;
+			this._centerUnitButton.Text = "Auf Einheit zentrieren";
+			this._centerUnitButton.UseVisualStyleBackColor = true;
+			this._centerUnitButton.Click += new System.EventHandler(this._centerUnitButton_Click);
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(102, 22);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(40, 13);
+			this.label3.TabIndex = 3;
+			this.label3.Text = "Achse:";
+			// 
+			// _angleField
+			// 
+			this._angleField.Location = new System.Drawing.Point(148, 19);
+			this._angleField.Maximum = new decimal(new int[] {
+            17,
+            0,
+            0,
+            0});
+			this._angleField.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+			this._angleField.Name = "_angleField";
+			this._angleField.Size = new System.Drawing.Size(43, 20);
+			this._angleField.TabIndex = 2;
+			this._angleField.ValueChanged += new System.EventHandler(this._angleField_ValueChanged);
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(10, 22);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(37, 13);
+			this.label2.TabIndex = 1;
+			this.label2.Text = "Zoom:";
+			// 
+			// _zoomField
+			// 
+			this._zoomField.DecimalPlaces = 1;
+			this._zoomField.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+			this._zoomField.Location = new System.Drawing.Point(53, 19);
+			this._zoomField.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+			this._zoomField.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+			this._zoomField.Name = "_zoomField";
+			this._zoomField.Size = new System.Drawing.Size(43, 20);
+			this._zoomField.TabIndex = 0;
+			this._zoomField.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this._zoomField.ValueChanged += new System.EventHandler(this._zoomField_ValueChanged);
 			// 
 			// _closeButton
 			// 
 			this._closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this._closeButton.Location = new System.Drawing.Point(792, 15);
+			this._closeButton.Location = new System.Drawing.Point(954, 55);
 			this._closeButton.Name = "_closeButton";
 			this._closeButton.Size = new System.Drawing.Size(163, 23);
 			this._closeButton.TabIndex = 0;
@@ -90,10 +196,13 @@
 			this._drawPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this._drawPanel.Location = new System.Drawing.Point(0, 100);
 			this._drawPanel.Name = "_drawPanel";
-			this._drawPanel.Size = new System.Drawing.Size(967, 438);
+			this._drawPanel.Size = new System.Drawing.Size(1129, 420);
 			this._drawPanel.TabIndex = 2;
 			this._drawPanel.VSync = false;
 			this._drawPanel.Paint += new System.Windows.Forms.PaintEventHandler(this._drawPanel_Paint);
+			this._drawPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this._drawPanel_MouseDown);
+			this._drawPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this._drawPanel_MouseMove);
+			this._drawPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this._drawPanel_MouseUp);
 			this._drawPanel.Resize += new System.EventHandler(this._drawPanel_Resize);
 			// 
 			// _topPanel
@@ -109,8 +218,22 @@
 			this._topPanel.Dock = System.Windows.Forms.DockStyle.Top;
 			this._topPanel.Location = new System.Drawing.Point(0, 0);
 			this._topPanel.Name = "_topPanel";
-			this._topPanel.Size = new System.Drawing.Size(967, 100);
+			this._topPanel.Size = new System.Drawing.Size(1129, 100);
 			this._topPanel.TabIndex = 2;
+			// 
+			// _stopButton
+			// 
+			this._stopButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this._stopButton.Enabled = false;
+			this._stopButton.FlatAppearance.BorderSize = 0;
+			this._stopButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this._stopButton.Image = global::TechTreeEditor.Icons.RenderStop;
+			this._stopButton.Location = new System.Drawing.Point(1083, 12);
+			this._stopButton.Name = "_stopButton";
+			this._stopButton.Size = new System.Drawing.Size(32, 32);
+			this._stopButton.TabIndex = 22;
+			this._stopButton.UseVisualStyleBackColor = true;
+			this._stopButton.Click += new System.EventHandler(this._stopButton_Click);
 			// 
 			// _playButton
 			// 
@@ -119,7 +242,7 @@
 			this._playButton.FlatAppearance.BorderSize = 0;
 			this._playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this._playButton.Image = global::TechTreeEditor.Icons.RenderStart;
-			this._playButton.Location = new System.Drawing.Point(881, 12);
+			this._playButton.Location = new System.Drawing.Point(1043, 12);
 			this._playButton.Name = "_playButton";
 			this._playButton.Size = new System.Drawing.Size(32, 32);
 			this._playButton.TabIndex = 8;
@@ -133,15 +256,12 @@
 			this.groupBox2.Controls.Add(this._speedFastButton);
 			this.groupBox2.Controls.Add(this._speedNormalButton);
 			this.groupBox2.Controls.Add(this._speedSlowButton);
-			this.groupBox2.Controls.Add(this.label3);
-			this.groupBox2.Controls.Add(this.label2);
-			this.groupBox2.Controls.Add(this._zoomField);
 			this.groupBox2.Location = new System.Drawing.Point(320, 38);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(518, 51);
+			this.groupBox2.Size = new System.Drawing.Size(333, 51);
 			this.groupBox2.TabIndex = 21;
 			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "Rendering";
+			this.groupBox2.Text = "Animation";
 			// 
 			// _speedCustomField
 			// 
@@ -152,7 +272,7 @@
             0,
             0,
             131072});
-			this._speedCustomField.Location = new System.Drawing.Point(468, 21);
+			this._speedCustomField.Location = new System.Drawing.Point(282, 21);
 			this._speedCustomField.Maximum = new decimal(new int[] {
             5,
             0,
@@ -176,7 +296,7 @@
 			// _speedCustomButton
 			// 
 			this._speedCustomButton.AutoSize = true;
-			this._speedCustomButton.Location = new System.Drawing.Point(397, 22);
+			this._speedCustomButton.Location = new System.Drawing.Point(211, 22);
 			this._speedCustomButton.Name = "_speedCustomButton";
 			this._speedCustomButton.Size = new System.Drawing.Size(65, 17);
 			this._speedCustomButton.TabIndex = 6;
@@ -187,7 +307,7 @@
 			// _speedFastButton
 			// 
 			this._speedFastButton.AutoSize = true;
-			this._speedFastButton.Location = new System.Drawing.Point(331, 22);
+			this._speedFastButton.Location = new System.Drawing.Point(145, 22);
 			this._speedFastButton.Name = "_speedFastButton";
 			this._speedFastButton.Size = new System.Drawing.Size(60, 17);
 			this._speedFastButton.TabIndex = 5;
@@ -198,7 +318,7 @@
 			// _speedNormalButton
 			// 
 			this._speedNormalButton.AutoSize = true;
-			this._speedNormalButton.Location = new System.Drawing.Point(266, 22);
+			this._speedNormalButton.Location = new System.Drawing.Point(80, 22);
 			this._speedNormalButton.Name = "_speedNormalButton";
 			this._speedNormalButton.Size = new System.Drawing.Size(58, 17);
 			this._speedNormalButton.TabIndex = 4;
@@ -210,7 +330,7 @@
 			// 
 			this._speedSlowButton.AutoSize = true;
 			this._speedSlowButton.Checked = true;
-			this._speedSlowButton.Location = new System.Drawing.Point(192, 22);
+			this._speedSlowButton.Location = new System.Drawing.Point(6, 22);
 			this._speedSlowButton.Name = "_speedSlowButton";
 			this._speedSlowButton.Size = new System.Drawing.Size(68, 17);
 			this._speedSlowButton.TabIndex = 3;
@@ -218,53 +338,6 @@
 			this._speedSlowButton.Text = "Langsam";
 			this._speedSlowButton.UseVisualStyleBackColor = true;
 			this._speedSlowButton.CheckedChanged += new System.EventHandler(this._speedSlowButton_CheckedChanged);
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(98, 24);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(88, 13);
-			this.label3.TabIndex = 2;
-			this.label3.Text = "Geschwindigkeit:";
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(6, 24);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(37, 13);
-			this.label2.TabIndex = 1;
-			this.label2.Text = "Zoom:";
-			// 
-			// _zoomField
-			// 
-			this._zoomField.DecimalPlaces = 1;
-			this._zoomField.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-			this._zoomField.Location = new System.Drawing.Point(49, 21);
-			this._zoomField.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-			this._zoomField.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-			this._zoomField.Name = "_zoomField";
-			this._zoomField.Size = new System.Drawing.Size(43, 20);
-			this._zoomField.TabIndex = 0;
-			this._zoomField.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this._zoomField.ValueChanged += new System.EventHandler(this._zoomField_ValueChanged);
 			// 
 			// groupBox1
 			// 
@@ -371,45 +444,158 @@
 			this._openGraphicsDRSDialog.Filter = "DRS-Dateien (*.drs)|*.drs";
 			this._openGraphicsDRSDialog.Title = "Graphics-DRS-Datei öffnen...";
 			// 
-			// _stopButton
-			// 
-			this._stopButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this._stopButton.Enabled = false;
-			this._stopButton.FlatAppearance.BorderSize = 0;
-			this._stopButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this._stopButton.Image = global::TechTreeEditor.Icons.RenderStop;
-			this._stopButton.Location = new System.Drawing.Point(921, 12);
-			this._stopButton.Name = "_stopButton";
-			this._stopButton.Size = new System.Drawing.Size(32, 32);
-			this._stopButton.TabIndex = 22;
-			this._stopButton.UseVisualStyleBackColor = true;
-			this._stopButton.Click += new System.EventHandler(this._stopButton_Click);
-			// 
 			// _renderTimer
 			// 
 			this._renderTimer.Tick += new System.EventHandler(this._renderTimer_Tick);
+			// 
+			// groupBox4
+			// 
+			this.groupBox4.Controls.Add(this._radiusCustom2Field);
+			this.groupBox4.Controls.Add(this._radiusCustom1Field);
+			this.groupBox4.Controls.Add(this._radiusCustomCheckBox);
+			this.groupBox4.Controls.Add(this._radiusSelectionCheckBox);
+			this.groupBox4.Controls.Add(this._radiusEditorCheckBox);
+			this.groupBox4.Controls.Add(this._radiusSizeCheckBox);
+			this.groupBox4.Location = new System.Drawing.Point(576, 3);
+			this.groupBox4.Name = "groupBox4";
+			this.groupBox4.Size = new System.Drawing.Size(366, 45);
+			this.groupBox4.TabIndex = 2;
+			this.groupBox4.TabStop = false;
+			this.groupBox4.Text = "Grenzen";
+			// 
+			// _radiusSizeCheckBox
+			// 
+			this._radiusSizeCheckBox.AutoSize = true;
+			this._radiusSizeCheckBox.Location = new System.Drawing.Point(6, 21);
+			this._radiusSizeCheckBox.Name = "_radiusSizeCheckBox";
+			this._radiusSizeCheckBox.Size = new System.Drawing.Size(55, 17);
+			this._radiusSizeCheckBox.TabIndex = 0;
+			this._radiusSizeCheckBox.Text = "Größe";
+			this._radiusSizeCheckBox.UseVisualStyleBackColor = true;
+			this._radiusSizeCheckBox.CheckedChanged += new System.EventHandler(this._radiusSizeCheckBox_CheckedChanged);
+			// 
+			// _radiusEditorCheckBox
+			// 
+			this._radiusEditorCheckBox.AutoSize = true;
+			this._radiusEditorCheckBox.Location = new System.Drawing.Point(67, 21);
+			this._radiusEditorCheckBox.Name = "_radiusEditorCheckBox";
+			this._radiusEditorCheckBox.Size = new System.Drawing.Size(53, 17);
+			this._radiusEditorCheckBox.TabIndex = 1;
+			this._radiusEditorCheckBox.Text = "Editor";
+			this._radiusEditorCheckBox.UseVisualStyleBackColor = true;
+			this._radiusEditorCheckBox.CheckedChanged += new System.EventHandler(this._radiusEditorCheckBox_CheckedChanged);
+			// 
+			// _radiusSelectionCheckBox
+			// 
+			this._radiusSelectionCheckBox.AutoSize = true;
+			this._radiusSelectionCheckBox.Location = new System.Drawing.Point(126, 21);
+			this._radiusSelectionCheckBox.Name = "_radiusSelectionCheckBox";
+			this._radiusSelectionCheckBox.Size = new System.Drawing.Size(66, 17);
+			this._radiusSelectionCheckBox.TabIndex = 2;
+			this._radiusSelectionCheckBox.Text = "Auswahl";
+			this._radiusSelectionCheckBox.UseVisualStyleBackColor = true;
+			this._radiusSelectionCheckBox.CheckedChanged += new System.EventHandler(this._radiusSelectionCheckBox_CheckedChanged);
+			// 
+			// _radiusCustomCheckBox
+			// 
+			this._radiusCustomCheckBox.AutoSize = true;
+			this._radiusCustomCheckBox.Location = new System.Drawing.Point(198, 20);
+			this._radiusCustomCheckBox.Name = "_radiusCustomCheckBox";
+			this._radiusCustomCheckBox.Size = new System.Drawing.Size(66, 17);
+			this._radiusCustomCheckBox.TabIndex = 3;
+			this._radiusCustomCheckBox.Text = "Manuell:";
+			this._radiusCustomCheckBox.UseVisualStyleBackColor = true;
+			this._radiusCustomCheckBox.CheckedChanged += new System.EventHandler(this._radiusCustomCheckBox_CheckedChanged);
+			// 
+			// _radiusCustom1Field
+			// 
+			this._radiusCustom1Field.DecimalPlaces = 2;
+			this._radiusCustom1Field.Enabled = false;
+			this._radiusCustom1Field.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+			this._radiusCustom1Field.Location = new System.Drawing.Point(270, 19);
+			this._radiusCustom1Field.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+			this._radiusCustom1Field.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+			this._radiusCustom1Field.Name = "_radiusCustom1Field";
+			this._radiusCustom1Field.Size = new System.Drawing.Size(43, 20);
+			this._radiusCustom1Field.TabIndex = 8;
+			this._radiusCustom1Field.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this._radiusCustom1Field.ValueChanged += new System.EventHandler(this._radiusCustom1Field_ValueChanged);
+			// 
+			// _radiusCustom2Field
+			// 
+			this._radiusCustom2Field.DecimalPlaces = 2;
+			this._radiusCustom2Field.Enabled = false;
+			this._radiusCustom2Field.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+			this._radiusCustom2Field.Location = new System.Drawing.Point(319, 19);
+			this._radiusCustom2Field.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+			this._radiusCustom2Field.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+			this._radiusCustom2Field.Name = "_radiusCustom2Field";
+			this._radiusCustom2Field.Size = new System.Drawing.Size(43, 20);
+			this._radiusCustom2Field.TabIndex = 9;
+			this._radiusCustom2Field.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this._radiusCustom2Field.ValueChanged += new System.EventHandler(this._radiusCustom2Field_ValueChanged);
 			// 
 			// UnitRenderForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(967, 588);
+			this.ClientSize = new System.Drawing.Size(1129, 610);
 			this.Controls.Add(this._drawPanel);
 			this.Controls.Add(this._topPanel);
 			this.Controls.Add(this._bottomPanel);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "UnitRenderForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
 			this.Text = "UnitRenderForm";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UnitRenderForm_FormClosing);
 			this.Load += new System.EventHandler(this.UnitRenderForm_Load);
 			this._bottomPanel.ResumeLayout(false);
+			this.groupBox3.ResumeLayout(false);
+			this.groupBox3.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this._angleField)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this._zoomField)).EndInit();
 			this._topPanel.ResumeLayout(false);
 			this._topPanel.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this._speedCustomField)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this._zoomField)).EndInit();
 			this.groupBox1.ResumeLayout(false);
+			this.groupBox4.ResumeLayout(false);
+			this.groupBox4.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this._radiusCustom1Field)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this._radiusCustom2Field)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -435,11 +621,21 @@
 		private System.Windows.Forms.RadioButton _speedFastButton;
 		private System.Windows.Forms.RadioButton _speedNormalButton;
 		private System.Windows.Forms.RadioButton _speedSlowButton;
-		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.NumericUpDown _speedCustomField;
 		private System.Windows.Forms.RadioButton _speedCustomButton;
 		private System.Windows.Forms.Button _playButton;
 		private System.Windows.Forms.Button _stopButton;
 		private System.Windows.Forms.Timer _renderTimer;
+		private System.Windows.Forms.GroupBox groupBox3;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.NumericUpDown _angleField;
+		private System.Windows.Forms.Button _centerUnitButton;
+		private System.Windows.Forms.GroupBox groupBox4;
+		private System.Windows.Forms.CheckBox _radiusCustomCheckBox;
+		private System.Windows.Forms.CheckBox _radiusSelectionCheckBox;
+		private System.Windows.Forms.CheckBox _radiusEditorCheckBox;
+		private System.Windows.Forms.CheckBox _radiusSizeCheckBox;
+		private System.Windows.Forms.NumericUpDown _radiusCustom1Field;
+		private System.Windows.Forms.NumericUpDown _radiusCustom2Field;
 	}
 }

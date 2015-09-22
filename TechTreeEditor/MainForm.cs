@@ -89,6 +89,11 @@ namespace TechTreeEditor
 		private UnitRenderForm _unitRenderForm = null;
 
 		/// <summary>
+		/// Das Grafik-Bearbeitungs-Fenster.
+		/// </summary>
+		private EditGraphicsForm _editGraphicsForm = null;
+
+		/// <summary>
 		/// Die allgemeinen Steuerbuttons der Kultur-Kopier-Leiste für Aktivitäten wie "alle markieren".
 		/// </summary>
 		private ToolStripButton[] _civCopyBarDefaultButtons;
@@ -107,8 +112,13 @@ namespace TechTreeEditor
 
 			// ToolBar-Einstellungen laden
 			//#if !DEBUG
-			//ToolStripManager.LoadSettings(this, "ToolBarSettings");
+			ToolStripManager.LoadSettings(this, "ToolBarSettings");
 			//#endif
+
+			// Sonstige Einstellungen laden
+			Location = Properties.Settings.Default.MainFormLocation;
+			Size = Properties.Settings.Default.MainFormSize;
+			WindowState = Properties.Settings.Default.MainFormWindowState;
 
 			// Kultur-Kopier-Leisten-Renderer setzen
 			_civCopyBar.Renderer = new CivCopyButtonRenderer();
@@ -1127,6 +1137,12 @@ namespace TechTreeEditor
 
 			// ToolBar-Einstellungen speichern
 			ToolStripManager.SaveSettings(this, "ToolBarSettings");
+
+			// Anwendungseinstellungen speichern
+			Properties.Settings.Default.MainFormLocation = Location;
+			Properties.Settings.Default.MainFormWindowState = WindowState;
+			Properties.Settings.Default.MainFormSize = Size;
+			Properties.Settings.Default.Save();
 		}
 
 		private void _editorModeButton_CheckedChanged(object sender, EventArgs e)
@@ -1675,9 +1691,14 @@ namespace TechTreeEditor
 
 		private void _editGraphicsButton_Click(object sender, EventArgs e)
 		{
-			// Dialog anzeigen
-			EditGraphicsForm graphicDialog = new EditGraphicsForm(_projectFile);
-			graphicDialog.ShowDialog();
+			// Grafik-Fenster erstellen
+			_editGraphicsForm = new EditGraphicsForm(_projectFile);
+			_editGraphicsForm.FormClosed += (sender2, e2) =>
+			{
+				// Variable löschen und Objekt damit freigeben
+				_editGraphicsForm = null;
+			};
+			_editGraphicsForm.Show();
 		}
 
 		private void _copyMenuButton_Click(object sender, EventArgs e)
@@ -1771,12 +1792,12 @@ namespace TechTreeEditor
 
 		private void _showUnitInRendererMenuButton_Click(object sender, EventArgs e)
 		{
-			// Gegebenenfalls Fenster anzeigen
-			_unitRendererMenuButton_Click(sender, e);
-			
 			// Kontextmenü ausblenden
 			_techTreeElementContextMenu.AutoClose = true;
 			_techTreeElementContextMenu.Hide();
+
+			// Gegebenenfalls Fenster anzeigen
+			_unitRendererMenuButton_Click(sender, e);
 
 			// Markierte Einheit übergeben
 			if(_selectedElement != null && _selectedElement is TechTreeUnit)

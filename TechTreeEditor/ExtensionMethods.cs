@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Xml;
 
@@ -134,6 +135,20 @@ namespace TechTreeEditor
 
 			// Leeren Wert zurückgeben
 			return default(T);
+		}
+
+		/// <summary>
+		/// Verschiebt das Element am angegebenen Index in der Liste an deren Ende.
+		/// </summary>
+		/// <typeparam name="T">Der Typ der Listenelemente.</typeparam>
+		/// <param name="list">Die Liste.</param>
+		/// <param name="index">Der Index des nach hinten zu verschiebenden Elements.</param>
+		public static void MoveToEnd<T>(this List<T> list, int index)
+		{
+			// Element entfernen und vorn wieder einfügen
+			T elem = list[index];
+			list.RemoveAt(index);
+			list.Add(elem);
 		}
 	}
 }

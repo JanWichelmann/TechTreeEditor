@@ -49,6 +49,11 @@ namespace TechTreeEditor
 		{
 			// Steuerelemente laden
 			InitializeComponent();
+
+			// Steuerelement-Einstellungen laden
+			Location = Properties.Settings.Default.EditGraphicsFormLocation;
+			Size = Properties.Settings.Default.EditGraphicsFormSize;
+			WindowState = Properties.Settings.Default.EditGraphicsFormWindowState;
 		}
 
 		/// <summary>
@@ -147,6 +152,11 @@ namespace TechTreeEditor
 
 		private void EditGraphicsForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
+			// Steuerelement-Einstellungen merken
+			Properties.Settings.Default.EditGraphicsFormLocation = Location;
+			Properties.Settings.Default.EditGraphicsFormWindowState = WindowState;
+			Properties.Settings.Default.EditGraphicsFormSize = Size;
+
 			// Gespeichert?
 			if(!_saved)
 			{

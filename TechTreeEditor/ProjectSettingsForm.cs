@@ -71,6 +71,16 @@ namespace TechTreeEditor
 			}
 		}
 
+		private void _graphicsDRSButton_Click(object sender, EventArgs e)
+		{
+			// Dialog anzeigen
+			if(_openGraphicsDRSDialog.ShowDialog() == DialogResult.OK)
+			{
+				// Dateinamen aktualisieren
+				_graphicsDRSTextBox.Text = _openGraphicsDRSDialog.FileName;
+			}
+		}
+
 		private void _okButton_Click(object sender, EventArgs e)
 		{
 			// Dateipfade aktualisieren
@@ -81,6 +91,9 @@ namespace TechTreeEditor
 
 			// Interfac-DRS-Pfad merken
 			_projectFile.InterfacDRSPath = _interfacDRSTextBox.Text;
+
+			// Graphics-DRS-Pfad merken
+			_projectFile.GraphicsDRSPath = _graphicsDRSTextBox.Text;
 
 			// Fertig
 			DialogResult = DialogResult.OK;
