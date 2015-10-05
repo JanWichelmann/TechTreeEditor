@@ -404,52 +404,6 @@ namespace TechTreeEditor
 					}
 				}
 
-				// Den sonstigen Einheiten etwaige Untereinheiten zuweisen
-				Dictionary<int, TechTreeUnit> otherUnitsLookup = otherUnits.ToDictionary(elem => elem.ID);
-				foreach(var currUnit in otherUnits)
-				{
-					// Nur Projektile interessant
-					if(currUnit.Type == "TechTreeProjectile")
-					{
-						// Tracking-Einheit vorhanden?
-						TechTreeEyeCandy trackingUnitElement = null;
-						if(currUnit.DATUnit.DeadFish.TrackingUnit >= 0)
-						{
-							// Einheit bereits geladen?
-							if(otherUnitsLookup.ContainsKey(currUnit.DATUnit.DeadFish.TrackingUnit))
-								trackingUnitElement = (TechTreeEyeCandy)otherUnitsLookup[currUnit.DATUnit.DeadFish.TrackingUnit];
-							else
-							{
-								// Einheit erstellen
-								if(remainingUnits.ContainsKey(currUnit.DATUnit.DeadFish.TrackingUnit))
-								{
-									// Einheit abrufen
-									GenieLibrary.DataElements.Civ.Unit trackUnit = remainingUnits[currUnit.DATUnit.DeadFish.TrackingUnit];
-
-									// Element erstellen
-									trackingUnitElement = new TechTreeEyeCandy()
-									{
-										ID = trackUnit.ID1,
-										DATUnit = trackUnit
-									};
-
-									// Einheit speichern
-									otherUnitsLookup.Add(trackingUnitElement.ID, trackingUnitElement);
-
-									// Einheit als gelöscht markieren
-									remainingUnits[currUnit.DATUnit.DeadFish.TrackingUnit] = null;
-								}
-							}
-
-							// Einheit zuweisen
-							((TechTreeProjectile)currUnit).TrackingUnit = trackingUnitElement;
-						}
-					}
-				}
-
-				// Liste aufräumen
-				remainingUnits = remainingUnits.Where(un => un.Value != null).ToDictionary(un => un.Key, un => un.Value);
-
 				// Als Elternelemente kommen nun die aktuell in der Gebäude-Liste befindlichen Objekte infrage, die keine Schattenelemente sind
 				List<TechTreeBuilding> parentBuildings = buildings.Where(b => !b.ShadowElement).ToList();
 
@@ -631,7 +585,7 @@ namespace TechTreeEditor
 							else if(researches.ContainsKey(depID) && !researches[depID].Successors.Contains(currRes.Value))
 							{
 								// Abhängigkeit zuweisen
-								currRes.Value.Dependencies.Add(researches[depID]);
+								currRes.Value.Dependencies.Add(researches[depID], -1);
 							}
 
 							// Gebäude-Abhängigkeit?
@@ -752,24 +706,119 @@ namespace TechTreeEditor
 									// Kombination in Upgrade-Liste schreiben
 									unitUpgradeEffects.Add(new Tuple<int, int, TechTreeResearch>(baseUnitRes.Value.Item1.ID, upgrUnitRes.Value.Item1.ID, currRes.Value));
 								}
+								else
+								{
+									// Einheiten in verbliebenen Einheiten suchen, vermutlich Projektil
+									TechTreeUnit baseUnitOther = otherUnits.FirstOrDefault(u => u.ID == effect.A);
+									TechTreeUnit upgrUnitOther = otherUnits.FirstOrDefault(u => u.ID == effect.B);
+
+									// Existiert die Basiseinheit?
+									if(baseUnitOther != null)
+									{
+										// Ggf. Zieleinheit erstmal erstellen
+										if(upgrUnitOther == null)
+										{
+											// Einheit bei noch nicht geladenen Einheiten suchen
+											if(remainingUnits.ContainsKey(effect.B) && remainingUnits[effect.B].Type == GenieLibrary.DataElements.Civ.Unit.UnitType.Projectile)
+											{
+												// Einheit abrufen
+												GenieLibrary.DataElements.Civ.Unit projUnit = remainingUnits[effect.B];
+
+												// Element erstellen
+												upgrUnitOther = new TechTreeProjectile()
+												{
+													ID = projUnit.ID1,
+													DATUnit = projUnit
+												};
+
+												// Einheit speichern
+												otherUnits.Add(upgrUnitOther);
+
+												// Einheit als gelöscht markieren
+												remainingUnits[effect.B] = null;
+											}
+										}
+
+										// Passende Zieleinheit gefunden?
+										if(upgrUnitOther != null)
+										{
+											// Kombination in Upgrade-Liste schreiben
+											unitUpgradeEffects.Add(new Tuple<int, int, TechTreeResearch>(baseUnitOther.ID, upgrUnitOther.ID, currRes.Value));
+										}
+									}
+								}
 							}
 						}
 					}
 				}
+
+				// Den sonstigen Einheiten etwaige Untereinheiten zuweisen
+				Dictionary<int, TechTreeUnit> otherUnitsLookup = otherUnits.ToDictionary(elem => elem.ID);
+				foreach(var currUnit in otherUnits)
+				{
+					// Nur Projektile interessant
+					if(currUnit.Type == "TechTreeProjectile")
+					{
+						// Tracking-Einheit vorhanden?
+						TechTreeEyeCandy trackingUnitElement = null;
+						if(currUnit.DATUnit.DeadFish.TrackingUnit >= 0)
+						{
+							// Einheit bereits geladen?
+							if(otherUnitsLookup.ContainsKey(currUnit.DATUnit.DeadFish.TrackingUnit))
+								trackingUnitElement = (TechTreeEyeCandy)otherUnitsLookup[currUnit.DATUnit.DeadFish.TrackingUnit];
+							else
+							{
+								// Einheit erstellen
+								if(remainingUnits.ContainsKey(currUnit.DATUnit.DeadFish.TrackingUnit))
+								{
+									// Einheit abrufen
+									GenieLibrary.DataElements.Civ.Unit trackUnit = remainingUnits[currUnit.DATUnit.DeadFish.TrackingUnit];
+
+									// Element erstellen
+									trackingUnitElement = new TechTreeEyeCandy()
+									{
+										ID = trackUnit.ID1,
+										DATUnit = trackUnit
+									};
+
+									// Einheit speichern
+									otherUnitsLookup.Add(trackingUnitElement.ID, trackingUnitElement);
+
+									// Einheit als gelöscht markieren
+									remainingUnits[currUnit.DATUnit.DeadFish.TrackingUnit] = null;
+								}
+							}
+
+							// Einheit zuweisen
+							((TechTreeProjectile)currUnit).TrackingUnit = trackingUnitElement;
+						}
+					}
+				}
+
+				// Liste aufräumen
+				remainingUnits = remainingUnits.Where(un => un.Value != null).ToDictionary(un => un.Key, un => un.Value);
 
 				// Einheiten-Upgrade-Ketten auflösen
 				List<Tuple<int, int, TechTreeResearch>> unitUpgradeEffectsCopy = new List<Tuple<int, int, TechTreeResearch>>(unitUpgradeEffects);
 				foreach(int baseUnitID in unitUpgradeEffects.Where(u1 => !unitUpgradeEffects.Exists(u2 => u2.Item2 == u1.Item1)).Select(elem => elem.Item1).Distinct())
 				{
 					// Einheit abrufen
-					TechTreeCreatable baseUnit = SortUnitUpgrades(unitUpgradeEffectsCopy, baseUnitID, assignableUnits);
+					TechTreeUnit baseUnit = SortUnitUpgrades(unitUpgradeEffectsCopy, baseUnitID, assignableUnits, otherUnitsLookup);
 
-					// Zeitalter der Einheit ist bis auf Weiteres dasselbe wie das des Elterngebäudes
-					baseUnit.Age = assignableUnits[baseUnitID].Item2.Age;
+					// Ggf. Elterngebäude zuweisen
+					if(baseUnit is TechTreeCreatable)
+					{
+						// Zeitalter der Einheit ist bis auf Weiteres dasselbe wie das des Elterngebäudes
+						baseUnit.Age = assignableUnits[baseUnitID].Item2.Age;
 
-					// Einheit ihrem Gebäude zuweisen
-					assignableUnits[baseUnitID].Item2.Children.Add(new Tuple<byte, TechTreeElement>(baseUnit.DATUnit.Creatable.ButtonID, baseUnit));
+						// Einheit ihrem Gebäude zuweisen
+						assignableUnits[baseUnitID].Item2.Children.Add(new Tuple<byte, TechTreeElement>(baseUnit.DATUnit.Creatable.ButtonID, baseUnit));
+					}
 				}
+
+				// Alle sonstigen Einheiten aus der Liste, die Upgrades sind => diese sollen keine Elternelemente werden
+				foreach(int upgrID in unitUpgradeEffects.Where(uue => otherUnitsLookup.ContainsKey(uue.Item2)).Select(uue => uue.Item2))
+					otherUnitsLookup.Remove(upgrID);
 
 				// Freischalt-Technologie-Abhängigkeiten bestimmen
 				foreach(var currRes in researches)
@@ -1433,11 +1482,16 @@ namespace TechTreeEditor
 		/// </summary>
 		/// <param name="upgrades">Die Upgrade-Paare.</param>
 		/// <param name="currBaseUnitID">Die ID der aktuellen "Stamm-Einheit". Das ist die Einheit, die im aktuellen Durchlauf keine Vorgänger hat.</param>
-		/// <param name="unitData">Die Liste, die den Einheiten-IDs die Einheiten-Objekte zuordnet.</param>
-		private TechTreeCreatable SortUnitUpgrades(List<Tuple<int, int, TechTreeResearch>> upgrades, int currBaseUnitID, Dictionary<int, Tuple<TechTreeCreatable, TechTreeBuilding>> unitData)
+		/// <param name="defaultUnits">Die Liste, die Standard-Einheiten ihren IDs zuordnet.</param>
+		/// <param name="otherUnits">Die Liste, die sonstige Einheiten ihren IDs zuordnet.</param>
+		private TechTreeUnit SortUnitUpgrades(List<Tuple<int, int, TechTreeResearch>> upgrades, int currBaseUnitID, Dictionary<int, Tuple<TechTreeCreatable, TechTreeBuilding>> defaultUnits, Dictionary<int, TechTreeUnit> otherUnits)
 		{
 			// Die aktuelle Stamm-Einheit abrufen
-			TechTreeCreatable baseUnit = unitData[currBaseUnitID].Item1;
+			IUpgradeable baseUnit = null;
+			if(defaultUnits.ContainsKey(currBaseUnitID))
+				baseUnit = defaultUnits[currBaseUnitID].Item1;
+			else if(otherUnits[currBaseUnitID] is IUpgradeable)
+				baseUnit = (IUpgradeable)otherUnits[currBaseUnitID];
 
 			// Nachfolgeeinheiten bestimmen und alle Einträge mit der aktuellen Basiseinheit entfernen
 			List<Tuple<int, TechTreeResearch>> children = new List<Tuple<int, TechTreeResearch>>();
@@ -1459,17 +1513,17 @@ namespace TechTreeEditor
 			{
 				// Rekursiver Aufruf, das Kind ist das nächste Stammelement
 				// Es wird immer nur das erste Kind genommen, mehrere Nachfolger werden bis auf weiteres nicht zugelassen
-				baseUnit.Successor = SortUnitUpgrades(upgrades, children[0].Item1, unitData);
+				baseUnit.Successor = SortUnitUpgrades(upgrades, children[0].Item1, defaultUnits, otherUnits);
 
 				// Technologie zuweisen
 				baseUnit.SuccessorResearch = children[0].Item2;
 
 				// Zeitalter der Nachfolgeeinheit ist das Zeitalter der entwickelnden Technologie
-				baseUnit.Successor.Age = children[0].Item2.Age;
+				baseUnit.Successor.Age = Math.Max(((TechTreeUnit)baseUnit).Age, children[0].Item2.Age);
 			}
 
 			// Stammeinheit zurückgeben
-			return baseUnit;
+			return (TechTreeUnit)baseUnit;
 		}
 
 		#endregion Hilfsfunktionen für die Baumerstellung

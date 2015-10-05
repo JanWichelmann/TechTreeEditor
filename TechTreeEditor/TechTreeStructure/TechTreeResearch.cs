@@ -17,9 +17,9 @@ namespace TechTreeEditor.TechTreeStructure
 		#region Variablen
 
 		/// <summary>
-		/// Die Technologie-Abhängigkeiten dieses Elements.
+		/// Die Technologie-Abhängigkeiten dieses Elements. Die Zahl gibt an, wie viele Abhängigkeiten *zusätzlich* erfüllt sein müssen. -1 steht für alle Abhängigkeiten.
 		/// </summary>
-		public List<TechTreeResearch> Dependencies { get; private set; }
+		public Dictionary<TechTreeResearch, int> Dependencies { get; private set; }
 
 		/// <summary>
 		/// Die Technologien, die an demselben (Button-)Slot wie diese Technologie liegen und direkt von ihr abhängig sind.
@@ -48,7 +48,7 @@ namespace TechTreeEditor.TechTreeStructure
 			: base()
 		{
 			// Objekte erstellen
-			Dependencies = new List<TechTreeResearch>();
+			Dependencies = new Dictionary<TechTreeResearch, int>();
 			Successors = new List<TechTreeResearch>();
 			Effects = new List<TechEffect>();
 
@@ -137,8 +137,8 @@ namespace TechTreeEditor.TechTreeStructure
 		public override void DrawDependencies()
 		{
 			// Linie zu jedem Element zeichnen
-			foreach(TechTreeResearch dep in Dependencies)
-				RenderControl.DrawLine(this, dep, Color.Red, true);
+			foreach(var dep in Dependencies)
+				RenderControl.DrawLine(this, dep.Key, Color.Red, true);
 			foreach(var dep in BuildingDependencies)
 				RenderControl.DrawLine(this, dep.Key, Color.Blue, true);
 		}
@@ -230,13 +230,13 @@ namespace TechTreeEditor.TechTreeStructure
 			});
 
 			// Abhängigkeits-IDs abrufen
-			List<int> dependencyIDs = new List<int>();
-			Dependencies.ForEach(d =>
+			List<KeyValuePair<int, int>> depIDs = new List<KeyValuePair<int, int>>();
+			foreach(var d in Dependencies)
 			{
-				if(!elementIDs.ContainsKey(d))
-					lastID = d.ToXml(writer, elementIDs, lastID);
-				dependencyIDs.Add(elementIDs[d]);
-			});
+				if(!elementIDs.ContainsKey(d.Key))
+					lastID = d.Key.ToXml(writer, elementIDs, lastID);
+				depIDs.Add(new KeyValuePair<int, int>(elementIDs[d.Key], d.Value));
+			}
 
 			// Gebäude-Abhängigkeits-IDs abrufen
 			List<KeyValuePair<int, int>> buildingDepIDs = new List<KeyValuePair<int, int>>();
@@ -284,7 +284,14 @@ namespace TechTreeEditor.TechTreeStructure
 				// Abhängigkeiten schreiben
 				writer.WriteStartElement("dependencies");
 				{
-					dependencyIDs.ForEach(d => writer.WriteElementNumber("dependency", d));
+					depIDs.ForEach(d =>
+					{
+						// Abhängigkeitsanzahl und Abhängigkeits-ID schreiben
+						writer.WriteStartElement("dependency");
+						writer.WriteAttributeNumber("depcount", d.Value);
+						writer.WriteNumber(d.Key);
+						writer.WriteEndElement();
+					});
 				}
 				writer.WriteEndElement();
 				writer.WriteStartElement("buildingdependencies");
@@ -331,9 +338,9 @@ namespace TechTreeEditor.TechTreeStructure
 				Successors.Add((TechTreeResearch)previousElements[(int)succ]);
 
 			// Abhängigkeiten einlesen
-			Dependencies = new List<TechTreeResearch>();
+			Dependencies = new Dictionary<TechTreeResearch, int>();
 			foreach(XElement dep in element.Element("dependencies").Descendants("dependency"))
-				Dependencies.Add((TechTreeResearch)previousElements[(int)dep]);
+				Dependencies.Add((TechTreeResearch)previousElements[(int)dep], (int)dep.Attribute("depcount"));
 
 			// Gebäude-Abhängigkeiten einlesen
 			BuildingDependencies = new Dictionary<TechTreeBuilding, bool>();
@@ -390,7 +397,7 @@ namespace TechTreeEditor.TechTreeStructure
 			int counter = base.CountReferencesToElement(element);
 
 			// Zählen
-			counter += Dependencies.Count(c => c == element);
+			counter += Dependencies.Count(c => c.Key == element);
 			counter += Successors.Count(c => c == element);
 
 			// Referenzen in Effekten suchen
@@ -422,13 +429,13 @@ namespace TechTreeEditor.TechTreeStructure
 			TechTreeResearch clone = (TechTreeResearch)this.MemberwiseClone();
 
 			// Abähngigkeitslisten kopieren
-			clone.Dependencies = new List<TechTreeResearch>(Dependencies);
+			clone.Dependencies = new Dictionary<TechTreeResearch, int>(Dependencies);
 			clone.BuildingDependencies = new Dictionary<TechTreeBuilding, bool>(BuildingDependencies);
 
 			// Effekte kopieren
 			clone.Effects = new List<TechEffect>(Effects.Count);
 			Effects.ForEach(eff => clone.Effects.Add(eff.Clone()));
-			
+
 			// DAT-Technologie kopieren
 			GenieLibrary.DataElements.Research cloneDAT = (GenieLibrary.DataElements.Research)clone.DATResearch.Clone();
 			clone.DATResearch = cloneDAT;

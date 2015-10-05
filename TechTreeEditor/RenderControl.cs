@@ -269,6 +269,9 @@ namespace TechTreeEditor
 		/// </summary>
 		private void ApplyFilters()
 		{
+			// Suchstring zerlegen
+			string[] searchStrings = _currentSearchText.Split('|');
+
 			// Pro Element Filter ausführen
 			List<TechTreeStructure.TechTreeElement> parentElements = new List<TechTreeStructure.TechTreeElement>(_techTreeParentElements.Keys);
 			foreach(var elem in parentElements)
@@ -286,8 +289,8 @@ namespace TechTreeEditor
 						newVal = false;
 
 				// Suchstring angegeben?
-				if(newVal && !string.IsNullOrWhiteSpace(_currentSearchText))
-					newVal = elem.HasChildWithName(_currentSearchText, true);
+				if(newVal)
+					newVal = elem.HasChildWithName(searchStrings, true);
 
 				// Anzeigewert merken
 				_techTreeParentElements[elem] = newVal;

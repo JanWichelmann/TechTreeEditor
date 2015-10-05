@@ -393,22 +393,34 @@ namespace TechTreeEditor.TechTreeStructure
 		}
 
 		/// <summary>
-		/// Prüft, ob eines der Kindelemente in seinem Namen den gegebenen String enthält.
+		/// Prüft, ob eines der Kindelemente in seinem Namen einen der gegebenen Suchstrings enthält.
 		/// </summary>
-		/// <param name="value">Der zu suchende Name.</param>
+		/// <param name="searchStrings">Die zu suchenden Strings.</param>
 		/// <param name="onlyVisibleElements">Optional. Gibt an, ob nur ssichtbare (= gerenderte) Elemente besucht werden sollen.</param>
 		/// <returns></returns>
-		public bool HasChildWithName(string value, bool onlyVisibleElements = false)
+		public bool HasChildWithName(string[] searchStrings, bool onlyVisibleElements = false)
 		{
-			// Kind-Element?
-			if(Name.Contains(value, StringComparison.OrdinalIgnoreCase))
-				return true;
+			// Suchstring durchlaufen
+			foreach(string search in searchStrings)
+			{
+				// Kind-Element?
+				if(Name.Contains(search, StringComparison.OrdinalIgnoreCase))
+					return true;
 
-			// Rekursiver Aufruf
-			if(onlyVisibleElements)
-				return GetVisibleChildren().Exists(c => c.HasChildWithName(value, true));
-			else
-				return GetChildren().Exists(c => c.HasChildWithName(value));
+				// Rekursiver Aufruf
+				bool found;
+				if(onlyVisibleElements)
+					found = GetVisibleChildren().Exists(c => c.HasChildWithName(searchStrings, true));
+				else
+					found = GetChildren().Exists(c => c.HasChildWithName(searchStrings));
+
+				// Gefunden? => Abbrechen
+				if(found)
+					return true;
+			}
+
+			// Nichts gefunden
+			return false;
 		}
 
 		/// <summary>

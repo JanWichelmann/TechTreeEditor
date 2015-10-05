@@ -418,7 +418,7 @@ namespace TechTreeEditor
 					animation.AngleCount = graphic.AngleCount;
 
 					// Achsenauswahlfeld aktualisieren
-					// TODO TODO TODO
+					// TODO TODO TODO Hier scheint irgendein Bug vorzuliegen, oder doch nicht??
 					_angleField.Maximum = Math.Max(_angleField.Maximum, animation.AngleCount - 1) + 1;
 
 					// Maximale Frame-Größe berechnen: Diese setzt sich zusammen aus der Breite der einzelnen SLP-Frames und den zugehörigen Frame-Ankern, ausgehend vom Mittelpunkt.

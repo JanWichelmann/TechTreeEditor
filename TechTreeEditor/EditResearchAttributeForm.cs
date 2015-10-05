@@ -108,6 +108,9 @@ namespace TechTreeEditor
 		{
 			// ID aktualisieren
 			_treeResearch.DATResearch.LanguageDLLName1 = (ushort)e.NewValue;
+
+			// Namen neu erstellen
+			_treeResearch.UpdateName(_projectFile.LanguageFileWrapper);
 		}
 
 		private void _dllName2Field_ValueChanged(object sender, Controls.LanguageDLLControl.ValueChangedEventArgs e)
@@ -132,6 +135,9 @@ namespace TechTreeEditor
 		{
 			// Wert aktualisieren
 			_treeResearch.DATResearch.Name = _nameTextBox.Text + "\0";
+
+			// Namen neu erstellen
+			_treeResearch.UpdateName(_projectFile.LanguageFileWrapper);
 		}
 
 		private void _iconIDField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)

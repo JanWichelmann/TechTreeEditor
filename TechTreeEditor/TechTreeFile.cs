@@ -230,7 +230,7 @@ namespace TechTreeEditor
 
 							// Interfac-DRS-Pfad schreiben
 							writer.WriteElementString("interfacdrs", _interfacDRSPath);
-                            writer.WriteElementString("graphicsdrs", _graphicsDRSPath);
+							writer.WriteElementString("graphicsdrs", _graphicsDRSPath);
 
 							// Haupt- und Dokumentelement schließen
 							writer.WriteEndElement();
@@ -388,7 +388,7 @@ namespace TechTreeEditor
 					c.BlockedElements.Remove(element);
 				if(element is TechTreeResearch && c.FreeElements.Contains((TechTreeResearch)element))
 					c.FreeElements.Remove((TechTreeResearch)element);
-				
+
 				// Ggf. aus Bonus-Effekten löschen
 				c.Bonuses.ForEach(eff =>
 				{
@@ -639,6 +639,7 @@ namespace TechTreeEditor
 				// Element aus Stammelement-Liste löschen
 				_techTreeParentElements.Remove(child);
 			}
+			// TODO Projectile
 
 			// Das Kind muss mindestens dasselbe Zeitalter wie das Elternelement haben
 			child.Age = Math.Max(parent.Age, child.Age);
@@ -696,8 +697,8 @@ namespace TechTreeEditor
 			{
 				// Wenn noch keine Abhängigkeit existiert, Technologie-Abhängigkeit hinzufügen
 				TechTreeResearch baseElemResearch = (TechTreeResearch)baseElement;
-				if(!baseElemResearch.Dependencies.Contains(dependency))
-					baseElemResearch.Dependencies.Add(dependency);
+				if(!baseElemResearch.Dependencies.ContainsKey(dependency))
+					baseElemResearch.Dependencies.Add(dependency, -1);
 			}
 		}
 
@@ -708,14 +709,9 @@ namespace TechTreeEditor
 		/// <param name="dependency">Die Technologie, die das Basis-Element weiterentwickeln soll.</param>
 		public void CreateUpgradeDependency(TechTreeElement baseElement, TechTreeResearch dependency)
 		{
-			// Typ des Hauptelements abrufen
-			Type baseElemType = baseElement.GetType();
-
 			// Abhängigkeit erstellen
-			if(baseElemType == typeof(TechTreeBuilding))
-				((TechTreeBuilding)baseElement).SuccessorResearch = dependency;
-			else if(baseElemType == typeof(TechTreeCreatable))
-				((TechTreeCreatable)baseElement).SuccessorResearch = dependency;
+			if(baseElement is IUpgradeable)
+				((IUpgradeable)baseElement).SuccessorResearch = dependency;
 		}
 
 		/// <summary>
@@ -799,7 +795,7 @@ namespace TechTreeEditor
 				}
 				else if(depElemType == typeof(TechTreeResearch))
 				{
-					if(baseElemResearch.Dependencies.Contains((TechTreeResearch)dependency))
+					if(baseElemResearch.Dependencies.ContainsKey((TechTreeResearch)dependency))
 						baseElemResearch.Dependencies.Remove((TechTreeResearch)dependency);
 				}
 			}

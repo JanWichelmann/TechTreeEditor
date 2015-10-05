@@ -956,10 +956,10 @@ namespace TechTreeEditor
 			++datResearch.RequiredTechCount;
 
 			// Gebäude-Abhängigkeiten bekommen einen eigenen Knoten und landen dann im 2. Slot
+			int lastID = 0;
 			if(research.BuildingDependencies.Count > 0)
 			{
 				// Element erstellen
-				int lastID = 0;
 				int mainDepSlotNum = 0;
 				GenieLibrary.DataElements.Research buildingDepMainNode = new GenieLibrary.DataElements.Research()
 				{
@@ -1083,22 +1083,119 @@ namespace TechTreeEditor
 				// Abhängigkeit erstellen
 				datResearch.RequiredTechs[slotNum++] = (short)researchIDMap[(TechTreeResearch)parent];
 				++datResearch.RequiredTechCount;
+
+				// Ggf. Elternelement aus Abhängigkeitenliste löschen
+				if(research.Dependencies.ContainsKey((TechTreeResearch)parent))
+					research.Dependencies.Remove((TechTreeResearch)parent);
 			}
 
-			// Sonstige Technologie-Abhängigkeiten in die restlichen Slots packen
-			foreach(var dep in research.Dependencies)
+			// Gibt es sonstige Technologie-Abhängigkeiten?
+			if(research.Dependencies.Count > 0)
 			{
-				// Elternelement haben wir schon
-				if(dep != parent)
-				{
-					// Slots voll?
-					// Muss reichen
-					if(slotNum >= 6)
+				// Haben Technologie-Abhängigkeiten unterschiedliche Anzahlen?
+				bool differentDepCounts = false;
+				int tmpDepCount = research.Dependencies.ElementAt(0).Value;
+				foreach(var dep in research.Dependencies)
+					if(dep.Value != tmpDepCount)
+					{
+						// Abbrechen
+						differentDepCounts = true;
 						break;
+					}
 
-					// Abhängigkeit erstellen
-					datResearch.RequiredTechs[slotNum++] = (short)researchIDMap[dep];
+				// Verschiedene Anzahlen => Es müssen Nodes erstellt werden
+				if(differentDepCounts || (datResearch.RequiredTechCount > 0 && tmpDepCount != -1))
+				{
+					// Sammelnode erstellen
+					int mainDepSlotNum = 0;
+					GenieLibrary.DataElements.Research depMainNode = new GenieLibrary.DataElements.Research()
+					{
+						Name = "#RDepMainNode: " + research.DATResearch.Name,
+						ResourceCosts = new List<GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>>(3),
+						RequiredTechs = new List<short>(new short[] { -1, -1, -1, -1, -1, -1 }),
+						LanguageDLLName1 = 7000,
+						LanguageDLLName2 = 157000,
+						LanguageDLLDescription = 8000,
+						LanguageDLLHelp = 107000,
+						Unknown1 = -1,
+						TechageID = -1,
+						Civ = -1,
+						ResearchLocation = -1,
+						RequiredTechCount = 1 // Ein Unter-Knoten muss true liefern
+					};
+					depMainNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+					depMainNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+					depMainNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+
+					// Freie ID suchen und Abhängigkeitsknoten erstellen
+					while(datResearches.ContainsKey(lastID))
+						++lastID;
+					datResearches[lastID] = depMainNode;
+					datResearch.RequiredTechs[slotNum++] = (short)lastID;
 					++datResearch.RequiredTechCount;
+
+					// Unterknoten erstellen, jeweils für Abhängigkeitszahl x mit allen Technologien mit Abh.-Zahl kleiner als x
+					for(int x = 1; x <= 6; ++x)
+						if(research.Dependencies.Count(dep => dep.Value == x - 1) > 0)
+						{
+							// Unterknoten anlegen
+							GenieLibrary.DataElements.Research depSubNode = new GenieLibrary.DataElements.Research()
+							{
+								Name = "#RDepNode_" + x + ": " + research.DATResearch.Name,
+								ResourceCosts = new List<GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>>(3),
+								RequiredTechs = new List<short>(new short[] { -1, -1, -1, -1, -1, -1 }),
+								LanguageDLLName1 = 7000,
+								LanguageDLLName2 = 157000,
+								LanguageDLLDescription = 8000,
+								LanguageDLLHelp = 107000,
+								Unknown1 = -1,
+								TechageID = -1,
+								Civ = -1,
+								ResearchLocation = -1,
+								RequiredTechCount = (short)x // x Techs hiervon reichen
+							};
+							depSubNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+							depSubNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+							depSubNode.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+
+							// Gebäude einfügen
+							int depSlotNum = 0;
+							foreach(var dep in research.Dependencies)
+								if(dep.Value < x)
+								{
+									// Maximal 6 Slots, das muss reichen
+									if(depSlotNum >= 6)
+										break;
+
+									// Abhängigkeit erstellen
+									depSubNode.RequiredTechs[depSlotNum++] = (short)researchIDMap[dep.Key];
+								}
+
+							// Unterknoten speichern
+							while(datResearches.ContainsKey(lastID))
+								++lastID;
+							datResearches[lastID] = depSubNode;
+							depMainNode.RequiredTechs[mainDepSlotNum++] = (short)lastID;
+						}
+				}
+				else
+				{
+					// Sonstige Technologie-Abhängigkeiten direkt in die restlichen Slots packen
+					foreach(var dep in research.Dependencies)
+					{
+						// Slots voll?
+						// Muss reichen
+						if(slotNum >= 6)
+							break;
+
+						// Abhängigkeit erstellen
+						datResearch.RequiredTechs[slotNum++] = (short)researchIDMap[dep.Key];
+						++datResearch.RequiredTechCount;
+					}
+
+					// Anzahl erforderlicher Technologien setzen
+					if(tmpDepCount != -1)
+						datResearch.RequiredTechCount = (short)(tmpDepCount + 1);
 				}
 			}
 		}

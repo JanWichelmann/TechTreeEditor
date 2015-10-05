@@ -224,7 +224,7 @@ namespace TechTreeEditor.TechTreeStructure
 						return string.Format("Deaktiviere Technologie '{0}'", (Element != null ? Element.Name : "?"));
 
 					case EffectType.ResearchTimeSetPM:
-						return string.Format("Entwicklungszeit für Technologie '{1}': {2} {3}", (Element != null ? Element.Name : "?"), (Mode == EffectMode.PM_Enable ? "+" : "="), Value);
+						return string.Format("Entwicklungszeit für Technologie '{0}': {1} {2}", (Element != null ? Element.Name : "?"), (Mode == EffectMode.PM_Enable ? "+" : "="), Value);
 				}
 				return "?";
 			}
