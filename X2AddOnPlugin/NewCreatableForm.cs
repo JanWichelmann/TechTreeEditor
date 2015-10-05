@@ -667,26 +667,26 @@ namespace X2AddOnPlugin
 				{
 					// A
 					ushort baseID = (ushort)e.NewValue;
-					SLPLoader.Loader slp = new SLPLoader.Loader(new RAMBuffer(Main.GraphicsDRS.GetResourceData(baseID)));
+					SLPLoader.SLPFile slp = new SLPLoader.SLPFile(new RAMBuffer(Main.GraphicsDRS.GetResourceData(baseID)));
 					_slpAFrameField.Value = slp.FrameCount;
 
 					// D
-					slp = new SLPLoader.Loader(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
+					slp = new SLPLoader.SLPFile(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
 					_slpDIDField.Value = baseID;
 					_slpDFrameField.Value = slp.FrameCount;
 
 					// F
-					slp = new SLPLoader.Loader(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
+					slp = new SLPLoader.SLPFile(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
 					_slpFIDField.Value = baseID;
 					_slpFFrameField.Value = slp.FrameCount;
 
 					// M
-					slp = new SLPLoader.Loader(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
+					slp = new SLPLoader.SLPFile(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
 					_slpMIDField.Value = baseID;
 					_slpMFrameField.Value = slp.FrameCount;
 
 					// S
-					slp = new SLPLoader.Loader(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
+					slp = new SLPLoader.SLPFile(new RAMBuffer(Main.GraphicsDRS.GetResourceData(++baseID)));
 					_slpSIDField.Value = baseID;
 					_slpSFrameField.Value = slp.FrameCount;
 				}

@@ -40,6 +40,15 @@
 			this._dllDescriptionField = new TechTreeEditor.Controls.LanguageDLLControl();
 			this._dllHelpField = new TechTreeEditor.Controls.LanguageDLLControl();
 			this._dllNameField = new TechTreeEditor.Controls.LanguageDLLControl();
+			this._statsTabPage = new System.Windows.Forms.TabPage();
+			this._garrisonHealRateField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._workRateField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._searchRadiusField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._rotationSpeedField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._speedField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._losField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._resourceCapacityField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._garrisonCapacityField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._combatTabPage = new System.Windows.Forms.TabPage();
 			this._blastLevelField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._terrainMultField = new TechTreeEditor.Controls.NumberFieldControl();
@@ -66,25 +75,6 @@
 			this._displayedAttackField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._blastTypeField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._hitpointsField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._graphicsTabPage = new System.Windows.Forms.TabPage();
-			this.groupBox14 = new System.Windows.Forms.GroupBox();
-			this._dmgGraphicsField = new System.Windows.Forms.DataGridView();
-			this._dmgGraPercentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this._dmgGraIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this._dmgGraApplyModeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this._dmgGraUnknownColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this._iconIDField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._graAttackField = new TechTreeEditor.Controls.DropDownFieldControl();
-			this._graSnowField = new TechTreeEditor.Controls.DropDownFieldControl();
-			this._graConstructionField = new TechTreeEditor.Controls.DropDownFieldControl();
-			this._graChargeField = new TechTreeEditor.Controls.DropDownFieldControl();
-			this._graGarrisonField = new TechTreeEditor.Controls.DropDownFieldControl();
-			this._graMoving2Field = new TechTreeEditor.Controls.DropDownFieldControl();
-			this._graMoving1Field = new TechTreeEditor.Controls.DropDownFieldControl();
-			this._graStanding2Field = new TechTreeEditor.Controls.DropDownFieldControl();
-			this._graFalling2Field = new TechTreeEditor.Controls.DropDownFieldControl();
-			this._graFalling1Field = new TechTreeEditor.Controls.DropDownFieldControl();
-			this._graStanding1Field = new TechTreeEditor.Controls.DropDownFieldControl();
 			this._projectileTabPage = new System.Windows.Forms.TabPage();
 			this._missileDuplMaxField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._missileSpawnZField = new TechTreeEditor.Controls.NumberFieldControl();
@@ -102,6 +92,19 @@
 			this._accuracyPercentField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._compensationModeField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._stretchModeField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._trainTabPage = new System.Windows.Forms.TabPage();
+			this._trainTimeField = new TechTreeEditor.Controls.NumberFieldControl();
+			this.groupBox25 = new System.Windows.Forms.GroupBox();
+			this._cost3Field = new TechTreeEditor.Controls.ResourceCostControl();
+			this._cost2Field = new TechTreeEditor.Controls.ResourceCostControl();
+			this._cost1Field = new TechTreeEditor.Controls.ResourceCostControl();
+			this.groupBox6 = new System.Windows.Forms.GroupBox();
+			this._resourceStorage3ModeField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._resourceStorage2ModeField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._resourceStorage1ModeField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._resourceStorage3Field = new TechTreeEditor.Controls.ResourceCostControl();
+			this._resourceStorage2Field = new TechTreeEditor.Controls.ResourceCostControl();
+			this._resourceStorage1Field = new TechTreeEditor.Controls.ResourceCostControl();
 			this._editorTabPage = new System.Windows.Forms.TabPage();
 			this._classLabel = new System.Windows.Forms.Label();
 			this._classComboBox = new System.Windows.Forms.ComboBox();
@@ -160,15 +163,25 @@
 			this._fogOfWarField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._minimapColorField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._resourceDecayField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._statsTabPage = new System.Windows.Forms.TabPage();
-			this._garrisonHealRateField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._workRateField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._searchRadiusField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._rotationSpeedField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._speedField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._losField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._resourceCapacityField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._garrisonCapacityField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._graphicsTabPage = new System.Windows.Forms.TabPage();
+			this.groupBox14 = new System.Windows.Forms.GroupBox();
+			this._dmgGraphicsField = new System.Windows.Forms.DataGridView();
+			this._dmgGraPercentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this._dmgGraIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this._dmgGraApplyModeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this._dmgGraUnknownColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this._iconIDField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._graAttackField = new TechTreeEditor.Controls.DropDownFieldControl();
+			this._graSnowField = new TechTreeEditor.Controls.DropDownFieldControl();
+			this._graConstructionField = new TechTreeEditor.Controls.DropDownFieldControl();
+			this._graChargeField = new TechTreeEditor.Controls.DropDownFieldControl();
+			this._graGarrisonField = new TechTreeEditor.Controls.DropDownFieldControl();
+			this._graMoving2Field = new TechTreeEditor.Controls.DropDownFieldControl();
+			this._graMoving1Field = new TechTreeEditor.Controls.DropDownFieldControl();
+			this._graStanding2Field = new TechTreeEditor.Controls.DropDownFieldControl();
+			this._graFalling2Field = new TechTreeEditor.Controls.DropDownFieldControl();
+			this._graFalling1Field = new TechTreeEditor.Controls.DropDownFieldControl();
+			this._graStanding1Field = new TechTreeEditor.Controls.DropDownFieldControl();
 			this._soundsTabPage = new System.Windows.Forms.TabPage();
 			this._unknownSoundField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._constructionSoundField = new TechTreeEditor.Controls.NumberFieldControl();
@@ -178,19 +191,6 @@
 			this._soundTrain2Field = new TechTreeEditor.Controls.NumberFieldControl();
 			this._soundTrain1Field = new TechTreeEditor.Controls.NumberFieldControl();
 			this._soundSelectionField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._trainTabPage = new System.Windows.Forms.TabPage();
-			this._trainTimeField = new TechTreeEditor.Controls.NumberFieldControl();
-			this.groupBox25 = new System.Windows.Forms.GroupBox();
-			this._cost3Field = new TechTreeEditor.Controls.ResourceCostControl();
-			this._cost2Field = new TechTreeEditor.Controls.ResourceCostControl();
-			this._cost1Field = new TechTreeEditor.Controls.ResourceCostControl();
-			this.groupBox6 = new System.Windows.Forms.GroupBox();
-			this._resourceStorage3ModeField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._resourceStorage2ModeField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._resourceStorage1ModeField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._resourceStorage3Field = new TechTreeEditor.Controls.ResourceCostControl();
-			this._resourceStorage2Field = new TechTreeEditor.Controls.ResourceCostControl();
-			this._resourceStorage1Field = new TechTreeEditor.Controls.ResourceCostControl();
 			this._unknownTabPage = new System.Windows.Forms.TabPage();
 			this._unknown10Field = new TechTreeEditor.Controls.NumberFieldControl();
 			this._unknown15Field = new TechTreeEditor.Controls.NumberFieldControl();
@@ -215,6 +215,7 @@
 			this._mainTabControl.SuspendLayout();
 			this._commonTabPage.SuspendLayout();
 			this.groupBox1.SuspendLayout();
+			this._statsTabPage.SuspendLayout();
 			this._combatTabPage.SuspendLayout();
 			this.groupBox22.SuspendLayout();
 			this.groupBox20.SuspendLayout();
@@ -222,21 +223,20 @@
 			((System.ComponentModel.ISupportInitialize)(this._armourValuesField)).BeginInit();
 			this.groupBox18.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this._attackValuesField)).BeginInit();
-			this._graphicsTabPage.SuspendLayout();
-			this.groupBox14.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this._dmgGraphicsField)).BeginInit();
 			this._projectileTabPage.SuspendLayout();
+			this._trainTabPage.SuspendLayout();
+			this.groupBox25.SuspendLayout();
+			this.groupBox6.SuspendLayout();
 			this._editorTabPage.SuspendLayout();
 			this.groupBox33.SuspendLayout();
 			this.groupBox13.SuspendLayout();
 			this.groupBox9.SuspendLayout();
 			this.groupBox5.SuspendLayout();
 			this._behaviourTabPage.SuspendLayout();
-			this._statsTabPage.SuspendLayout();
+			this._graphicsTabPage.SuspendLayout();
+			this.groupBox14.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this._dmgGraphicsField)).BeginInit();
 			this._soundsTabPage.SuspendLayout();
-			this._trainTabPage.SuspendLayout();
-			this.groupBox25.SuspendLayout();
-			this.groupBox6.SuspendLayout();
 			this._unknownTabPage.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -334,6 +334,116 @@
 			this._dllNameField.ProjectFile = null;
 			this._dllNameField.Value = 0;
 			this._dllNameField.ValueChanged += new TechTreeEditor.Controls.LanguageDLLControl.ValueChangedEventHandler(this._dllNameField_ValueChanged);
+			// 
+			// _statsTabPage
+			// 
+			this._statsTabPage.Controls.Add(this._garrisonHealRateField);
+			this._statsTabPage.Controls.Add(this._workRateField);
+			this._statsTabPage.Controls.Add(this._searchRadiusField);
+			this._statsTabPage.Controls.Add(this._rotationSpeedField);
+			this._statsTabPage.Controls.Add(this._speedField);
+			this._statsTabPage.Controls.Add(this._losField);
+			this._statsTabPage.Controls.Add(this._resourceCapacityField);
+			this._statsTabPage.Controls.Add(this._garrisonCapacityField);
+			resources.ApplyResources(this._statsTabPage, "_statsTabPage");
+			this._statsTabPage.Name = "_statsTabPage";
+			this._statsTabPage.UseVisualStyleBackColor = true;
+			// 
+			// _garrisonHealRateField
+			// 
+			resources.ApplyResources(this._garrisonHealRateField, "_garrisonHealRateField");
+			this._garrisonHealRateField.Name = "_garrisonHealRateField";
+			this._garrisonHealRateField.NameString = "Heil-Rate:";
+			this._garrisonHealRateField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._garrisonHealRateField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._garrisonHealRateField_ValueChanged);
+			// 
+			// _workRateField
+			// 
+			resources.ApplyResources(this._workRateField, "_workRateField");
+			this._workRateField.Name = "_workRateField";
+			this._workRateField.NameString = "Arbeitsrate:";
+			this._workRateField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._workRateField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._workRateField_ValueChanged);
+			// 
+			// _searchRadiusField
+			// 
+			resources.ApplyResources(this._searchRadiusField, "_searchRadiusField");
+			this._searchRadiusField.Name = "_searchRadiusField";
+			this._searchRadiusField.NameString = "Suchradius:";
+			this._searchRadiusField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._searchRadiusField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._searchRadiusField_ValueChanged);
+			// 
+			// _rotationSpeedField
+			// 
+			resources.ApplyResources(this._rotationSpeedField, "_rotationSpeedField");
+			this._rotationSpeedField.Name = "_rotationSpeedField";
+			this._rotationSpeedField.NameString = "Rotationsgeschwindigkeit: ";
+			this._rotationSpeedField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._rotationSpeedField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._rotationSpeedField_ValueChanged);
+			// 
+			// _speedField
+			// 
+			resources.ApplyResources(this._speedField, "_speedField");
+			this._speedField.Name = "_speedField";
+			this._speedField.NameString = "Geschwindigkeit:";
+			this._speedField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._speedField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._speedField_ValueChanged);
+			// 
+			// _losField
+			// 
+			resources.ApplyResources(this._losField, "_losField");
+			this._losField.Name = "_losField";
+			this._losField.NameString = "Sichtweite:";
+			this._losField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._losField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._losField_ValueChanged);
+			// 
+			// _resourceCapacityField
+			// 
+			resources.ApplyResources(this._resourceCapacityField, "_resourceCapacityField");
+			this._resourceCapacityField.Name = "_resourceCapacityField";
+			this._resourceCapacityField.NameString = "Ressourcenkapazität: ";
+			this._resourceCapacityField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._resourceCapacityField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._resourceCapacityField_ValueChanged);
+			// 
+			// _garrisonCapacityField
+			// 
+			resources.ApplyResources(this._garrisonCapacityField, "_garrisonCapacityField");
+			this._garrisonCapacityField.Name = "_garrisonCapacityField";
+			this._garrisonCapacityField.NameString = "Quartier-Kapazität:";
+			this._garrisonCapacityField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._garrisonCapacityField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._garrisonCapacityField_ValueChanged);
 			// 
 			// _combatTabPage
 			// 
@@ -616,170 +726,6 @@
             0});
 			this._hitpointsField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._hitpointsField_ValueChanged);
 			// 
-			// _graphicsTabPage
-			// 
-			this._graphicsTabPage.Controls.Add(this.groupBox14);
-			this._graphicsTabPage.Controls.Add(this._iconIDField);
-			this._graphicsTabPage.Controls.Add(this._graAttackField);
-			this._graphicsTabPage.Controls.Add(this._graSnowField);
-			this._graphicsTabPage.Controls.Add(this._graConstructionField);
-			this._graphicsTabPage.Controls.Add(this._graChargeField);
-			this._graphicsTabPage.Controls.Add(this._graGarrisonField);
-			this._graphicsTabPage.Controls.Add(this._graMoving2Field);
-			this._graphicsTabPage.Controls.Add(this._graMoving1Field);
-			this._graphicsTabPage.Controls.Add(this._graStanding2Field);
-			this._graphicsTabPage.Controls.Add(this._graFalling2Field);
-			this._graphicsTabPage.Controls.Add(this._graFalling1Field);
-			this._graphicsTabPage.Controls.Add(this._graStanding1Field);
-			resources.ApplyResources(this._graphicsTabPage, "_graphicsTabPage");
-			this._graphicsTabPage.Name = "_graphicsTabPage";
-			this._graphicsTabPage.UseVisualStyleBackColor = true;
-			// 
-			// groupBox14
-			// 
-			this.groupBox14.Controls.Add(this._dmgGraphicsField);
-			resources.ApplyResources(this.groupBox14, "groupBox14");
-			this.groupBox14.Name = "groupBox14";
-			this.groupBox14.TabStop = false;
-			// 
-			// _dmgGraphicsField
-			// 
-			this._dmgGraphicsField.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this._dmgGraphicsField.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this._dmgGraPercentColumn,
-            this._dmgGraIDColumn,
-            this._dmgGraApplyModeColumn,
-            this._dmgGraUnknownColumn});
-			resources.ApplyResources(this._dmgGraphicsField, "_dmgGraphicsField");
-			this._dmgGraphicsField.Name = "_dmgGraphicsField";
-			this._dmgGraphicsField.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this._dmgGraphicsField_CellValidating);
-			this._dmgGraphicsField.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._dmgGraphicsField_CellValueChanged);
-			this._dmgGraphicsField.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this._dmgGraphicsField_RowsRemoved);
-			// 
-			// _dmgGraPercentColumn
-			// 
-			this._dmgGraPercentColumn.FillWeight = 20F;
-			resources.ApplyResources(this._dmgGraPercentColumn, "_dmgGraPercentColumn");
-			this._dmgGraPercentColumn.Name = "_dmgGraPercentColumn";
-			// 
-			// _dmgGraIDColumn
-			// 
-			this._dmgGraIDColumn.FillWeight = 50F;
-			resources.ApplyResources(this._dmgGraIDColumn, "_dmgGraIDColumn");
-			this._dmgGraIDColumn.Name = "_dmgGraIDColumn";
-			// 
-			// _dmgGraApplyModeColumn
-			// 
-			this._dmgGraApplyModeColumn.FillWeight = 20F;
-			resources.ApplyResources(this._dmgGraApplyModeColumn, "_dmgGraApplyModeColumn");
-			this._dmgGraApplyModeColumn.Name = "_dmgGraApplyModeColumn";
-			// 
-			// _dmgGraUnknownColumn
-			// 
-			this._dmgGraUnknownColumn.FillWeight = 10F;
-			resources.ApplyResources(this._dmgGraUnknownColumn, "_dmgGraUnknownColumn");
-			this._dmgGraUnknownColumn.Name = "_dmgGraUnknownColumn";
-			// 
-			// _iconIDField
-			// 
-			resources.ApplyResources(this._iconIDField, "_iconIDField");
-			this._iconIDField.Name = "_iconIDField";
-			this._iconIDField.NameString = "Icon-ID:";
-			this._iconIDField.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			this._iconIDField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._iconIDField_ValueChanged);
-			// 
-			// _graAttackField
-			// 
-			resources.ApplyResources(this._graAttackField, "_graAttackField");
-			this._graAttackField.Name = "_graAttackField";
-			this._graAttackField.NameString = "Angriff-Grafik:";
-			this._graAttackField.Value = null;
-			this._graAttackField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graAttackField_ValueChanged);
-			// 
-			// _graSnowField
-			// 
-			resources.ApplyResources(this._graSnowField, "_graSnowField");
-			this._graSnowField.Name = "_graSnowField";
-			this._graSnowField.NameString = "Schnee-Grafik:";
-			this._graSnowField.Value = null;
-			this._graSnowField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graSnowField_ValueChanged);
-			// 
-			// _graConstructionField
-			// 
-			resources.ApplyResources(this._graConstructionField, "_graConstructionField");
-			this._graConstructionField.Name = "_graConstructionField";
-			this._graConstructionField.NameString = "Bau-Grafik:";
-			this._graConstructionField.Value = null;
-			this._graConstructionField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graConstructionField_ValueChanged);
-			// 
-			// _graChargeField
-			// 
-			resources.ApplyResources(this._graChargeField, "_graChargeField");
-			this._graChargeField.Name = "_graChargeField";
-			this._graChargeField.NameString = "Charge-Grafik:";
-			this._graChargeField.Value = null;
-			this._graChargeField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graChargeField_ValueChanged);
-			// 
-			// _graGarrisonField
-			// 
-			resources.ApplyResources(this._graGarrisonField, "_graGarrisonField");
-			this._graGarrisonField.Name = "_graGarrisonField";
-			this._graGarrisonField.NameString = "Quartier-Grafik:";
-			this._graGarrisonField.Value = null;
-			this._graGarrisonField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graGarrisonField_ValueChanged);
-			// 
-			// _graMoving2Field
-			// 
-			resources.ApplyResources(this._graMoving2Field, "_graMoving2Field");
-			this._graMoving2Field.Name = "_graMoving2Field";
-			this._graMoving2Field.NameString = "Lauf-Grafik 2:";
-			this._graMoving2Field.Value = null;
-			this._graMoving2Field.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graMoving2Field_ValueChanged);
-			// 
-			// _graMoving1Field
-			// 
-			resources.ApplyResources(this._graMoving1Field, "_graMoving1Field");
-			this._graMoving1Field.Name = "_graMoving1Field";
-			this._graMoving1Field.NameString = "Lauf-Grafik 1:";
-			this._graMoving1Field.Value = null;
-			this._graMoving1Field.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graMoving1Field_ValueChanged);
-			// 
-			// _graStanding2Field
-			// 
-			resources.ApplyResources(this._graStanding2Field, "_graStanding2Field");
-			this._graStanding2Field.Name = "_graStanding2Field";
-			this._graStanding2Field.NameString = "Steh-Grafik 2:";
-			this._graStanding2Field.Value = null;
-			this._graStanding2Field.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graStanding2Field_ValueChanged);
-			// 
-			// _graFalling2Field
-			// 
-			resources.ApplyResources(this._graFalling2Field, "_graFalling2Field");
-			this._graFalling2Field.Name = "_graFalling2Field";
-			this._graFalling2Field.NameString = "Sterbe-Grafik 2:";
-			this._graFalling2Field.Value = null;
-			this._graFalling2Field.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graFalling2Field_ValueChanged);
-			// 
-			// _graFalling1Field
-			// 
-			resources.ApplyResources(this._graFalling1Field, "_graFalling1Field");
-			this._graFalling1Field.Name = "_graFalling1Field";
-			this._graFalling1Field.NameString = "Sterbe-Grafik 1:";
-			this._graFalling1Field.Value = null;
-			this._graFalling1Field.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graFalling1Field_ValueChanged);
-			// 
-			// _graStanding1Field
-			// 
-			resources.ApplyResources(this._graStanding1Field, "_graStanding1Field");
-			this._graStanding1Field.Name = "_graStanding1Field";
-			this._graStanding1Field.NameString = "Steh-Grafik 1:";
-			this._graStanding1Field.Value = null;
-			this._graStanding1Field.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graStanding1Field_ValueChanged);
-			// 
 			// _projectileTabPage
 			// 
 			this._projectileTabPage.Controls.Add(this._missileDuplMaxField);
@@ -818,7 +764,7 @@
 			// 
 			resources.ApplyResources(this._missileSpawnZField, "_missileSpawnZField");
 			this._missileSpawnZField.Name = "_missileSpawnZField";
-			this._missileSpawnZField.NameString = "Spawn Z:";
+			this._missileSpawnZField.NameString = "Spawn-Radius Streuung:";
 			this._missileSpawnZField.Value = new decimal(new int[] {
             0,
             0,
@@ -854,7 +800,7 @@
 			// 
 			resources.ApplyResources(this._missileSpawnYField, "_missileSpawnYField");
 			this._missileSpawnYField.Name = "_missileSpawnYField";
-			this._missileSpawnYField.NameString = "Spawn Y:";
+			this._missileSpawnYField.NameString = "Spawn-Radius 2:";
 			this._missileSpawnYField.Value = new decimal(new int[] {
             0,
             0,
@@ -866,7 +812,7 @@
 			// 
 			resources.ApplyResources(this._graphicDisplacementZField, "_graphicDisplacementZField");
 			this._graphicDisplacementZField.Name = "_graphicDisplacementZField";
-			this._graphicDisplacementZField.NameString = "Grafik-Versatz Z:";
+			this._graphicDisplacementZField.NameString = "Höhe:";
 			this._graphicDisplacementZField.Value = new decimal(new int[] {
             0,
             0,
@@ -878,7 +824,7 @@
 			// 
 			resources.ApplyResources(this._missileSpawnXField, "_missileSpawnXField");
 			this._missileSpawnXField.Name = "_missileSpawnXField";
-			this._missileSpawnXField.NameString = "Spawn X:";
+			this._missileSpawnXField.NameString = "Spawn-Radius 1:";
 			this._missileSpawnXField.Value = new decimal(new int[] {
             0,
             0,
@@ -890,7 +836,7 @@
 			// 
 			resources.ApplyResources(this._graphicDisplacementYField, "_graphicDisplacementYField");
 			this._graphicDisplacementYField.Name = "_graphicDisplacementYField";
-			this._graphicDisplacementYField.NameString = "Grafik-Versatz Y:";
+			this._graphicDisplacementYField.NameString = "Abstand:";
 			this._graphicDisplacementYField.Value = new decimal(new int[] {
             0,
             0,
@@ -902,7 +848,7 @@
 			// 
 			resources.ApplyResources(this._graphicDisplacementXField, "_graphicDisplacementXField");
 			this._graphicDisplacementXField.Name = "_graphicDisplacementXField";
-			this._graphicDisplacementXField.NameString = "Grafik-Versatz X:";
+			this._graphicDisplacementXField.NameString = "Versatz nach rechts:";
 			this._graphicDisplacementXField.Value = new decimal(new int[] {
             0,
             0,
@@ -993,6 +939,126 @@
             0,
             0});
 			this._stretchModeField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._stretchModeField_ValueChanged);
+			// 
+			// _trainTabPage
+			// 
+			this._trainTabPage.Controls.Add(this._trainTimeField);
+			this._trainTabPage.Controls.Add(this.groupBox25);
+			this._trainTabPage.Controls.Add(this.groupBox6);
+			resources.ApplyResources(this._trainTabPage, "_trainTabPage");
+			this._trainTabPage.Name = "_trainTabPage";
+			this._trainTabPage.UseVisualStyleBackColor = true;
+			// 
+			// _trainTimeField
+			// 
+			resources.ApplyResources(this._trainTimeField, "_trainTimeField");
+			this._trainTimeField.Name = "_trainTimeField";
+			this._trainTimeField.NameString = "Erschaff-Zeit:";
+			this._trainTimeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._trainTimeField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._trainTimeField_ValueChanged);
+			// 
+			// groupBox25
+			// 
+			this.groupBox25.Controls.Add(this._cost3Field);
+			this.groupBox25.Controls.Add(this._cost2Field);
+			this.groupBox25.Controls.Add(this._cost1Field);
+			resources.ApplyResources(this.groupBox25, "groupBox25");
+			this.groupBox25.Name = "groupBox25";
+			this.groupBox25.TabStop = false;
+			// 
+			// _cost3Field
+			// 
+			resources.ApplyResources(this._cost3Field, "_cost3Field");
+			this._cost3Field.Name = "_cost3Field";
+			this._cost3Field.NameString = "Kosten 3:";
+			this._cost3Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._cost3Field_ValueChanged);
+			// 
+			// _cost2Field
+			// 
+			resources.ApplyResources(this._cost2Field, "_cost2Field");
+			this._cost2Field.Name = "_cost2Field";
+			this._cost2Field.NameString = "Kosten 2:";
+			this._cost2Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._cost2Field_ValueChanged);
+			// 
+			// _cost1Field
+			// 
+			resources.ApplyResources(this._cost1Field, "_cost1Field");
+			this._cost1Field.Name = "_cost1Field";
+			this._cost1Field.NameString = "Kosten 1:";
+			this._cost1Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._cost1Field_ValueChanged);
+			// 
+			// groupBox6
+			// 
+			this.groupBox6.Controls.Add(this._resourceStorage3ModeField);
+			this.groupBox6.Controls.Add(this._resourceStorage2ModeField);
+			this.groupBox6.Controls.Add(this._resourceStorage1ModeField);
+			this.groupBox6.Controls.Add(this._resourceStorage3Field);
+			this.groupBox6.Controls.Add(this._resourceStorage2Field);
+			this.groupBox6.Controls.Add(this._resourceStorage1Field);
+			resources.ApplyResources(this.groupBox6, "groupBox6");
+			this.groupBox6.Name = "groupBox6";
+			this.groupBox6.TabStop = false;
+			// 
+			// _resourceStorage3ModeField
+			// 
+			resources.ApplyResources(this._resourceStorage3ModeField, "_resourceStorage3ModeField");
+			this._resourceStorage3ModeField.Name = "_resourceStorage3ModeField";
+			this._resourceStorage3ModeField.NameString = "Modus:";
+			this._resourceStorage3ModeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._resourceStorage3ModeField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._resourceStorage3ModeField_ValueChanged);
+			// 
+			// _resourceStorage2ModeField
+			// 
+			resources.ApplyResources(this._resourceStorage2ModeField, "_resourceStorage2ModeField");
+			this._resourceStorage2ModeField.Name = "_resourceStorage2ModeField";
+			this._resourceStorage2ModeField.NameString = "Modus:";
+			this._resourceStorage2ModeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._resourceStorage2ModeField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._resourceStorage2ModeField_ValueChanged);
+			// 
+			// _resourceStorage1ModeField
+			// 
+			resources.ApplyResources(this._resourceStorage1ModeField, "_resourceStorage1ModeField");
+			this._resourceStorage1ModeField.Name = "_resourceStorage1ModeField";
+			this._resourceStorage1ModeField.NameString = "Modus:";
+			this._resourceStorage1ModeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._resourceStorage1ModeField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._resourceStorage1ModeField_ValueChanged);
+			// 
+			// _resourceStorage3Field
+			// 
+			resources.ApplyResources(this._resourceStorage3Field, "_resourceStorage3Field");
+			this._resourceStorage3Field.Name = "_resourceStorage3Field";
+			this._resourceStorage3Field.NameString = "Speicher 3:";
+			this._resourceStorage3Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._resourceStorage3Field_ValueChanged);
+			// 
+			// _resourceStorage2Field
+			// 
+			resources.ApplyResources(this._resourceStorage2Field, "_resourceStorage2Field");
+			this._resourceStorage2Field.Name = "_resourceStorage2Field";
+			this._resourceStorage2Field.NameString = "Speicher 2:";
+			this._resourceStorage2Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._resourceStorage2Field_ValueChanged);
+			// 
+			// _resourceStorage1Field
+			// 
+			resources.ApplyResources(this._resourceStorage1Field, "_resourceStorage1Field");
+			this._resourceStorage1Field.Name = "_resourceStorage1Field";
+			this._resourceStorage1Field.NameString = "Speicher 1:";
+			this._resourceStorage1Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._resourceStorage1Field_ValueChanged);
 			// 
 			// _editorTabPage
 			// 
@@ -1652,115 +1718,169 @@
             0});
 			this._resourceDecayField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._resourceDecayField_ValueChanged);
 			// 
-			// _statsTabPage
+			// _graphicsTabPage
 			// 
-			this._statsTabPage.Controls.Add(this._garrisonHealRateField);
-			this._statsTabPage.Controls.Add(this._workRateField);
-			this._statsTabPage.Controls.Add(this._searchRadiusField);
-			this._statsTabPage.Controls.Add(this._rotationSpeedField);
-			this._statsTabPage.Controls.Add(this._speedField);
-			this._statsTabPage.Controls.Add(this._losField);
-			this._statsTabPage.Controls.Add(this._resourceCapacityField);
-			this._statsTabPage.Controls.Add(this._garrisonCapacityField);
-			resources.ApplyResources(this._statsTabPage, "_statsTabPage");
-			this._statsTabPage.Name = "_statsTabPage";
-			this._statsTabPage.UseVisualStyleBackColor = true;
+			this._graphicsTabPage.Controls.Add(this.groupBox14);
+			this._graphicsTabPage.Controls.Add(this._iconIDField);
+			this._graphicsTabPage.Controls.Add(this._graAttackField);
+			this._graphicsTabPage.Controls.Add(this._graSnowField);
+			this._graphicsTabPage.Controls.Add(this._graConstructionField);
+			this._graphicsTabPage.Controls.Add(this._graChargeField);
+			this._graphicsTabPage.Controls.Add(this._graGarrisonField);
+			this._graphicsTabPage.Controls.Add(this._graMoving2Field);
+			this._graphicsTabPage.Controls.Add(this._graMoving1Field);
+			this._graphicsTabPage.Controls.Add(this._graStanding2Field);
+			this._graphicsTabPage.Controls.Add(this._graFalling2Field);
+			this._graphicsTabPage.Controls.Add(this._graFalling1Field);
+			this._graphicsTabPage.Controls.Add(this._graStanding1Field);
+			resources.ApplyResources(this._graphicsTabPage, "_graphicsTabPage");
+			this._graphicsTabPage.Name = "_graphicsTabPage";
+			this._graphicsTabPage.UseVisualStyleBackColor = true;
 			// 
-			// _garrisonHealRateField
+			// groupBox14
 			// 
-			resources.ApplyResources(this._garrisonHealRateField, "_garrisonHealRateField");
-			this._garrisonHealRateField.Name = "_garrisonHealRateField";
-			this._garrisonHealRateField.NameString = "Heil-Rate:";
-			this._garrisonHealRateField.Value = new decimal(new int[] {
+			this.groupBox14.Controls.Add(this._dmgGraphicsField);
+			resources.ApplyResources(this.groupBox14, "groupBox14");
+			this.groupBox14.Name = "groupBox14";
+			this.groupBox14.TabStop = false;
+			// 
+			// _dmgGraphicsField
+			// 
+			this._dmgGraphicsField.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this._dmgGraphicsField.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this._dmgGraPercentColumn,
+            this._dmgGraIDColumn,
+            this._dmgGraApplyModeColumn,
+            this._dmgGraUnknownColumn});
+			resources.ApplyResources(this._dmgGraphicsField, "_dmgGraphicsField");
+			this._dmgGraphicsField.Name = "_dmgGraphicsField";
+			this._dmgGraphicsField.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this._dmgGraphicsField_CellValidating);
+			this._dmgGraphicsField.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._dmgGraphicsField_CellValueChanged);
+			this._dmgGraphicsField.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this._dmgGraphicsField_RowsRemoved);
+			// 
+			// _dmgGraPercentColumn
+			// 
+			this._dmgGraPercentColumn.FillWeight = 20F;
+			resources.ApplyResources(this._dmgGraPercentColumn, "_dmgGraPercentColumn");
+			this._dmgGraPercentColumn.Name = "_dmgGraPercentColumn";
+			// 
+			// _dmgGraIDColumn
+			// 
+			this._dmgGraIDColumn.FillWeight = 50F;
+			resources.ApplyResources(this._dmgGraIDColumn, "_dmgGraIDColumn");
+			this._dmgGraIDColumn.Name = "_dmgGraIDColumn";
+			// 
+			// _dmgGraApplyModeColumn
+			// 
+			this._dmgGraApplyModeColumn.FillWeight = 20F;
+			resources.ApplyResources(this._dmgGraApplyModeColumn, "_dmgGraApplyModeColumn");
+			this._dmgGraApplyModeColumn.Name = "_dmgGraApplyModeColumn";
+			// 
+			// _dmgGraUnknownColumn
+			// 
+			this._dmgGraUnknownColumn.FillWeight = 10F;
+			resources.ApplyResources(this._dmgGraUnknownColumn, "_dmgGraUnknownColumn");
+			this._dmgGraUnknownColumn.Name = "_dmgGraUnknownColumn";
+			// 
+			// _iconIDField
+			// 
+			resources.ApplyResources(this._iconIDField, "_iconIDField");
+			this._iconIDField.Name = "_iconIDField";
+			this._iconIDField.NameString = "Icon-ID:";
+			this._iconIDField.Value = new decimal(new int[] {
             0,
             0,
             0,
             0});
-			this._garrisonHealRateField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._garrisonHealRateField_ValueChanged);
+			this._iconIDField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._iconIDField_ValueChanged);
 			// 
-			// _workRateField
+			// _graAttackField
 			// 
-			resources.ApplyResources(this._workRateField, "_workRateField");
-			this._workRateField.Name = "_workRateField";
-			this._workRateField.NameString = "Arbeitsrate:";
-			this._workRateField.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			this._workRateField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._workRateField_ValueChanged);
+			resources.ApplyResources(this._graAttackField, "_graAttackField");
+			this._graAttackField.Name = "_graAttackField";
+			this._graAttackField.NameString = "Angriff-Grafik:";
+			this._graAttackField.Value = null;
+			this._graAttackField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graAttackField_ValueChanged);
 			// 
-			// _searchRadiusField
+			// _graSnowField
 			// 
-			resources.ApplyResources(this._searchRadiusField, "_searchRadiusField");
-			this._searchRadiusField.Name = "_searchRadiusField";
-			this._searchRadiusField.NameString = "Suchradius:";
-			this._searchRadiusField.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			this._searchRadiusField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._searchRadiusField_ValueChanged);
+			resources.ApplyResources(this._graSnowField, "_graSnowField");
+			this._graSnowField.Name = "_graSnowField";
+			this._graSnowField.NameString = "Schnee-Grafik:";
+			this._graSnowField.Value = null;
+			this._graSnowField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graSnowField_ValueChanged);
 			// 
-			// _rotationSpeedField
+			// _graConstructionField
 			// 
-			resources.ApplyResources(this._rotationSpeedField, "_rotationSpeedField");
-			this._rotationSpeedField.Name = "_rotationSpeedField";
-			this._rotationSpeedField.NameString = "Rotationsgeschwindigkeit: ";
-			this._rotationSpeedField.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			this._rotationSpeedField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._rotationSpeedField_ValueChanged);
+			resources.ApplyResources(this._graConstructionField, "_graConstructionField");
+			this._graConstructionField.Name = "_graConstructionField";
+			this._graConstructionField.NameString = "Bau-Grafik:";
+			this._graConstructionField.Value = null;
+			this._graConstructionField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graConstructionField_ValueChanged);
 			// 
-			// _speedField
+			// _graChargeField
 			// 
-			resources.ApplyResources(this._speedField, "_speedField");
-			this._speedField.Name = "_speedField";
-			this._speedField.NameString = "Geschwindigkeit:";
-			this._speedField.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			this._speedField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._speedField_ValueChanged);
+			resources.ApplyResources(this._graChargeField, "_graChargeField");
+			this._graChargeField.Name = "_graChargeField";
+			this._graChargeField.NameString = "Charge-Grafik:";
+			this._graChargeField.Value = null;
+			this._graChargeField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graChargeField_ValueChanged);
 			// 
-			// _losField
+			// _graGarrisonField
 			// 
-			resources.ApplyResources(this._losField, "_losField");
-			this._losField.Name = "_losField";
-			this._losField.NameString = "Sichtweite:";
-			this._losField.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			this._losField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._losField_ValueChanged);
+			resources.ApplyResources(this._graGarrisonField, "_graGarrisonField");
+			this._graGarrisonField.Name = "_graGarrisonField";
+			this._graGarrisonField.NameString = "Quartier-Grafik:";
+			this._graGarrisonField.Value = null;
+			this._graGarrisonField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graGarrisonField_ValueChanged);
 			// 
-			// _resourceCapacityField
+			// _graMoving2Field
 			// 
-			resources.ApplyResources(this._resourceCapacityField, "_resourceCapacityField");
-			this._resourceCapacityField.Name = "_resourceCapacityField";
-			this._resourceCapacityField.NameString = "Ressourcenkapazität: ";
-			this._resourceCapacityField.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			this._resourceCapacityField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._resourceCapacityField_ValueChanged);
+			resources.ApplyResources(this._graMoving2Field, "_graMoving2Field");
+			this._graMoving2Field.Name = "_graMoving2Field";
+			this._graMoving2Field.NameString = "Lauf-Grafik 2:";
+			this._graMoving2Field.Value = null;
+			this._graMoving2Field.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graMoving2Field_ValueChanged);
 			// 
-			// _garrisonCapacityField
+			// _graMoving1Field
 			// 
-			resources.ApplyResources(this._garrisonCapacityField, "_garrisonCapacityField");
-			this._garrisonCapacityField.Name = "_garrisonCapacityField";
-			this._garrisonCapacityField.NameString = "Quartier-Kapazität:";
-			this._garrisonCapacityField.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			this._garrisonCapacityField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._garrisonCapacityField_ValueChanged);
+			resources.ApplyResources(this._graMoving1Field, "_graMoving1Field");
+			this._graMoving1Field.Name = "_graMoving1Field";
+			this._graMoving1Field.NameString = "Lauf-Grafik 1:";
+			this._graMoving1Field.Value = null;
+			this._graMoving1Field.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graMoving1Field_ValueChanged);
+			// 
+			// _graStanding2Field
+			// 
+			resources.ApplyResources(this._graStanding2Field, "_graStanding2Field");
+			this._graStanding2Field.Name = "_graStanding2Field";
+			this._graStanding2Field.NameString = "Steh-Grafik 2:";
+			this._graStanding2Field.Value = null;
+			this._graStanding2Field.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graStanding2Field_ValueChanged);
+			// 
+			// _graFalling2Field
+			// 
+			resources.ApplyResources(this._graFalling2Field, "_graFalling2Field");
+			this._graFalling2Field.Name = "_graFalling2Field";
+			this._graFalling2Field.NameString = "Sterbe-Grafik 2:";
+			this._graFalling2Field.Value = null;
+			this._graFalling2Field.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graFalling2Field_ValueChanged);
+			// 
+			// _graFalling1Field
+			// 
+			resources.ApplyResources(this._graFalling1Field, "_graFalling1Field");
+			this._graFalling1Field.Name = "_graFalling1Field";
+			this._graFalling1Field.NameString = "Sterbe-Grafik 1:";
+			this._graFalling1Field.Value = null;
+			this._graFalling1Field.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graFalling1Field_ValueChanged);
+			// 
+			// _graStanding1Field
+			// 
+			resources.ApplyResources(this._graStanding1Field, "_graStanding1Field");
+			this._graStanding1Field.Name = "_graStanding1Field";
+			this._graStanding1Field.NameString = "Steh-Grafik 1:";
+			this._graStanding1Field.Value = null;
+			this._graStanding1Field.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graStanding1Field_ValueChanged);
 			// 
 			// _soundsTabPage
 			// 
@@ -1871,126 +1991,6 @@
             0,
             0});
 			this._soundSelectionField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._soundSelectionField_ValueChanged);
-			// 
-			// _trainTabPage
-			// 
-			this._trainTabPage.Controls.Add(this._trainTimeField);
-			this._trainTabPage.Controls.Add(this.groupBox25);
-			this._trainTabPage.Controls.Add(this.groupBox6);
-			resources.ApplyResources(this._trainTabPage, "_trainTabPage");
-			this._trainTabPage.Name = "_trainTabPage";
-			this._trainTabPage.UseVisualStyleBackColor = true;
-			// 
-			// _trainTimeField
-			// 
-			resources.ApplyResources(this._trainTimeField, "_trainTimeField");
-			this._trainTimeField.Name = "_trainTimeField";
-			this._trainTimeField.NameString = "Erschaff-Zeit:";
-			this._trainTimeField.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			this._trainTimeField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._trainTimeField_ValueChanged);
-			// 
-			// groupBox25
-			// 
-			this.groupBox25.Controls.Add(this._cost3Field);
-			this.groupBox25.Controls.Add(this._cost2Field);
-			this.groupBox25.Controls.Add(this._cost1Field);
-			resources.ApplyResources(this.groupBox25, "groupBox25");
-			this.groupBox25.Name = "groupBox25";
-			this.groupBox25.TabStop = false;
-			// 
-			// _cost3Field
-			// 
-			resources.ApplyResources(this._cost3Field, "_cost3Field");
-			this._cost3Field.Name = "_cost3Field";
-			this._cost3Field.NameString = "Kosten 3:";
-			this._cost3Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._cost3Field_ValueChanged);
-			// 
-			// _cost2Field
-			// 
-			resources.ApplyResources(this._cost2Field, "_cost2Field");
-			this._cost2Field.Name = "_cost2Field";
-			this._cost2Field.NameString = "Kosten 2:";
-			this._cost2Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._cost2Field_ValueChanged);
-			// 
-			// _cost1Field
-			// 
-			resources.ApplyResources(this._cost1Field, "_cost1Field");
-			this._cost1Field.Name = "_cost1Field";
-			this._cost1Field.NameString = "Kosten 1:";
-			this._cost1Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._cost1Field_ValueChanged);
-			// 
-			// groupBox6
-			// 
-			this.groupBox6.Controls.Add(this._resourceStorage3ModeField);
-			this.groupBox6.Controls.Add(this._resourceStorage2ModeField);
-			this.groupBox6.Controls.Add(this._resourceStorage1ModeField);
-			this.groupBox6.Controls.Add(this._resourceStorage3Field);
-			this.groupBox6.Controls.Add(this._resourceStorage2Field);
-			this.groupBox6.Controls.Add(this._resourceStorage1Field);
-			resources.ApplyResources(this.groupBox6, "groupBox6");
-			this.groupBox6.Name = "groupBox6";
-			this.groupBox6.TabStop = false;
-			// 
-			// _resourceStorage3ModeField
-			// 
-			resources.ApplyResources(this._resourceStorage3ModeField, "_resourceStorage3ModeField");
-			this._resourceStorage3ModeField.Name = "_resourceStorage3ModeField";
-			this._resourceStorage3ModeField.NameString = "Modus:";
-			this._resourceStorage3ModeField.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			this._resourceStorage3ModeField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._resourceStorage3ModeField_ValueChanged);
-			// 
-			// _resourceStorage2ModeField
-			// 
-			resources.ApplyResources(this._resourceStorage2ModeField, "_resourceStorage2ModeField");
-			this._resourceStorage2ModeField.Name = "_resourceStorage2ModeField";
-			this._resourceStorage2ModeField.NameString = "Modus:";
-			this._resourceStorage2ModeField.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			this._resourceStorage2ModeField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._resourceStorage2ModeField_ValueChanged);
-			// 
-			// _resourceStorage1ModeField
-			// 
-			resources.ApplyResources(this._resourceStorage1ModeField, "_resourceStorage1ModeField");
-			this._resourceStorage1ModeField.Name = "_resourceStorage1ModeField";
-			this._resourceStorage1ModeField.NameString = "Modus:";
-			this._resourceStorage1ModeField.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			this._resourceStorage1ModeField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._resourceStorage1ModeField_ValueChanged);
-			// 
-			// _resourceStorage3Field
-			// 
-			resources.ApplyResources(this._resourceStorage3Field, "_resourceStorage3Field");
-			this._resourceStorage3Field.Name = "_resourceStorage3Field";
-			this._resourceStorage3Field.NameString = "Speicher 3:";
-			this._resourceStorage3Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._resourceStorage3Field_ValueChanged);
-			// 
-			// _resourceStorage2Field
-			// 
-			resources.ApplyResources(this._resourceStorage2Field, "_resourceStorage2Field");
-			this._resourceStorage2Field.Name = "_resourceStorage2Field";
-			this._resourceStorage2Field.NameString = "Speicher 2:";
-			this._resourceStorage2Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._resourceStorage2Field_ValueChanged);
-			// 
-			// _resourceStorage1Field
-			// 
-			resources.ApplyResources(this._resourceStorage1Field, "_resourceStorage1Field");
-			this._resourceStorage1Field.Name = "_resourceStorage1Field";
-			this._resourceStorage1Field.NameString = "Speicher 1:";
-			this._resourceStorage1Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._resourceStorage1Field_ValueChanged);
 			// 
 			// _unknownTabPage
 			// 
@@ -2259,6 +2259,7 @@
 			this._commonTabPage.ResumeLayout(false);
 			this._commonTabPage.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
+			this._statsTabPage.ResumeLayout(false);
 			this._combatTabPage.ResumeLayout(false);
 			this.groupBox22.ResumeLayout(false);
 			this.groupBox20.ResumeLayout(false);
@@ -2266,10 +2267,10 @@
 			((System.ComponentModel.ISupportInitialize)(this._armourValuesField)).EndInit();
 			this.groupBox18.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this._attackValuesField)).EndInit();
-			this._graphicsTabPage.ResumeLayout(false);
-			this.groupBox14.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this._dmgGraphicsField)).EndInit();
 			this._projectileTabPage.ResumeLayout(false);
+			this._trainTabPage.ResumeLayout(false);
+			this.groupBox25.ResumeLayout(false);
+			this.groupBox6.ResumeLayout(false);
 			this._editorTabPage.ResumeLayout(false);
 			this._editorTabPage.PerformLayout();
 			this.groupBox33.ResumeLayout(false);
@@ -2277,11 +2278,10 @@
 			this.groupBox9.ResumeLayout(false);
 			this.groupBox5.ResumeLayout(false);
 			this._behaviourTabPage.ResumeLayout(false);
-			this._statsTabPage.ResumeLayout(false);
+			this._graphicsTabPage.ResumeLayout(false);
+			this.groupBox14.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this._dmgGraphicsField)).EndInit();
 			this._soundsTabPage.ResumeLayout(false);
-			this._trainTabPage.ResumeLayout(false);
-			this.groupBox25.ResumeLayout(false);
-			this.groupBox6.ResumeLayout(false);
 			this._unknownTabPage.ResumeLayout(false);
 			this.ResumeLayout(false);
 

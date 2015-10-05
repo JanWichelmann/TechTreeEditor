@@ -249,9 +249,9 @@ namespace TechTreeEditor
 
 			// Icons laden
 			SetStatus("Lade Icon-SLPs...");
-			SLPLoader.Loader _iconsResearches = new SLPLoader.Loader(new IORAMHelper.RAMBuffer(interfacDRS.GetResourceData(50729)));
-			SLPLoader.Loader _iconsUnits = new SLPLoader.Loader(new IORAMHelper.RAMBuffer(interfacDRS.GetResourceData(50730)));
-			SLPLoader.Loader _iconsBuildings = new SLPLoader.Loader(new IORAMHelper.RAMBuffer(interfacDRS.GetResourceData(50706)));
+			SLPLoader.SLPFile _iconsResearches = new SLPLoader.SLPFile(new IORAMHelper.RAMBuffer(interfacDRS.GetResourceData(50729)));
+			SLPLoader.SLPFile _iconsUnits = new SLPLoader.SLPFile(new IORAMHelper.RAMBuffer(interfacDRS.GetResourceData(50730)));
+			SLPLoader.SLPFile _iconsBuildings = new SLPLoader.SLPFile(new IORAMHelper.RAMBuffer(interfacDRS.GetResourceData(50706)));
 
 			// Farb-Palette laden
 			SetStatus(Strings.MainForm_Status_LoadingPal);

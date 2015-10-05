@@ -103,17 +103,17 @@ namespace TechTreeEditor
 		/// <summary>
 		/// Die Technologie-Icon-SLP.
 		/// </summary>
-		private SLPLoader.Loader _iconsResearches = null;
+		private SLPLoader.SLPFile _iconsResearches = null;
 
 		/// <summary>
 		/// Die Einheit-Icon-SLP.
 		/// </summary>
-		private SLPLoader.Loader _iconsUnits = null;
+		private SLPLoader.SLPFile _iconsUnits = null;
 
 		/// <summary>
 		/// Die Gebäude-Icon-SLP.
 		/// </summary>
-		private SLPLoader.Loader _iconsBuildings = null;
+		private SLPLoader.SLPFile _iconsBuildings = null;
 
 		/// <summary>
 		/// Das aktuell ausgewählte Techtree-Element.
@@ -183,7 +183,7 @@ namespace TechTreeEditor
 		/// <param name="iconsResearches">Die Technologie-Icon-SLP.</param>
 		/// <param name="iconsUnits">Die Einheit-Icon-SLP.</param>
 		/// <param name="iconsBuildings">Die Gebäude-Icon-SLP.</param>
-		public void UpdateIconData(BitmapLibrary.ColorTable pal50500, SLPLoader.Loader iconsResearches, SLPLoader.Loader iconsUnits, SLPLoader.Loader iconsBuildings)
+		public void UpdateIconData(BitmapLibrary.ColorTable pal50500, SLPLoader.SLPFile iconsResearches, SLPLoader.SLPFile iconsUnits, SLPLoader.SLPFile iconsBuildings)
 		{
 			// Parameter speichern
 			_pal50500 = pal50500;

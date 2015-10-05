@@ -235,10 +235,13 @@ namespace TechTreeEditor
 			// Je nach Einheitentyp Buttons (de-)aktivieren
 			_updatingUnit = true;
 			if(renderUnit.DATUnit.Type >= GenieLibrary.DataElements.Civ.Unit.UnitType.DeadFish)
+			{
+				// Laufgrafik-Button aktivieren
 				_graMovingButton.Enabled = true;
+			}
 			else
 			{
-				// Button deaktivieren und deselektieren
+				// Laufgrafik-Button deaktivieren und deselektieren
 				_graMovingButton.Enabled = false;
 				if(_graMovingButton.Checked)
 				{
@@ -248,10 +251,18 @@ namespace TechTreeEditor
 				}
 			}
 			if(renderUnit.DATUnit.Type >= GenieLibrary.DataElements.Civ.Unit.UnitType.Type50)
+			{
+				// Angriffsgrafik-Button aktivieren
 				_graAttackingButton.Enabled = true;
+
+				// Projektilpunkt-Funtion aktivieren
+				_showProjectilePointCheckBox.Enabled = ((renderUnit as TechTreeBuilding)?.ProjectileUnit != null || (renderUnit as TechTreeCreatable)?.ProjectileUnit != null);
+				if(!_showProjectilePointCheckBox.Enabled)
+					_showProjectilePointCheckBox.Checked = false;
+			}
 			else
 			{
-				// Button deaktivieren und deselektieren
+				// Angriffsgrafik-Button deaktivieren und deselektieren
 				_graAttackingButton.Enabled = false;
 				if(_graAttackingButton.Checked)
 				{
@@ -259,6 +270,9 @@ namespace TechTreeEditor
 					_graStandingButton.Select();
 					_currShowedGraphic = GraphicMode.Standing;
 				}
+
+				// Projektilpunkt-Funtion deaktivieren
+				_showProjectilePointCheckBox.Enabled = false;
 			}
 
 			// Fertig
@@ -303,22 +317,7 @@ namespace TechTreeEditor
 						TechTreeBuilding annexUnit = annex.Item1;
 
 						// Annex-Grafik-ID holen
-						int annexGraID = -1;
-						switch(_currShowedGraphic)
-						{
-							case GraphicMode.Attacking:
-								annexGraID = annexUnit.DATUnit.Type50.AttackGraphic;
-								break;
-							case GraphicMode.Falling:
-								annexGraID = annexUnit.DATUnit.DyingGraphic1;
-								break;
-							case GraphicMode.Moving:
-								annexGraID = annexUnit.DATUnit.DeadFish.WalkingGraphic1;
-								break;
-							case GraphicMode.Standing:
-								annexGraID = annexUnit.DATUnit.StandingGraphic1;
-								break;
-						}
+						int annexGraID = annexUnit.DATUnit.StandingGraphic1;
 
 						// Grafik abrufen
 						if(!_projectFile.BasicGenieFile.Graphics.ContainsKey(annexGraID))
@@ -326,11 +325,15 @@ namespace TechTreeEditor
 						GenieLibrary.DataElements.Graphic annexRenderGraphic = _projectFile.BasicGenieFile.Graphics[annexGraID];
 
 						// Offset berechnen und Animation erstellen
-						double annexX = TILE_HORIZONTAL_OFFSET * (annex.Item3 + annex.Item2);
-						double annexY = TILE_VERTICAL_OFFSET * (annex.Item3 - annex.Item2);
-						CreateAnimationFromGraphic(annexRenderGraphic, new Point((int)Math.Round(annexX), (int)Math.Round(annexY)), true);
-					}
+						int annexX = (int)Math.Round(TILE_HORIZONTAL_OFFSET * (annex.Item3 + annex.Item2));
+						int annexY = (int)Math.Round(TILE_VERTICAL_OFFSET * (annex.Item3 - annex.Item2));
+						CreateAnimationFromGraphic(annexRenderGraphic, new Point(annexX, annexY), true);
 
+						// Ggf. Schnee-Grafik mit draufzeichnen
+						if(_graSnowCheckBox.Checked)
+							if(annexUnit.DATUnit.Building.SnowGraphicID >= 0 && _projectFile.BasicGenieFile.Graphics.ContainsKey(annexUnit.DATUnit.Building.SnowGraphicID))
+								CreateAnimationFromGraphic(_projectFile.BasicGenieFile.Graphics[annexUnit.DATUnit.Building.SnowGraphicID], new Point(annexX, annexY), true);
+					}
 
 			// Falls die Einheit eine Obereinheit hat, diese zeichnen
 			TechTreeUnit renderUnit = _renderUnit;
@@ -339,21 +342,24 @@ namespace TechTreeEditor
 
 			// Grafik-ID holen
 			int graID = -1;
-			switch(_currShowedGraphic)
-			{
-				case GraphicMode.Attacking:
-					graID = renderUnit.DATUnit.Type50.AttackGraphic;
-					break;
-				case GraphicMode.Falling:
-					graID = renderUnit.DATUnit.DyingGraphic1;
-					break;
-				case GraphicMode.Moving:
-					graID = renderUnit.DATUnit.DeadFish.WalkingGraphic1;
-					break;
-				case GraphicMode.Standing:
-					graID = renderUnit.DATUnit.StandingGraphic1;
-					break;
-			}
+			if(renderUnit is TechTreeBuilding && _currShowedGraphic == GraphicMode.Attacking && renderUnit.DATUnit.Type50.AttackGraphic < 0)
+				graID = renderUnit.DATUnit.StandingGraphic1;
+			else
+				switch(_currShowedGraphic)
+				{
+					case GraphicMode.Attacking:
+						graID = renderUnit.DATUnit.Type50.AttackGraphic;
+						break;
+					case GraphicMode.Falling:
+						graID = renderUnit.DATUnit.DyingGraphic1;
+						break;
+					case GraphicMode.Moving:
+						graID = renderUnit.DATUnit.DeadFish.WalkingGraphic1;
+						break;
+					case GraphicMode.Standing:
+						graID = renderUnit.DATUnit.StandingGraphic1;
+						break;
+				}
 
 			// Grafik abrufen
 			if(!_projectFile.BasicGenieFile.Graphics.ContainsKey(graID))
@@ -362,6 +368,11 @@ namespace TechTreeEditor
 
 			// Animation erstellen
 			CreateAnimationFromGraphic(renderGraphic, new Point(0, 0), true);
+
+			// Ggf. Schneegrafik zeichnen
+			if(_graSnowCheckBox.Checked && renderUnit is TechTreeBuilding)
+				if(renderUnit.DATUnit.Building.SnowGraphicID >= 0 && _projectFile.BasicGenieFile.Graphics.ContainsKey(renderUnit.DATUnit.Building.SnowGraphicID))
+					CreateAnimationFromGraphic(_projectFile.BasicGenieFile.Graphics[renderUnit.DATUnit.Building.SnowGraphicID], new Point(0, 0), true);
 
 			// Zentrieren
 			_renderingTranslation = new Point(0, 0);
@@ -389,7 +400,7 @@ namespace TechTreeEditor
 			if(graphic.SLP >= 0 && _graphicsDRS.ResourceExists((uint)graphic.SLP))
 			{
 				// SLP laden
-				SLPLoader.Loader renderSLP = new SLPLoader.Loader(new IORAMHelper.RAMBuffer(_graphicsDRS.GetResourceData((uint)graphic.SLP)));
+				SLPLoader.SLPFile renderSLP = new SLPLoader.SLPFile(new IORAMHelper.RAMBuffer(_graphicsDRS.GetResourceData((uint)graphic.SLP)));
 
 				// Die DAT-Framezahl sollte das Produkt aus Achsenzahl und SLP-Framezahl sein => nicht benötigte Achsenframes ignorieren
 				uint slpFrameCount = renderSLP.FrameCount;
@@ -407,6 +418,7 @@ namespace TechTreeEditor
 					animation.AngleCount = graphic.AngleCount;
 
 					// Achsenauswahlfeld aktualisieren
+					// TODO TODO TODO
 					_angleField.Maximum = Math.Max(_angleField.Maximum, animation.AngleCount - 1) + 1;
 
 					// Maximale Frame-Größe berechnen: Diese setzt sich zusammen aus der Breite der einzelnen SLP-Frames und den zugehörigen Frame-Ankern, ausgehend vom Mittelpunkt.
@@ -418,10 +430,10 @@ namespace TechTreeEditor
 					for(int f = 0; f < slpFrameCount; ++f)
 					{
 						// Werte berechnen
-						offsetLeft = Math.Max(offsetLeft, renderSLP._frameInformationenHeaders[f].XAnker);
-						offsetRight = Math.Max(offsetRight, (int)renderSLP._frameInformationenHeaders[f].Breite - renderSLP._frameInformationenHeaders[f].XAnker);
-						offsetTop = Math.Max(offsetTop, renderSLP._frameInformationenHeaders[f].YAnker);
-						offsetBottom = Math.Max(offsetBottom, (int)renderSLP._frameInformationenHeaders[f].Höhe - renderSLP._frameInformationenHeaders[f].YAnker);
+						offsetLeft = Math.Max(offsetLeft, renderSLP._frameInformationHeaders[f].AnchorX);
+						offsetRight = Math.Max(offsetRight, (int)renderSLP._frameInformationHeaders[f].Width - renderSLP._frameInformationHeaders[f].AnchorX);
+						offsetTop = Math.Max(offsetTop, renderSLP._frameInformationHeaders[f].AnchorY);
+						offsetBottom = Math.Max(offsetBottom, (int)renderSLP._frameInformationHeaders[f].Height - renderSLP._frameInformationHeaders[f].AnchorY);
 					}
 
 					// Bei Spiegelachsen die horizontalen Offsets gleichsetzen
@@ -456,10 +468,8 @@ namespace TechTreeEditor
 							for(uint f = 0; f < slpFrameCount; ++f)
 							{
 								// Frame-Bitmap holen und zeichnen
-								using(Bitmap currFrame = renderSLP.getFrameAsBitmap(f, _pal50500, SLPLoader.Loader.Masks.Graphic, Color.FromArgb(0, 0, 0, 0), COLOR_SHADOW))
-									g.DrawImage(currFrame, j * frameWidth + offsetLeft - renderSLP._frameInformationenHeaders[(int)f].XAnker, i * frameHeight + offsetTop - renderSLP._frameInformationenHeaders[(int)f].YAnker);
-
-								g.FillRectangle(Brushes.Gold, j * frameWidth + offsetLeft - 4, i * frameHeight + offsetTop - 4, 8, 8);
+								using(Bitmap currFrame = renderSLP.getFrameAsBitmap(f, _pal50500, SLPLoader.SLPFile.Masks.Graphic, Color.FromArgb(0, 0, 0, 0), COLOR_SHADOW))
+									g.DrawImage(currFrame, j * frameWidth + offsetLeft - renderSLP._frameInformationHeaders[(int)f].AnchorX, i * frameHeight + offsetTop - renderSLP._frameInformationHeaders[(int)f].AnchorY);
 
 								// Koordinaten erhöhen
 								if(++j >= animation.FramesPerLine)
@@ -476,16 +486,14 @@ namespace TechTreeEditor
 									for(uint f = (uint)a * graphic.FrameCount; f < (a + 1) * graphic.FrameCount; ++f)
 									{
 										// Frame-Bitmap holen und zeichnen
-										using(Bitmap currFrame = renderSLP.getFrameAsBitmap(f, _pal50500, SLPLoader.Loader.Masks.Graphic, Color.FromArgb(0, 0, 0, 0), COLOR_SHADOW))
+										using(Bitmap currFrame = renderSLP.getFrameAsBitmap(f, _pal50500, SLPLoader.SLPFile.Masks.Graphic, Color.FromArgb(0, 0, 0, 0), COLOR_SHADOW))
 										{
 											// Bild spiegeln
 											currFrame.RotateFlip(RotateFlipType.RotateNoneFlipX);
 
 											// Bild in Textur zeichnen
-											g.DrawImage(currFrame, j * frameWidth + offsetLeft - (renderSLP._frameInformationenHeaders[(int)f].Breite - renderSLP._frameInformationenHeaders[(int)f].XAnker), i * frameHeight + offsetTop - renderSLP._frameInformationenHeaders[(int)f].YAnker);
+											g.DrawImage(currFrame, j * frameWidth + offsetLeft - (renderSLP._frameInformationHeaders[(int)f].Width - renderSLP._frameInformationHeaders[(int)f].AnchorX), i * frameHeight + offsetTop - renderSLP._frameInformationHeaders[(int)f].AnchorY);
 										}
-
-										g.FillRectangle(Brushes.Gold, j * frameWidth + offsetLeft - 4, i * frameHeight + offsetTop - 4, 8, 8);
 
 										// Koordinaten erhöhen
 										if(++j >= animation.FramesPerLine)
@@ -497,12 +505,10 @@ namespace TechTreeEditor
 									}
 						}
 
-						textureBitmap.Save("R:\\" + graphic.SLP + ".png");
-
 						// Textur anlegen und binden
 						animation.TextureID = GL.GenTexture();
 						GL.BindTexture(TextureTarget.Texture2D, animation.TextureID);
-
+						
 						// Textur soll bei Verkleinerung/Vergrößerung scharf (= pixelig) bleiben
 						GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Nearest);
 						GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Nearest);
@@ -512,7 +518,7 @@ namespace TechTreeEditor
 
 						// Textur an OpenGL übergeben
 						GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, textureWidth, textureHeight, 0, OpenTK.Graphics.OpenGL.PixelFormat.Bgra, PixelType.UnsignedByte, data.Scan0);
-
+						
 						// Bild-Bits wieder freigeben
 						textureBitmap.UnlockBits(data);
 
@@ -606,27 +612,31 @@ namespace TechTreeEditor
 			// Ausgang aller Zeichnungen ist der Fenstermittelpunkt
 			GL.Translate(_drawPanel.Width / 2.0f, _drawPanel.Height / 2.0f, 0.0f);
 
-			// Ggf. Rahmen zeichnen
-			if(_renderUnit.DATUnit.Type == GenieLibrary.DataElements.Civ.Unit.UnitType.Building)
+			// Tile-Gitternetz zeichnen
+			for(float i = 0.0f; i < 16.5f; i += 0.5f)
+				for(float j = 0.0f; j < 16.5f; j += 0.5f)
+					DrawBorder(i, j, Color.FromArgb(180, 180, 180), false);
+
+			// Rahmen zeichnen
 			{
-				// Keine Textur binden
-				GL.BindTexture(TextureTarget.Texture2D, 0);
+				// Rahmentyp bestimmen
+				bool round = (_renderUnit.DATUnit.SelectionShape == 2);
 
 				// Größe
 				if(_radiusSizeCheckBox.Checked)
-					DrawBorder(_renderUnit.DATUnit.SizeRadius1, _renderUnit.DATUnit.SizeRadius2, Color.Red);
+					DrawBorder(_renderUnit.DATUnit.SizeRadius1, _renderUnit.DATUnit.SizeRadius2, Color.Red, round);
 
 				// Editor
 				if(_radiusEditorCheckBox.Checked)
-					DrawBorder(_renderUnit.DATUnit.EditorRadius1, _renderUnit.DATUnit.EditorRadius2, Color.Gray);
+					DrawBorder(_renderUnit.DATUnit.EditorRadius1, _renderUnit.DATUnit.EditorRadius2, Color.Gray, round);
 
 				// Auswahl
 				if(_radiusSelectionCheckBox.Checked)
-					DrawBorder(_renderUnit.DATUnit.SelectionRadius1, _renderUnit.DATUnit.SelectionRadius2, Color.DarkGreen);
+					DrawBorder(_renderUnit.DATUnit.SelectionRadius1, _renderUnit.DATUnit.SelectionRadius2, Color.DarkGreen, round);
 
 				// Manuell
 				if(_radiusCustomCheckBox.Checked)
-					DrawBorder((float)_radiusCustom1Field.Value, (float)_radiusCustom2Field.Value, Color.Blue);
+					DrawBorder((float)_radiusCustom1Field.Value, (float)_radiusCustom2Field.Value, Color.Blue, round);
 			}
 
 			// Animationen der Reihe nach in der Fenstermitte zeichnen
@@ -668,6 +678,95 @@ namespace TechTreeEditor
 					}
 					GL.PopMatrix();
 				}
+			}
+
+			// Keine Textur binden
+			GL.BindTexture(TextureTarget.Texture2D, 0);
+
+			// Ankerposition markieren
+			if(_showCenterPointCheckBox.Checked)
+			{
+				// Markierung zeichnen
+				GL.Color3(Color.DeepPink);
+				GL.Begin(PrimitiveType.Quads);
+				{
+					GL.Vertex2(-4, -4);
+					GL.Vertex2(4, -4);
+					GL.Vertex2(4, 4);
+					GL.Vertex2(-4, 4);
+				}
+				GL.End();
+			}
+
+			// Projektilposition markieren
+			if(_showProjectilePointCheckBox.Checked)
+			{
+				// Position berechnen
+				PointF projPos = new PointF();
+				int angle = (int)_angleField.Value;
+				if(_angleField.Maximum > 8)
+					angle /= ((int)_angleField.Maximum / 8); // Achse auf 8 Achsen normieren
+				if(angle % 2 == 0)
+				{
+					// X/Y bestimmen
+					double projX = 0.0;
+					double projY = -_renderUnit.DATUnit.Type50.GraphicDisplacement[2];
+					if(angle == 0 || angle == 4)
+					{
+						// Blickrichtung unten/oben
+						projX -= (angle - 2) / 2 * _renderUnit.DATUnit.Type50.GraphicDisplacement[0];
+						projY -= (angle - 2) / 2 * _renderUnit.DATUnit.Type50.GraphicDisplacement[1];
+					}
+					else if(angle == 2 || angle == 6)
+					{
+						// Blickrichtung links/rechts
+						projX += (angle - 4) / 2 * _renderUnit.DATUnit.Type50.GraphicDisplacement[1];
+						projY += (angle - 4) / 2 * _renderUnit.DATUnit.Type50.GraphicDisplacement[0];
+					}
+
+					// Projektilposition berechnen
+					projPos.X = (float)(projX * TILE_HORIZONTAL_OFFSET);
+					projPos.Y = (float)(projY * TILE_VERTICAL_OFFSET);
+				}
+				else
+				{
+					// Tile-Abstand bestimmen
+					if(angle == 1 || angle == 5)
+					{
+						// Blickrichtung unten links/oben rechts
+						double proj1 = (angle - 3) / 2 * _renderUnit.DATUnit.Type50.GraphicDisplacement[1];
+						double proj2 = (angle - 3) / 2 * _renderUnit.DATUnit.Type50.GraphicDisplacement[0];
+
+						// Projektilposition berechnen
+						projPos.X = (float)((proj1 + proj2) * TILE_HORIZONTAL_OFFSET);
+						projPos.Y = (float)((-(proj1 - proj2) - _renderUnit.DATUnit.Type50.GraphicDisplacement[2]) * TILE_VERTICAL_OFFSET);
+					}
+					else if(angle == 3 || angle == 7)
+					{
+						// Blickrichtung oben links/unten rechts
+						double proj1 = -(angle - 5) / 2 * _renderUnit.DATUnit.Type50.GraphicDisplacement[0];
+						double proj2 = (angle - 5) / 2 * _renderUnit.DATUnit.Type50.GraphicDisplacement[1];
+
+						// Projektilposition berechnen
+						projPos.X = (float)((proj2 - proj1) * TILE_HORIZONTAL_OFFSET);
+						projPos.Y = (float)((proj2 + proj1 - _renderUnit.DATUnit.Type50.GraphicDisplacement[2]) * TILE_VERTICAL_OFFSET);
+					}
+				}
+
+				// Projektilposition an den Zoom anpassen
+				projPos.X *= _zoom;
+				projPos.Y *= _zoom;
+
+				// Projektilposition zeichnen
+				GL.Color3(Color.Red);
+				GL.Begin(PrimitiveType.Quads);
+				{
+					GL.Vertex2(projPos.X - 2, projPos.Y - 2);
+					GL.Vertex2(projPos.X + 2, projPos.Y - 2);
+					GL.Vertex2(projPos.X + 2, projPos.Y + 2);
+					GL.Vertex2(projPos.X - 2, projPos.Y + 2);
+				}
+				GL.End();
 			}
 
 			// Puffer tauschen, um Flackern zu vermeiden
@@ -806,6 +905,19 @@ namespace TechTreeEditor
 			}
 		}
 
+		private void _graSnowCheckBox_CheckedChanged(object sender, EventArgs e)
+		{
+			// Button bei Einheiten-Update ignorieren
+			if(_updatingUnit)
+				return;
+
+			// Grafik laden
+			PreprocessRenderedGraphic();
+
+			// Neu zeichnen
+			_drawPanel.Invalidate();
+		}
+
 		private void _zoomField_ValueChanged(object sender, EventArgs e)
 		{
 			// Neuen Zoom speichern
@@ -902,6 +1014,9 @@ namespace TechTreeEditor
 			else if(_angleField.Enabled)
 				foreach(Animation anim in _animations)
 					anim.CurrentAngle = (int)(_angleField.Value / (_angleField.Maximum / anim.AngleCount));
+
+			// Neu zeichnen
+			_drawPanel.Invalidate();
 		}
 
 		private void _drawPanel_MouseDown(object sender, MouseEventArgs e)
@@ -1014,35 +1129,66 @@ namespace TechTreeEditor
 			_drawPanel.Invalidate();
 		}
 
+		private void _showCenterPointCheckBox_CheckedChanged(object sender, EventArgs e)
+		{
+			// Neu zeichnen
+			_drawPanel.Invalidate();
+		}
+
+		private void _showProjectilePointCheckBox_CheckedChanged(object sender, EventArgs e)
+		{
+			// Neu zeichnen
+			_drawPanel.Invalidate();
+		}
+
 		#endregion Ereignishandler
 
 		#region Hilfsfunktionen
 
 		/// <summary>
-		/// Zeichnet einen viereckigen Tile-Bereich um den aktuellen Mittelpunkt.
+		/// Zeichnet einen viereckigen oder runden Tile-Bereich um den aktuellen Mittelpunkt.
 		/// </summary>
 		/// <param name="size1">Die Höhe des Bereichs.</param>
 		/// <param name="size2">Die Breite des Bereichs.</param>
 		/// <param name="color">Die Farbe des Rahmens.</param>
+		/// <param name="round">Gibt an, ob der Rahmen rund oder eckig sein soll.</param>
 		/// <returns></returns>
-		private void DrawBorder(float size1, float size2, Color color)
+		private void DrawBorder(float size1, float size2, Color color, bool round)
 		{
-			// Seitenpunkte berechnen
-			float topX = (float)((size2 - size1) * TILE_HORIZONTAL_OFFSET);
-			float topY = (float)((size2 + size1) * TILE_VERTICAL_OFFSET);
-			float leftX = (float)(-(size1 + size2) * TILE_HORIZONTAL_OFFSET);
-			float leftY = (float)((size1 - size2) * TILE_VERTICAL_OFFSET);
-
-			// Zeichnen
-			GL.Color3(color);
-			GL.Begin(PrimitiveType.LineLoop);
+			// Rund?
+			if(round)
 			{
-				GL.Vertex2(_zoom * leftX, _zoom * leftY); // Links
-				GL.Vertex2(_zoom * topX, _zoom * topY); // Oben
-				GL.Vertex2(-_zoom * leftX, -_zoom * leftY); // Rechts
-				GL.Vertex2(-_zoom * topX, -_zoom * topY); // Unten
+				// Radien berechnen
+				const double step = 2 * Math.PI / 360;
+				double radX = size2 * TILE_HORIZONTAL_OFFSET;
+				double radY = size1 * TILE_VERTICAL_OFFSET;
+
+				// Zeichnen
+				GL.Color3(color);
+				GL.Begin(PrimitiveType.LineLoop);
+				for(double i = 0; i < 2 * Math.PI; i += step)
+					GL.Vertex2(_zoom * Math.Cos(i) * radX, _zoom * Math.Sin(i) * radY);
+				GL.End();
 			}
-			GL.End();
+			else
+			{
+				// Seitenpunkte berechnen
+				float topX = (float)((size2 - size1) * TILE_HORIZONTAL_OFFSET);
+				float topY = (float)((size2 + size1) * TILE_VERTICAL_OFFSET);
+				float leftX = (float)(-(size1 + size2) * TILE_HORIZONTAL_OFFSET);
+				float leftY = (float)((size1 - size2) * TILE_VERTICAL_OFFSET);
+
+				// Zeichnen
+				GL.Color3(color);
+				GL.Begin(PrimitiveType.LineLoop);
+				{
+					GL.Vertex2(_zoom * leftX, _zoom * leftY); // Links
+					GL.Vertex2(_zoom * topX, _zoom * topY); // Oben
+					GL.Vertex2(-_zoom * leftX, -_zoom * leftY); // Rechts
+					GL.Vertex2(-_zoom * topX, -_zoom * topY); // Unten
+				}
+				GL.End();
+			}
 		}
 
 		/// <summary>
@@ -1214,15 +1360,11 @@ namespace TechTreeEditor
 			/// </summary>
 			public void AnimateTimerTick(object sender, System.Timers.ElapsedEventArgs e)
 			{
-				// Frame-ID inkrementieren
-				if(FrameID < FrameCount - 1)
-					++FrameID;
-				else
-					FrameID = 0;
-
-				// Hat sich die Achse geändert?
-				if(FrameID >= (_currentAngle + 1) * (FrameCount / AngleCount))
+				// Ändert sich durch Inkrementieren der Frame-ID die Achse?
+				if(FrameID + 1 >= (_currentAngle + 1) * (FrameCount / AngleCount))
 					FrameID = _currentAngle * (FrameCount / AngleCount);
+				else
+					++FrameID;
 
 				// Nächstes Intervall
 				_animateTimer.Start();
