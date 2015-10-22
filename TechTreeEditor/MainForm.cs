@@ -546,13 +546,10 @@ namespace TechTreeEditor
 			if(_copyElement != null)
 			{
 				// Technologie kopieren
-				TechTreeResearch newResearch = (_copyElement as TechTreeResearch).Clone(copyChildren, _projectFile.BasicGenieFile);
-
+				TechTreeResearch newResearch = (_copyElement as TechTreeResearch).Clone(copyChildren, _projectFile, _renderPanel.LoadIconAsTexture);
+				
 				// Auswahl zurücksetzen
 				newResearch.Selected = false;
-
-				// Icon-Textur neu erstellen, damit nicht von zwei Elementen auf dieselbe Textur verwiesen wird
-				newResearch.CreateIconTexture(_renderPanel.LoadIconAsTexture);
 
 				// Ist eine Einheit mit Kindern ausgewählt?
 				IChildrenContainer selUnit = _selectedElement as IChildrenContainer;
@@ -1022,6 +1019,16 @@ namespace TechTreeEditor
 								newU.Flags = _selectedElement.Flags & ~TechTreeElement.ElementFlags.RenderingFlags;
 								newU.Age = _selectedElement.Age;
 
+								// Einheiten-Fähigkeiten kopieren
+								int abID = 0;
+								foreach(UnitAbility ab in ((TechTreeUnit)_selectedElement).Abilities)
+								{
+									// Fähigkeit kopieren und ID ändern
+									UnitAbility newAb = ab.Clone();
+									ab.CommandData.ID = (short)abID++;
+									newU.Abilities.Add(newAb);
+								}
+
 								// DAT-Einheit auf Basis des ausgewählten Elements erstellen
 								GenieLibrary.DataElements.Civ.Unit newUDAT = (GenieLibrary.DataElements.Civ.Unit)((TechTreeUnit)_selectedElement).DATUnit.Clone();
 								newU.DATUnit = newUDAT;
@@ -1030,7 +1037,7 @@ namespace TechTreeEditor
 								int newUID = _projectFile.BasicGenieFile.UnitHeaders.Count;
 								newU.ID = newUID;
 								newUDAT.ID1 = newUDAT.ID2 = newUDAT.ID3 = (short)newUID;
-								_projectFile.BasicGenieFile.UnitHeaders.Add(new GenieLibrary.DataElements.UnitHeader() { Exists = 1, Commands = new List<GenieLibrary.DataElements.UnitHeader.UnitCommand>(_projectFile.BasicGenieFile.UnitHeaders[_selectedElement.ID].Commands) });
+								_projectFile.BasicGenieFile.UnitHeaders.Add(new GenieLibrary.DataElements.UnitHeader() { Exists = 1, Commands = newU.Abilities.Select(ab => ab.CommandData).ToList() });
 								foreach(var civ in _projectFile.BasicGenieFile.Civs)
 								{
 									civ.UnitPointers.Add(newUID);

@@ -146,10 +146,11 @@ namespace TechTreeEditor
 
 					// Elemente oberflächlich einlesen
 					// Ggf. bestehen Abhängigkeiten, die nicht Reihenfolgen-konform sind => Leere Elemente in die Liste schreiben
+					_allElements = new List<TechTreeElement>();
 					foreach(XElement elem in elemList.Descendants("element"))
 					{
-						// Element zur Liste hinzufügen
-						readElements.Add((int)elem.Attribute("id"), TechTreeElement.CreateFromType((string)elem.Attribute("type")));
+						// Element erstellen und zur Liste hinzufügen; der Eintrag in der linearen Gesamtliste wird automatisch erstellt
+						readElements.Add((int)elem.Attribute("id"), CreateElement((string)elem.Attribute("type")));
 					}
 
 					// Elementinhalte lesen
@@ -166,9 +167,6 @@ namespace TechTreeEditor
 						// Element zur Liste hinzufügen
 						_techTreeParentElements.Add(readElements[(int)elem]);
 					}
-
-					// Vollständige flache Elementliste speichern
-					_allElements = readElements.Select(e => e.Value).ToList();
 				}
 
 				// Kulturkonfigurationen lesen
@@ -337,8 +335,31 @@ namespace TechTreeEditor
 		/// <returns></returns>
 		public TechTreeElement CreateElement(string type)
 		{
-			// Element erstellen
-			TechTreeElement elem = TechTreeElement.CreateFromType(type);
+			// Nach Typen vorgehen und Element erstellen
+			TechTreeElement elem;
+            switch(type)
+			{
+				case "TechTreeBuilding":
+					elem= new TechTreeBuilding();
+					break;
+				case "TechTreeCreatable":
+					elem = new TechTreeCreatable();
+					break;
+				case "TechTreeDead":
+					elem = new TechTreeDead();
+					break;
+				case "TechTreeEyeCandy":
+					elem = new TechTreeEyeCandy();
+					break;
+				case "TechTreeProjectile":
+					elem = new TechTreeProjectile();
+					break;
+				case "TechTreeResearch":
+					elem = new TechTreeResearch();
+					break;
+				default:
+					throw new ArgumentException("Ungültiger Elementtyp.");
+			}
 
 			// Element in interne Liste schreiben
 			_allElements.Add(elem);

@@ -418,17 +418,25 @@ namespace TechTreeEditor.TechTreeStructure
 		}
 
 		/// <summary>
-		/// Gibt eine Kopie dieser Technologie zurück.
+		/// Gibt eine Kopie dieser Technologie zurück. Texturen werden ebenfalls kopiert.
 		/// </summary>
 		/// <param name="cloneChildren">Gibt an, ob auch Kinder kopiert oder diese übersprungen werden sollen.</param>
-		/// <param name="genieFile">Die DAT, in der die zugehörige DAT-Technologie kopiert werden soll.</param>
+		/// <param name="projectFile">Das zugrundeliegende Projekt.</param>
+		/// <param name="textureFunc">Die Textur-Generierungsfunktion.</param>
 		/// <returns></returns>
-		public TechTreeResearch Clone(bool cloneChildren, GenieLibrary.GenieFile genieFile)
+		public TechTreeResearch Clone(bool cloneChildren, TechTreeFile projectFile, Func<string, short, int> textureFunc)
 		{
-			// Allgemeine Member kopieren
-			TechTreeResearch clone = (TechTreeResearch)this.MemberwiseClone();
+			// Klon-Objekt erstellen
+			TechTreeResearch clone = (TechTreeResearch)projectFile.CreateElement("TechTreeResearch");
 
-			// Abähngigkeitslisten kopieren
+			// Flach kopierbare Elemente übertragen
+			clone.Age = Age;
+			clone.Flags = Flags;
+			clone.Name = Name;
+			clone.ShadowElement = ShadowElement;
+			clone.TreeWidth = TreeWidth;
+
+			// Abhängigkeitslisten kopieren
 			clone.Dependencies = new Dictionary<TechTreeResearch, int>(Dependencies);
 			clone.BuildingDependencies = new Dictionary<TechTreeBuilding, bool>(BuildingDependencies);
 
@@ -437,22 +445,25 @@ namespace TechTreeEditor.TechTreeStructure
 			Effects.ForEach(eff => clone.Effects.Add(eff.Clone()));
 
 			// DAT-Technologie kopieren
-			GenieLibrary.DataElements.Research cloneDAT = (GenieLibrary.DataElements.Research)clone.DATResearch.Clone();
+			GenieLibrary.DataElements.Research cloneDAT = (GenieLibrary.DataElements.Research)DATResearch.Clone();
 			clone.DATResearch = cloneDAT;
 
 			// Technologie in die DAT schreiben
-			int newID = genieFile.Researches.Count;
-			genieFile.Researches.Add(cloneDAT);
+			int newID = projectFile.BasicGenieFile.Researches.Count;
+			projectFile.BasicGenieFile.Researches.Add(cloneDAT);
 			clone.ID = newID;
 
 			// Kinder kopieren
 			if(cloneChildren)
 			{
 				clone.Successors = new List<TechTreeResearch>(Successors.Count);
-				Successors.ForEach(succ => clone.Successors.Add(succ.Clone(cloneChildren, genieFile)));
+				Successors.ForEach(succ => clone.Successors.Add(succ.Clone(cloneChildren, projectFile, textureFunc)));
 			}
 			else
 				clone.Successors = new List<TechTreeResearch>();
+
+			// Textur neu erstellen
+			clone.IconTextureID = textureFunc(clone.Type, clone.DATResearch.IconID);
 
 			// Fertig
 			return clone;

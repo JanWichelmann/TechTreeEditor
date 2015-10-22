@@ -307,39 +307,6 @@ namespace TechTreeEditor.TechTreeStructure
 		}
 
 		/// <summary>
-		/// Erstellt ein leeres TechTree-Element basierend auf dem übergebenen Typ.
-		/// </summary>
-		/// <param name="type">Der Elementtyp als String. Dies ist einfach der zugehörige Klassenname.</param>
-		public static TechTreeElement CreateFromType(string type)
-		{
-			// Nach Typen vorgehen
-			// Als Zeitalter wird ggf. ein Dummy-Wert übergeben
-			switch(type)
-			{
-				case "TechTreeBuilding":
-					return new TechTreeBuilding();
-
-				case "TechTreeCreatable":
-					return new TechTreeCreatable();
-
-				case "TechTreeDead":
-					return new TechTreeDead();
-
-				case "TechTreeEyeCandy":
-					return new TechTreeEyeCandy();
-
-				case "TechTreeProjectile":
-					return new TechTreeProjectile();
-
-				case "TechTreeResearch":
-					return new TechTreeResearch();
-
-				default:
-					throw new ArgumentException("Ungültiger Elementtyp.");
-			}
-		}
-
-		/// <summary>
 		/// Erstellt für alle Kindelemente die Texturen.
 		/// </summary>
 		/// <param name="textureFunc">Die Textur-Generierungsfunktion.</param>
