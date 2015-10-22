@@ -126,7 +126,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="_closeButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>712, 10</value>
+    <value>778, 10</value>
   </data>
   <data name="_closeButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 23</value>
@@ -157,7 +157,7 @@
     <value>0, 388</value>
   </data>
   <data name="_bottomPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>885, 45</value>
+    <value>951, 45</value>
   </data>
   <data name="_bottomPanel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -340,7 +340,7 @@
     <value>0, 3, 0, 0</value>
   </data>
   <data name="_commonTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>877, 362</value>
+    <value>943, 362</value>
   </data>
   <data name="_commonTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -359,6 +359,1050 @@
   </data>
   <data name="&gt;&gt;_commonTabPage.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="_abilitiesListBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="_abilitiesListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="_abilitiesListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>337, 362</value>
+  </data>
+  <data name="_abilitiesListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_abilitiesListBox.Name" xml:space="preserve">
+    <value>_abilitiesListBox</value>
+  </data>
+  <data name="&gt;&gt;_abilitiesListBox.Type" xml:space="preserve">
+    <value>TechTreeEditor.DoubleBufferedListBox, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilitiesListBox.Parent" xml:space="preserve">
+    <value>_abilitiesTabPage</value>
+  </data>
+  <data name="&gt;&gt;_abilitiesListBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_abilityUnitComboBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 54</value>
+  </data>
+  <data name="_abilityUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 21</value>
+  </data>
+  <data name="_abilityUnitComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>71</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnitComboBox.Name" xml:space="preserve">
+    <value>_abilityUnitComboBox</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnitComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnitComboBox.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnitComboBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_abilityUnitLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_abilityUnitLabel.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityUnitLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_abilityUnitLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 57</value>
+  </data>
+  <data name="_abilityUnitLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 13</value>
+  </data>
+  <data name="_abilityUnitLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
+  <data name="_abilityUnitLabel.Text" xml:space="preserve">
+    <value>Einheit:</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnitLabel.Name" xml:space="preserve">
+    <value>_abilityUnitLabel</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnitLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnitLabel.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnitLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_abilityUnknown6Field.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityUnknown6Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>457, 291</value>
+  </data>
+  <data name="_abilityUnknown6Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 20</value>
+  </data>
+  <data name="_abilityUnknown6Field.TabIndex" type="System.Int32, mscorlib">
+    <value>69</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown6Field.Name" xml:space="preserve">
+    <value>_abilityUnknown6Field</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown6Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown6Field.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown6Field.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_abilityUnknown5Field.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityUnknown5Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>457, 265</value>
+  </data>
+  <data name="_abilityUnknown5Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 20</value>
+  </data>
+  <data name="_abilityUnknown5Field.TabIndex" type="System.Int32, mscorlib">
+    <value>68</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown5Field.Name" xml:space="preserve">
+    <value>_abilityUnknown5Field</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown5Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown5Field.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown5Field.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_abilityUnknown4Field.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityUnknown4Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>457, 239</value>
+  </data>
+  <data name="_abilityUnknown4Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 20</value>
+  </data>
+  <data name="_abilityUnknown4Field.TabIndex" type="System.Int32, mscorlib">
+    <value>67</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown4Field.Name" xml:space="preserve">
+    <value>_abilityUnknown4Field</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown4Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown4Field.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown4Field.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="_abilityUnknown3Field.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityUnknown3Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 291</value>
+  </data>
+  <data name="_abilityUnknown3Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 20</value>
+  </data>
+  <data name="_abilityUnknown3Field.TabIndex" type="System.Int32, mscorlib">
+    <value>66</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown3Field.Name" xml:space="preserve">
+    <value>_abilityUnknown3Field</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown3Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown3Field.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown3Field.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="_abilityUnknown2Field.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityUnknown2Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 265</value>
+  </data>
+  <data name="_abilityUnknown2Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 20</value>
+  </data>
+  <data name="_abilityUnknown2Field.TabIndex" type="System.Int32, mscorlib">
+    <value>65</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown2Field.Name" xml:space="preserve">
+    <value>_abilityUnknown2Field</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown2Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown2Field.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown2Field.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="_abilityUnknown1Field.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityUnknown1Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 239</value>
+  </data>
+  <data name="_abilityUnknown1Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 20</value>
+  </data>
+  <data name="_abilityUnknown1Field.TabIndex" type="System.Int32, mscorlib">
+    <value>64</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown1Field.Name" xml:space="preserve">
+    <value>_abilityUnknown1Field</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown1Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown1Field.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnknown1Field.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="_abilityDropSoundField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityDropSoundField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>458, 213</value>
+  </data>
+  <data name="_abilityDropSoundField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 20</value>
+  </data>
+  <data name="_abilityDropSoundField.TabIndex" type="System.Int32, mscorlib">
+    <value>63</value>
+  </data>
+  <data name="&gt;&gt;_abilityDropSoundField.Name" xml:space="preserve">
+    <value>_abilityDropSoundField</value>
+  </data>
+  <data name="&gt;&gt;_abilityDropSoundField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilityDropSoundField.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityDropSoundField.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="_abilityExecutionSoundField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityExecutionSoundField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 213</value>
+  </data>
+  <data name="_abilityExecutionSoundField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 20</value>
+  </data>
+  <data name="_abilityExecutionSoundField.TabIndex" type="System.Int32, mscorlib">
+    <value>62</value>
+  </data>
+  <data name="&gt;&gt;_abilityExecutionSoundField.Name" xml:space="preserve">
+    <value>_abilityExecutionSoundField</value>
+  </data>
+  <data name="&gt;&gt;_abilityExecutionSoundField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilityExecutionSoundField.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityExecutionSoundField.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="_abilityCarryGraphicField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityCarryGraphicField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 213</value>
+  </data>
+  <data name="_abilityCarryGraphicField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 20</value>
+  </data>
+  <data name="_abilityCarryGraphicField.TabIndex" type="System.Int32, mscorlib">
+    <value>61</value>
+  </data>
+  <data name="&gt;&gt;_abilityCarryGraphicField.Name" xml:space="preserve">
+    <value>_abilityCarryGraphicField</value>
+  </data>
+  <data name="&gt;&gt;_abilityCarryGraphicField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.DropDownFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilityCarryGraphicField.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityCarryGraphicField.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="_abilityActionGraphicField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityActionGraphicField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 187</value>
+  </data>
+  <data name="_abilityActionGraphicField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 20</value>
+  </data>
+  <data name="_abilityActionGraphicField.TabIndex" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="&gt;&gt;_abilityActionGraphicField.Name" xml:space="preserve">
+    <value>_abilityActionGraphicField</value>
+  </data>
+  <data name="&gt;&gt;_abilityActionGraphicField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.DropDownFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilityActionGraphicField.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityActionGraphicField.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="_abilityProceedGraphicField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityProceedGraphicField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 161</value>
+  </data>
+  <data name="_abilityProceedGraphicField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 20</value>
+  </data>
+  <data name="_abilityProceedGraphicField.TabIndex" type="System.Int32, mscorlib">
+    <value>59</value>
+  </data>
+  <data name="&gt;&gt;_abilityProceedGraphicField.Name" xml:space="preserve">
+    <value>_abilityProceedGraphicField</value>
+  </data>
+  <data name="&gt;&gt;_abilityProceedGraphicField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.DropDownFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilityProceedGraphicField.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityProceedGraphicField.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="_abilityToolGraphicField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityToolGraphicField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 135</value>
+  </data>
+  <data name="_abilityToolGraphicField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 20</value>
+  </data>
+  <data name="_abilityToolGraphicField.TabIndex" type="System.Int32, mscorlib">
+    <value>58</value>
+  </data>
+  <data name="&gt;&gt;_abilityToolGraphicField.Name" xml:space="preserve">
+    <value>_abilityToolGraphicField</value>
+  </data>
+  <data name="&gt;&gt;_abilityToolGraphicField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.DropDownFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilityToolGraphicField.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityToolGraphicField.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="_abilityRightClickModeField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityRightClickModeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 188</value>
+  </data>
+  <data name="_abilityRightClickModeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 20</value>
+  </data>
+  <data name="_abilityRightClickModeField.TabIndex" type="System.Int32, mscorlib">
+    <value>57</value>
+  </data>
+  <data name="&gt;&gt;_abilityRightClickModeField.Name" xml:space="preserve">
+    <value>_abilityRightClickModeField</value>
+  </data>
+  <data name="&gt;&gt;_abilityRightClickModeField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilityRightClickModeField.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityRightClickModeField.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="_abilityTerrainField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityTerrainField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>457, 55</value>
+  </data>
+  <data name="_abilityTerrainField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 20</value>
+  </data>
+  <data name="_abilityTerrainField.TabIndex" type="System.Int32, mscorlib">
+    <value>56</value>
+  </data>
+  <data name="&gt;&gt;_abilityTerrainField.Name" xml:space="preserve">
+    <value>_abilityTerrainField</value>
+  </data>
+  <data name="&gt;&gt;_abilityTerrainField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilityTerrainField.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityTerrainField.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="_abilityPlunderSourceField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityPlunderSourceField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>458, 188</value>
+  </data>
+  <data name="_abilityPlunderSourceField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 20</value>
+  </data>
+  <data name="_abilityPlunderSourceField.TabIndex" type="System.Int32, mscorlib">
+    <value>55</value>
+  </data>
+  <data name="&gt;&gt;_abilityPlunderSourceField.Name" xml:space="preserve">
+    <value>_abilityPlunderSourceField</value>
+  </data>
+  <data name="&gt;&gt;_abilityPlunderSourceField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilityPlunderSourceField.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityPlunderSourceField.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="_abilitySelectionEnablerField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilitySelectionEnablerField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 82</value>
+  </data>
+  <data name="_abilitySelectionEnablerField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 20</value>
+  </data>
+  <data name="_abilitySelectionEnablerField.TabIndex" type="System.Int32, mscorlib">
+    <value>54</value>
+  </data>
+  <data name="&gt;&gt;_abilitySelectionEnablerField.Name" xml:space="preserve">
+    <value>_abilitySelectionEnablerField</value>
+  </data>
+  <data name="&gt;&gt;_abilitySelectionEnablerField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilitySelectionEnablerField.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilitySelectionEnablerField.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="_abilitySelectionModeField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilitySelectionModeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>457, 82</value>
+  </data>
+  <data name="_abilitySelectionModeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 20</value>
+  </data>
+  <data name="_abilitySelectionModeField.TabIndex" type="System.Int32, mscorlib">
+    <value>53</value>
+  </data>
+  <data name="&gt;&gt;_abilitySelectionModeField.Name" xml:space="preserve">
+    <value>_abilitySelectionModeField</value>
+  </data>
+  <data name="&gt;&gt;_abilitySelectionModeField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilitySelectionModeField.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilitySelectionModeField.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="_abilityRangeField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityRangeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 55</value>
+  </data>
+  <data name="_abilityRangeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 20</value>
+  </data>
+  <data name="_abilityRangeField.TabIndex" type="System.Int32, mscorlib">
+    <value>52</value>
+  </data>
+  <data name="&gt;&gt;_abilityRangeField.Name" xml:space="preserve">
+    <value>_abilityRangeField</value>
+  </data>
+  <data name="&gt;&gt;_abilityRangeField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilityRangeField.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityRangeField.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="_abilityRadiusField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityRadiusField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>457, 28</value>
+  </data>
+  <data name="_abilityRadiusField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 20</value>
+  </data>
+  <data name="_abilityRadiusField.TabIndex" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="&gt;&gt;_abilityRadiusField.Name" xml:space="preserve">
+    <value>_abilityRadiusField</value>
+  </data>
+  <data name="&gt;&gt;_abilityRadiusField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilityRadiusField.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityRadiusField.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="_abilityWorkRateFactorField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityWorkRateFactorField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 28</value>
+  </data>
+  <data name="_abilityWorkRateFactorField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 20</value>
+  </data>
+  <data name="_abilityWorkRateFactorField.TabIndex" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="&gt;&gt;_abilityWorkRateFactorField.Name" xml:space="preserve">
+    <value>_abilityWorkRateFactorField</value>
+  </data>
+  <data name="&gt;&gt;_abilityWorkRateFactorField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_abilityWorkRateFactorField.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityWorkRateFactorField.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="_abilityResourceProductivityLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_abilityResourceProductivityLabel.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityResourceProductivityLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_abilityResourceProductivityLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 165</value>
+  </data>
+  <data name="_abilityResourceProductivityLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 13</value>
+  </data>
+  <data name="_abilityResourceProductivityLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>49</value>
+  </data>
+  <data name="_abilityResourceProductivityLabel.Text" xml:space="preserve">
+    <value>Produktivitätsfaktor:</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceProductivityLabel.Name" xml:space="preserve">
+    <value>_abilityResourceProductivityLabel</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceProductivityLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceProductivityLabel.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceProductivityLabel.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="_abilityResourceProductivityComboBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityResourceProductivityComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>401, 162</value>
+  </data>
+  <data name="_abilityResourceProductivityComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 21</value>
+  </data>
+  <data name="_abilityResourceProductivityComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceProductivityComboBox.Name" xml:space="preserve">
+    <value>_abilityResourceProductivityComboBox</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceProductivityComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceProductivityComboBox.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceProductivityComboBox.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="_abilityResourceDropLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_abilityResourceDropLabel.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityResourceDropLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_abilityResourceDropLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 138</value>
+  </data>
+  <data name="_abilityResourceDropLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 13</value>
+  </data>
+  <data name="_abilityResourceDropLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>47</value>
+  </data>
+  <data name="_abilityResourceDropLabel.Text" xml:space="preserve">
+    <value>Ablege-Ressource:</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceDropLabel.Name" xml:space="preserve">
+    <value>_abilityResourceDropLabel</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceDropLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceDropLabel.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceDropLabel.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="_abilityResourceDropComboBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityResourceDropComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>401, 135</value>
+  </data>
+  <data name="_abilityResourceDropComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 21</value>
+  </data>
+  <data name="_abilityResourceDropComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>46</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceDropComboBox.Name" xml:space="preserve">
+    <value>_abilityResourceDropComboBox</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceDropComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceDropComboBox.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceDropComboBox.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="_abilityResourceCarryLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_abilityResourceCarryLabel.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityResourceCarryLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_abilityResourceCarryLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 111</value>
+  </data>
+  <data name="_abilityResourceCarryLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 13</value>
+  </data>
+  <data name="_abilityResourceCarryLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="_abilityResourceCarryLabel.Text" xml:space="preserve">
+    <value>Trage-Ressource:</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceCarryLabel.Name" xml:space="preserve">
+    <value>_abilityResourceCarryLabel</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceCarryLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceCarryLabel.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceCarryLabel.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="_abilityResourceCarryComboBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityResourceCarryComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>401, 108</value>
+  </data>
+  <data name="_abilityResourceCarryComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 21</value>
+  </data>
+  <data name="_abilityResourceCarryComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>44</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceCarryComboBox.Name" xml:space="preserve">
+    <value>_abilityResourceCarryComboBox</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceCarryComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceCarryComboBox.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceCarryComboBox.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="_newAbilityButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="_newAbilityButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="_newAbilityButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="_newAbilityButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_newAbilityButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 287</value>
+  </data>
+  <data name="_newAbilityButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 32</value>
+  </data>
+  <data name="_newAbilityButton.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="&gt;&gt;_newAbilityButton.Name" xml:space="preserve">
+    <value>_newAbilityButton</value>
+  </data>
+  <data name="&gt;&gt;_newAbilityButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_newAbilityButton.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_newAbilityButton.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="_deleteAbilityButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="_deleteAbilityButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="_deleteAbilityButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="_deleteAbilityButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_deleteAbilityButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 325</value>
+  </data>
+  <data name="_deleteAbilityButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 32</value>
+  </data>
+  <data name="_deleteAbilityButton.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="&gt;&gt;_deleteAbilityButton.Name" xml:space="preserve">
+    <value>_deleteAbilityButton</value>
+  </data>
+  <data name="&gt;&gt;_deleteAbilityButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_deleteAbilityButton.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_deleteAbilityButton.ZOrder" xml:space="preserve">
+    <value>29</value>
+  </data>
+  <data name="_abilityTypeComboBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityTypeComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 28</value>
+  </data>
+  <data name="_abilityTypeComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 21</value>
+  </data>
+  <data name="_abilityTypeComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;_abilityTypeComboBox.Name" xml:space="preserve">
+    <value>_abilityTypeComboBox</value>
+  </data>
+  <data name="&gt;&gt;_abilityTypeComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_abilityTypeComboBox.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityTypeComboBox.ZOrder" xml:space="preserve">
+    <value>30</value>
+  </data>
+  <data name="_abilityClassComboBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityClassComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 81</value>
+  </data>
+  <data name="_abilityClassComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 21</value>
+  </data>
+  <data name="_abilityClassComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="&gt;&gt;_abilityClassComboBox.Name" xml:space="preserve">
+    <value>_abilityClassComboBox</value>
+  </data>
+  <data name="&gt;&gt;_abilityClassComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_abilityClassComboBox.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityClassComboBox.ZOrder" xml:space="preserve">
+    <value>31</value>
+  </data>
+  <data name="_abilityInfoLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_abilityInfoLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 5</value>
+  </data>
+  <data name="_abilityInfoLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>284, 13</value>
+  </data>
+  <data name="_abilityInfoLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_abilityInfoLabel.Text" xml:space="preserve">
+    <value>Hinweis: Diese Einstellungen gelten immer für alle Kulturen.</value>
+  </data>
+  <data name="&gt;&gt;_abilityInfoLabel.Name" xml:space="preserve">
+    <value>_abilityInfoLabel</value>
+  </data>
+  <data name="&gt;&gt;_abilityInfoLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_abilityInfoLabel.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityInfoLabel.ZOrder" xml:space="preserve">
+    <value>32</value>
+  </data>
+  <data name="_abilityResourceLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_abilityResourceLabel.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityResourceLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_abilityResourceLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 111</value>
+  </data>
+  <data name="_abilityResourceLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 13</value>
+  </data>
+  <data name="_abilityResourceLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="_abilityResourceLabel.Text" xml:space="preserve">
+    <value>Ressource:</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceLabel.Name" xml:space="preserve">
+    <value>_abilityResourceLabel</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceLabel.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceLabel.ZOrder" xml:space="preserve">
+    <value>33</value>
+  </data>
+  <data name="_abilityResourceComboBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityResourceComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 108</value>
+  </data>
+  <data name="_abilityResourceComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 21</value>
+  </data>
+  <data name="_abilityResourceComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceComboBox.Name" xml:space="preserve">
+    <value>_abilityResourceComboBox</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceComboBox.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceComboBox.ZOrder" xml:space="preserve">
+    <value>34</value>
+  </data>
+  <data name="_abilityTypeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_abilityTypeLabel.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityTypeLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_abilityTypeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 31</value>
+  </data>
+  <data name="_abilityTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 13</value>
+  </data>
+  <data name="_abilityTypeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="_abilityTypeLabel.Text" xml:space="preserve">
+    <value>Typ:</value>
+  </data>
+  <data name="&gt;&gt;_abilityTypeLabel.Name" xml:space="preserve">
+    <value>_abilityTypeLabel</value>
+  </data>
+  <data name="&gt;&gt;_abilityTypeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_abilityTypeLabel.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityTypeLabel.ZOrder" xml:space="preserve">
+    <value>35</value>
+  </data>
+  <data name="_abilityClassLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_abilityClassLabel.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_abilityClassLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_abilityClassLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 84</value>
+  </data>
+  <data name="_abilityClassLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="_abilityClassLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="_abilityClassLabel.Text" xml:space="preserve">
+    <value>Klasse:</value>
+  </data>
+  <data name="&gt;&gt;_abilityClassLabel.Name" xml:space="preserve">
+    <value>_abilityClassLabel</value>
+  </data>
+  <data name="&gt;&gt;_abilityClassLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_abilityClassLabel.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;_abilityClassLabel.ZOrder" xml:space="preserve">
+    <value>36</value>
+  </data>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>337, 0</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>606, 362</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>_abilitiesTabPage</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_abilitiesTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="_abilitiesTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>943, 362</value>
+  </data>
+  <data name="_abilitiesTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="_abilitiesTabPage.Text" xml:space="preserve">
+    <value>Fähigkeiten</value>
+  </data>
+  <data name="&gt;&gt;_abilitiesTabPage.Name" xml:space="preserve">
+    <value>_abilitiesTabPage</value>
+  </data>
+  <data name="&gt;&gt;_abilitiesTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_abilitiesTabPage.Parent" xml:space="preserve">
+    <value>_mainTabControl</value>
+  </data>
+  <data name="&gt;&gt;_abilitiesTabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="_garrisonHealRateField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -547,7 +1591,7 @@
     <value>0, 3, 0, 0</value>
   </data>
   <data name="_statsTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>877, 362</value>
+    <value>943, 362</value>
   </data>
   <data name="_statsTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -565,7 +1609,7 @@
     <value>_mainTabControl</value>
   </data>
   <data name="&gt;&gt;_statsTabPage.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="_blastLevelField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1093,7 +2137,7 @@
     <value>0, 3, 0, 0</value>
   </data>
   <data name="_combatTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>877, 362</value>
+    <value>943, 362</value>
   </data>
   <data name="_combatTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -1111,7 +2155,7 @@
     <value>_mainTabControl</value>
   </data>
   <data name="&gt;&gt;_combatTabPage.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="_missileDuplMaxField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1504,7 +2548,7 @@
     <value>0, 3, 0, 0</value>
   </data>
   <data name="_projectileTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>877, 362</value>
+    <value>943, 362</value>
   </data>
   <data name="_projectileTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -1522,7 +2566,7 @@
     <value>_mainTabControl</value>
   </data>
   <data name="&gt;&gt;_projectileTabPage.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="_trainTimeField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1801,7 +2845,7 @@
     <value>0, 3, 0, 0</value>
   </data>
   <data name="_trainTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>877, 362</value>
+    <value>943, 362</value>
   </data>
   <data name="_trainTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -1819,7 +2863,7 @@
     <value>_mainTabControl</value>
   </data>
   <data name="&gt;&gt;_trainTabPage.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="_classLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2797,7 +3841,7 @@
     <value>0, 3, 0, 0</value>
   </data>
   <data name="_editorTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>877, 362</value>
+    <value>943, 362</value>
   </data>
   <data name="_editorTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -2815,7 +3859,7 @@
     <value>_mainTabControl</value>
   </data>
   <data name="&gt;&gt;_editorTabPage.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="_edibleMeatField.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 58</value>
@@ -3100,7 +4144,7 @@
     <value>0, 3, 0, 0</value>
   </data>
   <data name="_behaviourTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>877, 362</value>
+    <value>943, 362</value>
   </data>
   <data name="_behaviourTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -3118,7 +4162,7 @@
     <value>_mainTabControl</value>
   </data>
   <data name="&gt;&gt;_behaviourTabPage.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <metadata name="_dmgGraPercentColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -3484,7 +4528,7 @@
     <value>0, 3, 0, 0</value>
   </data>
   <data name="_graphicsTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>877, 362</value>
+    <value>943, 362</value>
   </data>
   <data name="_graphicsTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -3502,7 +4546,7 @@
     <value>_mainTabControl</value>
   </data>
   <data name="&gt;&gt;_graphicsTabPage.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="_unknownSoundField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -3691,7 +4735,7 @@
     <value>0, 3, 0, 0</value>
   </data>
   <data name="_soundsTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>877, 362</value>
+    <value>943, 362</value>
   </data>
   <data name="_soundsTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -3709,7 +4753,7 @@
     <value>_mainTabControl</value>
   </data>
   <data name="&gt;&gt;_soundsTabPage.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="_unknown10Field.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -4156,7 +5200,7 @@
     <value>0, 3, 0, 0</value>
   </data>
   <data name="_unknownTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>877, 362</value>
+    <value>943, 362</value>
   </data>
   <data name="_unknownTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -4174,7 +5218,7 @@
     <value>_mainTabControl</value>
   </data>
   <data name="&gt;&gt;_unknownTabPage.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="_mainTabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -4183,7 +5227,7 @@
     <value>0, 0</value>
   </data>
   <data name="_mainTabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>885, 388</value>
+    <value>951, 388</value>
   </data>
   <data name="_mainTabControl.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4207,7 +5251,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>885, 433</value>
+    <value>951, 433</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

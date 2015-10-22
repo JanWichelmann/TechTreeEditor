@@ -30,6 +30,36 @@ namespace TechTreeEditor
 		/// </summary>
 		private bool _formLoaded = false;
 
+		/// <summary>
+		/// Gibt an, ob gerade ein Aktualisierungsvorgang läuft (relevant für das Fähigkeitenfenster).
+		/// </summary>
+		private bool _updating = false;
+
+		/// <summary>
+		/// Die gecachten Typen-Bezeichnungen.
+		/// </summary>
+		private static List<KeyValuePair<UnitAbility.AbilityType, string>> _abilityTypes = null;
+
+		/// <summary>
+		/// Die gecachten Einheiten-Klassen.
+		/// </summary>
+		private static string[] _classes = null;
+
+		/// <summary>
+		/// Die gecachten Ressourcen-Typen.
+		/// </summary>
+		private static string[] _resourceTypes = null;
+
+		/// <summary>
+		/// Eine leere Grafik.
+		/// </summary>
+		private static GenieLibrary.DataElements.Graphic _emptyG = new GenieLibrary.DataElements.Graphic() { ID = -1 };
+
+		/// <summary>
+		/// Die Liste aller Grafiken.
+		/// </summary>
+		private List<GenieLibrary.DataElements.Graphic> _graphicList = null;
+
 		#endregion Variablen
 
 		#region Funktionen
@@ -64,13 +94,12 @@ namespace TechTreeEditor
 			GenieLibrary.DataElements.Civ.Unit unit = unitManager.SelectedUnit;
 
 			// Grafik-Liste erstellen
-			GenieLibrary.DataElements.Graphic emptyG = new GenieLibrary.DataElements.Graphic() { ID = -1 };
-			List<GenieLibrary.DataElements.Graphic> graphicList = _projectFile.BasicGenieFile.Graphics.Values.ToList();
-			graphicList.Add(emptyG);
-			graphicList.Sort((x, y) => x.ID.CompareTo(y.ID));
-			List<object> tmpGrList = graphicList.Cast<object>().ToList();
+			_graphicList = _projectFile.BasicGenieFile.Graphics.Values.ToList();
+			_graphicList.Add(_emptyG);
+			_graphicList.Sort((x, y) => x.ID.CompareTo(y.ID));
+			List<object> tmpGrList = _graphicList.Cast<object>().ToList();
 
-			// Standard-Tab
+			// Standard-Eigenschaften
 			{
 				// DLL-Werte einfügen
 				_dllNameField.ProjectFile = _projectFile;
@@ -84,13 +113,13 @@ namespace TechTreeEditor
 
 				// Grafik-Werte einfügen
 				_graStanding1Field.ElementList = tmpGrList;
-				_graStanding1Field.Value = (unit.StandingGraphic1 < 0 ? emptyG : graphicList.FirstOrDefault(g => g.ID == unit.StandingGraphic1));
+				_graStanding1Field.Value = (unit.StandingGraphic1 < 0 ? _emptyG : _graphicList.FirstOrDefault(g => g.ID == unit.StandingGraphic1));
 				_graStanding2Field.ElementList = tmpGrList;
-				_graStanding2Field.Value = (unit.StandingGraphic2 < 0 ? emptyG : graphicList.FirstOrDefault(g => g.ID == unit.StandingGraphic2));
+				_graStanding2Field.Value = (unit.StandingGraphic2 < 0 ? _emptyG : _graphicList.FirstOrDefault(g => g.ID == unit.StandingGraphic2));
 				_graFalling1Field.ElementList = tmpGrList;
-				_graFalling1Field.Value = (unit.DyingGraphic1 < 0 ? emptyG : graphicList.FirstOrDefault(g => g.ID == unit.DyingGraphic1));
+				_graFalling1Field.Value = (unit.DyingGraphic1 < 0 ? _emptyG : _graphicList.FirstOrDefault(g => g.ID == unit.DyingGraphic1));
 				_graFalling2Field.ElementList = tmpGrList;
-				_graFalling2Field.Value = (unit.DyingGraphic2 < 0 ? emptyG : graphicList.FirstOrDefault(g => g.ID == unit.DyingGraphic2));
+				_graFalling2Field.Value = (unit.DyingGraphic2 < 0 ? _emptyG : _graphicList.FirstOrDefault(g => g.ID == unit.DyingGraphic2));
 
 				// Allgemeine Stats einfügen
 				_hitpointsField.Value = unit.HitPoints;
@@ -121,7 +150,7 @@ namespace TechTreeEditor
 					Amount = unit.ResourceStorages[0].Amount
 				};
 				_resourceStorage1ModeField.Enabled = unit.ResourceStorages[0].Type >= 0;
-				_resourceStorage1ModeField.Value = unit.ResourceStorages[0].Enabled ;
+				_resourceStorage1ModeField.Value = unit.ResourceStorages[0].Enabled;
 				_resourceStorage2Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
 				{
 					Enabled = unit.ResourceStorages[1].Type >= 0,
@@ -226,9 +255,9 @@ namespace TechTreeEditor
 
 				// Verschiedene Werte setzen
 				_graMoving1Field.ElementList = tmpGrList;
-				_graMoving1Field.Value = (unit.DeadFish.WalkingGraphic1 < 0 ? emptyG : graphicList.FirstOrDefault(g => g.ID == unit.DeadFish.WalkingGraphic1));
+				_graMoving1Field.Value = (unit.DeadFish.WalkingGraphic1 < 0 ? _emptyG : _graphicList.FirstOrDefault(g => g.ID == unit.DeadFish.WalkingGraphic1));
 				_graMoving2Field.ElementList = tmpGrList;
-				_graMoving2Field.Value = (unit.DeadFish.WalkingGraphic2 < 0 ? emptyG : graphicList.FirstOrDefault(g => g.ID == unit.DeadFish.WalkingGraphic2));
+				_graMoving2Field.Value = (unit.DeadFish.WalkingGraphic2 < 0 ? _emptyG : _graphicList.FirstOrDefault(g => g.ID == unit.DeadFish.WalkingGraphic2));
 				_rotationSpeedField.Value = (decimal)unit.DeadFish.RotationSpeed;
 				_trackUnitDensityField.Value = (decimal)unit.DeadFish.TrackingUnitDensity;
 
@@ -357,7 +386,7 @@ namespace TechTreeEditor
 				_towerModeField.Value = unit.Type50.TowerMode;
 				_terrainMultField.Value = unit.Type50.TerrainRestrictionForDamageMultiplying;
 				_graAttackField.ElementList = tmpGrList;
-				_graAttackField.Value = (unit.Type50.AttackGraphic < 0 ? emptyG : graphicList.FirstOrDefault(g => g.ID == unit.Type50.AttackGraphic));
+				_graAttackField.Value = (unit.Type50.AttackGraphic < 0 ? _emptyG : _graphicList.FirstOrDefault(g => g.ID == unit.Type50.AttackGraphic));
 			}
 			if(unit.Type == GenieLibrary.DataElements.Civ.Unit.UnitType.Projectile)
 			{
@@ -433,9 +462,9 @@ namespace TechTreeEditor
 
 				// Grafiken setzen
 				_graGarrisonField.ElementList = tmpGrList;
-				_graGarrisonField.Value = (unit.Creatable.GarrisonGraphic < 0 ? emptyG : graphicList.FirstOrDefault(g => g.ID == unit.Creatable.GarrisonGraphic));
+				_graGarrisonField.Value = (unit.Creatable.GarrisonGraphic < 0 ? _emptyG : _graphicList.FirstOrDefault(g => g.ID == unit.Creatable.GarrisonGraphic));
 				_graChargeField.ElementList = tmpGrList;
-				_graChargeField.Value = (unit.Creatable.ChargingGraphic < 0 ? emptyG : graphicList.FirstOrDefault(g => g.ID == unit.Creatable.ChargingGraphic));
+				_graChargeField.Value = (unit.Creatable.ChargingGraphic < 0 ? _emptyG : _graphicList.FirstOrDefault(g => g.ID == unit.Creatable.ChargingGraphic));
 
 				// Unbekannte Werte setzen
 				_unknown11Field.Value = unit.Creatable.Unknown26;
@@ -464,9 +493,9 @@ namespace TechTreeEditor
 
 				// Grafiken setzen
 				_graConstructionField.ElementList = tmpGrList;
-				_graConstructionField.Value = (unit.Building.ConstructionGraphicID < 0 ? emptyG : graphicList.FirstOrDefault(g => g.ID == unit.Building.ConstructionGraphicID));
+				_graConstructionField.Value = (unit.Building.ConstructionGraphicID < 0 ? _emptyG : _graphicList.FirstOrDefault(g => g.ID == unit.Building.ConstructionGraphicID));
 				_graSnowField.ElementList = tmpGrList;
-				_graSnowField.Value = (unit.Building.SnowGraphicID < 0 ? emptyG : graphicList.FirstOrDefault(g => g.ID == unit.Building.SnowGraphicID));
+				_graSnowField.Value = (unit.Building.SnowGraphicID < 0 ? _emptyG : _graphicList.FirstOrDefault(g => g.ID == unit.Building.SnowGraphicID));
 
 				// Verschiedene Werte setzen
 				_adjacentModeField.Value = unit.Building.AdjacentMode > 0;
@@ -489,10 +518,96 @@ namespace TechTreeEditor
 				_lootStoneField.Value = unit.Building.LootingTable[0] > 0;
 			}
 
+			// Fertigkeiten
+			{
+				// Ggf. Nachschlag-Liste für Fähigkeitentypen erstellen
+				if(_abilityTypes == null)
+				{
+					// Liste anlegen
+					_abilityTypes = new List<KeyValuePair<UnitAbility.AbilityType, string>>();
+					string[] abilityList = Strings.AbilityTypes.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+					foreach(string abilityEntry in abilityList)
+					{
+						// Eintrag splitten und in Liste einfügen
+						string[] entrySplit = abilityEntry.Split('|');
+						_abilityTypes.Add(new KeyValuePair<UnitAbility.AbilityType, string>((UnitAbility.AbilityType)uint.Parse(entrySplit[0]), entrySplit[1]));
+					}
+
+					// Liste nach Bezeichnungen sortieren
+					_abilityTypes.Sort((a1, a2) => a1.Value.CompareTo(a2.Value));
+				}
+
+				// Fähigkeitentypen laden
+				_abilityTypeComboBox.ValueMember = "Key";
+				_abilityTypeComboBox.DisplayMember = "Value";
+				_abilityTypeComboBox.DataSource = _abilityTypes.ToList();
+
+				// Einheitenliste erstellen
+				TechTreeCreatable emptyUnit = new TechTreeCreatable() { ID = -1 };
+				_abilityUnitComboBox.Items.Add(emptyUnit);
+				_abilityUnitComboBox.SuspendLayout();
+				_abilityUnitComboBox.DisplayMember = "Name";
+				_projectFile.Where(u => u is TechTreeUnit).ForEach(u =>
+				{
+					_abilityUnitComboBox.Items.Add(u);
+				});
+				_abilityUnitComboBox.ResumeLayout();
+
+				// Einheitenklassen-Liste erstellen
+				if(_classes == null)
+					_classes = Strings.ClassNames.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+				_abilityClassComboBox.Items.AddRange(_classes);
+				_abilityClassComboBox.Items.Insert(0, "");
+
+				// Ressourcenlisten zuweisen
+				if(_resourceTypes == null)
+					_resourceTypes = Strings.ResourceTypes.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+				_abilityResourceComboBox.Items.AddRange(_resourceTypes);
+				_abilityResourceCarryComboBox.Items.AddRange(_resourceTypes);
+				_abilityResourceDropComboBox.Items.AddRange(_resourceTypes);
+				_abilityResourceProductivityComboBox.Items.AddRange(_resourceTypes);
+				_abilityResourceComboBox.Items.Insert(0, "");
+				_abilityResourceCarryComboBox.Items.Insert(0, "");
+				_abilityResourceDropComboBox.Items.Insert(0, "");
+				_abilityResourceProductivityComboBox.Items.Insert(0, "");
+
+				// Grafiklisten zuweisen
+				_abilityToolGraphicField.ElementList = tmpGrList;
+				_abilityProceedGraphicField.ElementList = tmpGrList;
+				_abilityActionGraphicField.ElementList = tmpGrList;
+				_abilityCarryGraphicField.ElementList = tmpGrList;
+
+				// Fähigkeitenliste füllen
+				UpdateAbilityList();
+			}
+
 			// Fertig
 			Application.DoEvents();
 			_unitManager.Unlock();
 			_formLoaded = true;
+		}
+
+		/// <summary>
+		/// Aktualisiert die Fähigkeiten-Liste.
+		/// </summary>
+		private void UpdateAbilityList()
+		{
+			// Aktualisierungsvorgang läuft
+			if(_updating)
+				return;
+			else
+				_updating = true;
+
+			// Aktualisieren
+			object selection = _abilitiesListBox.SelectedItem;
+			_abilitiesListBox.SuspendLayout();
+			_abilitiesListBox.DataSource = null;
+			_abilitiesListBox.DataSource = _treeUnit.Abilities;
+			_abilitiesListBox.ResumeLayout();
+			_abilitiesListBox.SelectedItem = selection;
+
+			// Fertig
+			_updating = false;
 		}
 
 		#endregion Funktionen
@@ -1633,6 +1748,775 @@ namespace TechTreeEditor
 		{
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.Building.LootingTable[0] = (byte)(e.NewValue ? 1 : 0));
+		}
+
+		private void _abilitiesListBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			// Aktualisierungsvorgang läuft
+			if(_updating)
+				return;
+			else
+				_updating = true;
+
+			// Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+
+			// Element-Informationen anzeigen
+			if(sel != null)
+			{
+				// Steuerelement-Werte setzen
+				_abilityTypeComboBox.SelectedValue = sel.Type;
+				_abilityUnitComboBox.SelectedItem = sel.Unit;
+				_abilityClassComboBox.SelectedIndex = sel.CommandData.ClassID + 1;
+				_abilityResourceComboBox.SelectedIndex = sel.CommandData.Resource + 1;
+				_abilityResourceCarryComboBox.SelectedIndex = sel.CommandData.ResourceIn + 1;
+				_abilityResourceDropComboBox.SelectedIndex = sel.CommandData.ResourceOut + 1;
+				_abilityResourceProductivityComboBox.SelectedIndex = sel.CommandData.ResourceProductivityMultiplier + 1;
+				_abilityToolGraphicField.Value = (sel.CommandData.Graphics[0] < 0 ? _emptyG : _graphicList.FirstOrDefault(g => g.ID == sel.CommandData.Graphics[0]));
+				_abilityProceedGraphicField.Value = (sel.CommandData.Graphics[1] < 0 ? _emptyG : _graphicList.FirstOrDefault(g => g.ID == sel.CommandData.Graphics[1]));
+				_abilityActionGraphicField.Value = (sel.CommandData.Graphics[2] < 0 ? _emptyG : _graphicList.FirstOrDefault(g => g.ID == sel.CommandData.Graphics[2]));
+				_abilityCarryGraphicField.Value = (sel.CommandData.Graphics[3] < 0 ? _emptyG : _graphicList.FirstOrDefault(g => g.ID == sel.CommandData.Graphics[3]));
+				_abilityExecutionSoundField.Value = sel.CommandData.Graphics[4];
+				_abilityDropSoundField.Value = sel.CommandData.Graphics[5];
+				_abilityWorkRateFactorField.Value = (decimal)sel.CommandData.WorkRateMultiplier;
+				_abilityRadiusField.Value = (decimal)sel.CommandData.ExecutionRadius;
+				_abilityRangeField.Value = (decimal)sel.CommandData.ExtraRange;
+				_abilityTerrainField.Value = sel.CommandData.TerrainID;
+				_abilitySelectionEnablerField.Value = sel.CommandData.SelectionEnabler;
+				_abilitySelectionModeField.Value = sel.CommandData.SelectionMode;
+				_abilityRightClickModeField.Value = sel.CommandData.RightClickMode;
+				_abilityPlunderSourceField.Value = sel.CommandData.PlunderSource;
+				_abilityUnknown1Field.Value = sel.CommandData.Unknown1;
+				_abilityUnknown2Field.Value = sel.CommandData.Unknown4;
+				_abilityUnknown3Field.Value = (decimal)sel.CommandData.Unknown5;
+				_abilityUnknown4Field.Value = sel.CommandData.Unknown7;
+				_abilityUnknown5Field.Value = sel.CommandData.Unknown9;
+				_abilityUnknown6Field.Value = sel.CommandData.Unknown12;
+
+				// Steuerelemente aktivieren
+				_abilityClassLabel.Enabled = true;
+				_abilityTypeLabel.Enabled = true;
+				_abilityResourceComboBox.Enabled = true;
+				_abilityUnitLabel.Enabled = true;
+				_abilityUnitComboBox.Enabled = true;
+				_abilityResourceLabel.Enabled = true;
+				_abilityInfoLabel.Enabled = true;
+				_abilityClassComboBox.Enabled = true;
+				_abilityTypeComboBox.Enabled = true;
+				_abilityResourceCarryComboBox.Enabled = true;
+				_abilityResourceCarryLabel.Enabled = true;
+				_abilityResourceDropComboBox.Enabled = true;
+				_abilityResourceDropLabel.Enabled = true;
+				_abilityResourceProductivityComboBox.Enabled = true;
+				_abilityResourceProductivityLabel.Enabled = true;
+				_abilityWorkRateFactorField.Enabled = true;
+				_abilityRadiusField.Enabled = true;
+				_abilityRangeField.Enabled = true;
+				_abilitySelectionModeField.Enabled = true;
+				_abilitySelectionEnablerField.Enabled = true;
+				_abilityPlunderSourceField.Enabled = true;
+				_abilityTerrainField.Enabled = true;
+				_abilityRightClickModeField.Enabled = true;
+				_abilityToolGraphicField.Enabled = true;
+				_abilityProceedGraphicField.Enabled = true;
+				_abilityActionGraphicField.Enabled = true;
+				_abilityCarryGraphicField.Enabled = true;
+				_abilityExecutionSoundField.Enabled = true;
+				_abilityDropSoundField.Enabled = true;
+				_abilityUnknown1Field.Enabled = true;
+				_abilityUnknown2Field.Enabled = true;
+				_abilityUnknown3Field.Enabled = true;
+				_abilityUnknown4Field.Enabled = true;
+				_abilityUnknown5Field.Enabled = true;
+				_abilityUnknown6Field.Enabled = true;
+			}
+			else
+			{
+				// Steuerelemente deaktivieren
+				_abilityClassLabel.Enabled = false;
+				_abilityTypeLabel.Enabled = false;
+				_abilityResourceComboBox.Enabled = false;
+				_abilityUnitLabel.Enabled = false;
+				_abilityUnitComboBox.Enabled = false;
+				_abilityResourceLabel.Enabled = false;
+				_abilityInfoLabel.Enabled = false;
+				_abilityClassComboBox.Enabled = false;
+				_abilityTypeComboBox.Enabled = false;
+				_abilityResourceCarryComboBox.Enabled = false;
+				_abilityResourceCarryLabel.Enabled = false;
+				_abilityResourceDropComboBox.Enabled = false;
+				_abilityResourceDropLabel.Enabled = false;
+				_abilityResourceProductivityComboBox.Enabled = false;
+				_abilityResourceProductivityLabel.Enabled = false;
+				_abilityWorkRateFactorField.Enabled = false;
+				_abilityRadiusField.Enabled = false;
+				_abilityRangeField.Enabled = false;
+				_abilitySelectionModeField.Enabled = false;
+				_abilitySelectionEnablerField.Enabled = false;
+				_abilityPlunderSourceField.Enabled = false;
+				_abilityTerrainField.Enabled = false;
+				_abilityRightClickModeField.Enabled = false;
+				_abilityToolGraphicField.Enabled = false;
+				_abilityProceedGraphicField.Enabled = false;
+				_abilityActionGraphicField.Enabled = false;
+				_abilityCarryGraphicField.Enabled = false;
+				_abilityExecutionSoundField.Enabled = false;
+				_abilityDropSoundField.Enabled = false;
+				_abilityUnknown1Field.Enabled = false;
+				_abilityUnknown2Field.Enabled = false;
+				_abilityUnknown3Field.Enabled = false;
+				_abilityUnknown4Field.Enabled = false;
+				_abilityUnknown5Field.Enabled = false;
+				_abilityUnknown6Field.Enabled = false;
+			}
+
+			// Fertig
+			_updating = false;
+		}
+
+		private void _abilityTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Typ der ausgewählten Fähigkeit ändern
+				sel.Type = (UnitAbility.AbilityType)_abilityTypeComboBox.SelectedValue;
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityUnitComboBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Einheit speichern 
+				if(((TechTreeUnit)_abilityUnitComboBox.SelectedItem).ID < 0)
+					sel.Unit = null;
+				else
+					sel.Unit = ((TechTreeUnit)_abilityUnitComboBox.SelectedItem);
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityClassComboBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Klasse speichern
+				sel.CommandData.ClassID = (short)(_abilityClassComboBox.SelectedIndex - 1);
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityResourceComboBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Ressource speichern
+				sel.CommandData.Resource = (short)(_abilityResourceComboBox.SelectedIndex - 1);
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityToolGraphicField_ValueChanged(object sender, Controls.DropDownFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Grafik speichern
+				if(e.NewValue == _emptyG)
+					sel.CommandData.Graphics[0] = -1;
+				else
+					sel.CommandData.Graphics[0] = ((GenieLibrary.DataElements.Graphic)e.NewValue).ID;
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityProceedGraphicField_ValueChanged(object sender, Controls.DropDownFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Grafik speichern
+				if(e.NewValue == _emptyG)
+					sel.CommandData.Graphics[1] = -1;
+				else
+					sel.CommandData.Graphics[1] = ((GenieLibrary.DataElements.Graphic)e.NewValue).ID;
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityActionGraphicField_ValueChanged(object sender, Controls.DropDownFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Grafik speichern
+				if(e.NewValue == _emptyG)
+					sel.CommandData.Graphics[2] = -1;
+				else
+					sel.CommandData.Graphics[2] = ((GenieLibrary.DataElements.Graphic)e.NewValue).ID;
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityCarryGraphicField_ValueChanged(object sender, Controls.DropDownFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Grafik speichern
+				if(e.NewValue == _emptyG)
+					sel.CommandData.Graphics[3] = -1;
+				else
+					sel.CommandData.Graphics[3] = ((GenieLibrary.DataElements.Graphic)e.NewValue).ID;
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityWorkRateFactorField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Wert speichern
+				sel.CommandData.WorkRateMultiplier = e.NewValue.SafeConvert<float>();
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityRadiusField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Wert speichern
+				sel.CommandData.ExecutionRadius = e.NewValue.SafeConvert<float>();
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityTerrainField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Wert speichern
+				sel.CommandData.TerrainID = e.NewValue.SafeConvert<short>();
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityRangeField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Wert speichern
+				sel.CommandData.ExtraRange = e.NewValue.SafeConvert<float>();
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilitySelectionEnablerField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Wert speichern
+				sel.CommandData.SelectionEnabler = e.NewValue.SafeConvert<byte>();
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilitySelectionModeField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Wert speichern
+				sel.CommandData.SelectionMode = e.NewValue.SafeConvert<byte>();
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityResourceCarryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Ressource speichern
+				sel.CommandData.ResourceIn = (short)(_abilityResourceCarryComboBox.SelectedIndex - 1);
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityResourceDropComboBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Ressource speichern
+				sel.CommandData.ResourceOut = (short)(_abilityResourceDropComboBox.SelectedIndex - 1);
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityResourceProductivityComboBox_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Ressource speichern
+				sel.CommandData.ResourceProductivityMultiplier = (short)(_abilityResourceProductivityComboBox.SelectedIndex - 1);
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityRightClickModeField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Wert speichern
+				sel.CommandData.RightClickMode = e.NewValue.SafeConvert<byte>();
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityPlunderSourceField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Wert speichern
+				sel.CommandData.PlunderSource = e.NewValue.SafeConvert<short>();
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityExecutionSoundField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Wert speichern
+				sel.CommandData.Graphics[4] = e.NewValue.SafeConvert<short>();
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityDropSoundField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Wert speichern
+				sel.CommandData.Graphics[5] = e.NewValue.SafeConvert<short>();
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityUnknown1Field_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Wert speichern
+				sel.CommandData.Unknown1 = e.NewValue.SafeConvert<byte>();
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityUnknown2Field_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Wert speichern
+				sel.CommandData.Unknown4 = e.NewValue.SafeConvert<byte>();
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityUnknown3Field_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Wert speichern
+				sel.CommandData.Unknown5 = e.NewValue.SafeConvert<float>();
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityUnknown4Field_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Wert speichern
+				sel.CommandData.Unknown7 = e.NewValue.SafeConvert<byte>();
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityUnknown5Field_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Wert speichern
+				sel.CommandData.Unknown9 = e.NewValue.SafeConvert<short>();
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _abilityUnknown6Field_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Wert speichern
+				sel.CommandData.Unknown12 = e.NewValue.SafeConvert<byte>();
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
+
+			// Steuerelemente aktualisieren, indem neue Auswahl vorgetäuscht wird
+			_abilitiesListBox_SelectedIndexChanged(sender, e);
+		}
+
+		private void _newAbilityButton_Click(object sender, EventArgs e)
+		{
+			// Ist eine Fähigkeit ausgewählt?
+			if(_abilitiesListBox.SelectedIndex >= 0)
+			{
+				// Fähigkeit kopieren
+				UnitAbility baseAbility = ((UnitAbility)_abilitiesListBox.SelectedItem).Clone();
+
+				// Fähigkeit in Einheit speichern
+				baseAbility.CommandData.ID = (short)_treeUnit.Abilities.Count;
+				_treeUnit.Abilities.Add(baseAbility);
+
+				// DAT-Einheitenheader aktualisieren
+				_projectFile.BasicGenieFile.UnitHeaders[_treeUnit.ID].Commands.Add(baseAbility.CommandData);
+			}
+			else
+			{
+				// Neue leere Fähigkeit erstellt
+				UnitAbility emptyAbility = new UnitAbility(new GenieLibrary.DataElements.UnitHeader.UnitCommand()
+				{
+					ClassID = -1,
+					Graphics = new List<short>(new short[] { -1, -1, -1, -1, -1, -1 }),
+					One = 1,
+					Resource = -1,
+					ResourceIn = -1,
+					ResourceOut = -1,
+					ResourceProductivityMultiplier = -1,
+					TerrainID = -1,
+					UnitID = -1
+				});
+				emptyAbility.Type = UnitAbility.AbilityType.Undefined;
+
+				// Fähigkeit in Einheit speichern
+				emptyAbility.CommandData.ID = (short)_treeUnit.Abilities.Count;
+				_treeUnit.Abilities.Add(emptyAbility);
+
+				// DAT-Einheitenheader aktualisieren
+				_projectFile.BasicGenieFile.UnitHeaders[_treeUnit.ID].Commands.Add(emptyAbility.CommandData);
+			}
+
+			// Aktualisieren
+			UpdateAbilityList();
+		}
+
+		private void _deleteAbilityButton_Click(object sender, EventArgs e)
+		{
+			// Fähigkeit löschen
+			if(_abilitiesListBox.SelectedIndex >= 0 && MessageBox.Show("Diese Fähigkeit wirklich löschen?", "Fähigkeit löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			{
+				// Fähigkeit löschen
+				int abilityID = _abilitiesListBox.SelectedIndex;
+				_treeUnit.Abilities.RemoveAt(abilityID);
+				_projectFile.BasicGenieFile.UnitHeaders[_treeUnit.ID].Commands.RemoveAt(abilityID);
+
+				// Nachfolgende IDs dekrementieren
+				for(int i = abilityID; i < _treeUnit.Abilities.Count; ++i)
+					--_treeUnit.Abilities[i].CommandData.ID;
+
+				// Aktualisieren
+				UpdateAbilityList();
+			}
 		}
 
 		#endregion Tab: Gebäude

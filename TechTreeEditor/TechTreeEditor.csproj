@@ -241,6 +241,7 @@
     <Compile Include="TechTreeStructure\TechTreeDead.cs" />
     <Compile Include="TechTreeStructure\TechTreeCreatable.cs" />
     <Compile Include="TechTreeStructure\TechTreeUnit.cs" />
+    <Compile Include="TechTreeStructure\UnitAbility.cs" />
     <Compile Include="UnitRenderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -394,6 +395,7 @@
     <Content Include="Icons\BuildingIcon.png" />
     <Content Include="Icons\Copy.png" />
     <Content Include="Icons\DeadIcon.png" />
+    <Content Include="Icons\DeleteAbility.png" />
     <Content Include="Icons\DeleteDependency.png" />
     <Content Include="Icons\DeleteGraphic.png" />
     <Content Include="Icons\DeleteTechEffect.png" />
@@ -409,6 +411,7 @@
     <Content Include="Icons\EyeCandyIcon.png" />
     <Content Include="Icons\LockAll.png" />
     <Content Include="Icons\MakeAvailDependency.png" />
+    <Content Include="Icons\NewAbility.png" />
     <Content Include="Icons\NewDead.png" />
     <Content Include="Icons\NewEyeCandy.png" />
     <Content Include="Icons\NewGraphic.png" />
@@ -440,6 +443,8 @@
     <None Include="Resources\AttributesDE.txt" />
     <None Include="Resources\AttributesEN.txt" />
     <Content Include="Icons\UpTechEffect.png" />
+    <None Include="Resources\AbilityTypesDE.txt" />
+    <None Include="Resources\AbilityTypesEN.txt" />
     <Content Include="symbol.ico" />
     <None Include="Resources\RenderFontConsolas.bmp" />
   </ItemGroup>

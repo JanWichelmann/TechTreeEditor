@@ -58,6 +58,21 @@ namespace TechTreeEditor.Controls
 		/// </summary>
 		private static TechTreeResearch _emptyResearch = new TechTreeResearch() { ID = -1, Name = "[Keine]" };
 
+		/// <summary>
+		/// Die gecachten Einheiten-Klassen.
+		/// </summary>
+		private static string[] _classes = null;
+
+		/// <summary>
+		/// Die gecachten Ressourcen.
+		/// </summary>
+		private static string[] _resourceTypes = null;
+
+		/// <summary>
+		/// Die gecachten Rüstungsklassen.
+		/// </summary>
+		private static string[] _armourClasses = null;
+
 		#endregion Variablen
 
 		#region Funktionen
@@ -76,7 +91,9 @@ namespace TechTreeEditor.Controls
 			_effectTypeComboBox.DataSource = _effectTypes;
 
 			// Klassen übergeben
-			_classComboBox.Items.AddRange(Strings.ClassNames.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries));
+			if(_classes == null)
+				_classes = Strings.ClassNames.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+			_classComboBox.Items.AddRange(_classes);
 			_classComboBox.Items.Insert(0, "");
 
 			// Attribute übergeben
@@ -91,10 +108,14 @@ namespace TechTreeEditor.Controls
 			_attributeComboBox.DataSource = _attributes;
 
 			// Rüstungsklassen übergeben
-			_armourClassComboBox.Items.AddRange(Strings.ArmourClasses.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries));
+			if(_armourClasses == null)
+				_armourClasses = Strings.ArmourClasses.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+			_armourClassComboBox.Items.AddRange(_armourClasses);
 
 			// Ressourcentypen übergeben
-			_resourceComboBox.Items.AddRange(Strings.ResourceTypes.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries));
+			if(_resourceTypes == null)
+				_resourceTypes = Strings.ResourceTypes.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+			_resourceComboBox.Items.AddRange(_resourceTypes);
 		}
 
 		/// <summary>

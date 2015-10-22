@@ -456,6 +456,11 @@ namespace TechTreeEditor.TechTreeStructure
 				annexIDs.Add(new Tuple<int, float, float>(elementIDs[a.Item1], a.Item2, a.Item3));
 			}
 
+			// Ggf. in den Fähigkeiten referenzierte Einheiten schreiben
+			foreach(UnitAbility ab in Abilities)
+				if(ab.Unit != null && !elementIDs.ContainsKey(ab.Unit))
+					lastID = ab.Unit.ToXml(writer, elementIDs, lastID);
+
 			// Element-Anfangstag schreiben
 			writer.WriteStartElement("element");
 			{
@@ -550,6 +555,14 @@ namespace TechTreeEditor.TechTreeStructure
 						writer.WriteNumber(a.Item1);
 						writer.WriteEndElement();
 					});
+				}
+				writer.WriteEndElement();
+
+				// Fähigkeiten schreiben
+				writer.WriteStartElement("abilities");
+				{
+					// Fähigkeiten schreiben
+					Abilities.ForEach(a =>a.ToXml(writer, elementIDs));
 				}
 				writer.WriteEndElement();
 			}

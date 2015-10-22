@@ -296,6 +296,25 @@ namespace TechTreeEditor
 				SortedDictionary<int, UnitIDContainer> unitData = new SortedDictionary<int, UnitIDContainer>();
 				foreach(var unit in unitIDMap)
 				{
+					// Fähigkeitenliste erstellen
+					List<GenieLibrary.DataElements.UnitHeader.UnitCommand> newUnitCommands = new List<GenieLibrary.DataElements.UnitHeader.UnitCommand>();
+					foreach(UnitAbility ab in unit.Key.Abilities)
+					{
+						// Ungültige Typen überspringen
+						if(ab.Type == UnitAbility.AbilityType.Undefined)
+							continue;
+						
+						// Enthaltene Fähigkeiten-Struktur kopieren
+						GenieLibrary.DataElements.UnitHeader.UnitCommand cmd = (GenieLibrary.DataElements.UnitHeader.UnitCommand)ab.CommandData.Clone();
+
+						// Referenzen und Typ auflösen
+						cmd.Type = (short)ab.Type;
+						cmd.UnitID = (short)(ab.Unit != null ? unitIDMap[ab.Unit] : -1);
+
+						// Fähigkeit zur Liste hinzufügen
+						newUnitCommands.Add(cmd);
+                    }
+
 					// Header erstellen
 					UnitIDContainer newUnit = new UnitIDContainer()
 					{
@@ -303,7 +322,7 @@ namespace TechTreeEditor
 						UnitHeader = new GenieLibrary.DataElements.UnitHeader()
 						{
 							Exists = 1,
-							Commands = _projectFile.BasicGenieFile.UnitHeaders[unit.Key.ID].Commands
+							Commands = newUnitCommands
 						},
 						AnnexUnits = new List<Tuple<int, float, float>>(),
 						ButtonID = -1,

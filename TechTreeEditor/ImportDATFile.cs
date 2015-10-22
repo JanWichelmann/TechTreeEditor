@@ -1458,6 +1458,26 @@ namespace TechTreeEditor
 							});
 					}
 
+					// Einheiten-Fähigkeiten anlegen
+					_projectFile.Where(elem => elem is TechTreeUnit).ForEach(u =>
+					{
+						// Fähigkeitenliste sicherheitshalber leeren
+						((TechTreeUnit)u).Abilities.Clear();
+
+						// Fähigkeiten durchlaufen
+						foreach(var cmd in _projectFile.BasicGenieFile.UnitHeaders[u.ID].Commands)
+						{
+							// Typ bestimmen
+							UnitAbility.AbilityType type = (UnitAbility.AbilityType)cmd.Type;
+
+							// Ggf. referenzierte Einheit bestimmen
+							TechTreeUnit refUnit = (TechTreeUnit)_projectFile.Where(elem => elem is TechTreeUnit && elem.ID == cmd.UnitID).FirstOrDefault();
+
+							// Fähigkeit speichern
+							((TechTreeUnit)u).Abilities.Add(new UnitAbility(cmd) { Type = type, Unit = refUnit });
+						}
+					});
+
 					// Projektdatei erneut speichern
 					_projectFile.WriteData(ProjectFileName);
 

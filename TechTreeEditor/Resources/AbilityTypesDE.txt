@@ -1,0 +1,39 @@
+0|- Ungültig -
+1|"Move-To" (Ungenutzt)
+2|Folgen
+3|Einquartieren
+4|Erkunden
+5|Sammeln und Erneuern
+6|Natural Wonders-Cheat
+7|Angreifen
+8|Schießen
+10|Fliegen
+11|Erschrecken/Jagen (Wölfe->Rehe)
+12|Entladen (Transportschiff)
+13|Bewachen
+20|Entkommen
+21|Erstellen
+101|Bauen
+102|Objekt erstellen (?)
+103|Technologie erstellen (?)
+104|Bekehren
+105|Heilen
+106|Reparieren
+107|Automatisch bekehrt werden
+108|Entdecken (?)
+109|Geschossen ausweichen
+110|Jagen
+111|Handeln
+120|Weltwundersieg auslösen
+121|Bei Aktion deselektieren
+122|Ausnehmen (Looting)
+123|"Housing" (Ungenutzt)
+124|Packen
+125|Entpacken und Angreifen
+130|? ("OffMapTrade1")
+131|? ("OffMapTrade2")
+132|Einheit aufheben
+133|? ("Unknown-Pick-Up-Ability1")
+134|? ("Unknown-Pick-Up-Ability2")
+135|Einheit entführen (?)
+136|Einheit abstellen

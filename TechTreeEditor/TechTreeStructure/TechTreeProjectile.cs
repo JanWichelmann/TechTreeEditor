@@ -204,6 +204,11 @@ namespace TechTreeEditor.TechTreeStructure
 				successorResearchID = elementIDs[SuccessorResearch];
 			}
 
+			// Ggf. in den Fähigkeiten referenzierte Einheiten schreiben
+			foreach(UnitAbility ab in Abilities)
+				if(ab.Unit != null && !elementIDs.ContainsKey(ab.Unit))
+					lastID = ab.Unit.ToXml(writer, elementIDs, lastID);
+
 			// Element-Anfangstag schreiben
 			writer.WriteStartElement("element");
 			{
@@ -230,6 +235,14 @@ namespace TechTreeEditor.TechTreeStructure
 
 				// Nachfolger-Technologie-ID schreiben
 				writer.WriteElementNumber("successorresearch", successorResearchID);
+
+				// Fähigkeiten schreiben
+				writer.WriteStartElement("abilities");
+				{
+					// Fähigkeit schreiben
+					Abilities.ForEach(a => a.ToXml(writer, elementIDs));
+				}
+				writer.WriteEndElement();
 			}
 			writer.WriteEndElement();
 

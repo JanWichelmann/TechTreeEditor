@@ -81,6 +81,11 @@ namespace TechTreeEditor
 		private DRSFile _graphicsDRS = null;
 
 		/// <summary>
+		/// Die Zeichen-Textur.
+		/// </summary>
+		private static int _charTextureID = 0;
+
+		/// <summary>
 		/// Die aktuell gezeigte Grafik.
 		/// </summary>
 		private GraphicMode _currShowedGraphic = GraphicMode.Attacking;
@@ -183,6 +188,27 @@ namespace TechTreeEditor
 
 			// Blickwinkel erstellen
 			SetupDrawPanelViewPort();
+
+			// Zeichen-Texturen für String-Rendering erstellen
+			{
+				// Bitmap laden
+				Bitmap charTexBitmap = TechTreeEditor.Properties.Resources.RenderFontConsolas;
+
+				// Textur generieren
+				_charTextureID = GL.GenTexture();
+				GL.BindTexture(TextureTarget.Texture2D, _charTextureID);
+
+				// Parameter setzen
+				GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+				GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+
+				// Textur übergeben
+				BitmapData charTexBitmapData = charTexBitmap.LockBits(new Rectangle(0, 0, 256, 128), ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+				GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, 256, 128, 0, OpenTK.Graphics.OpenGL.PixelFormat.Bgra, PixelType.UnsignedByte, charTexBitmapData.Scan0);
+
+				// Ressourcen wieder freigeben
+				charTexBitmap.UnlockBits(charTexBitmapData);
+			}
 
 			// Alles ist geladen
 			_glLoaded = true;
@@ -450,10 +476,24 @@ namespace TechTreeEditor
 					animation.FrameBounds = new Size(frameWidth, frameHeight);
 					animation.RenderOffset = new Point(offset.X - offsetLeft, offset.Y - offsetTop);
 
-					// Eine ungefähr quadratische Textur soll am Ende herauskommen
-					animation.FramesPerLine = (int)Math.Sqrt(animation.FrameCount);
+					// Möglichst platzsparend mit dem Texturspeicher umgehen => beste Frameverteilung berechnen
+					int maxTextureSize = GL.GetInteger(GetPName.MaxTextureSize);
+					int minTexSize = int.MaxValue;
+					for(int fpl = (int)Math.Ceiling((double)animation.FrameCount / (maxTextureSize / frameHeight)); fpl <= animation.FrameCount / 2 + 1 && (fpl * frameWidth <= maxTextureSize); ++fpl)
+					{
+						// Neue Größe berechnen und vergleichen
+						int newTexSize = Log2(fpl * frameWidth) + Log2((int)Math.Ceiling((double)animation.FrameCount / fpl) * frameHeight);
+						if(newTexSize < minTexSize)
+						{
+							// Besserer Wert gefunden
+							minTexSize = newTexSize;
+							animation.FramesPerLine = fpl;
+						}
+					}
+
+					// Finale Texturengröße berechnen
 					int textureWidth = (int)NextPowerOfTwo((uint)animation.FramesPerLine * (uint)frameWidth);
-					int textureHeight = (int)NextPowerOfTwo((uint)Math.Round((double)animation.FrameCount / animation.FramesPerLine) * (uint)frameHeight);
+					int textureHeight = (int)NextPowerOfTwo((uint)Math.Ceiling((double)animation.FrameCount / animation.FramesPerLine) * (uint)frameHeight);
 					animation.TextureBounds = new Size(textureWidth, textureHeight);
 
 					// Frames nacheinander auf Bitmap zeichnen
@@ -508,7 +548,7 @@ namespace TechTreeEditor
 						// Textur anlegen und binden
 						animation.TextureID = GL.GenTexture();
 						GL.BindTexture(TextureTarget.Texture2D, animation.TextureID);
-						
+
 						// Textur soll bei Verkleinerung/Vergrößerung scharf (= pixelig) bleiben
 						GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Nearest);
 						GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Nearest);
@@ -518,7 +558,7 @@ namespace TechTreeEditor
 
 						// Textur an OpenGL übergeben
 						GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, textureWidth, textureHeight, 0, OpenTK.Graphics.OpenGL.PixelFormat.Bgra, PixelType.UnsignedByte, data.Scan0);
-						
+
 						// Bild-Bits wieder freigeben
 						textureBitmap.UnlockBits(data);
 
@@ -527,6 +567,7 @@ namespace TechTreeEditor
 					}
 
 					// Animation speichern
+					animation.Name = graphic.Name1;
 					_animations.Add(animation);
 				}
 			}
@@ -769,7 +810,70 @@ namespace TechTreeEditor
 				GL.End();
 			}
 
-			// Puffer tauschen, um Flackern zu vermeiden
+			// Zeichenmatrix zurücksetzen
+			GL.LoadIdentity();
+
+			// Ggf. Frame-Nummer-Box zeichnen
+			if(_showFrameNumbersCheckBox.Checked)
+			{
+				// Maximale Breite eines Eintrags "{ANIM_NAME}:{SPACING}{FRAME}" ist x + 1 + (21 - x) + 4 = 26
+				Size entrySize = MeasureString(new string('x', 26));
+
+				// Box-Position ist immer mit geringem Abstand am Bildschirmrand
+				GL.Translate(_drawPanel.Width - 22 - entrySize.Width, 18, 0);
+
+				// Header-Leiste zeichnen
+				string header = "Frame-Nummern";
+				GL.BindTexture(TextureTarget.Texture2D, 0);
+				GL.Color3(Color.FromArgb(179, 255, 102));
+				GL.Begin(PrimitiveType.Quads);
+				{
+					GL.Vertex2(0, 0);
+					GL.Vertex2(entrySize.Width + 4, 0);
+					GL.Vertex2(entrySize.Width + 4, entrySize.Height + 4);
+					GL.Vertex2(0, entrySize.Height + 4);
+				}
+				GL.End();
+
+				// Headertext zeichnen
+				DrawString(header, 2, 2);
+
+				// Box für Framenummern zeichnen
+				GL.Color3(Color.FromArgb(218, 255, 179));
+				int frameNumberBoxHeight = _animations.Count * (entrySize.Height + 2);
+				GL.Begin(PrimitiveType.Quads);
+				{
+					GL.Vertex2(0, entrySize.Height + 4);
+					GL.Vertex2(entrySize.Width + 4, entrySize.Height + 4);
+					GL.Vertex2(entrySize.Width + 4, entrySize.Height + 4 + frameNumberBoxHeight);
+					GL.Vertex2(0, entrySize.Height + 4 + frameNumberBoxHeight);
+				}
+				GL.End();
+
+				// Framenummern zeichnen
+				int frameNumberPosY = entrySize.Height + 4;
+				foreach(Animation anim in _animations)
+				{
+					// Eintrag zeichnen
+					DrawString(anim.Name + ":" + new string(' ', 21 - anim.Name.Length) + string.Format("{0,4}", anim.FrameID), 2, frameNumberPosY + 1);
+
+					// Nächste
+					frameNumberPosY += entrySize.Height + 2;
+				}
+
+				// Rahmen zeichnen
+				GL.Color3(Color.Black);
+				GL.Begin(PrimitiveType.LineLoop);
+				{
+					GL.Vertex2(0 +0.5, 0 + 0.5);
+					GL.Vertex2(entrySize.Width + 4 + 0.5, 0 + 0.5);
+					GL.Vertex2(entrySize.Width + 4 + 0.5, entrySize.Height + 4 + frameNumberBoxHeight + 0.5);
+					GL.Vertex2(0 + 0.5, entrySize.Height + 4 + frameNumberBoxHeight + 0.5);
+				}
+				GL.End();
+			}
+
+			// Puffer tauschen => Bildschirmausgabe
 			_drawPanel.SwapBuffers();
 		}
 
@@ -1141,6 +1245,12 @@ namespace TechTreeEditor
 			_drawPanel.Invalidate();
 		}
 
+		private void _showFrameNumbersCheckBox_CheckedChanged(object sender, EventArgs e)
+		{
+			// Neu zeichnen
+			_drawPanel.Invalidate();
+		}
+
 		#endregion Ereignishandler
 
 		#region Hilfsfunktionen
@@ -1208,6 +1318,73 @@ namespace TechTreeEditor
 			return ++value;
 		}
 
+		/// <summary>
+		/// Berechnet den aufgerundeten ganzzahligen Logarithmus der angegebenen Zahl zur Basis 2.
+		/// </summary>
+		/// <param name="value">Die Zahl deren Logarithmus bestimmt werden soll.</param>
+		/// <returns></returns>
+		private int Log2(int value)
+		{
+			// Abgerundeten Logarithmus berechnen
+			int log = 0;
+			int temp = value;
+			while((temp >>= 1) > 0)
+				++log;
+
+			// Ggf. aufrunden
+			if((1 << log) < value)
+				++log;
+
+			// Fertgi
+			return log;
+		}
+
+		/// <summary>
+		/// Zeichnet die gegebene Zeichenfolge an die gegebene Position. Dabei wird die obere linke Ecke angegeben.
+		/// Die Abmessungen betragen 8x13 Pixel für das erste und dann 6x13 Pixel pro Zeichen; dies kann auch mit der MeasureString-Funktion bestimmt werden.
+		/// </summary>
+		/// <param name="value">Die zu zeichende Zeichenfolge.</param>
+		/// <param name="x">Die X-Position, an die die Zeichenfolge gezeichnet werden soll.</param>
+		/// <param name="y">Die Y-Position, an die die Zeichenfolge gezeichnet werden soll.</param>
+		private void DrawString(string value, int x, int y)
+		{
+			// Textur laden
+			GL.BindTexture(TextureTarget.Texture2D, _charTextureID);
+
+			// String zeichenweise durchlaufen
+			foreach(char c in value.ToCharArray())
+			{
+				// Zeichnen
+				int cTrans = (int)c - 32;
+				float charPosX = (cTrans & 31) / 32.0f;
+				float charPosY = (cTrans >> 5) / 10.0f;
+				GL.Begin(PrimitiveType.Quads);
+				{
+					GL.TexCoord2(charPosX, charPosY); GL.Vertex2(x, y); // Oben links
+					GL.TexCoord2(charPosX + 1 / 32.0f, charPosY); GL.Vertex2(x + 8, y); // Oben rechts
+					GL.TexCoord2(charPosX + 1 / 32.0f, charPosY + 1 / 9.84615f); GL.Vertex2(x + 8, y + 13); // Unten rechts
+					GL.TexCoord2(charPosX, charPosY + 1 / 10.0f); GL.Vertex2(x, y + 13); // Unten links
+				}
+				GL.End();
+
+				// X-Position erhöhen
+				x += 6;
+			}
+
+			// Texture entladen
+			GL.BindTexture(TextureTarget.Texture2D, 0);
+		}
+
+		/// <summary>
+		/// Berechnet die Abmessungen des gegebenen Strings.
+		/// </summary>
+		/// <param name="value">Die Zeichenfolge, deren Abmessungen berechnet werden sollen.</param>
+		private Size MeasureString(string value)
+		{
+			// Größe berechnen
+			return new Size((value.Length > 0 ? 8 : 0) + (value.Length - 1) * 6, 13);
+		}
+
 		#endregion
 
 		#region Hilfsklassen
@@ -1228,6 +1405,11 @@ namespace TechTreeEditor
 			/// Der Faktor, dessen Inverses auf die Darstellungszeit eines Frames angewandt werden soll.
 			/// </summary>
 			private float _speedMultiplier = 1.0f;
+
+			/// <summary>
+			/// Der Name bzw. Bezeichner der Animation. Sollte maximal 21 Zeichen lang sein.
+			/// </summary>
+			private string _name = "ANIM";
 
 			/// <summary>
 			/// Die Textur-ID der Animation.
@@ -1314,6 +1496,29 @@ namespace TechTreeEditor
 
 					// Frame-ID aktualisieren
 					FrameID = _currentAngle * (FrameCount / AngleCount);
+				}
+			}
+
+			/// <summary>
+			/// Der Name bzw. Bezeichner der Animation. Sollte maximal 21 Zeichen lang sein, wird ggf. gekürzt.
+			/// </summary>
+			public string Name
+			{
+				get
+				{
+					// Name zurückgeben
+					return _name;
+				}
+				set
+				{
+					// Null ist verboten
+					if(value == null)
+						return;
+
+					// Neuen Namen kürzen, ggf. etwaige Nullbytes am Ende entfernen
+					_name = value.TrimEnd('\0');
+					if(_name.Length > 21)
+						_name = _name.Substring(0, 21);
 				}
 			}
 

@@ -153,6 +153,16 @@ namespace TechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DeleteAbility {
+            get {
+                object obj = ResourceManager.GetObject("DeleteAbility", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DeleteConnection {
             get {
                 object obj = ResourceManager.GetObject("DeleteConnection", resourceCulture);
@@ -376,6 +386,16 @@ namespace TechTreeEditor {
         internal static System.Drawing.Bitmap MapEditor {
             get {
                 object obj = ResourceManager.GetObject("MapEditor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NewAbility {
+            get {
+                object obj = ResourceManager.GetObject("NewAbility", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

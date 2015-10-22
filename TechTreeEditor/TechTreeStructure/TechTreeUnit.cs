@@ -24,6 +24,11 @@ namespace TechTreeEditor.TechTreeStructure
 		/// </summary>
 		public TechTreeUnit DeadUnit { get; set; }
 
+		/// <summary>
+		/// Die Fähigkeiten der Einheit.
+		/// </summary>
+		public List<UnitAbility> Abilities { get; private set; }
+
 		#endregion Variablen
 
 		#region Funktionen
@@ -35,6 +40,8 @@ namespace TechTreeEditor.TechTreeStructure
 		public TechTreeUnit()
 			: base()
 		{
+			// Fähigkeitenliste anlegen
+			Abilities = new List<UnitAbility>();
 		}
 
 		/// <summary>
@@ -58,6 +65,18 @@ namespace TechTreeEditor.TechTreeStructure
 			for(int c = dat.Civs.Count - 1; c >= 0; --c)
 				if((DATUnit = dat.Civs[c].Units.FirstOrDefault(u => u.Key == ID).Value) != null)
 					break;
+
+			// Einheiten-Fähigkeiten laden
+			GenieLibrary.DataElements.UnitHeader unitHeader = dat.UnitHeaders[ID];
+			id = 0;
+			foreach(XElement ab in element.Element("abilities").Descendants("ability"))
+			{
+				// Fähigkeiten laden
+				Abilities.Add(new UnitAbility(ab, previousElements, unitHeader.Commands[id]));
+
+				// Nächste
+				++id;
+			}
 
 			// Namen setzen
 			UpdateName(langFiles);

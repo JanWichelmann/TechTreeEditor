@@ -40,6 +40,46 @@
 			this._dllDescriptionField = new TechTreeEditor.Controls.LanguageDLLControl();
 			this._dllHelpField = new TechTreeEditor.Controls.LanguageDLLControl();
 			this._dllNameField = new TechTreeEditor.Controls.LanguageDLLControl();
+			this._abilitiesTabPage = new System.Windows.Forms.TabPage();
+			this._abilitiesListBox = new TechTreeEditor.DoubleBufferedListBox();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this._abilityUnitComboBox = new System.Windows.Forms.ComboBox();
+			this._abilityUnitLabel = new System.Windows.Forms.Label();
+			this._abilityUnknown6Field = new TechTreeEditor.Controls.NumberFieldControl();
+			this._abilityUnknown5Field = new TechTreeEditor.Controls.NumberFieldControl();
+			this._abilityUnknown4Field = new TechTreeEditor.Controls.NumberFieldControl();
+			this._abilityUnknown3Field = new TechTreeEditor.Controls.NumberFieldControl();
+			this._abilityUnknown2Field = new TechTreeEditor.Controls.NumberFieldControl();
+			this._abilityUnknown1Field = new TechTreeEditor.Controls.NumberFieldControl();
+			this._abilityDropSoundField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._abilityExecutionSoundField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._abilityCarryGraphicField = new TechTreeEditor.Controls.DropDownFieldControl();
+			this._abilityActionGraphicField = new TechTreeEditor.Controls.DropDownFieldControl();
+			this._abilityProceedGraphicField = new TechTreeEditor.Controls.DropDownFieldControl();
+			this._abilityToolGraphicField = new TechTreeEditor.Controls.DropDownFieldControl();
+			this._abilityRightClickModeField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._abilityTerrainField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._abilityPlunderSourceField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._abilitySelectionEnablerField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._abilitySelectionModeField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._abilityRangeField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._abilityRadiusField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._abilityWorkRateFactorField = new TechTreeEditor.Controls.NumberFieldControl();
+			this._abilityResourceProductivityLabel = new System.Windows.Forms.Label();
+			this._abilityResourceProductivityComboBox = new System.Windows.Forms.ComboBox();
+			this._abilityResourceDropLabel = new System.Windows.Forms.Label();
+			this._abilityResourceDropComboBox = new System.Windows.Forms.ComboBox();
+			this._abilityResourceCarryLabel = new System.Windows.Forms.Label();
+			this._abilityResourceCarryComboBox = new System.Windows.Forms.ComboBox();
+			this._newAbilityButton = new System.Windows.Forms.Button();
+			this._deleteAbilityButton = new System.Windows.Forms.Button();
+			this._abilityTypeComboBox = new System.Windows.Forms.ComboBox();
+			this._abilityClassComboBox = new System.Windows.Forms.ComboBox();
+			this._abilityInfoLabel = new System.Windows.Forms.Label();
+			this._abilityResourceLabel = new System.Windows.Forms.Label();
+			this._abilityResourceComboBox = new System.Windows.Forms.ComboBox();
+			this._abilityTypeLabel = new System.Windows.Forms.Label();
+			this._abilityClassLabel = new System.Windows.Forms.Label();
 			this._statsTabPage = new System.Windows.Forms.TabPage();
 			this._garrisonHealRateField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._workRateField = new TechTreeEditor.Controls.NumberFieldControl();
@@ -215,6 +255,8 @@
 			this._mainTabControl.SuspendLayout();
 			this._commonTabPage.SuspendLayout();
 			this.groupBox1.SuspendLayout();
+			this._abilitiesTabPage.SuspendLayout();
+			this.panel1.SuspendLayout();
 			this._statsTabPage.SuspendLayout();
 			this._combatTabPage.SuspendLayout();
 			this.groupBox22.SuspendLayout();
@@ -256,6 +298,7 @@
 			// _mainTabControl
 			// 
 			this._mainTabControl.Controls.Add(this._commonTabPage);
+			this._mainTabControl.Controls.Add(this._abilitiesTabPage);
 			this._mainTabControl.Controls.Add(this._statsTabPage);
 			this._mainTabControl.Controls.Add(this._combatTabPage);
 			this._mainTabControl.Controls.Add(this._projectileTabPage);
@@ -334,6 +377,399 @@
 			this._dllNameField.ProjectFile = null;
 			this._dllNameField.Value = 0;
 			this._dllNameField.ValueChanged += new TechTreeEditor.Controls.LanguageDLLControl.ValueChangedEventHandler(this._dllNameField_ValueChanged);
+			// 
+			// _abilitiesTabPage
+			// 
+			this._abilitiesTabPage.Controls.Add(this._abilitiesListBox);
+			this._abilitiesTabPage.Controls.Add(this.panel1);
+			resources.ApplyResources(this._abilitiesTabPage, "_abilitiesTabPage");
+			this._abilitiesTabPage.Name = "_abilitiesTabPage";
+			this._abilitiesTabPage.UseVisualStyleBackColor = true;
+			// 
+			// _abilitiesListBox
+			// 
+			resources.ApplyResources(this._abilitiesListBox, "_abilitiesListBox");
+			this._abilitiesListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+			this._abilitiesListBox.FormattingEnabled = true;
+			this._abilitiesListBox.Name = "_abilitiesListBox";
+			this._abilitiesListBox.SelectedIndexChanged += new System.EventHandler(this._abilitiesListBox_SelectedIndexChanged);
+			// 
+			// panel1
+			// 
+			this.panel1.Controls.Add(this._abilityUnitComboBox);
+			this.panel1.Controls.Add(this._abilityUnitLabel);
+			this.panel1.Controls.Add(this._abilityUnknown6Field);
+			this.panel1.Controls.Add(this._abilityUnknown5Field);
+			this.panel1.Controls.Add(this._abilityUnknown4Field);
+			this.panel1.Controls.Add(this._abilityUnknown3Field);
+			this.panel1.Controls.Add(this._abilityUnknown2Field);
+			this.panel1.Controls.Add(this._abilityUnknown1Field);
+			this.panel1.Controls.Add(this._abilityDropSoundField);
+			this.panel1.Controls.Add(this._abilityExecutionSoundField);
+			this.panel1.Controls.Add(this._abilityCarryGraphicField);
+			this.panel1.Controls.Add(this._abilityActionGraphicField);
+			this.panel1.Controls.Add(this._abilityProceedGraphicField);
+			this.panel1.Controls.Add(this._abilityToolGraphicField);
+			this.panel1.Controls.Add(this._abilityRightClickModeField);
+			this.panel1.Controls.Add(this._abilityTerrainField);
+			this.panel1.Controls.Add(this._abilityPlunderSourceField);
+			this.panel1.Controls.Add(this._abilitySelectionEnablerField);
+			this.panel1.Controls.Add(this._abilitySelectionModeField);
+			this.panel1.Controls.Add(this._abilityRangeField);
+			this.panel1.Controls.Add(this._abilityRadiusField);
+			this.panel1.Controls.Add(this._abilityWorkRateFactorField);
+			this.panel1.Controls.Add(this._abilityResourceProductivityLabel);
+			this.panel1.Controls.Add(this._abilityResourceProductivityComboBox);
+			this.panel1.Controls.Add(this._abilityResourceDropLabel);
+			this.panel1.Controls.Add(this._abilityResourceDropComboBox);
+			this.panel1.Controls.Add(this._abilityResourceCarryLabel);
+			this.panel1.Controls.Add(this._abilityResourceCarryComboBox);
+			this.panel1.Controls.Add(this._newAbilityButton);
+			this.panel1.Controls.Add(this._deleteAbilityButton);
+			this.panel1.Controls.Add(this._abilityTypeComboBox);
+			this.panel1.Controls.Add(this._abilityClassComboBox);
+			this.panel1.Controls.Add(this._abilityInfoLabel);
+			this.panel1.Controls.Add(this._abilityResourceLabel);
+			this.panel1.Controls.Add(this._abilityResourceComboBox);
+			this.panel1.Controls.Add(this._abilityTypeLabel);
+			this.panel1.Controls.Add(this._abilityClassLabel);
+			resources.ApplyResources(this.panel1, "panel1");
+			this.panel1.Name = "panel1";
+			// 
+			// _abilityUnitComboBox
+			// 
+			this._abilityUnitComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+			this._abilityUnitComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+			resources.ApplyResources(this._abilityUnitComboBox, "_abilityUnitComboBox");
+			this._abilityUnitComboBox.FormattingEnabled = true;
+			this._abilityUnitComboBox.Name = "_abilityUnitComboBox";
+			this._abilityUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._abilityUnitComboBox_SelectedIndexChanged);
+			// 
+			// _abilityUnitLabel
+			// 
+			resources.ApplyResources(this._abilityUnitLabel, "_abilityUnitLabel");
+			this._abilityUnitLabel.Name = "_abilityUnitLabel";
+			// 
+			// _abilityUnknown6Field
+			// 
+			resources.ApplyResources(this._abilityUnknown6Field, "_abilityUnknown6Field");
+			this._abilityUnknown6Field.Name = "_abilityUnknown6Field";
+			this._abilityUnknown6Field.NameString = "Unbekannt 6:";
+			this._abilityUnknown6Field.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._abilityUnknown6Field.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._abilityUnknown6Field_ValueChanged);
+			// 
+			// _abilityUnknown5Field
+			// 
+			resources.ApplyResources(this._abilityUnknown5Field, "_abilityUnknown5Field");
+			this._abilityUnknown5Field.Name = "_abilityUnknown5Field";
+			this._abilityUnknown5Field.NameString = "Unbekannt 5:";
+			this._abilityUnknown5Field.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._abilityUnknown5Field.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._abilityUnknown5Field_ValueChanged);
+			// 
+			// _abilityUnknown4Field
+			// 
+			resources.ApplyResources(this._abilityUnknown4Field, "_abilityUnknown4Field");
+			this._abilityUnknown4Field.Name = "_abilityUnknown4Field";
+			this._abilityUnknown4Field.NameString = "Unbekannt 4:";
+			this._abilityUnknown4Field.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._abilityUnknown4Field.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._abilityUnknown4Field_ValueChanged);
+			// 
+			// _abilityUnknown3Field
+			// 
+			resources.ApplyResources(this._abilityUnknown3Field, "_abilityUnknown3Field");
+			this._abilityUnknown3Field.Name = "_abilityUnknown3Field";
+			this._abilityUnknown3Field.NameString = "Unbekannt 3:";
+			this._abilityUnknown3Field.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._abilityUnknown3Field.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._abilityUnknown3Field_ValueChanged);
+			// 
+			// _abilityUnknown2Field
+			// 
+			resources.ApplyResources(this._abilityUnknown2Field, "_abilityUnknown2Field");
+			this._abilityUnknown2Field.Name = "_abilityUnknown2Field";
+			this._abilityUnknown2Field.NameString = "Unbekannt 2:";
+			this._abilityUnknown2Field.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._abilityUnknown2Field.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._abilityUnknown2Field_ValueChanged);
+			// 
+			// _abilityUnknown1Field
+			// 
+			resources.ApplyResources(this._abilityUnknown1Field, "_abilityUnknown1Field");
+			this._abilityUnknown1Field.Name = "_abilityUnknown1Field";
+			this._abilityUnknown1Field.NameString = "Unbekannt 1:";
+			this._abilityUnknown1Field.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._abilityUnknown1Field.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._abilityUnknown1Field_ValueChanged);
+			// 
+			// _abilityDropSoundField
+			// 
+			resources.ApplyResources(this._abilityDropSoundField, "_abilityDropSoundField");
+			this._abilityDropSoundField.Name = "_abilityDropSoundField";
+			this._abilityDropSoundField.NameString = "Ablege-Sound:";
+			this._abilityDropSoundField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._abilityDropSoundField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._abilityDropSoundField_ValueChanged);
+			// 
+			// _abilityExecutionSoundField
+			// 
+			resources.ApplyResources(this._abilityExecutionSoundField, "_abilityExecutionSoundField");
+			this._abilityExecutionSoundField.Name = "_abilityExecutionSoundField";
+			this._abilityExecutionSoundField.NameString = "Ausführungs-Sound:";
+			this._abilityExecutionSoundField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._abilityExecutionSoundField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._abilityExecutionSoundField_ValueChanged);
+			// 
+			// _abilityCarryGraphicField
+			// 
+			resources.ApplyResources(this._abilityCarryGraphicField, "_abilityCarryGraphicField");
+			this._abilityCarryGraphicField.Name = "_abilityCarryGraphicField";
+			this._abilityCarryGraphicField.NameString = "Trage-Grafik:";
+			this._abilityCarryGraphicField.Value = null;
+			this._abilityCarryGraphicField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._abilityCarryGraphicField_ValueChanged);
+			// 
+			// _abilityActionGraphicField
+			// 
+			resources.ApplyResources(this._abilityActionGraphicField, "_abilityActionGraphicField");
+			this._abilityActionGraphicField.Name = "_abilityActionGraphicField";
+			this._abilityActionGraphicField.NameString = "Aktions-Grafik:";
+			this._abilityActionGraphicField.Value = null;
+			this._abilityActionGraphicField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._abilityActionGraphicField_ValueChanged);
+			// 
+			// _abilityProceedGraphicField
+			// 
+			resources.ApplyResources(this._abilityProceedGraphicField, "_abilityProceedGraphicField");
+			this._abilityProceedGraphicField.Name = "_abilityProceedGraphicField";
+			this._abilityProceedGraphicField.NameString = "Fortsetz-Grafik:";
+			this._abilityProceedGraphicField.Value = null;
+			this._abilityProceedGraphicField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._abilityProceedGraphicField_ValueChanged);
+			// 
+			// _abilityToolGraphicField
+			// 
+			resources.ApplyResources(this._abilityToolGraphicField, "_abilityToolGraphicField");
+			this._abilityToolGraphicField.Name = "_abilityToolGraphicField";
+			this._abilityToolGraphicField.NameString = "Lauf-Grafik:";
+			this._abilityToolGraphicField.Value = null;
+			this._abilityToolGraphicField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._abilityToolGraphicField_ValueChanged);
+			// 
+			// _abilityRightClickModeField
+			// 
+			resources.ApplyResources(this._abilityRightClickModeField, "_abilityRightClickModeField");
+			this._abilityRightClickModeField.Name = "_abilityRightClickModeField";
+			this._abilityRightClickModeField.NameString = "Rechtsklick-Modus: ";
+			this._abilityRightClickModeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._abilityRightClickModeField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._abilityRightClickModeField_ValueChanged);
+			// 
+			// _abilityTerrainField
+			// 
+			resources.ApplyResources(this._abilityTerrainField, "_abilityTerrainField");
+			this._abilityTerrainField.Name = "_abilityTerrainField";
+			this._abilityTerrainField.NameString = "Terrain:";
+			this._abilityTerrainField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._abilityTerrainField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._abilityTerrainField_ValueChanged);
+			// 
+			// _abilityPlunderSourceField
+			// 
+			resources.ApplyResources(this._abilityPlunderSourceField, "_abilityPlunderSourceField");
+			this._abilityPlunderSourceField.Name = "_abilityPlunderSourceField";
+			this._abilityPlunderSourceField.NameString = "Plünder-Modus:";
+			this._abilityPlunderSourceField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._abilityPlunderSourceField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._abilityPlunderSourceField_ValueChanged);
+			// 
+			// _abilitySelectionEnablerField
+			// 
+			resources.ApplyResources(this._abilitySelectionEnablerField, "_abilitySelectionEnablerField");
+			this._abilitySelectionEnablerField.Name = "_abilitySelectionEnablerField";
+			this._abilitySelectionEnablerField.NameString = "Auswahl-Aktivierer: ";
+			this._abilitySelectionEnablerField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._abilitySelectionEnablerField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._abilitySelectionEnablerField_ValueChanged);
+			// 
+			// _abilitySelectionModeField
+			// 
+			resources.ApplyResources(this._abilitySelectionModeField, "_abilitySelectionModeField");
+			this._abilitySelectionModeField.Name = "_abilitySelectionModeField";
+			this._abilitySelectionModeField.NameString = "Auswahlmodus: ";
+			this._abilitySelectionModeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._abilitySelectionModeField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._abilitySelectionModeField_ValueChanged);
+			// 
+			// _abilityRangeField
+			// 
+			resources.ApplyResources(this._abilityRangeField, "_abilityRangeField");
+			this._abilityRangeField.Name = "_abilityRangeField";
+			this._abilityRangeField.NameString = "Extra-Reichweite: ";
+			this._abilityRangeField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._abilityRangeField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._abilityRangeField_ValueChanged);
+			// 
+			// _abilityRadiusField
+			// 
+			resources.ApplyResources(this._abilityRadiusField, "_abilityRadiusField");
+			this._abilityRadiusField.Name = "_abilityRadiusField";
+			this._abilityRadiusField.NameString = "Radius: ";
+			this._abilityRadiusField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._abilityRadiusField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._abilityRadiusField_ValueChanged);
+			// 
+			// _abilityWorkRateFactorField
+			// 
+			resources.ApplyResources(this._abilityWorkRateFactorField, "_abilityWorkRateFactorField");
+			this._abilityWorkRateFactorField.Name = "_abilityWorkRateFactorField";
+			this._abilityWorkRateFactorField.NameString = "Arbeitsraten-Faktor:";
+			this._abilityWorkRateFactorField.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this._abilityWorkRateFactorField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._abilityWorkRateFactorField_ValueChanged);
+			// 
+			// _abilityResourceProductivityLabel
+			// 
+			resources.ApplyResources(this._abilityResourceProductivityLabel, "_abilityResourceProductivityLabel");
+			this._abilityResourceProductivityLabel.Name = "_abilityResourceProductivityLabel";
+			// 
+			// _abilityResourceProductivityComboBox
+			// 
+			resources.ApplyResources(this._abilityResourceProductivityComboBox, "_abilityResourceProductivityComboBox");
+			this._abilityResourceProductivityComboBox.FormattingEnabled = true;
+			this._abilityResourceProductivityComboBox.Name = "_abilityResourceProductivityComboBox";
+			this._abilityResourceProductivityComboBox.SelectedIndexChanged += new System.EventHandler(this._abilityResourceProductivityComboBox_SelectedIndexChanged);
+			// 
+			// _abilityResourceDropLabel
+			// 
+			resources.ApplyResources(this._abilityResourceDropLabel, "_abilityResourceDropLabel");
+			this._abilityResourceDropLabel.Name = "_abilityResourceDropLabel";
+			// 
+			// _abilityResourceDropComboBox
+			// 
+			resources.ApplyResources(this._abilityResourceDropComboBox, "_abilityResourceDropComboBox");
+			this._abilityResourceDropComboBox.FormattingEnabled = true;
+			this._abilityResourceDropComboBox.Name = "_abilityResourceDropComboBox";
+			this._abilityResourceDropComboBox.SelectedIndexChanged += new System.EventHandler(this._abilityResourceDropComboBox_SelectedIndexChanged);
+			// 
+			// _abilityResourceCarryLabel
+			// 
+			resources.ApplyResources(this._abilityResourceCarryLabel, "_abilityResourceCarryLabel");
+			this._abilityResourceCarryLabel.Name = "_abilityResourceCarryLabel";
+			// 
+			// _abilityResourceCarryComboBox
+			// 
+			resources.ApplyResources(this._abilityResourceCarryComboBox, "_abilityResourceCarryComboBox");
+			this._abilityResourceCarryComboBox.FormattingEnabled = true;
+			this._abilityResourceCarryComboBox.Name = "_abilityResourceCarryComboBox";
+			this._abilityResourceCarryComboBox.SelectedIndexChanged += new System.EventHandler(this._abilityResourceCarryComboBox_SelectedIndexChanged);
+			// 
+			// _newAbilityButton
+			// 
+			resources.ApplyResources(this._newAbilityButton, "_newAbilityButton");
+			this._newAbilityButton.BackgroundImage = global::TechTreeEditor.Icons.NewAbility;
+			this._newAbilityButton.FlatAppearance.BorderSize = 0;
+			this._newAbilityButton.Name = "_newAbilityButton";
+			this._newAbilityButton.UseVisualStyleBackColor = true;
+			this._newAbilityButton.Click += new System.EventHandler(this._newAbilityButton_Click);
+			// 
+			// _deleteAbilityButton
+			// 
+			resources.ApplyResources(this._deleteAbilityButton, "_deleteAbilityButton");
+			this._deleteAbilityButton.BackgroundImage = global::TechTreeEditor.Icons.DeleteAbility;
+			this._deleteAbilityButton.FlatAppearance.BorderSize = 0;
+			this._deleteAbilityButton.Name = "_deleteAbilityButton";
+			this._deleteAbilityButton.UseVisualStyleBackColor = true;
+			this._deleteAbilityButton.Click += new System.EventHandler(this._deleteAbilityButton_Click);
+			// 
+			// _abilityTypeComboBox
+			// 
+			resources.ApplyResources(this._abilityTypeComboBox, "_abilityTypeComboBox");
+			this._abilityTypeComboBox.FormattingEnabled = true;
+			this._abilityTypeComboBox.Name = "_abilityTypeComboBox";
+			this._abilityTypeComboBox.SelectedIndexChanged += new System.EventHandler(this._abilityTypeComboBox_SelectedIndexChanged);
+			// 
+			// _abilityClassComboBox
+			// 
+			this._abilityClassComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+			this._abilityClassComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+			resources.ApplyResources(this._abilityClassComboBox, "_abilityClassComboBox");
+			this._abilityClassComboBox.FormattingEnabled = true;
+			this._abilityClassComboBox.Name = "_abilityClassComboBox";
+			this._abilityClassComboBox.SelectedIndexChanged += new System.EventHandler(this._abilityClassComboBox_SelectedIndexChanged);
+			// 
+			// _abilityInfoLabel
+			// 
+			resources.ApplyResources(this._abilityInfoLabel, "_abilityInfoLabel");
+			this._abilityInfoLabel.Name = "_abilityInfoLabel";
+			// 
+			// _abilityResourceLabel
+			// 
+			resources.ApplyResources(this._abilityResourceLabel, "_abilityResourceLabel");
+			this._abilityResourceLabel.Name = "_abilityResourceLabel";
+			// 
+			// _abilityResourceComboBox
+			// 
+			resources.ApplyResources(this._abilityResourceComboBox, "_abilityResourceComboBox");
+			this._abilityResourceComboBox.FormattingEnabled = true;
+			this._abilityResourceComboBox.Name = "_abilityResourceComboBox";
+			this._abilityResourceComboBox.SelectedIndexChanged += new System.EventHandler(this._abilityResourceComboBox_SelectedIndexChanged);
+			// 
+			// _abilityTypeLabel
+			// 
+			resources.ApplyResources(this._abilityTypeLabel, "_abilityTypeLabel");
+			this._abilityTypeLabel.Name = "_abilityTypeLabel";
+			// 
+			// _abilityClassLabel
+			// 
+			resources.ApplyResources(this._abilityClassLabel, "_abilityClassLabel");
+			this._abilityClassLabel.Name = "_abilityClassLabel";
 			// 
 			// _statsTabPage
 			// 
@@ -2259,6 +2695,9 @@
 			this._commonTabPage.ResumeLayout(false);
 			this._commonTabPage.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
+			this._abilitiesTabPage.ResumeLayout(false);
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
 			this._statsTabPage.ResumeLayout(false);
 			this._combatTabPage.ResumeLayout(false);
 			this.groupBox22.ResumeLayout(false);
@@ -2471,5 +2910,45 @@
 		private Controls.NumberFieldControl _resourceStorage3ModeField;
 		private Controls.NumberFieldControl _resourceStorage2ModeField;
 		private Controls.NumberFieldControl _resourceStorage1ModeField;
+		private System.Windows.Forms.TabPage _abilitiesTabPage;
+		private System.Windows.Forms.Label _abilityInfoLabel;
+		private DoubleBufferedListBox _abilitiesListBox;
+		private System.Windows.Forms.Label _abilityTypeLabel;
+		private System.Windows.Forms.ComboBox _abilityTypeComboBox;
+		private System.Windows.Forms.Label _abilityResourceLabel;
+		private System.Windows.Forms.ComboBox _abilityResourceComboBox;
+		private System.Windows.Forms.Label _abilityClassLabel;
+		private System.Windows.Forms.ComboBox _abilityClassComboBox;
+		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Button _newAbilityButton;
+		private System.Windows.Forms.Button _deleteAbilityButton;
+		private System.Windows.Forms.Label _abilityResourceCarryLabel;
+		private System.Windows.Forms.ComboBox _abilityResourceCarryComboBox;
+		private System.Windows.Forms.Label _abilityResourceDropLabel;
+		private System.Windows.Forms.ComboBox _abilityResourceDropComboBox;
+		private System.Windows.Forms.Label _abilityResourceProductivityLabel;
+		private System.Windows.Forms.ComboBox _abilityResourceProductivityComboBox;
+		private Controls.NumberFieldControl _abilityRadiusField;
+		private Controls.NumberFieldControl _abilityWorkRateFactorField;
+		private Controls.NumberFieldControl _abilityRangeField;
+		private Controls.NumberFieldControl _abilityPlunderSourceField;
+		private Controls.NumberFieldControl _abilitySelectionEnablerField;
+		private Controls.NumberFieldControl _abilitySelectionModeField;
+		private Controls.NumberFieldControl _abilityTerrainField;
+		private Controls.NumberFieldControl _abilityRightClickModeField;
+		private Controls.DropDownFieldControl _abilityToolGraphicField;
+		private Controls.DropDownFieldControl _abilityCarryGraphicField;
+		private Controls.DropDownFieldControl _abilityActionGraphicField;
+		private Controls.DropDownFieldControl _abilityProceedGraphicField;
+		private Controls.NumberFieldControl _abilityDropSoundField;
+		private Controls.NumberFieldControl _abilityExecutionSoundField;
+		private Controls.NumberFieldControl _abilityUnknown6Field;
+		private Controls.NumberFieldControl _abilityUnknown5Field;
+		private Controls.NumberFieldControl _abilityUnknown4Field;
+		private Controls.NumberFieldControl _abilityUnknown3Field;
+		private Controls.NumberFieldControl _abilityUnknown2Field;
+		private Controls.NumberFieldControl _abilityUnknown1Field;
+		private System.Windows.Forms.ComboBox _abilityUnitComboBox;
+		private System.Windows.Forms.Label _abilityUnitLabel;
 	}
 }

@@ -31,6 +31,9 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UnitRenderForm));
 			this._bottomPanel = new System.Windows.Forms.Panel();
+			this.groupBox5 = new System.Windows.Forms.GroupBox();
+			this._showProjectilePointCheckBox = new System.Windows.Forms.CheckBox();
+			this._showCenterPointCheckBox = new System.Windows.Forms.CheckBox();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
 			this._radiusCustom2Field = new System.Windows.Forms.NumericUpDown();
 			this._radiusCustom1Field = new System.Windows.Forms.NumericUpDown();
@@ -67,10 +70,9 @@
 			this._graphicsDRSTextBox = new System.Windows.Forms.TextBox();
 			this._openGraphicsDRSDialog = new System.Windows.Forms.OpenFileDialog();
 			this._renderTimer = new System.Windows.Forms.Timer(this.components);
-			this.groupBox5 = new System.Windows.Forms.GroupBox();
-			this._showCenterPointCheckBox = new System.Windows.Forms.CheckBox();
-			this._showProjectilePointCheckBox = new System.Windows.Forms.CheckBox();
+			this._showFrameNumbersCheckBox = new System.Windows.Forms.CheckBox();
 			this._bottomPanel.SuspendLayout();
+			this.groupBox5.SuspendLayout();
 			this.groupBox4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this._radiusCustom2Field)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this._radiusCustom1Field)).BeginInit();
@@ -81,7 +83,6 @@
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this._speedCustomField)).BeginInit();
 			this.groupBox1.SuspendLayout();
-			this.groupBox5.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// _bottomPanel
@@ -95,6 +96,41 @@
 			this._bottomPanel.Name = "_bottomPanel";
 			this._bottomPanel.Size = new System.Drawing.Size(1129, 90);
 			this._bottomPanel.TabIndex = 1;
+			// 
+			// groupBox5
+			// 
+			this.groupBox5.Controls.Add(this._showFrameNumbersCheckBox);
+			this.groupBox5.Controls.Add(this._showProjectilePointCheckBox);
+			this.groupBox5.Controls.Add(this._showCenterPointCheckBox);
+			this.groupBox5.Location = new System.Drawing.Point(724, 3);
+			this.groupBox5.Name = "groupBox5";
+			this.groupBox5.Size = new System.Drawing.Size(396, 46);
+			this.groupBox5.TabIndex = 23;
+			this.groupBox5.TabStop = false;
+			this.groupBox5.Text = "Einblenden";
+			// 
+			// _showProjectilePointCheckBox
+			// 
+			this._showProjectilePointCheckBox.AutoSize = true;
+			this._showProjectilePointCheckBox.Enabled = false;
+			this._showProjectilePointCheckBox.Location = new System.Drawing.Point(93, 21);
+			this._showProjectilePointCheckBox.Name = "_showProjectilePointCheckBox";
+			this._showProjectilePointCheckBox.Size = new System.Drawing.Size(99, 17);
+			this._showProjectilePointCheckBox.TabIndex = 1;
+			this._showProjectilePointCheckBox.Text = "Projektil-Spawn";
+			this._showProjectilePointCheckBox.UseVisualStyleBackColor = true;
+			this._showProjectilePointCheckBox.CheckedChanged += new System.EventHandler(this._showProjectilePointCheckBox_CheckedChanged);
+			// 
+			// _showCenterPointCheckBox
+			// 
+			this._showCenterPointCheckBox.AutoSize = true;
+			this._showCenterPointCheckBox.Location = new System.Drawing.Point(6, 21);
+			this._showCenterPointCheckBox.Name = "_showCenterPointCheckBox";
+			this._showCenterPointCheckBox.Size = new System.Drawing.Size(81, 17);
+			this._showCenterPointCheckBox.TabIndex = 0;
+			this._showCenterPointCheckBox.Text = "Ankerpunkt";
+			this._showCenterPointCheckBox.UseVisualStyleBackColor = true;
+			this._showCenterPointCheckBox.CheckedChanged += new System.EventHandler(this._showCenterPointCheckBox_CheckedChanged);
 			// 
 			// groupBox4
 			// 
@@ -585,39 +621,16 @@
 			// 
 			this._renderTimer.Tick += new System.EventHandler(this._renderTimer_Tick);
 			// 
-			// groupBox5
+			// _showFrameNumbersCheckBox
 			// 
-			this.groupBox5.Controls.Add(this._showProjectilePointCheckBox);
-			this.groupBox5.Controls.Add(this._showCenterPointCheckBox);
-			this.groupBox5.Location = new System.Drawing.Point(724, 3);
-			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(396, 46);
-			this.groupBox5.TabIndex = 23;
-			this.groupBox5.TabStop = false;
-			this.groupBox5.Text = "Markierungen";
-			// 
-			// _showCenterPointCheckBox
-			// 
-			this._showCenterPointCheckBox.AutoSize = true;
-			this._showCenterPointCheckBox.Location = new System.Drawing.Point(6, 21);
-			this._showCenterPointCheckBox.Name = "_showCenterPointCheckBox";
-			this._showCenterPointCheckBox.Size = new System.Drawing.Size(81, 17);
-			this._showCenterPointCheckBox.TabIndex = 0;
-			this._showCenterPointCheckBox.Text = "Ankerpunkt";
-			this._showCenterPointCheckBox.UseVisualStyleBackColor = true;
-			this._showCenterPointCheckBox.CheckedChanged += new System.EventHandler(this._showCenterPointCheckBox_CheckedChanged);
-			// 
-			// _showProjectilePointCheckBox
-			// 
-			this._showProjectilePointCheckBox.AutoSize = true;
-			this._showProjectilePointCheckBox.Enabled = false;
-			this._showProjectilePointCheckBox.Location = new System.Drawing.Point(93, 21);
-			this._showProjectilePointCheckBox.Name = "_showProjectilePointCheckBox";
-			this._showProjectilePointCheckBox.Size = new System.Drawing.Size(99, 17);
-			this._showProjectilePointCheckBox.TabIndex = 1;
-			this._showProjectilePointCheckBox.Text = "Projektil-Spawn";
-			this._showProjectilePointCheckBox.UseVisualStyleBackColor = true;
-			this._showProjectilePointCheckBox.CheckedChanged += new System.EventHandler(this._showProjectilePointCheckBox_CheckedChanged);
+			this._showFrameNumbersCheckBox.AutoSize = true;
+			this._showFrameNumbersCheckBox.Location = new System.Drawing.Point(198, 21);
+			this._showFrameNumbersCheckBox.Name = "_showFrameNumbersCheckBox";
+			this._showFrameNumbersCheckBox.Size = new System.Drawing.Size(103, 17);
+			this._showFrameNumbersCheckBox.TabIndex = 2;
+			this._showFrameNumbersCheckBox.Text = "Frame-Nummern";
+			this._showFrameNumbersCheckBox.UseVisualStyleBackColor = true;
+			this._showFrameNumbersCheckBox.CheckedChanged += new System.EventHandler(this._showFrameNumbersCheckBox_CheckedChanged);
 			// 
 			// UnitRenderForm
 			// 
@@ -634,6 +647,8 @@
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UnitRenderForm_FormClosing);
 			this.Load += new System.EventHandler(this.UnitRenderForm_Load);
 			this._bottomPanel.ResumeLayout(false);
+			this.groupBox5.ResumeLayout(false);
+			this.groupBox5.PerformLayout();
 			this.groupBox4.ResumeLayout(false);
 			this.groupBox4.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this._radiusCustom2Field)).EndInit();
@@ -649,8 +664,6 @@
 			((System.ComponentModel.ISupportInitialize)(this._speedCustomField)).EndInit();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
-			this.groupBox5.ResumeLayout(false);
-			this.groupBox5.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -696,5 +709,6 @@
 		private System.Windows.Forms.GroupBox groupBox5;
 		private System.Windows.Forms.CheckBox _showCenterPointCheckBox;
 		private System.Windows.Forms.CheckBox _showProjectilePointCheckBox;
+		private System.Windows.Forms.CheckBox _showFrameNumbersCheckBox;
 	}
 }
