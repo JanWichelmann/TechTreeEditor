@@ -155,6 +155,11 @@ namespace TechTreeEditor
 		/// </summary>
 		private string _currentSearchText = "";
 
+		/// <summary>
+		/// Die Anzahl der im aktuellen Baum vorliegenden Zeitalter.
+		/// </summary>
+		private int _currentAgeCount = 4;
+
 		#endregion Variablen
 
 		#region Funktionen
@@ -199,14 +204,18 @@ namespace TechTreeEditor
 		/// Aktualisiert den internen Baum mit den übergebenen Daten und zeichnet diesen.
 		/// </summary>
 		/// <param name="techTreeParentElements">Die Technologiebaum-Elternelemente.</param>
-		public void UpdateTreeData(List<TechTreeStructure.TechTreeElement> techTreeParentElements)
+		/// <param name="ageCount">Die Anzahl der im Baum vorhandenen Zeitalter.</param>
+		public void UpdateTreeData(List<TechTreeStructure.TechTreeElement> techTreeParentElements, int ageCount)
 		{
 			// Elternelemente speichern
 			_techTreeParentElements = techTreeParentElements.ToDictionary(p => p, p => true);
 
+			// Zeitalter-Anzahl speichern
+			_currentAgeCount = ageCount;
+
 			// Baumgröße berechnen
-			List<int> ageCounts = new List<int>() { 1, 1, 1, 1, 1 }; // TODO Hardcoded für 5 Zeitalter!
-			List<int> tempAgeCounts = new List<int>() { 0, 0, 0, 0, 0 };
+			List<int> ageCounts = new List<int>(Enumerable.Repeat(1, _currentAgeCount));
+			List<int> tempAgeCounts = new List<int>(Enumerable.Repeat(0, _currentAgeCount));
 			List<int> childAgeCounts = null;
 			_fullTreeWidth = 0;
 			foreach(var elem in _techTreeParentElements)
@@ -304,7 +313,7 @@ namespace TechTreeEditor
 		{
 			// Ich bin dran
 			_drawPanel.MakeCurrent();
-			
+
 			// Panel leeren
 			GL.ClearColor(COLOR_BACKGROUND);
 
@@ -600,7 +609,7 @@ namespace TechTreeEditor
 
 				// Jedes zweite Zeitalter etwas dunkler unterlegen
 				const int vertBoxBounds = (2 * BOX_SPACE_VERT + BOX_BOUNDS);
-				for(int i = 1; i < 5; i += 2) // TODO: Hardcoded für 5 Zeitalter
+				for(int i = 1; i < _currentAgeCount; i += 2)
 				{
 					// Hintergrund zeichnen
 					GL.Color3(COLOR_BACKGROUND_DARK);
@@ -608,8 +617,8 @@ namespace TechTreeEditor
 					{
 						GL.Vertex2(0, DRAW_PANEL_PADDING + _ageOffsets[i] * vertBoxBounds);
 						GL.Vertex2(_drawPanel.Width, DRAW_PANEL_PADDING + _ageOffsets[i] * vertBoxBounds);
-						GL.Vertex2(_drawPanel.Width, DRAW_PANEL_PADDING + _ageOffsets[i + 1] * vertBoxBounds);
-						GL.Vertex2(0, DRAW_PANEL_PADDING + _ageOffsets[i + 1] * vertBoxBounds);
+						GL.Vertex2(_drawPanel.Width, DRAW_PANEL_PADDING + (i == _currentAgeCount - 1 ? _fullTreeHeight : _ageOffsets[i + 1]) * vertBoxBounds);
+						GL.Vertex2(0, DRAW_PANEL_PADDING + (i == _currentAgeCount - 1 ? _fullTreeHeight : _ageOffsets[i + 1]) * vertBoxBounds);
 					}
 					GL.End();
 				}

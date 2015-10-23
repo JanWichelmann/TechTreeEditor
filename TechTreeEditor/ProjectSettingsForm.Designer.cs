@@ -42,10 +42,13 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this._interfacDRSTextBox = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
+			this._ageCountField = new System.Windows.Forms.NumericUpDown();
 			this._openDLLDialog = new System.Windows.Forms.OpenFileDialog();
 			this._openInterfacDRSDialog = new System.Windows.Forms.OpenFileDialog();
 			this._openGraphicsDRSDialog = new System.Windows.Forms.OpenFileDialog();
 			this.groupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this._ageCountField)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// _cancelButton
@@ -64,7 +67,6 @@
 			// 
 			// groupBox1
 			// 
-			resources.ApplyResources(this.groupBox1, "groupBox1");
 			this.groupBox1.Controls.Add(this._graphicsDRSButton);
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Controls.Add(this._graphicsDRSTextBox);
@@ -75,6 +77,7 @@
 			this.groupBox1.Controls.Add(this.label4);
 			this.groupBox1.Controls.Add(this._interfacDRSTextBox);
 			this.groupBox1.Controls.Add(this.label2);
+			resources.ApplyResources(this.groupBox1, "groupBox1");
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.TabStop = false;
 			// 
@@ -134,6 +137,31 @@
 			resources.ApplyResources(this.label2, "label2");
 			this.label2.Name = "label2";
 			// 
+			// label5
+			// 
+			resources.ApplyResources(this.label5, "label5");
+			this.label5.Name = "label5";
+			// 
+			// _ageCountField
+			// 
+			resources.ApplyResources(this._ageCountField, "_ageCountField");
+			this._ageCountField.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+			this._ageCountField.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+			this._ageCountField.Name = "_ageCountField";
+			this._ageCountField.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+			// 
 			// _openDLLDialog
 			// 
 			resources.ApplyResources(this._openDLLDialog, "_openDLLDialog");
@@ -151,15 +179,19 @@
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.label5);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this._cancelButton);
 			this.Controls.Add(this._okButton);
+			this.Controls.Add(this._ageCountField);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
 			this.Name = "ProjectSettingsForm";
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this._ageCountField)).EndInit();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -181,5 +213,7 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox _graphicsDRSTextBox;
 		private System.Windows.Forms.OpenFileDialog _openGraphicsDRSDialog;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.NumericUpDown _ageCountField;
 	}
 }

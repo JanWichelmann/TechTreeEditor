@@ -233,16 +233,15 @@ namespace TechTreeEditor
 				}
 
 				// Dunkle Zeit manuell einfügen
-				// TODO: Hardcoded...
 				TechTreeResearch darkAgeResearch = new TechTreeResearch()
 				{
-					DATResearch = _projectFile.BasicGenieFile.Researches[105],
-					ID = 105
+					DATResearch = _projectFile.BasicGenieFile.Researches[100 + _projectFile.AgeCount],
+					ID = 100 + _projectFile.AgeCount
 				};
 				darkAgeResearch.Effects.Add(new TechEffect() { Type = TechEffect.EffectType.ResourceSetPM, Mode = TechEffect.EffectMode.Set_Disable, ParameterID = 6, Value = 0 });
 				darkAgeResearch.Effects.Add(new TechEffect() { Type = TechEffect.EffectType.ResourceSetPM, Mode = TechEffect.EffectMode.Set_Disable, ParameterID = 67, Value = 0 });
 				darkAgeResearch.Effects.Add(new TechEffect() { Type = TechEffect.EffectType.ResourceSetPM, Mode = TechEffect.EffectMode.Set_Disable, ParameterID = 66, Value = 1 });
-				researchIDMap.Add(darkAgeResearch, 105);
+				researchIDMap.Add(darkAgeResearch, 100 + _projectFile.AgeCount);
 
 				// Restliche Technologien verteilen
 				lastID = 0;
@@ -303,7 +302,7 @@ namespace TechTreeEditor
 						// Ungültige Typen überspringen
 						if(ab.Type == UnitAbility.AbilityType.Undefined)
 							continue;
-						
+
 						// Enthaltene Fähigkeiten-Struktur kopieren
 						GenieLibrary.DataElements.UnitHeader.UnitCommand cmd = (GenieLibrary.DataElements.UnitHeader.UnitCommand)ab.CommandData.Clone();
 
@@ -313,7 +312,7 @@ namespace TechTreeEditor
 
 						// Fähigkeit zur Liste hinzufügen
 						newUnitCommands.Add(cmd);
-                    }
+					}
 
 					// Header erstellen
 					UnitIDContainer newUnit = new UnitIDContainer()
@@ -429,7 +428,6 @@ namespace TechTreeEditor
 						foreach(var currAU in currB.AgeUpgrades)
 						{
 							// Effekt in jeweiligem Zeitalter erstellen
-							// TODO: Hardcoded...
 							techages[datResearches[100 + currAU.Key].TechageID].Effects.Add(new GenieLibrary.DataElements.Techage.TechageEffect()
 							{
 								Type = (byte)TechEffect.EffectType.UnitUpgrade,
@@ -589,7 +587,6 @@ namespace TechTreeEditor
 						if(succRes == null && succUnit.Age > 0)
 						{
 							// Auto-Upgrade-Effekt zu Zeitalter-Technologie hinzufügen
-							// TODO: Hardcoded...
 							techages[datResearches[100 + succUnit.Age].TechageID].Effects.AddRange(effects);
 						}
 						else if(succRes != null)
@@ -961,17 +958,16 @@ namespace TechTreeEditor
 			datResearch.RequiredTechCount = 0;
 			datResearch.RequiredTechs = new List<short>(new short[] { -1, -1, -1, -1, -1, -1 });
 
-			// Die Dunkle Zeit darf keine Abhängigkeiten haben (TODO: Hardcoded)
-			if(research.ID == 105)
+			// Die Dunkle Zeit darf keine Abhängigkeiten haben
+			if(research.ID == 100 + _projectFile.AgeCount)
 				return;
 
 			// Der erste Slot ist für das Zeitalter
-			// TODO: Hardcoded...
 			int slotNum = 0;
 			if(research.Age > 0)
 				datResearch.RequiredTechs[slotNum++] = (short)(100 + research.Age);
 			else
-				datResearch.RequiredTechs[slotNum++] = 105; // Dunkle Zeit
+				datResearch.RequiredTechs[slotNum++] = (short)(100 + _projectFile.AgeCount); // Dunkle Zeit
 			++datResearch.RequiredTechCount;
 
 			// Gebäude-Abhängigkeiten bekommen einen eigenen Knoten und landen dann im 2. Slot
@@ -1095,8 +1091,7 @@ namespace TechTreeEditor
 			}
 
 			// Elternelement suchen, es sollte kein Zeitalter sein
-			// TODO: Hardcoded...
-			TechTreeElement parent = _projectFile.Where(el => el.GetChildren().Contains(research) && (el.ID < 101 || el.ID > 105)).FirstOrDefault();
+			TechTreeElement parent = _projectFile.Where(el => el.GetChildren().Contains(research) && (el.ID < 101 || el.ID > 100 + _projectFile.AgeCount)).FirstOrDefault();
 			if(parent != null && parent.GetType() == typeof(TechTreeResearch))
 			{
 				// Abhängigkeit erstellen
@@ -1267,7 +1262,6 @@ namespace TechTreeEditor
 			availResearch.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
 
 			// Der erste Slot ist für das Zeitalter
-			// TODO: Hardcoded...
 			int slotNum = 0;
 			if(unit.Age > 0)
 			{

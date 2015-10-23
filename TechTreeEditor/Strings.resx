@@ -479,4 +479,20 @@ LANGUAGE.DLL;language_x1.dll;language_x1_p1.dll</value>
   <data name="UnitRenderForm_FrameNumberHeader" xml:space="preserve">
     <value>Frame-Nummern</value>
   </data>
+  <data name="ProjectSettingsForm_Message_NewAgeResearches" xml:space="preserve">
+    <value>Für die neuen Zeitalter wurden automatisch Technologien im korrekten ID-Bereich erstellt.
+Diese sind als Elternelemente am Beginn des Baums zu finden.</value>
+  </data>
+  <data name="ProjectSettingsForm_Message_NewAgeResearches_Title" xml:space="preserve">
+    <value>Information zu neuen Technologien</value>
+  </data>
+  <data name="ProjectSettingsForm_Message_AgeCountError" xml:space="preserve">
+    <value>Fehler: Es existieren noch Elemente in den zu löschenden Zeitaltern!</value>
+  </data>
+  <data name="ProjectSettingsForm_Message_AgeCountErrorTitle" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="Credits" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\creditsde.rtf;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>

@@ -1,0 +1,16 @@
+﻿--- FOR ENGLISH VERSION, SEE BELOW ---
+
+Allgemeine Hinweise zur Benutzung dieses Programms.
+- Es können theoretisch beliebig viele Zeitalter genutzt werden; hierbei muss lediglich als *zweite* Zeitalter die Technologie-ID #101
+  und das *erste* die Technologie-ID #100+Zeitalteranzahl haben. Diese IDs müssen ggf. frei sein, wenn die Zeitalter-Anzahl erhöht wird.
+  Beispiel bei 5 Zeitaltern: #101 Feudalzeit, #102 Ritterzeit, #103 Imperialzeit, #104 Neuzeit, #105 Dunkle Zeit.
+
+
+
+
+
+--- ENGLISH ---
+Some general informations on how to use this software.
+- It is generally possible to use as much ages as you want; one requirement is, that the *second* age has research ID #101 and the *first*
+  age ID #100+AgeCount. These ID slots may need to be free when the age count is increased.
+  Example for 5 ages: #101 Feudal Age, #102 Castle Age, #103 Imperial Age, #104 New Age, #105 Dark Age.

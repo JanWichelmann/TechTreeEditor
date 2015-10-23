@@ -61,6 +61,11 @@ namespace TechTreeEditor
 		/// </summary>
 		private List<CivTreeConfig> _civTrees = null;
 
+		/// <summary>
+		/// Die Anzahl der im Projekt benutzten Zeitalter.
+		/// </summary>
+		private int _ageCount = 4;
+
 		#endregion Variablen
 
 		#region Funktionen
@@ -125,6 +130,9 @@ namespace TechTreeEditor
 						_graphicsDRSPath = mainElement.Element("graphicsdrs").Value;
 					else
 						_graphicsDRSPath = "graphics.drs";
+
+					// Zeitalter-Anzahl lesen
+					_ageCount = (int)mainElement.Element("agecount");
 				}
 
 				// DLL-Handles erstellen
@@ -226,9 +234,12 @@ namespace TechTreeEditor
 							}
 							writer.WriteEndElement();
 
-							// Interfac-DRS-Pfad schreiben
+							// DRS-Pfade schreiben
 							writer.WriteElementString("interfacdrs", _interfacDRSPath);
 							writer.WriteElementString("graphicsdrs", _graphicsDRSPath);
+
+							// Zeitalter-Anzahl schreiben
+							writer.WriteElementNumber("agecount", _ageCount);
 
 							// Haupt- und Dokumentelement schließen
 							writer.WriteEndElement();
@@ -337,10 +348,10 @@ namespace TechTreeEditor
 		{
 			// Nach Typen vorgehen und Element erstellen
 			TechTreeElement elem;
-            switch(type)
+			switch(type)
 			{
 				case "TechTreeBuilding":
-					elem= new TechTreeBuilding();
+					elem = new TechTreeBuilding();
 					break;
 				case "TechTreeCreatable":
 					elem = new TechTreeCreatable();
@@ -445,7 +456,7 @@ namespace TechTreeEditor
 		public void MoveElementAge(TechTreeElement element, int offset)
 		{
 			// Gültiges Element und Offset?
-			if(element == null || element.Age + offset < 0 || element.Age + offset > 4) // TODO: hardcoded...
+			if(element == null || element.Age + offset < 0 || element.Age + offset >= _ageCount)
 				return;
 
 			// Vorgänger-Element bestimmen
@@ -453,7 +464,7 @@ namespace TechTreeEditor
 			int minAge = (parentElem == null ? 0 : parentElem.Age);
 
 			// Nachfolger-Element mit minimalem Zeitalter bestimmen
-			int maxAge = (element.HasChildren() ? element.GetVisibleChildren().Min(e => e.Age) : 4); // TODO: hardcoded...
+			int maxAge = (element.HasChildren() ? element.GetVisibleChildren().Min(e => e.Age) : _ageCount - 1);
 
 			// Neues Zeitalter berechnen
 			int newAge = element.Age + offset;
@@ -833,6 +844,22 @@ namespace TechTreeEditor
 			return _allElements.Where(predicate).ToList();
 		}
 
+		/// <summary>
+		/// Ändert die Anzahl der benutzten Zeitalter. Bei Erfolg wird true zurückgegeben; falls noch Elemente in den ggf. zu löschenden Zeitaltern existieren, ist der Rückgabewert false.
+		/// </summary>
+		/// <param name="newAgeCount">Die neue Zeitalter-Anzahl.</param>
+		/// <returns></returns>
+		public bool ChangeAgeCount(int newAgeCount)
+		{
+			// Gibt es Elemente, die in ggf. zu löschenden Zeitalter liegen?
+			if(newAgeCount < _ageCount && _allElements.Exists(elem => elem.Age >= newAgeCount))
+				return false;
+
+			// Neue Zeitalterzahl übernehmen
+			_ageCount = newAgeCount;
+			return true;
+		}
+
 		#endregion Baumfunktionen
 
 		#region Eigenschaften
@@ -904,6 +931,14 @@ namespace TechTreeEditor
 		{
 			get { return _civTrees; }
 			set { _civTrees = value; }
+		}
+
+		/// <summary>
+		/// Ruft die Anzahl der im Projekt benutzten Zeitalter ab.
+		/// </summary>
+		public int AgeCount
+		{
+			get { return _ageCount; }
 		}
 
 		#endregion Eigenschaften

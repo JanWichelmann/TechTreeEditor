@@ -139,6 +139,12 @@
   <data name="groupBox1.Text" xml:space="preserve">
     <value>Paths</value>
   </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 13</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Age count:</value>
+  </data>
   <data name="_openDLLDialog.Filter" xml:space="preserve">
     <value>Age of Empires II String Files (*.dll)|*.dll</value>
   </data>

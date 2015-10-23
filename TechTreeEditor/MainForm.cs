@@ -321,7 +321,7 @@ namespace TechTreeEditor
 
 			// Daten an Render-Control übergeben
 			SetStatus(Strings.MainForm_Status_PreparingTreeRendering);
-			_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
+			_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements, _projectFile.AgeCount);
 
 			// Projektdaten ggf. an Render-Fenster übergeben
 			if(_unitRenderForm != null)
@@ -547,7 +547,7 @@ namespace TechTreeEditor
 			{
 				// Technologie kopieren
 				TechTreeResearch newResearch = (_copyElement as TechTreeResearch).Clone(copyChildren, _projectFile, _renderPanel.LoadIconAsTexture);
-				
+
 				// Auswahl zurücksetzen
 				newResearch.Selected = false;
 
@@ -575,7 +575,7 @@ namespace TechTreeEditor
 				}
 
 				// Baum neu berechnen
-				_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
+				_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements, _projectFile.AgeCount);
 			}
 		}
 
@@ -765,7 +765,7 @@ namespace TechTreeEditor
 							UpdateCurrentOperation(TreeOperations.None);
 
 							// Baum neu berechnen
-							_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
+							_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements, _projectFile.AgeCount);
 						}
 						break;
 
@@ -779,7 +779,7 @@ namespace TechTreeEditor
 							UpdateCurrentOperation(TreeOperations.None);
 
 							// Baum neu berechnen
-							_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
+							_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements, _projectFile.AgeCount);
 						}
 						break;
 
@@ -805,7 +805,7 @@ namespace TechTreeEditor
 							UpdateCurrentOperation(TreeOperations.None);
 
 							// Baum neu berechnen
-							_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
+							_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements, _projectFile.AgeCount);
 						}
 						break;
 
@@ -1052,7 +1052,7 @@ namespace TechTreeEditor
 								newU.UpdateName(_projectFile.LanguageFileWrapper);
 
 								// Baum neu berechnen
-								_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
+								_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements, _projectFile.AgeCount);
 							}
 
 							// Fertig
@@ -1064,17 +1064,6 @@ namespace TechTreeEditor
 		}
 
 		private void _importDATMenuButton_Click(object sender, EventArgs e)
-		{
-			// Dialog anzeigen
-			ImportDATFile importDialog = new ImportDATFile();
-			if(importDialog.ShowDialog() == DialogResult.OK)
-			{
-				// Projektdatei laden
-				LoadProject(importDialog.ProjectFileName);
-			}
-		}
-
-		private void _importDATButton_Click(object sender, EventArgs e)
 		{
 			// Dialog anzeigen
 			ImportDATFile importDialog = new ImportDATFile();
@@ -1373,7 +1362,7 @@ namespace TechTreeEditor
 				_projectFile.MoveElementAge(_selectedElement, -1);
 
 				// Baum neu berechnen
-				_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
+				_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements, _projectFile.AgeCount);
 			}
 		}
 
@@ -1386,7 +1375,7 @@ namespace TechTreeEditor
 				_projectFile.MoveElementAge(_selectedElement, 1);
 
 				// Baum neu berechnen
-				_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
+				_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements, _projectFile.AgeCount);
 			}
 		}
 
@@ -1571,7 +1560,7 @@ namespace TechTreeEditor
 			newResearch.CreateIconTexture(_renderPanel.LoadIconAsTexture);
 
 			// Baum neu berechnen
-			_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements);
+			_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements, _projectFile.AgeCount);
 		}
 
 		private void _newEyeCandyButton_Click(object sender, EventArgs e)
@@ -1685,7 +1674,7 @@ namespace TechTreeEditor
 				catch(IOException ex)
 				{
 					// Fehlermeldung
-					MessageBox.Show(string.Format(Strings.MainForm_Message_CouldNotReloadProject , ex.Message), Strings.MainForm_Message_CouldNotReloadProject_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show(string.Format(Strings.MainForm_Message_CouldNotReloadProject, ex.Message), Strings.MainForm_Message_CouldNotReloadProject_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 		}
@@ -1762,7 +1751,7 @@ namespace TechTreeEditor
 		private void _projectSettingsButton_Click(object sender, EventArgs e)
 		{
 			// Einstellungsfenster anzeigen
-			ProjectSettingsForm settingsDialog = new ProjectSettingsForm(_projectFile);
+			ProjectSettingsForm settingsDialog = new ProjectSettingsForm(_projectFile, _renderPanel);
 			if(settingsDialog.ShowDialog() == DialogResult.OK)
 			{
 				// Meldung ausgeben
@@ -1810,6 +1799,13 @@ namespace TechTreeEditor
 			// Markierte Einheit übergeben
 			if(_selectedElement != null && _selectedElement is TechTreeUnit)
 				_unitRenderForm.UpdateRenderUnit((TechTreeUnit)_selectedElement);
+		}
+
+		private void _infoMenuButton_Click(object sender, EventArgs e)
+		{
+			// Dialog anzeigen
+			AboutForm aboutDialog = new AboutForm();
+			aboutDialog.ShowDialog();
 		}
 
 		#endregion Ereignishandler
@@ -2005,7 +2001,7 @@ namespace TechTreeEditor
 			public void IssueTreeUpdate()
 			{
 				// Baum neu berechnen
-				_mainForm._renderPanel.UpdateTreeData(_mainForm._projectFile.TechTreeParentElements);
+				_mainForm._renderPanel.UpdateTreeData(_mainForm._projectFile.TechTreeParentElements, _mainForm._projectFile.AgeCount);
 			}
 
 			/// <summary>

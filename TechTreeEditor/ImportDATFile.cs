@@ -115,12 +115,14 @@ namespace TechTreeEditor
 			_interfacDRSTextBox.Enabled = false;
 			_interfacDRSButton.Enabled = false;
 			_loadDataButton.Enabled = false;
+			_ageCountField.Enabled = false;
 
 			// Lade-Funktion in separatem Thread ausführen, um Formular nicht zu blockieren
 			Task.Factory.StartNew(() =>
 			{
 				// TechTree-Datei erstellen und DAT-Datei laden
 				_projectFile = new TechTreeFile(new GenieLibrary.GenieFile(GenieLibrary.GenieFile.DecompressData(new IORAMHelper.RAMBuffer(_datTextBox.Text))));
+				_projectFile.ChangeAgeCount((int)_ageCountField.Value);
 				GenieLibrary.GenieFile dat = _projectFile.BasicGenieFile; // Kürzel
 
 				// Wenn DLLs angegeben wurden, diese laden
@@ -492,8 +494,8 @@ namespace TechTreeEditor
 				}
 
 				// Zeitalter-Technologien parsen, um Schatten-Weiterentwicklungen bei den Gebäuden zu finden
-				// Dunkle Zeit wird hier ignoriert => TODO: hardcoded...
-				for(int age = 101; age <= 104; ++age)
+				// Dunkle Zeit wird hier ignoriert
+				for(int age = 101; age <= 100 + _projectFile.AgeCount - 1; ++age)
 				{
 					// Technologie-Effekte durchlaufen
 					foreach(var effect in dat.Techages[researches[age].DATResearch.TechageID].Effects)
@@ -572,9 +574,9 @@ namespace TechTreeEditor
 						// Abhängigkeit definiert?
 						if(depID > 0)
 						{
-							// Zeitalter-Abhängigkeit? => TODO: hardcoded...
-							// Dunkle Zeit (105) braucht nicht berücksichtigt werden, Age ist eh standardmäßig 0
-							if(depID >= 101 && depID <= 104)
+							// Zeitalter-Abhängigkeit?
+							// Dunkle Zeit (100 + AgeCount) braucht nicht berücksichtigt werden, Age ist eh standardmäßig 0
+							if(depID >= 101 && depID <= 100 + _projectFile.AgeCount-1)
 							{
 								// Zeitalter setzen
 								if(currRes.Value.Age < depID - 100)
@@ -877,7 +879,7 @@ namespace TechTreeEditor
 										if(dep > 0)
 
 											// Zeitalter-Abhängigkeit? Dunkle Zeit kann hier ignoriert werden, da eh Age = 0
-											if(dep >= 101 && dep <= 104)
+											if(dep >= 101 && dep <= 100+_projectFile.AgeCount-1)
 											{
 												// Gebäude-Zeitalter setzen
 												building.Age = dep - 100;
@@ -905,7 +907,7 @@ namespace TechTreeEditor
 										if(dep > 0)
 										{
 											// Zeitalter-Abhängigkeit? Dunkle Zeit kann hier ignoriert werden, da eh Age mindestens 0
-											if(dep >= 101 && dep <= 104)
+											if(dep >= 101 && dep <= 100 + _projectFile.AgeCount - 1)
 											{
 												// Einheit-Zeitalter setzen
 												unit.Age = Math.Max(unit.Age, dep - 100);

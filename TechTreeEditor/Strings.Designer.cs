@@ -247,6 +247,16 @@ namespace TechTreeEditor {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die {\rtf1\adeflang1025\ansi\ansicpg1252\uc1\adeff31507\deff0\stshfdbch31505\stshfloch31506\stshfhich31506\stshfbi31507\deflang1031\deflangfe1031\themelang1031\themelangfe0\themelangcs0{\fonttbl{\f0\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f2\fbidi \fmodern\fcharset0\fprq1{\*\panose 02070309020205020404}Courier New;}
+        ///{\f3\fbidi \froman\fcharset2\fprq2{\*\panose 05050102010706020507}Symbol;}{\f10\fbidi \fnil\fcharset2\fprq2{\*\panose 05000000000000000000}Wingdings;}{\f10\f [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string Credits {
+            get {
+                return ResourceManager.GetString("Credits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Zeitalter  ähnelt.
         /// </summary>
         internal static string EditBuildingForm_AgeList {
@@ -890,6 +900,43 @@ namespace TechTreeEditor {
         internal static string MainForm_ToolTip_AutoCopy {
             get {
                 return ResourceManager.GetString("MainForm_ToolTip_AutoCopy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler: Es existieren noch Elemente in den zu löschenden Zeitaltern! ähnelt.
+        /// </summary>
+        internal static string ProjectSettingsForm_Message_AgeCountError {
+            get {
+                return ResourceManager.GetString("ProjectSettingsForm_Message_AgeCountError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler ähnelt.
+        /// </summary>
+        internal static string ProjectSettingsForm_Message_AgeCountErrorTitle {
+            get {
+                return ResourceManager.GetString("ProjectSettingsForm_Message_AgeCountErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Für die neuen Zeitalter wurden automatisch Technologien im korrekten ID-Bereich erstellt.
+        ///Diese sind als Elternelemente am Beginn des Baums zu finden. ähnelt.
+        /// </summary>
+        internal static string ProjectSettingsForm_Message_NewAgeResearches {
+            get {
+                return ResourceManager.GetString("ProjectSettingsForm_Message_NewAgeResearches", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Information zu neuen Technologien ähnelt.
+        /// </summary>
+        internal static string ProjectSettingsForm_Message_NewAgeResearches_Title {
+            get {
+                return ResourceManager.GetString("ProjectSettingsForm_Message_NewAgeResearches_Title", resourceCulture);
             }
         }
         
