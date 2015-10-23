@@ -1808,6 +1808,22 @@ namespace TechTreeEditor
 			aboutDialog.ShowDialog();
 		}
 
+		private void _newProjectMenuButton_Click(object sender, EventArgs e)
+		{
+			// Dialog anzeigen und ggf. neues Projekt laden
+			NewProjectForm newProjectForm = new NewProjectForm();
+			if(newProjectForm.ShowDialog() == DialogResult.OK)
+				LoadProject(newProjectForm.NewProjectFile);
+		}
+
+		private void _newProjectButton_Click(object sender, EventArgs e)
+		{
+			// Dialog anzeigen und ggf. neues Projekt laden
+			NewProjectForm newProjectForm = new NewProjectForm();
+			if(newProjectForm.ShowDialog() == DialogResult.OK)
+				LoadProject(newProjectForm.NewProjectFile);
+		}
+
 		#endregion Ereignishandler
 
 		#region Enumerationen

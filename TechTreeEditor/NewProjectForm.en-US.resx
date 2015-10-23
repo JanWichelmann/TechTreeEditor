@@ -117,21 +117,54 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;_titleLabel.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Interfac DRS:</value>
   </data>
-  <data name="&gt;&gt;_copyrightLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="_titleLabel.Text" xml:space="preserve">
-    <value>TechTreeEditor</value>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Language DLLs:</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="_titleLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>82, 12</value>
+  <data name="_minimalProjectButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>409, 17</value>
   </data>
-  <data name="&gt;&gt;_closeButton.Name" xml:space="preserve">
-    <value>_closeButton</value>
+  <data name="_minimalProjectButton.Text" xml:space="preserve">
+    <value>Minimal Project: Only mandatory elements, ideal starting point for total conversions</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 13</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Project template:</value>
+  </data>
+  <data name="radioButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>374, 17</value>
+  </data>
+  <data name="radioButton1.Text" xml:space="preserve">
+    <value>Standard Project: A project for a normal AoE II: The Conquerors 1.0c mod.</value>
+  </data>
+  <data name="_cancelButton.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="_finishButton.Text" xml:space="preserve">
+    <value>Create project</value>
+  </data>
+  <data name="_saveProjectDialog.Filter" xml:space="preserve">
+    <value>TechTree Editor Project (*.ttp)|*.ttp</value>
+  </data>
+  <data name="_saveProjectDialog.Title" xml:space="preserve">
+    <value>Save created project...</value>
+  </data>
+  <data name="_openDLLDialog.Filter" xml:space="preserve">
+    <value>Age of Empires II String Files (*.dll)|*.dll</value>
+  </data>
+  <data name="_openDLLDialog.Title" xml:space="preserve">
+    <value>Load Language DLL Files...</value>
+  </data>
+  <data name="_openInterfacDRSDialog.Filter" xml:space="preserve">
+    <value>DRS Files (*.drs)|*.drs</value>
+  </data>
+  <data name="_openInterfacDRSDialog.Title" xml:space="preserve">
+    <value>Open interfac DRS file...</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -511,171 +544,7 @@
         AAA=
 </value>
   </data>
-  <data name="_iconBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 64</value>
-  </data>
-  <data name="&gt;&gt;_copyrightLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_copyrightLabel.Name" xml:space="preserve">
-    <value>_copyrightLabel</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="_copyrightLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>752, 462</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>AboutForm</value>
-  </data>
-  <data name="&gt;&gt;_versionLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="_titleLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="_creditsTextBox.Text" xml:space="preserve">
-    <value>blub</value>
-  </data>
-  <data name="&gt;&gt;_iconBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_iconBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_closeButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="_closeButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 23</value>
-  </data>
-  <data name="_versionLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>85, 38</value>
-  </data>
-  <data name="_creditsTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>728, 326</value>
-  </data>
-  <data name="&gt;&gt;_creditsTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="_titleLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="_copyrightLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;_iconBox.Name" xml:space="preserve">
-    <value>_iconBox</value>
-  </data>
-  <data name="_versionLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 13</value>
-  </data>
-  <data name="&gt;&gt;_titleLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="_titleLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 14pt, style=Bold</value>
-  </data>
-  <data name="_copyrightLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>85, 63</value>
-  </data>
-  <data name="_iconBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="_versionLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;_titleLabel.Name" xml:space="preserve">
-    <value>_titleLabel</value>
-  </data>
-  <data name="&gt;&gt;_titleLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_creditsTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="_copyrightLabel.Text" xml:space="preserve">
-    <value>Software von Jan Wichelmann mit Icons von Sonja Jäckle, (c) 2015.</value>
-  </data>
-  <data name="_versionLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;_iconBox.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="_iconBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="_copyrightLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>330, 13</value>
-  </data>
-  <data name="&gt;&gt;_versionLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_versionLabel.Name" xml:space="preserve">
-    <value>_versionLabel</value>
-  </data>
-  <data name="_closeButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>594, 427</value>
-  </data>
-  <data name="&gt;&gt;_copyrightLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_closeButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="_creditsTextBox.BulletIndent" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="_creditsTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="_creditsTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 95</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="_creditsTextBox.ScrollBars" type="System.Windows.Forms.RichTextBoxScrollBars, System.Windows.Forms">
-    <value>Vertical</value>
-  </data>
-  <data name="&gt;&gt;_versionLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="_closeButton.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="_versionLabel.Text" xml:space="preserve">
-    <value>Version 1.2.3-4</value>
-  </data>
-  <data name="&gt;&gt;_closeButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;_creditsTextBox.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Informationen zum TechTreeEditor</value>
+    <value>Create a new project</value>
   </data>
-  <data name="_titleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
-  </data>
-  <data name="&gt;&gt;_creditsTextBox.Name" xml:space="preserve">
-    <value>_creditsTextBox</value>
-  </data>
-  <data name="_closeButton.Text" xml:space="preserve">
-    <value>Schließen</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en-US</value>
-  </metadata>
 </root>

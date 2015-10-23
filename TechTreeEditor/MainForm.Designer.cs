@@ -363,6 +363,7 @@
 			this._newProjectMenuButton.Image = global::TechTreeEditor.Icons.NewProject;
 			this._newProjectMenuButton.Name = "_newProjectMenuButton";
 			resources.ApplyResources(this._newProjectMenuButton, "_newProjectMenuButton");
+			this._newProjectMenuButton.Click += new System.EventHandler(this._newProjectMenuButton_Click);
 			// 
 			// _openProjectMenuButton
 			// 
@@ -526,6 +527,7 @@
 			this._newProjectButton.Image = global::TechTreeEditor.Icons.NewProject;
 			resources.ApplyResources(this._newProjectButton, "_newProjectButton");
 			this._newProjectButton.Name = "_newProjectButton";
+			this._newProjectButton.Click += new System.EventHandler(this._newProjectButton_Click);
 			// 
 			// _openProjectButton
 			// 
