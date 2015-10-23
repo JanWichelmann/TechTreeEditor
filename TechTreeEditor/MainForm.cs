@@ -128,7 +128,7 @@ namespace TechTreeEditor
 			_civCopyBarDefaultButtons = new ToolStripButton[3];
 			{
 				// Alles markieren
-				ToolStripButton selectAllButton = new ToolStripButton("alle");
+				ToolStripButton selectAllButton = new ToolStripButton(Strings.MainForm_CopyBar_All);
 				selectAllButton.Name = "_civCopyDefaultButtonSelectAll";
 				selectAllButton.Margin = new System.Windows.Forms.Padding(1, 0, 0, 1);
 				selectAllButton.Click += (sender, e) =>
@@ -142,11 +142,11 @@ namespace TechTreeEditor
 							button.Checked = true;
 					}
 				};
-				selectAllButton.ToolTipText = "Alle auswählen";
+				selectAllButton.ToolTipText = Strings.MainForm_CopyBar_All_ToolTip;
 				_civCopyBarDefaultButtons[0] = selectAllButton;
 
 				// Nichts markieren
-				ToolStripButton deselectAllButton = new ToolStripButton("keine");
+				ToolStripButton deselectAllButton = new ToolStripButton(Strings.MainForm_CopyBar_None);
 				deselectAllButton.Name = "_civCopyDefaultButtonDeselectAll";
 				deselectAllButton.Margin = new System.Windows.Forms.Padding(1, 0, 0, 1);
 				deselectAllButton.Click += (sender, e) =>
@@ -160,11 +160,11 @@ namespace TechTreeEditor
 							button.Checked = false;
 					}
 				};
-				deselectAllButton.ToolTipText = "Keine auswählen";
+				deselectAllButton.ToolTipText = Strings.MainForm_CopyBar_None_ToolTip;
 				_civCopyBarDefaultButtons[1] = deselectAllButton;
 
 				// Invertieren
-				ToolStripButton invertAllButton = new ToolStripButton("invertieren");
+				ToolStripButton invertAllButton = new ToolStripButton(Strings.MainForm_CopyBar_Invert);
 				invertAllButton.Name = "_civCopyDefaultButtonInvertAll";
 				invertAllButton.Margin = new System.Windows.Forms.Padding(1, 0, 0, 1);
 				invertAllButton.Click += (sender, e) =>
@@ -178,7 +178,7 @@ namespace TechTreeEditor
 							button.Checked = !button.Checked;
 					}
 				};
-				invertAllButton.ToolTipText = "Auswahl invertieren";
+				invertAllButton.ToolTipText = Strings.MainForm_CopyBar_Invert_ToolTip;
 				_civCopyBarDefaultButtons[2] = invertAllButton;
 			}
 
@@ -245,11 +245,11 @@ namespace TechTreeEditor
 			_projectFile = new TechTreeFile(_projectFileName);
 
 			// Interfac-DRS laden
-			SetStatus("Lade Interfac-DRS...");
+			SetStatus(Strings.MainForm_Status_LoadingInterfacDRS);
 			DRSFile interfacDRS = new DRSFile(_projectFile.InterfacDRSPath);
 
 			// Icons laden
-			SetStatus("Lade Icon-SLPs...");
+			SetStatus(Strings.MainForm_Status_LoadingIconSLPs);
 			SLPLoader.SLPFile _iconsResearches = new SLPLoader.SLPFile(new IORAMHelper.RAMBuffer(interfacDRS.GetResourceData(50729)));
 			SLPLoader.SLPFile _iconsUnits = new SLPLoader.SLPFile(new IORAMHelper.RAMBuffer(interfacDRS.GetResourceData(50730)));
 			SLPLoader.SLPFile _iconsBuildings = new SLPLoader.SLPFile(new IORAMHelper.RAMBuffer(interfacDRS.GetResourceData(50706)));
@@ -266,7 +266,7 @@ namespace TechTreeEditor
 			_projectFile.TechTreeParentElements.ForEach(p => p.CreateIconTextures(_renderPanel.LoadIconAsTexture));
 
 			// Kulturennamen laden
-			SetStatus("Lade Kulturenliste...");
+			SetStatus(Strings.MainForm_Status_LoadingCultureList);
 			_civs.Clear();
 			for(uint i = 0; i < _projectFile.CivTrees.Count; ++i)
 			{
@@ -314,7 +314,7 @@ namespace TechTreeEditor
 					// Kultur-Kopier-Wert setzen
 					_unitManager[civID] = senderButton.Checked;
 				};
-				civButton.ToolTipText = string.Format("Auto-Kopieren zu {0}", civ.Value);
+				civButton.ToolTipText = string.Format(Strings.MainForm_ToolTip_AutoCopy, civ.Value);
 				civButton.Tag = (int)civ.Key;
 				_civCopyBar.Items.Add(civButton);
 			}
@@ -469,51 +469,51 @@ namespace TechTreeEditor
 					break;
 
 				case TreeOperations.NewLinkFirstElement:
-					SetStatus("Bitte das unterzuordnene Element auswählen...");
+					SetStatus(Strings.MainForm_Operation_NewLinkFirstElement);
 					break;
 
 				case TreeOperations.NewLinkSecondElement:
-					SetStatus("Bitte das neue Ober-Element auswählen...");
+					SetStatus(Strings.MainForm_Operation_NewLinkSecondElement);
 					break;
 
 				case TreeOperations.DeleteLink:
-					SetStatus("Bitte das abzutrennende Unterelement auswählen...");
+					SetStatus(Strings.MainForm_Operation_DeleteLink);
 					break;
 
 				case TreeOperations.DeleteElement:
-					SetStatus("Bitte das löschende Element auswählen...");
+					SetStatus(Strings.MainForm_Operation_DeleteElement);
 					break;
 
 				case TreeOperations.NewMakeAvailDependencyFirstElement:
-					SetStatus("Bitte das zu aktivierende Element auswählen...");
+					SetStatus(Strings.MainForm_Operation_NewMakeAvailDependencyFirstElement);
 					break;
 
 				case TreeOperations.NewMakeAvailDependencySecondElement:
-					SetStatus("Bitte die aktivierende Technologie auswählen...");
+					SetStatus(Strings.MainForm_Operation_NewMakeAvailDependencySecondElement);
 					break;
 
 				case TreeOperations.NewSuccessorResearchDependencyFirstElement:
-					SetStatus("Bitte das weiterzuentwickelnde Element auswählen...");
+					SetStatus(Strings.MainForm_Operation_NewSuccessorResearchDependencyFirstElement);
 					break;
 
 				case TreeOperations.NewSuccessorResearchDependencySecondElement:
-					SetStatus("Bitte die weiterentwickelnde Technologie auswählen...");
+					SetStatus(Strings.MainForm_Operation_NewSuccessorResearchDependencySecondElement);
 					break;
 
 				case TreeOperations.NewBuildingDependencyFirstElement:
-					SetStatus("Bitte das abhängige Element auswählen...");
+					SetStatus(Strings.MainForm_Operation_NewBuildingDependencyFirstElement);
 					break;
 
 				case TreeOperations.NewBuildingDependencySecondElement:
-					SetStatus("Bitte das benötigte Gebäude auswählen...");
+					SetStatus(Strings.MainForm_Operation_NewBuildingDependencySecondElement);
 					break;
 
 				case TreeOperations.DeleteDependencyFirstElement:
-					SetStatus("Bitte das abhängige Element auswählen...");
+					SetStatus(Strings.MainForm_Operation_DeleteDependencyFirstElement);
 					break;
 
 				case TreeOperations.DeleteDependencySecondElement:
-					SetStatus("Bitte das referenzierte Element auswählen...");
+					SetStatus(Strings.MainForm_Operation_DeleteDependencySecondElement);
 					break;
 			}
 		}
@@ -787,11 +787,11 @@ namespace TechTreeEditor
 					case TreeOperations.DeleteElement:
 						{
 							// Änderung durchführen
-							if(_selectedElement != null && MessageBox.Show("Dieses Element wirklich löschen?", "Element löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+							if(_selectedElement != null && MessageBox.Show(Strings.MainForm_Message_DeleteElement, Strings.MainForm_Message_DeleteElement_Title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 								if(!_projectFile.DestroyElement(_selectedElement))
 								{
 									// Es wurden noch nicht alle Referenzen entfernt
-									MessageBox.Show("Fehler: Es wurden noch nicht alle Referenzen gelöscht!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+									MessageBox.Show(Strings.MainForm_Message_StillReferencesExisting, Strings.MainForm_Message_StillReferencesExisting_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 								}
 
 							// Falls es sich um das Kopierelement handelt, dieses leeren
@@ -1595,7 +1595,7 @@ namespace TechTreeEditor
 		private void _lockAllIDsMenuButton_Click(object sender, EventArgs e)
 		{
 			// Nachfragen
-			if(MessageBox.Show("Wirklich alle Element-IDs als 'Geschützt' markieren?", "Alle IDs schützen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			if(MessageBox.Show(Strings.MainForm_Message_LockAllIDs, Strings.MainForm_Message_LockAllIDs_Title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				// Elemente durchlaufen und IDs schützen
 				_projectFile.Where(elem => true).ForEach(elem => elem.Flags |= TechTreeElement.ElementFlags.LockID);
@@ -1685,7 +1685,7 @@ namespace TechTreeEditor
 				catch(IOException ex)
 				{
 					// Fehlermeldung
-					MessageBox.Show("Fehler: Das Projekt konnte nicht neu geladen werden. Bitte speichern Sie das Projekt manuell und laden sie es anschließend neu.\n\nException: " + ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show(string.Format(Strings.MainForm_Message_CouldNotReloadProject , ex.Message), Strings.MainForm_Message_CouldNotReloadProject_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 		}
@@ -1734,7 +1734,7 @@ namespace TechTreeEditor
 			{
 				// Schönen Cursor zeigen, das wird vermutlich etwas dauern
 				this.Cursor = Cursors.WaitCursor;
-				SetStatus("Rendere Baum...");
+				SetStatus(Strings.Mainform_Status_RenderingTree);
 
 				// Screenshot erstellen
 				_renderPanel.RenderToBitmap(_renderScreenshotDialog.FileName);
@@ -1766,7 +1766,7 @@ namespace TechTreeEditor
 			if(settingsDialog.ShowDialog() == DialogResult.OK)
 			{
 				// Meldung ausgeben
-				if(MessageBox.Show("Bei geänderten Einstellungen sollte das Projekt neu geladen werden. Jetzt neu laden?", "Projekt neu laden", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+				if(MessageBox.Show(Strings.MainForm_Message_SettingsReloadProject, Strings.MainForm_Message_SettingsReloadProject_Title, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
 				{
 					// Projekt speichern
 					SaveProject();

@@ -84,7 +84,7 @@ namespace TechTreeEditor
 		private void _cancelButton_Click(object sender, EventArgs e)
 		{
 			// Ggf. sicherheitshalber fragen
-			if(string.IsNullOrWhiteSpace(_baseDATTextBox.Text) || MessageBox.Show("Wollen Sie dieses Fenster wirklich schließen und damit den Exportvorgang abbrechen?", "Exportvorgang abbrechen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			if(string.IsNullOrWhiteSpace(_baseDATTextBox.Text) || MessageBox.Show(Strings.ExportDATFile_Message_CloseWindow, Strings.ExportDATFile_Message_CloseWindow_Title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				this.Close();
 			}
@@ -93,14 +93,14 @@ namespace TechTreeEditor
 		private void _finishButton_Click(object sender, EventArgs e)
 		{
 			// Soll die ID-Zuordnung aktualisiert werden? => Warnung
-			if(_updateProjectIDsCheckBox.Checked && MessageBox.Show("Warnung: Es ist eingestellt, dass sämtliche IDs im Projekt den exportierten angeglichen und anschließend gesperrt werden sollen.\nDies ist nur bei endgültigen Releases empfehlenswert, um bei Updates eine gleichbleibende Zuordnung zu gewährleisten.\n\nSoll diese Einstellung beibehalten werden?", "Warnung", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+			if(_updateProjectIDsCheckBox.Checked && MessageBox.Show(Strings.ExportDATFile_Message_SaveIDMapping, Strings.ExportDATFile_Message_SaveIDMapping_Title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
 				_updateProjectIDsCheckBox.Checked = false;
 
 			// Existiert die ausgewählte DAT-Datei?
 			if(!File.Exists(_baseDATTextBox.Text))
 			{
 				// Fehler
-				MessageBox.Show("Fehler: Die angegebene Basis-DAT-Datei existiert nicht!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(Strings.ExportDATFile_Message_DATNotFound, Strings.ExportDATFile_Message_DATNotFound_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
@@ -166,7 +166,7 @@ namespace TechTreeEditor
 						else
 						{
 							// Nicht gut
-							throw new Exception("Fehler: Doppelte als 'geschützt' markierte ID!");
+							throw new Exception(Strings.ExportDATFile_Exception_AmbiguousLockedID);
 						}
 					}
 				}
@@ -227,7 +227,7 @@ namespace TechTreeEditor
 						else
 						{
 							// Nicht gut
-							throw new Exception("Fehler: Doppelte als 'geschützt' markierte ID!");
+							throw new Exception(Strings.ExportDATFile_Exception_AmbiguousLockedID);
 						}
 					}
 				}

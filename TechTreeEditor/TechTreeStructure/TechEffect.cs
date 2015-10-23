@@ -183,48 +183,48 @@ namespace TechTreeEditor.TechTreeStructure
 				{
 					case EffectType.AttributeSet:
 						if(ParameterID == 8)
-							return string.Format("Rüstungsstärke für {0}: = {1} gegen Rüstungsklasse '{2}'", (Element != null ? "Einheit '" + Element.Name + "'" : "Klasse '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
+							return string.Format(Strings.TechEffect_ToString_AttributeSet_Armour, (Element != null ? Strings.TechEffect_ToString_Part_Unit + " '" + Element.Name + "'" : Strings.TechEffect_ToString_Part_Class + " '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
 						else if(ParameterID == 9)
-							return string.Format("Angriffsstärke für {0}: = {1} gegen Rüstungsklasse '{2}'", (Element != null ? "Einheit '" + Element.Name + "'" : "Klasse '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
+							return string.Format(Strings.TechEffect_ToString_AttributeSet_Attack, (Element != null ? Strings.TechEffect_ToString_Part_Unit + " '" + Element.Name + "'" : Strings.TechEffect_ToString_Part_Class + " '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
 						else
-							return string.Format("Attribut '{0}' für {1}: = {2}", _attributes[ParameterID], (Element != null ? "Einheit '" + Element.Name + "'" : "Klasse '" + _classes[ClassID] + "'"), Value);
+							return string.Format(Strings.TechEffect_ToString_AttributeSet_Else, _attributes[ParameterID], (Element != null ? Strings.TechEffect_ToString_Part_Unit + " '" + Element.Name + "'" : Strings.TechEffect_ToString_Part_Class + " '" + _classes[ClassID] + "'"), Value);
 
 					case EffectType.ResourceSetPM:
-						return string.Format("Ressource '{0}': {1} {2}", _resourceTypes[ParameterID], (Mode == EffectMode.PM_Enable ? "+" : "="), Value);
+						return string.Format(Strings.TechEffect_ToString_ResourceSetPM, _resourceTypes[ParameterID], (Mode == EffectMode.PM_Enable ? "+" : "="), Value);
 
 					case EffectType.UnitEnableDisable:
-						return string.Format("{0} Einheit '{1}'", (Mode == EffectMode.PM_Enable ? "Aktiviere" : "Deaktiviere"), (Element != null ? Element.Name : "?"));
+						return string.Format(Strings.TechEffect_ToString_UnitEnableDisable, (Mode == EffectMode.PM_Enable ? Strings.TechEffect_ToString_Part_Enable : Strings.TechEffect_ToString_Part_Disable), (Element != null ? Element.Name : "?"));
 
 					case EffectType.UnitUpgrade:
-						return string.Format("Upgrade '{0}' -> '{1}'", (Element != null ? Element.Name : "?"), (DestinationElement != null ? DestinationElement.Name : "?"));
+						return string.Format(Strings.TechEffect_ToString_UnitUpgrade, (Element != null ? Element.Name : "?"), (DestinationElement != null ? DestinationElement.Name : "?"));
 
 					case EffectType.AttributePM:
 						if(ParameterID == 8)
-							return string.Format("Rüstungsstärke für {0}: + {1} gegen Rüstungsklasse '{2}'", (Element != null ? "Einheit '" + Element.Name + "'" : "Klasse '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
+							return string.Format(Strings.TechEffect_ToString_AttributePM_Armour, (Element != null ? Strings.TechEffect_ToString_Part_Unit + " '" + Element.Name + "'" : Strings.TechEffect_ToString_Part_Class + " '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
 						else if(ParameterID == 9)
-							return string.Format("Angriffsstärke für {0}: + {1} gegen Rüstungsklasse '{2}'", (Element != null ? "Einheit '" + Element.Name + "'" : "Klasse '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
+							return string.Format(Strings.TechEffect_ToString_AttributePM_Attack, (Element != null ? Strings.TechEffect_ToString_Part_Unit + " '" + Element.Name + "'" : Strings.TechEffect_ToString_Part_Class + " '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
 						else
-							return string.Format("Attribut '{0}' für {1}: + {2}", _attributes[ParameterID], (Element != null ? "Einheit '" + Element.Name + "'" : "Klasse '" + _classes[ClassID] + "'"), Value);
+							return string.Format(Strings.TechEffect_ToString_AttributePM_Else, _attributes[ParameterID], (Element != null ? Strings.TechEffect_ToString_Part_Unit + " '" + Element.Name + "'" : Strings.TechEffect_ToString_Part_Class + " '" + _classes[ClassID] + "'"), Value);
 
 					case EffectType.AttributeMult:
 						if(ParameterID == 8)
-							return string.Format("Rüstungsstärke für {0}: * {1} gegen Rüstungsklasse '{2}'", (Element != null ? "Einheit '" + Element.Name + "'" : "Klasse '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
+							return string.Format(Strings.TechEffect_ToString_AttributeMult_Armour, (Element != null ? Strings.TechEffect_ToString_Part_Unit + " '" + Element.Name + "'" : Strings.TechEffect_ToString_Part_Class + " '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
 						else if(ParameterID == 9)
-							return string.Format("Angriffsstärke für {0}: * {1} gegen Rüstungsklasse '{2}'", (Element != null ? "Einheit '" + Element.Name + "'" : "Klasse '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
+							return string.Format(Strings.TechEffect_ToString_AttributeMult_Attack, (Element != null ? Strings.TechEffect_ToString_Part_Unit + " '" + Element.Name + "'" : Strings.TechEffect_ToString_Part_Class + " '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
 						else
-							return string.Format("Attribut '{0}' für {1}': * {2}", _attributes[ParameterID], (Element != null ? "Einheit '" + Element.Name + "'" : "Klasse '" + _classes[ClassID] + "'"), Value);
+							return string.Format(Strings.TechEffect_ToString_AttributeMult_Else, _attributes[ParameterID], (Element != null ? Strings.TechEffect_ToString_Part_Unit + " '" + Element.Name + "'" : Strings.TechEffect_ToString_Part_Class + " '" + _classes[ClassID] + "'"), Value);
 
 					case EffectType.ResourceMult:
-						return string.Format("Ressource '{0}': * {1}", _resourceTypes[ParameterID], Value);
+						return string.Format(Strings.TechEffect_ToString_ResourceMult, _resourceTypes[ParameterID], Value);
 
 					case EffectType.ResearchCostSetPM:
-						return string.Format("'{0}'-Kosten für Technologie '{1}': {2} {3}", _resourceTypes[ParameterID], (Element != null ? Element.Name : "?"), (Mode == EffectMode.PM_Enable ? "+" : "="), Value);
+						return string.Format(Strings.TechEffect_ToString_ResearchCostSetPM, _resourceTypes[ParameterID], (Element != null ? Element.Name : "?"), (Mode == EffectMode.PM_Enable ? "+" : "="), Value);
 
 					case EffectType.ResearchDisable:
-						return string.Format("Deaktiviere Technologie '{0}'", (Element != null ? Element.Name : "?"));
+						return string.Format(Strings.TechEffect_ToString_ResearchDisable, (Element != null ? Element.Name : "?"));
 
 					case EffectType.ResearchTimeSetPM:
-						return string.Format("Entwicklungszeit für Technologie '{0}': {1} {2}", (Element != null ? Element.Name : "?"), (Mode == EffectMode.PM_Enable ? "+" : "="), Value);
+						return string.Format(Strings.TechEffect_ToString_ResearchTimeSetPM, (Element != null ? Element.Name : "?"), (Mode == EffectMode.PM_Enable ? "+" : "="), Value);
 				}
 				return "?";
 			}

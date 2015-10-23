@@ -117,28 +117,80 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 15</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 13</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Basis-DAT-Datei:</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_baseDATTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 12</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_cancelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;_openDATDialog.Name" xml:space="preserve">
+    <value>_openDATDialog</value>
+  </data>
+  <data name="&gt;&gt;_baseDATButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="_outputDATTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 38</value>
+  </data>
+  <data name="&gt;&gt;_outputDATButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_cancelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 23</value>
+  </data>
+  <data name="_baseDATTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>360, 20</value>
+  </data>
+  <data name="&gt;&gt;_outputDATButton.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
   </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;_finishProgressBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Ausgabe-DAT-Datei:</value>
+  </data>
+  <data name="_baseDATButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>526, 10</value>
+  </data>
+  <data name="_outputDATTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;_saveDATDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_updateProjectIDsCheckBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="_finishProgressBar.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_finishProgressBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>161, 87</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>DAT-Datei exportieren...</value>
+  </data>
+  <data name="_updateProjectIDsCheckBox.Text" xml:space="preserve">
+    <value>Generierte ID-Zuordnung in Projektdatei übernehmen und sperren</value>
+  </data>
+  <data name="&gt;&gt;_finishProgressBar.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -146,255 +198,128 @@
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="_baseDATTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 12</value>
+  <data name="&gt;&gt;_openDATDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="_baseDATTextBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_outputDATTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>360, 20</value>
   </data>
-  <data name="_baseDATTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;_baseDATTextBox.Name" xml:space="preserve">
-    <value>_baseDATTextBox</value>
-  </data>
-  <data name="&gt;&gt;_baseDATTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_baseDATTextBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_updateProjectIDsCheckBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;_baseDATTextBox.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="_baseDATButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>526, 10</value>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
-  <data name="_baseDATButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 23</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 13</value>
   </data>
-  <data name="_baseDATButton.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="_outputDATButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>526, 36</value>
   </data>
   <data name="_baseDATButton.Text" xml:space="preserve">
     <value>...</value>
   </data>
-  <data name="&gt;&gt;_baseDATButton.Name" xml:space="preserve">
-    <value>_baseDATButton</value>
-  </data>
-  <data name="&gt;&gt;_baseDATButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_baseDATButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_baseDATButton.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <metadata name="_openDATDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="_openDATDialog.Filter" xml:space="preserve">
-    <value>Genie-DAT-Dateien (*.dat)|*.dat</value>
-  </data>
-  <data name="_openDATDialog.Title" xml:space="preserve">
-    <value>DAT-Datei öffnen...</value>
-  </data>
   <data name="_finishButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>312, 87</value>
-  </data>
-  <data name="_finishButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 23</value>
-  </data>
-  <data name="_finishButton.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="_finishButton.Text" xml:space="preserve">
-    <value>DAT exportieren</value>
-  </data>
-  <data name="&gt;&gt;_finishButton.Name" xml:space="preserve">
-    <value>_finishButton</value>
-  </data>
-  <data name="&gt;&gt;_finishButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_finishButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_finishButton.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="_cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>437, 87</value>
-  </data>
-  <data name="_cancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 23</value>
-  </data>
-  <data name="_cancelButton.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="_cancelButton.Text" xml:space="preserve">
-    <value>Abbrechen</value>
-  </data>
-  <data name="&gt;&gt;_cancelButton.Name" xml:space="preserve">
-    <value>_cancelButton</value>
-  </data>
-  <data name="&gt;&gt;_cancelButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_cancelButton.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;_cancelButton.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="_finishProgressBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 87</value>
+  <data name="&gt;&gt;_baseDATButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="_finishProgressBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 23</value>
+  <data name="&gt;&gt;_baseDATTextBox.Name" xml:space="preserve">
+    <value>_baseDATTextBox</value>
   </data>
-  <data name="_finishProgressBar.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="_finishProgressBar.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;_outputDATTextBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_outputDATTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_baseDATButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 23</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_cancelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>437, 87</value>
   </data>
   <data name="&gt;&gt;_finishProgressBar.Name" xml:space="preserve">
     <value>_finishProgressBar</value>
   </data>
-  <data name="&gt;&gt;_finishProgressBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;_baseDATButton.Name" xml:space="preserve">
+    <value>_baseDATButton</value>
   </data>
-  <data name="&gt;&gt;_finishProgressBar.Parent" xml:space="preserve">
+  <data name="_finishProgressBar.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;_cancelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_outputDATTextBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_finishProgressBar.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <metadata name="_saveDATDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>160, 17</value>
-  </metadata>
-  <data name="_saveDATDialog.Filter" xml:space="preserve">
-    <value>Genie-DAT-Dateien (*.dat)|*.dat</value>
+  <data name="&gt;&gt;_cancelButton.Name" xml:space="preserve">
+    <value>_cancelButton</value>
   </data>
-  <data name="_saveDATDialog.Title" xml:space="preserve">
-    <value>Exportierte DAT-Datei speichern...</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="_outputDATButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="_outputDATButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>526, 36</value>
-  </data>
-  <data name="_outputDATButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 23</value>
-  </data>
-  <data name="_outputDATButton.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="_outputDATButton.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="&gt;&gt;_outputDATButton.Name" xml:space="preserve">
-    <value>_outputDATButton</value>
-  </data>
-  <data name="&gt;&gt;_outputDATButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_outputDATButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_cancelButton.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;_outputDATButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="_outputDATTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 38</value>
-  </data>
-  <data name="_outputDATTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>360, 20</value>
-  </data>
-  <data name="_outputDATTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+  <data name="_finishButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 23</value>
   </data>
   <data name="&gt;&gt;_outputDATTextBox.Name" xml:space="preserve">
     <value>_outputDATTextBox</value>
   </data>
-  <data name="&gt;&gt;_outputDATTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="_finishButton.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="&gt;&gt;_outputDATTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_outputDATTextBox.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="_outputDATButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 41</value>
+  <data name="_outputDATButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 23</value>
   </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 13</value>
+  <data name="&gt;&gt;_baseDATButton.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Ausgabe-DAT-Datei:</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;_baseDATTextBox.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;_finishButton.Name" xml:space="preserve">
+    <value>_finishButton</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_openDATDialog.Filter" xml:space="preserve">
+    <value>Genie-DAT-Dateien (*.dat)|*.dat</value>
+  </data>
+  <data name="_finishProgressBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 23</value>
   </data>
   <data name="_updateProjectIDsCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="_updateProjectIDsCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 64</value>
-  </data>
-  <data name="_updateProjectIDsCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>335, 17</value>
-  </data>
-  <data name="_updateProjectIDsCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="_updateProjectIDsCheckBox.Text" xml:space="preserve">
-    <value>Generierte ID-Zuordnung in Projektdatei übernehmen und sperren</value>
-  </data>
-  <data name="&gt;&gt;_updateProjectIDsCheckBox.Name" xml:space="preserve">
-    <value>_updateProjectIDsCheckBox</value>
-  </data>
-  <data name="&gt;&gt;_updateProjectIDsCheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_updateProjectIDsCheckBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_updateProjectIDsCheckBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>570, 121</value>
+  <data name="&gt;&gt;_finishButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -774,25 +699,103 @@
         AAA=
 </value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>DAT-Datei exportieren...</value>
-  </data>
-  <data name="&gt;&gt;_openDATDialog.Name" xml:space="preserve">
-    <value>_openDATDialog</value>
-  </data>
-  <data name="&gt;&gt;_openDATDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_saveDATDialog.Name" xml:space="preserve">
-    <value>_saveDATDialog</value>
-  </data>
-  <data name="&gt;&gt;_saveDATDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>ExportDATFile</value>
+  <data name="_outputDATButton.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="_openDATDialog.Title" xml:space="preserve">
+    <value>DAT-Datei öffnen...</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ExportDATFile</value>
+  </data>
+  <data name="_updateProjectIDsCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>161, 64</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 15</value>
+  </data>
+  <data name="_cancelButton.Text" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="_baseDATTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_outputDATButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_saveDATDialog.Name" xml:space="preserve">
+    <value>_saveDATDialog</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 13</value>
+  </data>
+  <data name="&gt;&gt;_finishButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 41</value>
+  </data>
+  <data name="_saveDATDialog.Title" xml:space="preserve">
+    <value>Exportierte DAT-Datei speichern...</value>
+  </data>
+  <data name="_updateProjectIDsCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="_saveDATDialog.Filter" xml:space="preserve">
+    <value>Genie-DAT-Dateien (*.dat)|*.dat</value>
+  </data>
+  <data name="_outputDATButton.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;_outputDATButton.Name" xml:space="preserve">
+    <value>_outputDATButton</value>
+  </data>
+  <data name="_baseDATButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;_updateProjectIDsCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_updateProjectIDsCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>335, 17</value>
+  </data>
+  <data name="_finishButton.Text" xml:space="preserve">
+    <value>DAT exportieren</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>570, 121</value>
+  </data>
+  <data name="&gt;&gt;_baseDATTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_finishButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;_baseDATTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_updateProjectIDsCheckBox.Name" xml:space="preserve">
+    <value>_updateProjectIDsCheckBox</value>
+  </data>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en-US</value>
+  </metadata>
+  <metadata name="_openDATDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="_saveDATDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>160, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

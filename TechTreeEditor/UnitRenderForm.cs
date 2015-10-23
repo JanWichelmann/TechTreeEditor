@@ -823,7 +823,6 @@ namespace TechTreeEditor
 				GL.Translate(_drawPanel.Width - 22 - entrySize.Width, 18, 0);
 
 				// Header-Leiste zeichnen
-				string header = "Frame-Nummern";
 				GL.BindTexture(TextureTarget.Texture2D, 0);
 				GL.Color3(Color.FromArgb(179, 255, 102));
 				GL.Begin(PrimitiveType.Quads);
@@ -836,7 +835,7 @@ namespace TechTreeEditor
 				GL.End();
 
 				// Headertext zeichnen
-				DrawString(header, 2, 2);
+				DrawString(Strings.UnitRenderForm_FrameNumberHeader, 2, 2);
 
 				// Box für Framenummern zeichnen
 				GL.Color3(Color.FromArgb(218, 255, 179));
@@ -865,7 +864,7 @@ namespace TechTreeEditor
 				GL.Color3(Color.Black);
 				GL.Begin(PrimitiveType.LineLoop);
 				{
-					GL.Vertex2(0 +0.5, 0 + 0.5);
+					GL.Vertex2(0 + 0.5, 0 + 0.5);
 					GL.Vertex2(entrySize.Width + 4 + 0.5, 0 + 0.5);
 					GL.Vertex2(entrySize.Width + 4 + 0.5, entrySize.Height + 4 + frameNumberBoxHeight + 0.5);
 					GL.Vertex2(0 + 0.5, entrySize.Height + 4 + frameNumberBoxHeight + 0.5);
@@ -918,7 +917,7 @@ namespace TechTreeEditor
 			catch(Exception ex)
 			{
 				// Fehlermeldung anzeigen und Fenster schließen
-				MessageBox.Show("Fehler beim Laden der Graphics-DRS: " + ex.Message + "\n\nDas Fenster wird geschlossen.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(Strings.UnitRenderForm_Message_GraphicsDRSNotFound + ex.Message, Strings.UnitRenderForm_Message_GraphicsDRSNotFound_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				Close();
 			}
 		}

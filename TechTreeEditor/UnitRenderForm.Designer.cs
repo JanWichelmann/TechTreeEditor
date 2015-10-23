@@ -32,6 +32,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UnitRenderForm));
 			this._bottomPanel = new System.Windows.Forms.Panel();
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
+			this._showFrameNumbersCheckBox = new System.Windows.Forms.CheckBox();
 			this._showProjectilePointCheckBox = new System.Windows.Forms.CheckBox();
 			this._showCenterPointCheckBox = new System.Windows.Forms.CheckBox();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -70,7 +71,6 @@
 			this._graphicsDRSTextBox = new System.Windows.Forms.TextBox();
 			this._openGraphicsDRSDialog = new System.Windows.Forms.OpenFileDialog();
 			this._renderTimer = new System.Windows.Forms.Timer(this.components);
-			this._showFrameNumbersCheckBox = new System.Windows.Forms.CheckBox();
 			this._bottomPanel.SuspendLayout();
 			this.groupBox5.SuspendLayout();
 			this.groupBox4.SuspendLayout();
@@ -87,76 +87,64 @@
 			// 
 			// _bottomPanel
 			// 
+			resources.ApplyResources(this._bottomPanel, "_bottomPanel");
 			this._bottomPanel.Controls.Add(this.groupBox5);
 			this._bottomPanel.Controls.Add(this.groupBox4);
 			this._bottomPanel.Controls.Add(this.groupBox3);
 			this._bottomPanel.Controls.Add(this._closeButton);
-			this._bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this._bottomPanel.Location = new System.Drawing.Point(0, 520);
 			this._bottomPanel.Name = "_bottomPanel";
-			this._bottomPanel.Size = new System.Drawing.Size(1129, 90);
-			this._bottomPanel.TabIndex = 1;
 			// 
 			// groupBox5
 			// 
+			resources.ApplyResources(this.groupBox5, "groupBox5");
 			this.groupBox5.Controls.Add(this._showFrameNumbersCheckBox);
 			this.groupBox5.Controls.Add(this._showProjectilePointCheckBox);
 			this.groupBox5.Controls.Add(this._showCenterPointCheckBox);
-			this.groupBox5.Location = new System.Drawing.Point(724, 3);
 			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(396, 46);
-			this.groupBox5.TabIndex = 23;
 			this.groupBox5.TabStop = false;
-			this.groupBox5.Text = "Einblenden";
+			// 
+			// _showFrameNumbersCheckBox
+			// 
+			resources.ApplyResources(this._showFrameNumbersCheckBox, "_showFrameNumbersCheckBox");
+			this._showFrameNumbersCheckBox.Name = "_showFrameNumbersCheckBox";
+			this._showFrameNumbersCheckBox.UseVisualStyleBackColor = true;
+			this._showFrameNumbersCheckBox.CheckedChanged += new System.EventHandler(this._showFrameNumbersCheckBox_CheckedChanged);
 			// 
 			// _showProjectilePointCheckBox
 			// 
-			this._showProjectilePointCheckBox.AutoSize = true;
-			this._showProjectilePointCheckBox.Enabled = false;
-			this._showProjectilePointCheckBox.Location = new System.Drawing.Point(93, 21);
+			resources.ApplyResources(this._showProjectilePointCheckBox, "_showProjectilePointCheckBox");
 			this._showProjectilePointCheckBox.Name = "_showProjectilePointCheckBox";
-			this._showProjectilePointCheckBox.Size = new System.Drawing.Size(99, 17);
-			this._showProjectilePointCheckBox.TabIndex = 1;
-			this._showProjectilePointCheckBox.Text = "Projektil-Spawn";
 			this._showProjectilePointCheckBox.UseVisualStyleBackColor = true;
 			this._showProjectilePointCheckBox.CheckedChanged += new System.EventHandler(this._showProjectilePointCheckBox_CheckedChanged);
 			// 
 			// _showCenterPointCheckBox
 			// 
-			this._showCenterPointCheckBox.AutoSize = true;
-			this._showCenterPointCheckBox.Location = new System.Drawing.Point(6, 21);
+			resources.ApplyResources(this._showCenterPointCheckBox, "_showCenterPointCheckBox");
 			this._showCenterPointCheckBox.Name = "_showCenterPointCheckBox";
-			this._showCenterPointCheckBox.Size = new System.Drawing.Size(81, 17);
-			this._showCenterPointCheckBox.TabIndex = 0;
-			this._showCenterPointCheckBox.Text = "Ankerpunkt";
 			this._showCenterPointCheckBox.UseVisualStyleBackColor = true;
 			this._showCenterPointCheckBox.CheckedChanged += new System.EventHandler(this._showCenterPointCheckBox_CheckedChanged);
 			// 
 			// groupBox4
 			// 
+			resources.ApplyResources(this.groupBox4, "groupBox4");
 			this.groupBox4.Controls.Add(this._radiusCustom2Field);
 			this.groupBox4.Controls.Add(this._radiusCustom1Field);
 			this.groupBox4.Controls.Add(this._radiusCustomCheckBox);
 			this.groupBox4.Controls.Add(this._radiusSelectionCheckBox);
 			this.groupBox4.Controls.Add(this._radiusEditorCheckBox);
 			this.groupBox4.Controls.Add(this._radiusSizeCheckBox);
-			this.groupBox4.Location = new System.Drawing.Point(352, 3);
 			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(366, 46);
-			this.groupBox4.TabIndex = 2;
 			this.groupBox4.TabStop = false;
-			this.groupBox4.Text = "Grenzen";
 			// 
 			// _radiusCustom2Field
 			// 
+			resources.ApplyResources(this._radiusCustom2Field, "_radiusCustom2Field");
 			this._radiusCustom2Field.DecimalPlaces = 2;
-			this._radiusCustom2Field.Enabled = false;
 			this._radiusCustom2Field.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-			this._radiusCustom2Field.Location = new System.Drawing.Point(319, 19);
 			this._radiusCustom2Field.Maximum = new decimal(new int[] {
             20,
             0,
@@ -168,8 +156,6 @@
             0,
             131072});
 			this._radiusCustom2Field.Name = "_radiusCustom2Field";
-			this._radiusCustom2Field.Size = new System.Drawing.Size(43, 20);
-			this._radiusCustom2Field.TabIndex = 9;
 			this._radiusCustom2Field.Value = new decimal(new int[] {
             1,
             0,
@@ -179,14 +165,13 @@
 			// 
 			// _radiusCustom1Field
 			// 
+			resources.ApplyResources(this._radiusCustom1Field, "_radiusCustom1Field");
 			this._radiusCustom1Field.DecimalPlaces = 2;
-			this._radiusCustom1Field.Enabled = false;
 			this._radiusCustom1Field.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-			this._radiusCustom1Field.Location = new System.Drawing.Point(270, 19);
 			this._radiusCustom1Field.Maximum = new decimal(new int[] {
             20,
             0,
@@ -198,8 +183,6 @@
             0,
             131072});
 			this._radiusCustom1Field.Name = "_radiusCustom1Field";
-			this._radiusCustom1Field.Size = new System.Drawing.Size(43, 20);
-			this._radiusCustom1Field.TabIndex = 8;
 			this._radiusCustom1Field.Value = new decimal(new int[] {
             1,
             0,
@@ -209,84 +192,58 @@
 			// 
 			// _radiusCustomCheckBox
 			// 
-			this._radiusCustomCheckBox.AutoSize = true;
-			this._radiusCustomCheckBox.Location = new System.Drawing.Point(198, 21);
+			resources.ApplyResources(this._radiusCustomCheckBox, "_radiusCustomCheckBox");
 			this._radiusCustomCheckBox.Name = "_radiusCustomCheckBox";
-			this._radiusCustomCheckBox.Size = new System.Drawing.Size(66, 17);
-			this._radiusCustomCheckBox.TabIndex = 3;
-			this._radiusCustomCheckBox.Text = "Manuell:";
 			this._radiusCustomCheckBox.UseVisualStyleBackColor = true;
 			this._radiusCustomCheckBox.CheckedChanged += new System.EventHandler(this._radiusCustomCheckBox_CheckedChanged);
 			// 
 			// _radiusSelectionCheckBox
 			// 
-			this._radiusSelectionCheckBox.AutoSize = true;
-			this._radiusSelectionCheckBox.Location = new System.Drawing.Point(126, 21);
+			resources.ApplyResources(this._radiusSelectionCheckBox, "_radiusSelectionCheckBox");
 			this._radiusSelectionCheckBox.Name = "_radiusSelectionCheckBox";
-			this._radiusSelectionCheckBox.Size = new System.Drawing.Size(66, 17);
-			this._radiusSelectionCheckBox.TabIndex = 2;
-			this._radiusSelectionCheckBox.Text = "Auswahl";
 			this._radiusSelectionCheckBox.UseVisualStyleBackColor = true;
 			this._radiusSelectionCheckBox.CheckedChanged += new System.EventHandler(this._radiusSelectionCheckBox_CheckedChanged);
 			// 
 			// _radiusEditorCheckBox
 			// 
-			this._radiusEditorCheckBox.AutoSize = true;
-			this._radiusEditorCheckBox.Location = new System.Drawing.Point(67, 21);
+			resources.ApplyResources(this._radiusEditorCheckBox, "_radiusEditorCheckBox");
 			this._radiusEditorCheckBox.Name = "_radiusEditorCheckBox";
-			this._radiusEditorCheckBox.Size = new System.Drawing.Size(53, 17);
-			this._radiusEditorCheckBox.TabIndex = 1;
-			this._radiusEditorCheckBox.Text = "Editor";
 			this._radiusEditorCheckBox.UseVisualStyleBackColor = true;
 			this._radiusEditorCheckBox.CheckedChanged += new System.EventHandler(this._radiusEditorCheckBox_CheckedChanged);
 			// 
 			// _radiusSizeCheckBox
 			// 
-			this._radiusSizeCheckBox.AutoSize = true;
-			this._radiusSizeCheckBox.Location = new System.Drawing.Point(6, 21);
+			resources.ApplyResources(this._radiusSizeCheckBox, "_radiusSizeCheckBox");
 			this._radiusSizeCheckBox.Name = "_radiusSizeCheckBox";
-			this._radiusSizeCheckBox.Size = new System.Drawing.Size(55, 17);
-			this._radiusSizeCheckBox.TabIndex = 0;
-			this._radiusSizeCheckBox.Text = "Größe";
 			this._radiusSizeCheckBox.UseVisualStyleBackColor = true;
 			this._radiusSizeCheckBox.CheckedChanged += new System.EventHandler(this._radiusSizeCheckBox_CheckedChanged);
 			// 
 			// groupBox3
 			// 
+			resources.ApplyResources(this.groupBox3, "groupBox3");
 			this.groupBox3.Controls.Add(this._centerUnitButton);
 			this.groupBox3.Controls.Add(this.label3);
 			this.groupBox3.Controls.Add(this._angleField);
 			this.groupBox3.Controls.Add(this.label2);
 			this.groupBox3.Controls.Add(this._zoomField);
-			this.groupBox3.Location = new System.Drawing.Point(3, 3);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(344, 46);
-			this.groupBox3.TabIndex = 1;
 			this.groupBox3.TabStop = false;
-			this.groupBox3.Text = "Rendering";
 			// 
 			// _centerUnitButton
 			// 
-			this._centerUnitButton.Location = new System.Drawing.Point(197, 17);
+			resources.ApplyResources(this._centerUnitButton, "_centerUnitButton");
 			this._centerUnitButton.Name = "_centerUnitButton";
-			this._centerUnitButton.Size = new System.Drawing.Size(139, 23);
-			this._centerUnitButton.TabIndex = 4;
-			this._centerUnitButton.Text = "Auf Einheit zentrieren";
 			this._centerUnitButton.UseVisualStyleBackColor = true;
 			this._centerUnitButton.Click += new System.EventHandler(this._centerUnitButton_Click);
 			// 
 			// label3
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(102, 22);
+			resources.ApplyResources(this.label3, "label3");
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(40, 13);
-			this.label3.TabIndex = 3;
-			this.label3.Text = "Achse:";
 			// 
 			// _angleField
 			// 
-			this._angleField.Location = new System.Drawing.Point(148, 19);
+			resources.ApplyResources(this._angleField, "_angleField");
 			this._angleField.Maximum = new decimal(new int[] {
             17,
             0,
@@ -298,28 +255,22 @@
             0,
             -2147483648});
 			this._angleField.Name = "_angleField";
-			this._angleField.Size = new System.Drawing.Size(43, 20);
-			this._angleField.TabIndex = 2;
 			this._angleField.ValueChanged += new System.EventHandler(this._angleField_ValueChanged);
 			// 
 			// label2
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(10, 22);
+			resources.ApplyResources(this.label2, "label2");
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(37, 13);
-			this.label2.TabIndex = 1;
-			this.label2.Text = "Zoom:";
 			// 
 			// _zoomField
 			// 
+			resources.ApplyResources(this._zoomField, "_zoomField");
 			this._zoomField.DecimalPlaces = 1;
 			this._zoomField.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-			this._zoomField.Location = new System.Drawing.Point(53, 19);
 			this._zoomField.Maximum = new decimal(new int[] {
             30,
             0,
@@ -331,8 +282,6 @@
             0,
             65536});
 			this._zoomField.Name = "_zoomField";
-			this._zoomField.Size = new System.Drawing.Size(43, 20);
-			this._zoomField.TabIndex = 0;
 			this._zoomField.Value = new decimal(new int[] {
             1,
             0,
@@ -342,23 +291,16 @@
 			// 
 			// _closeButton
 			// 
-			this._closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this._closeButton.Location = new System.Drawing.Point(958, 58);
+			resources.ApplyResources(this._closeButton, "_closeButton");
 			this._closeButton.Name = "_closeButton";
-			this._closeButton.Size = new System.Drawing.Size(163, 23);
-			this._closeButton.TabIndex = 0;
-			this._closeButton.Text = "Schließen";
 			this._closeButton.UseVisualStyleBackColor = true;
 			this._closeButton.Click += new System.EventHandler(this._closeButton_Click);
 			// 
 			// _drawPanel
 			// 
+			resources.ApplyResources(this._drawPanel, "_drawPanel");
 			this._drawPanel.BackColor = System.Drawing.Color.Black;
-			this._drawPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this._drawPanel.Location = new System.Drawing.Point(0, 100);
 			this._drawPanel.Name = "_drawPanel";
-			this._drawPanel.Size = new System.Drawing.Size(1129, 420);
-			this._drawPanel.TabIndex = 2;
 			this._drawPanel.VSync = false;
 			this._drawPanel.Paint += new System.Windows.Forms.PaintEventHandler(this._drawPanel_Paint);
 			this._drawPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this._drawPanel_MouseDown);
@@ -368,6 +310,7 @@
 			// 
 			// _topPanel
 			// 
+			resources.ApplyResources(this._topPanel, "_topPanel");
 			this._topPanel.Controls.Add(this._stopButton);
 			this._topPanel.Controls.Add(this._playButton);
 			this._topPanel.Controls.Add(this.groupBox2);
@@ -376,64 +319,46 @@
 			this._topPanel.Controls.Add(this._graphicsDRSButton);
 			this._topPanel.Controls.Add(this.label1);
 			this._topPanel.Controls.Add(this._graphicsDRSTextBox);
-			this._topPanel.Dock = System.Windows.Forms.DockStyle.Top;
-			this._topPanel.Location = new System.Drawing.Point(0, 0);
 			this._topPanel.Name = "_topPanel";
-			this._topPanel.Size = new System.Drawing.Size(1129, 100);
-			this._topPanel.TabIndex = 2;
 			// 
 			// _stopButton
 			// 
-			this._stopButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this._stopButton.Enabled = false;
+			resources.ApplyResources(this._stopButton, "_stopButton");
 			this._stopButton.FlatAppearance.BorderSize = 0;
-			this._stopButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this._stopButton.Image = global::TechTreeEditor.Icons.RenderStop;
-			this._stopButton.Location = new System.Drawing.Point(1083, 12);
 			this._stopButton.Name = "_stopButton";
-			this._stopButton.Size = new System.Drawing.Size(32, 32);
-			this._stopButton.TabIndex = 22;
 			this._stopButton.UseVisualStyleBackColor = true;
 			this._stopButton.Click += new System.EventHandler(this._stopButton_Click);
 			// 
 			// _playButton
 			// 
-			this._playButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this._playButton.Enabled = false;
+			resources.ApplyResources(this._playButton, "_playButton");
 			this._playButton.FlatAppearance.BorderSize = 0;
-			this._playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this._playButton.Image = global::TechTreeEditor.Icons.RenderStart;
-			this._playButton.Location = new System.Drawing.Point(1043, 12);
 			this._playButton.Name = "_playButton";
-			this._playButton.Size = new System.Drawing.Size(32, 32);
-			this._playButton.TabIndex = 8;
 			this._playButton.UseVisualStyleBackColor = true;
 			this._playButton.Click += new System.EventHandler(this._playButton_Click);
 			// 
 			// groupBox2
 			// 
+			resources.ApplyResources(this.groupBox2, "groupBox2");
 			this.groupBox2.Controls.Add(this._speedCustomField);
 			this.groupBox2.Controls.Add(this._speedCustomButton);
 			this.groupBox2.Controls.Add(this._speedFastButton);
 			this.groupBox2.Controls.Add(this._speedNormalButton);
 			this.groupBox2.Controls.Add(this._speedSlowButton);
-			this.groupBox2.Location = new System.Drawing.Point(393, 38);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(333, 51);
-			this.groupBox2.TabIndex = 21;
 			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "Animation";
 			// 
 			// _speedCustomField
 			// 
+			resources.ApplyResources(this._speedCustomField, "_speedCustomField");
 			this._speedCustomField.DecimalPlaces = 2;
-			this._speedCustomField.Enabled = false;
 			this._speedCustomField.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-			this._speedCustomField.Location = new System.Drawing.Point(282, 21);
 			this._speedCustomField.Maximum = new decimal(new int[] {
             5,
             0,
@@ -445,8 +370,6 @@
             0,
             131072});
 			this._speedCustomField.Name = "_speedCustomField";
-			this._speedCustomField.Size = new System.Drawing.Size(43, 20);
-			this._speedCustomField.TabIndex = 7;
 			this._speedCustomField.Value = new decimal(new int[] {
             1,
             0,
@@ -456,194 +379,122 @@
 			// 
 			// _speedCustomButton
 			// 
-			this._speedCustomButton.AutoSize = true;
-			this._speedCustomButton.Location = new System.Drawing.Point(211, 22);
+			resources.ApplyResources(this._speedCustomButton, "_speedCustomButton");
 			this._speedCustomButton.Name = "_speedCustomButton";
-			this._speedCustomButton.Size = new System.Drawing.Size(65, 17);
-			this._speedCustomButton.TabIndex = 6;
-			this._speedCustomButton.Text = "Manuell:";
 			this._speedCustomButton.UseVisualStyleBackColor = true;
 			this._speedCustomButton.CheckedChanged += new System.EventHandler(this._speedCustomButton_CheckedChanged);
 			// 
 			// _speedFastButton
 			// 
-			this._speedFastButton.AutoSize = true;
-			this._speedFastButton.Location = new System.Drawing.Point(145, 22);
+			resources.ApplyResources(this._speedFastButton, "_speedFastButton");
 			this._speedFastButton.Name = "_speedFastButton";
-			this._speedFastButton.Size = new System.Drawing.Size(60, 17);
-			this._speedFastButton.TabIndex = 5;
-			this._speedFastButton.Text = "Schnell";
 			this._speedFastButton.UseVisualStyleBackColor = true;
 			this._speedFastButton.CheckedChanged += new System.EventHandler(this._speedFastButton_CheckedChanged);
 			// 
 			// _speedNormalButton
 			// 
-			this._speedNormalButton.AutoSize = true;
-			this._speedNormalButton.Location = new System.Drawing.Point(80, 22);
+			resources.ApplyResources(this._speedNormalButton, "_speedNormalButton");
 			this._speedNormalButton.Name = "_speedNormalButton";
-			this._speedNormalButton.Size = new System.Drawing.Size(58, 17);
-			this._speedNormalButton.TabIndex = 4;
-			this._speedNormalButton.Text = "Normal";
 			this._speedNormalButton.UseVisualStyleBackColor = true;
 			this._speedNormalButton.CheckedChanged += new System.EventHandler(this._speedNormalButton_CheckedChanged);
 			// 
 			// _speedSlowButton
 			// 
-			this._speedSlowButton.AutoSize = true;
+			resources.ApplyResources(this._speedSlowButton, "_speedSlowButton");
 			this._speedSlowButton.Checked = true;
-			this._speedSlowButton.Location = new System.Drawing.Point(6, 22);
 			this._speedSlowButton.Name = "_speedSlowButton";
-			this._speedSlowButton.Size = new System.Drawing.Size(68, 17);
-			this._speedSlowButton.TabIndex = 3;
 			this._speedSlowButton.TabStop = true;
-			this._speedSlowButton.Text = "Langsam";
 			this._speedSlowButton.UseVisualStyleBackColor = true;
 			this._speedSlowButton.CheckedChanged += new System.EventHandler(this._speedSlowButton_CheckedChanged);
 			// 
 			// groupBox1
 			// 
+			resources.ApplyResources(this.groupBox1, "groupBox1");
 			this.groupBox1.Controls.Add(this._graSnowCheckBox);
 			this.groupBox1.Controls.Add(this._graStandingButton);
 			this.groupBox1.Controls.Add(this._graFallingButton);
 			this.groupBox1.Controls.Add(this._graMovingButton);
 			this.groupBox1.Controls.Add(this._graAttackingButton);
-			this.groupBox1.Location = new System.Drawing.Point(12, 38);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(375, 51);
-			this.groupBox1.TabIndex = 20;
 			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Gezeigte Grafik";
 			// 
 			// _graSnowCheckBox
 			// 
-			this._graSnowCheckBox.AutoSize = true;
-			this._graSnowCheckBox.Location = new System.Drawing.Point(302, 23);
+			resources.ApplyResources(this._graSnowCheckBox, "_graSnowCheckBox");
 			this._graSnowCheckBox.Name = "_graSnowCheckBox";
-			this._graSnowCheckBox.Size = new System.Drawing.Size(63, 17);
-			this._graSnowCheckBox.TabIndex = 26;
-			this._graSnowCheckBox.Text = "Schnee";
 			this._graSnowCheckBox.UseVisualStyleBackColor = true;
 			this._graSnowCheckBox.CheckedChanged += new System.EventHandler(this._graSnowCheckBox_CheckedChanged);
 			// 
 			// _graStandingButton
 			// 
-			this._graStandingButton.Appearance = System.Windows.Forms.Appearance.Button;
-			this._graStandingButton.Location = new System.Drawing.Point(80, 19);
+			resources.ApplyResources(this._graStandingButton, "_graStandingButton");
 			this._graStandingButton.Name = "_graStandingButton";
-			this._graStandingButton.Size = new System.Drawing.Size(68, 24);
-			this._graStandingButton.TabIndex = 25;
-			this._graStandingButton.Text = "Stehend";
-			this._graStandingButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this._graStandingButton.UseVisualStyleBackColor = true;
 			this._graStandingButton.CheckedChanged += new System.EventHandler(this._graStandingButton_CheckedChanged);
 			// 
 			// _graFallingButton
 			// 
-			this._graFallingButton.Appearance = System.Windows.Forms.Appearance.Button;
-			this._graFallingButton.Location = new System.Drawing.Point(228, 19);
+			resources.ApplyResources(this._graFallingButton, "_graFallingButton");
 			this._graFallingButton.Name = "_graFallingButton";
-			this._graFallingButton.Size = new System.Drawing.Size(68, 24);
-			this._graFallingButton.TabIndex = 23;
-			this._graFallingButton.Text = "Sterbend";
-			this._graFallingButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this._graFallingButton.UseVisualStyleBackColor = true;
 			this._graFallingButton.CheckedChanged += new System.EventHandler(this._graFallingButton_CheckedChanged);
 			// 
 			// _graMovingButton
 			// 
-			this._graMovingButton.Appearance = System.Windows.Forms.Appearance.Button;
-			this._graMovingButton.Location = new System.Drawing.Point(154, 19);
+			resources.ApplyResources(this._graMovingButton, "_graMovingButton");
 			this._graMovingButton.Name = "_graMovingButton";
-			this._graMovingButton.Size = new System.Drawing.Size(68, 24);
-			this._graMovingButton.TabIndex = 22;
-			this._graMovingButton.Text = "Laufend";
-			this._graMovingButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this._graMovingButton.UseVisualStyleBackColor = true;
 			this._graMovingButton.CheckedChanged += new System.EventHandler(this._graMovingButton_CheckedChanged);
 			// 
 			// _graAttackingButton
 			// 
-			this._graAttackingButton.Appearance = System.Windows.Forms.Appearance.Button;
+			resources.ApplyResources(this._graAttackingButton, "_graAttackingButton");
 			this._graAttackingButton.Checked = true;
-			this._graAttackingButton.Location = new System.Drawing.Point(6, 19);
 			this._graAttackingButton.Name = "_graAttackingButton";
-			this._graAttackingButton.Size = new System.Drawing.Size(68, 24);
-			this._graAttackingButton.TabIndex = 21;
 			this._graAttackingButton.TabStop = true;
-			this._graAttackingButton.Text = "Angreifend";
-			this._graAttackingButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this._graAttackingButton.UseVisualStyleBackColor = true;
 			this._graAttackingButton.CheckedChanged += new System.EventHandler(this._graAttackingButton_CheckedChanged);
 			// 
 			// _loadDRSButton
 			// 
-			this._loadDRSButton.Location = new System.Drawing.Point(451, 10);
+			resources.ApplyResources(this._loadDRSButton, "_loadDRSButton");
 			this._loadDRSButton.Name = "_loadDRSButton";
-			this._loadDRSButton.Size = new System.Drawing.Size(75, 23);
-			this._loadDRSButton.TabIndex = 19;
-			this._loadDRSButton.Text = "Laden!";
 			this._loadDRSButton.UseVisualStyleBackColor = true;
 			this._loadDRSButton.Click += new System.EventHandler(this._loadDRSButton_Click);
 			// 
 			// _graphicsDRSButton
 			// 
-			this._graphicsDRSButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this._graphicsDRSButton.Location = new System.Drawing.Point(414, 10);
+			resources.ApplyResources(this._graphicsDRSButton, "_graphicsDRSButton");
 			this._graphicsDRSButton.Name = "_graphicsDRSButton";
-			this._graphicsDRSButton.Size = new System.Drawing.Size(31, 23);
-			this._graphicsDRSButton.TabIndex = 18;
-			this._graphicsDRSButton.Text = "...";
 			this._graphicsDRSButton.UseVisualStyleBackColor = true;
 			this._graphicsDRSButton.Click += new System.EventHandler(this._graphicsDRSButton_Click);
 			// 
 			// label1
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(12, 15);
+			resources.ApplyResources(this.label1, "label1");
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(78, 13);
-			this.label1.TabIndex = 1;
-			this.label1.Text = "Graphics-DRS:";
 			// 
 			// _graphicsDRSTextBox
 			// 
-			this._graphicsDRSTextBox.Location = new System.Drawing.Point(96, 12);
+			resources.ApplyResources(this._graphicsDRSTextBox, "_graphicsDRSTextBox");
 			this._graphicsDRSTextBox.Name = "_graphicsDRSTextBox";
-			this._graphicsDRSTextBox.Size = new System.Drawing.Size(312, 20);
-			this._graphicsDRSTextBox.TabIndex = 0;
 			// 
 			// _openGraphicsDRSDialog
 			// 
-			this._openGraphicsDRSDialog.Filter = "DRS-Dateien (*.drs)|*.drs";
-			this._openGraphicsDRSDialog.Title = "Graphics-DRS-Datei öffnen...";
+			resources.ApplyResources(this._openGraphicsDRSDialog, "_openGraphicsDRSDialog");
 			// 
 			// _renderTimer
 			// 
 			this._renderTimer.Tick += new System.EventHandler(this._renderTimer_Tick);
 			// 
-			// _showFrameNumbersCheckBox
-			// 
-			this._showFrameNumbersCheckBox.AutoSize = true;
-			this._showFrameNumbersCheckBox.Location = new System.Drawing.Point(198, 21);
-			this._showFrameNumbersCheckBox.Name = "_showFrameNumbersCheckBox";
-			this._showFrameNumbersCheckBox.Size = new System.Drawing.Size(103, 17);
-			this._showFrameNumbersCheckBox.TabIndex = 2;
-			this._showFrameNumbersCheckBox.Text = "Frame-Nummern";
-			this._showFrameNumbersCheckBox.UseVisualStyleBackColor = true;
-			this._showFrameNumbersCheckBox.CheckedChanged += new System.EventHandler(this._showFrameNumbersCheckBox_CheckedChanged);
-			// 
 			// UnitRenderForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1129, 610);
 			this.Controls.Add(this._drawPanel);
 			this.Controls.Add(this._topPanel);
 			this.Controls.Add(this._bottomPanel);
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "UnitRenderForm";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-			this.Text = "Einheiten-Renderer";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UnitRenderForm_FormClosing);
 			this.Load += new System.EventHandler(this.UnitRenderForm_Load);
 			this._bottomPanel.ResumeLayout(false);

@@ -161,7 +161,7 @@ namespace TechTreeEditor
 			if(!_saved)
 			{
 				// Nachfragen
-				DialogResult result = MessageBox.Show("Änderungen speichern?", "Fenster schließen", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+				DialogResult result = MessageBox.Show(Strings.EditGraphicsForm_Message_SaveChanges, Strings.EditGraphicsForm_Message_SaveChanges_Title, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 				if(result == DialogResult.Yes)
 					_saveButton_Click(sender, EventArgs.Empty);
 				else if(result == DialogResult.Cancel)
@@ -836,7 +836,7 @@ namespace TechTreeEditor
 		private void _deleteGraphicButton_Click(object sender, EventArgs e)
 		{
 			// Effekt löschen
-			if(_graphicListBox.SelectedItems.Count > 0 && MessageBox.Show("Die ausgewählten Grafiken wirklich löschen?", "Grafiken löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			if(_graphicListBox.SelectedItems.Count > 0 && MessageBox.Show(Strings.EditGraphicsForm_Message_DeleteGraphics, Strings.EditGraphicsForm_Message_DeleteGraphics_Title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				// Grafiken löschen
 				foreach(GenieLibrary.DataElements.Graphic gra in _graphicListBox.SelectedItems)

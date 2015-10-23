@@ -358,7 +358,7 @@ namespace TechTreeEditor
 					elem = new TechTreeResearch();
 					break;
 				default:
-					throw new ArgumentException("Ungültiger Elementtyp.");
+					throw new ArgumentException(Strings.TechTreeFile_Exception_UnknownElementType);
 			}
 
 			// Element in interne Liste schreiben

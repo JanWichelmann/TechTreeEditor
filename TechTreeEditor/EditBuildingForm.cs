@@ -55,7 +55,7 @@ namespace TechTreeEditor
 			for(int i = 1; i < 5; ++i)
 			{
 				// Zeile erstellen
-				_ageUpgradeListBox.Items.Add("Zeitalter " + i, _building.AgeUpgrades.ContainsKey(i));
+				_ageUpgradeListBox.Items.Add(Strings.EditBuildingForm_AgeList + i, _building.AgeUpgrades.ContainsKey(i));
 			}
 
 			// Dummy-Objekte für leere Listenelemente erstellen
@@ -315,7 +315,7 @@ namespace TechTreeEditor
 				if(!byte.TryParse((string)e.FormattedValue, out val) || val < 0)
 				{
 					// Fehler
-					MessageBox.Show("Bitte gib eine positive ganze Zahl an!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show(Strings.Common_Message_PositiveNumber, Strings.Common_Message_PositiveNumber_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 					e.Cancel = true;
 				}
 				else

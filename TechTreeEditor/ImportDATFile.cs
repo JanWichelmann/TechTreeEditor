@@ -51,7 +51,7 @@ namespace TechTreeEditor
 			_selectionViewTypeColumn.ValueType = typeof(GenieLibrary.DataElements.Civ.Unit.UnitType);
 
 			// ToolTip zuweisen
-			_dllHelpBox.SetToolTip(_dllTextBox, "Hier sollen alle referenzierten Language-DLL-Dateien angegeben werden.\nDiese sollen nach Priorität aufsteigend sortiert sein, also zum Beispiel:\n\nLANGUAGE.DLL;language_x1.dll;language_x1_p1.dll");
+			_dllHelpBox.SetToolTip(_dllTextBox, Strings.ImportDATFile_ToolTip_LanguageFiles);
 			_dllHelpBox.InitialDelay = 0;
 			_dllHelpBox.ReshowDelay = 0;
 			_dllHelpBox.AutomaticDelay = 0;
@@ -101,7 +101,7 @@ namespace TechTreeEditor
 			if(!File.Exists(_datTextBox.Text))
 			{
 				// Fehler
-				MessageBox.Show("Fehler: Es wurde keine gültige DAT-Datei angegeben!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(Strings.ImportDATFile_Message_DATNotFound, Strings.ImportDATFile_Message_DATNotFound_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
@@ -1138,7 +1138,7 @@ namespace TechTreeEditor
 		private void _cancelButton_Click(object sender, EventArgs e)
 		{
 			// Ggf. sicherheitshalber fragen
-			if(string.IsNullOrWhiteSpace(_datTextBox.Text) || MessageBox.Show("Wollen Sie dieses Fenster wirklich schließen und damit den Importvorgang abbrechen?", "Importvorgang abbrechen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			if(string.IsNullOrWhiteSpace(_datTextBox.Text) || MessageBox.Show(Strings.ImportDATFile_Message_Cancel, Strings.ImportDATFile_Message_Cancel_Title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				this.Close();
 			}
@@ -1161,7 +1161,7 @@ namespace TechTreeEditor
 			if(!_formClosingAllowed)
 			{
 				// Schließen verbieten
-				MessageBox.Show("Bitte warten Sie auf den Abschluss des Vorgangs. Schließen dieses Fensters kann zu Instabilität führen.", "Importvorgang abbrechen", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(Strings.ImportDATFile_Message_WaitClose, Strings.ImportDATFile_Message_WaitClose_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				e.Cancel = true;
 				return;
 			}

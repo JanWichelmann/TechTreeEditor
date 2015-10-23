@@ -117,7 +117,70 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="_ageUpgradeGroupBox.Text" xml:space="preserve">
+    <value>Age upgrades (0: Dark Age)</value>
+  </data>
+  <data name="_otherUnitsGroupBox.Text" xml:space="preserve">
+    <value>Building settings</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 13</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Dead unit:</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 13</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Action building:</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 13</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Base building:</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 13</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Stack building:</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 13</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Projectile 2:</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 13</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Projectile 1:</value>
+  </data>
+  <data name="_buildingDependencyGroupBox.Text" xml:space="preserve">
+    <value>Building dependencies</value>
+  </data>
+  <data name="_childrenGroupBox.Text" xml:space="preserve">
+    <value>Children</value>
+  </data>
+  <data name="_annexGroupBox.Text" xml:space="preserve">
+    <value>Annexed buildings</value>
+  </data>
+  <data name="_closeButton.Text" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="_childrenViewChildColumn.HeaderText" xml:space="preserve">
+    <value>Child</value>
+  </data>
+  <data name="_buildingDepViewCountColumn.HeaderText" xml:space="preserve">
+    <value>Additional?</value>
+  </data>
+  <data name="_buildingDepViewNameColumn.HeaderText" xml:space="preserve">
+    <value>Building</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAMAQEAAAAEAIAAoQgAANgAAACAgAAABACAAqBAAAF5CAAAQEAAAAQAgAGgEAAAGUwAAKAAAAEAA

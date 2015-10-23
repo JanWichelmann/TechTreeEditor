@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TechEffectControl));
 			this._effectOptionsPanel = new System.Windows.Forms.Panel();
 			this._effectTypeLabel = new System.Windows.Forms.Label();
 			this._effectTypeComboBox = new System.Windows.Forms.ComboBox();
@@ -55,6 +56,7 @@
 			// 
 			// _effectOptionsPanel
 			// 
+			resources.ApplyResources(this._effectOptionsPanel, "_effectOptionsPanel");
 			this._effectOptionsPanel.Controls.Add(this._effectTypeLabel);
 			this._effectOptionsPanel.Controls.Add(this._effectTypeComboBox);
 			this._effectOptionsPanel.Controls.Add(this._sortEffectsButton);
@@ -75,194 +77,123 @@
 			this._effectOptionsPanel.Controls.Add(this._researchField);
 			this._effectOptionsPanel.Controls.Add(this._destUnitField);
 			this._effectOptionsPanel.Controls.Add(this._unitField);
-			this._effectOptionsPanel.Dock = System.Windows.Forms.DockStyle.Right;
-			this._effectOptionsPanel.Location = new System.Drawing.Point(481, 0);
 			this._effectOptionsPanel.Name = "_effectOptionsPanel";
-			this._effectOptionsPanel.Size = new System.Drawing.Size(400, 413);
-			this._effectOptionsPanel.TabIndex = 6;
 			// 
 			// _effectTypeLabel
 			// 
-			this._effectTypeLabel.AutoSize = true;
-			this._effectTypeLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this._effectTypeLabel.Location = new System.Drawing.Point(6, 9);
+			resources.ApplyResources(this._effectTypeLabel, "_effectTypeLabel");
 			this._effectTypeLabel.Name = "_effectTypeLabel";
-			this._effectTypeLabel.Size = new System.Drawing.Size(59, 13);
-			this._effectTypeLabel.TabIndex = 23;
-			this._effectTypeLabel.Text = "Effekt-Typ:";
 			// 
 			// _effectTypeComboBox
 			// 
+			resources.ApplyResources(this._effectTypeComboBox, "_effectTypeComboBox");
 			this._effectTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._effectTypeComboBox.FormattingEnabled = true;
-			this._effectTypeComboBox.Location = new System.Drawing.Point(89, 6);
 			this._effectTypeComboBox.Name = "_effectTypeComboBox";
-			this._effectTypeComboBox.Size = new System.Drawing.Size(297, 21);
-			this._effectTypeComboBox.TabIndex = 22;
 			this._effectTypeComboBox.SelectedIndexChanged += new System.EventHandler(this._effectTypeComboBox_SelectedIndexChanged);
 			// 
 			// _sortEffectsButton
 			// 
-			this._sortEffectsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			resources.ApplyResources(this._sortEffectsButton, "_sortEffectsButton");
 			this._sortEffectsButton.BackgroundImage = global::TechTreeEditor.Icons.SortTechEffects;
-			this._sortEffectsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this._sortEffectsButton.FlatAppearance.BorderSize = 0;
-			this._sortEffectsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this._sortEffectsButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this._sortEffectsButton.Location = new System.Drawing.Point(84, 376);
 			this._sortEffectsButton.Name = "_sortEffectsButton";
-			this._sortEffectsButton.Size = new System.Drawing.Size(32, 32);
-			this._sortEffectsButton.TabIndex = 21;
 			this._sortEffectsButton.UseVisualStyleBackColor = true;
 			this._sortEffectsButton.Click += new System.EventHandler(this._sortEffectsButton_Click);
 			// 
 			// _newEffectButton
 			// 
-			this._newEffectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			resources.ApplyResources(this._newEffectButton, "_newEffectButton");
 			this._newEffectButton.BackgroundImage = global::TechTreeEditor.Icons.NewTechEffect;
-			this._newEffectButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this._newEffectButton.FlatAppearance.BorderSize = 0;
-			this._newEffectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this._newEffectButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this._newEffectButton.Location = new System.Drawing.Point(44, 338);
 			this._newEffectButton.Name = "_newEffectButton";
-			this._newEffectButton.Size = new System.Drawing.Size(32, 32);
-			this._newEffectButton.TabIndex = 20;
 			this._newEffectButton.UseVisualStyleBackColor = true;
 			this._newEffectButton.Click += new System.EventHandler(this._newEffectButton_Click);
 			// 
 			// _deleteEffectButton
 			// 
-			this._deleteEffectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			resources.ApplyResources(this._deleteEffectButton, "_deleteEffectButton");
 			this._deleteEffectButton.BackgroundImage = global::TechTreeEditor.Icons.DeleteTechEffect;
-			this._deleteEffectButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this._deleteEffectButton.FlatAppearance.BorderSize = 0;
-			this._deleteEffectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this._deleteEffectButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this._deleteEffectButton.Location = new System.Drawing.Point(44, 376);
 			this._deleteEffectButton.Name = "_deleteEffectButton";
-			this._deleteEffectButton.Size = new System.Drawing.Size(32, 32);
-			this._deleteEffectButton.TabIndex = 19;
 			this._deleteEffectButton.UseVisualStyleBackColor = true;
 			this._deleteEffectButton.Click += new System.EventHandler(this._deleteEffectButton_Click);
 			// 
 			// _effectDownButton
 			// 
-			this._effectDownButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			resources.ApplyResources(this._effectDownButton, "_effectDownButton");
 			this._effectDownButton.BackgroundImage = global::TechTreeEditor.Icons.DownTechEffect;
-			this._effectDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this._effectDownButton.FlatAppearance.BorderSize = 0;
-			this._effectDownButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this._effectDownButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this._effectDownButton.Location = new System.Drawing.Point(6, 376);
 			this._effectDownButton.Name = "_effectDownButton";
-			this._effectDownButton.Size = new System.Drawing.Size(32, 32);
-			this._effectDownButton.TabIndex = 18;
 			this._effectDownButton.UseVisualStyleBackColor = true;
 			this._effectDownButton.Click += new System.EventHandler(this._effectDownButton_Click);
 			// 
 			// _effectUpButton
 			// 
-			this._effectUpButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			resources.ApplyResources(this._effectUpButton, "_effectUpButton");
 			this._effectUpButton.BackgroundImage = global::TechTreeEditor.Icons.UpTechEffect;
-			this._effectUpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this._effectUpButton.FlatAppearance.BorderSize = 0;
-			this._effectUpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this._effectUpButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this._effectUpButton.Location = new System.Drawing.Point(6, 338);
 			this._effectUpButton.Name = "_effectUpButton";
-			this._effectUpButton.Size = new System.Drawing.Size(32, 32);
-			this._effectUpButton.TabIndex = 17;
 			this._effectUpButton.UseVisualStyleBackColor = true;
 			this._effectUpButton.Click += new System.EventHandler(this._effectUpButton_Click);
 			// 
 			// _resourceLabel
 			// 
-			this._resourceLabel.AutoSize = true;
-			this._resourceLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this._resourceLabel.Location = new System.Drawing.Point(6, 195);
+			resources.ApplyResources(this._resourceLabel, "_resourceLabel");
 			this._resourceLabel.Name = "_resourceLabel";
-			this._resourceLabel.Size = new System.Drawing.Size(61, 13);
-			this._resourceLabel.TabIndex = 16;
-			this._resourceLabel.Text = "Ressource:";
 			// 
 			// _resourceComboBox
 			// 
+			resources.ApplyResources(this._resourceComboBox, "_resourceComboBox");
 			this._resourceComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._resourceComboBox.FormattingEnabled = true;
-			this._resourceComboBox.Location = new System.Drawing.Point(100, 192);
 			this._resourceComboBox.Name = "_resourceComboBox";
-			this._resourceComboBox.Size = new System.Drawing.Size(204, 21);
-			this._resourceComboBox.TabIndex = 15;
 			this._resourceComboBox.SelectedIndexChanged += new System.EventHandler(this._resourceComboBox_SelectedIndexChanged);
 			// 
 			// _armourClassLabel
 			// 
-			this._armourClassLabel.AutoSize = true;
-			this._armourClassLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this._armourClassLabel.Location = new System.Drawing.Point(6, 168);
+			resources.ApplyResources(this._armourClassLabel, "_armourClassLabel");
 			this._armourClassLabel.Name = "_armourClassLabel";
-			this._armourClassLabel.Size = new System.Drawing.Size(85, 13);
-			this._armourClassLabel.TabIndex = 14;
-			this._armourClassLabel.Text = "Rüstungsklasse:";
 			// 
 			// _armourClassComboBox
 			// 
+			resources.ApplyResources(this._armourClassComboBox, "_armourClassComboBox");
 			this._armourClassComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._armourClassComboBox.FormattingEnabled = true;
-			this._armourClassComboBox.Location = new System.Drawing.Point(100, 165);
 			this._armourClassComboBox.Name = "_armourClassComboBox";
-			this._armourClassComboBox.Size = new System.Drawing.Size(204, 21);
-			this._armourClassComboBox.TabIndex = 13;
 			this._armourClassComboBox.SelectedIndexChanged += new System.EventHandler(this._armourClassComboBox_SelectedIndexChanged);
 			// 
 			// _attributeLabel
 			// 
-			this._attributeLabel.AutoSize = true;
-			this._attributeLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this._attributeLabel.Location = new System.Drawing.Point(6, 141);
+			resources.ApplyResources(this._attributeLabel, "_attributeLabel");
 			this._attributeLabel.Name = "_attributeLabel";
-			this._attributeLabel.Size = new System.Drawing.Size(43, 13);
-			this._attributeLabel.TabIndex = 12;
-			this._attributeLabel.Text = "Attribut:";
 			// 
 			// _attributeComboBox
 			// 
+			resources.ApplyResources(this._attributeComboBox, "_attributeComboBox");
 			this._attributeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._attributeComboBox.FormattingEnabled = true;
-			this._attributeComboBox.Location = new System.Drawing.Point(100, 138);
 			this._attributeComboBox.Name = "_attributeComboBox";
-			this._attributeComboBox.Size = new System.Drawing.Size(204, 21);
-			this._attributeComboBox.TabIndex = 11;
 			this._attributeComboBox.SelectedIndexChanged += new System.EventHandler(this._attributeComboBox_SelectedIndexChanged);
 			// 
 			// _classLabel
 			// 
-			this._classLabel.AutoSize = true;
-			this._classLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this._classLabel.Location = new System.Drawing.Point(6, 114);
+			resources.ApplyResources(this._classLabel, "_classLabel");
 			this._classLabel.Name = "_classLabel";
-			this._classLabel.Size = new System.Drawing.Size(41, 13);
-			this._classLabel.TabIndex = 10;
-			this._classLabel.Text = "Klasse:";
 			// 
 			// _classComboBox
 			// 
+			resources.ApplyResources(this._classComboBox, "_classComboBox");
 			this._classComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._classComboBox.FormattingEnabled = true;
-			this._classComboBox.Location = new System.Drawing.Point(100, 111);
 			this._classComboBox.Name = "_classComboBox";
-			this._classComboBox.Size = new System.Drawing.Size(204, 21);
-			this._classComboBox.TabIndex = 9;
 			this._classComboBox.SelectedIndexChanged += new System.EventHandler(this._classComboBox_SelectedIndexChanged);
 			// 
 			// _valueField
 			// 
-			this._valueField.Location = new System.Drawing.Point(296, 219);
+			resources.ApplyResources(this._valueField, "_valueField");
 			this._valueField.Name = "_valueField";
-			this._valueField.NameString = "Wert:";
-			this._valueField.Size = new System.Drawing.Size(91, 20);
-			this._valueField.TabIndex = 8;
+			this._valueField.NameString = "Value:";
 			this._valueField.Value = new decimal(new int[] {
             0,
             0,
@@ -272,63 +203,50 @@
 			// 
 			// _modeCheckBox
 			// 
-			this._modeCheckBox.Location = new System.Drawing.Point(9, 219);
+			resources.ApplyResources(this._modeCheckBox, "_modeCheckBox");
 			this._modeCheckBox.Name = "_modeCheckBox";
-			this._modeCheckBox.NameString = "Modus: [  ]  = Setzen, [X] = +/-";
-			this._modeCheckBox.Size = new System.Drawing.Size(169, 20);
-			this._modeCheckBox.TabIndex = 6;
+			this._modeCheckBox.NameString = "Mode: [  ]  = Set, [X] = +/-";
 			this._modeCheckBox.Value = false;
 			this._modeCheckBox.ValueChanged += new TechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._modeCheckBox_ValueChanged);
 			// 
 			// _researchField
 			// 
-			this._researchField.Location = new System.Drawing.Point(5, 85);
+			resources.ApplyResources(this._researchField, "_researchField");
 			this._researchField.Name = "_researchField";
-			this._researchField.NameString = "Technologie:";
-			this._researchField.Size = new System.Drawing.Size(381, 20);
-			this._researchField.TabIndex = 2;
+			this._researchField.NameString = "Research:";
 			this._researchField.Value = null;
 			this._researchField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._researchField_ValueChanged);
 			// 
 			// _destUnitField
 			// 
-			this._destUnitField.Location = new System.Drawing.Point(5, 59);
+			resources.ApplyResources(this._destUnitField, "_destUnitField");
 			this._destUnitField.Name = "_destUnitField";
-			this._destUnitField.NameString = "Upgrade:";
-			this._destUnitField.Size = new System.Drawing.Size(381, 20);
-			this._destUnitField.TabIndex = 1;
+			this._destUnitField.NameString = "Upgrade unit:";
 			this._destUnitField.Value = null;
 			this._destUnitField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._destUnitField_ValueChanged);
 			// 
 			// _unitField
 			// 
-			this._unitField.Location = new System.Drawing.Point(6, 33);
+			resources.ApplyResources(this._unitField, "_unitField");
 			this._unitField.Name = "_unitField";
-			this._unitField.NameString = "Einheit:";
-			this._unitField.Size = new System.Drawing.Size(381, 20);
-			this._unitField.TabIndex = 0;
+			this._unitField.NameString = "Unit:";
 			this._unitField.Value = null;
 			this._unitField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._unitField_ValueChanged);
 			// 
 			// _effectsListBox
 			// 
-			this._effectsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			resources.ApplyResources(this._effectsListBox, "_effectsListBox");
 			this._effectsListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-			this._effectsListBox.HorizontalScrollbar = true;
-			this._effectsListBox.Location = new System.Drawing.Point(0, 0);
 			this._effectsListBox.Name = "_effectsListBox";
-			this._effectsListBox.Size = new System.Drawing.Size(481, 413);
-			this._effectsListBox.TabIndex = 5;
 			this._effectsListBox.SelectedIndexChanged += new System.EventHandler(this._effectsListBox_SelectedIndexChanged);
 			// 
 			// TechEffectControl
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this._effectsListBox);
 			this.Controls.Add(this._effectOptionsPanel);
 			this.Name = "TechEffectControl";
-			this.Size = new System.Drawing.Size(881, 413);
 			this._effectOptionsPanel.ResumeLayout(false);
 			this._effectOptionsPanel.PerformLayout();
 			this.ResumeLayout(false);

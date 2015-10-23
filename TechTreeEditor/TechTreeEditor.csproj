@@ -69,6 +69,25 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_EN|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_EN\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_EN|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug_EN\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;LANG_EN</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -263,8 +282,17 @@
     <EmbeddedResource Include="Controls\LanguageDLLControl.resx">
       <DependentUpon>LanguageDLLControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TechEffectControl.en-US.resx">
+      <DependentUpon>TechEffectControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCivBonusesForm.en-US.resx">
+      <DependentUpon>EditCivBonusesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditCivBonusesForm.resx">
       <DependentUpon>EditCivBonusesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditGraphicsForm.en-US.resx">
+      <DependentUpon>EditGraphicsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditGraphicsForm.resx">
       <DependentUpon>EditGraphicsForm.cs</DependentUpon>
@@ -321,6 +349,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProjectSettingsForm.en-US.resx">
+      <DependentUpon>ProjectSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProjectSettingsForm.resx">
       <DependentUpon>ProjectSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -353,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\TechEffectControl.resx">
       <DependentUpon>TechEffectControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitRenderForm.en-US.resx">
+      <DependentUpon>UnitRenderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UnitRenderForm.resx">
       <DependentUpon>UnitRenderForm.cs</DependentUpon>

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="AbilityTypesDE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="AbilityTypes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>resources\abilitytypesde.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="ArmourClasses" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -130,15 +130,94 @@
   <data name="ClassNames" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>resources\classnamesde.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="Common_EmptyElementName" xml:space="preserve">
+    <value>[keine]</value>
+  </data>
   <data name="MainForm_CurrentSelection" xml:space="preserve">
     <value>Aktuelle Auswahl: {0}</value>
-    <comment>Parameter 0: Name des ausgewählten Objekts.</comment>
   </data>
   <data name="MainForm_Message_CloseProjectSaveChanges" xml:space="preserve">
     <value>Es gibt noch ungespeicherte Änderungen. Sollen diese gespeichert werden?</value>
   </data>
   <data name="MainForm_Message_CloseProjectSaveChanges_Title" xml:space="preserve">
     <value>Projekt schließen</value>
+  </data>
+  <data name="MainForm_Message_CouldNotReloadProject" xml:space="preserve">
+    <value>Fehler: Das Projekt konnte nicht neu geladen werden. Bitte speichern Sie das Projekt manuell und laden sie es anschließend neu. Exception:
+
+{0}</value>
+  </data>
+  <data name="MainForm_Message_CouldNotReloadProject_Title" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="MainForm_Message_DeleteElement" xml:space="preserve">
+    <value>Dieses Element wirklich löschen?</value>
+  </data>
+  <data name="MainForm_Message_DeleteElement_Title" xml:space="preserve">
+    <value>Element löschen</value>
+  </data>
+  <data name="MainForm_Message_LockAllIDs" xml:space="preserve">
+    <value>Wirklich alle Element-IDs als 'Geschützt' markieren?</value>
+  </data>
+  <data name="MainForm_Message_LockAllIDs_Title" xml:space="preserve">
+    <value>Alle IDs schützen</value>
+  </data>
+  <data name="MainForm_Message_SettingsReloadProject" xml:space="preserve">
+    <value>Bei geänderten Einstellungen sollte das Projekt neu geladen werden. Jetzt neu laden?</value>
+  </data>
+  <data name="MainForm_Message_SettingsReloadProject_Title" xml:space="preserve">
+    <value>Projekt neu laden</value>
+  </data>
+  <data name="MainForm_Message_StillReferencesExisting" xml:space="preserve">
+    <value>Fehler: Es wurden noch nicht alle Referenzen gelöscht!</value>
+  </data>
+  <data name="MainForm_Message_StillReferencesExisting_Title" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="MainForm_Operation_DeleteDependencyFirstElement" xml:space="preserve">
+    <value>Bitte das abhängige Element auswählen..</value>
+  </data>
+  <data name="MainForm_Operation_DeleteDependencySecondElement" xml:space="preserve">
+    <value>Bitte das referenzierte Element auswählen...</value>
+  </data>
+  <data name="MainForm_Operation_DeleteElement" xml:space="preserve">
+    <value>Bitte das löschende Element auswählen...</value>
+  </data>
+  <data name="MainForm_Operation_DeleteLink" xml:space="preserve">
+    <value>Bitte das abzutrennende Unterelement auswählen...</value>
+  </data>
+  <data name="MainForm_Operation_NewBuildingDependencyFirstElement" xml:space="preserve">
+    <value>Bitte das abhängige Element auswählen...</value>
+  </data>
+  <data name="MainForm_Operation_NewBuildingDependencySecondElement" xml:space="preserve">
+    <value>Bitte das benötigte Gebäude auswählen...</value>
+  </data>
+  <data name="MainForm_Operation_NewLinkFirstElement" xml:space="preserve">
+    <value>Bitte das unterzuordnene Element auswählen...</value>
+  </data>
+  <data name="MainForm_Operation_NewLinkSecondElement" xml:space="preserve">
+    <value>Bitte das neue Ober-Element auswählen...</value>
+  </data>
+  <data name="MainForm_Operation_NewMakeAvailDependencyFirstElement" xml:space="preserve">
+    <value>Bitte das zu aktivierende Element auswählen...</value>
+  </data>
+  <data name="MainForm_Operation_NewMakeAvailDependencySecondElement" xml:space="preserve">
+    <value>Bitte die aktivierende Technologie auswählen..</value>
+  </data>
+  <data name="MainForm_Operation_NewSuccessorResearchDependencyFirstElement" xml:space="preserve">
+    <value>Bitte das weiterzuentwickelnde Element auswählen...</value>
+  </data>
+  <data name="MainForm_Operation_NewSuccessorResearchDependencySecondElement" xml:space="preserve">
+    <value>Bitte die weiterentwickelnde Technologie auswählen...</value>
+  </data>
+  <data name="MainForm_Status_LoadingCultureList" xml:space="preserve">
+    <value>Lade Kulturenliste...</value>
+  </data>
+  <data name="MainForm_Status_LoadingIconSLPs" xml:space="preserve">
+    <value>Lade Icon-SLPs...</value>
+  </data>
+  <data name="MainForm_Status_LoadingInterfacDRS" xml:space="preserve">
+    <value>Lade Interfac-DRS...</value>
   </data>
   <data name="MainForm_Status_LoadingPal" xml:space="preserve">
     <value>Lade Farbpalette...</value>
@@ -155,6 +234,9 @@
   <data name="MainForm_Status_Ready" xml:space="preserve">
     <value>Bereit</value>
   </data>
+  <data name="Mainform_Status_RenderingTree" xml:space="preserve">
+    <value>Rendere Baum...</value>
+  </data>
   <data name="MainForm_Status_Saving" xml:space="preserve">
     <value>Projekt speichern...</value>
   </data>
@@ -163,9 +245,238 @@
   </data>
   <data name="MainForm_Title" xml:space="preserve">
     <value>X2-AddOn :: Technologiebaum bearbeiten {0}</value>
-    <comment>Parameter 0: Projektbezogenes (Pfad zum Projekt usw.).</comment>
+  </data>
+  <data name="MainForm_ToolTip_AutoCopy" xml:space="preserve">
+    <value>Auto-Kopieren zu {0}</value>
   </data>
   <data name="ResourceTypes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\ResourceTypesDE.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="TechEffectControl_EffectTypes_AttributeMult" xml:space="preserve">
+    <value>Attribut multiplikativ ändern</value>
+  </data>
+  <data name="TechEffectControl_EffectTypes_AttributePM" xml:space="preserve">
+    <value>Attribut additiv ändern</value>
+  </data>
+  <data name="TechEffectControl_EffectTypes_AttributeSet" xml:space="preserve">
+    <value>Attribut setzen</value>
+  </data>
+  <data name="TechEffectControl_EffectTypes_ResearchCostSetPM" xml:space="preserve">
+    <value>Technologie-Kosten setzen/additiv ändern</value>
+  </data>
+  <data name="TechEffectControl_EffectTypes_ResearchDisable" xml:space="preserve">
+    <value>Technologie deaktivieren</value>
+  </data>
+  <data name="TechEffectControl_EffectTypes_ResearchTimeSetPM" xml:space="preserve">
+    <value>Technologie-Entwicklungszeit setzen/additiv ändern</value>
+  </data>
+  <data name="TechEffectControl_EffectTypes_ResourceMult" xml:space="preserve">
+    <value>Ressource multiplikativ ändern</value>
+  </data>
+  <data name="TechEffectControl_EffectTypes_ResourceSetPM" xml:space="preserve">
+    <value>Ressource setzen/additiv ändern</value>
+  </data>
+  <data name="TechEffectControl_Message_DeleteEffect" xml:space="preserve">
+    <value>Diesen Effekt wirklich löschen?</value>
+  </data>
+  <data name="TechEffectControl_Message_DeleteEffect_Title" xml:space="preserve">
+    <value>Effekt löschen</value>
+  </data>
+  <data name="TechEffectControl_Message_SortEffects" xml:space="preserve">
+    <value>Wirklich alle Effekte alphabetisch sortieren?</value>
+  </data>
+  <data name="TechEffectControl_Message_SortEffects_Title" xml:space="preserve">
+    <value>Effekte sortieren</value>
+  </data>
+  <data name="TechEffect_ToString_AttributeMult_Armour" xml:space="preserve">
+    <value>Rüstungsstärke für {0}: * {1} gegen Rüstungsklasse '{2}'</value>
+  </data>
+  <data name="TechEffect_ToString_AttributeMult_Attack" xml:space="preserve">
+    <value>Angriffsstärke für {0}: * {1} gegen Rüstungsklasse '{2}'</value>
+  </data>
+  <data name="TechEffect_ToString_AttributeMult_Else" xml:space="preserve">
+    <value>Attribut '{0}' für {1}': * {2}</value>
+  </data>
+  <data name="TechEffect_ToString_AttributePM_Armour" xml:space="preserve">
+    <value>Rüstungsstärke für {0}: + {1} gegen Rüstungsklasse '{2}'</value>
+  </data>
+  <data name="TechEffect_ToString_AttributePM_Attack" xml:space="preserve">
+    <value>Angriffsstärke für {0}: + {1} gegen Rüstungsklasse '{2}'</value>
+  </data>
+  <data name="TechEffect_ToString_AttributePM_Else" xml:space="preserve">
+    <value>Attribut '{0}' für {1}: + {2}</value>
+  </data>
+  <data name="TechEffect_ToString_AttributeSet_Armour" xml:space="preserve">
+    <value>Rüstungsstärke für {0}: = {1} gegen Rüstungsklasse '{2}'</value>
+  </data>
+  <data name="TechEffect_ToString_AttributeSet_Attack" xml:space="preserve">
+    <value>Angriffsstärke für {0}: = {1} gegen Rüstungsklasse '{2}'</value>
+  </data>
+  <data name="TechEffect_ToString_AttributeSet_Else" xml:space="preserve">
+    <value>Attribut '{0}' für {1}: = {2}</value>
+  </data>
+  <data name="TechEffect_ToString_Part_Class" xml:space="preserve">
+    <value>Klasse</value>
+  </data>
+  <data name="TechEffect_ToString_Part_Disable" xml:space="preserve">
+    <value>Deaktiviere</value>
+  </data>
+  <data name="TechEffect_ToString_Part_Enable" xml:space="preserve">
+    <value>Aktiviere</value>
+  </data>
+  <data name="TechEffect_ToString_Part_Unit" xml:space="preserve">
+    <value>Einheit</value>
+  </data>
+  <data name="TechEffect_ToString_ResearchCostSetPM" xml:space="preserve">
+    <value>'{0}'-Kosten für Technologie '{1}': {2} {3}</value>
+  </data>
+  <data name="TechEffect_ToString_ResearchDisable" xml:space="preserve">
+    <value>Deaktiviere Technologie '{0}'</value>
+  </data>
+  <data name="TechEffect_ToString_ResearchTimeSetPM" xml:space="preserve">
+    <value>Entwicklungszeit für Technologie '{0}': {1} {2}</value>
+  </data>
+  <data name="TechEffect_ToString_ResourceMult" xml:space="preserve">
+    <value>Ressource '{0}': * {1}</value>
+  </data>
+  <data name="TechEffect_ToString_ResourceSetPM" xml:space="preserve">
+    <value>Ressource '{0}': {1} {2}</value>
+  </data>
+  <data name="TechEffect_ToString_UnitEnableDisable" xml:space="preserve">
+    <value>{0} Einheit '{1}'</value>
+  </data>
+  <data name="TechEffect_ToString_UnitUpgrade" xml:space="preserve">
+    <value>Upgrade '{0}' -&gt; '{1}'</value>
+  </data>
+  <data name="Common_Message_PositiveNumber" xml:space="preserve">
+    <value>Bitte gib eine positive ganze Zahl an!</value>
+  </data>
+  <data name="Common_Message_PositiveNumber_Title" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="EditBuildingForm_AgeList" xml:space="preserve">
+    <value>Zeitalter </value>
+  </data>
+  <data name="EditGraphicsForm_Message_DeleteGraphics" xml:space="preserve">
+    <value>Die ausgewählten Grafiken wirklich löschen?</value>
+  </data>
+  <data name="EditGraphicsForm_Message_DeleteGraphics_Title" xml:space="preserve">
+    <value>Grafiken löschen</value>
+  </data>
+  <data name="EditGraphicsForm_Message_SaveChanges" xml:space="preserve">
+    <value>Änderungen speichern?</value>
+  </data>
+  <data name="EditGraphicsForm_Message_SaveChanges_Title" xml:space="preserve">
+    <value>Fenster schließen</value>
+  </data>
+  <data name="UnitAbility_ToString_Class" xml:space="preserve">
+    <value>Klasse '{0}'</value>
+  </data>
+  <data name="UnitAbility_ToString_Resource" xml:space="preserve">
+    <value>Ressource '{0}'</value>
+  </data>
+  <data name="EditResearchForm_Message_NumberRange" xml:space="preserve">
+    <value>Fehler: Bitte eine Zahl zwischen (inklusive) -1 und 5 angeben.</value>
+  </data>
+  <data name="EditResearchForm_Message_NumberRange_Title" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="EditUnitAttributeForm_Message_Byte" xml:space="preserve">
+    <value>Fehler: Ungültiger Zellinhalt. Bitte nur Zahlen zwischen 0 und 255 eingeben.</value>
+  </data>
+  <data name="EditUnitAttributeForm_Message_Byte_Title" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="EditUnitAttributeForm_Message_DeleteAbility" xml:space="preserve">
+    <value>Diese Fähigkeit wirklich löschen?</value>
+  </data>
+  <data name="EditUnitAttributeForm_Message_DeleteAbility_Title" xml:space="preserve">
+    <value>Fähigkeit löschen</value>
+  </data>
+  <data name="EditUnitAttributeForm_Message_PositiveShort" xml:space="preserve">
+    <value>Fehler: Ungültiger Zellinhalt. Bitte nur Zahlen zwischen 0 und 32767 eingeben.</value>
+  </data>
+  <data name="EditUnitAttributeForm_Message_PositiveShort_Title" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="ExportDATFile_Exception_AmbiguousLockedID" xml:space="preserve">
+    <value>Fehler: Doppelte als 'geschützt' markierte ID!</value>
+  </data>
+  <data name="ExportDATFile_Message_CloseWindow" xml:space="preserve">
+    <value>Wollen Sie dieses Fenster wirklich schließen und damit den Exportvorgang abbrechen?</value>
+  </data>
+  <data name="ExportDATFile_Message_CloseWindow_Title" xml:space="preserve">
+    <value>Exportvorgang abbrechen</value>
+  </data>
+  <data name="ExportDATFile_Message_DATNotFound" xml:space="preserve">
+    <value>Fehler: Die angegebene Basis-DAT-Datei existiert nicht!</value>
+  </data>
+  <data name="ExportDATFile_Message_DATNotFound_Title" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="ExportDATFile_Message_SaveIDMapping" xml:space="preserve">
+    <value>Warnung: Es ist eingestellt, dass sämtliche IDs im Projekt den exportierten angeglichen und anschließend gesperrt werden sollen.
+Dies ist nur bei endgültigen Releases empfehlenswert, um bei Updates eine gleichbleibende Zuordnung zu gewährleisten.
+
+Soll diese Einstellung beibehalten werden?</value>
+  </data>
+  <data name="ExportDATFile_Message_SaveIDMapping_Title" xml:space="preserve">
+    <value>Warnung</value>
+  </data>
+  <data name="ImportDATFile_Message_Cancel" xml:space="preserve">
+    <value>Wollen Sie dieses Fenster wirklich schließen und damit den Importvorgang abbrechen?</value>
+  </data>
+  <data name="ImportDATFile_Message_Cancel_Title" xml:space="preserve">
+    <value>Importvorgang abbrechen</value>
+  </data>
+  <data name="ImportDATFile_Message_DATNotFound" xml:space="preserve">
+    <value>Fehler: Es wurde keine gültige DAT-Datei angegeben!</value>
+  </data>
+  <data name="ImportDATFile_Message_DATNotFound_Title" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="ImportDATFile_Message_WaitClose" xml:space="preserve">
+    <value>Bitte warten Sie auf den Abschluss des Vorgangs. Schließen dieses Fensters kann zu Instabilität führen.</value>
+  </data>
+  <data name="ImportDATFile_Message_WaitClose_Title" xml:space="preserve">
+    <value>Importvorgang abbrechen</value>
+  </data>
+  <data name="ImportDATFile_ToolTip_LanguageFiles" xml:space="preserve">
+    <value>Hier sollen alle referenzierten Language-DLL-Dateien angegeben werden.
+Diese sollen nach Priorität aufsteigend sortiert sein, also zum Beispiel:
+
+LANGUAGE.DLL;language_x1.dll;language_x1_p1.dll</value>
+  </data>
+  <data name="TechTreeFile_Exception_UnknownElementType" xml:space="preserve">
+    <value>Ungültiger Elementtyp.</value>
+  </data>
+  <data name="UnitRenderForm_Message_GraphicsDRSNotFound" xml:space="preserve">
+    <value>Fehler beim Laden der Graphics-DRS, das Fenster wird geschlossen. Exception:
+
+</value>
+  </data>
+  <data name="UnitRenderForm_Message_GraphicsDRSNotFound_Title" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="MainForm_CopyBar_All" xml:space="preserve">
+    <value>alle</value>
+  </data>
+  <data name="MainForm_CopyBar_All_ToolTip" xml:space="preserve">
+    <value>Alle auswählen.</value>
+  </data>
+  <data name="MainForm_CopyBar_Invert" xml:space="preserve">
+    <value>invertieren</value>
+  </data>
+  <data name="MainForm_CopyBar_Invert_ToolTip" xml:space="preserve">
+    <value>Auswahl invertieren.</value>
+  </data>
+  <data name="MainForm_CopyBar_None" xml:space="preserve">
+    <value>keine</value>
+  </data>
+  <data name="MainForm_CopyBar_None_ToolTip" xml:space="preserve">
+    <value>Keine auswählen.</value>
+  </data>
+  <data name="UnitRenderForm_FrameNumberHeader" xml:space="preserve">
+    <value>Frame-Nummern</value>
   </data>
 </root>

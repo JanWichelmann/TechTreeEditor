@@ -565,7 +565,7 @@
 			// 
 			resources.ApplyResources(this._buttonIDField, "_buttonIDField");
 			this._buttonIDField.Name = "_buttonIDField";
-			this._buttonIDField.NameString = "Baumenü-Button-ID:";
+			this._buttonIDField.NameString = "Build menu button ID:";
 			this._buttonIDField.Value = new decimal(new int[] {
             0,
             0,
@@ -628,8 +628,6 @@
 		private System.Windows.Forms.DataGridView _buildingDepView;
 		private System.Windows.Forms.GroupBox _childrenGroupBox;
 		private System.Windows.Forms.DataGridView _childrenView;
-		private System.Windows.Forms.DataGridViewTextBoxColumn _childrenViewButtonColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn _childrenViewChildColumn;
 		private System.Windows.Forms.GroupBox _annexGroupBox;
 		private System.Windows.Forms.CheckBox _annex1CheckBox;
 		private System.Windows.Forms.ComboBox _annex1ComboBox;
@@ -651,6 +649,8 @@
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.ComboBox _deadUnitComboBox;
 		private Controls.NumberFieldControl _buttonIDField;
+		private System.Windows.Forms.DataGridViewTextBoxColumn _childrenViewButtonColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn _childrenViewChildColumn;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn _buildingDepViewCountColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn _buildingDepViewNameColumn;
 	}

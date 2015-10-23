@@ -67,8 +67,8 @@
 			// 
 			// _bottomPanel
 			// 
-			this._bottomPanel.Controls.Add(this._closeButton);
 			resources.ApplyResources(this._bottomPanel, "_bottomPanel");
+			this._bottomPanel.Controls.Add(this._closeButton);
 			this._bottomPanel.Name = "_bottomPanel";
 			// 
 			// _closeButton
@@ -80,47 +80,47 @@
 			// 
 			// _mainTabControl
 			// 
+			resources.ApplyResources(this._mainTabControl, "_mainTabControl");
 			this._mainTabControl.Controls.Add(this._mainTabPage);
 			this._mainTabControl.Controls.Add(this._effectTabPage);
-			resources.ApplyResources(this._mainTabControl, "_mainTabControl");
 			this._mainTabControl.Name = "_mainTabControl";
 			this._mainTabControl.SelectedIndex = 0;
 			// 
 			// _mainTabPage
 			// 
+			resources.ApplyResources(this._mainTabPage, "_mainTabPage");
 			this._mainTabPage.Controls.Add(this.groupBox2);
 			this._mainTabPage.Controls.Add(this.groupBox4);
 			this._mainTabPage.Controls.Add(this.groupBox3);
 			this._mainTabPage.Controls.Add(this.groupBox1);
-			resources.ApplyResources(this._mainTabPage, "_mainTabPage");
 			this._mainTabPage.Name = "_mainTabPage";
 			this._mainTabPage.UseVisualStyleBackColor = true;
 			// 
 			// groupBox2
 			// 
+			resources.ApplyResources(this.groupBox2, "groupBox2");
 			this.groupBox2.Controls.Add(this._unknown1Field);
 			this.groupBox2.Controls.Add(this._timeField);
-			resources.ApplyResources(this.groupBox2, "groupBox2");
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.TabStop = false;
 			// 
 			// groupBox4
 			// 
+			resources.ApplyResources(this.groupBox4, "groupBox4");
 			this.groupBox4.Controls.Add(this._cost3Field);
 			this.groupBox4.Controls.Add(this._cost2Field);
 			this.groupBox4.Controls.Add(this._cost1Field);
-			resources.ApplyResources(this.groupBox4, "groupBox4");
 			this.groupBox4.Name = "groupBox4";
 			this.groupBox4.TabStop = false;
 			// 
 			// groupBox3
 			// 
+			resources.ApplyResources(this.groupBox3, "groupBox3");
 			this.groupBox3.Controls.Add(this._fullTechModeField);
 			this.groupBox3.Controls.Add(this._isAgeField);
 			this.groupBox3.Controls.Add(this._iconIDField);
 			this.groupBox3.Controls.Add(this._nameLabel);
 			this.groupBox3.Controls.Add(this._nameTextBox);
-			resources.ApplyResources(this.groupBox3, "groupBox3");
 			this.groupBox3.Name = "groupBox3";
 			this.groupBox3.TabStop = false;
 			// 
@@ -137,13 +137,13 @@
 			// 
 			// groupBox1
 			// 
+			resources.ApplyResources(this.groupBox1, "groupBox1");
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Controls.Add(this._relIDTextBox);
 			this.groupBox1.Controls.Add(this._dllHelpField);
 			this.groupBox1.Controls.Add(this._dllName2Field);
 			this.groupBox1.Controls.Add(this._dllDescriptionField);
 			this.groupBox1.Controls.Add(this._dllName1Field);
-			resources.ApplyResources(this.groupBox1, "groupBox1");
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.TabStop = false;
 			// 
@@ -160,8 +160,8 @@
 			// 
 			// _effectTabPage
 			// 
-			this._effectTabPage.Controls.Add(this._techEffectField);
 			resources.ApplyResources(this._effectTabPage, "_effectTabPage");
+			this._effectTabPage.Controls.Add(this._techEffectField);
 			this._effectTabPage.Name = "_effectTabPage";
 			this._effectTabPage.UseVisualStyleBackColor = true;
 			// 
@@ -169,7 +169,7 @@
 			// 
 			resources.ApplyResources(this._unknown1Field, "_unknown1Field");
 			this._unknown1Field.Name = "_unknown1Field";
-			this._unknown1Field.NameString = "Unbekannt 1:";
+			this._unknown1Field.NameString = "Unknown 1:";
 			this._unknown1Field.Value = new decimal(new int[] {
             0,
             0,
@@ -181,7 +181,7 @@
 			// 
 			resources.ApplyResources(this._timeField, "_timeField");
 			this._timeField.Name = "_timeField";
-			this._timeField.NameString = "Entwicklungsdauer:";
+			this._timeField.NameString = "Research time:";
 			this._timeField.Value = new decimal(new int[] {
             0,
             0,
@@ -193,28 +193,28 @@
 			// 
 			resources.ApplyResources(this._cost3Field, "_cost3Field");
 			this._cost3Field.Name = "_cost3Field";
-			this._cost3Field.NameString = "Kosten 3:";
+			this._cost3Field.NameString = "Cost 3:";
 			this._cost3Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._cost3Field_ValueChanged);
 			// 
 			// _cost2Field
 			// 
 			resources.ApplyResources(this._cost2Field, "_cost2Field");
 			this._cost2Field.Name = "_cost2Field";
-			this._cost2Field.NameString = "Kosten 2:";
+			this._cost2Field.NameString = "Cost 2:";
 			this._cost2Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._cost2Field_ValueChanged);
 			// 
 			// _cost1Field
 			// 
 			resources.ApplyResources(this._cost1Field, "_cost1Field");
 			this._cost1Field.Name = "_cost1Field";
-			this._cost1Field.NameString = "Kosten 1:";
+			this._cost1Field.NameString = "Cost 1:";
 			this._cost1Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._cost1Field_ValueChanged);
 			// 
 			// _fullTechModeField
 			// 
 			resources.ApplyResources(this._fullTechModeField, "_fullTechModeField");
 			this._fullTechModeField.Name = "_fullTechModeField";
-			this._fullTechModeField.NameString = "\"Alle Technologien\"-Modus";
+			this._fullTechModeField.NameString = "Full tech mode";
 			this._fullTechModeField.Value = false;
 			this._fullTechModeField.ValueChanged += new TechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._fullTechModeField_ValueChanged);
 			// 
@@ -222,7 +222,7 @@
 			// 
 			resources.ApplyResources(this._isAgeField, "_isAgeField");
 			this._isAgeField.Name = "_isAgeField";
-			this._isAgeField.NameString = "Zeitalter-Technologie";
+			this._isAgeField.NameString = "Age research";
 			this._isAgeField.Value = false;
 			this._isAgeField.ValueChanged += new TechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._isAgeField_ValueChanged);
 			// 
@@ -230,7 +230,7 @@
 			// 
 			resources.ApplyResources(this._iconIDField, "_iconIDField");
 			this._iconIDField.Name = "_iconIDField";
-			this._iconIDField.NameString = "Icon-ID:";
+			this._iconIDField.NameString = "Icon ID:";
 			this._iconIDField.Value = new decimal(new int[] {
             0,
             0,
@@ -242,7 +242,7 @@
 			// 
 			resources.ApplyResources(this._dllHelpField, "_dllHelpField");
 			this._dllHelpField.Name = "_dllHelpField";
-			this._dllHelpField.NameString = "Hilfe:";
+			this._dllHelpField.NameString = "Help:";
 			this._dllHelpField.ProjectFile = null;
 			this._dllHelpField.Value = 0;
 			this._dllHelpField.ValueChanged += new TechTreeEditor.Controls.LanguageDLLControl.ValueChangedEventHandler(this._dllHelpField_ValueChanged);
@@ -260,7 +260,7 @@
 			// 
 			resources.ApplyResources(this._dllDescriptionField, "_dllDescriptionField");
 			this._dllDescriptionField.Name = "_dllDescriptionField";
-			this._dllDescriptionField.NameString = "Beschreibung:";
+			this._dllDescriptionField.NameString = "Description:";
 			this._dllDescriptionField.ProjectFile = null;
 			this._dllDescriptionField.Value = 0;
 			this._dllDescriptionField.ValueChanged += new TechTreeEditor.Controls.LanguageDLLControl.ValueChangedEventHandler(this._dllDescriptionField_ValueChanged);

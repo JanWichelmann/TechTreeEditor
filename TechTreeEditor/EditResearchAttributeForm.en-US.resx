@@ -117,7 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="_closeButton.Text" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Resource Costs</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_nameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 13</value>
+  </data>
+  <data name="_nameLabel.Text" xml:space="preserve">
+    <value>Internal Name:</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Main settings</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Language DLL Entries</value>
+  </data>
+  <data name="_mainTabPage.Text" xml:space="preserve">
+    <value>Common</value>
+  </data>
+  <data name="_effectTabPage.Text" xml:space="preserve">
+    <value>Additional Effects</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAMAQEAAAAEAIAAoQgAANgAAACAgAAABACAAqBAAAF5CAAAQEAAAAQAgAGgEAAAGUwAAKAAAAEAA
@@ -495,6 +522,10 @@
         AAD4AwAAgAEAAIADAACAAwAAgAEAAIABAACAAwAAgAMAAIADAACAAwAAgAMAAIADAACAAwAAgP8AAP//
         AAA=
 </value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Edit research attributes</value>

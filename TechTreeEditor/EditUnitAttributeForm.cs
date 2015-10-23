@@ -1071,7 +1071,7 @@ namespace TechTreeEditor
 				if(e.RowIndex != _dmgGraphicsField.NewRowIndex && !byte.TryParse((string)e.FormattedValue, out val))
 				{
 					// Fehlermeldung zeigen
-					MessageBox.Show("Fehler: Ungültiger Zellinhalt. Bitte nur Zahlen zwischen 0 und 255 eingeben.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show(Strings.EditUnitAttributeForm_Message_Byte, Strings.EditUnitAttributeForm_Message_Byte_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 					// Bearbeiten erzwingen
 					e.Cancel = true;
@@ -1086,7 +1086,7 @@ namespace TechTreeEditor
 				if(e.RowIndex != _dmgGraphicsField.NewRowIndex && (!short.TryParse((string)e.FormattedValue, out val) || val < 0))
 				{
 					// Fehlermeldung zeigen
-					MessageBox.Show("Fehler: Ungültiger Zellinhalt. Bitte nur Zahlen zwischen 0 und 32767 eingeben.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show(Strings.EditUnitAttributeForm_Message_PositiveShort, Strings.EditUnitAttributeForm_Message_PositiveShort_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 					// Bearbeiten erzwingen
 					e.Cancel = true;
@@ -1291,7 +1291,7 @@ namespace TechTreeEditor
 				if(e.RowIndex != _attackValuesField.NewRowIndex && (!short.TryParse((string)e.FormattedValue, out val) || val < 0))
 				{
 					// Fehlermeldung zeigen
-					MessageBox.Show("Fehler: Ungültiger Zellinhalt. Bitte nur Zahlen zwischen 0 und 32767 eingeben.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show(Strings.EditUnitAttributeForm_Message_PositiveShort, Strings.EditUnitAttributeForm_Message_PositiveShort_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 					// Bearbeiten erzwingen
 					e.Cancel = true;
@@ -1355,7 +1355,7 @@ namespace TechTreeEditor
 				if(e.RowIndex != _armourValuesField.NewRowIndex && (!short.TryParse((string)e.FormattedValue, out val) || val < 0))
 				{
 					// Fehlermeldung zeigen
-					MessageBox.Show("Fehler: Ungültiger Zellinhalt. Bitte nur Zahlen zwischen 0 und 32767 eingeben.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show(Strings.EditUnitAttributeForm_Message_PositiveShort, Strings.EditUnitAttributeForm_Message_PositiveShort_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 					// Bearbeiten erzwingen
 					e.Cancel = true;
@@ -2503,7 +2503,7 @@ namespace TechTreeEditor
 		private void _deleteAbilityButton_Click(object sender, EventArgs e)
 		{
 			// Fähigkeit löschen
-			if(_abilitiesListBox.SelectedIndex >= 0 && MessageBox.Show("Diese Fähigkeit wirklich löschen?", "Fähigkeit löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			if(_abilitiesListBox.SelectedIndex >= 0 && MessageBox.Show(Strings.EditUnitAttributeForm_Message_DeleteAbility, Strings.EditUnitAttributeForm_Message_DeleteAbility_Title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				// Fähigkeit löschen
 				int abilityID = _abilitiesListBox.SelectedIndex;

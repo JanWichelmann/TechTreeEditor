@@ -117,6 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="_buildingDepViewCountColumn.HeaderText" xml:space="preserve">
+    <value>Additional</value>
+  </data>
+  <data name="_buildingDepViewNameColumn.HeaderText" xml:space="preserve">
+    <value>Building</value>
+  </data>
+  <data name="_buildingDependencyGroupBox.Text" xml:space="preserve">
+    <value>Building dependencies</value>
+  </data>
+  <data name="_researchDepViewCountColumn.HeaderText" xml:space="preserve">
+    <value>How much more?</value>
+  </data>
+  <data name="_researchDepViewResearchColumn.HeaderText" xml:space="preserve">
+    <value>Research</value>
+  </data>
+  <data name="_researchDependencyGroupBox.Text" xml:space="preserve">
+    <value>Required researches</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -497,6 +515,6 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Edit building...</value>
+    <value>Edit research...</value>
   </data>
 </root>

@@ -44,9 +44,9 @@
 			this._projUnitComboBox = new System.Windows.Forms.ComboBox();
 			this._childrenGroupBox = new System.Windows.Forms.GroupBox();
 			this._childrenView = new System.Windows.Forms.DataGridView();
+			this._closeButton = new System.Windows.Forms.Button();
 			this._childrenViewButtonColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this._childrenViewChildColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this._closeButton = new System.Windows.Forms.Button();
 			this._otherUnitsGroupBox.SuspendLayout();
 			this._childrenGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this._childrenView)).BeginInit();
@@ -54,6 +54,7 @@
 			// 
 			// _otherUnitsGroupBox
 			// 
+			resources.ApplyResources(this._otherUnitsGroupBox, "_otherUnitsGroupBox");
 			this._otherUnitsGroupBox.Controls.Add(this.label6);
 			this._otherUnitsGroupBox.Controls.Add(this._deadUnitComboBox);
 			this._otherUnitsGroupBox.Controls.Add(this.label4);
@@ -66,7 +67,6 @@
 			this._otherUnitsGroupBox.Controls.Add(this.label2);
 			this._otherUnitsGroupBox.Controls.Add(this.label1);
 			this._otherUnitsGroupBox.Controls.Add(this._projUnitComboBox);
-			resources.ApplyResources(this._otherUnitsGroupBox, "_otherUnitsGroupBox");
 			this._otherUnitsGroupBox.Name = "_otherUnitsGroupBox";
 			this._otherUnitsGroupBox.TabStop = false;
 			// 
@@ -77,9 +77,9 @@
 			// 
 			// _deadUnitComboBox
 			// 
+			resources.ApplyResources(this._deadUnitComboBox, "_deadUnitComboBox");
 			this._deadUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._deadUnitComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this._deadUnitComboBox, "_deadUnitComboBox");
 			this._deadUnitComboBox.Name = "_deadUnitComboBox";
 			this._deadUnitComboBox.Sorted = true;
 			this._deadUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._deadUnitComboBox_SelectedIndexChanged);
@@ -91,18 +91,18 @@
 			// 
 			// _dropSite2ComboBox
 			// 
+			resources.ApplyResources(this._dropSite2ComboBox, "_dropSite2ComboBox");
 			this._dropSite2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._dropSite2ComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this._dropSite2ComboBox, "_dropSite2ComboBox");
 			this._dropSite2ComboBox.Name = "_dropSite2ComboBox";
 			this._dropSite2ComboBox.Sorted = true;
 			this._dropSite2ComboBox.SelectedIndexChanged += new System.EventHandler(this._dropSite2ComboBox_SelectedIndexChanged);
 			// 
 			// _dropSite1ComboBox
 			// 
+			resources.ApplyResources(this._dropSite1ComboBox, "_dropSite1ComboBox");
 			this._dropSite1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._dropSite1ComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this._dropSite1ComboBox, "_dropSite1ComboBox");
 			this._dropSite1ComboBox.Name = "_dropSite1ComboBox";
 			this._dropSite1ComboBox.Sorted = true;
 			this._dropSite1ComboBox.SelectedIndexChanged += new System.EventHandler(this._dropSite1ComboBox_SelectedIndexChanged);
@@ -119,18 +119,18 @@
 			// 
 			// _trackUnitComboBox
 			// 
+			resources.ApplyResources(this._trackUnitComboBox, "_trackUnitComboBox");
 			this._trackUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._trackUnitComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this._trackUnitComboBox, "_trackUnitComboBox");
 			this._trackUnitComboBox.Name = "_trackUnitComboBox";
 			this._trackUnitComboBox.Sorted = true;
 			this._trackUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._trackUnitComboBox_SelectedIndexChanged);
 			// 
 			// _projDuplUnitComboBox
 			// 
+			resources.ApplyResources(this._projDuplUnitComboBox, "_projDuplUnitComboBox");
 			this._projDuplUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._projDuplUnitComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this._projDuplUnitComboBox, "_projDuplUnitComboBox");
 			this._projDuplUnitComboBox.Name = "_projDuplUnitComboBox";
 			this._projDuplUnitComboBox.Sorted = true;
 			this._projDuplUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._projDuplUnitComboBox_SelectedIndexChanged);
@@ -147,22 +147,23 @@
 			// 
 			// _projUnitComboBox
 			// 
+			resources.ApplyResources(this._projUnitComboBox, "_projUnitComboBox");
 			this._projUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._projUnitComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this._projUnitComboBox, "_projUnitComboBox");
 			this._projUnitComboBox.Name = "_projUnitComboBox";
 			this._projUnitComboBox.Sorted = true;
 			this._projUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._projUnitComboBox_SelectedIndexChanged);
 			// 
 			// _childrenGroupBox
 			// 
-			this._childrenGroupBox.Controls.Add(this._childrenView);
 			resources.ApplyResources(this._childrenGroupBox, "_childrenGroupBox");
+			this._childrenGroupBox.Controls.Add(this._childrenView);
 			this._childrenGroupBox.Name = "_childrenGroupBox";
 			this._childrenGroupBox.TabStop = false;
 			// 
 			// _childrenView
 			// 
+			resources.ApplyResources(this._childrenView, "_childrenView");
 			this._childrenView.AllowUserToAddRows = false;
 			this._childrenView.AllowUserToDeleteRows = false;
 			this._childrenView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -170,9 +171,15 @@
 			this._childrenView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this._childrenViewButtonColumn,
             this._childrenViewChildColumn});
-			resources.ApplyResources(this._childrenView, "_childrenView");
 			this._childrenView.Name = "_childrenView";
 			this._childrenView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this._childrenView_CellValidating);
+			// 
+			// _closeButton
+			// 
+			resources.ApplyResources(this._closeButton, "_closeButton");
+			this._closeButton.Name = "_closeButton";
+			this._closeButton.UseVisualStyleBackColor = true;
+			this._closeButton.Click += new System.EventHandler(this._closeButton_Click);
 			// 
 			// _childrenViewButtonColumn
 			// 
@@ -186,13 +193,6 @@
 			resources.ApplyResources(this._childrenViewChildColumn, "_childrenViewChildColumn");
 			this._childrenViewChildColumn.Name = "_childrenViewChildColumn";
 			this._childrenViewChildColumn.ReadOnly = true;
-			// 
-			// _closeButton
-			// 
-			resources.ApplyResources(this._closeButton, "_closeButton");
-			this._closeButton.Name = "_closeButton";
-			this._closeButton.UseVisualStyleBackColor = true;
-			this._closeButton.Click += new System.EventHandler(this._closeButton_Click);
 			// 
 			// EditCreatableForm
 			// 
@@ -223,8 +223,6 @@
 		private System.Windows.Forms.ComboBox _projUnitComboBox;
 		private System.Windows.Forms.GroupBox _childrenGroupBox;
 		private System.Windows.Forms.DataGridView _childrenView;
-		private System.Windows.Forms.DataGridViewTextBoxColumn _childrenViewButtonColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn _childrenViewChildColumn;
 		private System.Windows.Forms.Button _closeButton;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.ComboBox _dropSite2ComboBox;
@@ -232,5 +230,7 @@
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.ComboBox _deadUnitComboBox;
+		private System.Windows.Forms.DataGridViewTextBoxColumn _childrenViewButtonColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn _childrenViewChildColumn;
 	}
 }

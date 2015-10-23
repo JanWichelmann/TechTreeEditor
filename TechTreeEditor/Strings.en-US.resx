@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="AbilityTypesEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="AbilityTypes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>resources\abilitytypesen.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="ArmourClasses" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -130,42 +130,353 @@
   <data name="ClassNames" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>resources\classnamesen.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="Common_EmptyElementName" xml:space="preserve">
+    <value>[none]</value>
+  </data>
+  <data name="Common_Message_PositiveNumber" xml:space="preserve">
+    <value>Please insert a positive integer.</value>
+  </data>
+  <data name="Common_Message_PositiveNumber_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="EditBuildingForm_AgeList" xml:space="preserve">
+    <value>Age </value>
+  </data>
+  <data name="EditGraphicsForm_Message_DeleteGraphics" xml:space="preserve">
+    <value>Delete the selected graphics?</value>
+  </data>
+  <data name="EditGraphicsForm_Message_DeleteGraphics_Title" xml:space="preserve">
+    <value>Delete graphics</value>
+  </data>
+  <data name="EditGraphicsForm_Message_SaveChanges" xml:space="preserve">
+    <value>Save changes?</value>
+  </data>
+  <data name="EditGraphicsForm_Message_SaveChanges_Title" xml:space="preserve">
+    <value>Close Window</value>
+  </data>
+  <data name="EditResearchForm_Message_NumberRange" xml:space="preserve">
+    <value>Error: Please insert a number between (inclusive) -1 and 5.</value>
+  </data>
+  <data name="EditResearchForm_Message_NumberRange_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="EditUnitAttributeForm_Message_Byte" xml:space="preserve">
+    <value>Error: Invalid cell input. Please insert a number between (inclusive) 0 an 255.</value>
+  </data>
+  <data name="EditUnitAttributeForm_Message_Byte_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="EditUnitAttributeForm_Message_DeleteAbility" xml:space="preserve">
+    <value>Delete the selected ability?</value>
+  </data>
+  <data name="EditUnitAttributeForm_Message_DeleteAbility_Title" xml:space="preserve">
+    <value>Delete ability</value>
+  </data>
+  <data name="EditUnitAttributeForm_Message_PositiveShort" xml:space="preserve">
+    <value>Error: Invalid cell input. Please insert a number between (inclusive) 0 an 32767.</value>
+  </data>
+  <data name="EditUnitAttributeForm_Message_PositiveShort_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ExportDATFile_Exception_AmbiguousLockedID" xml:space="preserve">
+    <value>Error: Ambigous 'locked' ID!</value>
+  </data>
+  <data name="ExportDATFile_Message_CloseWindow" xml:space="preserve">
+    <value>Close window and abort export process?</value>
+  </data>
+  <data name="ExportDATFile_Message_CloseWindow_Title" xml:space="preserve">
+    <value>Abort export process</value>
+  </data>
+  <data name="ExportDATFile_Message_DATNotFound" xml:space="preserve">
+    <value>Error: The given DAT file does not exist!</value>
+  </data>
+  <data name="ExportDATFile_Message_DATNotFound_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ExportDATFile_Message_SaveIDMapping" xml:space="preserve">
+    <value>Warning: The application and locking of the generated ID mapping to the whole project is enabled.
+This is only recommended for final releases to ensure that the IDs remain unchanged in later updates.
+
+Retain this setting?</value>
+  </data>
+  <data name="ExportDATFile_Message_SaveIDMapping_Title" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="ImportDATFile_Message_Cancel" xml:space="preserve">
+    <value>Close window and abort import process?</value>
+  </data>
+  <data name="ImportDATFile_Message_Cancel_Title" xml:space="preserve">
+    <value>Abort import process</value>
+  </data>
+  <data name="ImportDATFile_Message_DATNotFound" xml:space="preserve">
+    <value>Error: The given DAT file does not exist!</value>
+  </data>
+  <data name="ImportDATFile_Message_DATNotFound_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ImportDATFile_Message_WaitClose" xml:space="preserve">
+    <value>Please wait for the import process to complete. Otherwise closing of this window could lead to potential instability.</value>
+  </data>
+  <data name="ImportDATFile_Message_WaitClose_Title" xml:space="preserve">
+    <value>Abort import process</value>
+  </data>
+  <data name="ImportDATFile_ToolTip_LanguageFiles" xml:space="preserve">
+    <value>Here all the referenced Language DLLs should be inserted.
+They have to be ordered by their priority ascending, e.g.:
+
+LANGUAGE.DLL;language_x1.dll;language_x1_p1.dll</value>
+  </data>
   <data name="MainForm_CurrentSelection" xml:space="preserve">
-    <value>Aktuelle Auswahl: {0}</value>
-    <comment>Parameter 0: Name des ausgewählten Objekts.</comment>
+    <value>Current selection: {0}</value>
   </data>
   <data name="MainForm_Message_CloseProjectSaveChanges" xml:space="preserve">
-    <value>Es gibt noch ungespeicherte Änderungen. Sollen diese gespeichert werden?</value>
+    <value>Save unsaved changes?</value>
   </data>
   <data name="MainForm_Message_CloseProjectSaveChanges_Title" xml:space="preserve">
-    <value>Projekt schließen</value>
+    <value>Close Project</value>
+  </data>
+  <data name="MainForm_Message_CouldNotReloadProject" xml:space="preserve">
+    <value>Error: The project could not be reloaded. Please save and re-open it manually. Exception:
+
+{0}</value>
+  </data>
+  <data name="MainForm_Message_CouldNotReloadProject_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="MainForm_Message_DeleteElement" xml:space="preserve">
+    <value>Delete the selected element?</value>
+  </data>
+  <data name="MainForm_Message_DeleteElement_Title" xml:space="preserve">
+    <value>Delete element</value>
+  </data>
+  <data name="MainForm_Message_LockAllIDs" xml:space="preserve">
+    <value>Set all element IDs to 'locked'?</value>
+  </data>
+  <data name="MainForm_Message_LockAllIDs_Title" xml:space="preserve">
+    <value>Lock all element IDs</value>
+  </data>
+  <data name="MainForm_Message_SettingsReloadProject" xml:space="preserve">
+    <value>After changing settings the project should be reloaded. Reload?</value>
+  </data>
+  <data name="MainForm_Message_SettingsReloadProject_Title" xml:space="preserve">
+    <value>Reload project</value>
+  </data>
+  <data name="MainForm_Message_StillReferencesExisting" xml:space="preserve">
+    <value>Error: The element to be deleted is still referenced somewhere.</value>
+  </data>
+  <data name="MainForm_Message_StillReferencesExisting_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="MainForm_Operation_DeleteDependencyFirstElement" xml:space="preserve">
+    <value>Please selected the dependent element...</value>
+  </data>
+  <data name="MainForm_Operation_DeleteDependencySecondElement" xml:space="preserve">
+    <value>Please select the referenced element...</value>
+  </data>
+  <data name="MainForm_Operation_DeleteElement" xml:space="preserve">
+    <value>Please select the element to be deleted...</value>
+  </data>
+  <data name="MainForm_Operation_DeleteLink" xml:space="preserve">
+    <value>Please select the element to be unlinked...</value>
+  </data>
+  <data name="MainForm_Operation_NewBuildingDependencyFirstElement" xml:space="preserve">
+    <value>Please selected the dependent element...</value>
+  </data>
+  <data name="MainForm_Operation_NewBuildingDependencySecondElement" xml:space="preserve">
+    <value>Please select the required building...</value>
+  </data>
+  <data name="MainForm_Operation_NewLinkFirstElement" xml:space="preserve">
+    <value>Please select the element to be subordinated...</value>
+  </data>
+  <data name="MainForm_Operation_NewLinkSecondElement" xml:space="preserve">
+    <value>Please select the new parent element...</value>
+  </data>
+  <data name="MainForm_Operation_NewMakeAvailDependencyFirstElement" xml:space="preserve">
+    <value>Please select the element to be activated...</value>
+  </data>
+  <data name="MainForm_Operation_NewMakeAvailDependencySecondElement" xml:space="preserve">
+    <value>Please select the activating element...</value>
+  </data>
+  <data name="MainForm_Operation_NewSuccessorResearchDependencyFirstElement" xml:space="preserve">
+    <value>Please select the element to be upgraded...</value>
+  </data>
+  <data name="MainForm_Operation_NewSuccessorResearchDependencySecondElement" xml:space="preserve">
+    <value>Please select the upgrading research...</value>
+  </data>
+  <data name="MainForm_Status_LoadingCultureList" xml:space="preserve">
+    <value>Loading culture list...</value>
+  </data>
+  <data name="MainForm_Status_LoadingIconSLPs" xml:space="preserve">
+    <value>Loading icon SLPs...</value>
+  </data>
+  <data name="MainForm_Status_LoadingInterfacDRS" xml:space="preserve">
+    <value>Loading interfac DRS...</value>
   </data>
   <data name="MainForm_Status_LoadingPal" xml:space="preserve">
-    <value>Lade Farbpalette...</value>
+    <value>Loading color palette...</value>
   </data>
   <data name="MainForm_Status_LoadingProjectFile" xml:space="preserve">
-    <value>Lade Projektdatei...</value>
+    <value>Loading project file...</value>
   </data>
   <data name="MainForm_Status_PassRenderData" xml:space="preserve">
-    <value>Übergebe Renderdaten...</value>
+    <value>Passing render data...</value>
   </data>
   <data name="MainForm_Status_PreparingTreeRendering" xml:space="preserve">
-    <value>Bereite Baum-Rendering vor...</value>
+    <value>Prepare for tree rendering...</value>
   </data>
   <data name="MainForm_Status_Ready" xml:space="preserve">
     <value>Ready</value>
   </data>
+  <data name="Mainform_Status_RenderingTree" xml:space="preserve">
+    <value>Rendering tree...</value>
+  </data>
   <data name="MainForm_Status_Saving" xml:space="preserve">
-    <value>Projekt speichern...</value>
+    <value>Saving project...</value>
   </data>
   <data name="MainForm_Status_SavingSuccessful" xml:space="preserve">
-    <value>Projekt gespeichert.</value>
+    <value>Project saved.</value>
   </data>
   <data name="MainForm_Title" xml:space="preserve">
-    <value>X2-AddOn :: Technologiebaum bearbeiten {0}</value>
-    <comment>Parameter 0: Projektbezogenes (Pfad zum Projekt usw.).</comment>
+    <value>TechTreeEditor {0}</value>
+  </data>
+  <data name="MainForm_ToolTip_AutoCopy" xml:space="preserve">
+    <value>Automatically copy to {0}</value>
   </data>
   <data name="ResourceTypes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\ResourceTypesEN.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="TechEffectControl_EffectTypes_AttributeMult" xml:space="preserve">
+    <value>Change attribute multiplicatively</value>
+  </data>
+  <data name="TechEffectControl_EffectTypes_AttributePM" xml:space="preserve">
+    <value>Change attribute additively</value>
+  </data>
+  <data name="TechEffectControl_EffectTypes_AttributeSet" xml:space="preserve">
+    <value>Set attribute</value>
+  </data>
+  <data name="TechEffectControl_EffectTypes_ResearchCostSetPM" xml:space="preserve">
+    <value>Set research cost/change additively</value>
+  </data>
+  <data name="TechEffectControl_EffectTypes_ResearchDisable" xml:space="preserve">
+    <value>Disable research</value>
+  </data>
+  <data name="TechEffectControl_EffectTypes_ResearchTimeSetPM" xml:space="preserve">
+    <value>Set research time/change additively</value>
+  </data>
+  <data name="TechEffectControl_EffectTypes_ResourceMult" xml:space="preserve">
+    <value>Change resource multiplicatively</value>
+  </data>
+  <data name="TechEffectControl_EffectTypes_ResourceSetPM" xml:space="preserve">
+    <value>Set resource/change additively</value>
+  </data>
+  <data name="TechEffectControl_Message_DeleteEffect" xml:space="preserve">
+    <value>Delete the selected effect?</value>
+  </data>
+  <data name="TechEffectControl_Message_DeleteEffect_Title" xml:space="preserve">
+    <value>Delete effect</value>
+  </data>
+  <data name="TechEffectControl_Message_SortEffects" xml:space="preserve">
+    <value>Sort effect alphabetically?</value>
+  </data>
+  <data name="TechEffectControl_Message_SortEffects_Title" xml:space="preserve">
+    <value>Sort effects</value>
+  </data>
+  <data name="TechEffect_ToString_AttributeMult_Armour" xml:space="preserve">
+    <value>Armour for {0}: * {1} against armour class  '{2}'</value>
+  </data>
+  <data name="TechEffect_ToString_AttributeMult_Attack" xml:space="preserve">
+    <value>Attack for {0}: * {1} against armour class '{2}'</value>
+  </data>
+  <data name="TechEffect_ToString_AttributeMult_Else" xml:space="preserve">
+    <value>Attribute '{0}' for {1}': * {2}</value>
+  </data>
+  <data name="TechEffect_ToString_AttributePM_Armour" xml:space="preserve">
+    <value>Armour for {0}: + {1} against armour class '{2}'</value>
+  </data>
+  <data name="TechEffect_ToString_AttributePM_Attack" xml:space="preserve">
+    <value>Attack for {0}: + {1} against armour class '{2}'</value>
+  </data>
+  <data name="TechEffect_ToString_AttributePM_Else" xml:space="preserve">
+    <value>Attribute '{0}' for {1}: + {2}</value>
+  </data>
+  <data name="TechEffect_ToString_AttributeSet_Armour" xml:space="preserve">
+    <value>Armour for {0}: = {1} against armour class '{2}'</value>
+  </data>
+  <data name="TechEffect_ToString_AttributeSet_Attack" xml:space="preserve">
+    <value>Attack for {0}: = {1} against armour class '{2}'</value>
+  </data>
+  <data name="TechEffect_ToString_AttributeSet_Else" xml:space="preserve">
+    <value>Attribute '{0}' for {1}: = {2}</value>
+  </data>
+  <data name="TechEffect_ToString_Part_Class" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="TechEffect_ToString_Part_Disable" xml:space="preserve">
+    <value>Disable</value>
+  </data>
+  <data name="TechEffect_ToString_Part_Enable" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="TechEffect_ToString_Part_Unit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="TechEffect_ToString_ResearchCostSetPM" xml:space="preserve">
+    <value>'{0}' cost for research '{1}': {2} {3}</value>
+  </data>
+  <data name="TechEffect_ToString_ResearchDisable" xml:space="preserve">
+    <value>Disable research '{0}'</value>
+  </data>
+  <data name="TechEffect_ToString_ResearchTimeSetPM" xml:space="preserve">
+    <value>Research time for '{0}': {1} {2}</value>
+  </data>
+  <data name="TechEffect_ToString_ResourceMult" xml:space="preserve">
+    <value>Resource '{0}': * {1}</value>
+  </data>
+  <data name="TechEffect_ToString_ResourceSetPM" xml:space="preserve">
+    <value>Resource '{0}': {1} {2}</value>
+  </data>
+  <data name="TechEffect_ToString_UnitEnableDisable" xml:space="preserve">
+    <value>{0} unit '{1}'</value>
+  </data>
+  <data name="TechEffect_ToString_UnitUpgrade" xml:space="preserve">
+    <value>Upgrade '{0}' -&gt; '{1}'</value>
+  </data>
+  <data name="TechTreeFile_Exception_UnknownElementType" xml:space="preserve">
+    <value>Invalid element type.</value>
+  </data>
+  <data name="UnitAbility_ToString_Class" xml:space="preserve">
+    <value>Class '{0}'</value>
+  </data>
+  <data name="UnitAbility_ToString_Resource" xml:space="preserve">
+    <value>Resource '{0}'</value>
+  </data>
+  <data name="UnitRenderForm_Message_GraphicsDRSNotFound" xml:space="preserve">
+    <value>Error while loading the graphics DRS, the window will be closed. Exception:
+
+</value>
+  </data>
+  <data name="UnitRenderForm_Message_GraphicsDRSNotFound_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="MainForm_CopyBar_All" xml:space="preserve">
+    <value>all</value>
+  </data>
+  <data name="MainForm_CopyBar_All_ToolTip" xml:space="preserve">
+    <value>Select all.</value>
+  </data>
+  <data name="MainForm_CopyBar_Invert" xml:space="preserve">
+    <value>invert</value>
+  </data>
+  <data name="MainForm_CopyBar_Invert_ToolTip" xml:space="preserve">
+    <value>Invert selection.</value>
+  </data>
+  <data name="MainForm_CopyBar_None" xml:space="preserve">
+    <value>none</value>
+  </data>
+  <data name="MainForm_CopyBar_None_ToolTip" xml:space="preserve">
+    <value>Select none.</value>
+  </data>
+  <data name="UnitRenderForm_FrameNumberHeader" xml:space="preserve">
+    <value>Frame numbers</value>
   </data>
 </root>

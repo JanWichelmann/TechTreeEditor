@@ -147,7 +147,7 @@ namespace TechTreeEditor
 				if(!byte.TryParse((string)e.FormattedValue, out val) || val < 0)
 				{
 					// Fehler
-					MessageBox.Show("Bitte gib eine positive ganze Zahl an!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show(Strings.Common_Message_PositiveNumber, Strings.Common_Message_PositiveNumber_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 					e.Cancel = true;
 				}
 				else

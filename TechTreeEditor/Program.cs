@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace TechTreeEditor
@@ -12,9 +13,11 @@ namespace TechTreeEditor
 		private static void Main()
 		{
 			// Sprache ändern (für Debugging)
-			/**CultureInfo currCulture = new System.Globalization.CultureInfo("en-US");
+#if LANG_EN
+			CultureInfo currCulture = new System.Globalization.CultureInfo("en-US");
 			CultureInfo.DefaultThreadCurrentCulture = currCulture;
-			CultureInfo.DefaultThreadCurrentUICulture = currCulture;/**/
+			CultureInfo.DefaultThreadCurrentUICulture = currCulture;
+#endif
 
 			// Anwendung starten
 			Application.EnableVisualStyles();

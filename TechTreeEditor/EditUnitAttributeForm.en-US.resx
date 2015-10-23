@@ -117,10 +117,151 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="button1.Text" xml:space="preserve">
-    <value>OK</value>
+  <data name="_closeButton.Text" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="_commonTabPage.Text" xml:space="preserve">
+    <value>Names and descriptions</value>
+  </data>
+  <data name="_abilitiesTabPage.Text" xml:space="preserve">
+    <value>Abilities</value>
+  </data>
+  <data name="_statsTabPage.Text" xml:space="preserve">
+    <value>Common stats</value>
+  </data>
+  <data name="_combatTabPage.Text" xml:space="preserve">
+    <value>Combat stats</value>
+  </data>
+  <data name="_projectileTabPage.Text" xml:space="preserve">
+    <value>Projectile data</value>
+  </data>
+  <data name="_trainTabPage.Text" xml:space="preserve">
+    <value>Creation</value>
+  </data>
+  <data name="_editorTabPage.Text" xml:space="preserve">
+    <value>Editor/Placement/Technical stuff</value>
+  </data>
+  <data name="_behaviourTabPage.Text" xml:space="preserve">
+    <value>Behaviour</value>
+  </data>
+  <data name="_graphicsTabPage.Text" xml:space="preserve">
+    <value>Graphics</value>
+  </data>
+  <data name="_unknownTabPage.Text" xml:space="preserve">
+    <value>Unknown values</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_nameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 13</value>
+  </data>
+  <data name="_nameLabel.Text" xml:space="preserve">
+    <value>Internal name:</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Language DLL entries:</value>
+  </data>
+  <data name="_abilityUnitLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 13</value>
+  </data>
+  <data name="_abilityUnitLabel.Text" xml:space="preserve">
+    <value>Unit:</value>
+  </data>
+  <data name="_abilityResourceProductivityLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 13</value>
+  </data>
+  <data name="_abilityResourceProductivityLabel.Text" xml:space="preserve">
+    <value>Productivity factor:</value>
+  </data>
+  <data name="_abilityResourceDropLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 13</value>
+  </data>
+  <data name="_abilityResourceDropLabel.Text" xml:space="preserve">
+    <value>Drop resource:</value>
+  </data>
+  <data name="_abilityResourceCarryLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 13</value>
+  </data>
+  <data name="_abilityResourceCarryLabel.Text" xml:space="preserve">
+    <value>Carry resource:</value>
+  </data>
+  <data name="_abilityInfoLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 13</value>
+  </data>
+  <data name="_abilityInfoLabel.Text" xml:space="preserve">
+    <value>Note: These settings apply to all cultures.</value>
+  </data>
+  <data name="_abilityResourceLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 13</value>
+  </data>
+  <data name="_abilityResourceLabel.Text" xml:space="preserve">
+    <value>Resource:</value>
+  </data>
+  <data name="_abilityTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 13</value>
+  </data>
+  <data name="_abilityTypeLabel.Text" xml:space="preserve">
+    <value>Type:</value>
+  </data>
+  <data name="_abilityClassLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="_abilityClassLabel.Text" xml:space="preserve">
+    <value>Class:</value>
+  </data>
+  <data name="groupBox22.Text" xml:space="preserve">
+    <value>Reloading time</value>
+  </data>
+  <data name="groupBox20.Text" xml:space="preserve">
+    <value>Range</value>
+  </data>
+  <data name="groupBox19.Text" xml:space="preserve">
+    <value>Armour data</value>
+  </data>
+  <data name="groupBox18.Text" xml:space="preserve">
+    <value>Attack data</value>
+  </data>
+  <data name="groupBox25.Text" xml:space="preserve">
+    <value>Resource Costs</value>
+  </data>
+  <data name="groupBox6.Text" xml:space="preserve">
+    <value>Resource Storages</value>
+  </data>
+  <data name="_classLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="_classLabel.Text" xml:space="preserve">
+    <value>Class:</value>
+  </data>
+  <data name="groupBox33.Text" xml:space="preserve">
+    <value>Dropable resources</value>
+  </data>
+  <data name="groupBox13.Text" xml:space="preserve">
+    <value>Selection settings</value>
+  </data>
+  <data name="groupBox5.Text" xml:space="preserve">
+    <value>Bounds</value>
+  </data>
+  <data name="groupBox14.Text" xml:space="preserve">
+    <value>Damage graphics</value>
+  </data>
+  <data name="_attValClassColumn.HeaderText" xml:space="preserve">
+    <value>Armour class</value>
+  </data>
+  <data name="_attValValueColumn.HeaderText" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="_armValClassColumn.HeaderText" xml:space="preserve">
+    <value>Armour class</value>
+  </data>
+  <data name="_armValValueColumn.HeaderText" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="_dmgGraIDColumn.HeaderText" xml:space="preserve">
+    <value>Graphic ID</value>
+  </data>
+  <data name="_dmgGraApplyModeColumn.HeaderText" xml:space="preserve">
+    <value>Mode</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAMAQEAAAAEAIAAoQgAANgAAACAgAAABACAAqBAAAF5CAAAQEAAAAQAgAGgEAAAGUwAAKAAAAEAA

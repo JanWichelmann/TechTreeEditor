@@ -38,25 +38,25 @@ namespace TechTreeEditor.Controls
 		/// </summary>
 		private static List<KeyValuePair<TechEffect.EffectType, string>> _effectTypes = (new KeyValuePair<TechEffect.EffectType, string>[]
 		{
-			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.AttributeSet, "Attribut setzen"),
-			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResourceSetPM, "Ressource setzen/additiv ändern"),
-			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.AttributePM, "Attribut additiv ändern"),
-			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.AttributeMult, "Attribut multiplikativ ändern"),
-			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResourceMult, "Ressource multiplikativ ändern"),
-			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchCostSetPM, "Technologie-Kosten setzen/additiv ändern"),
-			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchDisable, "Technologie deaktivieren"),
-			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchTimeSetPM, "Technologie-Entwicklungszeit setzen/additiv ändern")
-		}).ToList();
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.AttributeSet, Strings.TechEffectControl_EffectTypes_AttributeSet),
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResourceSetPM, Strings.TechEffectControl_EffectTypes_ResourceSetPM),
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.AttributePM, Strings.TechEffectControl_EffectTypes_AttributePM),
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.AttributeMult, Strings.TechEffectControl_EffectTypes_AttributeMult),
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResourceMult, Strings.TechEffectControl_EffectTypes_ResourceMult),
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchCostSetPM, Strings.TechEffectControl_EffectTypes_ResearchCostSetPM),
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchDisable, Strings.TechEffectControl_EffectTypes_ResearchDisable),
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchTimeSetPM, Strings.TechEffectControl_EffectTypes_ResearchTimeSetPM)
+        }).ToList();
 
 		/// <summary>
 		/// Leere Einheit.
 		/// </summary>
-		private static TechTreeUnit _emptyUnit = new TechTreeCreatable() { ID = -1, Name = "[Keine]" };
+		private static TechTreeUnit _emptyUnit = new TechTreeCreatable() { ID = -1, Name = Strings.Common_EmptyElementName };
 
 		/// <summary>
 		/// Leere Technologie.
 		/// </summary>
-		private static TechTreeResearch _emptyResearch = new TechTreeResearch() { ID = -1, Name = "[Keine]" };
+		private static TechTreeResearch _emptyResearch = new TechTreeResearch() { ID = -1, Name = Strings.Common_EmptyElementName };
 
 		/// <summary>
 		/// Die gecachten Einheiten-Klassen.
@@ -303,7 +303,7 @@ namespace TechTreeEditor.Controls
 		private void _deleteEffectButton_Click(object sender, EventArgs e)
 		{
 			// Effekt löschen
-			if(_effectsListBox.SelectedIndex >= 0 && MessageBox.Show("Diesen Effekt wirklich löschen?", "Effekt löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			if(_effectsListBox.SelectedIndex >= 0 && MessageBox.Show(Strings.TechEffectControl_Message_DeleteEffect, Strings.TechEffectControl_Message_DeleteEffect_Title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				// Effekt löschen
 				_effectList.RemoveAt(_effectsListBox.SelectedIndex);
@@ -316,7 +316,7 @@ namespace TechTreeEditor.Controls
 		private void _sortEffectsButton_Click(object sender, EventArgs e)
 		{
 			// Effekte sortieren
-			if(MessageBox.Show("Wirklich alle Effekte alphabetisch sortieren?", "Effekte sortieren", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+			if(MessageBox.Show(Strings.TechEffectControl_Message_SortEffects, Strings.TechEffectControl_Message_SortEffects_Title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				// Effekte sortieren
 				_effectList.Sort((eff1, eff2) => eff1.ToString().CompareTo(eff2.ToString()));

@@ -61,11 +61,37 @@ namespace TechTreeEditor {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 0|- Ungültig -
+        ///1|&quot;Move-To&quot; (Ungenutzt)
+        ///2|Folgen
+        ///3|Einquartieren
+        ///4|Erkunden
+        ///5|Sammeln und Erneuern
+        ///6|Natural Wonders-Cheat
+        ///7|Angreifen
+        ///8|Schießen
+        ///10|Fliegen
+        ///11|Erschrecken/Jagen (Wölfe-&gt;Rehe)
+        ///12|Entladen (Transportschiff)
+        ///13|Bewachen
+        ///20|Entkommen
+        ///21|Erstellen
+        ///101|Bauen
+        ///102|Objekt erstellen (?)
+        ///103|Technologie erstellen (?)
+        ///104|Bekehren
+        ///105|Heilen
+        ///106|Reparieren
+        ///107|Automatisch bekehrt werden
+        ///108|Entdecken (?)
+        ///109|Geschossen ausweichen
+        ///110|Jagen
+        ///111|Handeln
+        ///120|Weltwundersieg auslöse [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string AbilityTypes {
             get {
-                return ResourceManager.GetString("AbilityTypesDE", resourceCulture);
+                return ResourceManager.GetString("AbilityTypes", resourceCulture);
             }
         }
         
@@ -135,8 +161,7 @@ namespace TechTreeEditor {
         ///100: Resource Cost
         ///101: Creation Time
         ///102: Number of Garrison Arrows
-        ///103: Food Cost
-        /// [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///103: Food Cost        /// [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string Attributes {
             get {
@@ -195,6 +220,336 @@ namespace TechTreeEditor {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die [keine] ähnelt.
+        /// </summary>
+        internal static string Common_EmptyElementName {
+            get {
+                return ResourceManager.GetString("Common_EmptyElementName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte gib eine positive ganze Zahl an! ähnelt.
+        /// </summary>
+        internal static string Common_Message_PositiveNumber {
+            get {
+                return ResourceManager.GetString("Common_Message_PositiveNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler ähnelt.
+        /// </summary>
+        internal static string Common_Message_PositiveNumber_Title {
+            get {
+                return ResourceManager.GetString("Common_Message_PositiveNumber_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zeitalter  ähnelt.
+        /// </summary>
+        internal static string EditBuildingForm_AgeList {
+            get {
+                return ResourceManager.GetString("EditBuildingForm_AgeList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Die ausgewählten Grafiken wirklich löschen? ähnelt.
+        /// </summary>
+        internal static string EditGraphicsForm_Message_DeleteGraphics {
+            get {
+                return ResourceManager.GetString("EditGraphicsForm_Message_DeleteGraphics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Grafiken löschen ähnelt.
+        /// </summary>
+        internal static string EditGraphicsForm_Message_DeleteGraphics_Title {
+            get {
+                return ResourceManager.GetString("EditGraphicsForm_Message_DeleteGraphics_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Änderungen speichern? ähnelt.
+        /// </summary>
+        internal static string EditGraphicsForm_Message_SaveChanges {
+            get {
+                return ResourceManager.GetString("EditGraphicsForm_Message_SaveChanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fenster schließen ähnelt.
+        /// </summary>
+        internal static string EditGraphicsForm_Message_SaveChanges_Title {
+            get {
+                return ResourceManager.GetString("EditGraphicsForm_Message_SaveChanges_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler: Bitte eine Zahl zwischen (inklusive) -1 und 5 angeben. ähnelt.
+        /// </summary>
+        internal static string EditResearchForm_Message_NumberRange {
+            get {
+                return ResourceManager.GetString("EditResearchForm_Message_NumberRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler ähnelt.
+        /// </summary>
+        internal static string EditResearchForm_Message_NumberRange_Title {
+            get {
+                return ResourceManager.GetString("EditResearchForm_Message_NumberRange_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler: Ungültiger Zellinhalt. Bitte nur Zahlen zwischen 0 und 255 eingeben. ähnelt.
+        /// </summary>
+        internal static string EditUnitAttributeForm_Message_Byte {
+            get {
+                return ResourceManager.GetString("EditUnitAttributeForm_Message_Byte", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler ähnelt.
+        /// </summary>
+        internal static string EditUnitAttributeForm_Message_Byte_Title {
+            get {
+                return ResourceManager.GetString("EditUnitAttributeForm_Message_Byte_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Diese Fähigkeit wirklich löschen? ähnelt.
+        /// </summary>
+        internal static string EditUnitAttributeForm_Message_DeleteAbility {
+            get {
+                return ResourceManager.GetString("EditUnitAttributeForm_Message_DeleteAbility", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fähigkeit löschen ähnelt.
+        /// </summary>
+        internal static string EditUnitAttributeForm_Message_DeleteAbility_Title {
+            get {
+                return ResourceManager.GetString("EditUnitAttributeForm_Message_DeleteAbility_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler: Ungültiger Zellinhalt. Bitte nur Zahlen zwischen 0 und 32767 eingeben. ähnelt.
+        /// </summary>
+        internal static string EditUnitAttributeForm_Message_PositiveShort {
+            get {
+                return ResourceManager.GetString("EditUnitAttributeForm_Message_PositiveShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler ähnelt.
+        /// </summary>
+        internal static string EditUnitAttributeForm_Message_PositiveShort_Title {
+            get {
+                return ResourceManager.GetString("EditUnitAttributeForm_Message_PositiveShort_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler: Doppelte als &apos;geschützt&apos; markierte ID! ähnelt.
+        /// </summary>
+        internal static string ExportDATFile_Exception_AmbiguousLockedID {
+            get {
+                return ResourceManager.GetString("ExportDATFile_Exception_AmbiguousLockedID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wollen Sie dieses Fenster wirklich schließen und damit den Exportvorgang abbrechen? ähnelt.
+        /// </summary>
+        internal static string ExportDATFile_Message_CloseWindow {
+            get {
+                return ResourceManager.GetString("ExportDATFile_Message_CloseWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Exportvorgang abbrechen ähnelt.
+        /// </summary>
+        internal static string ExportDATFile_Message_CloseWindow_Title {
+            get {
+                return ResourceManager.GetString("ExportDATFile_Message_CloseWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler: Die angegebene Basis-DAT-Datei existiert nicht! ähnelt.
+        /// </summary>
+        internal static string ExportDATFile_Message_DATNotFound {
+            get {
+                return ResourceManager.GetString("ExportDATFile_Message_DATNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler ähnelt.
+        /// </summary>
+        internal static string ExportDATFile_Message_DATNotFound_Title {
+            get {
+                return ResourceManager.GetString("ExportDATFile_Message_DATNotFound_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Warnung: Es ist eingestellt, dass sämtliche IDs im Projekt den exportierten angeglichen und anschließend gesperrt werden sollen.
+        ///Dies ist nur bei endgültigen Releases empfehlenswert, um bei Updates eine gleichbleibende Zuordnung zu gewährleisten.
+        ///
+        ///Soll diese Einstellung beibehalten werden? ähnelt.
+        /// </summary>
+        internal static string ExportDATFile_Message_SaveIDMapping {
+            get {
+                return ResourceManager.GetString("ExportDATFile_Message_SaveIDMapping", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Warnung ähnelt.
+        /// </summary>
+        internal static string ExportDATFile_Message_SaveIDMapping_Title {
+            get {
+                return ResourceManager.GetString("ExportDATFile_Message_SaveIDMapping_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wollen Sie dieses Fenster wirklich schließen und damit den Importvorgang abbrechen? ähnelt.
+        /// </summary>
+        internal static string ImportDATFile_Message_Cancel {
+            get {
+                return ResourceManager.GetString("ImportDATFile_Message_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Importvorgang abbrechen ähnelt.
+        /// </summary>
+        internal static string ImportDATFile_Message_Cancel_Title {
+            get {
+                return ResourceManager.GetString("ImportDATFile_Message_Cancel_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler: Es wurde keine gültige DAT-Datei angegeben! ähnelt.
+        /// </summary>
+        internal static string ImportDATFile_Message_DATNotFound {
+            get {
+                return ResourceManager.GetString("ImportDATFile_Message_DATNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler ähnelt.
+        /// </summary>
+        internal static string ImportDATFile_Message_DATNotFound_Title {
+            get {
+                return ResourceManager.GetString("ImportDATFile_Message_DATNotFound_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte warten Sie auf den Abschluss des Vorgangs. Schließen dieses Fensters kann zu Instabilität führen. ähnelt.
+        /// </summary>
+        internal static string ImportDATFile_Message_WaitClose {
+            get {
+                return ResourceManager.GetString("ImportDATFile_Message_WaitClose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Importvorgang abbrechen ähnelt.
+        /// </summary>
+        internal static string ImportDATFile_Message_WaitClose_Title {
+            get {
+                return ResourceManager.GetString("ImportDATFile_Message_WaitClose_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Hier sollen alle referenzierten Language-DLL-Dateien angegeben werden.
+        ///Diese sollen nach Priorität aufsteigend sortiert sein, also zum Beispiel:
+        ///
+        ///LANGUAGE.DLL;language_x1.dll;language_x1_p1.dll ähnelt.
+        /// </summary>
+        internal static string ImportDATFile_ToolTip_LanguageFiles {
+            get {
+                return ResourceManager.GetString("ImportDATFile_ToolTip_LanguageFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die alle ähnelt.
+        /// </summary>
+        internal static string MainForm_CopyBar_All {
+            get {
+                return ResourceManager.GetString("MainForm_CopyBar_All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Alle auswählen. ähnelt.
+        /// </summary>
+        internal static string MainForm_CopyBar_All_ToolTip {
+            get {
+                return ResourceManager.GetString("MainForm_CopyBar_All_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die invertieren ähnelt.
+        /// </summary>
+        internal static string MainForm_CopyBar_Invert {
+            get {
+                return ResourceManager.GetString("MainForm_CopyBar_Invert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Auswahl invertieren. ähnelt.
+        /// </summary>
+        internal static string MainForm_CopyBar_Invert_ToolTip {
+            get {
+                return ResourceManager.GetString("MainForm_CopyBar_Invert_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die keine ähnelt.
+        /// </summary>
+        internal static string MainForm_CopyBar_None {
+            get {
+                return ResourceManager.GetString("MainForm_CopyBar_None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Keine auswählen. ähnelt.
+        /// </summary>
+        internal static string MainForm_CopyBar_None_ToolTip {
+            get {
+                return ResourceManager.GetString("MainForm_CopyBar_None_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Aktuelle Auswahl: {0} ähnelt.
         /// </summary>
         internal static string MainForm_CurrentSelection {
@@ -218,6 +573,233 @@ namespace TechTreeEditor {
         internal static string MainForm_Message_CloseProjectSaveChanges_Title {
             get {
                 return ResourceManager.GetString("MainForm_Message_CloseProjectSaveChanges_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler: Das Projekt konnte nicht neu geladen werden. Bitte speichern Sie das Projekt manuell und laden sie es anschließend neu. Exception:
+        ///
+        ///{0} ähnelt.
+        /// </summary>
+        internal static string MainForm_Message_CouldNotReloadProject {
+            get {
+                return ResourceManager.GetString("MainForm_Message_CouldNotReloadProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler ähnelt.
+        /// </summary>
+        internal static string MainForm_Message_CouldNotReloadProject_Title {
+            get {
+                return ResourceManager.GetString("MainForm_Message_CouldNotReloadProject_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Dieses Element wirklich löschen? ähnelt.
+        /// </summary>
+        internal static string MainForm_Message_DeleteElement {
+            get {
+                return ResourceManager.GetString("MainForm_Message_DeleteElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Element löschen ähnelt.
+        /// </summary>
+        internal static string MainForm_Message_DeleteElement_Title {
+            get {
+                return ResourceManager.GetString("MainForm_Message_DeleteElement_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wirklich alle Element-IDs als &apos;Geschützt&apos; markieren? ähnelt.
+        /// </summary>
+        internal static string MainForm_Message_LockAllIDs {
+            get {
+                return ResourceManager.GetString("MainForm_Message_LockAllIDs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Alle IDs schützen ähnelt.
+        /// </summary>
+        internal static string MainForm_Message_LockAllIDs_Title {
+            get {
+                return ResourceManager.GetString("MainForm_Message_LockAllIDs_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bei geänderten Einstellungen sollte das Projekt neu geladen werden. Jetzt neu laden? ähnelt.
+        /// </summary>
+        internal static string MainForm_Message_SettingsReloadProject {
+            get {
+                return ResourceManager.GetString("MainForm_Message_SettingsReloadProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Projekt neu laden ähnelt.
+        /// </summary>
+        internal static string MainForm_Message_SettingsReloadProject_Title {
+            get {
+                return ResourceManager.GetString("MainForm_Message_SettingsReloadProject_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler: Es wurden noch nicht alle Referenzen gelöscht! ähnelt.
+        /// </summary>
+        internal static string MainForm_Message_StillReferencesExisting {
+            get {
+                return ResourceManager.GetString("MainForm_Message_StillReferencesExisting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler ähnelt.
+        /// </summary>
+        internal static string MainForm_Message_StillReferencesExisting_Title {
+            get {
+                return ResourceManager.GetString("MainForm_Message_StillReferencesExisting_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte das abhängige Element auswählen.. ähnelt.
+        /// </summary>
+        internal static string MainForm_Operation_DeleteDependencyFirstElement {
+            get {
+                return ResourceManager.GetString("MainForm_Operation_DeleteDependencyFirstElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte das referenzierte Element auswählen... ähnelt.
+        /// </summary>
+        internal static string MainForm_Operation_DeleteDependencySecondElement {
+            get {
+                return ResourceManager.GetString("MainForm_Operation_DeleteDependencySecondElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte das löschende Element auswählen... ähnelt.
+        /// </summary>
+        internal static string MainForm_Operation_DeleteElement {
+            get {
+                return ResourceManager.GetString("MainForm_Operation_DeleteElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte das abzutrennende Unterelement auswählen... ähnelt.
+        /// </summary>
+        internal static string MainForm_Operation_DeleteLink {
+            get {
+                return ResourceManager.GetString("MainForm_Operation_DeleteLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte das abhängige Element auswählen... ähnelt.
+        /// </summary>
+        internal static string MainForm_Operation_NewBuildingDependencyFirstElement {
+            get {
+                return ResourceManager.GetString("MainForm_Operation_NewBuildingDependencyFirstElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte das benötigte Gebäude auswählen... ähnelt.
+        /// </summary>
+        internal static string MainForm_Operation_NewBuildingDependencySecondElement {
+            get {
+                return ResourceManager.GetString("MainForm_Operation_NewBuildingDependencySecondElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte das unterzuordnene Element auswählen... ähnelt.
+        /// </summary>
+        internal static string MainForm_Operation_NewLinkFirstElement {
+            get {
+                return ResourceManager.GetString("MainForm_Operation_NewLinkFirstElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte das neue Ober-Element auswählen... ähnelt.
+        /// </summary>
+        internal static string MainForm_Operation_NewLinkSecondElement {
+            get {
+                return ResourceManager.GetString("MainForm_Operation_NewLinkSecondElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte das zu aktivierende Element auswählen... ähnelt.
+        /// </summary>
+        internal static string MainForm_Operation_NewMakeAvailDependencyFirstElement {
+            get {
+                return ResourceManager.GetString("MainForm_Operation_NewMakeAvailDependencyFirstElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte die aktivierende Technologie auswählen.. ähnelt.
+        /// </summary>
+        internal static string MainForm_Operation_NewMakeAvailDependencySecondElement {
+            get {
+                return ResourceManager.GetString("MainForm_Operation_NewMakeAvailDependencySecondElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte das weiterzuentwickelnde Element auswählen... ähnelt.
+        /// </summary>
+        internal static string MainForm_Operation_NewSuccessorResearchDependencyFirstElement {
+            get {
+                return ResourceManager.GetString("MainForm_Operation_NewSuccessorResearchDependencyFirstElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte die weiterentwickelnde Technologie auswählen... ähnelt.
+        /// </summary>
+        internal static string MainForm_Operation_NewSuccessorResearchDependencySecondElement {
+            get {
+                return ResourceManager.GetString("MainForm_Operation_NewSuccessorResearchDependencySecondElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Lade Kulturenliste... ähnelt.
+        /// </summary>
+        internal static string MainForm_Status_LoadingCultureList {
+            get {
+                return ResourceManager.GetString("MainForm_Status_LoadingCultureList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Lade Icon-SLPs... ähnelt.
+        /// </summary>
+        internal static string MainForm_Status_LoadingIconSLPs {
+            get {
+                return ResourceManager.GetString("MainForm_Status_LoadingIconSLPs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Lade Interfac-DRS... ähnelt.
+        /// </summary>
+        internal static string MainForm_Status_LoadingInterfacDRS {
+            get {
+                return ResourceManager.GetString("MainForm_Status_LoadingInterfacDRS", resourceCulture);
             }
         }
         
@@ -267,6 +849,15 @@ namespace TechTreeEditor {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rendere Baum... ähnelt.
+        /// </summary>
+        internal static string Mainform_Status_RenderingTree {
+            get {
+                return ResourceManager.GetString("Mainform_Status_RenderingTree", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Projekt speichern... ähnelt.
         /// </summary>
         internal static string MainForm_Status_Saving {
@@ -290,6 +881,15 @@ namespace TechTreeEditor {
         internal static string MainForm_Title {
             get {
                 return ResourceManager.GetString("MainForm_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Auto-Kopieren zu {0} ähnelt.
+        /// </summary>
+        internal static string MainForm_ToolTip_AutoCopy {
+            get {
+                return ResourceManager.GetString("MainForm_ToolTip_AutoCopy", resourceCulture);
             }
         }
         
@@ -329,6 +929,350 @@ namespace TechTreeEditor {
         internal static string ResourceTypes {
             get {
                 return ResourceManager.GetString("ResourceTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rüstungsstärke für {0}: * {1} gegen Rüstungsklasse &apos;{2}&apos; ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_AttributeMult_Armour {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_AttributeMult_Armour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Angriffsstärke für {0}: * {1} gegen Rüstungsklasse &apos;{2}&apos; ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_AttributeMult_Attack {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_AttributeMult_Attack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Attribut &apos;{0}&apos; für {1}&apos;: * {2} ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_AttributeMult_Else {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_AttributeMult_Else", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rüstungsstärke für {0}: + {1} gegen Rüstungsklasse &apos;{2}&apos; ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_AttributePM_Armour {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_AttributePM_Armour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Angriffsstärke für {0}: + {1} gegen Rüstungsklasse &apos;{2}&apos; ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_AttributePM_Attack {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_AttributePM_Attack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Attribut &apos;{0}&apos; für {1}: + {2} ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_AttributePM_Else {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_AttributePM_Else", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rüstungsstärke für {0}: = {1} gegen Rüstungsklasse &apos;{2}&apos; ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_AttributeSet_Armour {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_AttributeSet_Armour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Angriffsstärke für {0}: = {1} gegen Rüstungsklasse &apos;{2}&apos; ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_AttributeSet_Attack {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_AttributeSet_Attack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Attribut &apos;{0}&apos; für {1}: = {2} ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_AttributeSet_Else {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_AttributeSet_Else", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Klasse ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_Part_Class {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_Part_Class", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Deaktiviere ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_Part_Disable {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_Part_Disable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Aktiviere ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_Part_Enable {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_Part_Enable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Einheit ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_Part_Unit {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_Part_Unit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &apos;{0}&apos;-Kosten für Technologie &apos;{1}&apos;: {2} {3} ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_ResearchCostSetPM {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_ResearchCostSetPM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Deaktiviere Technologie &apos;{0}&apos; ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_ResearchDisable {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_ResearchDisable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Entwicklungszeit für Technologie &apos;{0}&apos;: {1} {2} ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_ResearchTimeSetPM {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_ResearchTimeSetPM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ressource &apos;{0}&apos;: * {1} ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_ResourceMult {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_ResourceMult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ressource &apos;{0}&apos;: {1} {2} ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_ResourceSetPM {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_ResourceSetPM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die {0} Einheit &apos;{1}&apos; ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_UnitEnableDisable {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_UnitEnableDisable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Upgrade &apos;{0}&apos; -&gt; &apos;{1}&apos; ähnelt.
+        /// </summary>
+        internal static string TechEffect_ToString_UnitUpgrade {
+            get {
+                return ResourceManager.GetString("TechEffect_ToString_UnitUpgrade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Attribut multiplikativ ändern ähnelt.
+        /// </summary>
+        internal static string TechEffectControl_EffectTypes_AttributeMult {
+            get {
+                return ResourceManager.GetString("TechEffectControl_EffectTypes_AttributeMult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Attribut additiv ändern ähnelt.
+        /// </summary>
+        internal static string TechEffectControl_EffectTypes_AttributePM {
+            get {
+                return ResourceManager.GetString("TechEffectControl_EffectTypes_AttributePM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Attribut setzen ähnelt.
+        /// </summary>
+        internal static string TechEffectControl_EffectTypes_AttributeSet {
+            get {
+                return ResourceManager.GetString("TechEffectControl_EffectTypes_AttributeSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Technologie-Kosten setzen/additiv ändern ähnelt.
+        /// </summary>
+        internal static string TechEffectControl_EffectTypes_ResearchCostSetPM {
+            get {
+                return ResourceManager.GetString("TechEffectControl_EffectTypes_ResearchCostSetPM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Technologie deaktivieren ähnelt.
+        /// </summary>
+        internal static string TechEffectControl_EffectTypes_ResearchDisable {
+            get {
+                return ResourceManager.GetString("TechEffectControl_EffectTypes_ResearchDisable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Technologie-Entwicklungszeit setzen/additiv ändern ähnelt.
+        /// </summary>
+        internal static string TechEffectControl_EffectTypes_ResearchTimeSetPM {
+            get {
+                return ResourceManager.GetString("TechEffectControl_EffectTypes_ResearchTimeSetPM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ressource multiplikativ ändern ähnelt.
+        /// </summary>
+        internal static string TechEffectControl_EffectTypes_ResourceMult {
+            get {
+                return ResourceManager.GetString("TechEffectControl_EffectTypes_ResourceMult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ressource setzen/additiv ändern ähnelt.
+        /// </summary>
+        internal static string TechEffectControl_EffectTypes_ResourceSetPM {
+            get {
+                return ResourceManager.GetString("TechEffectControl_EffectTypes_ResourceSetPM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Diesen Effekt wirklich löschen? ähnelt.
+        /// </summary>
+        internal static string TechEffectControl_Message_DeleteEffect {
+            get {
+                return ResourceManager.GetString("TechEffectControl_Message_DeleteEffect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Effekt löschen ähnelt.
+        /// </summary>
+        internal static string TechEffectControl_Message_DeleteEffect_Title {
+            get {
+                return ResourceManager.GetString("TechEffectControl_Message_DeleteEffect_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wirklich alle Effekte alphabetisch sortieren? ähnelt.
+        /// </summary>
+        internal static string TechEffectControl_Message_SortEffects {
+            get {
+                return ResourceManager.GetString("TechEffectControl_Message_SortEffects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Effekte sortieren ähnelt.
+        /// </summary>
+        internal static string TechEffectControl_Message_SortEffects_Title {
+            get {
+                return ResourceManager.GetString("TechEffectControl_Message_SortEffects_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ungültiger Elementtyp. ähnelt.
+        /// </summary>
+        internal static string TechTreeFile_Exception_UnknownElementType {
+            get {
+                return ResourceManager.GetString("TechTreeFile_Exception_UnknownElementType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Klasse &apos;{0}&apos; ähnelt.
+        /// </summary>
+        internal static string UnitAbility_ToString_Class {
+            get {
+                return ResourceManager.GetString("UnitAbility_ToString_Class", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ressource &apos;{0}&apos; ähnelt.
+        /// </summary>
+        internal static string UnitAbility_ToString_Resource {
+            get {
+                return ResourceManager.GetString("UnitAbility_ToString_Resource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Frame-Nummern ähnelt.
+        /// </summary>
+        internal static string UnitRenderForm_FrameNumberHeader {
+            get {
+                return ResourceManager.GetString("UnitRenderForm_FrameNumberHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Laden der Graphics-DRS, das Fenster wird geschlossen. Exception:
+        ///
+        /// ähnelt.
+        /// </summary>
+        internal static string UnitRenderForm_Message_GraphicsDRSNotFound {
+            get {
+                return ResourceManager.GetString("UnitRenderForm_Message_GraphicsDRSNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler ähnelt.
+        /// </summary>
+        internal static string UnitRenderForm_Message_GraphicsDRSNotFound_Title {
+            get {
+                return ResourceManager.GetString("UnitRenderForm_Message_GraphicsDRSNotFound_Title", resourceCulture);
             }
         }
     }

@@ -117,4 +117,601 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;_destUnitField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.DropDownFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_resourceLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 195</value>
+  </data>
+  <data name="_armourClassLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 13</value>
+  </data>
+  <data name="&gt;&gt;_attributeComboBox.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="_resourceComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 192</value>
+  </data>
+  <data name="&gt;&gt;_effectDownButton.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_effectsListBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;_modeCheckBox.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.CheckBoxFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_newEffectButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_classComboBox.Name" xml:space="preserve">
+    <value>_classComboBox</value>
+  </data>
+  <data name="&gt;&gt;_armourClassComboBox.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_attributeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;_unitField.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;_researchField.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="_effectDownButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 32</value>
+  </data>
+  <data name="&gt;&gt;_effectTypeLabel.Name" xml:space="preserve">
+    <value>_effectTypeLabel</value>
+  </data>
+  <data name="_deleteEffectButton.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;_armourClassLabel.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="_effectUpButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;_armourClassLabel.Name" xml:space="preserve">
+    <value>_armourClassLabel</value>
+  </data>
+  <data name="_effectTypeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;_researchField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.DropDownFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="_resourceLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_effectDownButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="_effectUpButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="&gt;&gt;_effectOptionsPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_effectOptionsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="_classLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="&gt;&gt;_sortEffectsButton.Name" xml:space="preserve">
+    <value>_sortEffectsButton</value>
+  </data>
+  <data name="&gt;&gt;_sortEffectsButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_destUnitField.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="_sortEffectsButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="_effectTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 13</value>
+  </data>
+  <data name="&gt;&gt;_armourClassComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_sortEffectsButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="&gt;&gt;_effectTypeComboBox.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="_armourClassLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 168</value>
+  </data>
+  <data name="&gt;&gt;_valueField.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;_attributeLabel.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="_armourClassComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="_destUnitField.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="_effectUpButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 338</value>
+  </data>
+  <data name="&gt;&gt;_classLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_newEffectButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_valueField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 20</value>
+  </data>
+  <data name="&gt;&gt;_effectUpButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_valueField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>296, 219</value>
+  </data>
+  <data name="&gt;&gt;_resourceLabel.Name" xml:space="preserve">
+    <value>_resourceLabel</value>
+  </data>
+  <data name="&gt;&gt;_newEffectButton.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="_armourClassLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;_effectDownButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="_attributeComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 21</value>
+  </data>
+  <data name="&gt;&gt;_effectTypeLabel.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="_classLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="_sortEffectsButton.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;_researchField.Name" xml:space="preserve">
+    <value>_researchField</value>
+  </data>
+  <data name="&gt;&gt;_armourClassComboBox.Name" xml:space="preserve">
+    <value>_armourClassComboBox</value>
+  </data>
+  <data name="&gt;&gt;_classComboBox.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;_resourceComboBox.Name" xml:space="preserve">
+    <value>_resourceComboBox</value>
+  </data>
+  <data name="&gt;&gt;_armourClassLabel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;_modeCheckBox.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="_effectTypeComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;_modeCheckBox.Name" xml:space="preserve">
+    <value>_modeCheckBox</value>
+  </data>
+  <data name="&gt;&gt;_effectOptionsPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_newEffectButton.Name" xml:space="preserve">
+    <value>_newEffectButton</value>
+  </data>
+  <data name="&gt;&gt;_effectTypeComboBox.Name" xml:space="preserve">
+    <value>_effectTypeComboBox</value>
+  </data>
+  <data name="_deleteEffectButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;_resourceLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_unitField.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;_effectsListBox.Type" xml:space="preserve">
+    <value>TechTreeEditor.DoubleBufferedListBox, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="_effectOptionsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="_deleteEffectButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="_armourClassComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 21</value>
+  </data>
+  <data name="_effectUpButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 32</value>
+  </data>
+  <data name="&gt;&gt;_effectUpButton.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="_deleteEffectButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="&gt;&gt;_effectUpButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="_newEffectButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="_newEffectButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>TechEffectControl</value>
+  </data>
+  <data name="&gt;&gt;_attributeLabel.Name" xml:space="preserve">
+    <value>_attributeLabel</value>
+  </data>
+  <data name="&gt;&gt;_deleteEffectButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="_effectUpButton.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;_deleteEffectButton.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="_effectUpButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_resourceLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 13</value>
+  </data>
+  <data name="&gt;&gt;_effectTypeLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_classLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_attributeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 141</value>
+  </data>
+  <data name="&gt;&gt;_resourceLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="_attributeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
+  </data>
+  <data name="_classLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 114</value>
+  </data>
+  <data name="_armourClassComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 165</value>
+  </data>
+  <data name="_attributeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;_attributeComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_attributeLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;_effectUpButton.Name" xml:space="preserve">
+    <value>_effectUpButton</value>
+  </data>
+  <data name="&gt;&gt;_effectDownButton.Name" xml:space="preserve">
+    <value>_effectDownButton</value>
+  </data>
+  <data name="_unitField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 33</value>
+  </data>
+  <data name="_effectUpButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="&gt;&gt;_effectDownButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_effectsListBox.Name" xml:space="preserve">
+    <value>_effectsListBox</value>
+  </data>
+  <data name="_deleteEffectButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>44, 376</value>
+  </data>
+  <data name="_effectOptionsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>481, 0</value>
+  </data>
+  <data name="_attributeLabel.Text" xml:space="preserve">
+    <value>Attribut:</value>
+  </data>
+  <data name="_effectDownButton.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="_resourceComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;_armourClassLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_unitField.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_attributeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_newEffectButton.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="_resourceLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>881, 413</value>
+  </data>
+  <data name="&gt;&gt;_unitField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.DropDownFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_modeCheckBox.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="_effectTypeComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>297, 21</value>
+  </data>
+  <data name="_effectTypeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="_armourClassLabel.Text" xml:space="preserve">
+    <value>Rüstungsklasse:</value>
+  </data>
+  <data name="_classComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 111</value>
+  </data>
+  <data name="_researchField.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_classLabel.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;_destUnitField.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;_valueField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="_effectsListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>481, 413</value>
+  </data>
+  <data name="&gt;&gt;_researchField.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;_sortEffectsButton.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="_classLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_newEffectButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="_sortEffectsButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="_effectTypeLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;_resourceLabel.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="_newEffectButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>44, 338</value>
+  </data>
+  <data name="&gt;&gt;_resourceComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_destUnitField.Name" xml:space="preserve">
+    <value>_destUnitField</value>
+  </data>
+  <data name="_newEffectButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 32</value>
+  </data>
+  <data name="_sortEffectsButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;_valueField.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;_attributeComboBox.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="_modeCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 20</value>
+  </data>
+  <data name="&gt;&gt;_effectTypeComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_resourceComboBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="_newEffectButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_classLabel.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="&gt;&gt;_unitField.Name" xml:space="preserve">
+    <value>_unitField</value>
+  </data>
+  <data name="&gt;&gt;_classComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_modeCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 219</value>
+  </data>
+  <data name="&gt;&gt;_effectsListBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="_destUnitField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>381, 20</value>
+  </data>
+  <data name="_destUnitField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 59</value>
+  </data>
+  <data name="_unitField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>381, 20</value>
+  </data>
+  <data name="_classLabel.Text" xml:space="preserve">
+    <value>Klasse:</value>
+  </data>
+  <data name="&gt;&gt;_effectsListBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_classComboBox.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="_researchField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 85</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="_deleteEffectButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="_classComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 21</value>
+  </data>
+  <data name="_effectTypeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 9</value>
+  </data>
+  <data name="_effectDownButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 376</value>
+  </data>
+  <data name="_effectTypeComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 6</value>
+  </data>
+  <data name="&gt;&gt;_armourClassComboBox.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="_sortEffectsButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>84, 376</value>
+  </data>
+  <data name="_classComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="_resourceLabel.Text" xml:space="preserve">
+    <value>Ressource:</value>
+  </data>
+  <data name="&gt;&gt;_deleteEffectButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_resourceComboBox.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="_armourClassLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;_valueField.Name" xml:space="preserve">
+    <value>_valueField</value>
+  </data>
+  <data name="_effectDownButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;_attributeLabel.Parent" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="_armourClassLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_attributeComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 138</value>
+  </data>
+  <data name="&gt;&gt;_effectOptionsPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_resourceLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="_researchField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>381, 20</value>
+  </data>
+  <data name="&gt;&gt;_deleteEffectButton.Name" xml:space="preserve">
+    <value>_deleteEffectButton</value>
+  </data>
+  <data name="&gt;&gt;_classLabel.Name" xml:space="preserve">
+    <value>_classLabel</value>
+  </data>
+  <data name="_sortEffectsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 32</value>
+  </data>
+  <data name="_effectDownButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="&gt;&gt;_sortEffectsButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_effectOptionsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 413</value>
+  </data>
+  <data name="_effectsListBox.HorizontalScrollbar" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_effectDownButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_valueField.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="_deleteEffectButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 32</value>
+  </data>
+  <data name="_effectsListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;_attributeComboBox.Name" xml:space="preserve">
+    <value>_attributeComboBox</value>
+  </data>
+  <data name="_modeCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;_effectTypeComboBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_resourceComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 21</value>
+  </data>
+  <data name="&gt;&gt;_effectTypeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_effectOptionsPanel.Name" xml:space="preserve">
+    <value>_effectOptionsPanel</value>
+  </data>
+  <data name="_effectTypeLabel.Text" xml:space="preserve">
+    <value>Effekt-Typ:</value>
+  </data>
+  <data name="_effectsListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="_attributeComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en-US</value>
+  </metadata>
 </root>

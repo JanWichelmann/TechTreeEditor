@@ -90,7 +90,7 @@ namespace TechTreeEditor
 				if(!int.TryParse((string)_researchDepView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value, out newVal) || newVal < -1 || newVal > 5)
 				{
 					// Fehler
-					MessageBox.Show("Fehler: Bitte eine Zahl zwischen (inklusive) -1 und 5 angeben.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show(Strings.EditResearchForm_Message_NumberRange, Strings.EditResearchForm_Message_NumberRange_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 					_researchDepView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "-1";
 				}
 				else
