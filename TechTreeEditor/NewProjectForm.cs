@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TechTreeEditor.Properties;
 
 namespace TechTreeEditor
 {
@@ -75,9 +77,29 @@ namespace TechTreeEditor
 			// Speicherfenster anzeigen
 			if(_saveProjectDialog.ShowDialog() == DialogResult.OK)
 			{
-				// TODO
+				// Projektdatei aus Ressourcen holen und am Zielort speichern
+				_projectFilePath = _saveProjectDialog.FileName;
+				if(_minimalProjectButton.Checked)
+					File.WriteAllBytes(_saveProjectDialog.FileName, Resources.ProjectTemplate_Minimal);
+				else if(_fullProjectButton.Checked)
+					File.WriteAllBytes(_saveProjectDialog.FileName, Resources.ProjectTemplate_Full);
 
-			}
+				// DLL-Pfade extrahieren
+				List<string> languageFileNames = _dllTextBox.Text.Split(';').ToList();
+				languageFileNames.RemoveAll(fn => string.IsNullOrEmpty(fn));
+				languageFileNames.Reverse();
+
+				// Projektdatei öffnen
+				TechTreeFile projectFile = new TechTreeFile(_projectFilePath);
+
+				// Dateipfade ergänzen
+				projectFile.InterfacDRSPath = _interfacDRSTextBox.Text;
+				projectFile.LanguageFilePaths = languageFileNames;
+
+				// Projekt speichern und schließen
+				projectFile.WriteData(_projectFilePath);
+				projectFile = null;
+            }
 
 			// Fenster schließen
 			this.DialogResult = DialogResult.OK;

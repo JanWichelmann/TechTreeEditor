@@ -1,4 +1,4 @@
-# Introduction
+## Introduction
 
 This application allows to edit the technology tree of *Age of Empires II: The Conquerors* in a graphical way. This includes editing attributes of units and researches, assigning them to building slots and defining dependencies. A new project can be created by importing a DAT file or using built-in templates; the export function writes the whole project data into a given base DAT.
 
@@ -6,11 +6,14 @@ The most of the planned features are implemented and were tested extensively, bu
 
 The software is available in english and german language; this should be determined automatically on initial startup.
 
-## Missing Features
-Missing, but planned features are:
+### Missing Features
+#### Missing, but planned features are:
+* Modification of the in-game tech tree view (the changes on units an researches are not applied to it yet)
 * Undo/Redo commands (very complicated, so low priority)
+#### Currently not planned features are:
+* Modification of sounds (maybe later) and terrain data
 
-# Legal Info & Credits
+## Legal Info & Credits
 
 This software is published under the MIT/X11 license. Please read the LICENSE file for further information.
 

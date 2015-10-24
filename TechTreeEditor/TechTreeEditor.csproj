@@ -502,6 +502,9 @@
     <Content Include="Icons\UpgradeDependency.png" />
     <None Include="Resources\CreditsDE.rtf" />
     <None Include="Resources\CreditsEN.rtf" />
+    <None Include="Resources\ProjectTemplate_Full.ttp" />
+    <None Include="Resources\ProjectTemplate_Minimal.ttp" />
+    <None Include="Resources\ProjectTemplate_Reduced.ttp" />
     <None Include="Resources\ResourceTypesDE.txt" />
     <None Include="Resources\ResourceTypesEN.txt" />
     <None Include="Resources\ClassNamesDE.txt" />

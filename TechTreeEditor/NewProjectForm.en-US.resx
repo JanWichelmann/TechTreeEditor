@@ -136,11 +136,11 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Project template:</value>
   </data>
-  <data name="radioButton1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>374, 17</value>
+  <data name="_fullProjectButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>373, 17</value>
   </data>
-  <data name="radioButton1.Text" xml:space="preserve">
-    <value>Standard Project: A project for a normal AoE II: The Conquerors 1.0c mod.</value>
+  <data name="_fullProjectButton.Text" xml:space="preserve">
+    <value>Standard project: A project for a normal AoE II: The Conquerors 1.0c mod.</value>
   </data>
   <data name="_cancelButton.Text" xml:space="preserve">
     <value>Cancel</value>
@@ -165,6 +165,12 @@
   </data>
   <data name="_openInterfacDRSDialog.Title" xml:space="preserve">
     <value>Open interfac DRS file...</value>
+  </data>
+  <data name="_reducedProjectButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>408, 17</value>
+  </data>
+  <data name="_reducedProjectButton.Text" xml:space="preserve">
+    <value>Reduced Project: Like a standard project, except that unsed units were removed.</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
