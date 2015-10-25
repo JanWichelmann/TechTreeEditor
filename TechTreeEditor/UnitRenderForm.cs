@@ -156,11 +156,10 @@ namespace TechTreeEditor
 			_projectFile = projectFile;
 
 			// Graphics-DRS laden
-			string graDRS = Path.GetFullPath(_projectFile.GraphicsDRSPath);
-			if(File.Exists(graDRS))
+			if(!string.IsNullOrWhiteSpace(_projectFile.GraphicsDRSPath) && File.Exists(_projectFile.GraphicsDRSPath))
 			{
 				// Laden
-				_graphicsDRSTextBox.Text = graDRS;
+				_graphicsDRSTextBox.Text = Path.GetFullPath(_projectFile.GraphicsDRSPath);
 				_loadDRSButton_Click(this, EventArgs.Empty);
 			}
 		}
