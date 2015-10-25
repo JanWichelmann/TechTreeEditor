@@ -465,6 +465,9 @@ namespace TechTreeEditor.TechTreeStructure
 			// Textur neu erstellen
 			clone.IconTextureID = textureFunc(clone.Type, clone.DATResearch.IconID);
 
+			// Namen aktualisieren
+			clone.UpdateName(projectFile.LanguageFileWrapper);
+
 			// Fertig
 			return clone;
 		}

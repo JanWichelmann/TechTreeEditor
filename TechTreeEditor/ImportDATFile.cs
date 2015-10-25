@@ -576,7 +576,7 @@ namespace TechTreeEditor
 						{
 							// Zeitalter-Abhängigkeit?
 							// Dunkle Zeit (100 + AgeCount) braucht nicht berücksichtigt werden, Age ist eh standardmäßig 0
-							if(depID >= 101 && depID <= 100 + _projectFile.AgeCount-1)
+							if(depID >= 101 && depID <= 100 + _projectFile.AgeCount - 1)
 							{
 								// Zeitalter setzen
 								if(currRes.Value.Age < depID - 100)
@@ -879,7 +879,7 @@ namespace TechTreeEditor
 										if(dep > 0)
 
 											// Zeitalter-Abhängigkeit? Dunkle Zeit kann hier ignoriert werden, da eh Age = 0
-											if(dep >= 101 && dep <= 100+_projectFile.AgeCount-1)
+											if(dep >= 101 && dep <= 100 + _projectFile.AgeCount - 1)
 											{
 												// Gebäude-Zeitalter setzen
 												building.Age = dep - 100;

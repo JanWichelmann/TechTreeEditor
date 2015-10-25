@@ -400,7 +400,7 @@
     <value>Fehler</value>
   </data>
   <data name="ExportDATFile_Exception_AmbiguousLockedID" xml:space="preserve">
-    <value>Fehler: Doppelte als 'geschützt' markierte ID!</value>
+    <value>Fehler: Doppelte als 'geschützt' markierte ID: {0}.</value>
   </data>
   <data name="ExportDATFile_Message_CloseWindow" xml:space="preserve">
     <value>Wollen Sie dieses Fenster wirklich schließen und damit den Exportvorgang abbrechen?</value>

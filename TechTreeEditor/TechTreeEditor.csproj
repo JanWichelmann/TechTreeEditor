@@ -361,9 +361,6 @@
     <EmbeddedResource Include="ImportDATFile.resx">
       <DependentUpon>ImportDATFile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.en-029.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.en-US.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -377,9 +374,6 @@
       <DependentUpon>NewProjectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectSettingsForm.en-US.resx">
-      <DependentUpon>ProjectSettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProjectSettingsForm.en-ZW.resx">
       <DependentUpon>ProjectSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectSettingsForm.resx">

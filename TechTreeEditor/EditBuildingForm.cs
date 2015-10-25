@@ -51,8 +51,8 @@ namespace TechTreeEditor
 			// Fenstertitel aktualisieren
 			this.Text += _building.Name;
 
-			// Age-Upgrade-Steuerelement füllen => TODO: hardcoded...
-			for(int i = 1; i < 5; ++i)
+			// Age-Upgrade-Steuerelement füllen
+			for(int i = 1; i < projectFile.AgeCount; ++i)
 			{
 				// Zeile erstellen
 				_ageUpgradeListBox.Items.Add(Strings.EditBuildingForm_AgeList + i, _building.AgeUpgrades.ContainsKey(i));

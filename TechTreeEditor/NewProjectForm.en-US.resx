@@ -160,17 +160,17 @@
   <data name="_openDLLDialog.Title" xml:space="preserve">
     <value>Load Language DLL Files...</value>
   </data>
-  <data name="_openInterfacDRSDialog.Filter" xml:space="preserve">
-    <value>DRS Files (*.drs)|*.drs</value>
-  </data>
-  <data name="_openInterfacDRSDialog.Title" xml:space="preserve">
-    <value>Open interfac DRS file...</value>
-  </data>
   <data name="_reducedProjectButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>408, 17</value>
   </data>
   <data name="_reducedProjectButton.Text" xml:space="preserve">
     <value>Reduced Project: Like a standard project, except that unsed units were removed.</value>
+  </data>
+  <data name="_openInterfacDRSDialog.Filter" xml:space="preserve">
+    <value>DRS Files (*.drs)|*.drs</value>
+  </data>
+  <data name="_openInterfacDRSDialog.Title" xml:space="preserve">
+    <value>Open interfac DRS file...</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

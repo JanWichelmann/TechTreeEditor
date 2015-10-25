@@ -139,6 +139,13 @@ namespace TechTreeEditor
 				// Einheiten-ID-Verteilung erstellen
 				Dictionary<TechTreeUnit, int> unitIDMap = new Dictionary<TechTreeUnit, int>();
 
+				// Gewisse IDs sind freizuhalten (Spanische Kriegsgaleone)
+				// TODO: Dies kann man später vielleicht noch mit einer ID-Änderungsfunktion ergänzen, sodass diese Einheiten im Programm referenziert werden können
+				TechTreeCreatable unit768 = new TechTreeCreatable() { ID = 768 };
+				TechTreeCreatable unit770 = new TechTreeCreatable() { ID = 770 };
+				unitIDMap.Add(unit768, 768);
+				unitIDMap.Add(unit770, 770);
+
 				// Technologie-ID-Verteilung erstellen
 				Dictionary<TechTreeResearch, int> researchIDMap = new Dictionary<TechTreeResearch, int>();
 
@@ -166,7 +173,7 @@ namespace TechTreeEditor
 						else
 						{
 							// Nicht gut
-							throw new Exception(Strings.ExportDATFile_Exception_AmbiguousLockedID);
+							throw new Exception(string.Format(Strings.ExportDATFile_Exception_AmbiguousLockedID, units[i].ID));
 						}
 					}
 				}
@@ -208,6 +215,17 @@ namespace TechTreeEditor
 					++lastID;
 				}
 
+				// Dunkle Zeit in Technologie-Liste einfügen, hat höchste Priorität
+				TechTreeResearch darkAgeResearch = new TechTreeResearch()
+				{
+					DATResearch = _projectFile.BasicGenieFile.Researches[100 + _projectFile.AgeCount],
+					ID = 100 + _projectFile.AgeCount
+				};
+				darkAgeResearch.Effects.Add(new TechEffect() { Type = TechEffect.EffectType.ResourceSetPM, Mode = TechEffect.EffectMode.Set_Disable, ParameterID = 6, Value = 0 });
+				darkAgeResearch.Effects.Add(new TechEffect() { Type = TechEffect.EffectType.ResourceSetPM, Mode = TechEffect.EffectMode.Set_Disable, ParameterID = 67, Value = 0 });
+				darkAgeResearch.Effects.Add(new TechEffect() { Type = TechEffect.EffectType.ResourceSetPM, Mode = TechEffect.EffectMode.Set_Disable, ParameterID = 66, Value = 1 });
+				researchIDMap.Add(darkAgeResearch, 100 + _projectFile.AgeCount);
+
 				// Technologien verteilen, zuerst die ID-geschützten
 				List<TechTreeResearch> researches = _projectFile.Where(el => el.GetType() == typeof(TechTreeResearch)).Cast<TechTreeResearch>().ToList();
 				for(int i = researches.Count - 1; i >= 0; --i)
@@ -231,17 +249,6 @@ namespace TechTreeEditor
 						}
 					}
 				}
-
-				// Dunkle Zeit manuell einfügen
-				TechTreeResearch darkAgeResearch = new TechTreeResearch()
-				{
-					DATResearch = _projectFile.BasicGenieFile.Researches[100 + _projectFile.AgeCount],
-					ID = 100 + _projectFile.AgeCount
-				};
-				darkAgeResearch.Effects.Add(new TechEffect() { Type = TechEffect.EffectType.ResourceSetPM, Mode = TechEffect.EffectMode.Set_Disable, ParameterID = 6, Value = 0 });
-				darkAgeResearch.Effects.Add(new TechEffect() { Type = TechEffect.EffectType.ResourceSetPM, Mode = TechEffect.EffectMode.Set_Disable, ParameterID = 67, Value = 0 });
-				darkAgeResearch.Effects.Add(new TechEffect() { Type = TechEffect.EffectType.ResourceSetPM, Mode = TechEffect.EffectMode.Set_Disable, ParameterID = 66, Value = 1 });
-				researchIDMap.Add(darkAgeResearch, 100 + _projectFile.AgeCount);
 
 				// Restliche Technologien verteilen
 				lastID = 0;
@@ -818,7 +825,7 @@ namespace TechTreeEditor
 					for(int u = 0; u <= maxUnitID; ++u)
 					{
 						// Existiert die Einheit?
-						if(!unitData.ContainsKey(u))
+						if(!unitData.ContainsKey(u) || u == unit768.ID || u == unit770.ID)
 						{
 							// Einheit als nicht-existent markieren
 							newCiv.UnitPointers.Add(0);
@@ -1231,6 +1238,10 @@ namespace TechTreeEditor
 			TechTreeBuilding unitB = unit as TechTreeBuilding;
 			TechTreeCreatable unitC = unit as TechTreeCreatable;
 			if(unitB == null && unitC == null)
+				return false;
+
+			// Dummy-Einheiten überspringen
+			if(unit.DATUnit == null)
 				return false;
 
 			// Kulturabhängige nötige Blockierungen der gleich erstellten Verfügbarkeits-Technologie erstellen

@@ -279,6 +279,9 @@
   <data name="_minimalProjectButton.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="_minimalProjectButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="_minimalProjectButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>28, 92</value>
   </data>
@@ -435,6 +438,9 @@
   <data name="_reducedProjectButton.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="_reducedProjectButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="_reducedProjectButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -471,9 +477,6 @@
   <data name="_openInterfacDRSDialog.Title" xml:space="preserve">
     <value>Interfac-DRS-Datei öffnen...</value>
   </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en-US</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

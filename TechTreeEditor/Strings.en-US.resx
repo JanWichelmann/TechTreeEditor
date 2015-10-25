@@ -179,7 +179,7 @@
     <value>Error</value>
   </data>
   <data name="ExportDATFile_Exception_AmbiguousLockedID" xml:space="preserve">
-    <value>Error: Ambigous 'locked' ID!</value>
+    <value>Error: Ambigous 'locked' ID: {0}.</value>
   </data>
   <data name="ExportDATFile_Message_CloseWindow" xml:space="preserve">
     <value>Close window and abort export process?</value>
