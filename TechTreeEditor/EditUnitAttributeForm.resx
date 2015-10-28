@@ -158,6 +158,9 @@
   <data name="&gt;&gt;_minimapColorField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="_dmgGraUnknownColumn.Width" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
   <data name="&gt;&gt;_resourceStorage1ModeField.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
@@ -191,6 +194,9 @@
   <data name="groupBox18.Size" type="System.Drawing.Size, System.Drawing">
     <value>313, 270</value>
   </data>
+  <data name="_graphicsTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
   <data name="_unknown11Field.Location" type="System.Drawing.Point, System.Drawing">
     <value>108, 159</value>
   </data>
@@ -212,20 +218,11 @@
   <data name="_graSnowField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="_abilityResourceComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>89, 108</value>
-  </data>
-  <data name="_abilityResourceProductivityComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>48</value>
-  </data>
-  <data name="&gt;&gt;_cost2Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.ResourceCostControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
   <data name="&gt;&gt;_closeButton.Parent" xml:space="preserve">
     <value>_bottomPanel</value>
   </data>
-  <data name="&gt;&gt;_classLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;_animalModeField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;_disappearsField.Name" xml:space="preserve">
     <value>_disappearsField</value>
@@ -233,8 +230,11 @@
   <data name="_abilityUnknown2Field.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="_missileDuplMaxField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>194, 136</value>
+  <data name="_unknown1Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 3</value>
+  </data>
+  <data name="_unknown12Field.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
   </data>
   <data name="&gt;&gt;_attackValuesField.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -281,6 +281,9 @@
   <data name="&gt;&gt;_unknown12Field.Name" xml:space="preserve">
     <value>_unknown12Field</value>
   </data>
+  <data name="_fogOfWarField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 20</value>
+  </data>
   <data name="&gt;&gt;_abilityActionGraphicField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.DropDownFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
@@ -305,6 +308,9 @@
   <data name="_unknown9CField.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
+  <data name="_unknown9BField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 20</value>
+  </data>
   <data name="&gt;&gt;_resourceDecayField.Name" xml:space="preserve">
     <value>_resourceDecayField</value>
   </data>
@@ -317,11 +323,17 @@
   <data name="_statsTabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
+  <data name="&gt;&gt;_attackValuesField.Parent" xml:space="preserve">
+    <value>groupBox18</value>
+  </data>
   <data name="&gt;&gt;_abilityRightClickModeField.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
   <data name="&gt;&gt;_placementModeField.ZOrder" xml:space="preserve">
     <value>19</value>
+  </data>
+  <data name="_abilityUnitLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 13</value>
   </data>
   <data name="_projectileArcField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -331,6 +343,9 @@
   </data>
   <data name="&gt;&gt;_airModeField.Parent" xml:space="preserve">
     <value>_behaviourTabPage</value>
+  </data>
+  <data name="&gt;&gt;_trainTabPage.Parent" xml:space="preserve">
+    <value>_mainTabControl</value>
   </data>
   <data name="_abilityResourceComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
@@ -449,6 +464,9 @@
   <data name="_editorTabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
+  <data name="_commonTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>943, 362</value>
+  </data>
   <data name="&gt;&gt;groupBox14.Parent" xml:space="preserve">
     <value>_graphicsTabPage</value>
   </data>
@@ -485,9 +503,6 @@
   </data>
   <data name="_abilityResourceLabel.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
-  </data>
-  <data name="&gt;&gt;_deadModeField.ZOrder" xml:space="preserve">
-    <value>21</value>
   </data>
   <data name="_unknown10Field.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -546,8 +561,8 @@
   <data name="_resourceStorage1ModeField.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="_unknown9EField.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;_rangeDisplayedField.Parent" xml:space="preserve">
+    <value>groupBox20</value>
   </data>
   <data name="&gt;&gt;_soundMoveField.Name" xml:space="preserve">
     <value>_soundMoveField</value>
@@ -555,8 +570,8 @@
   <data name="_terrRestrField.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 20</value>
   </data>
-  <data name="&gt;&gt;_attackValuesField.Parent" xml:space="preserve">
-    <value>groupBox18</value>
+  <data name="_abilityExecutionSoundField.TabIndex" type="System.Int32, mscorlib">
+    <value>62</value>
   </data>
   <data name="_graStanding2Field.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -564,14 +579,11 @@
   <data name="_abilityUnknown1Field.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="_resourceStorage3Field.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 21</value>
+  <data name="&gt;&gt;_compensationModeField.Parent" xml:space="preserve">
+    <value>_projectileTabPage</value>
   </data>
   <data name="_garrisonHealRateField.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
-  </data>
-  <data name="_selShapeField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 71</value>
   </data>
   <data name="_newAbilityButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
@@ -639,6 +651,9 @@
   <data name="&gt;&gt;_unknown14Field.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="_graFalling2Field.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
   <data name="&gt;&gt;_terrSide1Field.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
@@ -654,17 +669,11 @@
   <data name="&gt;&gt;_speedField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="_unknown10Field.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 20</value>
-  </data>
   <data name="&gt;&gt;_interactionModeField.Name" xml:space="preserve">
     <value>_interactionModeField</value>
   </data>
   <data name="_abilityPlunderSourceField.Location" type="System.Drawing.Point, System.Drawing">
     <value>458, 188</value>
-  </data>
-  <data name="_rangeMaxField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 45</value>
   </data>
   <data name="&gt;&gt;_abilityUnknown5Field.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -684,6 +693,9 @@
   <data name="_soundSelectionField.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
+  <data name="_graMoving1Field.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="_villagerModeField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -695,6 +707,9 @@
   </data>
   <data name="&gt;&gt;_unknown1Field.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;_abilityResourceLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -741,9 +756,6 @@
   <data name="&gt;&gt;_trainTimeField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;_abilityResourceProductivityLabel.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
   <data name="_accuracyErrorField.Location" type="System.Drawing.Point, System.Drawing">
     <value>194, 6</value>
   </data>
@@ -752,6 +764,9 @@
   </data>
   <data name="&gt;&gt;_villagerModeField.ZOrder" xml:space="preserve">
     <value>10</value>
+  </data>
+  <data name="&gt;&gt;_abilityUnitLabel.Name" xml:space="preserve">
+    <value>_abilityUnitLabel</value>
   </data>
   <data name="_abilityResourceLabel.Text" xml:space="preserve">
     <value>Ressource:</value>
@@ -771,9 +786,6 @@
   <data name="_chargeModeField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;_resourceStorage1Field.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="&gt;&gt;_resourceStorage2ModeField.Name" xml:space="preserve">
     <value>_resourceStorage2ModeField</value>
   </data>
@@ -786,9 +798,6 @@
   <data name="_lootWoodField.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 19</value>
   </data>
-  <data name="&gt;&gt;_abilityTypeComboBox.ZOrder" xml:space="preserve">
-    <value>30</value>
-  </data>
   <data name="_graMoving1Field.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
@@ -797,9 +806,6 @@
   </data>
   <data name="_abilityRightClickModeField.TabIndex" type="System.Int32, mscorlib">
     <value>57</value>
-  </data>
-  <data name="_stretchModeField.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
   </data>
   <data name="_lootFoodField.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -828,8 +834,8 @@
   <data name="_adjacentModeField.Size" type="System.Drawing.Size, System.Drawing">
     <value>167, 20</value>
   </data>
-  <data name="_deleteAbilityButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="_graphicsTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>943, 362</value>
   </data>
   <data name="_selEditorColorField.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -840,6 +846,9 @@
   <data name="&gt;&gt;_abilityTypeLabel.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
+  <data name="_closeButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="_terrSide1Field.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 20</value>
   </data>
@@ -848,6 +857,9 @@
   </data>
   <data name="_missileDuplMinField.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 136</value>
+  </data>
+  <data name="&gt;&gt;_editorXField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="_graphicAngleField.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -888,8 +900,11 @@
   <data name="&gt;&gt;_dllHotkeyField.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;_abilitiesTabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;_abilityResourceCarryComboBox.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;_trackUnitDensityField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;_heroModeField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -969,6 +984,9 @@
   <data name="&gt;&gt;_disappearsField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.CheckBoxFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="_selEffectField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 19</value>
+  </data>
   <data name="&gt;&gt;_flyModeField.Name" xml:space="preserve">
     <value>_flyModeField</value>
   </data>
@@ -999,11 +1017,8 @@
   <data name="&gt;&gt;_civilizationField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="_abilityResourceProductivityLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>49</value>
-  </data>
-  <data name="&gt;&gt;_losField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="_abilityUnknown3Field.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="_abilityRightClickModeField.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 20</value>
@@ -1044,9 +1059,6 @@
   <data name="&gt;&gt;_projectileTabPage.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="_graphicDisplacementXField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 20</value>
-  </data>
   <data name="&gt;&gt;_resourceStorage2ModeField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
@@ -1062,11 +1074,11 @@
   <data name="groupBox14.Text" xml:space="preserve">
     <value>Schadensgrafiken</value>
   </data>
+  <data name="&gt;&gt;_frameDelayField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
   <data name="_abilityUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 21</value>
-  </data>
-  <data name="&gt;&gt;_garrisonHealRateField.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="_accuracyErrorField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1077,8 +1089,8 @@
   <data name="&gt;&gt;_placementModeField.Parent" xml:space="preserve">
     <value>_editorTabPage</value>
   </data>
-  <data name="&gt;&gt;_graStanding2Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.DropDownFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="_searchRadiusField.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
   <data name="&gt;&gt;_commonTabPage.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1101,9 +1113,6 @@
   <data name="_abilityRangeField.TabIndex" type="System.Int32, mscorlib">
     <value>52</value>
   </data>
-  <data name="_abilityResourceProductivityLabel.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="&gt;&gt;_stretchModeField.Name" xml:space="preserve">
     <value>_stretchModeField</value>
   </data>
@@ -1112,6 +1121,9 @@
   </data>
   <data name="&gt;&gt;_constructionSoundField.Parent" xml:space="preserve">
     <value>_soundsTabPage</value>
+  </data>
+  <data name="&gt;&gt;_blastTypeField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;_closeButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1127,6 +1139,9 @@
   </data>
   <data name="groupBox33.Location" type="System.Drawing.Point, System.Drawing">
     <value>270, 137</value>
+  </data>
+  <data name="_edibleMeatField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 20</value>
   </data>
   <data name="&gt;&gt;_hpBar2Field.ZOrder" xml:space="preserve">
     <value>14</value>
@@ -1170,9 +1185,6 @@
   <data name="_graAttackField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;_graStanding1Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.DropDownFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
   <data name="_soundMoveField.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 20</value>
   </data>
@@ -1184,9 +1196,6 @@
   </data>
   <data name="_abilityTerrainField.Location" type="System.Drawing.Point, System.Drawing">
     <value>457, 55</value>
-  </data>
-  <data name="_nameLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 9</value>
   </data>
   <data name="&gt;&gt;panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1239,6 +1248,9 @@
   <data name="_stretchModeField.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 20</value>
   </data>
+  <data name="&gt;&gt;_selShapeTypeField.Parent" xml:space="preserve">
+    <value>groupBox13</value>
+  </data>
   <data name="_fogOfWarField.Location" type="System.Drawing.Point, System.Drawing">
     <value>139, 58</value>
   </data>
@@ -1256,6 +1268,9 @@
   </data>
   <data name="_abilityResourceCarryLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>295, 111</value>
+  </data>
+  <data name="_workRateField.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <data name="_abilityProceedGraphicField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1314,8 +1329,8 @@
   <data name="_abilityResourceLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 13</value>
   </data>
-  <data name="_terrPlacement1Field.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 18</value>
+  <data name="_abilityUnitLabel.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>951, 433</value>
@@ -1374,9 +1389,6 @@
   <data name="_soundAttackField.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 84</value>
   </data>
-  <data name="&gt;&gt;_abilitySelectionModeField.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
   <data name="_lootWoodField.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 20</value>
   </data>
@@ -1400,6 +1412,9 @@
   </data>
   <data name="_resourceStorage2Field.Size" type="System.Drawing.Size, System.Drawing">
     <value>325, 21</value>
+  </data>
+  <data name="_missileSpawnXField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 58</value>
   </data>
   <data name="_trainTabPage.Text" xml:space="preserve">
     <value>Erschaffung</value>
@@ -1440,6 +1455,9 @@
   <data name="_unknown5Field.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
+  <data name="&gt;&gt;_abilityToolGraphicField.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
   <data name="&gt;&gt;_abilityResourceCarryComboBox.Name" xml:space="preserve">
     <value>_abilityResourceCarryComboBox</value>
   </data>
@@ -1479,9 +1497,6 @@
   <data name="&gt;&gt;_adjacentModeField.Name" xml:space="preserve">
     <value>_adjacentModeField</value>
   </data>
-  <data name="_attackModeField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 20</value>
-  </data>
   <data name="&gt;&gt;_abilityUnknown4Field.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
@@ -1502,6 +1517,12 @@
   </data>
   <data name="_selMaskField.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 20</value>
+  </data>
+  <data name="&gt;&gt;_resourceStorage2Field.Name" xml:space="preserve">
+    <value>_resourceStorage2Field</value>
+  </data>
+  <data name="&gt;&gt;_unknown12Field.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="_abilityResourceDropLabel.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1529,6 +1550,9 @@
   </data>
   <data name="_garrisonHealRateField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="_garrisonTypeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>178, 293</value>
   </data>
   <data name="&gt;&gt;_hpBar1Field.Parent" xml:space="preserve">
     <value>_editorTabPage</value>
@@ -1578,14 +1602,14 @@
   <data name="_terrainMultField.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
+  <data name="_missileDuplMaxField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>194, 136</value>
+  </data>
   <data name="_abilityTerrainField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="_abilityUnknown1Field.TabIndex" type="System.Int32, mscorlib">
     <value>64</value>
-  </data>
-  <data name="_editorTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>943, 362</value>
   </data>
   <data name="_heroModeField.Size" type="System.Drawing.Size, System.Drawing">
     <value>164, 20</value>
@@ -1617,9 +1641,6 @@
   <data name="_minimapModeField.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
-  <data name="_abilityProceedGraphicField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 161</value>
-  </data>
   <data name="_accuracyPercentField.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
@@ -1628,6 +1649,9 @@
   </data>
   <data name="_hpBar2Field.Location" type="System.Drawing.Point, System.Drawing">
     <value>431, 182</value>
+  </data>
+  <data name="_graConstructionField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="_abilityResourceCarryLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1674,11 +1698,17 @@
   <data name="_sizeXField.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 20</value>
   </data>
+  <data name="&gt;&gt;_dropAnimationModeField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
   <data name="_blastLevelField.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="_behaviourTabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
+  </data>
+  <data name="&gt;&gt;_selEditorColorField.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;_graMoving2Field.Parent" xml:space="preserve">
     <value>_graphicsTabPage</value>
@@ -1706,6 +1736,9 @@
   </data>
   <data name="&gt;&gt;_fogOfWarField.Parent" xml:space="preserve">
     <value>_behaviourTabPage</value>
+  </data>
+  <data name="&gt;&gt;_abilityPlunderSourceField.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;_unknown8Field.Parent" xml:space="preserve">
     <value>_unknownTabPage</value>
@@ -1803,8 +1836,8 @@
   <data name="_minimapModeField.Location" type="System.Drawing.Point, System.Drawing">
     <value>139, 32</value>
   </data>
-  <data name="&gt;&gt;_abilityUnknown4Field.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;_resourceDecayField.Parent" xml:space="preserve">
+    <value>_behaviourTabPage</value>
   </data>
   <data name="&gt;&gt;_towerModeField.Parent" xml:space="preserve">
     <value>_behaviourTabPage</value>
@@ -1905,8 +1938,8 @@
   <data name="_unknown4Field.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 81</value>
   </data>
-  <data name="&gt;&gt;_dmgGraPercentColumn.Name" xml:space="preserve">
-    <value>_dmgGraPercentColumn</value>
+  <data name="_terrSide1Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 44</value>
   </data>
   <data name="_soundsTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -1919,9 +1952,6 @@
   </data>
   <data name="&gt;&gt;_projectileArcField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="groupBox33.TabIndex" type="System.Int32, mscorlib">
-    <value>39</value>
   </data>
   <data name="&gt;&gt;_unknown7Field.Parent" xml:space="preserve">
     <value>_unknownTabPage</value>
@@ -1938,14 +1968,8 @@
   <data name="_abilityTerrainField.TabIndex" type="System.Int32, mscorlib">
     <value>56</value>
   </data>
-  <data name="&gt;&gt;_abilityRangeField.Name" xml:space="preserve">
-    <value>_abilityRangeField</value>
-  </data>
   <data name="&gt;&gt;_sheepConvField.Parent" xml:space="preserve">
     <value>_editorTabPage</value>
-  </data>
-  <data name="_resourceStorage1ModeField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>337, 20</value>
   </data>
   <data name="&gt;&gt;groupBox19.Parent" xml:space="preserve">
     <value>_combatTabPage</value>
@@ -1971,8 +1995,8 @@
   <data name="&gt;&gt;_graphicDisplacementZField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;_editorXField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="_graphicDisplacementXField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 20</value>
   </data>
   <data name="&gt;&gt;_selShapeField.Name" xml:space="preserve">
     <value>_selShapeField</value>
@@ -1986,14 +2010,14 @@
   <data name="&gt;&gt;_unknown10Field.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="_projectileTabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
   <data name="&gt;&gt;_abilityTerrainField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;_missileDuplMinField.Parent" xml:space="preserve">
     <value>_projectileTabPage</value>
+  </data>
+  <data name="_abilityResourceCarryLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;_garrisonTypeField.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -2004,8 +2028,8 @@
   <data name="_displayedAttackField.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 19</value>
   </data>
-  <data name="&gt;&gt;_unknown15Field.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="_terrPlacement1Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 18</value>
   </data>
   <data name="_searchRadiusField.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 32</value>
@@ -2049,8 +2073,8 @@
   <data name="&gt;&gt;_enabledField.Parent" xml:space="preserve">
     <value>_editorTabPage</value>
   </data>
-  <data name="_selEffectField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 19</value>
+  <data name="_unknown15Field.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
   </data>
   <data name="&gt;&gt;_soundTrain2Field.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -2070,6 +2094,9 @@
   <data name="_abilityUnitLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 57</value>
   </data>
+  <data name="_unknown4Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 20</value>
+  </data>
   <data name="&gt;&gt;_sizeYField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
@@ -2077,6 +2104,12 @@
     <value>panel1</value>
   </data>
   <data name="_constructionSoundField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;_rangeMaxField.Parent" xml:space="preserve">
+    <value>groupBox20</value>
+  </data>
+  <data name="_adjacentModeField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="groupBox33.Text" xml:space="preserve">
@@ -2094,17 +2127,17 @@
   <data name="&gt;&gt;_blastRadiusField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;_trackUnitDensityField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;_behaviourTabPage.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;_abilityRangeField.Name" xml:space="preserve">
+    <value>_abilityRangeField</value>
   </data>
   <data name="&gt;&gt;_selEditorColorField.Name" xml:space="preserve">
     <value>_selEditorColorField</value>
   </data>
   <data name="&gt;&gt;_searchRadiusField.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="&gt;&gt;_graphicDisplacementZField.Parent" xml:space="preserve">
-    <value>_projectileTabPage</value>
   </data>
   <data name="&gt;&gt;_nameLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2136,8 +2169,8 @@
   <data name="_unknown11Field.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
   </data>
-  <data name="_terrPlacement2Field.Location" type="System.Drawing.Point, System.Drawing">
-    <value>178, 18</value>
+  <data name="&gt;&gt;_accuracyErrorField.Name" xml:space="preserve">
+    <value>_accuracyErrorField</value>
   </data>
   <data name="_newAbilityButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 287</value>
@@ -2163,8 +2196,8 @@
   <data name="_cost2Field.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="_abilityUnitLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 13</value>
+  <data name="&gt;&gt;_abilityResourceProductivityLabel.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="_deleteAbilityButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -2211,6 +2244,9 @@
   <data name="_heroModeField.TabIndex" type="System.Int32, mscorlib">
     <value>36</value>
   </data>
+  <data name="_disappearsField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;_unknown8Field.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
@@ -2229,6 +2265,9 @@
   <data name="_unknown9DField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="&gt;&gt;_attackReloadTimeField.Parent" xml:space="preserve">
+    <value>groupBox22</value>
+  </data>
   <data name="&gt;&gt;_statsTabPage.Parent" xml:space="preserve">
     <value>_mainTabControl</value>
   </data>
@@ -2238,8 +2277,8 @@
   <data name="&gt;&gt;_civilizationField.Name" xml:space="preserve">
     <value>_civilizationField</value>
   </data>
-  <data name="_abilityUnitLabel.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;_graStanding1Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.DropDownFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="_graphicDisplacementZField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -2265,17 +2304,17 @@
   <data name="&gt;&gt;_lootGoldField.Name" xml:space="preserve">
     <value>_lootGoldField</value>
   </data>
-  <data name="&gt;&gt;_behaviourTabPage.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="_deleteAbilityButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="_attackValuesField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
   </data>
   <data name="&gt;&gt;_abilitiesListBox.Type" xml:space="preserve">
     <value>TechTreeEditor.DoubleBufferedListBox, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;_terrRestrField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_terrRestrField.Name" xml:space="preserve">
-    <value>_terrRestrField</value>
   </data>
   <data name="_abilityClassComboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>89, 81</value>
@@ -2297,9 +2336,6 @@
   </data>
   <data name="_compensationModeField.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 20</value>
-  </data>
-  <data name="_deleteAbilityButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
   </data>
   <data name="&gt;&gt;_unknown5Field.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -2370,6 +2406,9 @@
   <data name="&gt;&gt;_armourValuesField.Name" xml:space="preserve">
     <value>_armourValuesField</value>
   </data>
+  <data name="_abilityUnitLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="_selEditorColorField.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 20</value>
   </data>
@@ -2430,6 +2469,9 @@
   <data name="_chargeModeField.Size" type="System.Drawing.Size, System.Drawing">
     <value>164, 20</value>
   </data>
+  <data name="&gt;&gt;_abilitiesTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;_abilityTerrainField.Name" xml:space="preserve">
     <value>_abilityTerrainField</value>
   </data>
@@ -2441,9 +2483,6 @@
   </data>
   <data name="_resourceCapacityField.Location" type="System.Drawing.Point, System.Drawing">
     <value>307, 6</value>
-  </data>
-  <data name="&gt;&gt;_searchRadiusField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="_dmgGraUnknownColumn.HeaderText" xml:space="preserve">
     <value>(?)</value>
@@ -2475,9 +2514,6 @@
   <data name="groupBox19.Text" xml:space="preserve">
     <value>Rüstungswerte</value>
   </data>
-  <data name="_dmgGraphicsField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 16</value>
-  </data>
   <data name="_abilityUnknown4Field.Size" type="System.Drawing.Size, System.Drawing">
     <value>141, 20</value>
   </data>
@@ -2493,26 +2529,26 @@
   <data name="_resourceStorage2Field.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;_frameDelayField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="_abilityProceedGraphicField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 161</value>
   </data>
   <data name="_unknown13Field.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
   </data>
-  <data name="_graFalling2Field.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="_dmgGraphicsField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 16</value>
   </data>
   <data name="&gt;&gt;_graphicAngleField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_airModeField.Name" xml:space="preserve">
+    <value>_airModeField</value>
   </data>
   <data name="&gt;&gt;groupBox33.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="_placementModeField.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
-  </data>
-  <data name="&gt;&gt;_graphicAngleField.ZOrder" xml:space="preserve">
-    <value>17</value>
   </data>
   <data name="_graAttackField.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 110</value>
@@ -2528,9 +2564,6 @@
   </data>
   <data name="_unknown6Field.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
-  </data>
-  <data name="&gt;&gt;_losField.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="_attValValueColumn.HeaderText" xml:space="preserve">
     <value>Wert</value>
@@ -2553,9 +2586,6 @@
   <data name="groupBox5.Text" xml:space="preserve">
     <value>Abmessungen</value>
   </data>
-  <data name="&gt;&gt;_rangeDisplayedField.Parent" xml:space="preserve">
-    <value>groupBox20</value>
-  </data>
   <data name="&gt;&gt;_terrainMultField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
@@ -2577,14 +2607,11 @@
   <data name="_graphicDisplacementXField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="_losField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 20</value>
-  </data>
   <data name="&gt;&gt;_deleteAbilityButton.ZOrder" xml:space="preserve">
     <value>29</value>
   </data>
-  <data name="_selectionYField.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="&gt;&gt;_abilitiesListBox.Parent" xml:space="preserve">
+    <value>_abilitiesTabPage</value>
   </data>
   <data name="_sheepConvField.Location" type="System.Drawing.Point, System.Drawing">
     <value>178, 241</value>
@@ -2600,9 +2627,6 @@
   </data>
   <data name="_soundsTabPage.Size" type="System.Drawing.Size, System.Drawing">
     <value>943, 362</value>
-  </data>
-  <data name="&gt;&gt;_heroModeField.Name" xml:space="preserve">
-    <value>_heroModeField</value>
   </data>
   <data name="&gt;&gt;_resourceStorage1ModeField.Parent" xml:space="preserve">
     <value>groupBox6</value>
@@ -2646,8 +2670,8 @@
   <data name="&gt;&gt;_lootFoodField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.CheckBoxFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;_attackReloadTimeDisplayedField.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;_hpBar2Field.Parent" xml:space="preserve">
+    <value>_editorTabPage</value>
   </data>
   <data name="_dmgGraPercentColumn.HeaderText" xml:space="preserve">
     <value>%</value>
@@ -2670,6 +2694,9 @@
   <data name="&gt;&gt;_resourceCapacityField.Name" xml:space="preserve">
     <value>_resourceCapacityField</value>
   </data>
+  <data name="&gt;&gt;_combatTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;_unknown9EField.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
@@ -2678,9 +2705,6 @@
   </data>
   <data name="&gt;&gt;_nameLabel.Name" xml:space="preserve">
     <value>_nameLabel</value>
-  </data>
-  <data name="&gt;&gt;_terrSide2Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;_unknown15Field.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -2708,6 +2732,9 @@
   </data>
   <data name="_abilityTypeComboBox.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="_blastLevelField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 20</value>
   </data>
   <data name="&gt;&gt;groupBox33.Parent" xml:space="preserve">
     <value>_editorTabPage</value>
@@ -2787,14 +2814,14 @@
   <data name="_dllHelpField.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="_abilityActionGraphicField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 187</value>
+  </data>
   <data name="_abilityPlunderSourceField.TabIndex" type="System.Int32, mscorlib">
     <value>55</value>
   </data>
   <data name="_disappearsField.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 20</value>
-  </data>
-  <data name="&gt;&gt;_abilityClassComboBox.Name" xml:space="preserve">
-    <value>_abilityClassComboBox</value>
   </data>
   <data name="&gt;&gt;groupBox19.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -2823,14 +2850,8 @@
   <data name="_accuracyPercentField.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 6</value>
   </data>
-  <data name="&gt;&gt;_nameTextBox.Name" xml:space="preserve">
-    <value>_nameTextBox</value>
-  </data>
   <data name="&gt;&gt;_abilityResourceProductivityLabel.Name" xml:space="preserve">
     <value>_abilityResourceProductivityLabel</value>
-  </data>
-  <data name="_editorYField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 45</value>
   </data>
   <data name="&gt;&gt;groupBox25.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -2847,14 +2868,17 @@
   <data name="&gt;&gt;_defaultArmorField.Name" xml:space="preserve">
     <value>_defaultArmorField</value>
   </data>
-  <data name="&gt;&gt;_animalModeField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;_deadModeField.ZOrder" xml:space="preserve">
+    <value>21</value>
   </data>
   <data name="&gt;&gt;_sizeXField.Name" xml:space="preserve">
     <value>_sizeXField</value>
   </data>
   <data name="&gt;&gt;_editorXField.Parent" xml:space="preserve">
     <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;_abilityResourceCarryLabel.ZOrder" xml:space="preserve">
+    <value>26</value>
   </data>
   <data name="&gt;&gt;_unknown5Field.ZOrder" xml:space="preserve">
     <value>16</value>
@@ -2867,9 +2891,6 @@
   </data>
   <data name="_blastTypeField.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 20</value>
-  </data>
-  <data name="&gt;&gt;_missileSpawnYField.ZOrder" xml:space="preserve">
-    <value>4</value>
   </data>
   <data name="_deleteAbilityButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 325</value>
@@ -2925,8 +2946,8 @@
   <data name="&gt;&gt;_attackModeField.Name" xml:space="preserve">
     <value>_attackModeField</value>
   </data>
-  <data name="groupBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>353, 32</value>
+  <data name="_stretchModeField.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="&gt;&gt;_compensationModeField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -2973,9 +2994,6 @@
   <data name="_editorXField.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 45</value>
   </data>
-  <data name="_abilitiesListBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>337, 362</value>
-  </data>
   <data name="&gt;&gt;_attValClassColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -2991,6 +3009,9 @@
   <data name="&gt;&gt;_attValValueColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;_graphicsTabPage.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
   <data name="_trackUnitDensityField.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 20</value>
   </data>
@@ -3002,9 +3023,6 @@
   </data>
   <data name="&gt;&gt;_unknown9EField.Parent" xml:space="preserve">
     <value>_unknownTabPage</value>
-  </data>
-  <data name="_missileDuplMaxField.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
   </data>
   <data name="_interactionModeField.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -3090,8 +3108,8 @@
   <data name="&gt;&gt;_abilityUnknown2Field.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="_abilityExecutionSoundField.TabIndex" type="System.Int32, mscorlib">
-    <value>62</value>
+  <data name="&gt;&gt;_combatTabPage.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="_abilityTypeComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -3108,8 +3126,8 @@
   <data name="_projectileTabPage.Size" type="System.Drawing.Size, System.Drawing">
     <value>943, 362</value>
   </data>
-  <data name="&gt;&gt;_hpBar2Field.Parent" xml:space="preserve">
-    <value>_editorTabPage</value>
+  <data name="&gt;&gt;_graStanding2Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.DropDownFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="_abilityDropSoundField.TabIndex" type="System.Int32, mscorlib">
     <value>63</value>
@@ -3144,9 +3162,6 @@
   <data name="_terrPlacement2Field.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="_searchRadiusField.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
   <data name="_abilityTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>28, 13</value>
   </data>
@@ -3162,11 +3177,11 @@
   <data name="_resourceDecayField.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 20</value>
   </data>
+  <data name="&gt;&gt;_rotationSpeedField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
   <data name="_unknown2Field.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
-  </data>
-  <data name="&gt;&gt;_resourceStorage3ModeField.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="_graAttackField.Size" type="System.Drawing.Size, System.Drawing">
     <value>258, 20</value>
@@ -3186,8 +3201,8 @@
   <data name="_nameTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="_commonTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>943, 362</value>
+  <data name="_flyModeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 84</value>
   </data>
   <data name="&gt;&gt;_unknown4Field.Parent" xml:space="preserve">
     <value>_unknownTabPage</value>
@@ -3207,8 +3222,11 @@
   <data name="_abilityPlunderSourceField.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 20</value>
   </data>
-  <data name="_unknown15Field.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
+  <data name="&gt;&gt;_soundFallingField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="_projectileTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
   </data>
   <data name="&gt;&gt;groupBox9.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -3231,9 +3249,6 @@
   <data name="_interfaceModeField.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 20</value>
   </data>
-  <data name="_blastRadiusField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 20</value>
-  </data>
   <data name="&gt;&gt;_lootWoodField.Name" xml:space="preserve">
     <value>_lootWoodField</value>
   </data>
@@ -3245,6 +3260,9 @@
   </data>
   <data name="_soundSelectionField.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 20</value>
+  </data>
+  <data name="groupBox6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>353, 32</value>
   </data>
   <data name="_abilityResourceProductivityLabel.Text" xml:space="preserve">
     <value>Produktivitätsfaktor:</value>
@@ -3269,6 +3287,9 @@
   </data>
   <data name="_stretchModeField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="&gt;&gt;_abilityToolGraphicField.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <data name="&gt;&gt;_abilityResourceProductivityLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3297,20 +3318,20 @@
   <data name="&gt;&gt;_penetrationModeField.Name" xml:space="preserve">
     <value>_penetrationModeField</value>
   </data>
+  <data name="_animalModeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 20</value>
+  </data>
   <data name="_adjacentModeField.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
   <data name="&gt;&gt;_statsTabPage.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="_editorTabPage.Text" xml:space="preserve">
-    <value>Editor/Platzierung/Technisches</value>
-  </data>
   <data name="&gt;&gt;_unknown3Field.Name" xml:space="preserve">
     <value>_unknown3Field</value>
   </data>
-  <data name="&gt;&gt;_rangeMaxField.Parent" xml:space="preserve">
-    <value>groupBox20</value>
+  <data name="_dmgGraPercentColumn.Width" type="System.Int32, mscorlib">
+    <value>55</value>
   </data>
   <data name="&gt;&gt;_abilityUnknown3Field.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -3324,8 +3345,11 @@
   <data name="_missileSpawnXField.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 20</value>
   </data>
-  <data name="_unknown12Field.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
+  <data name="groupBox22.Location" type="System.Drawing.Point, System.Drawing">
+    <value>646, 137</value>
+  </data>
+  <data name="&gt;&gt;_dmgGraApplyModeColumn.Name" xml:space="preserve">
+    <value>_dmgGraApplyModeColumn</value>
   </data>
   <data name="&gt;&gt;_armValClassColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewComboBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3372,6 +3396,9 @@
   <data name="&gt;&gt;_soundFallingField.Parent" xml:space="preserve">
     <value>_soundsTabPage</value>
   </data>
+  <data name="_graMoving2Field.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
   <data name="&gt;&gt;_abilityUnknown5Field.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
@@ -3380,9 +3407,6 @@
   </data>
   <data name="_unknownSoundField.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
-  </data>
-  <data name="_flyModeField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 20</value>
   </data>
   <data name="_abilityClassLabel.Text" xml:space="preserve">
     <value>Klasse:</value>
@@ -3456,9 +3480,6 @@
   <data name="&gt;&gt;_graStanding1Field.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="&gt;&gt;_abilitiesListBox.Parent" xml:space="preserve">
-    <value>_abilitiesTabPage</value>
-  </data>
   <data name="groupBox20.Text" xml:space="preserve">
     <value>Reichweite</value>
   </data>
@@ -3519,9 +3540,6 @@
   <data name="&gt;&gt;_nameLabel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="_graphicsTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>943, 362</value>
-  </data>
   <data name="_iconIDField.Size" type="System.Drawing.Size, System.Drawing">
     <value>133, 20</value>
   </data>
@@ -3549,6 +3567,9 @@
   <data name="_chargeModeField.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 319</value>
   </data>
+  <data name="&gt;&gt;_unknown2Field.Name" xml:space="preserve">
+    <value>_unknown2Field</value>
+  </data>
   <data name="_constructionSoundField.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 32</value>
   </data>
@@ -3563,6 +3584,9 @@
   </data>
   <data name="&gt;&gt;_resourceCapacityField.Parent" xml:space="preserve">
     <value>_statsTabPage</value>
+  </data>
+  <data name="_unknown9DField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 20</value>
   </data>
   <data name="_dllNameField.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3582,8 +3606,8 @@
   <data name="&gt;&gt;_villagerModeField.Name" xml:space="preserve">
     <value>_villagerModeField</value>
   </data>
-  <data name="groupBox5.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="&gt;&gt;_abilityUnknown4Field.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="_behaviourTabPage.Text" xml:space="preserve">
     <value>Verhalten</value>
@@ -3624,9 +3648,6 @@
   <data name="_resourceStorage1Field.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 19</value>
   </data>
-  <data name="&gt;&gt;_selectionXField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
   <data name="&gt;&gt;_unknown7Field.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
@@ -3642,17 +3663,11 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>EditUnitAttributeForm</value>
   </data>
-  <data name="&gt;&gt;_abilityResourceCarryComboBox.ZOrder" xml:space="preserve">
-    <value>27</value>
-  </data>
   <data name="&gt;&gt;_missileSpawnZField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;_graphicDisplacementXField.Parent" xml:space="preserve">
     <value>_projectileTabPage</value>
-  </data>
-  <data name="&gt;&gt;_blastLevelField.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="_terrainMultField.Location" type="System.Drawing.Point, System.Drawing">
     <value>324, 334</value>
@@ -3672,6 +3687,9 @@
   <data name="_accuracyPercentField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="&gt;&gt;_dmgGraPercentColumn.Name" xml:space="preserve">
+    <value>_dmgGraPercentColumn</value>
+  </data>
   <data name="&gt;&gt;_unknown13Field.Parent" xml:space="preserve">
     <value>_unknownTabPage</value>
   </data>
@@ -3684,14 +3702,23 @@
   <data name="_behaviourModeField.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
   </data>
+  <data name="&gt;&gt;_selShapeField.Parent" xml:space="preserve">
+    <value>groupBox13</value>
+  </data>
   <data name="_rangeDisplayedField.Size" type="System.Drawing.Size, System.Drawing">
     <value>139, 20</value>
   </data>
   <data name="&gt;&gt;_dllHotkeyField.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;_abilityExecutionSoundField.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="&gt;&gt;_unknown7Field.Name" xml:space="preserve">
+    <value>_unknown7Field</value>
+  </data>
+  <data name="&gt;&gt;_classLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_soundAttackField.Parent" xml:space="preserve">
+    <value>_soundsTabPage</value>
   </data>
   <data name="groupBox18.Text" xml:space="preserve">
     <value>Angriffsstärke</value>
@@ -3723,8 +3750,8 @@
   <data name="_behaviourModeField.Location" type="System.Drawing.Point, System.Drawing">
     <value>308, 32</value>
   </data>
-  <data name="&gt;&gt;_selEditorColorField.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="_losField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 20</value>
   </data>
   <data name="&gt;&gt;_unknown13Field.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -3732,8 +3759,8 @@
   <data name="&gt;&gt;_terrRestrField.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="_penetrationModeField.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="groupBox18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 32</value>
   </data>
   <data name="_unknown9EField.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
@@ -3765,8 +3792,8 @@
   <data name="_displayedPierceArmorField.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
-  <data name="_rotationSpeedField.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="groupBox5.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <data name="&gt;&gt;_lootWoodField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.CheckBoxFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -3785,6 +3812,9 @@
   </data>
   <data name="_graphicsTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 3, 0, 0</value>
+  </data>
+  <data name="_terrPlacement1Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 20</value>
   </data>
   <data name="_resourceDecayField.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -3821,6 +3851,9 @@
   </data>
   <data name="_unknownTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 3, 0, 0</value>
+  </data>
+  <data name="&gt;&gt;_unknown9BField.Parent" xml:space="preserve">
+    <value>_unknownTabPage</value>
   </data>
   <data name="&gt;&gt;_soundTrain2Field.Name" xml:space="preserve">
     <value>_soundTrain2Field</value>
@@ -4212,8 +4245,8 @@
   <data name="_garrisonHealRateField.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 20</value>
   </data>
-  <data name="_workRateField.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="&gt;&gt;_graphicAngleField.ZOrder" xml:space="preserve">
+    <value>17</value>
   </data>
   <data name="&gt;&gt;_graMoving2Field.Name" xml:space="preserve">
     <value>_graMoving2Field</value>
@@ -4242,20 +4275,20 @@
   <data name="&gt;&gt;_lootStoneField.Parent" xml:space="preserve">
     <value>groupBox33</value>
   </data>
+  <data name="_selectionYField.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
   <data name="groupBox25.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
   <data name="_unknown3Field.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
   </data>
-  <data name="_abilityResourceComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 21</value>
-  </data>
   <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
     <value>groupBox6</value>
   </data>
-  <data name="_abilitySelectionModeField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>457, 82</value>
+  <data name="&gt;&gt;_unknown6Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;_unknownSoundField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -4272,14 +4305,11 @@
   <data name="_abilityRangeField.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 20</value>
   </data>
-  <data name="_abilityProceedGraphicField.TabIndex" type="System.Int32, mscorlib">
-    <value>59</value>
-  </data>
   <data name="_missileDuplMinField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;_resourceDecayField.Parent" xml:space="preserve">
-    <value>_behaviourTabPage</value>
+  <data name="_missileDuplMaxField.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="_selMaskField.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 19</value>
@@ -4307,9 +4337,6 @@
   </data>
   <data name="&gt;&gt;_dllHotkeyField.Name" xml:space="preserve">
     <value>_dllHotkeyField</value>
-  </data>
-  <data name="_terrSide1Field.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 44</value>
   </data>
   <data name="_abilityCarryGraphicField.Size" type="System.Drawing.Size, System.Drawing">
     <value>283, 20</value>
@@ -4386,17 +4413,8 @@
   <data name="_compensationModeField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;groupBox18.Parent" xml:space="preserve">
-    <value>_combatTabPage</value>
-  </data>
   <data name="_abilityUnitLabel.Text" xml:space="preserve">
     <value>Einheit:</value>
-  </data>
-  <data name="_abilityInfoLabel.Text" xml:space="preserve">
-    <value>Hinweis: Diese Einstellungen gelten immer für alle Kulturen.</value>
-  </data>
-  <data name="&gt;&gt;_abilityInfoLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="_lootStoneField.Location" type="System.Drawing.Point, System.Drawing">
     <value>79, 45</value>
@@ -4418,9 +4436,6 @@
   </data>
   <data name="_abilityUnknown5Field.Location" type="System.Drawing.Point, System.Drawing">
     <value>457, 265</value>
-  </data>
-  <data name="_editorYField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 20</value>
   </data>
   <data name="&gt;&gt;_terrSide2Field.Name" xml:space="preserve">
     <value>_terrSide2Field</value>
@@ -4470,9 +4485,6 @@
   <data name="_garrisonTypeField.Size" type="System.Drawing.Size, System.Drawing">
     <value>164, 20</value>
   </data>
-  <data name="_dmgGraPercentColumn.Width" type="System.Int32, mscorlib">
-    <value>55</value>
-  </data>
   <data name="_graChargeField.Size" type="System.Drawing.Size, System.Drawing">
     <value>263, 20</value>
   </data>
@@ -4488,8 +4500,8 @@
   <data name="&gt;&gt;_abilityExecutionSoundField.Name" xml:space="preserve">
     <value>_abilityExecutionSoundField</value>
   </data>
-  <data name="&gt;&gt;_soundFallingField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="_unknown9EField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="_attackValuesField.Size" type="System.Drawing.Size, System.Drawing">
     <value>301, 219</value>
@@ -4499,9 +4511,6 @@
   </data>
   <data name="&gt;&gt;_displayedPierceArmorField.Parent" xml:space="preserve">
     <value>groupBox19</value>
-  </data>
-  <data name="_accuracyErrorField.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
   </data>
   <data name="_soundFallingField.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 58</value>
@@ -4533,8 +4542,8 @@
   <data name="_lootWoodField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;_blastTypeField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;_resourceStorage1Field.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;_abilityWorkRateFactorField.Name" xml:space="preserve">
     <value>_abilityWorkRateFactorField</value>
@@ -4548,9 +4557,6 @@
   <data name="_enabledField.Location" type="System.Drawing.Point, System.Drawing">
     <value>414, 7</value>
   </data>
-  <data name="_flyModeField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 84</value>
-  </data>
   <data name="&gt;&gt;_graphicDisplacementZField.Name" xml:space="preserve">
     <value>_graphicDisplacementZField</value>
   </data>
@@ -4560,14 +4566,11 @@
   <data name="&gt;&gt;_garrisonCapacityField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;_towerModeField.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="_accuracyErrorField.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;_edibleMeatField.Name" xml:space="preserve">
     <value>_edibleMeatField</value>
-  </data>
-  <data name="&gt;&gt;_defaultArmorField.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="&gt;&gt;_selEffectField.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -4610,6 +4613,9 @@
   </data>
   <data name="&gt;&gt;_dllHelpField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.LanguageDLLControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="_missileSpawnYField.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="_projectileArcField.Location" type="System.Drawing.Point, System.Drawing">
     <value>194, 110</value>
@@ -4671,8 +4677,8 @@
   <data name="&gt;&gt;_resourceStorage1Field.Parent" xml:space="preserve">
     <value>groupBox6</value>
   </data>
-  <data name="_unknown12Field.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 20</value>
+  <data name="_terrPlacement2Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>178, 18</value>
   </data>
   <data name="_placementModeField.Size" type="System.Drawing.Size, System.Drawing">
     <value>164, 20</value>
@@ -4692,8 +4698,8 @@
   <data name="&gt;&gt;groupBox22.Parent" xml:space="preserve">
     <value>_combatTabPage</value>
   </data>
-  <data name="_edibleMeatField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 20</value>
+  <data name="_abilityResourceProductivityComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
   </data>
   <data name="&gt;&gt;_soundMoveField.Parent" xml:space="preserve">
     <value>_soundsTabPage</value>
@@ -4716,11 +4722,11 @@
   <data name="&gt;&gt;_unknown2Field.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="_closeButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;_nameTextBox.Name" xml:space="preserve">
+    <value>_nameTextBox</value>
   </data>
-  <data name="_graMoving1Field.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="_unknown10Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 20</value>
   </data>
   <data name="&gt;&gt;_sizeXField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -4728,8 +4734,8 @@
   <data name="_rangeDisplayedField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;_combatTabPage.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="_abilitySelectionModeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>457, 82</value>
   </data>
   <data name="&gt;&gt;_graGarrisonField.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -4752,14 +4758,11 @@
   <data name="&gt;&gt;_resourceDecayField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;_nameTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;_blastRadiusField.Name" xml:space="preserve">
     <value>_blastRadiusField</value>
   </data>
-  <data name="_graphicsTabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
+  <data name="_abilitiesListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>337, 362</value>
   </data>
   <data name="_hpBar2Field.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 20</value>
@@ -4767,8 +4770,8 @@
   <data name="&gt;&gt;_graFalling2Field.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="_graConstructionField.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;_garrisonHealRateField.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;_missileDuplMaxField.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -4788,8 +4791,8 @@
   <data name="&gt;&gt;_unknown15Field.Name" xml:space="preserve">
     <value>_unknown15Field</value>
   </data>
-  <data name="_unknown9BField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 20</value>
+  <data name="&gt;&gt;_missileSpawnYField.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;_graGarrisonField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.DropDownFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -4821,9 +4824,6 @@
   <data name="_abilityResourceProductivityComboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>401, 162</value>
   </data>
-  <data name="_abilitySelectionEnablerField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 20</value>
-  </data>
   <data name="&gt;&gt;_iconIDField.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
@@ -4841,9 +4841,6 @@
   </data>
   <data name="&gt;&gt;_unknown9CField.Parent" xml:space="preserve">
     <value>_unknownTabPage</value>
-  </data>
-  <data name="&gt;&gt;_chargeModeField.ZOrder" xml:space="preserve">
-    <value>7</value>
   </data>
   <data name="&gt;&gt;_abilityUnitLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -4869,8 +4866,8 @@
   <data name="_abilityUnknown6Field.Location" type="System.Drawing.Point, System.Drawing">
     <value>457, 291</value>
   </data>
-  <data name="&gt;&gt;_rotationSpeedField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="_nameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 9</value>
   </data>
   <data name="&gt;&gt;_abilityCarryGraphicField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.DropDownFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -4881,11 +4878,11 @@
   <data name="&gt;&gt;_unknown9DField.Parent" xml:space="preserve">
     <value>_unknownTabPage</value>
   </data>
-  <data name="&gt;&gt;_abilityUnitLabel.Name" xml:space="preserve">
-    <value>_abilityUnitLabel</value>
+  <data name="&gt;&gt;_heroModeField.Name" xml:space="preserve">
+    <value>_heroModeField</value>
   </data>
-  <data name="_terrPlacement1Field.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 20</value>
+  <data name="&gt;&gt;_losField.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="_abilityResourceDropLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>295, 138</value>
@@ -4914,11 +4911,11 @@
   <data name="&gt;&gt;_unknownSoundField.Parent" xml:space="preserve">
     <value>_soundsTabPage</value>
   </data>
-  <data name="_missileSpawnYField.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="_attackModeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 20</value>
   </data>
-  <data name="_unknown9DField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 20</value>
+  <data name="&gt;&gt;_blastLevelField.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="_accuracyErrorField.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 20</value>
@@ -4938,8 +4935,8 @@
   <data name="&gt;&gt;groupBox14.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_selShapeField.Parent" xml:space="preserve">
-    <value>groupBox13</value>
+  <data name="_editorYField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 20</value>
   </data>
   <data name="&gt;&gt;_graChargeField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.DropDownFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -4974,14 +4971,8 @@
   <data name="&gt;&gt;_foundTerrainField.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;_terrPlacement2Field.Parent" xml:space="preserve">
-    <value>groupBox9</value>
-  </data>
-  <data name="&gt;&gt;_selectionYField.Parent" xml:space="preserve">
-    <value>groupBox5</value>
-  </data>
-  <data name="_blastLevelField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 20</value>
+  <data name="_editorTabPage.Text" xml:space="preserve">
+    <value>Editor/Platzierung/Technisches</value>
   </data>
   <data name="_attackReloadTimeDisplayedField.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -4989,8 +4980,8 @@
   <data name="&gt;&gt;groupBox25.Parent" xml:space="preserve">
     <value>_trainTabPage</value>
   </data>
-  <data name="&gt;&gt;_unknown12Field.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;_resourceStorage3ModeField.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="_abilityClassLabel.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -5010,8 +5001,8 @@
   <data name="_resourceStorage2ModeField.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="&gt;&gt;_unknown9BField.Parent" xml:space="preserve">
-    <value>_unknownTabPage</value>
+  <data name="&gt;&gt;_terrRestrField.Name" xml:space="preserve">
+    <value>_terrRestrField</value>
   </data>
   <data name="_villagerModeField.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
@@ -5025,6 +5016,9 @@
   <data name="&gt;&gt;_soundSelectionField.Name" xml:space="preserve">
     <value>_soundSelectionField</value>
   </data>
+  <data name="&gt;&gt;_attackReloadTimeDisplayedField.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;_sizeYField.Name" xml:space="preserve">
     <value>_sizeYField</value>
   </data>
@@ -5034,8 +5028,8 @@
   <data name="&gt;&gt;_behaviourTabPage.Parent" xml:space="preserve">
     <value>_mainTabControl</value>
   </data>
-  <data name="_graMoving2Field.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+  <data name="&gt;&gt;_selectionXField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="_closeButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>778, 10</value>
@@ -5045,6 +5039,9 @@
   </data>
   <data name="_unknown1Field.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
+  </data>
+  <data name="&gt;&gt;_iconIDField.Parent" xml:space="preserve">
+    <value>_graphicsTabPage</value>
   </data>
   <data name="_soundsTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 3, 0, 0</value>
@@ -5073,8 +5070,8 @@
   <data name="&gt;&gt;_unknown4Field.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <data name="_dmgGraUnknownColumn.Width" type="System.Int32, mscorlib">
-    <value>28</value>
+  <data name="&gt;&gt;_selectionYField.Parent" xml:space="preserve">
+    <value>groupBox5</value>
   </data>
   <data name="&gt;&gt;_missileSpawnXField.Name" xml:space="preserve">
     <value>_missileSpawnXField</value>
@@ -5085,8 +5082,8 @@
   <data name="&gt;&gt;_unknown8Field.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="_adjacentModeField.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;_abilityTypeComboBox.ZOrder" xml:space="preserve">
+    <value>30</value>
   </data>
   <data name="_rangeMinField.Size" type="System.Drawing.Size, System.Drawing">
     <value>139, 20</value>
@@ -5103,7 +5100,7 @@
   <data name="_deadModeField.Location" type="System.Drawing.Point, System.Drawing">
     <value>326, 7</value>
   </data>
-  <data name="&gt;&gt;_abilityToolGraphicField.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_abilitySelectionModeField.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;_lootStoneField.Type" xml:space="preserve">
@@ -5121,17 +5118,17 @@
   <data name="&gt;&gt;_graChargeField.Name" xml:space="preserve">
     <value>_graChargeField</value>
   </data>
-  <data name="&gt;&gt;_dropAnimationModeField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;groupBox18.Parent" xml:space="preserve">
+    <value>_combatTabPage</value>
   </data>
-  <data name="_abilityActionGraphicField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 187</value>
+  <data name="_abilitySelectionEnablerField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 20</value>
   </data>
   <data name="&gt;&gt;groupBox6.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;_unknown2Field.Name" xml:space="preserve">
-    <value>_unknown2Field</value>
+  <data name="&gt;&gt;_abilityClassComboBox.Name" xml:space="preserve">
+    <value>_abilityClassComboBox</value>
   </data>
   <data name="&gt;&gt;_abilitySelectionModeField.Name" xml:space="preserve">
     <value>_abilitySelectionModeField</value>
@@ -5142,8 +5139,8 @@
   <data name="&gt;&gt;_abilityWorkRateFactorField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;_graphicsTabPage.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="&gt;&gt;_towerModeField.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;_terrSide1Field.Name" xml:space="preserve">
     <value>_terrSide1Field</value>
@@ -5184,8 +5181,8 @@
   <data name="&gt;&gt;_unknown9BField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="_unknown4Field.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 20</value>
+  <data name="_abilityResourceProductivityLabel.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;_adjacentModeField.Parent" xml:space="preserve">
     <value>_editorTabPage</value>
@@ -5217,23 +5214,20 @@
   <data name="_graphicDisplacementYField.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;_airModeField.Name" xml:space="preserve">
-    <value>_airModeField</value>
+  <data name="&gt;&gt;_terrPlacement2Field.Parent" xml:space="preserve">
+    <value>groupBox9</value>
   </data>
-  <data name="&gt;&gt;_resourceStorage2Field.Name" xml:space="preserve">
-    <value>_resourceStorage2Field</value>
+  <data name="_selShapeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 71</value>
   </data>
-  <data name="&gt;&gt;_unknown7Field.Name" xml:space="preserve">
-    <value>_unknown7Field</value>
-  </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>337, 0</value>
+  <data name="&gt;&gt;_chargeModeField.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="_abilityClassComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
   </data>
-  <data name="&gt;&gt;_abilityTypeComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="_editorYField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 45</value>
   </data>
   <data name="&gt;&gt;_terrPlacement2Field.Name" xml:space="preserve">
     <value>_terrPlacement2Field</value>
@@ -5253,14 +5247,14 @@
   <data name="&gt;&gt;_lootStoneField.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;_abilityPlunderSourceField.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="&gt;&gt;_graphicDisplacementZField.Parent" xml:space="preserve">
+    <value>_projectileTabPage</value>
   </data>
   <data name="&gt;&gt;_abilityRightClickModeField.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="_rangeMaxField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
   </data>
   <data name="&gt;&gt;_unknown3Field.Parent" xml:space="preserve">
     <value>_unknownTabPage</value>
@@ -5268,8 +5262,8 @@
   <data name="_statsTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 3, 0, 0</value>
   </data>
-  <data name="&gt;&gt;_accuracyErrorField.Name" xml:space="preserve">
-    <value>_accuracyErrorField</value>
+  <data name="_abilityProceedGraphicField.TabIndex" type="System.Int32, mscorlib">
+    <value>59</value>
   </data>
   <data name="_graGarrisonField.Size" type="System.Drawing.Size, System.Drawing">
     <value>258, 20</value>
@@ -5313,8 +5307,8 @@
   <data name="groupBox25.Text" xml:space="preserve">
     <value>Ressourcen-Kosten</value>
   </data>
-  <data name="&gt;&gt;_dmgGraApplyModeColumn.Name" xml:space="preserve">
-    <value>_dmgGraApplyModeColumn</value>
+  <data name="_rotationSpeedField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="_abilityTypeLabel.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -5322,14 +5316,14 @@
   <data name="&gt;&gt;_rangeDisplayedField.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;_abilityResourceCarryLabel.ZOrder" xml:space="preserve">
-    <value>26</value>
+  <data name="_abilityResourceComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 21</value>
   </data>
   <data name="_interactionModeField.Size" type="System.Drawing.Size, System.Drawing">
     <value>154, 20</value>
   </data>
-  <data name="_abilityUnitLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="groupBox33.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
   </data>
   <data name="_animalModeField.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 293</value>
@@ -5337,20 +5331,20 @@
   <data name="&gt;&gt;_abilityWorkRateFactorField.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="&gt;&gt;_trainTabPage.Parent" xml:space="preserve">
-    <value>_mainTabControl</value>
+  <data name="&gt;&gt;_terrSide2Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="_abilityResourceCarryLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="_resourceStorage1ModeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>337, 20</value>
   </data>
-  <data name="&gt;&gt;_abilityToolGraphicField.ZOrder" xml:space="preserve">
-    <value>13</value>
+  <data name="_editorTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>943, 362</value>
   </data>
   <data name="_dllHotkeyField.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="groupBox22.Location" type="System.Drawing.Point, System.Drawing">
-    <value>646, 137</value>
+  <data name="&gt;&gt;_abilityTypeComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;_towerModeField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -5370,20 +5364,23 @@
   <data name="&gt;&gt;groupBox9.Name" xml:space="preserve">
     <value>groupBox9</value>
   </data>
-  <data name="groupBox18.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 32</value>
+  <data name="&gt;&gt;_abilityInfoLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;_editorTabPage.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="_fogOfWarField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 20</value>
+  <data name="_abilityResourceComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 108</value>
   </data>
   <data name="&gt;&gt;_unknown13Field.Name" xml:space="preserve">
     <value>_unknown13Field</value>
   </data>
   <data name="&gt;&gt;_projectileArcField.ZOrder" xml:space="preserve">
     <value>9</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;_flyModeField.Parent" xml:space="preserve">
     <value>_behaviourTabPage</value>
@@ -5427,6 +5424,9 @@
   <data name="_abilityActionGraphicField.TabIndex" type="System.Int32, mscorlib">
     <value>60</value>
   </data>
+  <data name="&gt;&gt;_hillModeField.Parent" xml:space="preserve">
+    <value>_behaviourTabPage</value>
+  </data>
   <data name="_classLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 13</value>
   </data>
@@ -5436,8 +5436,8 @@
   <data name="_classLabel.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
   </data>
-  <data name="&gt;&gt;_compensationModeField.Parent" xml:space="preserve">
-    <value>_projectileTabPage</value>
+  <data name="&gt;&gt;_defaultArmorField.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="_abilityProceedGraphicField.Size" type="System.Drawing.Size, System.Drawing">
     <value>283, 20</value>
@@ -5460,14 +5460,14 @@
   <data name="_unknownSoundField.Location" type="System.Drawing.Point, System.Drawing">
     <value>154, 84</value>
   </data>
-  <data name="_animalModeField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 20</value>
+  <data name="&gt;&gt;_cost2Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.ResourceCostControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="_hpBar2Field.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
   </data>
-  <data name="&gt;&gt;_iconIDField.Parent" xml:space="preserve">
-    <value>_graphicsTabPage</value>
+  <data name="_abilityInfoLabel.Text" xml:space="preserve">
+    <value>Hinweis: Diese Einstellungen gelten immer für alle Kulturen.</value>
   </data>
   <data name="groupBox19.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -5481,8 +5481,8 @@
   <data name="_cost1Field.Size" type="System.Drawing.Size, System.Drawing">
     <value>325, 21</value>
   </data>
-  <data name="&gt;&gt;_unknown6Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;_unknown15Field.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;_abilityUnknown6Field.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -5493,8 +5493,8 @@
   <data name="&gt;&gt;_attackModeField.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="_abilityUnknown3Field.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;_abilityExecutionSoundField.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="_abilityTerrainField.Size" type="System.Drawing.Size, System.Drawing">
     <value>141, 20</value>
@@ -5502,8 +5502,8 @@
   <data name="&gt;&gt;_attackReloadTimeDisplayedField.Name" xml:space="preserve">
     <value>_attackReloadTimeDisplayedField</value>
   </data>
-  <data name="_missileSpawnXField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 58</value>
+  <data name="&gt;&gt;_nameTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;_abilityResourceLabel.Name" xml:space="preserve">
     <value>_abilityResourceLabel</value>
@@ -5529,8 +5529,8 @@
   <data name="_minimapColorField.Location" type="System.Drawing.Point, System.Drawing">
     <value>139, 6</value>
   </data>
-  <data name="&gt;&gt;_soundAttackField.Parent" xml:space="preserve">
-    <value>_soundsTabPage</value>
+  <data name="_abilityResourceProductivityLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>49</value>
   </data>
   <data name="&gt;&gt;_lootWoodField.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -5547,20 +5547,20 @@
   <data name="&gt;&gt;_abilitySelectionEnablerField.Type" xml:space="preserve">
     <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="_unknown1Field.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 3</value>
+  <data name="_blastRadiusField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 20</value>
   </data>
-  <data name="_disappearsField.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>337, 0</value>
   </data>
-  <data name="_garrisonTypeField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>178, 293</value>
+  <data name="_deleteAbilityButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
   </data>
   <data name="_unknown9CField.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 20</value>
   </data>
-  <data name="&gt;&gt;_combatTabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="_resourceStorage3Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 21</value>
   </data>
   <data name="&gt;&gt;_abilityResourceDropLabel.Name" xml:space="preserve">
     <value>_abilityResourceDropLabel</value>
@@ -5574,8 +5574,8 @@
   <data name="_soundsTabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
-  <data name="_attackValuesField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 45</value>
+  <data name="_unknown12Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 20</value>
   </data>
   <data name="_hpBar1Field.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 20</value>
@@ -5583,11 +5583,11 @@
   <data name="_garrisonTypeField.TabIndex" type="System.Int32, mscorlib">
     <value>38</value>
   </data>
-  <data name="&gt;&gt;_selShapeTypeField.Parent" xml:space="preserve">
-    <value>groupBox13</value>
+  <data name="_flyModeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 20</value>
   </data>
-  <data name="&gt;&gt;_hillModeField.Parent" xml:space="preserve">
-    <value>_behaviourTabPage</value>
+  <data name="&gt;&gt;_losField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;_resourceStorage2Field.Parent" xml:space="preserve">
     <value>groupBox6</value>
@@ -5631,14 +5631,14 @@
   <data name="&gt;&gt;_graphicsTabPage.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_attackReloadTimeField.Parent" xml:space="preserve">
-    <value>groupBox22</value>
+  <data name="_penetrationModeField.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="_animalModeField.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
+  <data name="&gt;&gt;_searchRadiusField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;_nameTextBox.Parent" xml:space="preserve">
     <value>_commonTabPage</value>
@@ -5669,9 +5669,6 @@
   </metadata>
   <metadata name="_attValClassColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en-US</value>
   </metadata>
   <metadata name="_dmgGraPercentColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

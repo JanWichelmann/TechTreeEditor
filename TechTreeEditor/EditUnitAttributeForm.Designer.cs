@@ -104,10 +104,14 @@
 			this._rangeMinField = new TechTreeEditor.Controls.NumberFieldControl();
 			this.groupBox19 = new System.Windows.Forms.GroupBox();
 			this._armourValuesField = new System.Windows.Forms.DataGridView();
+			this._armValClassColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this._armValValueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this._displayedPierceArmorField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._displayedMeleeArmourField = new TechTreeEditor.Controls.NumberFieldControl();
 			this.groupBox18 = new System.Windows.Forms.GroupBox();
 			this._attackValuesField = new System.Windows.Forms.DataGridView();
+			this._attValClassColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this._attValValueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this._displayedAttackField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._blastTypeField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._hitpointsField = new TechTreeEditor.Controls.NumberFieldControl();
@@ -202,6 +206,10 @@
 			this._graphicsTabPage = new System.Windows.Forms.TabPage();
 			this.groupBox14 = new System.Windows.Forms.GroupBox();
 			this._dmgGraphicsField = new System.Windows.Forms.DataGridView();
+			this._dmgGraPercentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this._dmgGraIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this._dmgGraApplyModeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this._dmgGraUnknownColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this._iconIDField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._graAttackField = new TechTreeEditor.Controls.DropDownFieldControl();
 			this._graSnowField = new TechTreeEditor.Controls.DropDownFieldControl();
@@ -243,14 +251,6 @@
 			this._unknown5Field = new TechTreeEditor.Controls.NumberFieldControl();
 			this._unknown3Field = new TechTreeEditor.Controls.NumberFieldControl();
 			this._unknown1Field = new TechTreeEditor.Controls.NumberFieldControl();
-			this._attValClassColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this._attValValueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this._armValClassColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this._armValValueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this._dmgGraPercentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this._dmgGraIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this._dmgGraApplyModeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this._dmgGraUnknownColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this._bottomPanel.SuspendLayout();
 			this._mainTabControl.SuspendLayout();
 			this._commonTabPage.SuspendLayout();
@@ -1057,6 +1057,18 @@
 			this._armourValuesField.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._armourValuesField_CellValueChanged);
 			this._armourValuesField.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this._armourValuesField_RowsRemoved);
 			// 
+			// _armValClassColumn
+			// 
+			this._armValClassColumn.FillWeight = 80F;
+			resources.ApplyResources(this._armValClassColumn, "_armValClassColumn");
+			this._armValClassColumn.Name = "_armValClassColumn";
+			// 
+			// _armValValueColumn
+			// 
+			this._armValValueColumn.FillWeight = 20F;
+			resources.ApplyResources(this._armValValueColumn, "_armValValueColumn");
+			this._armValValueColumn.Name = "_armValValueColumn";
+			// 
 			// _displayedPierceArmorField
 			// 
 			resources.ApplyResources(this._displayedPierceArmorField, "_displayedPierceArmorField");
@@ -1101,6 +1113,18 @@
 			this._attackValuesField.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this._attackValuesField_CellValidating);
 			this._attackValuesField.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._attackValuesField_CellValueChanged);
 			this._attackValuesField.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this._attackValuesField_RowsRemoved);
+			// 
+			// _attValClassColumn
+			// 
+			this._attValClassColumn.FillWeight = 80F;
+			resources.ApplyResources(this._attValClassColumn, "_attValClassColumn");
+			this._attValClassColumn.Name = "_attValClassColumn";
+			// 
+			// _attValValueColumn
+			// 
+			this._attValValueColumn.FillWeight = 20F;
+			resources.ApplyResources(this._attValValueColumn, "_attValValueColumn");
+			this._attValValueColumn.Name = "_attValValueColumn";
 			// 
 			// _displayedAttackField
 			// 
@@ -2170,6 +2194,30 @@
 			this._dmgGraphicsField.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._dmgGraphicsField_CellValueChanged);
 			this._dmgGraphicsField.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this._dmgGraphicsField_RowsRemoved);
 			// 
+			// _dmgGraPercentColumn
+			// 
+			this._dmgGraPercentColumn.FillWeight = 20F;
+			resources.ApplyResources(this._dmgGraPercentColumn, "_dmgGraPercentColumn");
+			this._dmgGraPercentColumn.Name = "_dmgGraPercentColumn";
+			// 
+			// _dmgGraIDColumn
+			// 
+			this._dmgGraIDColumn.FillWeight = 50F;
+			resources.ApplyResources(this._dmgGraIDColumn, "_dmgGraIDColumn");
+			this._dmgGraIDColumn.Name = "_dmgGraIDColumn";
+			// 
+			// _dmgGraApplyModeColumn
+			// 
+			this._dmgGraApplyModeColumn.FillWeight = 20F;
+			resources.ApplyResources(this._dmgGraApplyModeColumn, "_dmgGraApplyModeColumn");
+			this._dmgGraApplyModeColumn.Name = "_dmgGraApplyModeColumn";
+			// 
+			// _dmgGraUnknownColumn
+			// 
+			this._dmgGraUnknownColumn.FillWeight = 10F;
+			resources.ApplyResources(this._dmgGraUnknownColumn, "_dmgGraUnknownColumn");
+			this._dmgGraUnknownColumn.Name = "_dmgGraUnknownColumn";
+			// 
 			// _iconIDField
 			// 
 			resources.ApplyResources(this._iconIDField, "_iconIDField");
@@ -2632,54 +2680,6 @@
             0,
             0});
 			this._unknown1Field.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._unknown1Field_ValueChanged);
-			// 
-			// _attValClassColumn
-			// 
-			this._attValClassColumn.FillWeight = 80F;
-			resources.ApplyResources(this._attValClassColumn, "_attValClassColumn");
-			this._attValClassColumn.Name = "_attValClassColumn";
-			// 
-			// _attValValueColumn
-			// 
-			this._attValValueColumn.FillWeight = 20F;
-			resources.ApplyResources(this._attValValueColumn, "_attValValueColumn");
-			this._attValValueColumn.Name = "_attValValueColumn";
-			// 
-			// _armValClassColumn
-			// 
-			this._armValClassColumn.FillWeight = 80F;
-			resources.ApplyResources(this._armValClassColumn, "_armValClassColumn");
-			this._armValClassColumn.Name = "_armValClassColumn";
-			// 
-			// _armValValueColumn
-			// 
-			this._armValValueColumn.FillWeight = 20F;
-			resources.ApplyResources(this._armValValueColumn, "_armValValueColumn");
-			this._armValValueColumn.Name = "_armValValueColumn";
-			// 
-			// _dmgGraPercentColumn
-			// 
-			this._dmgGraPercentColumn.FillWeight = 20F;
-			resources.ApplyResources(this._dmgGraPercentColumn, "_dmgGraPercentColumn");
-			this._dmgGraPercentColumn.Name = "_dmgGraPercentColumn";
-			// 
-			// _dmgGraIDColumn
-			// 
-			this._dmgGraIDColumn.FillWeight = 50F;
-			resources.ApplyResources(this._dmgGraIDColumn, "_dmgGraIDColumn");
-			this._dmgGraIDColumn.Name = "_dmgGraIDColumn";
-			// 
-			// _dmgGraApplyModeColumn
-			// 
-			this._dmgGraApplyModeColumn.FillWeight = 20F;
-			resources.ApplyResources(this._dmgGraApplyModeColumn, "_dmgGraApplyModeColumn");
-			this._dmgGraApplyModeColumn.Name = "_dmgGraApplyModeColumn";
-			// 
-			// _dmgGraUnknownColumn
-			// 
-			this._dmgGraUnknownColumn.FillWeight = 10F;
-			resources.ApplyResources(this._dmgGraUnknownColumn, "_dmgGraUnknownColumn");
-			this._dmgGraUnknownColumn.Name = "_dmgGraUnknownColumn";
 			// 
 			// EditUnitAttributeForm
 			// 
