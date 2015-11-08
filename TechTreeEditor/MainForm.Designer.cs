@@ -34,6 +34,7 @@
 			this._statusStrip = new System.Windows.Forms.StatusStrip();
 			this._statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this._selectedNameLabel = new System.Windows.Forms.ToolStripStatusLabel();
+			this._renderPanel = new TechTreeEditor.RenderControl();
 			this._toolBoxBar = new System.Windows.Forms.ToolStrip();
 			this._newUnitButton = new System.Windows.Forms.ToolStripButton();
 			this._newBuildingButton = new System.Windows.Forms.ToolStripButton();
@@ -76,6 +77,9 @@
 			this._unitRendererMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._pluginMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._helpMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._languageMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._languageGermanMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._languageEnglishMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._infoMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._projectToolBar = new System.Windows.Forms.ToolStrip();
 			this._newProjectButton = new System.Windows.Forms.ToolStripButton();
@@ -116,7 +120,6 @@
 			this._showUnitInRendererMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._openProjectDialog = new System.Windows.Forms.OpenFileDialog();
 			this._renderScreenshotDialog = new System.Windows.Forms.SaveFileDialog();
-			this._renderPanel = new TechTreeEditor.RenderControl();
 			this._menuContainer.BottomToolStripPanel.SuspendLayout();
 			this._menuContainer.ContentPanel.SuspendLayout();
 			this._menuContainer.LeftToolStripPanel.SuspendLayout();
@@ -183,6 +186,15 @@
 			// 
 			resources.ApplyResources(this._selectedNameLabel, "_selectedNameLabel");
 			this._selectedNameLabel.Name = "_selectedNameLabel";
+			// 
+			// _renderPanel
+			// 
+			resources.ApplyResources(this._renderPanel, "_renderPanel");
+			this._renderPanel.Name = "_renderPanel";
+			this._renderPanel.SelectionChanged += new TechTreeEditor.RenderControl.SelectionChangedEventHandler(this._renderPanel_SelectionChanged);
+			this._renderPanel.DoubleClick += new System.EventHandler(this._renderPanel_DoubleClick);
+			this._renderPanel.KeyDown += new System.Windows.Forms.KeyEventHandler(this._renderPanel_KeyDown);
+			this._renderPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this._renderPanel_MouseClick);
 			// 
 			// _toolBoxBar
 			// 
@@ -496,8 +508,31 @@
 			// 
 			resources.ApplyResources(this._helpMenuButton, "_helpMenuButton");
 			this._helpMenuButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._languageMenuButton,
             this._infoMenuButton});
 			this._helpMenuButton.Name = "_helpMenuButton";
+			// 
+			// _languageMenuButton
+			// 
+			resources.ApplyResources(this._languageMenuButton, "_languageMenuButton");
+			this._languageMenuButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._languageGermanMenuButton,
+            this._languageEnglishMenuButton});
+			this._languageMenuButton.Name = "_languageMenuButton";
+			// 
+			// _languageGermanMenuButton
+			// 
+			resources.ApplyResources(this._languageGermanMenuButton, "_languageGermanMenuButton");
+			this._languageGermanMenuButton.CheckOnClick = true;
+			this._languageGermanMenuButton.Name = "_languageGermanMenuButton";
+			this._languageGermanMenuButton.CheckedChanged += new System.EventHandler(this._languageGermanMenuButton_CheckedChanged);
+			// 
+			// _languageEnglishMenuButton
+			// 
+			resources.ApplyResources(this._languageEnglishMenuButton, "_languageEnglishMenuButton");
+			this._languageEnglishMenuButton.CheckOnClick = true;
+			this._languageEnglishMenuButton.Name = "_languageEnglishMenuButton";
+			this._languageEnglishMenuButton.CheckedChanged += new System.EventHandler(this._languageEnglishMenuButton_CheckedChanged);
 			// 
 			// _infoMenuButton
 			// 
@@ -802,15 +837,6 @@
 			// 
 			resources.ApplyResources(this._renderScreenshotDialog, "_renderScreenshotDialog");
 			// 
-			// _renderPanel
-			// 
-			resources.ApplyResources(this._renderPanel, "_renderPanel");
-			this._renderPanel.Name = "_renderPanel";
-			this._renderPanel.SelectionChanged += new TechTreeEditor.RenderControl.SelectionChangedEventHandler(this._renderPanel_SelectionChanged);
-			this._renderPanel.DoubleClick += new System.EventHandler(this._renderPanel_DoubleClick);
-			this._renderPanel.KeyDown += new System.Windows.Forms.KeyEventHandler(this._renderPanel_KeyDown);
-			this._renderPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this._renderPanel_MouseClick);
-			// 
 			// MainForm
 			// 
 			resources.ApplyResources(this, "$this");
@@ -938,6 +964,9 @@
 		private System.Windows.Forms.ToolStripMenuItem _showUnitInRendererMenuButton;
 		private System.Windows.Forms.ToolStripMenuItem _newProjectMenuButton;
 		private System.Windows.Forms.ToolStripButton _newProjectButton;
+		private System.Windows.Forms.ToolStripMenuItem _languageMenuButton;
+		private System.Windows.Forms.ToolStripMenuItem _languageGermanMenuButton;
+		private System.Windows.Forms.ToolStripMenuItem _languageEnglishMenuButton;
 	}
 }
 

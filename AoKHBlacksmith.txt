@@ -1,0 +1,28 @@
+Tracking Nummer: 12574
+
+Summary: The TechTreeEditor provides a simple way to add and modify units, researches, civ abilities and graphics. A rendering window allows to test graphics and adjust their positions.
+
+Haupttext:
+
+
+
+[b]Introduction[/b]
+This application allows to edit the technology tree of Age of Empires II: The Conquerors in a graphical way. This includes editing attributes of units and researches, assigning them to building slots and defining dependencies. A new project can be created by importing a DAT file or using built-in templates; the export function writes the whole project data into a given base DAT. There is also a rendering form that allows to test e.g. graphic displacements and projectile spawn positions.
+
+The software is available in english and german language; this should be determined automatically on initial startup. Else you can set the language in the "?" menu manually.
+
+You can find the development repository [url=https://github.com/Janworks/TechTreeEditor]here[/url].
+
+
+[b]Requirements[/b]
+You need the [url=https://www.microsoft.com/en-us/download/details.aspx?id=30653].NET Framework 4.5[/url] to run the TechTreeEditor. It should be included in recent windows versions, so it may run out-of-the-box in most cases.
+
+For further information and support please have a look [url=]in the corresponding forum thread[/url].
+
+
+[b]Legal Info & Credits[/b]
+This software is published under the MIT/X11 license. Please read the LICENSE file for further information.
+
+Lots of credit goes to the creators of the [url=http://aok.heavengames.com/blacksmith/showfile.php?fileid=11002]Advanced Genie Editor[/url] which source code I used to create a C# port of its genieutils library (see "GenieLibrary" repository).
+
+Also I'd like to thank the developers of [url=http://www.opentk.com/]OpenTK[/url] for their wonderful C# OpenGL wrapper allowing me to write an efficient renderer for my technology tree data structure.

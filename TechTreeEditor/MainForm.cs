@@ -116,6 +116,12 @@ namespace TechTreeEditor
 			ToolStripManager.LoadSettings(this, "ToolBarSettings");
 			//#endif
 
+			// Spracheinstellung den Buttons zuweisen
+			if(Properties.Settings.Default.Language == "en-US")
+				_languageEnglishMenuButton.Checked = true;
+			else
+				_languageGermanMenuButton.Checked = true;
+
 			// Sonstige Einstellungen laden
 			Location = Properties.Settings.Default.MainFormLocation;
 			Size = Properties.Settings.Default.MainFormSize;
@@ -1822,6 +1828,36 @@ namespace TechTreeEditor
 			NewProjectForm newProjectForm = new NewProjectForm();
 			if(newProjectForm.ShowDialog() == DialogResult.OK)
 				LoadProject(newProjectForm.NewProjectFile);
+		}
+
+		private void _languageGermanMenuButton_CheckedChanged(object sender, EventArgs e)
+		{
+			// Aktiviert?
+			if(_languageGermanMenuButton.Checked)
+			{
+				// Sprache ändern
+				Properties.Settings.Default.Language = "de-DE";
+
+				// Anderen Button deselektieren
+				_languageEnglishMenuButton.Checked = false;
+			}
+			else
+				MessageBox.Show("Zur Übernahme der neuen Spracheinstellung muss das Programm neugestartet werden.", "Sprache ändern", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+
+		private void _languageEnglishMenuButton_CheckedChanged(object sender, EventArgs e)
+		{
+			// Aktiviert?
+			if(_languageEnglishMenuButton.Checked)
+			{
+				// Sprache ändern
+				Properties.Settings.Default.Language = "en-US";
+
+				// Anderen Button deselektieren
+				_languageGermanMenuButton.Checked = false;
+			}
+			else
+				MessageBox.Show("The program has to be restarted to apply the language changes.", "Change language", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
 		#endregion Ereignishandler

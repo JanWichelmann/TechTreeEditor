@@ -254,22 +254,28 @@
     <value>Link a building as requirement for availability.</value>
   </data>
   <data name="_deleteDepButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 36</value>
+    <value>35, 36</value>
   </data>
   <data name="_deleteDepButton.ToolTipText" xml:space="preserve">
     <value>Delete a link.</value>
   </data>
   <data name="_menuSeparator9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 39</value>
+    <value>35, 6</value>
   </data>
   <data name="_deleteElementButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 36</value>
+    <value>35, 36</value>
   </data>
   <data name="_deleteElementButton.ToolTipText" xml:space="preserve">
     <value>Delete an element.</value>
   </data>
+  <data name="_fileMenuButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 20</value>
+  </data>
+  <data name="_fileMenuButton.Text" xml:space="preserve">
+    <value>File</value>
+  </data>
   <data name="_newProjectMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 38</value>
+    <value>188, 22</value>
   </data>
   <data name="_newProjectMenuButton.Text" xml:space="preserve">
     <value>New Project...</value>
@@ -305,7 +311,7 @@
 </value>
   </data>
   <data name="_openProjectMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 38</value>
+    <value>188, 22</value>
   </data>
   <data name="_openProjectMenuButton.Text" xml:space="preserve">
     <value>Open Project...</value>
@@ -342,7 +348,7 @@
 </value>
   </data>
   <data name="_saveProjectMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 38</value>
+    <value>188, 22</value>
   </data>
   <data name="_saveProjectMenuButton.Text" xml:space="preserve">
     <value>Save Project...</value>
@@ -351,7 +357,7 @@
     <value>Save all changes made in the currently opened project.</value>
   </data>
   <data name="_importDATMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 38</value>
+    <value>188, 22</value>
   </data>
   <data name="_importDATMenuButton.Text" xml:space="preserve">
     <value>Import DAT...</value>
@@ -360,7 +366,7 @@
     <value>Create a new project based on an existing DAT file.</value>
   </data>
   <data name="_exportDATMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 38</value>
+    <value>188, 22</value>
   </data>
   <data name="_exportDATMenuButton.Text" xml:space="preserve">
     <value>Export DAT...</value>
@@ -369,7 +375,7 @@
     <value>Build a new DAT file out of project data.</value>
   </data>
   <data name="_renderScreenshotMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 38</value>
+    <value>188, 22</value>
   </data>
   <data name="_renderScreenshotMenuButton.Text" xml:space="preserve">
     <value>Export Screenhot...</value>
@@ -378,7 +384,7 @@
     <value>Render a screenshot of the whole tree.</value>
   </data>
   <data name="_projectSettingsMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 38</value>
+    <value>188, 22</value>
   </data>
   <data name="_projectSettingsMenuButton.Text" xml:space="preserve">
     <value>Edit Project Settings...</value>
@@ -387,7 +393,7 @@
     <value>Edit the project's settings.</value>
   </data>
   <data name="_menuSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>201, 6</value>
+    <value>185, 6</value>
   </data>
   <data name="_exitMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -409,7 +415,7 @@
 </value>
   </data>
   <data name="_exitMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 38</value>
+    <value>188, 22</value>
   </data>
   <data name="_exitMenuButton.Text" xml:space="preserve">
     <value>Exit</value>
@@ -417,11 +423,11 @@
   <data name="_exitMenuButton.ToolTipText" xml:space="preserve">
     <value>Exit the application.</value>
   </data>
-  <data name="_fileMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 20</value>
+  <data name="_editMenuButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 20</value>
   </data>
-  <data name="_fileMenuButton.Text" xml:space="preserve">
-    <value>File</value>
+  <data name="_editMenuButton.Text" xml:space="preserve">
+    <value>Edit</value>
   </data>
   <data name="_undoMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -467,7 +473,7 @@
 </value>
   </data>
   <data name="_undoMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 38</value>
+    <value>255, 22</value>
   </data>
   <data name="_undoMenuButton.Text" xml:space="preserve">
     <value>Undo</value>
@@ -511,7 +517,7 @@
 </value>
   </data>
   <data name="_redoMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 38</value>
+    <value>255, 22</value>
   </data>
   <data name="_redoMenuButton.Text" xml:space="preserve">
     <value>Redo</value>
@@ -520,10 +526,10 @@
     <value>Redo the last operation.</value>
   </data>
   <data name="_menuSeparator13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>268, 6</value>
+    <value>252, 6</value>
   </data>
   <data name="_copyMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 38</value>
+    <value>255, 22</value>
   </data>
   <data name="_copyMenuButton.Text" xml:space="preserve">
     <value>Copy</value>
@@ -532,7 +538,7 @@
     <value>Copy the selected Element.</value>
   </data>
   <data name="_pasteMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 38</value>
+    <value>255, 22</value>
   </data>
   <data name="_pasteMenuButton.Text" xml:space="preserve">
     <value>Paste</value>
@@ -541,7 +547,7 @@
     <value>Paste the copied element only.</value>
   </data>
   <data name="_pasteTreeMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 38</value>
+    <value>255, 22</value>
   </data>
   <data name="_pasteTreeMenuButton.Text" xml:space="preserve">
     <value>Paste Tree</value>
@@ -550,10 +556,10 @@
     <value>Paste the copied element and including its whole subtree.</value>
   </data>
   <data name="_menuSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>268, 6</value>
+    <value>252, 6</value>
   </data>
   <data name="_lockAllIDsMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 38</value>
+    <value>255, 22</value>
   </data>
   <data name="_lockAllIDsMenuButton.Text" xml:space="preserve">
     <value>Lock all IDs</value>
@@ -561,11 +567,11 @@
   <data name="_lockAllIDsMenuButton.ToolTipText" xml:space="preserve">
     <value>Lock all element IDs. Use carefully!</value>
   </data>
-  <data name="_editMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 20</value>
+  <data name="_viewMenuButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
   </data>
-  <data name="_editMenuButton.Text" xml:space="preserve">
-    <value>Edit</value>
+  <data name="_viewMenuButton.Text" xml:space="preserve">
+    <value>View</value>
   </data>
   <data name="_unitRendererMenuButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>146, 22</value>
@@ -576,11 +582,8 @@
   <data name="_unitRendererMenuButton.ToolTipText" xml:space="preserve">
     <value>Allows basic rendering of units and their graphics.</value>
   </data>
-  <data name="_viewMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="_viewMenuButton.Text" xml:space="preserve">
-    <value>View</value>
+  <data name="_languageMenuButton.Text" xml:space="preserve">
+    <value>Language</value>
   </data>
   <data name="_infoMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -598,9 +601,6 @@
         3E7DGruOFUd13BwcNuTou8XgIGmwi7RwPuBZbmix8qQW3ifsHBw25IhVzwKMs3Nw2JCTfxxvEo9nxXjE
         OLGK4uZQInwH0NhJPjunMBcAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="_infoMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 38</value>
   </data>
   <data name="_infoMenuButton.Text" xml:space="preserve">
     <value>About...</value>
@@ -777,6 +777,9 @@
     <value>Edit the selected element's tree reference attributes.
 </value>
   </data>
+  <data name="_techTreeElementContextMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 248</value>
+  </data>
   <data name="_standardElementCheckButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -941,9 +944,6 @@
   </data>
   <data name="_showUnitInRendererMenuButton.Text" xml:space="preserve">
     <value>Show in unit renderer</value>
-  </data>
-  <data name="_techTreeElementContextMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 248</value>
   </data>
   <data name="_openProjectDialog.Filter" xml:space="preserve">
     <value>TechTree Editor Project Files (*.ttp)|*.ttp</value>
@@ -1154,6 +1154,10 @@
         AAAAAAAA/wAAAAAAAAD/gAAAAAAAAP/gAAAAAA+A//AAAAAAP4D/+AAAAPh/gP//AAAf/H+A///wB///
         /4A=
 </value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>TechTreeEditor</value>

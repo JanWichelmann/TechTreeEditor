@@ -29,5 +29,8 @@
     <Setting Name="EditGraphicsFormSize" Type="System.Drawing.Size" Scope="User">
       <Value Profile="(Default)">1019, 690</Value>
     </Setting>
+    <Setting Name="Language" Type="System.String" Scope="User">
+      <Value Profile="(Default)">en-US</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

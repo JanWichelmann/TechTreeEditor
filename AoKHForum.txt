@@ -1,0 +1,41 @@
+[center][img]https://www.dropbox.com/s/g03ceh2r583kyrs/Icon.png?dl=1[/img][/center]
+
+[b]Introduction[/b]
+This application allows to edit the technology tree of Age of Empires II: The Conquerors in a graphical way. This includes editing attributes of units and researches, assigning them to building slots and defining dependencies. A new project can be created by importing a DAT file or using built-in templates; the export function writes the whole project data into a given base DAT. There is also a rendering form that allows to test e.g. graphic displacements and projectile spawn positions.
+
+The TechTreeEditor was originally created to speed up the development of the (german) [url=http://www.agearena.de/forum/index.php?mode=viewthread&forum_id=7&thread=1]Agearena AddOn[/url], which will be released later this year. As it became quite feature-rich and universal over time, I decided to translate it to english and share it with you. :)
+
+Most of the planned features are implemented and were tested extensively, but there may still occur random crashes, so it is recommended to do backups regularly. As this is still WIP new releases may break project files or make them unreadable. I try to avoid that by converting project files automatically when loading them, but this may not work always.
+If you find a bug or have an idea how to enhance a feature or make it more user friendly, feel free to post it here or send me an e-mail. :)
+
+[b]Note:[/b] The in-game tech tree [i]view[/i] currently stays unchanged, with this software you can edit the [i]logical[/i] tech tree. See "Missing, but planned features" section below.
+
+The software is available in english and german language; this should be determined automatically on initial startup. Else you can set the language in the "?" menu manually.
+
+Download link: [url=http://aok.heavengames.com/blacksmith/showfile.php?fileid=12574]Blacksmith[/url].
+
+You can find the development repository [url=https://github.com/Janworks/TechTreeEditor]here[/url].
+
+
+[b]How do I create a new modding project: "Import" or "New"?[/b]
+The "Import DAT file" feature is very inaccurate and may even crash on some input files. It should be used only when you want to import a large existing project und don't mind the few hours (sometimes) needed to re-create the C-Bonus researches and resolve inconsistencies regarding blocked units and researches for each civ. This is because the DAT structure is some kind of procedural (the game parses the researches and executes their effects), while the tech tree structure in the TechTreeEditor is highly logical. When you export the project to a new DAT file this structure will be sort of "compiled", which is relatively easy as the logical structure is known.
+
+To avoid that I already imported the standard TC empires2_x1_p1.dat and created a project template out of it. This template is as accurate as possible, so exporting a new project should result in the same behaviour as without a changed DAT file (if you find an error, let me know!). You can create a new template based project with the "New Project" button. It is planned to add two additional templates "reduced" and "minimal", but I will wait until the standard template is tested enough so errors aren't copied to the other two.
+
+
+[b]Requirements[/b]
+You need the [url=https://www.microsoft.com/en-us/download/details.aspx?id=30653].NET Framework 4.5[/url] to run the TechTreeEditor. It should be included in recent windows versions, so it may run out-of-the-box in most cases.
+
+
+[b]Missing, but planned features[/b]
+[ul][*] Modification of the in-game tech tree view (the changes on units an researches are not applied to it yet)[*] Undo/Redo commands (very complicated, so low priority)[/ul]
+[b]Currently not planned features[/b]
+[ul][*] Modification of sounds (maybe later) and terrain data[/ul]
+
+
+[b]Legal Info & Credits[/b]
+This software is published under the MIT/X11 license. Please read the LICENSE file for further information.
+
+Lots of credit goes to the creators of the [url=http://aok.heavengames.com/blacksmith/showfile.php?fileid=11002]Advanced Genie Editor[/url] which source code I used to create a C# port of its genieutils library (see "GenieLibrary" repository).
+
+Also I'd like to thank the developers of [url=http://www.opentk.com/]OpenTK[/url] for their wonderful C# OpenGL wrapper allowing me to write an efficient renderer for my technology tree data structure.
