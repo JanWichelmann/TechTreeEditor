@@ -495,4 +495,10 @@ Diese sind als Elternelemente am Beginn des Baums zu finden.</value>
   <data name="Credits" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>resources\creditsde.rtf;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="MainForm_Operation_SetNewTechTreeParentFirstElement" xml:space="preserve">
+    <value>Bitte das unterzuordnende Element auswählen...</value>
+  </data>
+  <data name="MainForm_Operation_SetNewTechTreeParentSecondElement" xml:space="preserve">
+    <value>Bitte das Elternelement auswählen...</value>
+  </data>
 </root>

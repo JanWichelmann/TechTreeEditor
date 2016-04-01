@@ -474,6 +474,9 @@
     <Content Include="Icons\ExportProject.png" />
     <Content Include="Icons\EyeCandyIcon.png" />
     <Content Include="Icons\ImportProject.png" />
+    <Content Include="Icons\LanguageEnglish.png" />
+    <Content Include="Icons\LanguageGerman.png" />
+    <Content Include="Icons\LanguageSelection.png" />
     <Content Include="Icons\LockAll.png" />
     <Content Include="Icons\MakeAvailDependency.png" />
     <Content Include="Icons\NewAbility.png" />

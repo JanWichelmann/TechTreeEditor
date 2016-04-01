@@ -17,7 +17,7 @@ You can find the development repository [url=https://github.com/Janworks/TechTre
 [b]Requirements[/b]
 You need the [url=https://www.microsoft.com/en-us/download/details.aspx?id=30653].NET Framework 4.5[/url] to run the TechTreeEditor. It should be included in recent windows versions, so it may run out-of-the-box in most cases.
 
-For further information and support please have a look [url=]in the corresponding forum thread[/url].
+For further information and support please have a look [url=http://aok.heavengames.com/cgi-bin/forums/display.cgi?action=ct&f=9,44165,0,30]in the corresponding forum thread[/url].
 
 
 [b]Legal Info & Credits[/b]

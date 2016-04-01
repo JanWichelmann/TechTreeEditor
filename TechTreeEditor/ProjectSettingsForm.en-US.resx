@@ -120,6 +120,9 @@
   <data name="_cancelButton.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Paths</value>
+  </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Graphics DRS (optional):</value>
   </data>
@@ -135,9 +138,6 @@
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Relative paths are allowed.</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Paths</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>59, 13</value>
@@ -162,6 +162,12 @@
   </data>
   <data name="_openGraphicsDRSDialog.Title" xml:space="preserve">
     <value>Open graphics DRS file...</value>
+  </data>
+  <data name="_useNewTechTreeCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 17</value>
+  </data>
+  <data name="_useNewTechTreeCheckBox.Text" xml:space="preserve">
+    <value>Export tech tree (new format)</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

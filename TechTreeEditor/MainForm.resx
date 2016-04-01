@@ -134,6 +134,9 @@
   <data name="&gt;&gt;_exportDATButton.Name" xml:space="preserve">
     <value>_exportDATButton</value>
   </data>
+  <data name="_setNewTechTreeParentButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 36</value>
+  </data>
   <data name="&gt;&gt;_newMakeAvailDepButton.Name" xml:space="preserve">
     <value>_newMakeAvailDepButton</value>
   </data>
@@ -143,12 +146,15 @@
   <data name="_newDeadButton.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
+  <data name="_showInNewTechTreeCheckButton.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>T</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="_newEyeCandyButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="_newMakeAvailDepButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
+  <data name="_menuSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 6</value>
   </data>
   <data name="&gt;&gt;_menuSeparator1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -169,7 +175,10 @@
     <value>None</value>
   </data>
   <data name="_newProjectMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 38</value>
+    <value>203, 22</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1137, 633</value>
   </data>
   <data name="_editElementPropertiesButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>36, 36</value>
@@ -206,7 +215,7 @@
 </value>
   </data>
   <data name="_projectSettingsMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 38</value>
+    <value>203, 22</value>
   </data>
   <data name="_projectToolBar.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -214,8 +223,11 @@
   <data name="&gt;&gt;_infoMenuButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;_setNewTechTreeParentButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="_openProjectMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 38</value>
+    <value>203, 22</value>
   </data>
   <data name="&gt;&gt;_menuContainer.BottomToolStripPanel.Parent" xml:space="preserve">
     <value>_menuContainer</value>
@@ -232,9 +244,6 @@
   <data name="&gt;&gt;_editAttributesButton.Name" xml:space="preserve">
     <value>_editAttributesButton</value>
   </data>
-  <data name="_saveProjectMenuButton.ToolTipText" xml:space="preserve">
-    <value>Alle Änderungen in der aktuell geöffneten Projektdatei speichern.</value>
-  </data>
   <data name="&gt;&gt;_menuContainer.TopToolStripPanel.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
@@ -246,35 +255,6 @@
   </data>
   <data name="&gt;&gt;_mainToolBar.Name" xml:space="preserve">
     <value>_mainToolBar</value>
-  </data>
-  <data name="_standardModeButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        RK5CYII=
-</value>
   </data>
   <data name="&gt;&gt;_newEyeCandyButton.Name" xml:space="preserve">
     <value>_newEyeCandyButton</value>
@@ -288,11 +268,11 @@
   <data name="&gt;&gt;_menuContainer.LeftToolStripPanel.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="_showInEditorCheckButton.Text" xml:space="preserve">
-    <value>Im Editor nutzbar</value>
+  <data name="&gt;&gt;_openProjectDialog.Name" xml:space="preserve">
+    <value>_openProjectDialog</value>
   </data>
-  <data name="&gt;&gt;_renderScreenshotDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;_showInNewTechTreeCheckButton.Name" xml:space="preserve">
+    <value>_showInNewTechTreeCheckButton</value>
   </data>
   <data name="_editCivBoniButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -421,14 +401,11 @@
   <data name="_viewMenuButton.Text" xml:space="preserve">
     <value>Ansicht</value>
   </data>
-  <data name="_newBuildingDepButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 36</value>
-  </data>
-  <data name="&gt;&gt;_civSelectComboBox.Name" xml:space="preserve">
-    <value>_civSelectComboBox</value>
-  </data>
   <data name="_menuSeparator9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 39</value>
+    <value>35, 6</value>
+  </data>
+  <data name="_searchTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 39</value>
   </data>
   <data name="&gt;&gt;_pasteTreeMenuButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -436,11 +413,17 @@
   <data name="&gt;&gt;_mainMenu.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="_hideIfDisabledInNewTechTreeCheckButton.Text" xml:space="preserve">
+    <value>Nur, wenn verfügbar</value>
+  </data>
   <data name="&gt;&gt;_showUnitInRendererMenuButton.Name" xml:space="preserve">
     <value>_showUnitInRendererMenuButton</value>
   </data>
+  <data name="_setNewTechTreeParentButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
   <data name="_lockAllIDsMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>301, 38</value>
+    <value>285, 22</value>
   </data>
   <data name="&gt;&gt;_sortChildrenMenuButton.Name" xml:space="preserve">
     <value>_sortChildrenMenuButton</value>
@@ -454,9 +437,6 @@
   <data name="_newMakeAvailDepButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="_newUnitButton.ToolTipText" xml:space="preserve">
-    <value>Eine neue Einheit erstellen.</value>
-  </data>
   <data name="&gt;&gt;_newLinkButton.Name" xml:space="preserve">
     <value>_newLinkButton</value>
   </data>
@@ -469,8 +449,8 @@
   <data name="_mainToolBar.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 63</value>
   </data>
-  <data name="&gt;&gt;_infoMenuButton.Name" xml:space="preserve">
-    <value>_infoMenuButton</value>
+  <data name="&gt;&gt;_newResearchButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="_undoMenuButton.ToolTipText" xml:space="preserve">
     <value>Die letzte Änderung rückgängig machen.</value>
@@ -529,6 +509,9 @@
   <data name="&gt;&gt;_ageUpButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;_toolBoxBar.Name" xml:space="preserve">
+    <value>_toolBoxBar</value>
+  </data>
   <data name="_ageDownButton.ToolTipText" xml:space="preserve">
     <value>Das ausgewählte Element ein Zeitalter nach unten verschieben.</value>
   </data>
@@ -560,11 +543,14 @@
   <data name="_statusLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>300, 17</value>
   </data>
+  <data name="_editGraphicsButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
   <data name="_openProjectButton.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
   <data name="_menuSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>298, 6</value>
+    <value>282, 6</value>
   </data>
   <data name="&gt;&gt;_menuContainer.BottomToolStripPanel.Name" xml:space="preserve">
     <value>_menuContainer.BottomToolStripPanel</value>
@@ -588,16 +574,13 @@
     <value>Magenta</value>
   </data>
   <data name="&gt;&gt;_renderPanel.Type" xml:space="preserve">
-    <value>TechTreeEditor.RenderControl, TechTreeEditor, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>TechTreeEditor.RenderControl, TechTreeEditor, Version=1.1.2.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="_newMakeAvailDepButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 36</value>
   </data>
   <data name="_editorModeButton.ToolTipText" xml:space="preserve">
     <value>Alle Einheiten anzeigen (Editor-Ansicht).</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="_civCopyBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>None</value>
@@ -636,7 +619,7 @@
     <value>_menuContainer.TopToolStripPanel</value>
   </data>
   <data name="_languageMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 38</value>
+    <value>116, 22</value>
   </data>
   <data name="&gt;&gt;_projectToolBar.Name" xml:space="preserve">
     <value>_projectToolBar</value>
@@ -657,10 +640,13 @@
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="_exitMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 38</value>
+    <value>203, 22</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_setNewTechTreeParentButton.ToolTipText" xml:space="preserve">
+    <value>Ein Element in der Ingame-TechTree-Ansicht einem anderen Elternelement unterordnen als in diesem Programm.</value>
   </data>
   <data name="_exportDATButton.ToolTipText" xml:space="preserve">
     <value>Das Projekt zu einer neuen DAT-Datei exportieren.</value>
@@ -698,9 +684,6 @@
   <data name="_undoMenuButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="_newMakeAvailDepButton.ToolTipText" xml:space="preserve">
-    <value>Eine neue Freischalt-Technologie-Abhängigkeit definieren.</value>
-  </data>
   <data name="&gt;&gt;_showInEditorCheckButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -734,11 +717,14 @@
   <data name="_languageEnglishMenuButton.Text" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="&gt;&gt;_pasteTreeMenuButton.Name" xml:space="preserve">
+    <value>_pasteTreeMenuButton</value>
+  </data>
   <data name="&gt;&gt;_ageUpButton.Name" xml:space="preserve">
     <value>_ageUpButton</value>
   </data>
   <data name="_exportDATMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 38</value>
+    <value>203, 22</value>
   </data>
   <data name="&gt;&gt;_deleteDepButton.Name" xml:space="preserve">
     <value>_deleteDepButton</value>
@@ -752,8 +738,17 @@
   <data name="_editAttributesButton.ToolTipText" xml:space="preserve">
     <value>Die Attribute dieses Elements bearbeiten.</value>
   </data>
-  <data name="&gt;&gt;_pasteTreeMenuButton.Name" xml:space="preserve">
-    <value>_pasteTreeMenuButton</value>
+  <data name="&gt;&gt;_setNewTechTreeParentButton.Name" xml:space="preserve">
+    <value>_setNewTechTreeParentButton</value>
+  </data>
+  <data name="_showInNewTechTreeCheckButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>274, 22</value>
+  </data>
+  <data name="&gt;&gt;_renderPanel.Parent" xml:space="preserve">
+    <value>_menuContainer.ContentPanel</value>
+  </data>
+  <data name="_newProjectileButton.ToolTipText" xml:space="preserve">
+    <value>Ein neues Projektil erstellen.</value>
   </data>
   <data name="_searchTextBox.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -800,7 +795,10 @@
     <value>_menuSeparator13</value>
   </data>
   <data name="_unitRendererMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 38</value>
+    <value>175, 22</value>
+  </data>
+  <data name="_menuSeparator15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>271, 6</value>
   </data>
   <data name="_pluginMenuButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 20</value>
@@ -815,7 +813,7 @@
     <value>_menuContainer.LeftToolStripPanel</value>
   </data>
   <data name="_languageEnglishMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>117, 22</value>
   </data>
   <data name="_civCopyBar.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -856,14 +854,14 @@
   <data name="&gt;&gt;_ageDownButton.Name" xml:space="preserve">
     <value>_ageDownButton</value>
   </data>
-  <data name="_newResearchButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
+  <data name="&gt;&gt;_menuContainer.ContentPanel.Parent" xml:space="preserve">
+    <value>_menuContainer</value>
   </data>
   <data name="_saveProjectMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 38</value>
+    <value>203, 22</value>
   </data>
-  <data name="&gt;&gt;_toolBoxBar.Name" xml:space="preserve">
-    <value>_toolBoxBar</value>
+  <data name="_newMakeAvailDepButton.ToolTipText" xml:space="preserve">
+    <value>Eine neue Freischalt-Technologie-Abhängigkeit definieren.</value>
   </data>
   <data name="_editAttributesMenuButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>274, 22</value>
@@ -885,6 +883,21 @@
   </data>
   <data name="_renderScreenshotDialog.Title" xml:space="preserve">
     <value>Screenshot speichern...</value>
+  </data>
+  <data name="_setNewTechTreeParentButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAgNJREFUOE+lkutLk2EYxvePhJaHShFBUTEPiCieQOmDiEZgrEbpYGiCQxkqA80I
+        RUkUEZ0YRMS+DDI70MkTmzJnDc8iU8QT2mAEItnle90wHwTDyBduXnie5/rd133Q4ZKfAJqHFs9E08A8
+        zD1emDpmYXjqRlnTFIrMk8iuGkNaxWekGEaQrHecBfw+/vPXODw6hj9whN2fh/Bt/8LSRgA3cxr/DeBZ
+        9kvmTNMoHGNbIrYN+3Aj23IxgJkpds0doP3VstgmsNexhutZ9QrAms8T0zYzU5xXM46kcjsmvfvoeL2i
+        AeoUgA07T8yaaZuZKab1rzN74jgys1YB2O2gmBZzH49LODXrrJlnzEzxe9cOLH1ziMioVgCOiuIFX0CE
+        Q+/WYf+yieiCFrRp9tkwxnP7Kt5MbKGm6wfC000KwDlTXNLgEvHMkh+Db32o7fYivtQm1l9+3IBOp5P7
+        yjYPwlKNCsAluWudxgvtknb5t9oWcL/VLU2Mvd2JFq3uqs7vAtE/ceNayiMF4KiYMSjmY2O7B4Ua+NaD
+        YQGEJumRbvyG1IcfBHI12aAAXM8R57aIWTNrLLY4tfNPiCvpR1SeVeu6WWzHFD6THSDwFMDdpmUG62NJ
+        PKM4Or9ZxBxb8H8l7g5CEu8pAOfM3WanSeeS8CFHxW4zM2umbWamOCShXAH+/wNOANABIDUxWnDPAAAA
+        AElFTkSuQmCC
+</value>
   </data>
   <data name="_exportDATMenuButton.Text" xml:space="preserve">
     <value>DAT exportieren...</value>
@@ -934,8 +947,8 @@
   <data name="&gt;&gt;_menuSeparator11.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_newResearchButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="_statusStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="_deleteDepButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1052,8 +1065,8 @@
   <data name="&gt;&gt;_fileMenuButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_gaiaOnlyCheckButton.Name" xml:space="preserve">
-    <value>_gaiaOnlyCheckButton</value>
+  <data name="_newMakeAvailDepButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
   </data>
   <data name="_newProjectMenuButton.ToolTipText" xml:space="preserve">
     <value>Ein neues Projekt erstellen.</value>
@@ -1079,17 +1092,20 @@
   <data name="&gt;&gt;_menuSeparator1.Name" xml:space="preserve">
     <value>_menuSeparator1</value>
   </data>
+  <data name="&gt;&gt;_newUnitButton.Name" xml:space="preserve">
+    <value>_newUnitButton</value>
+  </data>
   <data name="&gt;&gt;_menuSeparator6.Name" xml:space="preserve">
     <value>_menuSeparator6</value>
   </data>
   <data name="_deleteDepButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
-  <data name="&gt;&gt;_menuContainer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;_hideIfDisabledInNewTechTreeCheckButton.Name" xml:space="preserve">
+    <value>_hideIfDisabledInNewTechTreeCheckButton</value>
   </data>
-  <data name="&gt;&gt;_toolBoxBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="_ageUpButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
   </data>
   <data name="_deleteLinkButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
@@ -1553,7 +1569,7 @@
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="_deleteElementButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 36</value>
+    <value>35, 36</value>
   </data>
   <data name="&gt;&gt;_renderPanel.Name" xml:space="preserve">
     <value>_renderPanel</value>
@@ -1588,6 +1604,9 @@
   <data name="_statusStrip.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="_setNewTechTreeParentButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="_freeForCivCheckButton.ShortcutKeyDisplayString" xml:space="preserve">
     <value>F</value>
   </data>
@@ -1609,6 +1628,9 @@
   <data name="&gt;&gt;_menuSeparator13.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;_newSuccResDepButton.Name" xml:space="preserve">
+    <value>_newSuccResDepButton</value>
+  </data>
   <data name="_showInEditorCheckButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>274, 22</value>
   </data>
@@ -1616,19 +1638,19 @@
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="_undoMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>301, 38</value>
+    <value>285, 22</value>
   </data>
   <data name="&gt;&gt;_languageEnglishMenuButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="_mainToolBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
   </data>
   <data name="_newLinkButton.ToolTipText" xml:space="preserve">
     <value>Ein Element einem anderen unterordnen.</value>
   </data>
   <data name="&gt;&gt;_addToolsBar.Name" xml:space="preserve">
     <value>_addToolsBar</value>
+  </data>
+  <data name="_infoMenuButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 22</value>
   </data>
   <data name="_newSuccResDepButton.ToolTipText" xml:space="preserve">
     <value>Eine neue Weiterentwicklungs-Technologie-Abhängigkeit definieren.</value>
@@ -1639,8 +1661,8 @@
   <data name="_searchLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
   </data>
-  <data name="_deleteElementButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="_deleteElementButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
   </data>
   <data name="_newUnitButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
@@ -1660,8 +1682,8 @@
   <data name="_pasteTreeMenuButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;_renderPanel.Parent" xml:space="preserve">
-    <value>_menuContainer.ContentPanel</value>
+  <data name="_editMenuButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 20</value>
   </data>
   <data name="&gt;&gt;_lockAllIDsMenuButton.Name" xml:space="preserve">
     <value>_lockAllIDsMenuButton</value>
@@ -1732,11 +1754,8 @@
   <data name="_deleteLinkButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="_newUnitButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 36</value>
-  </data>
-  <data name="_renderPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="_mainToolBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="&gt;&gt;_projectToolBar.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1775,8 +1794,8 @@
         C2EAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="_editGraphicsButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
+  <data name="_newLinkButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 36</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>X2-AddOn :: Technologiebaum bearbeiten</value>
@@ -1814,9 +1833,6 @@
         EwBhYX8DLKZ9nfJlvDUAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="_newLinkButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 36</value>
-  </data>
   <data name="&gt;&gt;_menuContainer.RightToolStripPanel.Name" xml:space="preserve">
     <value>_menuContainer.RightToolStripPanel</value>
   </data>
@@ -1832,23 +1848,20 @@
   <data name="_menuSeparator12.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 39</value>
   </data>
-  <data name="&gt;&gt;_toolBoxBar.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="_newBuildingButton.ToolTipText" xml:space="preserve">
+    <value>Ein neues Gebäude erstellen.</value>
   </data>
   <data name="_openProjectDialog.Filter" xml:space="preserve">
     <value>TechTree-Editor-Projektdateien (*.ttp)|*.ttp</value>
   </data>
   <data name="_renderScreenshotMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 38</value>
+    <value>203, 22</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>MainForm</value>
+  <data name="&gt;&gt;_menuContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;_newProjectMenuButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="_standardElementCheckButton.ShortcutKeyDisplayString" xml:space="preserve">
-    <value>S</value>
   </data>
   <data name="&gt;&gt;_searchLabel.Name" xml:space="preserve">
     <value>_searchLabel</value>
@@ -1868,11 +1881,14 @@
   <data name="&gt;&gt;_languageGermanMenuButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="_newBuildingDepButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
   <data name="_renderScreenshotMenuButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="_searchTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 39</value>
+  <data name="&gt;&gt;_toolBoxBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="_deleteLinkButton.ToolTipText" xml:space="preserve">
     <value>Eine Unterordnung lösen und das untergeordnete Element als Stammelement setzen.</value>
@@ -1881,13 +1897,10 @@
     <value>_mainMenu</value>
   </data>
   <data name="_techTreeElementContextMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>275, 248</value>
+    <value>275, 276</value>
   </data>
   <data name="_importDATMenuButton.Text" xml:space="preserve">
     <value>DAT importieren...</value>
-  </data>
-  <data name="_statusStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
   </data>
   <data name="_editGraphicsButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>36, 36</value>
@@ -1895,8 +1908,8 @@
   <data name="_sortChildrenMenuButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>274, 22</value>
   </data>
-  <data name="&gt;&gt;_openProjectDialog.Name" xml:space="preserve">
-    <value>_openProjectDialog</value>
+  <data name="_deleteElementButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="_exitMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1941,8 +1954,8 @@
         52GQQnUyCUQszzcPo7Apif8tAJYBIuysEZXG7z0AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="_newBuildingDepButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
+  <data name="&gt;&gt;_menuSeparator15.Name" xml:space="preserve">
+    <value>_menuSeparator15</value>
   </data>
   <data name="_lockIDCheckButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1960,7 +1973,7 @@
     <value>_menuContainer.ContentPanel</value>
   </data>
   <data name="_pasteTreeMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>301, 38</value>
+    <value>285, 22</value>
   </data>
   <data name="_menuSeparator8.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 6</value>
@@ -1973,9 +1986,6 @@
   </data>
   <data name="_newLinkButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
-  </data>
-  <data name="_renderScreenshotDialog.Filter" xml:space="preserve">
-    <value>Bitmap-Dateien (*.bmp)|*.bmp</value>
   </data>
   <data name="&gt;&gt;_mainMenu.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1998,14 +2008,17 @@
   <data name="_menuSeparator3.Size" type="System.Drawing.Size, System.Drawing">
     <value>271, 6</value>
   </data>
+  <data name="&gt;&gt;_showInNewTechTreeCheckButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="_editElementPropertiesButton.ToolTipText" xml:space="preserve">
     <value>Die Attribute dieses Elements bearbeiten.</value>
   </data>
   <data name="_languageGermanMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>117, 22</value>
   </data>
-  <data name="_addToolsBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
+  <data name="&gt;&gt;_hideIfDisabledInNewTechTreeCheckButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;_freeForCivCheckButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2037,11 +2050,17 @@
   <data name="&gt;&gt;_menuContainer.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="_showInNewTechTreeCheckButton.Text" xml:space="preserve">
+    <value>Im neuen TechTree anzeigen</value>
+  </data>
   <data name="_blockForCivCheckButton.ShortcutKeyDisplayString" xml:space="preserve">
     <value>B</value>
   </data>
   <data name="_mainToolBar.Size" type="System.Drawing.Size, System.Drawing">
     <value>523, 39</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainForm</value>
   </data>
   <data name="_fileMenuButton.Text" xml:space="preserve">
     <value>Datei</value>
@@ -2050,10 +2069,36 @@
     <value>Magenta</value>
   </data>
   <data name="_deleteDepButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 36</value>
+    <value>35, 36</value>
   </data>
-  <data name="_newBuildingButton.ToolTipText" xml:space="preserve">
-    <value>Ein neues Gebäude erstellen.</value>
+  <data name="_standardModeButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        RK5CYII=
+</value>
   </data>
   <data name="_standardModeButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -2135,8 +2180,8 @@
   <data name="_statusLabel.Text" xml:space="preserve">
     <value>Bereit</value>
   </data>
-  <data name="_newProjectileButton.ToolTipText" xml:space="preserve">
-    <value>Ein neues Projektil erstellen.</value>
+  <data name="&gt;&gt;_renderScreenshotDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="_exitMenuButton.Text" xml:space="preserve">
     <value>Beenden</value>
@@ -2147,14 +2192,14 @@
   <data name="&gt;&gt;_showUnitInRendererMenuButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="_editMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 20</value>
+  <data name="_newBuildingDepButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 36</value>
   </data>
   <data name="_helpMenuButton.Text" xml:space="preserve">
     <value>?</value>
   </data>
   <data name="_importDATMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 38</value>
+    <value>203, 22</value>
   </data>
   <data name="&gt;&gt;_newBuildingButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2171,11 +2216,14 @@
   <data name="_lockIDCheckButton.ShortcutKeyDisplayString" xml:space="preserve">
     <value>I</value>
   </data>
-  <data name="&gt;&gt;_newSuccResDepButton.Name" xml:space="preserve">
-    <value>_newSuccResDepButton</value>
+  <data name="_renderPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="&gt;&gt;_deleteElementButton.Name" xml:space="preserve">
     <value>_deleteElementButton</value>
+  </data>
+  <data name="_hideIfDisabledInNewTechTreeCheckButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 22</value>
   </data>
   <data name="_gaiaOnlyCheckButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2199,14 +2247,14 @@
   <data name="_newProjectileButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 36</value>
   </data>
-  <data name="&gt;&gt;_menuContainer.ContentPanel.Parent" xml:space="preserve">
-    <value>_menuContainer</value>
+  <data name="_saveProjectMenuButton.ToolTipText" xml:space="preserve">
+    <value>Alle Änderungen in der aktuell geöffneten Projektdatei speichern.</value>
   </data>
   <data name="&gt;&gt;_newSuccResDepButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="_renderPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="_showInEditorCheckButton.Text" xml:space="preserve">
+    <value>Im Editor nutzbar</value>
   </data>
   <data name="&gt;&gt;_techTreeElementContextMenu.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2230,7 +2278,7 @@
     <value>System.Windows.Forms.ToolStripContentPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="_menuSeparator13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>298, 6</value>
+    <value>282, 6</value>
   </data>
   <data name="&gt;&gt;_blockForCivCheckButton.Name" xml:space="preserve">
     <value>_blockForCivCheckButton</value>
@@ -2268,8 +2316,8 @@
   <data name="&gt;&gt;_standardModeButton.Name" xml:space="preserve">
     <value>_standardModeButton</value>
   </data>
-  <data name="&gt;&gt;_openProjectButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="_standardElementCheckButton.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>S</value>
   </data>
   <data name="&gt;&gt;_selectedNameLabel.Name" xml:space="preserve">
     <value>_selectedNameLabel</value>
@@ -2293,7 +2341,7 @@
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="_redoMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>301, 38</value>
+    <value>285, 22</value>
   </data>
   <data name="_projectSettingsMenuButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -2304,8 +2352,8 @@
   <data name="_openProjectButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
-  <data name="_infoMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 38</value>
+  <data name="_newUnitButton.ToolTipText" xml:space="preserve">
+    <value>Eine neue Einheit erstellen.</value>
   </data>
   <data name="_newResearchButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -2319,8 +2367,8 @@
   <data name="_freeForCivCheckButton.Text" xml:space="preserve">
     <value>Für diese Kultur kostenlos</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1137, 633</value>
+  <data name="_newUnitButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 36</value>
   </data>
   <data name="_newLinkButton.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
@@ -2366,6 +2414,9 @@
   </data>
   <data name="&gt;&gt;_fileMenuButton.Name" xml:space="preserve">
     <value>_fileMenuButton</value>
+  </data>
+  <data name="_newResearchButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
   </data>
   <data name="&gt;&gt;_languageEnglishMenuButton.Name" xml:space="preserve">
     <value>_languageEnglishMenuButton</value>
@@ -2415,8 +2466,14 @@
   <data name="&gt;&gt;_openProjectButton.Name" xml:space="preserve">
     <value>_openProjectButton</value>
   </data>
+  <data name="_addToolsBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
+  </data>
   <data name="_infoMenuButton.ToolTipText" xml:space="preserve">
     <value>Informationen über dieses Programm anzeigen.</value>
+  </data>
+  <data name="&gt;&gt;_gaiaOnlyCheckButton.Name" xml:space="preserve">
+    <value>_gaiaOnlyCheckButton</value>
   </data>
   <data name="_saveProjectMenuButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -2437,7 +2494,7 @@
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="_copyMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>301, 38</value>
+    <value>285, 22</value>
   </data>
   <data name="_projectToolBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>None</value>
@@ -2457,8 +2514,8 @@
   <data name="&gt;&gt;_renderScreenshotDialog.Name" xml:space="preserve">
     <value>_renderScreenshotDialog</value>
   </data>
-  <data name="&gt;&gt;_newUnitButton.Name" xml:space="preserve">
-    <value>_newUnitButton</value>
+  <data name="&gt;&gt;_menuSeparator15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="_menuSeparator6.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 39</value>
@@ -2467,7 +2524,7 @@
     <value>_helpMenuButton</value>
   </data>
   <data name="_pasteMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>301, 38</value>
+    <value>285, 22</value>
   </data>
   <data name="_newDeadButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -2475,8 +2532,8 @@
   <data name="_projectToolBar.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 39</value>
   </data>
-  <data name="_ageUpButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
+  <data name="_renderPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="_menuSeparator11.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 39</value>
@@ -2508,6 +2565,33 @@
   <data name="_editMenuButton.Text" xml:space="preserve">
     <value>Bearbeiten</value>
   </data>
+  <data name="&gt;&gt;_openProjectButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_newProjectMenuButton.Name" xml:space="preserve">
+    <value>_newProjectMenuButton</value>
+  </data>
+  <data name="_editGraphicsButton.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="_pluginMenuButton.Text" xml:space="preserve">
+    <value>Plugins</value>
+  </data>
+  <data name="_editorModeButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="_hideIfDisabledInNewTechTreeCheckButton.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="_toolBoxBar.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_standardModeButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="&gt;&gt;_menuContainer.ContentPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="_infoMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -2525,29 +2609,8 @@
         OLGK4uZQInwH0NhJPjunMBcAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="&gt;&gt;_newProjectMenuButton.Name" xml:space="preserve">
-    <value>_newProjectMenuButton</value>
-  </data>
-  <data name="_editGraphicsButton.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="_pluginMenuButton.Text" xml:space="preserve">
-    <value>Plugins</value>
-  </data>
-  <data name="_editorModeButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="_toolBoxBar.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="_standardModeButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="&gt;&gt;_menuContainer.ContentPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="_deleteElementButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
+  <data name="_renderScreenshotDialog.Filter" xml:space="preserve">
+    <value>Bitmap-Dateien (*.bmp)|*.bmp</value>
   </data>
   <data name="&gt;&gt;_editMenuButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2555,8 +2618,11 @@
   <data name="&gt;&gt;_menuSeparator2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="_menuSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 6</value>
+  <data name="&gt;&gt;_civSelectComboBox.Name" xml:space="preserve">
+    <value>_civSelectComboBox</value>
+  </data>
+  <data name="&gt;&gt;_infoMenuButton.Name" xml:space="preserve">
+    <value>_infoMenuButton</value>
   </data>
   <data name="_newDeadButton.ToolTipText" xml:space="preserve">
     <value>Eine neue tote Einheit erstellen.</value>
@@ -2566,6 +2632,9 @@
   </data>
   <data name="&gt;&gt;_pasteMenuButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_toolBoxBar.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="_mainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

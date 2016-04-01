@@ -9,7 +9,6 @@ The software is available in english and german language; this should be determi
 #### Missing Features
 
 ##### Missing, but planned features are:
-* Modification of the in-game tech tree view (the changes on units an researches are not applied to it yet)
 * Undo/Redo commands (very complicated, so low priority)
 
 ##### Currently not planned features are:

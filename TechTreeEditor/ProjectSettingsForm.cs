@@ -53,6 +53,7 @@ namespace TechTreeEditor
 			_dllTextBox.Text = string.Join(";", ((IEnumerable<string>)_projectFile.LanguageFilePaths).Reverse());
 			_interfacDRSTextBox.Text = _projectFile.InterfacDRSPath;
 			_ageCountField.Value = _projectFile.AgeCount;
+			_useNewTechTreeCheckBox.Checked = _projectFile.ExportNewTechTree;
 		}
 
 		#endregion Funktionen
@@ -165,6 +166,9 @@ namespace TechTreeEditor
 				// Baum aktualisieren
 				_renderControl.UpdateTreeData(_projectFile.TechTreeParentElements, _projectFile.AgeCount);
 			}
+
+			// TechTree-Exportmodus setzen
+			_projectFile.ExportNewTechTree = _useNewTechTreeCheckBox.Checked;
 
 			// Fertig
 			DialogResult = DialogResult.OK;

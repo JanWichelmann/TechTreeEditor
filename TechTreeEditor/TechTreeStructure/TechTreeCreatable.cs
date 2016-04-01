@@ -202,6 +202,9 @@ namespace TechTreeEditor.TechTreeStructure
 		/// </summary>
 		public override void DrawDependencies()
 		{
+			// Basisklassen-Funktion aufrufen
+			base.DrawDependencies();
+
 			// Ggf. Linie zur Weiterentwicklungs-Technologie zeichnen
 			if(SuccessorResearch != null)
 				RenderControl.DrawLine(this, SuccessorResearch, Color.Red, true);
@@ -312,6 +315,15 @@ namespace TechTreeEditor.TechTreeStructure
 			// ID generieren
 			int myID = ++lastID;
 			elementIDs[this] = myID;
+
+			// Alt. TechTree-Elternelement-ID abrufen
+			int altNTTParentID = -1;
+			if(AlternateNewTechTreeParentElement != null)
+			{
+				if(!elementIDs.ContainsKey(AlternateNewTechTreeParentElement))
+					lastID = AlternateNewTechTreeParentElement.ToXml(writer, elementIDs, lastID);
+				altNTTParentID = elementIDs[AlternateNewTechTreeParentElement];
+			}
 
 			// Toten-ID abrufen
 			int deadUnitID = -1;
@@ -430,6 +442,9 @@ namespace TechTreeEditor.TechTreeStructure
 				writer.WriteElementNumber("flags", (int)Flags);
 				writer.WriteElementNumber("shadow", ShadowElement);
 				writer.WriteElementNumber("standard", StandardElement);
+
+				// Alt. TechTree-Elternelement-ID schreiben
+				writer.WriteElementNumber("alternatetechtreeparent", altNTTParentID);
 
 				// Toten-ID schreiben
 				writer.WriteElementNumber("deadunit", deadUnitID);

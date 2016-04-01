@@ -45,6 +45,7 @@
 			this._menuSeparator7 = new System.Windows.Forms.ToolStripSeparator();
 			this._newLinkButton = new System.Windows.Forms.ToolStripButton();
 			this._deleteLinkButton = new System.Windows.Forms.ToolStripButton();
+			this._setNewTechTreeParentButton = new System.Windows.Forms.ToolStripButton();
 			this._menuSeparator8 = new System.Windows.Forms.ToolStripSeparator();
 			this._newMakeAvailDepButton = new System.Windows.Forms.ToolStripButton();
 			this._newSuccResDepButton = new System.Windows.Forms.ToolStripButton();
@@ -112,6 +113,9 @@
 			this._menuSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this._blockForCivCheckButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._freeForCivCheckButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._menuSeparator15 = new System.Windows.Forms.ToolStripSeparator();
+			this._showInNewTechTreeCheckButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._hideIfDisabledInNewTechTreeCheckButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._menuSeparator10 = new System.Windows.Forms.ToolStripSeparator();
 			this._editAttributesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._editElementPropertiesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -210,6 +214,7 @@
             this._menuSeparator7,
             this._newLinkButton,
             this._deleteLinkButton,
+            this._setNewTechTreeParentButton,
             this._menuSeparator8,
             this._newMakeAvailDepButton,
             this._newSuccResDepButton,
@@ -282,6 +287,13 @@
 			this._deleteLinkButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this._deleteLinkButton.Name = "_deleteLinkButton";
 			this._deleteLinkButton.Click += new System.EventHandler(this._deleteLinkButton_Click);
+			// 
+			// _setNewTechTreeParentButton
+			// 
+			resources.ApplyResources(this._setNewTechTreeParentButton, "_setNewTechTreeParentButton");
+			this._setNewTechTreeParentButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this._setNewTechTreeParentButton.Name = "_setNewTechTreeParentButton";
+			this._setNewTechTreeParentButton.Click += new System.EventHandler(this._setNewTechTreeParentButton_Click);
 			// 
 			// _menuSeparator8
 			// 
@@ -518,12 +530,14 @@
 			this._languageMenuButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._languageGermanMenuButton,
             this._languageEnglishMenuButton});
+			this._languageMenuButton.Image = global::TechTreeEditor.Icons.LanguageSelection;
 			this._languageMenuButton.Name = "_languageMenuButton";
 			// 
 			// _languageGermanMenuButton
 			// 
 			resources.ApplyResources(this._languageGermanMenuButton, "_languageGermanMenuButton");
 			this._languageGermanMenuButton.CheckOnClick = true;
+			this._languageGermanMenuButton.Image = global::TechTreeEditor.Icons.LanguageGerman;
 			this._languageGermanMenuButton.Name = "_languageGermanMenuButton";
 			this._languageGermanMenuButton.CheckedChanged += new System.EventHandler(this._languageGermanMenuButton_CheckedChanged);
 			// 
@@ -531,6 +545,7 @@
 			// 
 			resources.ApplyResources(this._languageEnglishMenuButton, "_languageEnglishMenuButton");
 			this._languageEnglishMenuButton.CheckOnClick = true;
+			this._languageEnglishMenuButton.Image = global::TechTreeEditor.Icons.LanguageEnglish;
 			this._languageEnglishMenuButton.Name = "_languageEnglishMenuButton";
 			this._languageEnglishMenuButton.CheckedChanged += new System.EventHandler(this._languageEnglishMenuButton_CheckedChanged);
 			// 
@@ -729,6 +744,8 @@
             this._menuSeparator4,
             this._blockForCivCheckButton,
             this._freeForCivCheckButton,
+            this._menuSeparator15,
+            this._showInNewTechTreeCheckButton,
             this._menuSeparator10,
             this._editAttributesMenuButton,
             this._editElementPropertiesMenuButton,
@@ -790,6 +807,27 @@
 			this._freeForCivCheckButton.CheckOnClick = true;
 			this._freeForCivCheckButton.Name = "_freeForCivCheckButton";
 			this._freeForCivCheckButton.CheckedChanged += new System.EventHandler(this._freeForCivCheckButton_CheckedChanged);
+			// 
+			// _menuSeparator15
+			// 
+			resources.ApplyResources(this._menuSeparator15, "_menuSeparator15");
+			this._menuSeparator15.Name = "_menuSeparator15";
+			// 
+			// _showInNewTechTreeCheckButton
+			// 
+			resources.ApplyResources(this._showInNewTechTreeCheckButton, "_showInNewTechTreeCheckButton");
+			this._showInNewTechTreeCheckButton.CheckOnClick = true;
+			this._showInNewTechTreeCheckButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._hideIfDisabledInNewTechTreeCheckButton});
+			this._showInNewTechTreeCheckButton.Name = "_showInNewTechTreeCheckButton";
+			this._showInNewTechTreeCheckButton.CheckedChanged += new System.EventHandler(this._showInNewTechTreeCheckButton_CheckedChanged);
+			// 
+			// _hideIfDisabledInNewTechTreeCheckButton
+			// 
+			resources.ApplyResources(this._hideIfDisabledInNewTechTreeCheckButton, "_hideIfDisabledInNewTechTreeCheckButton");
+			this._hideIfDisabledInNewTechTreeCheckButton.CheckOnClick = true;
+			this._hideIfDisabledInNewTechTreeCheckButton.Name = "_hideIfDisabledInNewTechTreeCheckButton";
+			this._hideIfDisabledInNewTechTreeCheckButton.CheckedChanged += new System.EventHandler(this._hideIfDisabledInNewTechTreeCheckButton_CheckedChanged);
 			// 
 			// _menuSeparator10
 			// 
@@ -967,6 +1005,10 @@
 		private System.Windows.Forms.ToolStripMenuItem _languageMenuButton;
 		private System.Windows.Forms.ToolStripMenuItem _languageGermanMenuButton;
 		private System.Windows.Forms.ToolStripMenuItem _languageEnglishMenuButton;
+		private System.Windows.Forms.ToolStripButton _setNewTechTreeParentButton;
+		private System.Windows.Forms.ToolStripSeparator _menuSeparator15;
+		private System.Windows.Forms.ToolStripMenuItem _showInNewTechTreeCheckButton;
+		private System.Windows.Forms.ToolStripMenuItem _hideIfDisabledInNewTechTreeCheckButton;
 	}
 }
 

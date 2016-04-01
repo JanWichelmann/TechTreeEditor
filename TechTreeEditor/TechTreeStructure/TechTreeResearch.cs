@@ -136,6 +136,9 @@ namespace TechTreeEditor.TechTreeStructure
 		/// </summary>
 		public override void DrawDependencies()
 		{
+			// Basisklassen-Funktion aufrufen
+			base.DrawDependencies();
+
 			// Linie zu jedem Element zeichnen
 			foreach(var dep in Dependencies)
 				RenderControl.DrawLine(this, dep.Key, Color.Red, true);
@@ -220,6 +223,15 @@ namespace TechTreeEditor.TechTreeStructure
 			int myID = ++lastID;
 			elementIDs[this] = myID;
 
+			// Alt. TechTree-Elternelement-ID abrufen
+			int altNTTParentID = -1;
+			if(AlternateNewTechTreeParentElement != null)
+			{
+				if(!elementIDs.ContainsKey(AlternateNewTechTreeParentElement))
+					lastID = AlternateNewTechTreeParentElement.ToXml(writer, elementIDs, lastID);
+				altNTTParentID = elementIDs[AlternateNewTechTreeParentElement];
+			}
+
 			// Nachfolger-IDs abrufen
 			List<int> succIDs = new List<int>();
 			Successors.ForEach(s =>
@@ -272,6 +284,9 @@ namespace TechTreeEditor.TechTreeStructure
 				writer.WriteElementNumber("id", ID);
 				writer.WriteElementNumber("flags", (int)Flags);
 				writer.WriteElementNumber("shadow", ShadowElement);
+
+				// Alt. TechTree-Elternelement-ID schreiben
+				writer.WriteElementNumber("alternatetechtreeparent", altNTTParentID);
 
 				// Nachfolger schreiben
 				writer.WriteStartElement("successors");

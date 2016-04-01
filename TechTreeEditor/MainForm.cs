@@ -99,6 +99,11 @@ namespace TechTreeEditor
 		/// </summary>
 		private ToolStripButton[] _civCopyBarDefaultButtons;
 
+		/// <summary>
+		/// Gibt an, ob gerade Steuerelemente zentral aktualisiert werden. Dies unterdrückt etwaige Änderungs-Ereignisse, die zu unerwünschtem Verhalten führen können.
+		/// </summary>
+		private bool _updatingControls = false;
+
 		#endregion Variablen
 
 		#region Funktionen
@@ -112,9 +117,9 @@ namespace TechTreeEditor
 			InitializeComponent();
 
 			// ToolBar-Einstellungen laden
-			//#if !DEBUG
+#if !DEBUG
 			ToolStripManager.LoadSettings(this, "ToolBarSettings");
-			//#endif
+#endif
 
 			// Spracheinstellung den Buttons zuweisen
 			if(Properties.Settings.Default.Language == "en-US")
@@ -356,6 +361,7 @@ namespace TechTreeEditor
 			_newDeadButton.Enabled = true;
 			_newLinkButton.Enabled = true;
 			_deleteLinkButton.Enabled = true;
+			_setNewTechTreeParentButton.Enabled = true;
 			_newMakeAvailDepButton.Enabled = true;
 			_newSuccResDepButton.Enabled = true;
 			_newBuildingDepButton.Enabled = true;
@@ -484,6 +490,14 @@ namespace TechTreeEditor
 
 				case TreeOperations.DeleteLink:
 					SetStatus(Strings.MainForm_Operation_DeleteLink);
+					break;
+
+				case TreeOperations.SetNewTechTreeParentFirstElement:
+					SetStatus(Strings.MainForm_Operation_SetNewTechTreeParentFirstElement);
+					break;
+
+				case TreeOperations.SetNewTechTreeParentSecondElement:
+					SetStatus(Strings.MainForm_Operation_SetNewTechTreeParentSecondElement);
 					break;
 
 				case TreeOperations.DeleteElement:
@@ -636,6 +650,9 @@ namespace TechTreeEditor
 			// Ist ein Element ausgewählt?
 			if(_selectedElement != null)
 			{
+				// Es wird aktualisiert, alle Ereignisse blockieren
+				_updatingControls = true;
+
 				// Falls es sich um eine Einheit handelt, ID ändern
 				if(_selectedElement is TechTreeUnit)
 				{
@@ -705,6 +722,13 @@ namespace TechTreeEditor
 					_freeForCivCheckButton.Enabled = (_selectedElement.GetType() == typeof(TechTreeResearch));
 					_freeForCivCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.Free) == TechTreeElement.ElementFlags.Free);
 				}
+
+				// NewTechTree-Buttons aktualisieren
+				_showInNewTechTreeCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.ShowInNewTechTree) == TechTreeElement.ElementFlags.ShowInNewTechTree);
+				_hideIfDisabledInNewTechTreeCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.HideInNewTechTreeIfDisabled) == TechTreeElement.ElementFlags.HideInNewTechTreeIfDisabled);
+
+				// Fertig mit dem kritischen Teil
+				_updatingControls = false;
 
 				// Buttons aktivieren
 				_ageUpButton.Enabled = true;
@@ -786,6 +810,32 @@ namespace TechTreeEditor
 
 							// Baum neu berechnen
 							_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements, _projectFile.AgeCount);
+						}
+						break;
+
+					// Alternatives TechTree-Elternelement setzen: Erstes Element (Kindelement)
+					case TreeOperations.SetNewTechTreeParentFirstElement:
+						{
+							// Element speichern
+							_currentOperationFirstSelection = _selectedElement;
+
+							// Zweites Element auswählen lassen
+							if(_currentOperationFirstSelection != null)
+								UpdateCurrentOperation(TreeOperations.SetNewTechTreeParentSecondElement);
+						}
+						break;
+
+					// Alternatives TechTree-Elternelement setzen: Zweites Element (Elternelement)
+					case TreeOperations.SetNewTechTreeParentSecondElement:
+						{
+							// Änderung durchführen, kann auch ein Null-Element sein
+							_currentOperationFirstSelection.AlternateNewTechTreeParentElement = _selectedElement;
+
+							// Fertig
+							UpdateCurrentOperation(TreeOperations.None);
+
+							// Neuzeichnen
+							_renderPanel.Redraw();
 						}
 						break;
 
@@ -1182,6 +1232,10 @@ namespace TechTreeEditor
 
 		private void _standardElementCheckButton_CheckedChanged(object sender, EventArgs e)
 		{
+			// Aufpassen, dass nicht während eines Update-Vorgangs Änderungen durchgeführt werden
+			if(_updatingControls)
+				return;
+
 			// Element ausgewählt?
 			if(_selectedElement != null)
 			{
@@ -1211,6 +1265,10 @@ namespace TechTreeEditor
 
 		private void _showInEditorCheckButton_CheckedChanged(object sender, EventArgs e)
 		{
+			// Aufpassen, dass nicht während eines Update-Vorgangs Änderungen durchgeführt werden
+			if(_updatingControls)
+				return;
+
 			// Element ausgewählt?
 			if(_selectedElement != null)
 			{
@@ -1227,6 +1285,10 @@ namespace TechTreeEditor
 
 		private void _gaiaOnlyCheckButton_CheckedChanged(object sender, EventArgs e)
 		{
+			// Aufpassen, dass nicht während eines Update-Vorgangs Änderungen durchgeführt werden
+			if(_updatingControls)
+				return;
+
 			// Element ausgewählt?
 			if(_selectedElement != null)
 			{
@@ -1244,6 +1306,10 @@ namespace TechTreeEditor
 
 		private void _lockIDCheckButton_CheckedChanged(object sender, EventArgs e)
 		{
+			// Aufpassen, dass nicht während eines Update-Vorgangs Änderungen durchgeführt werden
+			if(_updatingControls)
+				return;
+
 			// Element ausgewählt?
 			if(_selectedElement != null)
 			{
@@ -1260,6 +1326,10 @@ namespace TechTreeEditor
 
 		private void _blockForCivCheckButton_CheckedChanged(object sender, EventArgs e)
 		{
+			// Aufpassen, dass nicht während eines Update-Vorgangs Änderungen durchgeführt werden
+			if(_updatingControls)
+				return;
+
 			// Element ausgewählt?
 			if(_selectedElement != null)
 			{
@@ -1305,6 +1375,10 @@ namespace TechTreeEditor
 
 		private void _freeForCivCheckButton_CheckedChanged(object sender, EventArgs e)
 		{
+			// Aufpassen, dass nicht während eines Update-Vorgangs Änderungen durchgeführt werden
+			if(_updatingControls)
+				return;
+
 			// Element ausgewählt?
 			if(_selectedElement != null && _selectedElement.GetType() == typeof(TechTreeResearch))
 			{
@@ -1341,6 +1415,54 @@ namespace TechTreeEditor
 			_renderPanel.Redraw();
 		}
 
+		private void _showInNewTechTreeCheckButton_CheckedChanged(object sender, EventArgs e)
+		{
+			// Aufpassen, dass nicht während eines Update-Vorgangs Änderungen durchgeführt werden
+			if(_updatingControls)
+				return;
+
+			// Element ausgewählt?
+			if(_selectedElement != null)
+			{
+				// Flag entsprechend setzen
+				if(_showInNewTechTreeCheckButton.Checked)
+					_selectedElement.Flags |= TechTreeElement.ElementFlags.ShowInNewTechTree;
+				else
+				{
+					// Auch zweiten Button deaktivieren
+					_selectedElement.Flags &= ~TechTreeElement.ElementFlags.ShowInNewTechTree;
+					_hideIfDisabledInNewTechTreeCheckButton.Checked = false;
+				}
+			}
+
+			// Neuzeichnen
+			_renderPanel.Redraw();
+		}
+
+		private void _hideIfDisabledInNewTechTreeCheckButton_CheckedChanged(object sender, EventArgs e)
+		{
+			// Aufpassen, dass nicht während eines Update-Vorgangs Änderungen durchgeführt werden
+			if(_updatingControls)
+				return;
+
+			// Element ausgewählt?
+			if(_selectedElement != null)
+			{
+				// Flag entsprechend setzen
+				if(_hideIfDisabledInNewTechTreeCheckButton.Checked)
+				{
+					// Auch den ersten Button setzen
+					_selectedElement.Flags |= TechTreeElement.ElementFlags.HideInNewTechTreeIfDisabled;
+					_showInNewTechTreeCheckButton.Checked = true;
+				}
+				else
+					_selectedElement.Flags &= ~TechTreeElement.ElementFlags.HideInNewTechTreeIfDisabled;
+			}
+
+			// Neuzeichnen
+			_renderPanel.Redraw();
+		}
+
 		private void _newLinkButton_Click(object sender, EventArgs e)
 		{
 			// Operation starten
@@ -1351,6 +1473,12 @@ namespace TechTreeEditor
 		{
 			// Operation starten
 			UpdateCurrentOperation(TreeOperations.DeleteLink);
+		}
+
+		private void _setNewTechTreeParentButton_Click(object sender, EventArgs e)
+		{
+			// Operation starten
+			UpdateCurrentOperation(TreeOperations.SetNewTechTreeParentFirstElement);
 		}
 
 		private void _deleteElementButton_Click(object sender, EventArgs e)
@@ -1618,6 +1746,10 @@ namespace TechTreeEditor
 					_blockForCivCheckButton.Checked = !_blockForCivCheckButton.Checked;
 				if(e.KeyCode == Keys.F && _freeForCivCheckButton.Enabled)
 					_freeForCivCheckButton.Checked = !_freeForCivCheckButton.Checked;
+				if(e.KeyCode == Keys.T && _showInNewTechTreeCheckButton.Enabled)
+					_showInNewTechTreeCheckButton.Checked = !_showInNewTechTreeCheckButton.Checked;
+				if(e.KeyCode == Keys.H && _hideIfDisabledInNewTechTreeCheckButton.Enabled)
+					_hideIfDisabledInNewTechTreeCheckButton.Checked = !_hideIfDisabledInNewTechTreeCheckButton.Checked;
 
 				// Hotkey zum Anzeigen des Attributfensters
 				if(e.KeyCode == Keys.Space)
@@ -1888,6 +2020,16 @@ namespace TechTreeEditor
 			/// Das zu lösende Element für die "Verknüpfung löschen"-Operation wird ausgewählt.
 			/// </summary>
 			DeleteLink,
+
+			/// <summary>
+			/// Das erste Element für die "Alternatives TechTree-Element setzen"-Operation wird ausgewählt.
+			/// </summary>
+			SetNewTechTreeParentFirstElement,
+
+			/// <summary>
+			/// Das erste Element für die "Alternatives TechTree-Element setzen"-Operation wird ausgewählt.
+			/// </summary>
+			SetNewTechTreeParentSecondElement,
 
 			/// <summary>
 			/// Das zu löschende Element für die "Element löschen"-Operation wird ausgewählt.

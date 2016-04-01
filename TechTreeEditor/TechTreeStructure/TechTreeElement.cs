@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -70,6 +71,11 @@ namespace TechTreeEditor.TechTreeStructure
 		/// </summary>
 		public Dictionary<TechTreeBuilding, bool> BuildingDependencies { get; protected set; }
 
+		/// <summary>
+		/// Definiert das Elternelement, dem das Element beim Export des neuen TechTrees untergeordnet werden soll (anstatt dem logischen Elternelement).
+		/// </summary>
+		public TechTreeElement AlternateNewTechTreeParentElement { get; set; }
+
 		#endregion Öffentlich
 
 		#region Geschützt
@@ -129,11 +135,6 @@ namespace TechTreeEditor.TechTreeStructure
 		/// <param name="child">Das freizugebende Element.</param>
 		/// <returns></returns>
 		public abstract void RemoveChild(TechTreeElement child);
-
-		/// <summary>
-		/// Zeichnet Pfeile zu den Abhängigkeiten dieses Elements. Sollte nur nach der Draw-Methode aufgerufen werden, damit die Elementpositionen vorberechnet und gecached sind.
-		/// </summary>
-		public abstract void DrawDependencies();
 
 		/// <summary>
 		/// Konvertiert die enthaltenen Daten in ein XML-Format und schreibt sie in den übergebenen XmlWriter.
@@ -268,6 +269,16 @@ namespace TechTreeEditor.TechTreeStructure
 		}
 
 		/// <summary>
+		/// Zeichnet Pfeile zu den Abhängigkeiten dieses Elements. Sollte nur nach der Draw-Methode aufgerufen werden, damit die Elementpositionen vorberechnet und gecached sind.
+		/// </summary>
+		public virtual void DrawDependencies()
+		{
+			// Ggf. Linie zu TechTree-Elternelement zeichnen
+			if(AlternateNewTechTreeParentElement != null)
+				RenderControl.DrawLine(AlternateNewTechTreeParentElement, this, Color.FromArgb(80, 80, 80), true);
+		}
+
+		/// <summary>
 		/// Sucht rekursiv das Element, dessen Kästchen den angegebenen Bildpunkt enthält.
 		/// </summary>
 		/// <param name="point">Der zu suchende Bildpunkt.</param>
@@ -304,6 +315,15 @@ namespace TechTreeEditor.TechTreeStructure
 			ID = (int)element.Element("id");
 			Flags = (ElementFlags)(int)element.Element("flags");
 			ShadowElement = (bool)element.Element("shadow");
+
+			// Ggf. alternatives TechTree-Elternelement einlesen (aus Kompatibilitätsgründen optional)
+			if(element.Elements("alternatetechtreeparent").Any())
+			{
+				// ID lesen, dann Element laden
+				int id = (int)element.Element("alternatetechtreeparent");
+				if(id >= 0)
+					AlternateNewTechTreeParentElement = previousElements[id];
+			}
 		}
 
 		/// <summary>
@@ -474,7 +494,18 @@ namespace TechTreeEditor.TechTreeStructure
 			/// <summary>
 			/// Definiert alle Flags, die ausschließlich für das Rendering relevant sind.
 			/// </summary>
-			RenderingFlags = 24
+			RenderingFlags = 24,
+
+			/// <summary>
+			/// Gibt an, ob das Objekt beim Export des neuen TechTree-Formats eingebunden werden soll.
+			/// </summary>
+			ShowInNewTechTree = 32,
+
+			/// <summary>
+			/// Gibt an, dass das Objekt beim Export des neuen TechTree-Formats eingebunden werden, aber im Fall der Kultur-Blockierung versteckt werden soll.
+			/// Nur wirksam, wenn das ShowInNewTechTree-Flag gesetzt ist.
+			/// </summary>
+			HideInNewTechTreeIfDisabled = 64
 		}
 
 		#endregion Enumerationen

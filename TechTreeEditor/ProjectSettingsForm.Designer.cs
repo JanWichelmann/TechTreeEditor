@@ -47,6 +47,7 @@
 			this._openDLLDialog = new System.Windows.Forms.OpenFileDialog();
 			this._openInterfacDRSDialog = new System.Windows.Forms.OpenFileDialog();
 			this._openGraphicsDRSDialog = new System.Windows.Forms.OpenFileDialog();
+			this._useNewTechTreeCheckBox = new System.Windows.Forms.CheckBox();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this._ageCountField)).BeginInit();
 			this.SuspendLayout();
@@ -67,6 +68,7 @@
 			// 
 			// groupBox1
 			// 
+			resources.ApplyResources(this.groupBox1, "groupBox1");
 			this.groupBox1.Controls.Add(this._graphicsDRSButton);
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Controls.Add(this._graphicsDRSTextBox);
@@ -77,7 +79,6 @@
 			this.groupBox1.Controls.Add(this.label4);
 			this.groupBox1.Controls.Add(this._interfacDRSTextBox);
 			this.groupBox1.Controls.Add(this.label2);
-			resources.ApplyResources(this.groupBox1, "groupBox1");
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.TabStop = false;
 			// 
@@ -175,10 +176,17 @@
 			// 
 			resources.ApplyResources(this._openGraphicsDRSDialog, "_openGraphicsDRSDialog");
 			// 
+			// _useNewTechTreeCheckBox
+			// 
+			resources.ApplyResources(this._useNewTechTreeCheckBox, "_useNewTechTreeCheckBox");
+			this._useNewTechTreeCheckBox.Name = "_useNewTechTreeCheckBox";
+			this._useNewTechTreeCheckBox.UseVisualStyleBackColor = true;
+			// 
 			// ProjectSettingsForm
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this._useNewTechTreeCheckBox);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this._cancelButton);
@@ -215,5 +223,6 @@
 		private System.Windows.Forms.OpenFileDialog _openGraphicsDRSDialog;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.NumericUpDown _ageCountField;
+		private System.Windows.Forms.CheckBox _useNewTechTreeCheckBox;
 	}
 }

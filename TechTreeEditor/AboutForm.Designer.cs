@@ -40,8 +40,8 @@
 			// 
 			// _iconBox
 			// 
-			resources.ApplyResources(this._iconBox, "_iconBox");
 			this._iconBox.Image = global::TechTreeEditor.Icons.Symbol64;
+			resources.ApplyResources(this._iconBox, "_iconBox");
 			this._iconBox.Name = "_iconBox";
 			this._iconBox.TabStop = false;
 			// 
@@ -62,8 +62,8 @@
 			// 
 			// _creditsTextBox
 			// 
-			resources.ApplyResources(this._creditsTextBox, "_creditsTextBox");
 			this._creditsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			resources.ApplyResources(this._creditsTextBox, "_creditsTextBox");
 			this._creditsTextBox.Cursor = System.Windows.Forms.Cursors.Default;
 			this._creditsTextBox.Name = "_creditsTextBox";
 			this._creditsTextBox.ReadOnly = true;

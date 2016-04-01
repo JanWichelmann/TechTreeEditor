@@ -66,6 +66,11 @@ namespace TechTreeEditor
 		/// </summary>
 		private int _ageCount = 4;
 
+		/// <summary>
+		/// Gibt an, ob beim Export das neue TechTree-Format benutzt wird.
+		/// </summary>
+		private bool _exportNewTechTree = true;
+
 		#endregion Variablen
 
 		#region Funktionen
@@ -133,7 +138,12 @@ namespace TechTreeEditor
 
 					// Zeitalter-Anzahl lesen
 					_ageCount = (int)mainElement.Element("agecount");
-				}
+
+					// Neues TechTree-Format?
+					// Abfrage zur Kompatibilitätserhaltung
+					if(mainElement.Elements("exportnewtechtree").Any())
+						_exportNewTechTree = (bool)mainElement.Element("exportnewtechtree");
+                }
 
 				// DLL-Handles erstellen
 				_languageFileWrapper = new GenieLibrary.LanguageFileWrapper(_languageFilePaths.ToArray());
@@ -240,6 +250,9 @@ namespace TechTreeEditor
 
 							// Zeitalter-Anzahl schreiben
 							writer.WriteElementNumber("agecount", _ageCount);
+
+							// Neues TechTree Format verwenden?
+							writer.WriteElementString("exportnewtechtree", _exportNewTechTree ? "true" : "false");
 
 							// Haupt- und Dokumentelement schließen
 							writer.WriteEndElement();
@@ -939,6 +952,15 @@ namespace TechTreeEditor
 		public int AgeCount
 		{
 			get { return _ageCount; }
+		}
+
+		/// <summary>
+		/// Ruft ab, ob beim Exportieren das neue TechTree-Format geschrieben werden soll, oder legt dies fest.
+		/// </summary>
+		public bool ExportNewTechTree
+		{
+			get { return _exportNewTechTree; }
+			set { _exportNewTechTree = value; }
 		}
 
 		#endregion Eigenschaften

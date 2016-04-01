@@ -787,6 +787,24 @@ namespace TechTreeEditor {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte das unterzuordnende Element auswählen... ähnelt.
+        /// </summary>
+        internal static string MainForm_Operation_SetNewTechTreeParentFirstElement {
+            get {
+                return ResourceManager.GetString("MainForm_Operation_SetNewTechTreeParentFirstElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bitte das Elternelement auswählen... ähnelt.
+        /// </summary>
+        internal static string MainForm_Operation_SetNewTechTreeParentSecondElement {
+            get {
+                return ResourceManager.GetString("MainForm_Operation_SetNewTechTreeParentSecondElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Lade Kulturenliste... ähnelt.
         /// </summary>
         internal static string MainForm_Status_LoadingCultureList {
