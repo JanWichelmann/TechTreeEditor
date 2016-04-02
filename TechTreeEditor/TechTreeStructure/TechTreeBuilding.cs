@@ -344,7 +344,7 @@ namespace TechTreeEditor.TechTreeStructure
 
 			// Alt. TechTree-Elternelement-ID abrufen
 			int altNTTParentID = -1;
-			if(AlternateNewTechTreeParentElement!=null)
+			if(AlternateNewTechTreeParentElement != null)
 			{
 				if(!elementIDs.ContainsKey(AlternateNewTechTreeParentElement))
 					lastID = AlternateNewTechTreeParentElement.ToXml(writer, elementIDs, lastID);
@@ -577,7 +577,7 @@ namespace TechTreeEditor.TechTreeStructure
 				writer.WriteStartElement("abilities");
 				{
 					// Fähigkeiten schreiben
-					Abilities.ForEach(a =>a.ToXml(writer, elementIDs));
+					Abilities.ForEach(a => a.ToXml(writer, elementIDs));
 				}
 				writer.WriteEndElement();
 			}

@@ -328,4 +328,10 @@
   <data name="LanguageSelection" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons\languageselection.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="HideIfDisabledInNewTechTree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons\hideifdisabledinnewtechtree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ShowInNewTechTree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons\showinnewtechtree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -343,6 +343,16 @@ namespace TechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HideIfDisabledInNewTechTree {
+            get {
+                object obj = ResourceManager.GetObject("HideIfDisabledInNewTechTree", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ImportProject {
             get {
                 object obj = ResourceManager.GetObject("ImportProject", resourceCulture);
@@ -666,6 +676,16 @@ namespace TechTreeEditor {
         internal static System.Drawing.Bitmap SetRenderUnit {
             get {
                 object obj = ResourceManager.GetObject("SetRenderUnit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ShowInNewTechTree {
+            get {
+                object obj = ResourceManager.GetObject("ShowInNewTechTree", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

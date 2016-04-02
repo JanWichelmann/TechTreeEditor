@@ -429,6 +429,30 @@ namespace TechTreeEditor
 				flagBitmapData = flagBitmap.LockBits(boxBounds, ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
 				GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, BOX_BOUNDS, BOX_BOUNDS, 0, OpenTK.Graphics.OpenGL.PixelFormat.Bgra, PixelType.UnsignedByte, flagBitmapData.Scan0);
 				flagBitmap.UnlockBits(flagBitmapData);
+
+				// In NewTechTree zeigen-Flag
+				flagBitmapGraphics.Clear(Color.Transparent);
+				flagBitmapGraphics.DrawImage(TechTreeEditor.Icons.ShowInNewTechTree, 49, 1, (BOX_BOUNDS - ICON_BOUNDS) / 2, (BOX_BOUNDS - ICON_BOUNDS) / 2);
+				newTexID = GL.GenTexture();
+				_flagTextures[TechTreeStructure.TechTreeElement.ElementFlags.ShowInNewTechTree] = newTexID;
+				GL.BindTexture(TextureTarget.Texture2D, newTexID);
+				GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+				GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+				flagBitmapData = flagBitmap.LockBits(boxBounds, ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+				GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, BOX_BOUNDS, BOX_BOUNDS, 0, OpenTK.Graphics.OpenGL.PixelFormat.Bgra, PixelType.UnsignedByte, flagBitmapData.Scan0);
+				flagBitmap.UnlockBits(flagBitmapData);
+
+				// In NewTechTree verstecken-Flag
+				flagBitmapGraphics.Clear(Color.Transparent);
+				flagBitmapGraphics.DrawImage(TechTreeEditor.Icons.HideIfDisabledInNewTechTree, 49, 1, (BOX_BOUNDS - ICON_BOUNDS) / 2, (BOX_BOUNDS - ICON_BOUNDS) / 2);
+				newTexID = GL.GenTexture();
+				_flagTextures[TechTreeStructure.TechTreeElement.ElementFlags.HideInNewTechTreeIfDisabled] = newTexID;
+				GL.BindTexture(TextureTarget.Texture2D, newTexID);
+				GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+				GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+				flagBitmapData = flagBitmap.LockBits(boxBounds, ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+				GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, BOX_BOUNDS, BOX_BOUNDS, 0, OpenTK.Graphics.OpenGL.PixelFormat.Bgra, PixelType.UnsignedByte, flagBitmapData.Scan0);
+				flagBitmap.UnlockBits(flagBitmapData);
 			}
 
 			// Alles ist geladen

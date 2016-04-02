@@ -225,6 +225,12 @@ namespace TechTreeEditor.TechTreeStructure
 					RenderControl.DrawFlagOverlay(ElementFlags.Blocked);
 				if((Flags & ElementFlags.Free) == ElementFlags.Free)
 					RenderControl.DrawFlagOverlay(ElementFlags.Free);
+				if((Flags & ElementFlags.ShowInNewTechTree) == ElementFlags.ShowInNewTechTree)
+					if((Flags & ElementFlags.HideInNewTechTreeIfDisabled) == ElementFlags.HideInNewTechTreeIfDisabled)
+						RenderControl.DrawFlagOverlay(ElementFlags.HideInNewTechTreeIfDisabled);
+					else
+						RenderControl.DrawFlagOverlay(ElementFlags.ShowInNewTechTree);
+
 
 				// Textur entladen
 				GL.BindTexture(TextureTarget.Texture2D, 0);

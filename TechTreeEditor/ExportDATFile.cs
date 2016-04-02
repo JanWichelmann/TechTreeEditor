@@ -904,6 +904,131 @@ namespace TechTreeEditor
 					}
 				}
 
+				// Ggf. neuen TechTree generieren
+				exportDAT.NewTechTree = _projectFile.ExportNewTechTree;
+				if(_projectFile.ExportNewTechTree)
+				{
+					// Struktur leer anlegen
+					exportDAT.TechTreeNew = new GenieLibrary.DataElements.TechTreeNew()
+					{
+						ParentElements = new List<GenieLibrary.DataElements.TechTreeNew.TechTreeElement>()
+					};
+
+					// Liste mit TechTree-Element-Zuordnung behalten
+					Dictionary<TechTreeElement, GenieLibrary.DataElements.TechTreeNew.TechTreeElement> newTechTreeElementMap = new Dictionary<TechTreeElement, GenieLibrary.DataElements.TechTreeNew.TechTreeElement>();
+
+					// Liste mit noch nicht Elternelementen zugeordneten Kindern anlegen (Kind => späteres Elternelement)
+					Dictionary<GenieLibrary.DataElements.TechTreeNew.TechTreeElement, TechTreeElement> newTechTreeMissingParentsList = new Dictionary<GenieLibrary.DataElements.TechTreeNew.TechTreeElement, TechTreeElement>();
+
+					// Lambda-Ausdruck: Rekursiv durch Baum iterieren und TechTree-Einträge erstellen
+					Func<TechTreeElement, TechTreeElement, GenieLibrary.DataElements.TechTreeNew.TechTreeElement> generateSubTechTree = null;
+					generateSubTechTree = (currElement, parent) =>
+					{
+						// Element erstellen
+						GenieLibrary.DataElements.TechTreeNew.TechTreeElement ttElement = new GenieLibrary.DataElements.TechTreeNew.TechTreeElement();
+						newTechTreeElementMap.Add(currElement, ttElement);
+
+						// Eigenschaften setzen
+						ttElement.Age = (byte)currElement.Age;
+						ttElement.RequiredElements = new List<Tuple<GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType, short>>();
+
+						// Nach Typen unterscheiden
+						if(currElement is TechTreeResearch)
+						{
+							// Technologie
+							ttElement.ElementType = GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType.Research;
+							ttElement.ElementObjectID = (short)researchIDMap[(TechTreeResearch)currElement];
+
+							// Benötigte Elemente setzen
+							foreach(var dep in ((TechTreeResearch)currElement).Dependencies)
+								ttElement.RequiredElements.Add(new Tuple<GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType, short>(GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType.Research, (short)researchIDMap[dep.Key]));
+						}
+						else if(currElement is TechTreeBuilding)
+						{
+							// Gebäude
+							ttElement.ElementType = GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType.Building;
+							ttElement.ElementObjectID = (short)unitIDMap[(TechTreeBuilding)currElement];
+
+							// Benötigte Elemente setzen
+							if(((TechTreeBuilding)currElement).EnablerResearch != null)
+								ttElement.RequiredElements.Add(new Tuple<GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType, short>(GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType.Research, (short)researchIDMap[((TechTreeBuilding)currElement).EnablerResearch]));
+						}
+						else
+						{
+							// Irgendwas anderes
+							ttElement.ElementType = GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType.Creatable;
+							ttElement.ElementObjectID = (short)unitIDMap[(TechTreeUnit)currElement];
+
+							// Für lebende Einheiten benötigte Elemente setzen
+							if(currElement is TechTreeCreatable)
+								if(((TechTreeCreatable)currElement).EnablerResearch != null)
+									ttElement.RequiredElements.Add(new Tuple<GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType, short>(GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType.Research, (short)researchIDMap[((TechTreeCreatable)currElement).EnablerResearch]));
+						}
+
+						// Ggf. Elternelement als Abhängigkeit setzen, falls dieses nicht im Baum vorkommen soll
+						if(parent != null && (parent.Flags & TechTreeElement.ElementFlags.ShowInNewTechTree) != TechTreeElement.ElementFlags.ShowInNewTechTree)
+							if(parent is TechTreeResearch)
+								ttElement.RequiredElements.Add(new Tuple<GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType, short>(GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType.Research, (short)researchIDMap[(TechTreeResearch)parent]));
+							else if(parent is TechTreeBuilding)
+								ttElement.RequiredElements.Add(new Tuple<GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType, short>(GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType.Building, (short)unitIDMap[(TechTreeBuilding)parent]));
+							else
+								ttElement.RequiredElements.Add(new Tuple<GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType, short>(GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType.Creatable, (short)unitIDMap[(TechTreeUnit)parent]));
+
+						// Ggf. Nachfolger-Tech des Elternelements als benötigtes Element einfügen
+						if(parent != null && parent != currElement.AlternateNewTechTreeParentElement)
+							if(parent is IUpgradeable && ((IUpgradeable)parent).SuccessorResearch != null)
+								ttElement.RequiredElements.Add(new Tuple<GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType, short>(GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType.Research, (short)researchIDMap[((IUpgradeable)parent).SuccessorResearch]));
+
+						// Rendermodus setzen
+						if((currElement.Flags & TechTreeElement.ElementFlags.HideInNewTechTreeIfDisabled) == TechTreeElement.ElementFlags.HideInNewTechTreeIfDisabled)
+							ttElement.RenderMode = GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemRenderMode.HideIfDisabled;
+						else
+							ttElement.RenderMode = GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemRenderMode.Standard;
+
+						// Kulturen, die dieses Element blockieren, auflisten
+						ttElement.DisableCivs = new List<byte>();
+						for(byte c = 1; c < _projectFile.CivTrees.Count; ++c)
+							if(_projectFile.CivTrees[c].BlockedElements.Contains(currElement))
+								ttElement.DisableCivs.Add(c);
+
+						// Kindelemente durchlaufen
+						ttElement.Children = new List<GenieLibrary.DataElements.TechTreeNew.TechTreeElement>();
+						foreach(TechTreeElement currChild in currElement.GetChildren())
+						{
+							// Ist das Kind überhaupt sichtbar?
+							if((currChild.Flags & TechTreeElement.ElementFlags.ShowInNewTechTree) != TechTreeElement.ElementFlags.ShowInNewTechTree)
+								continue;
+
+							// Kindelement erstellen und dem richtigen Elternelement unterordnen
+							if(currChild.AlternateNewTechTreeParentElement == null)
+								ttElement.Children.Add(generateSubTechTree(currChild, currElement));
+							else
+								newTechTreeMissingParentsList.Add(generateSubTechTree(currChild, currChild.AlternateNewTechTreeParentElement), currChild.AlternateNewTechTreeParentElement);
+						}
+
+						// Element zurückgeben
+						return ttElement;
+					};
+
+					// Mit Elternelementen beginnen
+					foreach(TechTreeElement currParent in _projectFile.TechTreeParentElements)
+					{
+						// Ist das Element sichtbar?
+						if((currParent.Flags & TechTreeElement.ElementFlags.ShowInNewTechTree) != TechTreeElement.ElementFlags.ShowInNewTechTree)
+							continue;
+
+						// Als Hauptelement setzen oder erstmal zurückstellen
+						if(currParent.AlternateNewTechTreeParentElement == null)
+							exportDAT.TechTreeNew.ParentElements.Add(generateSubTechTree(currParent, null));
+						else
+							newTechTreeMissingParentsList.Add(generateSubTechTree(currParent, currParent.AlternateNewTechTreeParentElement), currParent.AlternateNewTechTreeParentElement);
+					}
+
+					// Ausstehende Kindelemente den passenden Elternelementen zuweisen
+					foreach(var currEntry in newTechTreeMissingParentsList)
+						newTechTreeElementMap[currEntry.Value].Children.Add(currEntry.Key);
+				}
+
 				// Neue DAT speichern
 				RAMBuffer tmpBuffer = new RAMBuffer();
 				exportDAT.WriteData(tmpBuffer);
