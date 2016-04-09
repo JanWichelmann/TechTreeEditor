@@ -1905,7 +1905,7 @@ namespace TechTreeEditor
 			UnitAbility sel = (UnitAbility)_abilitiesListBox.SelectedItem;
 			if(sel != null)
 			{
-				// Einheit speichern 
+				// Einheit speichern
 				if(((TechTreeUnit)_abilityUnitComboBox.SelectedItem).ID < 0)
 					sel.Unit = null;
 				else
@@ -2585,6 +2585,6 @@ namespace TechTreeEditor
 
 		#endregion Event: Geändertes Icon
 
-		#endregion
+		#endregion Ereignisse
 	}
 }

@@ -1,9 +1,7 @@
-﻿using IORAMHelper;
-using OpenTK;
+﻿using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -854,6 +852,7 @@ namespace TechTreeEditor
 					temp = _drawPanelHScrollBar.Value - 20;
 					_drawPanelHScrollBar.Value = (temp < 0 ? 0 : (temp > _drawPanelHScrollBar.Maximum - _drawPanel.Width ? _drawPanelHScrollBar.Maximum - _drawPanel.Width : temp));
 					return false;
+
 				case Keys.Right:
 					temp = _drawPanelHScrollBar.Value + 20;
 					_drawPanelHScrollBar.Value = (temp < 0 ? 0 : (temp > _drawPanelHScrollBar.Maximum - _drawPanel.Width ? _drawPanelHScrollBar.Maximum - _drawPanel.Width : temp));

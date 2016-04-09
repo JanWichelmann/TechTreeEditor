@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TechTreeEditor
@@ -17,10 +10,6 @@ namespace TechTreeEditor
 	/// </summary>
 	public partial class AboutForm : Form
 	{
-		#region Variablen
-
-		#endregion
-
 		#region Funktionen
 
 		/// <summary>
@@ -39,7 +28,7 @@ namespace TechTreeEditor
 			_creditsTextBox.Rtf = Strings.Credits;
 		}
 
-		#endregion
+		#endregion Funktionen
 
 		#region Ereignishandler
 
@@ -55,6 +44,6 @@ namespace TechTreeEditor
 			Process.Start(e.LinkText);
 		}
 
-		#endregion
+		#endregion Ereignishandler
 	}
 }

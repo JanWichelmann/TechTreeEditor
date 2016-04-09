@@ -144,7 +144,7 @@ namespace TechTreeEditor.TechTreeStructure
 				if(Unit != null)
 					result += ": " + Unit.Name;
 				else if(CommandData.ClassID >= 0)
-					result += ": "+string.Format(Strings.UnitAbility_ToString_Class, _classes[CommandData.ClassID]);
+					result += ": " + string.Format(Strings.UnitAbility_ToString_Class, _classes[CommandData.ClassID]);
 				else if(CommandData.Resource >= 0)
 					result += ": " + string.Format(Strings.UnitAbility_ToString_Resource, _resourceTypes[CommandData.Resource]);
 				return result;

@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechTreeEditor.Properties;
 
@@ -21,7 +16,7 @@ namespace TechTreeEditor
 		/// </summary>
 		private string _projectFilePath = null;
 
-		#endregion
+		#endregion Variablen
 
 		#region Funktionen
 
@@ -41,7 +36,7 @@ namespace TechTreeEditor
 			_dllHelpBox.ShowAlways = true;
 		}
 
-		#endregion
+		#endregion Funktionen
 
 		#region Ereignishandler
 
@@ -99,14 +94,14 @@ namespace TechTreeEditor
 				// Projekt speichern und schließen
 				projectFile.WriteData(_projectFilePath);
 				projectFile = null;
-            }
+			}
 
 			// Fenster schließen
 			this.DialogResult = DialogResult.OK;
 			this.Close();
 		}
 
-		#endregion
+		#endregion Ereignishandler
 
 		#region Eigenschaften
 
@@ -118,6 +113,6 @@ namespace TechTreeEditor
 			get { return _projectFilePath; }
 		}
 
-		#endregion
+		#endregion Eigenschaften
 	}
 }

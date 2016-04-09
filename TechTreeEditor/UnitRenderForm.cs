@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using OpenTK;
+﻿using DRSLibrary;
 using OpenTK.Graphics.OpenGL;
-using DRSLibrary;
-using TechTreeEditor.TechTreeStructure;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Drawing.Imaging;
-using System.Threading;
 using System.IO;
+using System.Windows.Forms;
+using TechTreeEditor.TechTreeStructure;
 
 namespace TechTreeEditor
 {
@@ -375,12 +368,15 @@ namespace TechTreeEditor
 					case GraphicMode.Attacking:
 						graID = renderUnit.DATUnit.Type50.AttackGraphic;
 						break;
+
 					case GraphicMode.Falling:
 						graID = renderUnit.DATUnit.DyingGraphic1;
 						break;
+
 					case GraphicMode.Moving:
 						graID = renderUnit.DATUnit.DeadFish.WalkingGraphic1;
 						break;
+
 					case GraphicMode.Standing:
 						graID = renderUnit.DATUnit.StandingGraphic1;
 						break;
@@ -1383,7 +1379,7 @@ namespace TechTreeEditor
 			return new Size((value.Length > 0 ? 8 : 0) + (value.Length - 1) * 6, 13);
 		}
 
-		#endregion
+		#endregion Hilfsfunktionen
 
 		#region Hilfsklassen
 
@@ -1459,7 +1455,7 @@ namespace TechTreeEditor
 			/// </summary>
 			private int _currentAngle = 0;
 
-			#endregion
+			#endregion Variablen
 
 			#region Eigenschaften
 
@@ -1520,7 +1516,7 @@ namespace TechTreeEditor
 				}
 			}
 
-			#endregion
+			#endregion Eigenschaften
 
 			#region Funktionen
 
@@ -1573,10 +1569,10 @@ namespace TechTreeEditor
 				_animateTimer.Start();
 			}
 
-			#endregion
+			#endregion Funktionen
 		}
 
-		#endregion
+		#endregion Hilfsklassen
 
 		#region Enumerationen
 
@@ -1591,6 +1587,6 @@ namespace TechTreeEditor
 			Standing
 		}
 
-		#endregion
+		#endregion Enumerationen
 	}
 }

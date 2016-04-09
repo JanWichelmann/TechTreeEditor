@@ -231,7 +231,6 @@ namespace TechTreeEditor.TechTreeStructure
 					else
 						RenderControl.DrawFlagOverlay(ElementFlags.ShowInNewTechTree);
 
-
 				// Textur entladen
 				GL.BindTexture(TextureTarget.Texture2D, 0);
 

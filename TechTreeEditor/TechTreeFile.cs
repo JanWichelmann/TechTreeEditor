@@ -366,21 +366,27 @@ namespace TechTreeEditor
 				case "TechTreeBuilding":
 					elem = new TechTreeBuilding();
 					break;
+
 				case "TechTreeCreatable":
 					elem = new TechTreeCreatable();
 					break;
+
 				case "TechTreeDead":
 					elem = new TechTreeDead();
 					break;
+
 				case "TechTreeEyeCandy":
 					elem = new TechTreeEyeCandy();
 					break;
+
 				case "TechTreeProjectile":
 					elem = new TechTreeProjectile();
 					break;
+
 				case "TechTreeResearch":
 					elem = new TechTreeResearch();
 					break;
+
 				default:
 					throw new ArgumentException(Strings.TechTreeFile_Exception_UnknownElementType);
 			}

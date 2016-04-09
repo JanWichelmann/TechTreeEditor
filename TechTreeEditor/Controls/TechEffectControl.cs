@@ -46,7 +46,7 @@ namespace TechTreeEditor.Controls
 			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchCostSetPM, Strings.TechEffectControl_EffectTypes_ResearchCostSetPM),
 			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchDisable, Strings.TechEffectControl_EffectTypes_ResearchDisable),
 			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchTimeSetPM, Strings.TechEffectControl_EffectTypes_ResearchTimeSetPM)
-        }).ToList();
+		}).ToList();
 
 		/// <summary>
 		/// Leere Einheit.

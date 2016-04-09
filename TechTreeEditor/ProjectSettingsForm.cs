@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechTreeEditor.TechTreeStructure;
 
@@ -43,7 +38,7 @@ namespace TechTreeEditor
 		/// </summary>
 		/// <param name="projectFile">Das zugrundeliegende Projekt.</param>
 		/// <param name="renderControl">Die Instanz des Baum-Zeichensteuerelements.</param>
-		public ProjectSettingsForm(TechTreeFile projectFile,RenderControl renderControl)
+		public ProjectSettingsForm(TechTreeFile projectFile, RenderControl renderControl)
 			: this()
 		{
 			// Parameter merken
@@ -111,7 +106,7 @@ namespace TechTreeEditor
 				// Technologie-Anzahl versuchen zu ändern
 				if(!_projectFile.ChangeAgeCount((int)_ageCountField.Value))
 					MessageBox.Show(Strings.ProjectSettingsForm_Message_AgeCountError, Strings.ProjectSettingsForm_Message_AgeCountErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-				
+
 				// Erhöhung?
 				else if((int)_ageCountField.Value > _projectFile.AgeCount)
 				{

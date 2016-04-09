@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Xml;
 using System.Xml.Linq;
 
 namespace TechTreeEditor.TechTreeStructure
@@ -130,7 +128,7 @@ namespace TechTreeEditor.TechTreeStructure
 		public override List<TechTreeElement> GetChildren()
 		{
 			// Nachfolgeelement zurückgeben
-            List<TechTreeElement> childElements = new List<TechTreeElement>();
+			List<TechTreeElement> childElements = new List<TechTreeElement>();
 			if(Successor != null)
 				childElements.Add(Successor);
 			return childElements;
