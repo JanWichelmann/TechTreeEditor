@@ -143,7 +143,7 @@ namespace TechTreeEditor
 					// Abfrage zur Kompatibilitätserhaltung
 					if(mainElement.Elements("exportnewtechtree").Any())
 						_exportNewTechTree = (bool)mainElement.Element("exportnewtechtree");
-                }
+				}
 
 				// DLL-Handles erstellen
 				_languageFileWrapper = new GenieLibrary.LanguageFileWrapper(_languageFilePaths.ToArray());
@@ -487,6 +487,34 @@ namespace TechTreeEditor
 				element.Age = newAge;
 			else
 				return;
+		}
+
+		/// <summary>
+		/// Verschiebt ein Element horizontal um offset Positionen nach links/rechts und gibt das verdrängte Element zurück.
+		/// </summary>
+		/// <param name="element">Das zu verschiebende Element.</param>
+		/// <param name="offset">Der Betrag, um den das Element verschoben werden soll. Zu große Werte werden entsprechend korrigiert.</param>
+		public TechTreeElement MoveElementHorizontal(TechTreeElement element, int offset)
+		{
+			// Gültiges Element und Offset?
+			if(element == null || offset == 0)
+				return null;
+
+			// Vorgänger-Element bestimmen
+			TechTreeElement parentElem = _allElements.Find(e => e.HasChild(element) && e != element);
+			if(parentElem == null && _techTreeParentElements.Contains(element))
+				return _techTreeParentElements.Move(_techTreeParentElements.IndexOf(element), offset);
+			else if(parentElem != null)
+			{
+				// Nach Typ des Elternelements vorgehen
+				IChildrenContainer parentElemChildContainer = parentElem as IChildrenContainer;
+				TechTreeResearch parentElemResearch = parentElem as TechTreeResearch;
+				if(parentElemChildContainer != null)
+					return parentElemChildContainer.Children.Move(parentElemChildContainer.Children.FindIndex(el => el.Item2 == element), offset).Item2;
+				else if(parentElemResearch != null && element is TechTreeResearch)
+					return parentElemResearch.Successors.Move(parentElemResearch.Successors.IndexOf((TechTreeResearch)element), offset);
+			}
+			return null;
 		}
 
 		/// <summary>

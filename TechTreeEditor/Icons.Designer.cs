@@ -673,6 +673,16 @@ namespace TechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SetAlternateNewTechTreeParent {
+            get {
+                object obj = ResourceManager.GetObject("SetAlternateNewTechTreeParent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SetRenderUnit {
             get {
                 object obj = ResourceManager.GetObject("SetRenderUnit", resourceCulture);

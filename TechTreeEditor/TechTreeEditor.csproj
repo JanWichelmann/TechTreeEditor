@@ -496,6 +496,7 @@
     <Content Include="Icons\RenderWindow.png" />
     <Content Include="Icons\ResearchIcon.png" />
     <Content Include="Icons\Search.png" />
+    <Content Include="Icons\SetAlternateNewTechTreeParent.png" />
     <Content Include="Icons\SetRenderUnit.png" />
     <Content Include="Icons\ShowInNewTechTree.png" />
     <Content Include="Icons\SortChildren.png" />

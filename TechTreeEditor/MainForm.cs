@@ -735,6 +735,8 @@ namespace TechTreeEditor
 				_ageDownButton.Enabled = true;
 				_editAttributesButton.Enabled = true;
 				_editElementPropertiesButton.Enabled = true;
+				_elementLeftButton.Enabled = true;
+				_elementRightButton.Enabled = true;
 				_copyMenuButton.Enabled = true;
 			}
 			else
@@ -747,6 +749,8 @@ namespace TechTreeEditor
 				_ageDownButton.Enabled = false;
 				_editAttributesButton.Enabled = false;
 				_editElementPropertiesButton.Enabled = false;
+				_elementLeftButton.Enabled = false;
+				_elementRightButton.Enabled = false;
 				_copyMenuButton.Enabled = false;
 			}
 		}
@@ -1510,6 +1514,48 @@ namespace TechTreeEditor
 
 				// Baum neu berechnen
 				_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements, _projectFile.AgeCount);
+			}
+		}
+
+		private void _elementLeftButton_Click(object sender, EventArgs e)
+		{
+			// Element ausgewählt?
+			if(_selectedElement != null)
+			{
+				// Alte Position bestimmen
+				int elementRenderDistance = _renderPanel.GetElementHorizontalScreenOffset(_selectedElement);
+
+				// Element verschieben
+				// Bei Shift-Taste direkt an den Anfang schieben
+				TechTreeElement succElement = _projectFile.MoveElementHorizontal(_selectedElement, ((ModifierKeys & Keys.Shift) == Keys.Shift ? -100000 : -1));
+
+				// Baum neu berechnen
+				_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements, _projectFile.AgeCount);
+
+				// Scrollen
+				if(succElement != null && elementRenderDistance > 0 && elementRenderDistance < _renderPanel.Width)
+					_renderPanel.ScrollHorizontal(succElement.CacheBoxPosition.X - _selectedElement.CacheBoxPosition.X);
+			}
+		}
+
+		private void _elementRightButton_Click(object sender, EventArgs e)
+		{
+			// Element ausgewählt?
+			if(_selectedElement != null)
+			{
+				// Alte Position bestimmen
+				int elementRenderDistance = _renderPanel.GetElementHorizontalScreenOffset(_selectedElement);
+
+				// Element verschieben
+				// Bei Shift-Taste direkt ans Ende schieben
+				TechTreeElement succElement = _projectFile.MoveElementHorizontal(_selectedElement, ((ModifierKeys & Keys.Shift) == Keys.Shift ? 100000 : 1));
+
+				// Baum neu berechnen
+				_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements, _projectFile.AgeCount);
+
+				// Scrollen
+				if(succElement != null && elementRenderDistance > 0 && elementRenderDistance < _renderPanel.Width)
+					_renderPanel.ScrollHorizontal(succElement.CacheBoxPosition.X - _selectedElement.CacheBoxPosition.X);
 			}
 		}
 

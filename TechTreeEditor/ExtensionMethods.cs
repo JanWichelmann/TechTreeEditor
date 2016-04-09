@@ -145,10 +145,43 @@ namespace TechTreeEditor
 		/// <param name="index">Der Index des nach hinten zu verschiebenden Elements.</param>
 		public static void MoveToEnd<T>(this List<T> list, int index)
 		{
-			// Element entfernen und vorn wieder einfügen
+			// Element entfernen und hinten wieder einfügen
 			T elem = list[index];
 			list.RemoveAt(index);
 			list.Add(elem);
+		}
+
+		/// <summary>
+		/// Verschiebt das Element am angegebenen Index in der Liste um das gegebene Offset. Das verdrängte (nächste) Element wird zurückgegeben.
+		/// </summary>
+		/// <typeparam name="T">Der Typ der Listenelemente.</typeparam>
+		/// <param name="list">Die Liste.</param>
+		/// <param name="index">Der Index des zu verschiebenden Elements.</param>
+		/// <param name="offset">Die Anzahl der Positionen, um die das Element verschoben werden soll. Zu große Werte werden entsprechend korrigiert.</param>
+		public static T Move<T>(this List<T> list, int index, int offset)
+		{
+			// Überhaupt was zu tun?
+			if(offset == 0 || list.Count <= 1)
+				return default(T);
+
+			// Wertebereich einstellen
+			int newIndex = index + offset;
+			if(newIndex < 0)
+				newIndex = 0;
+			if(newIndex >= list.Count)
+				newIndex = list.Count - 1;
+
+			// Altes Element holen
+			T prevElement = default(T);
+			prevElement = list[newIndex];
+
+			// Element verschieben
+			T elem = list[index];
+			list.RemoveAt(index);
+			list.Insert(newIndex, elem);
+
+			// Vorher dort stehendes Element zurückgeben
+			return prevElement;
 		}
 	}
 }

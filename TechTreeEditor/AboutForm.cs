@@ -33,7 +33,7 @@ namespace TechTreeEditor
 
 			// Version anzeigen
 			Version version = Assembly.GetExecutingAssembly().GetName().Version;
-			_versionLabel.Text = string.Format("Version {0}.{1}.{2}", version.Major, version.MajorRevision, version.Build);
+			_versionLabel.Text = string.Format("Version {0}.{1}.{2}", version.Major, version.Minor, version.Build);
 
 			// Danksagung anzeigen
 			_creditsTextBox.Rtf = Strings.Credits;

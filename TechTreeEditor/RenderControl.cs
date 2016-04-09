@@ -805,6 +805,35 @@ namespace TechTreeEditor
 		}
 
 		/// <summary>
+		/// Ruft den Abstand zum linken Bildschirmrand für das angegebene Element ab.
+		/// </summary>
+		/// <param name="element">Das Element, dessen Abstand zum Bildschirmrand bestimmt werden soll.</param>
+		/// <returns></returns>
+		public int GetElementHorizontalScreenOffset(TechTreeStructure.TechTreeElement element)
+		{
+			// Abstand berechnen
+			return element.CacheBoxPosition.Left - _drawPanelHScrollBar.Value;
+		}
+
+		/// <summary>
+		/// Führt einen horizontalen Scroll-Vorgang durch.
+		/// </summary>
+		/// <param name="offset">Der Abstand, um den gescrollt werden soll.</param>
+		/// <returns></returns>
+		public void ScrollHorizontal(int offset)
+		{
+			// Neue Position bestimmen
+			int newPos = _drawPanelHScrollBar.Value + offset;
+			if(newPos < 0)
+				newPos = 0;
+			else if(newPos > _drawPanelHScrollBar.Maximum - _drawPanelHScrollBar.LargeChange)
+				newPos = _drawPanelHScrollBar.Maximum - _drawPanelHScrollBar.LargeChange;
+
+			// Scrollen
+			_drawPanelHScrollBar.Value = newPos;
+		}
+
+		/// <summary>
 		/// Gibt an, ob der übergebene Tastendruck von den Steuerelementen automatisch behandelt werden soll.
 		/// </summary>
 		/// <param name="keyData">Der zu behandelnde Tastendruck.</param>
