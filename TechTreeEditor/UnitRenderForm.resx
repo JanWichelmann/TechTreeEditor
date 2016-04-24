@@ -153,9 +153,6 @@
   <data name="&gt;&gt;_graSnowCheckBox.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1129, 610</value>
-  </data>
   <data name="&gt;&gt;_closeButton.Parent" xml:space="preserve">
     <value>_bottomPanel</value>
   </data>
@@ -189,11 +186,17 @@
   <data name="_stopButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
+  <data name="_speedNormalButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 17</value>
+  </data>
   <data name="_radiusSelectionCheckBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>126, 21</value>
   </data>
   <data name="_graFallingButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 24</value>
+  </data>
+  <data name="_angleField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 19</value>
   </data>
   <data name="_drawPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>1129, 420</value>
@@ -224,6 +227,9 @@
   </data>
   <data name="&gt;&gt;_drawPanel.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;_graStandingButton.Name" xml:space="preserve">
+    <value>_graStandingButton</value>
   </data>
   <data name="_speedCustomField.Location" type="System.Drawing.Point, System.Drawing">
     <value>282, 21</value>
@@ -269,6 +275,9 @@
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Zoom:</value>
+  </data>
+  <data name="_speedCustomButton.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Einheiten-Renderer</value>
@@ -393,9 +402,6 @@
   <data name="_radiusEditorCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="_graStandingButton.Text" xml:space="preserve">
-    <value>Stehend</value>
-  </data>
   <data name="&gt;&gt;groupBox5.Parent" xml:space="preserve">
     <value>_bottomPanel</value>
   </data>
@@ -420,6 +426,9 @@
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 22</value>
   </data>
+  <data name="_showFrameNumbersCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="&gt;&gt;_showFrameNumbersCheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -441,9 +450,6 @@
   <data name="_closeButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 23</value>
   </data>
-  <data name="&gt;&gt;_radiusSelectionCheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;_radiusCustom2Field.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -452,9 +458,6 @@
   </data>
   <data name="_showProjectilePointCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;_playButton.Parent" xml:space="preserve">
-    <value>_topPanel</value>
   </data>
   <data name="_zoomField.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 20</value>
@@ -531,14 +534,14 @@
   <data name="&gt;&gt;_speedNormalButton.Parent" xml:space="preserve">
     <value>groupBox2</value>
   </data>
-  <data name="_radiusSelectionCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
   <data name="_stopButton.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
   </data>
   <data name="&gt;&gt;_graFallingButton.Parent" xml:space="preserve">
     <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_stopButton.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;_graphicsDRSButton.Name" xml:space="preserve">
     <value>_graphicsDRSButton</value>
@@ -582,6 +585,9 @@
   <data name="_showCenterPointCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;_stopButton.Name" xml:space="preserve">
+    <value>_stopButton</value>
+  </data>
   <data name="&gt;&gt;_radiusCustom2Field.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
@@ -594,11 +600,14 @@
   <data name="&gt;&gt;_speedSlowButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="_graStandingButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 19</value>
+  </data>
   <data name="_centerUnitButton.Text" xml:space="preserve">
     <value>Auf Einheit zentrieren</value>
   </data>
-  <data name="_speedCustomButton.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;_playButton.Parent" xml:space="preserve">
+    <value>_topPanel</value>
   </data>
   <data name="_graSnowCheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -608,6 +617,9 @@
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 38</value>
+  </data>
+  <data name="_showProjectilePointCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="_closeButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -626,9 +638,6 @@
   </data>
   <data name="&gt;&gt;_speedFastButton.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="_speedCustomButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>211, 22</value>
   </data>
   <data name="_radiusCustomCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 17</value>
@@ -665,9 +674,6 @@
   </data>
   <data name="&gt;&gt;_showProjectilePointCheckBox.Parent" xml:space="preserve">
     <value>groupBox5</value>
-  </data>
-  <data name="_centerUnitButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 23</value>
   </data>
   <data name="_graSnowCheckBox.Text" xml:space="preserve">
     <value>Schnee</value>
@@ -1074,9 +1080,6 @@
   <data name="_speedFastButton.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="_showCenterPointCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 21</value>
-  </data>
   <data name="_centerUnitButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>197, 17</value>
   </data>
@@ -1113,9 +1116,6 @@
   <data name="_radiusCustom2Field.Location" type="System.Drawing.Point, System.Drawing">
     <value>319, 19</value>
   </data>
-  <data name="_closeButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>958, 58</value>
-  </data>
   <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
     <value>_topPanel</value>
   </data>
@@ -1151,6 +1151,9 @@
   </data>
   <data name="&gt;&gt;_radiusSelectionCheckBox.Parent" xml:space="preserve">
     <value>groupBox4</value>
+  </data>
+  <data name="_speedCustomField.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;_centerUnitButton.Parent" xml:space="preserve">
     <value>groupBox3</value>
@@ -1209,8 +1212,8 @@
   <data name="_bottomPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 520</value>
   </data>
-  <data name="_angleField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 19</value>
+  <data name="_closeButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>958, 58</value>
   </data>
   <data name="&gt;&gt;_graAttackingButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1341,8 +1344,8 @@
   <data name="&gt;&gt;_graAttackingButton.Name" xml:space="preserve">
     <value>_graAttackingButton</value>
   </data>
-  <data name="_showFrameNumbersCheckBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="_radiusSelectionCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;_openGraphicsDRSDialog.Name" xml:space="preserve">
     <value>_openGraphicsDRSDialog</value>
@@ -1422,20 +1425,20 @@
   <data name="&gt;&gt;_showProjectilePointCheckBox.Name" xml:space="preserve">
     <value>_showProjectilePointCheckBox</value>
   </data>
-  <data name="&gt;&gt;_stopButton.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1129, 610</value>
   </data>
   <data name="_graphicsDRSButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>31, 23</value>
   </data>
-  <data name="&gt;&gt;_stopButton.Name" xml:space="preserve">
-    <value>_stopButton</value>
+  <data name="&gt;&gt;_radiusSelectionCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;_showFrameNumbersCheckBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="_graStandingButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 19</value>
+  <data name="_centerUnitButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 23</value>
   </data>
   <data name="&gt;&gt;_radiusCustomCheckBox.Name" xml:space="preserve">
     <value>_radiusCustomCheckBox</value>
@@ -1464,14 +1467,14 @@
   <data name="&gt;&gt;_graphicsDRSButton.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="_speedCustomField.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="_showCenterPointCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 21</value>
   </data>
   <data name="&gt;&gt;_angleField.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="_showProjectilePointCheckBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="_speedCustomButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>211, 22</value>
   </data>
   <data name="&gt;&gt;_speedCustomButton.Parent" xml:space="preserve">
     <value>groupBox2</value>
@@ -1494,9 +1497,6 @@
   <data name="_showFrameNumbersCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="_openGraphicsDRSDialog.Title" xml:space="preserve">
-    <value>Graphics-DRS-Datei öffnen...</value>
-  </data>
   <data name="&gt;&gt;_centerUnitButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
@@ -1518,8 +1518,8 @@
   <data name="&gt;&gt;_radiusEditorCheckBox.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="_speedNormalButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 17</value>
+  <data name="_graStandingButton.Text" xml:space="preserve">
+    <value>Stehend</value>
   </data>
   <data name="&gt;&gt;_closeButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1530,8 +1530,8 @@
   <data name="_topPanel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;_graStandingButton.Name" xml:space="preserve">
-    <value>_graStandingButton</value>
+  <data name="_openGraphicsDRSDialog.Title" xml:space="preserve">
+    <value>Graphics-DRS-Datei öffnen...</value>
   </data>
   <data name="_radiusCustomCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1553,9 +1553,6 @@
   </data>
   <metadata name="_openGraphicsDRSDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en-US</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

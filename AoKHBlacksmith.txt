@@ -26,3 +26,9 @@ This software is published under the MIT/X11 license. Please read the LICENSE fi
 Lots of credit goes to the creators of the [url=http://aok.heavengames.com/blacksmith/showfile.php?fileid=11002]Advanced Genie Editor[/url] which source code I used to create a C# port of its genieutils library (see "GenieLibrary" repository).
 
 Also I'd like to thank the developers of [url=http://www.opentk.com/]OpenTK[/url] for their wonderful C# OpenGL wrapper allowing me to write an efficient renderer for my technology tree data structure.
+
+
+[b]Updates[/b]
+
+[u]1.1.0[/u]
+Added support for the tech tree format used by the [url=https://github.com/Janworks/AoETechTree]new ingame tech tree implementation[/url]. This release also contains a lot of bugfixes and some small new features.

@@ -486,13 +486,7 @@ namespace TechTreeEditor
 			int maxAge = (element.HasChildren() ? element.GetVisibleChildren().Min(e => e.Age) : _ageCount - 1);
 
 			// Neues Zeitalter berechnen
-			int newAge = element.Age + offset;
-
-			// Falls gültig, zuweisen
-			if(minAge <= newAge && newAge <= maxAge)
-				element.Age = newAge;
-			else
-				return;
+			element.Age = Math.Min(Math.Max(minAge, element.Age + offset), maxAge);
 		}
 
 		/// <summary>
@@ -516,7 +510,7 @@ namespace TechTreeEditor
 				IChildrenContainer parentElemChildContainer = parentElem as IChildrenContainer;
 				TechTreeResearch parentElemResearch = parentElem as TechTreeResearch;
 				if(parentElemChildContainer != null)
-					return parentElemChildContainer.Children.Move(parentElemChildContainer.Children.FindIndex(el => el.Item2 == element), offset).Item2;
+					return parentElemChildContainer.Children.Move(parentElemChildContainer.Children.FindIndex(el => el.Item2 == element), offset)?.Item2;
 				else if(parentElemResearch != null && element is TechTreeResearch)
 					return parentElemResearch.Successors.Move(parentElemResearch.Successors.IndexOf((TechTreeResearch)element), offset);
 			}

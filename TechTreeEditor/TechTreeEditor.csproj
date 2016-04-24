@@ -480,6 +480,8 @@
     <Content Include="Icons\LanguageSelection.png" />
     <Content Include="Icons\LockAll.png" />
     <Content Include="Icons\MakeAvailDependency.png" />
+    <Content Include="Icons\MoveLeft.png" />
+    <Content Include="Icons\MoveRight.png" />
     <Content Include="Icons\NewAbility.png" />
     <Content Include="Icons\NewDead.png" />
     <Content Include="Icons\NewEyeCandy.png" />

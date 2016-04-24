@@ -337,4 +337,10 @@
   <data name="SetAlternateNewTechTreeParent" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons\setalternatenewtechtreeparent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MoveLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons\moveleft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MoveRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons\moveright.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
