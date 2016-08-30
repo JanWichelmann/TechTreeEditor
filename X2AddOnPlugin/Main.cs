@@ -34,6 +34,11 @@ namespace X2AddOnPlugin
 		private ToolStripMenuItem _newCreatableMenuButton;
 
 		/// <summary>
+		/// Das Menü-Element für ein neues Schiff.
+		/// </summary>
+		private ToolStripMenuItem _newShipMenuButton;
+
+		/// <summary>
 		/// Ruft die geladene Graphics-DRS-Datei ab.
 		/// </summary>
 		internal static DRSFile GraphicsDRS
@@ -56,12 +61,28 @@ namespace X2AddOnPlugin
 			_newCreatableMenuButton.Click += new EventHandler((sender, e) =>
 			{
 				// Es muss was ausgewählt sein
-				if(_communicator.CurrentSelection == null)
+				if(_communicator.CurrentSelection == null as TechTreeUnit)
 					MessageBox.Show("Bitte eine Basiseinheit markieren!");
 				else
 				{
 					// Neue Einheit-Fenster öffnen
-					NewCreatableForm form = new NewCreatableForm(_projectFile, _communicator.CurrentSelection as TechTreeUnit, _communicator);
+					NewCreatableForm form = new NewCreatableForm(_projectFile, (TechTreeUnit)_communicator.CurrentSelection, _communicator);
+					if(form.ShowDialog() == DialogResult.OK)
+						_communicator.IssueTreeUpdate();
+				}
+			});
+
+			// Neues Schiff-Button erstellen
+			_newShipMenuButton = new ToolStripMenuItem("Neues Schiff erstellen");
+			_newShipMenuButton.Click += new EventHandler((sender, e) =>
+			{
+				// Es muss was ausgewählt sein
+				if(_communicator.CurrentSelection as TechTreeCreatable == null)
+					MessageBox.Show("Bitte ein gültiges Basisschiff markieren!");
+				else
+				{
+					// Neues Schiff-Fenster öffnen
+					NewShipForm form = new NewShipForm(_projectFile, (TechTreeCreatable)_communicator.CurrentSelection, _communicator);
 					if(form.ShowDialog() == DialogResult.OK)
 						_communicator.IssueTreeUpdate();
 				}
@@ -130,6 +151,7 @@ namespace X2AddOnPlugin
 			// Menü-Element-Liste zurückgeben
 			List<ToolStripItem> result = new List<ToolStripItem>();
 			result.Add(_newCreatableMenuButton);
+			result.Add(_newShipMenuButton);
 			return result;
 		}
 

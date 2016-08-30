@@ -85,9 +85,9 @@
 			// 
 			// _bottomPanel
 			// 
-			resources.ApplyResources(this._bottomPanel, "_bottomPanel");
 			this._bottomPanel.Controls.Add(this._saveButton);
 			this._bottomPanel.Controls.Add(this._closeButton);
+			resources.ApplyResources(this._bottomPanel, "_bottomPanel");
 			this._bottomPanel.Name = "_bottomPanel";
 			// 
 			// _saveButton
@@ -106,7 +106,6 @@
 			// 
 			// _mainPanel
 			// 
-			resources.ApplyResources(this._mainPanel, "_mainPanel");
 			this._mainPanel.Controls.Add(this._attackSoundField);
 			this._mainPanel.Controls.Add(this._attackSoundView);
 			this._mainPanel.Controls.Add(this.label4);
@@ -140,6 +139,7 @@
 			this._mainPanel.Controls.Add(this.label1);
 			this._mainPanel.Controls.Add(this._newGraphicButton);
 			this._mainPanel.Controls.Add(this._deleteGraphicButton);
+			resources.ApplyResources(this._mainPanel, "_mainPanel");
 			this._mainPanel.Name = "_mainPanel";
 			// 
 			// _attackSoundField
@@ -152,7 +152,6 @@
 			// 
 			// _attackSoundView
 			// 
-			resources.ApplyResources(this._attackSoundView, "_attackSoundView");
 			this._attackSoundView.AllowUserToAddRows = false;
 			this._attackSoundView.AllowUserToDeleteRows = false;
 			this._attackSoundView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -165,6 +164,7 @@
             this._attackSound2DelayColumn,
             this._attackSound3IDColumn,
             this._attackSound3DelayColumn});
+			resources.ApplyResources(this._attackSoundView, "_attackSoundView");
 			this._attackSoundView.Name = "_attackSoundView";
 			this._attackSoundView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this._attackSoundView_CellValidating);
 			this._attackSoundView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._attackSoundView_CellValueChanged);
@@ -225,17 +225,18 @@
 			// 
 			// _deltaView
 			// 
-			resources.ApplyResources(this._deltaView, "_deltaView");
 			this._deltaView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this._deltaView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this._deltaView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this._deltaIDColumn,
             this._deltaXColumn,
             this._deltaYColumn});
+			resources.ApplyResources(this._deltaView, "_deltaView");
 			this._deltaView.Name = "_deltaView";
 			this._deltaView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this._deltaView_CellValidating);
 			this._deltaView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._deltaView_CellValueChanged);
 			this._deltaView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this._deltaView_RowsRemoved);
+			this._deltaView.KeyDown += new System.Windows.Forms.KeyEventHandler(this._deltaView_KeyDown);
 			// 
 			// _deltaIDColumn
 			// 

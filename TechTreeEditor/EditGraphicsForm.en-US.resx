@@ -135,10 +135,16 @@
   <data name="_attackSound3DelayColumn.HeaderText" xml:space="preserve">
     <value>Delay #3</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 13</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Deltas (SHIFT+ENTER for insertion of new lines):</value>
+  </data>
   <data name="_deltaIDColumn.HeaderText" xml:space="preserve">
     <value>Graphic ID</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="_replayDelayField.Location" type="System.Drawing.Point, System.Drawing">
     <value>75, 140</value>
   </data>

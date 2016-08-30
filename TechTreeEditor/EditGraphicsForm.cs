@@ -723,6 +723,33 @@ namespace TechTreeEditor
 			}
 		}
 
+		private void _deltaView_KeyDown(object sender, KeyEventArgs e)
+		{
+			// Shift gedrückt?
+			if(e.Modifiers == Keys.Shift && e.KeyCode == Keys.Enter && _deltaView.SelectedCells.Count > 0)
+			{
+				// Zeile hinzufügen
+				_deltaView.Rows.Insert(_deltaView.SelectedCells[0].RowIndex, (short)0, (short)0, (short)0);
+
+				// Alle Werte aus View in Delta-Liste schreiben
+				_deltaView_CellValueChanged(sender, null);
+
+				// Tastendruck ist behandelt
+				e.SuppressKeyPress = true;
+			}
+			else if(e.KeyCode == Keys.Delete && _deltaView.SelectedRows.Count > 0)
+			{
+				// Zeile löschen
+				_deltaView.Rows.Remove(_deltaView.SelectedRows[0]);
+
+				// Alle Werte aus View in Delta-Liste schreiben
+				_deltaView_CellValueChanged(sender, null);
+
+				// Tastendruck ist behandelt
+				e.SuppressKeyPress = true;
+			}
+		}
+
 		private void _deltaView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
 		{
 			// Genauso behandelt wie die Zellwert-Änderung

@@ -117,386 +117,1007 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="_speedField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>213, 245</value>
+  <data name="&gt;&gt;_saveButton.Name" xml:space="preserve">
+    <value>_saveButton</value>
   </data>
-  <data name="&gt;&gt;_coord3Field.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
+  <data name="&gt;&gt;_saveButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="_idField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 12</value>
+  <data name="&gt;&gt;_saveButton.Parent" xml:space="preserve">
+    <value>_bottomPanel</value>
   </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;_saveButton.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;_coord1Field.Name" xml:space="preserve">
-    <value>_coord1Field</value>
+  <data name="&gt;&gt;_closeButton.Name" xml:space="preserve">
+    <value>_closeButton</value>
   </data>
-  <data name="&gt;&gt;_deltaView.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="_layerField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 271</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
-    <value>50</value>
+  <data name="&gt;&gt;_closeButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;_closeButton.Parent" xml:space="preserve">
     <value>_bottomPanel</value>
   </data>
-  <data name="_angleCountField.TabIndex" type="System.Int32, mscorlib">
-    <value>34</value>
-  </data>
-  <data name="_replayDelayField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 140</value>
-  </data>
-  <data name="_name1TextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="&gt;&gt;_sequenceTypeField.Name" xml:space="preserve">
-    <value>_sequenceTypeField</value>
-  </data>
-  <data name="_name1TextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>62, 37</value>
-  </data>
-  <data name="&gt;&gt;_deltaView.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="_name2TextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="&gt;&gt;_deltaYColumn.Name" xml:space="preserve">
-    <value>_deltaYColumn</value>
-  </data>
-  <data name="_frameCountField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>213, 63</value>
-  </data>
-  <data name="&gt;&gt;_graphicListBox.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_closeButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;_attackSoundView.Name" xml:space="preserve">
-    <value>_attackSoundView</value>
-  </data>
-  <data name="&gt;&gt;_attackSound3IDColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="_newGraphicButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="_bottomPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
   </data>
-  <data name="&gt;&gt;_soundIDField.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_bottomPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 606</value>
   </data>
-  <data name="&gt;&gt;_mainPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="_bottomPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1003, 45</value>
   </data>
-  <data name="_coord4Field.TabIndex" type="System.Int32, mscorlib">
-    <value>41</value>
-  </data>
-  <data name="&gt;&gt;_replayDelayField.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="_graphicListBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="&gt;&gt;_mainPanel.Name" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="_saveButton.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;_frameCountField.ZOrder" xml:space="preserve">
-    <value>22</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>213, 40</value>
-  </data>
-  <data name="&gt;&gt;_speedField.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="_rainbowField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 20</value>
-  </data>
-  <data name="_filterTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="&gt;&gt;_filterTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="_sequenceTypeField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 219</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="_bottomPanel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="_attackSound1DelayColumn.HeaderText" xml:space="preserve">
-    <value>Verzögerung #1</value>
-  </data>
-  <data name="_slpField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 20</value>
-  </data>
-  <data name="&gt;&gt;_attackSoundField.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="_unknown2Field.TabIndex" type="System.Int32, mscorlib">
-    <value>48</value>
-  </data>
-  <data name="&gt;&gt;_frameRateField.ZOrder" xml:space="preserve">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;_newGraphicButton.ZOrder" xml:space="preserve">
-    <value>31</value>
-  </data>
-  <data name="_coord2Field.TabIndex" type="System.Int32, mscorlib">
-    <value>39</value>
-  </data>
-  <data name="&gt;&gt;_frameCountField.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="&gt;&gt;_name2TextBox.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="_slpField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 63</value>
-  </data>
-  <data name="&gt;&gt;_deltaView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_coord2Field.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="&gt;&gt;_slpField.Name" xml:space="preserve">
-    <value>_slpField</value>
-  </data>
-  <data name="_attackSoundField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 20</value>
-  </data>
-  <data name="&gt;&gt;_bottomPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="_name2TextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 20</value>
-  </data>
-  <data name="&gt;&gt;_angleCountField.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="_soundIDField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 20</value>
-  </data>
-  <data name="&gt;&gt;_deleteGraphicButton.ZOrder" xml:space="preserve">
-    <value>32</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="_sequenceTypeField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 20</value>
-  </data>
-  <data name="&gt;&gt;_frameRateField.Name" xml:space="preserve">
-    <value>_frameRateField</value>
-  </data>
-  <data name="&gt;&gt;_rainbowField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 13</value>
-  </data>
-  <data name="&gt;&gt;_coord1Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;_bottomPanel.Name" xml:space="preserve">
     <value>_bottomPanel</value>
   </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>28</value>
+  <data name="&gt;&gt;_bottomPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_attackSoundView.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;_bottomPanel.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>30</value>
+  <data name="&gt;&gt;_bottomPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="_attackSound3IDColumn.HeaderText" xml:space="preserve">
-    <value>ID #3</value>
+  <data name="_saveButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
-  <data name="_coord2Field.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 20</value>
+  <data name="_saveButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="_mainPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>230, 0</value>
-  </data>
-  <data name="_graphicListBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="_unknown3Field.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 20</value>
-  </data>
-  <data name="&gt;&gt;_coord4Field.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;_attackSound1IDColumn.Name" xml:space="preserve">
-    <value>_attackSound1IDColumn</value>
-  </data>
-  <data name="_name2TextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>266, 37</value>
-  </data>
-  <data name="&gt;&gt;_coord3Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="_filterTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="_frameRateField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 89</value>
+  <data name="_saveButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>663, 10</value>
   </data>
   <data name="_saveButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 23</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 40</value>
+  <data name="_saveButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="_attackSoundView.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
+  <data name="_saveButton.Text" xml:space="preserve">
+    <value>Änderungen speichern</value>
   </data>
-  <data name="_soundIDField.TabIndex" type="System.Int32, mscorlib">
-    <value>36</value>
+  <data name="&gt;&gt;_saveButton.Name" xml:space="preserve">
+    <value>_saveButton</value>
   </data>
-  <data name="&gt;&gt;_replayDelayField.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
+  <data name="&gt;&gt;_saveButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_playerColorField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;_saveButton.Parent" xml:space="preserve">
+    <value>_bottomPanel</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 13</value>
+  <data name="&gt;&gt;_saveButton.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="_closeButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
-  <data name="_attackSoundField.TabIndex" type="System.Int32, mscorlib">
-    <value>51</value>
+  <data name="_closeButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_closeButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>830, 10</value>
   </data>
   <data name="_closeButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 23</value>
   </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="_deleteGraphicButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;_unknown1Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_attackSound3DelayColumn.Name" xml:space="preserve">
-    <value>_attackSound3DelayColumn</value>
-  </data>
-  <data name="&gt;&gt;_attackSoundAngleColumn.Name" xml:space="preserve">
-    <value>_attackSoundAngleColumn</value>
+  <data name="_closeButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="_closeButton.Text" xml:space="preserve">
     <value>Fertig</value>
   </data>
-  <data name="_replayDelayField.TabIndex" type="System.Int32, mscorlib">
-    <value>33</value>
+  <data name="&gt;&gt;_closeButton.Name" xml:space="preserve">
+    <value>_closeButton</value>
   </data>
-  <data name="_coord4Field.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="&gt;&gt;_closeButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_closeButton.Parent" xml:space="preserve">
+    <value>_bottomPanel</value>
+  </data>
+  <data name="&gt;&gt;_closeButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_attackSoundField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 323</value>
+  </data>
+  <data name="_attackSoundField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 20</value>
+  </data>
+  <data name="_attackSoundField.TabIndex" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="&gt;&gt;_attackSoundField.Name" xml:space="preserve">
+    <value>_attackSoundField</value>
+  </data>
+  <data name="&gt;&gt;_attackSoundField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.CheckBoxFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_attackSoundField.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_attackSoundField.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="_attackSoundAngleColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="_attackSound1IDColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="_attackSound1DelayColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="_attackSound2IDColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="_attackSound2DelayColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="_attackSound3IDColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="_attackSound3DelayColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_attackSoundView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>118, 323</value>
+  </data>
+  <data name="_attackSoundView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>644, 219</value>
+  </data>
+  <data name="_attackSoundView.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;_attackSoundView.Name" xml:space="preserve">
+    <value>_attackSoundView</value>
+  </data>
+  <data name="&gt;&gt;_attackSoundView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_attackSoundView.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_attackSoundView.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>414, 16</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 13</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Deltas (SHIFT+ENTER zum Einfügen neuer Zeilen in der Mitte):</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="_deltaIDColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_deltaIDColumn.HeaderText" xml:space="preserve">
+    <value>Grafik-ID</value>
+  </data>
+  <metadata name="_deltaXColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_deltaXColumn.HeaderText" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <metadata name="_deltaYColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_deltaYColumn.HeaderText" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="_deltaView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>417, 37</value>
+  </data>
+  <data name="_deltaView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>345, 280</value>
+  </data>
+  <data name="_deltaView.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;_deltaView.Name" xml:space="preserve">
+    <value>_deltaView</value>
+  </data>
+  <data name="&gt;&gt;_deltaView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_deltaView.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_deltaView.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_unknown3Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 297</value>
+  </data>
+  <data name="_unknown3Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 20</value>
+  </data>
+  <data name="_unknown3Field.TabIndex" type="System.Int32, mscorlib">
+    <value>49</value>
+  </data>
+  <data name="&gt;&gt;_unknown3Field.Name" xml:space="preserve">
+    <value>_unknown3Field</value>
+  </data>
+  <data name="&gt;&gt;_unknown3Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_unknown3Field.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_unknown3Field.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="_unknown2Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 297</value>
+  </data>
+  <data name="_unknown2Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 20</value>
+  </data>
+  <data name="_unknown2Field.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
+  </data>
+  <data name="&gt;&gt;_unknown2Field.Name" xml:space="preserve">
+    <value>_unknown2Field</value>
+  </data>
+  <data name="&gt;&gt;_unknown2Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_unknown2Field.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_unknown2Field.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="_unknown1Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 271</value>
+  </data>
+  <data name="_unknown1Field.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 20</value>
   </data>
   <data name="_unknown1Field.TabIndex" type="System.Int32, mscorlib">
     <value>47</value>
   </data>
-  <data name="_deleteGraphicButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="&gt;&gt;_unknown1Field.Name" xml:space="preserve">
+    <value>_unknown1Field</value>
   </data>
-  <data name="_coord2Field.Location" type="System.Drawing.Point, System.Drawing">
-    <value>213, 167</value>
+  <data name="&gt;&gt;_unknown1Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;_unknown2Field.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_unknown1Field.Parent" xml:space="preserve">
     <value>_mainPanel</value>
   </data>
-  <data name="&gt;&gt;_replayDelayField.Name" xml:space="preserve">
-    <value>_replayDelayField</value>
+  <data name="&gt;&gt;_unknown1Field.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
-  <data name="&gt;&gt;_attackSoundField.Name" xml:space="preserve">
-    <value>_attackSoundField</value>
+  <data name="_layerField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 271</value>
   </data>
-  <data name="_unknown1Field.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_layerField.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 20</value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Deltas:</value>
+  <data name="_layerField.TabIndex" type="System.Int32, mscorlib">
+    <value>46</value>
   </data>
-  <data name="&gt;&gt;_unknown2Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;_layerField.Name" xml:space="preserve">
+    <value>_layerField</value>
   </data>
-  <data name="&gt;&gt;_unknown3Field.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;_layerField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="_replayCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 141</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_layerField.Parent" xml:space="preserve">
     <value>_mainPanel</value>
   </data>
-  <data name="_coord3Field.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="&gt;&gt;_layerField.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="_speedField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 245</value>
+  </data>
+  <data name="_speedField.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 20</value>
   </data>
-  <data name="&gt;&gt;_attackSound1DelayColumn.Name" xml:space="preserve">
-    <value>_attackSound1DelayColumn</value>
+  <data name="_speedField.TabIndex" type="System.Int32, mscorlib">
+    <value>45</value>
   </data>
-  <data name="_attackSoundView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 323</value>
+  <data name="&gt;&gt;_speedField.Name" xml:space="preserve">
+    <value>_speedField</value>
   </data>
-  <data name="&gt;&gt;_coord2Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;_speedField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_speedField.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_speedField.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="_rainbowField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 245</value>
+  </data>
+  <data name="_rainbowField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 20</value>
+  </data>
+  <data name="_rainbowField.TabIndex" type="System.Int32, mscorlib">
+    <value>44</value>
+  </data>
+  <data name="&gt;&gt;_rainbowField.Name" xml:space="preserve">
+    <value>_rainbowField</value>
+  </data>
+  <data name="&gt;&gt;_rainbowField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_rainbowField.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_rainbowField.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="_mirrorField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 219</value>
+  </data>
+  <data name="_mirrorField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 20</value>
+  </data>
+  <data name="_mirrorField.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="&gt;&gt;_mirrorField.Name" xml:space="preserve">
+    <value>_mirrorField</value>
+  </data>
+  <data name="&gt;&gt;_mirrorField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_mirrorField.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_mirrorField.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="_sequenceTypeField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 219</value>
+  </data>
+  <data name="_sequenceTypeField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 20</value>
   </data>
   <data name="_sequenceTypeField.TabIndex" type="System.Int32, mscorlib">
     <value>42</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 13</value>
+  <data name="&gt;&gt;_sequenceTypeField.Name" xml:space="preserve">
+    <value>_sequenceTypeField</value>
   </data>
-  <data name="&gt;&gt;_deleteGraphicButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_sequenceTypeField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_sequenceTypeField.Parent" xml:space="preserve">
     <value>_mainPanel</value>
   </data>
-  <data name="_deltaIDColumn.HeaderText" xml:space="preserve">
-    <value>Grafik-ID</value>
+  <data name="&gt;&gt;_sequenceTypeField.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
-  <data name="&gt;&gt;_frameCountField.Name" xml:space="preserve">
-    <value>_frameCountField</value>
+  <data name="_coord4Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 193</value>
   </data>
-  <data name="_coord3Field.TabIndex" type="System.Int32, mscorlib">
-    <value>40</value>
+  <data name="_coord4Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 20</value>
   </data>
-  <data name="&gt;&gt;_unknown2Field.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="_coord4Field.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
   </data>
   <data name="&gt;&gt;_coord4Field.Name" xml:space="preserve">
     <value>_coord4Field</value>
   </data>
-  <data name="_bottomPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1003, 45</value>
+  <data name="&gt;&gt;_coord4Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="_unknown2Field.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 297</value>
+  <data name="&gt;&gt;_coord4Field.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
   </data>
-  <data name="_saveButton.Text" xml:space="preserve">
-    <value>Änderungen speichern</value>
+  <data name="&gt;&gt;_coord4Field.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="_coord3Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 193</value>
+  </data>
+  <data name="_coord3Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 20</value>
+  </data>
+  <data name="_coord3Field.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="&gt;&gt;_coord3Field.Name" xml:space="preserve">
+    <value>_coord3Field</value>
+  </data>
+  <data name="&gt;&gt;_coord3Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_coord3Field.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_coord3Field.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="_coord2Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 167</value>
+  </data>
+  <data name="_coord2Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 20</value>
+  </data>
+  <data name="_coord2Field.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="&gt;&gt;_coord2Field.Name" xml:space="preserve">
+    <value>_coord2Field</value>
+  </data>
+  <data name="&gt;&gt;_coord2Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_coord2Field.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_coord2Field.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="_coord1Field.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 167</value>
+  </data>
+  <data name="_coord1Field.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 20</value>
+  </data>
+  <data name="_coord1Field.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="&gt;&gt;_coord1Field.Name" xml:space="preserve">
+    <value>_coord1Field</value>
+  </data>
+  <data name="&gt;&gt;_coord1Field.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_coord1Field.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_coord1Field.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="_playerColorField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 115</value>
+  </data>
+  <data name="_playerColorField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 20</value>
+  </data>
+  <data name="_playerColorField.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;_playerColorField.Name" xml:space="preserve">
+    <value>_playerColorField</value>
+  </data>
+  <data name="&gt;&gt;_playerColorField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_playerColorField.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_playerColorField.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="_soundIDField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 115</value>
+  </data>
+  <data name="_soundIDField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 20</value>
+  </data>
+  <data name="_soundIDField.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="&gt;&gt;_soundIDField.Name" xml:space="preserve">
+    <value>_soundIDField</value>
+  </data>
+  <data name="&gt;&gt;_soundIDField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_soundIDField.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_soundIDField.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="_idField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 12</value>
+  </data>
+  <data name="_idField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 20</value>
+  </data>
+  <data name="_idField.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="&gt;&gt;_idField.Name" xml:space="preserve">
+    <value>_idField</value>
+  </data>
+  <data name="&gt;&gt;_idField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_idField.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_idField.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="_angleCountField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 89</value>
+  </data>
+  <data name="_angleCountField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 20</value>
+  </data>
+  <data name="_angleCountField.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="&gt;&gt;_angleCountField.Name" xml:space="preserve">
+    <value>_angleCountField</value>
+  </data>
+  <data name="&gt;&gt;_angleCountField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_angleCountField.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_angleCountField.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="_replayDelayField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>98, 140</value>
+  </data>
+  <data name="_replayDelayField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 20</value>
+  </data>
+  <data name="_replayDelayField.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="&gt;&gt;_replayDelayField.Name" xml:space="preserve">
+    <value>_replayDelayField</value>
+  </data>
+  <data name="&gt;&gt;_replayDelayField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_replayDelayField.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_replayDelayField.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="_replayCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 141</value>
+  </data>
+  <data name="_replayCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 20</value>
+  </data>
+  <data name="_replayCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="&gt;&gt;_replayCheckBox.Name" xml:space="preserve">
+    <value>_replayCheckBox</value>
+  </data>
+  <data name="&gt;&gt;_replayCheckBox.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.CheckBoxFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_replayCheckBox.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_replayCheckBox.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="_frameCountField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 63</value>
+  </data>
+  <data name="_frameCountField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 20</value>
+  </data>
+  <data name="_frameCountField.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="&gt;&gt;_frameCountField.Name" xml:space="preserve">
+    <value>_frameCountField</value>
+  </data>
+  <data name="&gt;&gt;_frameCountField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_frameCountField.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_frameCountField.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="_frameRateField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 89</value>
+  </data>
+  <data name="_frameRateField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 20</value>
+  </data>
+  <data name="_frameRateField.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="&gt;&gt;_frameRateField.Name" xml:space="preserve">
+    <value>_frameRateField</value>
+  </data>
+  <data name="&gt;&gt;_frameRateField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_frameRateField.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_frameRateField.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="_slpField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 63</value>
+  </data>
+  <data name="_slpField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 20</value>
+  </data>
+  <data name="_slpField.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;_slpField.Name" xml:space="preserve">
+    <value>_slpField</value>
+  </data>
+  <data name="&gt;&gt;_slpField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_slpField.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_slpField.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="_name2TextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>266, 37</value>
+  </data>
+  <data name="_name2TextBox.MaxLength" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="_name2TextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 20</value>
+  </data>
+  <data name="_name2TextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;_name2TextBox.Name" xml:space="preserve">
+    <value>_name2TextBox</value>
+  </data>
+  <data name="&gt;&gt;_name2TextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_name2TextBox.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_name2TextBox.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 40</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 13</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Name 2:</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="_name1TextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 37</value>
+  </data>
+  <data name="_name1TextBox.MaxLength" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="_name1TextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 20</value>
+  </data>
+  <data name="_name1TextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;_name1TextBox.Name" xml:space="preserve">
+    <value>_name1TextBox</value>
+  </data>
+  <data name="&gt;&gt;_name1TextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_name1TextBox.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_name1TextBox.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 40</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 13</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Name 1:</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="_filterTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="_filterTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>44, 580</value>
+  </data>
+  <data name="_filterTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>227, 20</value>
+  </data>
+  <data name="_filterTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;_filterTextBox.Name" xml:space="preserve">
+    <value>_filterTextBox</value>
+  </data>
+  <data name="&gt;&gt;_filterTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_filterTextBox.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_filterTextBox.ZOrder" xml:space="preserve">
+    <value>29</value>
+  </data>
+  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 583</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 13</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Filter:</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>30</value>
+  </data>
+  <data name="_newGraphicButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="_newGraphicButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="_newGraphicButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="_newGraphicButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_newGraphicButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 542</value>
+  </data>
+  <data name="_newGraphicButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 32</value>
+  </data>
+  <data name="_newGraphicButton.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;_newGraphicButton.Name" xml:space="preserve">
+    <value>_newGraphicButton</value>
+  </data>
+  <data name="&gt;&gt;_newGraphicButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_newGraphicButton.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_newGraphicButton.ZOrder" xml:space="preserve">
+    <value>31</value>
+  </data>
+  <data name="_deleteGraphicButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="_deleteGraphicButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="_deleteGraphicButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="_deleteGraphicButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_deleteGraphicButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 542</value>
+  </data>
+  <data name="_deleteGraphicButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 32</value>
+  </data>
+  <data name="_deleteGraphicButton.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;_deleteGraphicButton.Name" xml:space="preserve">
+    <value>_deleteGraphicButton</value>
+  </data>
+  <data name="&gt;&gt;_deleteGraphicButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_deleteGraphicButton.Parent" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_deleteGraphicButton.ZOrder" xml:space="preserve">
+    <value>32</value>
+  </data>
+  <data name="_mainPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="_mainPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>230, 0</value>
+  </data>
+  <data name="_mainPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>773, 606</value>
+  </data>
+  <data name="_mainPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;_mainPanel.Name" xml:space="preserve">
+    <value>_mainPanel</value>
+  </data>
+  <data name="&gt;&gt;_mainPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_mainPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_mainPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="_attackSoundAngleColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_attackSoundAngleColumn.HeaderText" xml:space="preserve">
+    <value>Achse</value>
+  </data>
+  <metadata name="_attackSound1IDColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_attackSound1IDColumn.HeaderText" xml:space="preserve">
+    <value>ID #1</value>
+  </data>
+  <metadata name="_attackSound1DelayColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_attackSound1DelayColumn.HeaderText" xml:space="preserve">
+    <value>Verzögerung #1</value>
+  </data>
+  <metadata name="_attackSound2IDColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_attackSound2IDColumn.HeaderText" xml:space="preserve">
+    <value>ID #2</value>
+  </data>
+  <metadata name="_attackSound2DelayColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_attackSound2DelayColumn.HeaderText" xml:space="preserve">
+    <value>Verzögerung #2</value>
+  </data>
+  <metadata name="_attackSound3IDColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_attackSound3IDColumn.HeaderText" xml:space="preserve">
+    <value>ID #3</value>
+  </data>
+  <metadata name="_attackSound3DelayColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="_attackSound3DelayColumn.HeaderText" xml:space="preserve">
+    <value>Verzögerung #3</value>
+  </data>
+  <data name="_graphicListBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="_graphicListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="_graphicListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 606</value>
+  </data>
+  <data name="_graphicListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_graphicListBox.Name" xml:space="preserve">
+    <value>_graphicListBox</value>
+  </data>
+  <data name="&gt;&gt;_graphicListBox.Type" xml:space="preserve">
+    <value>TechTreeEditor.DoubleBufferedListBox, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_graphicListBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_graphicListBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1003, 651</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -876,652 +1497,73 @@
         AAA=
 </value>
   </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="_closeButton.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;_speedField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_mainPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="_newGraphicButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;_deltaXColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="_deltaXColumn.HeaderText" xml:space="preserve">
-    <value>X</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Filter:</value>
-  </data>
-  <data name="&gt;&gt;_mirrorField.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="_coord1Field.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 167</value>
-  </data>
-  <data name="_mainPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>773, 606</value>
-  </data>
-  <data name="&gt;&gt;_filterTextBox.Name" xml:space="preserve">
-    <value>_filterTextBox</value>
-  </data>
-  <data name="_playerColorField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 20</value>
-  </data>
-  <data name="_filterTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>44, 580</value>
-  </data>
-  <data name="&gt;&gt;_sequenceTypeField.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="&gt;&gt;_deleteGraphicButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_angleCountField.Name" xml:space="preserve">
-    <value>_angleCountField</value>
-  </data>
-  <data name="_coord1Field.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 20</value>
-  </data>
-  <data name="_saveButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;_unknown1Field.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="_attackSound2IDColumn.HeaderText" xml:space="preserve">
-    <value>ID #2</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 13</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="_newGraphicButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 542</value>
-  </data>
-  <data name="&gt;&gt;_mirrorField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_name1TextBox.ZOrder" xml:space="preserve">
-    <value>27</value>
-  </data>
-  <data name="_unknown3Field.Location" type="System.Drawing.Point, System.Drawing">
-    <value>213, 297</value>
-  </data>
-  <data name="_name1TextBox.MaxLength" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="_layerField.TabIndex" type="System.Int32, mscorlib">
-    <value>46</value>
-  </data>
-  <data name="_deltaView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>345, 280</value>
-  </data>
-  <data name="&gt;&gt;_attackSound2DelayColumn.Name" xml:space="preserve">
-    <value>_attackSound2DelayColumn</value>
-  </data>
-  <data name="&gt;&gt;_idField.Name" xml:space="preserve">
-    <value>_idField</value>
-  </data>
-  <data name="_unknown3Field.TabIndex" type="System.Int32, mscorlib">
-    <value>49</value>
-  </data>
-  <data name="_idField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 20</value>
-  </data>
-  <data name="&gt;&gt;_playerColorField.Name" xml:space="preserve">
-    <value>_playerColorField</value>
-  </data>
-  <data name="&gt;&gt;_deltaIDColumn.Name" xml:space="preserve">
-    <value>_deltaIDColumn</value>
-  </data>
-  <data name="_attackSoundView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 219</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Name 1:</value>
-  </data>
-  <data name="_mainPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;_idField.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="_speedField.TabIndex" type="System.Int32, mscorlib">
-    <value>45</value>
-  </data>
-  <data name="&gt;&gt;_deltaIDColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="_frameRateField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 20</value>
-  </data>
-  <data name="&gt;&gt;_mainPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="_bottomPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="_mainPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="_coord3Field.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 193</value>
-  </data>
-  <data name="_deleteGraphicButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;_angleCountField.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="&gt;&gt;_coord1Field.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="&gt;&gt;_deltaYColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_graphicListBox.Name" xml:space="preserve">
-    <value>_graphicListBox</value>
-  </data>
-  <data name="&gt;&gt;_bottomPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>414, 16</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_slpField.ZOrder" xml:space="preserve">
-    <value>24</value>
-  </data>
-  <data name="_coord4Field.Location" type="System.Drawing.Point, System.Drawing">
-    <value>213, 193</value>
-  </data>
-  <data name="&gt;&gt;_saveButton.Name" xml:space="preserve">
-    <value>_saveButton</value>
-  </data>
-  <data name="&gt;&gt;_attackSoundView.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="_rainbowField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 245</value>
-  </data>
-  <data name="_replayDelayField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 20</value>
-  </data>
-  <data name="&gt;&gt;_speedField.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;_rainbowField.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="&gt;&gt;_coord4Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="_slpField.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 583</value>
-  </data>
-  <data name="_deleteGraphicButton.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="_closeButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="_name1TextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 20</value>
-  </data>
-  <data name="&gt;&gt;_name1TextBox.Name" xml:space="preserve">
-    <value>_name1TextBox</value>
-  </data>
-  <data name="&gt;&gt;_filterTextBox.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="&gt;&gt;_unknown3Field.Name" xml:space="preserve">
-    <value>_unknown3Field</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Grafiken bearbeiten</value>
   </data>
-  <data name="&gt;&gt;_idField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_attackSound2IDColumn.Name" xml:space="preserve">
-    <value>_attackSound2IDColumn</value>
-  </data>
-  <data name="&gt;&gt;_unknown3Field.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_attackSound2IDColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="_unknown2Field.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 20</value>
-  </data>
-  <data name="_attackSound2DelayColumn.HeaderText" xml:space="preserve">
-    <value>Verzögerung #2</value>
-  </data>
-  <data name="&gt;&gt;_replayCheckBox.ZOrder" xml:space="preserve">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>EditGraphicsForm</value>
-  </data>
-  <data name="&gt;&gt;_frameRateField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="_frameRateField.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="_replayCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>32</value>
-  </data>
-  <data name="&gt;&gt;_newGraphicButton.Name" xml:space="preserve">
-    <value>_newGraphicButton</value>
-  </data>
-  <data name="_closeButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>830, 10</value>
-  </data>
-  <data name="&gt;&gt;_idField.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="_replayCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 20</value>
-  </data>
-  <data name="_rainbowField.TabIndex" type="System.Int32, mscorlib">
-    <value>44</value>
-  </data>
-  <data name="&gt;&gt;_attackSoundField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.CheckBoxFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;_attackSoundAngleColumn.Name" xml:space="preserve">
+    <value>_attackSoundAngleColumn</value>
   </data>
   <data name="&gt;&gt;_attackSoundAngleColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="_unknown1Field.Location" type="System.Drawing.Point, System.Drawing">
-    <value>213, 271</value>
+  <data name="&gt;&gt;_attackSound1IDColumn.Name" xml:space="preserve">
+    <value>_attackSound1IDColumn</value>
   </data>
-  <data name="&gt;&gt;_unknown1Field.Name" xml:space="preserve">
-    <value>_unknown1Field</value>
+  <data name="&gt;&gt;_attackSound1IDColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="_name2TextBox.MaxLength" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;_graphicListBox.Type" xml:space="preserve">
-    <value>TechTreeEditor.DoubleBufferedListBox, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_name1TextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_saveButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;_unknown1Field.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;_attackSoundField.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="_frameCountField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 20</value>
-  </data>
-  <data name="_deltaYColumn.HeaderText" xml:space="preserve">
-    <value>Y</value>
-  </data>
-  <data name="&gt;&gt;_bottomPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_name1TextBox.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="&gt;&gt;_coord2Field.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;_soundIDField.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="_mirrorField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 20</value>
-  </data>
-  <data name="_deltaView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>417, 37</value>
-  </data>
-  <data name="&gt;&gt;_frameRateField.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="_layerField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 20</value>
-  </data>
-  <data name="&gt;&gt;_sequenceTypeField.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="_idField.TabIndex" type="System.Int32, mscorlib">
-    <value>35</value>
-  </data>
-  <data name="&gt;&gt;_soundIDField.Name" xml:space="preserve">
-    <value>_soundIDField</value>
-  </data>
-  <data name="&gt;&gt;_mirrorField.Name" xml:space="preserve">
-    <value>_mirrorField</value>
-  </data>
-  <data name="&gt;&gt;_mirrorField.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="&gt;&gt;_closeButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;_saveButton.Parent" xml:space="preserve">
-    <value>_bottomPanel</value>
-  </data>
-  <data name="&gt;&gt;_rainbowField.Name" xml:space="preserve">
-    <value>_rainbowField</value>
-  </data>
-  <data name="&gt;&gt;_coord3Field.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;_soundIDField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="_bottomPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 606</value>
-  </data>
-  <data name="_mirrorField.TabIndex" type="System.Int32, mscorlib">
-    <value>43</value>
-  </data>
-  <data name="&gt;&gt;_unknown3Field.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="&gt;&gt;_closeButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="_angleCountField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>213, 89</value>
-  </data>
-  <data name="&gt;&gt;_name2TextBox.Name" xml:space="preserve">
-    <value>_name2TextBox</value>
-  </data>
-  <data name="&gt;&gt;_coord4Field.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="_attackSoundAngleColumn.HeaderText" xml:space="preserve">
-    <value>Achse</value>
-  </data>
-  <data name="_closeButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="&gt;&gt;_deleteGraphicButton.Name" xml:space="preserve">
-    <value>_deleteGraphicButton</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Name 2:</value>
-  </data>
-  <data name="&gt;&gt;_layerField.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;_coord3Field.Name" xml:space="preserve">
-    <value>_coord3Field</value>
-  </data>
-  <data name="_soundIDField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 115</value>
-  </data>
-  <data name="&gt;&gt;_replayCheckBox.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;_attackSound1DelayColumn.Name" xml:space="preserve">
+    <value>_attackSound1DelayColumn</value>
   </data>
   <data name="&gt;&gt;_attackSound1DelayColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_attackSound2IDColumn.Name" xml:space="preserve">
+    <value>_attackSound2IDColumn</value>
+  </data>
+  <data name="&gt;&gt;_attackSound2IDColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_attackSound2DelayColumn.Name" xml:space="preserve">
+    <value>_attackSound2DelayColumn</value>
+  </data>
+  <data name="&gt;&gt;_attackSound2DelayColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;_attackSound3IDColumn.Name" xml:space="preserve">
     <value>_attackSound3IDColumn</value>
   </data>
-  <data name="_newGraphicButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="_frameCountField.TabIndex" type="System.Int32, mscorlib">
-    <value>31</value>
-  </data>
-  <data name="_coord1Field.TabIndex" type="System.Int32, mscorlib">
-    <value>38</value>
-  </data>
-  <data name="&gt;&gt;_deltaView.Name" xml:space="preserve">
-    <value>_deltaView</value>
-  </data>
-  <data name="&gt;&gt;_name2TextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="_newGraphicButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 32</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_unknown2Field.Name" xml:space="preserve">
-    <value>_unknown2Field</value>
-  </data>
-  <data name="_deleteGraphicButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>47, 542</value>
-  </data>
-  <data name="&gt;&gt;_replayDelayField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_sequenceTypeField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="_attackSound3DelayColumn.HeaderText" xml:space="preserve">
-    <value>Verzögerung #3</value>
-  </data>
-  <data name="&gt;&gt;_layerField.Name" xml:space="preserve">
-    <value>_layerField</value>
-  </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>26</value>
-  </data>
-  <data name="_speedField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 20</value>
-  </data>
-  <data name="&gt;&gt;_attackSoundView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="_attackSoundField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 323</value>
-  </data>
-  <data name="&gt;&gt;_speedField.Name" xml:space="preserve">
-    <value>_speedField</value>
-  </data>
-  <data name="&gt;&gt;_replayCheckBox.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.CheckBoxFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_coord2Field.Name" xml:space="preserve">
-    <value>_coord2Field</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_rainbowField.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;_closeButton.Name" xml:space="preserve">
-    <value>_closeButton</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1003, 651</value>
-  </data>
-  <data name="&gt;&gt;_name2TextBox.ZOrder" xml:space="preserve">
-    <value>25</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="&gt;&gt;_newGraphicButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="_deleteGraphicButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;_layerField.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="&gt;&gt;_layerField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="_newGraphicButton.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="_saveButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="&gt;&gt;_filterTextBox.ZOrder" xml:space="preserve">
-    <value>29</value>
-  </data>
-  <data name="_attackSound1IDColumn.HeaderText" xml:space="preserve">
-    <value>ID #1</value>
-  </data>
-  <data name="_graphicListBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 606</value>
-  </data>
-  <data name="_newGraphicButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="&gt;&gt;_deltaXColumn.Name" xml:space="preserve">
-    <value>_deltaXColumn</value>
-  </data>
-  <data name="&gt;&gt;_slpField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="&gt;&gt;_playerColorField.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="_playerColorField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>213, 115</value>
-  </data>
-  <data name="&gt;&gt;_frameCountField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_playerColorField.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="&gt;&gt;_newGraphicButton.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="_mirrorField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>213, 219</value>
-  </data>
-  <data name="&gt;&gt;_replayCheckBox.Name" xml:space="preserve">
-    <value>_replayCheckBox</value>
-  </data>
-  <data name="_graphicListBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;_coord1Field.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="_filterTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>227, 20</value>
-  </data>
-  <data name="&gt;&gt;_graphicListBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_attackSound2DelayColumn.Type" xml:space="preserve">
+  <data name="&gt;&gt;_attackSound3IDColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="_deltaView.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;_slpField.Parent" xml:space="preserve">
-    <value>_mainPanel</value>
-  </data>
-  <data name="&gt;&gt;_saveButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="_deleteGraphicButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 32</value>
-  </data>
-  <data name="_playerColorField.TabIndex" type="System.Int32, mscorlib">
-    <value>37</value>
+  <data name="&gt;&gt;_attackSound3DelayColumn.Name" xml:space="preserve">
+    <value>_attackSound3DelayColumn</value>
   </data>
   <data name="&gt;&gt;_attackSound3DelayColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="_angleCountField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 20</value>
+  <data name="&gt;&gt;_deltaIDColumn.Name" xml:space="preserve">
+    <value>_deltaIDColumn</value>
   </data>
-  <data name="_saveButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>663, 10</value>
-  </data>
-  <data name="&gt;&gt;_attackSound1IDColumn.Type" xml:space="preserve">
+  <data name="&gt;&gt;_deltaIDColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_angleCountField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;_deltaXColumn.Name" xml:space="preserve">
+    <value>_deltaXColumn</value>
   </data>
-  <metadata name="_attackSound1DelayColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="_attackSound2IDColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="_attackSound2DelayColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en-US</value>
-  </metadata>
-  <metadata name="_attackSoundAngleColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="_deltaIDColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="_attackSound3IDColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="_deltaYColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="_attackSound1IDColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="_deltaXColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="_attackSound3DelayColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="&gt;&gt;_deltaXColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_deltaYColumn.Name" xml:space="preserve">
+    <value>_deltaYColumn</value>
+  </data>
+  <data name="&gt;&gt;_deltaYColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>EditGraphicsForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
