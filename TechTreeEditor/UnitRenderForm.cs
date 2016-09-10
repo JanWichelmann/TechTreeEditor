@@ -901,7 +901,7 @@ namespace TechTreeEditor
 		private void _loadDRSButton_Click(object sender, EventArgs e)
 		{
 			// DRS-Datei laden
-			try
+			//try
 			{
 				// Laden
 				_graphicsDRS = new DRSFile(_graphicsDRSTextBox.Text);
@@ -909,12 +909,12 @@ namespace TechTreeEditor
 				// Play-Button freischalten
 				_playButton.Enabled = true;
 			}
-			catch(Exception ex)
+			/*catch(Exception ex)
 			{
 				// Fehlermeldung anzeigen und Fenster schließen
 				MessageBox.Show(Strings.UnitRenderForm_Message_GraphicsDRSNotFound + ex.Message, Strings.UnitRenderForm_Message_GraphicsDRSNotFound_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				Close();
-			}
+			}*/
 		}
 
 		private void _closeButton_Click(object sender, EventArgs e)

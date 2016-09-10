@@ -501,4 +501,10 @@ They are parent elements at the very front of the tree.</value>
   <data name="MainForm_Operation_SetNewTechTreeParentSecondElement" xml:space="preserve">
     <value>Please select the parent element...</value>
   </data>
+  <data name="ExportDATFile_Message_TechTreeDesignNotFound" xml:space="preserve">
+    <value>Error: No tech tree design data file was found. It is needed to export the tech tree.</value>
+  </data>
+  <data name="ExportDATFile_Message_TechTreeDesignNotFound_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
 </root>

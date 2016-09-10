@@ -57,6 +57,11 @@ namespace TechTreeEditor
 		private string _graphicsDRSPath = "";
 
 		/// <summary>
+		/// Der Pfad zur TechTree-Design-Datei.
+		/// </summary>
+		private string _techTreeDesignPath = "";
+
+		/// <summary>
 		/// Die Kultur-Baum-Konfigurationen.
 		/// </summary>
 		private List<CivTreeConfig> _civTrees = null;
@@ -135,6 +140,12 @@ namespace TechTreeEditor
 						_graphicsDRSPath = mainElement.Element("graphicsdrs").Value;
 					else
 						_graphicsDRSPath = "graphics.drs";
+
+					// TechTree-Design-Pfad lesen
+					if(mainElement.Elements("techtreedesign").Count() > 0)
+						_techTreeDesignPath = mainElement.Element("techtreedesign").Value;
+					else
+						_techTreeDesignPath = "";
 
 					// Zeitalter-Anzahl lesen
 					_ageCount = (int)mainElement.Element("agecount");
@@ -247,6 +258,9 @@ namespace TechTreeEditor
 							// DRS-Pfade schreiben
 							writer.WriteElementString("interfacdrs", _interfacDRSPath);
 							writer.WriteElementString("graphicsdrs", _graphicsDRSPath);
+
+							// TechTree-Design-Pfad schreiben
+							writer.WriteElementString("techtreedesign", _techTreeDesignPath);
 
 							// Zeitalter-Anzahl schreiben
 							writer.WriteElementNumber("agecount", _ageCount);
@@ -963,6 +977,15 @@ namespace TechTreeEditor
 		{
 			get { return _graphicsDRSPath; }
 			set { _graphicsDRSPath = value; }
+		}
+
+		/// <summary>
+		/// Der TechTree-Design-Pfad.
+		/// </summary>
+		public string TechTreeDesignPath
+		{
+			get { return _techTreeDesignPath; }
+			set { _techTreeDesignPath = value; }
 		}
 
 		/// <summary>

@@ -120,8 +120,12 @@
   <data name="_cancelButton.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Paths</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 13</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Tech tree design data file:</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Graphics DRS (optional):</value>
@@ -132,12 +136,14 @@
   <data name="label4.Text" xml:space="preserve">
     <value>Interfac DRS:</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>135, 13</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Relative paths are allowed.</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Paths</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>59, 13</value>
@@ -168,6 +174,9 @@
   </data>
   <data name="_useNewTechTreeCheckBox.Text" xml:space="preserve">
     <value>Export tech tree (new format)</value>
+  </data>
+  <data name="_openTechTreeDesignDialog.Filter" xml:space="preserve">
+    <value>Tech tree design data files (*.techtreedesign)|*.techtreedesign</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -47,7 +47,7 @@ namespace TechTreeEditor
 		}
 
 		/// <summary>
-		/// Erstellt ein neues Gebäude-Bearbeitungsfenster.
+		/// Erstellt ein neues DAT-Exportfenster.
 		/// </summary>
 		/// <param name="projectFile">Das zugrundeliegende Projekt.</param>
 		public ExportDATFile(TechTreeFile projectFile)
@@ -92,6 +92,11 @@ namespace TechTreeEditor
 
 		private void _finishButton_Click(object sender, EventArgs e)
 		{
+			// Auf TechTree-Design prüfen
+			if(_projectFile.ExportNewTechTree && (string.IsNullOrWhiteSpace(_projectFile.TechTreeDesignPath) || !File.Exists(_projectFile.TechTreeDesignPath)))
+				if(MessageBox.Show(Strings.ExportDATFile_Message_TechTreeDesignNotFound, Strings.ExportDATFile_Message_TechTreeDesignNotFound_Title, MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
+					return;
+
 			// Soll die ID-Zuordnung aktualisiert werden? => Warnung
 			if(_updateProjectIDsCheckBox.Checked && MessageBox.Show(Strings.ExportDATFile_Message_SaveIDMapping, Strings.ExportDATFile_Message_SaveIDMapping_Title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
 				_updateProjectIDsCheckBox.Checked = false;
@@ -911,8 +916,12 @@ namespace TechTreeEditor
 					// Struktur leer anlegen
 					exportDAT.TechTreeNew = new GenieLibrary.DataElements.TechTreeNew()
 					{
-						ParentElements = new List<GenieLibrary.DataElements.TechTreeNew.TechTreeElement>()
+						ParentElements = new List<GenieLibrary.DataElements.TechTreeNew.TechTreeElement>(),
+						DesignData = new GenieLibrary.DataElements.TechTreeNew.TechTreeDesign()
 					};
+
+					// TechTree-Design einlesen
+					exportDAT.TechTreeNew.DesignData.ReadData(new RAMBuffer(_projectFile.TechTreeDesignPath));
 
 					// Liste mit TechTree-Element-Zuordnung behalten
 					Dictionary<TechTreeElement, GenieLibrary.DataElements.TechTreeNew.TechTreeElement> newTechTreeElementMap = new Dictionary<TechTreeElement, GenieLibrary.DataElements.TechTreeNew.TechTreeElement>();

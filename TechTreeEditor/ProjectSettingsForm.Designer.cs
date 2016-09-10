@@ -32,6 +32,9 @@
 			this._cancelButton = new System.Windows.Forms.Button();
 			this._okButton = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this._techTreeDesignButton = new System.Windows.Forms.Button();
+			this.label6 = new System.Windows.Forms.Label();
+			this._techTreeDesignTextBox = new System.Windows.Forms.TextBox();
 			this._graphicsDRSButton = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this._graphicsDRSTextBox = new System.Windows.Forms.TextBox();
@@ -48,6 +51,7 @@
 			this._openInterfacDRSDialog = new System.Windows.Forms.OpenFileDialog();
 			this._openGraphicsDRSDialog = new System.Windows.Forms.OpenFileDialog();
 			this._useNewTechTreeCheckBox = new System.Windows.Forms.CheckBox();
+			this._openTechTreeDesignDialog = new System.Windows.Forms.OpenFileDialog();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this._ageCountField)).BeginInit();
 			this.SuspendLayout();
@@ -69,6 +73,9 @@
 			// groupBox1
 			// 
 			resources.ApplyResources(this.groupBox1, "groupBox1");
+			this.groupBox1.Controls.Add(this._techTreeDesignButton);
+			this.groupBox1.Controls.Add(this.label6);
+			this.groupBox1.Controls.Add(this._techTreeDesignTextBox);
 			this.groupBox1.Controls.Add(this._graphicsDRSButton);
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Controls.Add(this._graphicsDRSTextBox);
@@ -81,6 +88,23 @@
 			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.TabStop = false;
+			// 
+			// _techTreeDesignButton
+			// 
+			resources.ApplyResources(this._techTreeDesignButton, "_techTreeDesignButton");
+			this._techTreeDesignButton.Name = "_techTreeDesignButton";
+			this._techTreeDesignButton.UseVisualStyleBackColor = true;
+			this._techTreeDesignButton.Click += new System.EventHandler(this._techTreeDesignButton_Click);
+			// 
+			// label6
+			// 
+			resources.ApplyResources(this.label6, "label6");
+			this.label6.Name = "label6";
+			// 
+			// _techTreeDesignTextBox
+			// 
+			resources.ApplyResources(this._techTreeDesignTextBox, "_techTreeDesignTextBox");
+			this._techTreeDesignTextBox.Name = "_techTreeDesignTextBox";
 			// 
 			// _graphicsDRSButton
 			// 
@@ -182,6 +206,10 @@
 			this._useNewTechTreeCheckBox.Name = "_useNewTechTreeCheckBox";
 			this._useNewTechTreeCheckBox.UseVisualStyleBackColor = true;
 			// 
+			// _openTechTreeDesignDialog
+			// 
+			resources.ApplyResources(this._openTechTreeDesignDialog, "_openTechTreeDesignDialog");
+			// 
 			// ProjectSettingsForm
 			// 
 			resources.ApplyResources(this, "$this");
@@ -224,5 +252,9 @@
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.NumericUpDown _ageCountField;
 		private System.Windows.Forms.CheckBox _useNewTechTreeCheckBox;
+		private System.Windows.Forms.Button _techTreeDesignButton;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.TextBox _techTreeDesignTextBox;
+		private System.Windows.Forms.OpenFileDialog _openTechTreeDesignDialog;
 	}
 }

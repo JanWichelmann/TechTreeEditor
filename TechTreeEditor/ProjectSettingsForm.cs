@@ -47,6 +47,8 @@ namespace TechTreeEditor
 			// Werte setzen
 			_dllTextBox.Text = string.Join(";", ((IEnumerable<string>)_projectFile.LanguageFilePaths).Reverse());
 			_interfacDRSTextBox.Text = _projectFile.InterfacDRSPath;
+			_graphicsDRSTextBox.Text = _projectFile.GraphicsDRSPath;
+			_techTreeDesignTextBox.Text = _projectFile.TechTreeDesignPath;
 			_ageCountField.Value = _projectFile.AgeCount;
 			_useNewTechTreeCheckBox.Checked = _projectFile.ExportNewTechTree;
 		}
@@ -85,6 +87,16 @@ namespace TechTreeEditor
 			}
 		}
 
+		private void _techTreeDesignButton_Click(object sender, EventArgs e)
+		{
+			// Dialog anzeigen
+			if(_openTechTreeDesignDialog.ShowDialog() == DialogResult.OK)
+			{
+				// Dateinamen aktualisieren
+				_techTreeDesignTextBox.Text = _openTechTreeDesignDialog.FileName;
+			}
+		}
+
 		private void _okButton_Click(object sender, EventArgs e)
 		{
 			// Dateipfade aktualisieren
@@ -98,6 +110,9 @@ namespace TechTreeEditor
 
 			// Graphics-DRS-Pfad merken
 			_projectFile.GraphicsDRSPath = _graphicsDRSTextBox.Text;
+
+			// TechTree-Design-Pfad merken
+			_projectFile.TechTreeDesignPath = _techTreeDesignTextBox.Text;
 
 			// Zeitalter ändern
 			bool ageResearchesCreated = false;

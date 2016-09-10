@@ -68,16 +68,19 @@
 			// 
 			resources.ApplyResources(this.label1, "label1");
 			this.label1.Name = "label1";
+			this._dllHelpBox.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
 			// 
 			// _datTextBox
 			// 
 			resources.ApplyResources(this._datTextBox, "_datTextBox");
 			this._datTextBox.Name = "_datTextBox";
+			this._dllHelpBox.SetToolTip(this._datTextBox, resources.GetString("_datTextBox.ToolTip"));
 			// 
 			// _datButton
 			// 
 			resources.ApplyResources(this._datButton, "_datButton");
 			this._datButton.Name = "_datButton";
+			this._dllHelpBox.SetToolTip(this._datButton, resources.GetString("_datButton.ToolTip"));
 			this._datButton.UseVisualStyleBackColor = true;
 			this._datButton.Click += new System.EventHandler(this._datButton_Click);
 			// 
@@ -89,6 +92,7 @@
 			// 
 			resources.ApplyResources(this._loadDataButton, "_loadDataButton");
 			this._loadDataButton.Name = "_loadDataButton";
+			this._dllHelpBox.SetToolTip(this._loadDataButton, resources.GetString("_loadDataButton.ToolTip"));
 			this._loadDataButton.UseVisualStyleBackColor = true;
 			this._loadDataButton.Click += new System.EventHandler(this._loadDataButton_Click);
 			// 
@@ -97,17 +101,20 @@
 			resources.ApplyResources(this._loadProgressBar, "_loadProgressBar");
 			this._loadProgressBar.Name = "_loadProgressBar";
 			this._loadProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+			this._dllHelpBox.SetToolTip(this._loadProgressBar, resources.GetString("_loadProgressBar.ToolTip"));
 			// 
 			// _selectionGroupBox
 			// 
+			resources.ApplyResources(this._selectionGroupBox, "_selectionGroupBox");
 			this._selectionGroupBox.Controls.Add(this._selectionView);
 			this._selectionGroupBox.Controls.Add(this.label2);
-			resources.ApplyResources(this._selectionGroupBox, "_selectionGroupBox");
 			this._selectionGroupBox.Name = "_selectionGroupBox";
 			this._selectionGroupBox.TabStop = false;
+			this._dllHelpBox.SetToolTip(this._selectionGroupBox, resources.GetString("_selectionGroupBox.ToolTip"));
 			// 
 			// _selectionView
 			// 
+			resources.ApplyResources(this._selectionView, "_selectionView");
 			this._selectionView.AllowUserToAddRows = false;
 			this._selectionView.AllowUserToDeleteRows = false;
 			this._selectionView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -118,9 +125,9 @@
             this._selectionViewInternalNameColumn,
             this._selectionViewDLLNameColumn,
             this._selectionViewTypeColumn});
-			resources.ApplyResources(this._selectionView, "_selectionView");
 			this._selectionView.MultiSelect = false;
 			this._selectionView.Name = "_selectionView";
+			this._dllHelpBox.SetToolTip(this._selectionView, resources.GetString("_selectionView.ToolTip"));
 			this._selectionView.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this._selectionView_SortCompare);
 			// 
 			// _selectionViewIncludeColumn
@@ -162,11 +169,13 @@
 			// 
 			resources.ApplyResources(this.label2, "label2");
 			this.label2.Name = "label2";
+			this._dllHelpBox.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
 			// 
 			// _finishButton
 			// 
 			resources.ApplyResources(this._finishButton, "_finishButton");
 			this._finishButton.Name = "_finishButton";
+			this._dllHelpBox.SetToolTip(this._finishButton, resources.GetString("_finishButton.ToolTip"));
 			this._finishButton.UseVisualStyleBackColor = true;
 			this._finishButton.Click += new System.EventHandler(this._finishButton_Click);
 			// 
@@ -174,6 +183,7 @@
 			// 
 			resources.ApplyResources(this._cancelButton, "_cancelButton");
 			this._cancelButton.Name = "_cancelButton";
+			this._dllHelpBox.SetToolTip(this._cancelButton, resources.GetString("_cancelButton.ToolTip"));
 			this._cancelButton.UseVisualStyleBackColor = true;
 			this._cancelButton.Click += new System.EventHandler(this._cancelButton_Click);
 			// 
@@ -181,11 +191,13 @@
 			// 
 			resources.ApplyResources(this._dllTextBox, "_dllTextBox");
 			this._dllTextBox.Name = "_dllTextBox";
+			this._dllHelpBox.SetToolTip(this._dllTextBox, resources.GetString("_dllTextBox.ToolTip"));
 			// 
 			// label3
 			// 
 			resources.ApplyResources(this.label3, "label3");
 			this.label3.Name = "label3";
+			this._dllHelpBox.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
 			// 
 			// _openDLLDialog
 			// 
@@ -196,6 +208,7 @@
 			// 
 			resources.ApplyResources(this._dllButton, "_dllButton");
 			this._dllButton.Name = "_dllButton";
+			this._dllHelpBox.SetToolTip(this._dllButton, resources.GetString("_dllButton.ToolTip"));
 			this._dllButton.UseVisualStyleBackColor = true;
 			this._dllButton.Click += new System.EventHandler(this._dllButton_Click);
 			// 
@@ -210,11 +223,13 @@
 			resources.ApplyResources(this._finishProgressBar, "_finishProgressBar");
 			this._finishProgressBar.Name = "_finishProgressBar";
 			this._finishProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+			this._dllHelpBox.SetToolTip(this._finishProgressBar, resources.GetString("_finishProgressBar.ToolTip"));
 			// 
 			// _interfacDRSButton
 			// 
 			resources.ApplyResources(this._interfacDRSButton, "_interfacDRSButton");
 			this._interfacDRSButton.Name = "_interfacDRSButton";
+			this._dllHelpBox.SetToolTip(this._interfacDRSButton, resources.GetString("_interfacDRSButton.ToolTip"));
 			this._interfacDRSButton.UseVisualStyleBackColor = true;
 			this._interfacDRSButton.Click += new System.EventHandler(this._interfacDRSButton_Click);
 			// 
@@ -222,11 +237,13 @@
 			// 
 			resources.ApplyResources(this.label4, "label4");
 			this.label4.Name = "label4";
+			this._dllHelpBox.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
 			// 
 			// _interfacDRSTextBox
 			// 
 			resources.ApplyResources(this._interfacDRSTextBox, "_interfacDRSTextBox");
 			this._interfacDRSTextBox.Name = "_interfacDRSTextBox";
+			this._dllHelpBox.SetToolTip(this._interfacDRSTextBox, resources.GetString("_interfacDRSTextBox.ToolTip"));
 			// 
 			// _saveProjectDialog
 			// 
@@ -250,6 +267,7 @@
             0,
             0});
 			this._ageCountField.Name = "_ageCountField";
+			this._dllHelpBox.SetToolTip(this._ageCountField, resources.GetString("_ageCountField.ToolTip"));
 			this._ageCountField.Value = new decimal(new int[] {
             4,
             0,
@@ -260,6 +278,7 @@
 			// 
 			resources.ApplyResources(this.label5, "label5");
 			this.label5.Name = "label5";
+			this._dllHelpBox.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
 			// 
 			// ImportDATFile
 			// 
@@ -285,6 +304,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.Name = "ImportDATFile";
+			this._dllHelpBox.SetToolTip(this, resources.GetString("$this.ToolTip"));
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ImportDATFile_FormClosing);
 			this._selectionGroupBox.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this._selectionView)).EndInit();

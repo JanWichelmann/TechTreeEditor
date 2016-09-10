@@ -440,6 +440,24 @@ namespace TechTreeEditor {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler: Es wurde keine TechTree-Design-Datei gefunden. Diese ist für den TechTree-Export erforderlich. ähnelt.
+        /// </summary>
+        internal static string ExportDATFile_Message_TechTreeDesignNotFound {
+            get {
+                return ResourceManager.GetString("ExportDATFile_Message_TechTreeDesignNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler ähnelt.
+        /// </summary>
+        internal static string ExportDATFile_Message_TechTreeDesignNotFound_Title {
+            get {
+                return ResourceManager.GetString("ExportDATFile_Message_TechTreeDesignNotFound_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Wollen Sie dieses Fenster wirklich schließen und damit den Importvorgang abbrechen? ähnelt.
         /// </summary>
         internal static string ImportDATFile_Message_Cancel {
