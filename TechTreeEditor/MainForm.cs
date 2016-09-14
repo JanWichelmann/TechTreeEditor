@@ -204,20 +204,28 @@ namespace TechTreeEditor
 				foreach(string dll in Directory.GetFiles("plugins", "*.dll"))
 				{
 					// Assembly laden
-					Assembly dllA = Assembly.Load(AssemblyName.GetAssemblyName(dll));
-					if(dllA != null)
+					try
 					{
-						// Nach Plugin-Typ suchen
-						foreach(Type type in dllA.GetTypes())
-							if(!type.IsInterface && !type.IsAbstract && type.GetInterface(typeof(IPlugin).FullName) != null)
-							{
-								// Plugin-Objekt erstellen und Kommunikator zuweisen
-								IPlugin plugin = (IPlugin)Activator.CreateInstance(type);
-								plugin.AssignCommunicator(_communicator);
+						Assembly dllA = Assembly.Load(AssemblyName.GetAssemblyName(dll));
+						if(dllA != null)
+						{
+							// Nach Plugin-Typ suchen
+							foreach(Type type in dllA.GetTypes())
+								if(!type.IsInterface && !type.IsAbstract && type.GetInterface(typeof(IPlugin).FullName) != null)
+								{
+									// Plugin-Objekt erstellen und Kommunikator zuweisen
+									IPlugin plugin = (IPlugin)Activator.CreateInstance(type);
+									plugin.AssignCommunicator(_communicator);
 
-								// Plugin speichern
-								_plugins.Add(plugin);
-							}
+									// Plugin speichern
+									_plugins.Add(plugin);
+								}
+						}
+					}
+					catch
+					{
+						// Fehler
+						MessageBox.Show("Error loading plugin '" + dll + "'.");
 					}
 				}
 			}

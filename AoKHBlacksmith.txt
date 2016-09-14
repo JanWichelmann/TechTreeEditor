@@ -7,7 +7,10 @@ Haupttext:
 
 
 [b]Introduction[/b]
-This application allows to edit the technology tree of Age of Empires II: The Conquerors in a graphical way. This includes editing attributes of units and researches, assigning them to building slots and defining dependencies. A new project can be created by importing a DAT file or using built-in templates; the export function writes the whole project data into a given base DAT. There is also a rendering form that allows to test e.g. graphic displacements and projectile spawn positions.
+This application allows to edit the main DAT file of Age of Empires II: The Conquerors in a graphical way. This includes editing attributes of units and researches, assigning them to building slots and defining dependencies. A new project can be created by importing a DAT file or using built-in templates; the export function writes the whole project data into a given base DAT. There is also a rendering form that allows to test e.g. graphic displacements and projectile spawn positions.
+
+[u]Warning:[/u] The name may be a bit misleading (I'm sorry for that). This editor allows to edited the [i]whole[/i] data, not only the tech tree view (accessible by F2 key ingame). If you only want to change the tech tree view to include your own units (added using other tools like Advanced Genie Editor), please have a look at [url=http://aok.heavengames.com/blacksmith/showfile.php?fileid=12694]New Ingame Tech Tree View[/url].
+I chose the name "TechTreeEditor" because of its data visualization, that is the logical tech tree the game depends on.
 
 The software is available in english and german language; this should be determined automatically on initial startup. Else you can set the language in the "?" menu manually.
 

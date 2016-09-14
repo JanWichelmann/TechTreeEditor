@@ -347,7 +347,8 @@ namespace TechTreeEditor
 						DropSite1UnitID = -1,
 						DropSite2UnitID = -1,
 						TrackingUnitID = -1,
-						TrainParentID = -1
+						TrainParentID = -1,
+						ShowInEditor = ((unit.Key.Flags & TechTreeElement.ElementFlags.ShowInEditor) == TechTreeElement.ElementFlags.ShowInEditor)
 					};
 
 					// Je nach Typ unterscheiden
@@ -667,8 +668,13 @@ namespace TechTreeEditor
 				// Einheiten-Abhängigkeiten erstellen
 				foreach(TechTreeUnit unit in nonSuccessorUnits)
 				{
-					// Abhängigkeiten erstellen
-					if(CreateUnitDependencyStructure(unitIDMap[unit], unit, researchIDMap, buildingDependencyResearchIDs, datResearches, techages, civBlockIDs))
+					// Abhängigkeiten erstellen (nur für Einheiten, die allen Kulturen zur Verfügung stehen)
+					if((unit.Flags & TechTreeElement.ElementFlags.GaiaOnly) == TechTreeElement.ElementFlags.GaiaOnly)
+					{
+						// Als Gaia-Einheit markieren
+						unitData[unitIDMap[unit]].GaiaOnly = true;
+					}
+					else if(CreateUnitDependencyStructure(unitIDMap[unit], unit, researchIDMap, buildingDependencyResearchIDs, datResearches, techages, civBlockIDs))
 					{
 						// Die Einheit muss aktiviert werden
 						unitData[unitIDMap[unit]].NeedsResearch = true;
@@ -830,7 +836,7 @@ namespace TechTreeEditor
 					for(int u = 0; u <= maxUnitID; ++u)
 					{
 						// Existiert die Einheit?
-						if(!unitData.ContainsKey(u) || u == unit768.ID || u == unit770.ID)
+						if(!unitData.ContainsKey(u) || u == unit768.ID || u == unit770.ID || (unitData[u].GaiaOnly && c != 0))
 						{
 							// Einheit als nicht-existent markieren
 							newCiv.UnitPointers.Add(0);
@@ -844,6 +850,7 @@ namespace TechTreeEditor
 						// DAT-Einheit erstellen und einfügen
 						GenieLibrary.DataElements.Civ.Unit currDATUnit = (GenieLibrary.DataElements.Civ.Unit)_projectFile.BasicGenieFile.Civs[c].Units[currUnit.BaseTreeElement.ID].Clone();
 						currDATUnit.ID1 = currDATUnit.ID2 = currDATUnit.ID3 = (short)u;
+						currDATUnit.HideInEditor = (byte)(currUnit.ShowInEditor ? 0 : 1);
 						newCiv.Units[u] = currDATUnit;
 
 						// IDs ggf. ergänzen
@@ -1859,6 +1866,16 @@ namespace TechTreeEditor
 			/// Die ID der DropSite-2-Einheit.
 			/// </summary>
 			public int DropSite2UnitID;
+
+			/// <summary>
+			/// Gibt an, ob die Einheit im Editor setzbar ist.
+			/// </summary>
+			public bool ShowInEditor;
+
+			/// <summary>
+			/// Gibt an, ob die Einheit ausschließlich Kultur 0 (Gaia) zur Verfügung steht.
+			/// </summary>
+			public bool GaiaOnly;
 		}
 
 		#endregion Strukturen
