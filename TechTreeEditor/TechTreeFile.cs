@@ -682,7 +682,7 @@ namespace TechTreeEditor
 					}
 					else
 					{
-						// Hat das Eltern-Gebäude schon einen Nachfolger? => Dem Kind unterordnen
+						// Hat die Eltern-Einheit schon einen Nachfolger? => Dem Kind unterordnen
 						if(parentCreatable.Successor != null)
 						{
 							// Letzten Kind-Nachfolger suchen
@@ -690,12 +690,12 @@ namespace TechTreeEditor
 							while(lastChildSuccessor.Successor != null)
 								lastChildSuccessor = (TechTreeCreatable)lastChildSuccessor.Successor;
 
-							// Gebäude-Nachfolger dem letzten Nachfolger unterordnen
+							// Einheit-Nachfolger dem letzten Nachfolger unterordnen
 							lastChildSuccessor.Successor = parentCreatable.Successor;
 							lastChildSuccessor.SuccessorResearch = parentCreatable.SuccessorResearch;
 						}
 
-						// Kind dem Gebäude als Nachfolger unterordnen
+						// Kind der Einheit als Nachfolger unterordnen
 						parentCreatable.Successor = childCreatable;
 
 						// Eine Technologie ist noch nicht zugewiesen
@@ -726,7 +726,32 @@ namespace TechTreeEditor
 				// Element aus Stammelement-Liste löschen
 				_techTreeParentElements.Remove(child);
 			}
-			// TODO Projectile
+			else if(parentType == typeof(TechTreeProjectile) && childType == typeof(TechTreeProjectile))
+			{
+				// Hat das Eltern-Projektil schon einen Nachfolger? => Dem Kind unterordnen
+				TechTreeProjectile parentProjectile = (TechTreeProjectile)parent;
+				TechTreeProjectile childProjectile = (TechTreeProjectile)child;
+				if(parentProjectile.Successor != null)
+				{
+					// Letzten Kind-Nachfolger suchen
+					TechTreeProjectile lastChildSuccessor = childProjectile;
+					while(lastChildSuccessor.Successor != null)
+						lastChildSuccessor = (TechTreeProjectile)lastChildSuccessor.Successor;
+
+					// Einheit-Nachfolger dem letzten Nachfolger unterordnen
+					lastChildSuccessor.Successor = parentProjectile.Successor;
+					lastChildSuccessor.SuccessorResearch = parentProjectile.SuccessorResearch;
+				}
+
+				// Kind dem Projektil als Nachfolger unterordnen
+				parentProjectile.Successor = childProjectile;
+
+				// Eine Technologie ist noch nicht zugewiesen
+				parentProjectile.SuccessorResearch = null;
+
+				// Element aus Stammelement-Liste löschen
+				_techTreeParentElements.Remove(child);
+			}
 
 			// Das Kind muss mindestens dasselbe Zeitalter wie das Elternelement haben
 			child.Age = Math.Max(parent.Age, child.Age);

@@ -186,8 +186,10 @@ namespace TechTreeEditor.TechTreeStructure
 							return string.Format(Strings.TechEffect_ToString_AttributeSet_Armour, (Element != null ? Strings.TechEffect_ToString_Part_Unit + " '" + Element.Name + "'" : Strings.TechEffect_ToString_Part_Class + " '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
 						else if(ParameterID == 9)
 							return string.Format(Strings.TechEffect_ToString_AttributeSet_Attack, (Element != null ? Strings.TechEffect_ToString_Part_Unit + " '" + Element.Name + "'" : Strings.TechEffect_ToString_Part_Class + " '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
-						else
+						else if(_attributes.ContainsKey(ParameterID) && (Element != null || ClassID >= 0))
 							return string.Format(Strings.TechEffect_ToString_AttributeSet_Else, _attributes[ParameterID], (Element != null ? Strings.TechEffect_ToString_Part_Unit + " '" + Element.Name + "'" : Strings.TechEffect_ToString_Part_Class + " '" + _classes[ClassID] + "'"), Value);
+						else
+							return "[?]";
 
 					case EffectType.ResourceSetPM:
 						return string.Format(Strings.TechEffect_ToString_ResourceSetPM, _resourceTypes[ParameterID], (Mode == EffectMode.PM_Enable ? "+" : "="), Value);
@@ -203,16 +205,20 @@ namespace TechTreeEditor.TechTreeStructure
 							return string.Format(Strings.TechEffect_ToString_AttributePM_Armour, (Element != null ? Strings.TechEffect_ToString_Part_Unit + " '" + Element.Name + "'" : Strings.TechEffect_ToString_Part_Class + " '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
 						else if(ParameterID == 9)
 							return string.Format(Strings.TechEffect_ToString_AttributePM_Attack, (Element != null ? Strings.TechEffect_ToString_Part_Unit + " '" + Element.Name + "'" : Strings.TechEffect_ToString_Part_Class + " '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
-						else
+						else if(_attributes.ContainsKey(ParameterID) && (Element != null || ClassID >= 0))
 							return string.Format(Strings.TechEffect_ToString_AttributePM_Else, _attributes[ParameterID], (Element != null ? Strings.TechEffect_ToString_Part_Unit + " '" + Element.Name + "'" : Strings.TechEffect_ToString_Part_Class + " '" + _classes[ClassID] + "'"), Value);
+						else
+							return "[?]";
 
 					case EffectType.AttributeMult:
 						if(ParameterID == 8)
 							return string.Format(Strings.TechEffect_ToString_AttributeMult_Armour, (Element != null ? Strings.TechEffect_ToString_Part_Unit + " '" + Element.Name + "'" : Strings.TechEffect_ToString_Part_Class + " '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
 						else if(ParameterID == 9)
 							return string.Format(Strings.TechEffect_ToString_AttributeMult_Attack, (Element != null ? Strings.TechEffect_ToString_Part_Unit + " '" + Element.Name + "'" : Strings.TechEffect_ToString_Part_Class + " '" + _classes[ClassID] + "'"), ((short)Value & 0xFF), _armourClasses[((short)Value >> 8)]);
-						else
+						else if(_attributes.ContainsKey(ParameterID) && (Element != null || ClassID >= 0))
 							return string.Format(Strings.TechEffect_ToString_AttributeMult_Else, _attributes[ParameterID], (Element != null ? Strings.TechEffect_ToString_Part_Unit + " '" + Element.Name + "'" : Strings.TechEffect_ToString_Part_Class + " '" + _classes[ClassID] + "'"), Value);
+						else
+							return "[?]";
 
 					case EffectType.ResourceMult:
 						return string.Format(Strings.TechEffect_ToString_ResourceMult, _resourceTypes[ParameterID], Value);
