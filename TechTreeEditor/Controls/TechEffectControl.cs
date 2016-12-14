@@ -45,7 +45,8 @@ namespace TechTreeEditor.Controls
 			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResourceMult, Strings.TechEffectControl_EffectTypes_ResourceMult),
 			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchCostSetPM, Strings.TechEffectControl_EffectTypes_ResearchCostSetPM),
 			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchDisable, Strings.TechEffectControl_EffectTypes_ResearchDisable),
-			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchTimeSetPM, Strings.TechEffectControl_EffectTypes_ResearchTimeSetPM)
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchTimeSetPM, Strings.TechEffectControl_EffectTypes_ResearchTimeSetPM),
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.UnitEnableDisable, Strings.TechEffectControl_EffectTypes_UnitEnableDisable), // Nur deaktivieren
 		}).ToList();
 
 		/// <summary>
@@ -227,13 +228,18 @@ namespace TechTreeEditor.Controls
 						break;
 
 					case TechEffect.EffectType.ResearchTimeSetPM:
-
 						_researchField.Visible = true;
 						_researchField.Value = (sel.Element == null ? _emptyResearch : sel.Element);
 						_modeCheckBox.Visible = true;
 						_modeCheckBox.Value = sel.Mode == TechEffect.EffectMode.PM_Enable;
 						_valueField.Visible = true;
 						_valueField.Value = (decimal)sel.Value;
+						break;
+
+					case TechEffect.EffectType.UnitEnableDisable:
+						// Kann aktuell nur deaktivieren, Aktivierung wird mit der Freischalt-Abhängigkeit erreicht
+						_unitField.Visible = true;
+						_unitField.Value = (sel.Element == null ? _emptyUnit : sel.Element);
 						break;
 				}
 			}

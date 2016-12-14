@@ -507,4 +507,7 @@ Diese sind als Elternelemente am Beginn des Baums zu finden.</value>
   <data name="ExportDATFile_Message_TechTreeDesignNotFound_Title" xml:space="preserve">
     <value>Fehler</value>
   </data>
+  <data name="TechEffectControl_EffectTypes_UnitEnableDisable" xml:space="preserve">
+    <value>Einheit deaktivieren</value>
+  </data>
 </root>

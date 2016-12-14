@@ -1268,6 +1268,15 @@ namespace TechTreeEditor {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Einheit deaktivieren ähnelt.
+        /// </summary>
+        internal static string TechEffectControl_EffectTypes_UnitEnableDisable {
+            get {
+                return ResourceManager.GetString("TechEffectControl_EffectTypes_UnitEnableDisable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Diesen Effekt wirklich löschen? ähnelt.
         /// </summary>
         internal static string TechEffectControl_Message_DeleteEffect {
