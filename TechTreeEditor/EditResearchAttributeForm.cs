@@ -68,19 +68,19 @@ namespace TechTreeEditor
 			// Ressourcen-Kosten setzen
 			_cost1Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
 			{
-				Enabled = _treeResearch.DATResearch.ResourceCosts[0].Enabled > 0,
+				Paid = _treeResearch.DATResearch.ResourceCosts[0].Paid > 0,
 				Type = _treeResearch.DATResearch.ResourceCosts[0].Type,
 				Amount = _treeResearch.DATResearch.ResourceCosts[0].Amount
 			};
 			_cost2Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
 			{
-				Enabled = _treeResearch.DATResearch.ResourceCosts[1].Enabled > 0,
+				Paid = _treeResearch.DATResearch.ResourceCosts[1].Paid > 0,
 				Type = _treeResearch.DATResearch.ResourceCosts[1].Type,
 				Amount = _treeResearch.DATResearch.ResourceCosts[1].Amount
 			};
 			_cost3Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
 			{
-				Enabled = _treeResearch.DATResearch.ResourceCosts[2].Enabled > 0,
+				Paid = _treeResearch.DATResearch.ResourceCosts[2].Paid > 0,
 				Type = _treeResearch.DATResearch.ResourceCosts[2].Type,
 				Amount = _treeResearch.DATResearch.ResourceCosts[2].Amount
 			};
@@ -176,7 +176,7 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_treeResearch.DATResearch.ResourceCosts[0] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>()
 			{
-				Enabled = (byte)(e.NewValue.Enabled ? 1 : 0),
+				Paid = (byte)(e.NewValue.Paid ? 1 : 0),
 				Type = (short)e.NewValue.Type,
 				Amount = (short)e.NewValue.Amount
 			};
@@ -187,7 +187,7 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_treeResearch.DATResearch.ResourceCosts[1] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>()
 			{
-				Enabled = (byte)(e.NewValue.Enabled ? 1 : 0),
+				Paid = (byte)(e.NewValue.Paid ? 1 : 0),
 				Type = (short)e.NewValue.Type,
 				Amount = (short)e.NewValue.Amount
 			};
@@ -198,7 +198,7 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_treeResearch.DATResearch.ResourceCosts[2] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>()
 			{
-				Enabled = (byte)(e.NewValue.Enabled ? 1 : 0),
+				Paid = (byte)(e.NewValue.Paid ? 1 : 0),
 				Type = (short)e.NewValue.Type,
 				Amount = (short)e.NewValue.Amount
 			};

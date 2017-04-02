@@ -441,6 +441,7 @@ namespace TechTreeEditor
 						foreach(var currAU in currB.AgeUpgrades)
 						{
 							// Effekt in jeweiligem Zeitalter erstellen
+							// TODO: Hardcoded
 							techages[datResearches[100 + currAU.Key].TechageID].Effects.Add(new GenieLibrary.DataElements.Techage.TechageEffect()
 							{
 								Type = (byte)TechEffect.EffectType.UnitUpgrade,
@@ -567,6 +568,7 @@ namespace TechTreeEditor
 
 				// Weiterentwicklungen für alle Einheiten erstellen
 				List<TechTreeUnit> nonSuccessorUnits = unitIDMap.Keys.ToList();
+				int lastSuccUnitUpgradeResearchId = 0;
 				foreach(var unit in _projectFile.Where(u => u is IUpgradeable && u is TechTreeUnit))
 				{
 					// Ist eine Upgrade-Einheit gesetzt?
@@ -579,7 +581,7 @@ namespace TechTreeEditor
 						int unitID = unitIDMap[succUnit];
 						unitData[unitID].NeedsResearch = true;
 
-						// Effekte erstellen für jede Entwicklungsstufe der Einheit
+						// Effekte erstellen für jede Entwicklungsstufe der Einheit (z.B. C im Fall A => B => C: Es soll sowohl A => C als auch B => C wirken)
 						int currID = unitID;
 						List<GenieLibrary.DataElements.Techage.TechageEffect> effects = new List<GenieLibrary.DataElements.Techage.TechageEffect>();
 						while(upgradeConstraints.ContainsKey(currID))
@@ -599,8 +601,45 @@ namespace TechTreeEditor
 						// Technologie-Upgrade oder automatisches Zeitalter-Upgrade?
 						if(succRes == null && succUnit.Age > 0)
 						{
-							// Auto-Upgrade-Effekt zu Zeitalter-Technologie hinzufügen
-							techages[datResearches[100 + succUnit.Age].TechageID].Effects.AddRange(effects);
+							// Keine weiterentwickelnden Technologien
+							// -> Einheit für alle Völker verfügbar? => automatisches Zeitalter-Upgrade
+							if(_projectFile.CivTrees.Count(c => c.BlockedElements.Contains(succUnit)) == 0)
+								techages[datResearches[100 + succUnit.Age].TechageID].Effects.AddRange(effects);
+							else
+							{
+								// Upgrade-Technologie für spezifische Völker anlegen
+								while(datResearches.ContainsKey(lastSuccUnitUpgradeResearchId))
+									++lastSuccUnitUpgradeResearchId;
+								techages[lastSuccUnitUpgradeResearchId] = new GenieLibrary.DataElements.Techage()
+								{
+									Name = "Upgrade: " + (succUnit.DATUnit.Name1.Length <= 21 ? succUnit.DATUnit.Name1 : succUnit.DATUnit.Name1.Substring(0, 19) + "~\0"),
+									Effects = effects
+								};
+								GenieLibrary.DataElements.Research succUnitUpgradeResearch = new GenieLibrary.DataElements.Research()
+								{
+									Name = "#AgeUpgrade: " + succUnit.DATUnit.Name1,
+									ResourceCosts = new List<GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>>(3),
+									RequiredTechs = new List<short>(new short[] { (short)(100 + succUnit.Age), -1, -1, -1, -1, -1 }), // TODO: Hardcoded
+									RequiredTechCount = 1,
+									LanguageDLLName1 = 7000,
+									LanguageDLLName2 = 157000,
+									LanguageDLLDescription = 8000,
+									LanguageDLLHelp = 107000,
+									Unknown1 = -1,
+									TechageID = (short)lastSuccUnitUpgradeResearchId,
+									ResearchLocation = -1,
+									Civ = -1
+								};
+								succUnitUpgradeResearch.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+								succUnitUpgradeResearch.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+								succUnitUpgradeResearch.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+								datResearches[lastSuccUnitUpgradeResearchId] = succUnitUpgradeResearch;
+
+								// Technologie für alle blockierenden Völker sperren
+								for(int c = 0; c < _projectFile.CivTrees.Count; ++c)
+									if(_projectFile.CivTrees[c].BlockedElements.Contains(succUnit))
+										civBlockIDs[c].Add(lastSuccUnitUpgradeResearchId);
+							}
 						}
 						else if(succRes != null)
 						{
@@ -811,7 +850,7 @@ namespace TechTreeEditor
 						foreach(var resource in datResearches[resID].ResourceCosts)
 						{
 							// Ressource benutzt? => Löschen
-							if(resource.Enabled > 0)
+							if(resource.Paid > 0)
 								newBonusTechage.Effects.Add(new GenieLibrary.DataElements.Techage.TechageEffect()
 								{
 									Type = (byte)TechEffect.EffectType.ResearchCostSetPM,
@@ -1586,7 +1625,7 @@ namespace TechTreeEditor
 					B = (short)TechEffect.EffectMode.PM_Enable
 				});
 
-				// Nachfolger durchlaufen und schauen, ob nicht blockierte folgen (d.h. z.B. A ist blockiert ab 1. Zeitalter, aber B ab 3. Zeitalter verfügbar)
+				// Nachfolger durchlaufen und schauen, ob nicht blockierte folgen (d.h. z.B. A --> B, A ist blockiert ab 1. Zeitalter, aber B ab 3. Zeitalter verfügbar)
 				TechTreeUnit currSuccessor = ((IUpgradeable)unit).Successor;
 				TechTreeResearch currSuccRes = ((IUpgradeable)unit).SuccessorResearch;
 				while(currSuccessor != null)
@@ -1649,11 +1688,11 @@ namespace TechTreeEditor
 					}
 
 					// Nächster
+					currSuccRes = ((IUpgradeable)currSuccessor)?.SuccessorResearch;
 					if(currSuccessor is IUpgradeable)
 						currSuccessor = ((IUpgradeable)currSuccessor).Successor;
 					else
 						break;
-					currSuccRes = ((IUpgradeable)currSuccessor)?.SuccessorResearch;
 				}
 
 				// Die Einheit muss aktiviert werden

@@ -132,6 +132,9 @@
   <ItemGroup>
     <Content Include="addon.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy "$(ProjectDir)bin\$(Configuration)\X2AddOnPlugin.dll" "$(SolutionDir)TechTreeEditor\bin\$(Configuration)\plugins"</PostBuildEvent>

@@ -145,28 +145,28 @@ namespace TechTreeEditor
 				// Ressourcen-Speicher setzen
 				_resourceStorage1Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
 				{
-					Enabled = unit.ResourceStorages[0].Type >= 0,
+					Paid = unit.ResourceStorages[0].Type >= 0,
 					Type = unit.ResourceStorages[0].Type,
 					Amount = unit.ResourceStorages[0].Amount
 				};
 				_resourceStorage1ModeField.Enabled = unit.ResourceStorages[0].Type >= 0;
-				_resourceStorage1ModeField.Value = unit.ResourceStorages[0].Enabled;
+				_resourceStorage1ModeField.Value = unit.ResourceStorages[0].Paid;
 				_resourceStorage2Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
 				{
-					Enabled = unit.ResourceStorages[1].Type >= 0,
+					Paid = unit.ResourceStorages[1].Type >= 0,
 					Type = unit.ResourceStorages[1].Type,
 					Amount = unit.ResourceStorages[1].Amount
 				};
 				_resourceStorage2ModeField.Enabled = unit.ResourceStorages[1].Type >= 0;
-				_resourceStorage2ModeField.Value = unit.ResourceStorages[1].Enabled;
+				_resourceStorage2ModeField.Value = unit.ResourceStorages[1].Paid;
 				_resourceStorage3Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
 				{
-					Enabled = unit.ResourceStorages[2].Type >= 0,
+					Paid = unit.ResourceStorages[2].Type >= 0,
 					Type = unit.ResourceStorages[2].Type,
 					Amount = unit.ResourceStorages[2].Amount
 				};
 				_resourceStorage3ModeField.Enabled = unit.ResourceStorages[2].Type >= 0;
-				_resourceStorage3ModeField.Value = unit.ResourceStorages[2].Enabled;
+				_resourceStorage3ModeField.Value = unit.ResourceStorages[2].Paid;
 
 				// Klassenliste in ComboBox einfügen
 				_classComboBox.Items.AddRange(Strings.ClassNames.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries));
@@ -346,9 +346,9 @@ namespace TechTreeEditor
 				}
 
 				// Rüstungswerte setzen
-				_displayedMeleeArmourField.Value = unit.Type50.DisplayedMeleeArmour;
-				_defaultArmorField.Value = unit.Type50.DefaultArmour;
-				foreach(var armval in unit.Type50.Armours)
+				_displayedMeleeArmourField.Value = unit.Type50.DisplayedMeleeArmor;
+				_defaultArmorField.Value = unit.Type50.DefaultArmor;
+				foreach(var armval in unit.Type50.Armors)
 				{
 					// Neue Zeile erstellen
 					DataGridViewRow currRow = new DataGridViewRow();
@@ -373,13 +373,13 @@ namespace TechTreeEditor
 				_attackReloadTimeDisplayedField.Value = (decimal)unit.Type50.DisplayedReloadTime;
 
 				// Projektilparameter setzen
-				_accuracyPercentField.Value = unit.Type50.AccuracyPercent;
-				_accuracyErrorField.Value = (decimal)unit.Type50.AccuracyErrorRadius;
-				_frameDelayField.Value = unit.Type50.FrameDelay;
-				_graphicDisplacementXField.Value = (decimal)unit.Type50.GraphicDisplacement[0];
-				_graphicDisplacementYField.Value = (decimal)unit.Type50.GraphicDisplacement[1];
-				_graphicDisplacementZField.Value = (decimal)unit.Type50.GraphicDisplacement[2];
-
+				_accuracyPercentField.Value = unit.Type50.ProjectileAccuracyPercent;
+				_accuracyErrorField.Value = (decimal)unit.Type50.ProjectileDispersion;
+				_frameDelayField.Value = unit.Type50.ProjectileFrameDelay;
+				_graphicDisplacementXField.Value = (decimal)unit.Type50.ProjectileGraphicDisplacement[0];
+				_graphicDisplacementYField.Value = (decimal)unit.Type50.ProjectileGraphicDisplacement[1];
+				_graphicDisplacementZField.Value = (decimal)unit.Type50.ProjectileGraphicDisplacement[2];
+				
 				// Verschiedene Werte setzen
 				_blastRadiusField.Value = (decimal)unit.Type50.BlastRadius;
 				_blastLevelField.Value = unit.Type50.BlastLevel;
@@ -430,35 +430,35 @@ namespace TechTreeEditor
 				// Ressourcen-Kosten setzen
 				_cost1Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
 				{
-					Enabled = unit.Creatable.ResourceCosts[0].Enabled > 0,
+					Paid = unit.Creatable.ResourceCosts[0].Paid > 0,
 					Type = unit.Creatable.ResourceCosts[0].Type,
 					Amount = unit.Creatable.ResourceCosts[0].Amount
 				};
 				_cost2Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
 				{
-					Enabled = unit.Creatable.ResourceCosts[1].Enabled > 0,
+					Paid = unit.Creatable.ResourceCosts[1].Paid > 0,
 					Type = unit.Creatable.ResourceCosts[1].Type,
 					Amount = unit.Creatable.ResourceCosts[1].Amount
 				};
 				_cost3Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
 				{
-					Enabled = unit.Creatable.ResourceCosts[2].Enabled > 0,
+					Paid = unit.Creatable.ResourceCosts[2].Paid > 0,
 					Type = unit.Creatable.ResourceCosts[2].Type,
 					Amount = unit.Creatable.ResourceCosts[2].Amount
 				};
 
 				// Geschoss-Werte setzen
-				_missileDuplMinField.Value = (decimal)unit.Creatable.DuplicatedMissilesMin;
-				_missileDuplMaxField.Value = unit.Creatable.DuplicatedMissilesMax;
-				_missileSpawnXField.Value = (decimal)unit.Creatable.MissileSpawningArea[0];
-				_missileSpawnYField.Value = (decimal)unit.Creatable.MissileSpawningArea[1];
-				_missileSpawnZField.Value = (decimal)unit.Creatable.MissileSpawningArea[2];
+				_missileDuplMinField.Value = (decimal)unit.Creatable.ProjectileCount;
+				_missileDuplMaxField.Value = unit.Creatable.ProjectileCountOnFullGarrison;
+				_missileSpawnXField.Value = (decimal)unit.Creatable.ProjectileSpawningAreaWidth;
+				_missileSpawnYField.Value = (decimal)unit.Creatable.ProjectileSpawningAreaHeight;
+				_missileSpawnZField.Value = (decimal)unit.Creatable.ProjectileSpawningAreaRandomness;
 
 				// Verschiedene Werte setzen
 				_trainTimeField.Value = unit.Creatable.TrainTime;
 				_heroModeField.Value = unit.Creatable.HeroMode;
 				_chargeModeField.Value = unit.Creatable.ChargingMode;
-				_displayedPierceArmorField.Value = unit.Creatable.DisplayedPierceArmour;
+				_displayedPierceArmorField.Value = unit.Creatable.DisplayedPierceArmor;
 
 				// Grafiken setzen
 				_graGarrisonField.ElementList = tmpGrList;
@@ -505,7 +505,7 @@ namespace TechTreeEditor
 				_constructionSoundField.Value = unit.Building.ConstructionSound;
 				_unknownSoundField.Value = unit.Building.UnknownSound;
 				_garrisonTypeField.Value = unit.Building.GarrisonType;
-				_garrisonHealRateField.Value = (decimal)unit.Building.GarrisonHealRate;
+				_garrisonHealRateField.Value = (decimal)unit.Building.GarrisonHealRateFactor;
 
 				// Unbekannte Werte setzen
 				_unknown14Field.Value = unit.Building.Unknown33;
@@ -758,11 +758,11 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.ResourceStorages[0] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, float, byte>()
 			{
-				Enabled = (byte)(e.NewValue.Enabled ? _resourceStorage1ModeField.Value.SafeConvert<byte>() : 0),
-				Type = (short)(e.NewValue.Enabled ? e.NewValue.Type : -1),
-				Amount = (e.NewValue.Enabled ? e.NewValue.Amount : 0)
+				Paid = (byte)(e.NewValue.Paid ? _resourceStorage1ModeField.Value.SafeConvert<byte>() : 0),
+				Type = (short)(e.NewValue.Paid ? e.NewValue.Type : -1),
+				Amount = (e.NewValue.Paid ? e.NewValue.Amount : 0)
 			});
-			_resourceStorage1ModeField.Enabled = e.NewValue.Enabled;
+			_resourceStorage1ModeField.Enabled = e.NewValue.Paid;
 		}
 
 		private void _resourceStorage1ModeField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
@@ -770,7 +770,7 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.ResourceStorages[0] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, float, byte>()
 			{
-				Enabled = _resourceStorage1ModeField.Value.SafeConvert<byte>(),
+				Paid = _resourceStorage1ModeField.Value.SafeConvert<byte>(),
 				Type = (short)_resourceStorage1Field.Value.Type,
 				Amount = _resourceStorage1Field.Value.Amount
 			});
@@ -781,11 +781,11 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.ResourceStorages[1] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, float, byte>()
 			{
-				Enabled = (byte)(e.NewValue.Enabled ? _resourceStorage2ModeField.Value.SafeConvert<byte>() : 0),
-				Type = (short)(e.NewValue.Enabled ? e.NewValue.Type : -1),
-				Amount = (e.NewValue.Enabled ? e.NewValue.Amount : 0)
+				Paid = (byte)(e.NewValue.Paid ? _resourceStorage2ModeField.Value.SafeConvert<byte>() : 0),
+				Type = (short)(e.NewValue.Paid ? e.NewValue.Type : -1),
+				Amount = (e.NewValue.Paid ? e.NewValue.Amount : 0)
 			});
-			_resourceStorage2ModeField.Enabled = e.NewValue.Enabled;
+			_resourceStorage2ModeField.Enabled = e.NewValue.Paid;
 		}
 
 		private void _resourceStorage2ModeField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
@@ -793,7 +793,7 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.ResourceStorages[1] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, float, byte>()
 			{
-				Enabled = _resourceStorage2ModeField.Value.SafeConvert<byte>(),
+				Paid = _resourceStorage2ModeField.Value.SafeConvert<byte>(),
 				Type = (short)_resourceStorage2Field.Value.Type,
 				Amount = _resourceStorage2Field.Value.Amount
 			});
@@ -804,11 +804,11 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.ResourceStorages[2] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, float, byte>()
 			{
-				Enabled = (byte)(e.NewValue.Enabled ? _resourceStorage3ModeField.Value.SafeConvert<byte>() : 0),
-				Type = (short)(e.NewValue.Enabled ? e.NewValue.Type : -1),
-				Amount = (e.NewValue.Enabled ? e.NewValue.Amount : 0)
+				Paid = (byte)(e.NewValue.Paid ? _resourceStorage3ModeField.Value.SafeConvert<byte>() : 0),
+				Type = (short)(e.NewValue.Paid ? e.NewValue.Type : -1),
+				Amount = (e.NewValue.Paid ? e.NewValue.Amount : 0)
 			});
-			_resourceStorage3ModeField.Enabled = e.NewValue.Enabled;
+			_resourceStorage3ModeField.Enabled = e.NewValue.Paid;
 		}
 
 		private void _resourceStorage3ModeField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
@@ -816,7 +816,7 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.ResourceStorages[2] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, float, byte>()
 			{
-				Enabled = _resourceStorage3ModeField.Value.SafeConvert<byte>(),
+				Paid = _resourceStorage3ModeField.Value.SafeConvert<byte>(),
 				Type = (short)_resourceStorage3Field.Value.Type,
 				Amount = _resourceStorage3Field.Value.Amount
 			});
@@ -1307,7 +1307,7 @@ namespace TechTreeEditor
 				return;
 
 			// Alle Werte aus View in Objekt schreiben
-			_unitManager.UpdateUnitAttribute(u => u.Type50.Attacks = new Dictionary<short, short>());
+			_unitManager.UpdateUnitAttribute(u => u.Type50.Attacks = new Dictionary<ushort, ushort>());
 			foreach(DataGridViewRow currRow in _attackValuesField.Rows)
 			{
 				// Neue Reihe überspringen
@@ -1317,8 +1317,8 @@ namespace TechTreeEditor
 				// Daten einfügen
 				_unitManager.UpdateUnitAttribute(u => u.Type50.Attacks.Add
 				(
-					(short)currRow.Cells[0].Value,
-					currRow.Cells[1].Value.GetType() == typeof(short) ? (short)currRow.Cells[1].Value : short.Parse((string)currRow.Cells[1].Value)
+					(ushort)currRow.Cells[0].Value,
+					currRow.Cells[1].Value.GetType() == typeof(ushort) ? (ushort)currRow.Cells[1].Value : ushort.Parse((string)currRow.Cells[1].Value)
 				));
 			}
 		}
@@ -1332,13 +1332,13 @@ namespace TechTreeEditor
 		private void _displayedMeleeArmourField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
 		{
 			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.Type50.DisplayedMeleeArmour = e.NewValue.SafeConvert<short>());
+			_unitManager.UpdateUnitAttribute(u => u.Type50.DisplayedMeleeArmor = e.NewValue.SafeConvert<short>());
 		}
 
 		private void _defaultArmorField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
 		{
 			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.Type50.DefaultArmour = e.NewValue.SafeConvert<short>());
+			_unitManager.UpdateUnitAttribute(u => u.Type50.DefaultArmor = e.NewValue.SafeConvert<short>());
 		}
 
 		private void _armourValuesField_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
@@ -1371,7 +1371,7 @@ namespace TechTreeEditor
 				return;
 
 			// Alle Werte aus View in Objekt schreiben
-			_unitManager.UpdateUnitAttribute(u => u.Type50.Armours = new Dictionary<short, short>());
+			_unitManager.UpdateUnitAttribute(u => u.Type50.Armors = new Dictionary<ushort, ushort>());
 			foreach(DataGridViewRow currRow in _armourValuesField.Rows)
 			{
 				// Neue Reihe überspringen
@@ -1379,10 +1379,10 @@ namespace TechTreeEditor
 					continue;
 
 				// Daten einfügen
-				_unitManager.UpdateUnitAttribute(u => u.Type50.Armours.Add
+				_unitManager.UpdateUnitAttribute(u => u.Type50.Armors.Add
 				(
-					(short)currRow.Cells[0].Value,
-					currRow.Cells[1].Value.GetType() == typeof(short) ? (short)currRow.Cells[1].Value : short.Parse((string)currRow.Cells[1].Value)
+					(ushort)currRow.Cells[0].Value,
+					currRow.Cells[1].Value.GetType() == typeof(ushort) ? (ushort)currRow.Cells[1].Value : ushort.Parse((string)currRow.Cells[1].Value)
 				));
 			}
 		}
@@ -1426,37 +1426,37 @@ namespace TechTreeEditor
 		private void _accuracyPercentField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
 		{
 			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.Type50.AccuracyPercent = e.NewValue.SafeConvert<short>());
+			_unitManager.UpdateUnitAttribute(u => u.Type50.ProjectileAccuracyPercent = e.NewValue.SafeConvert<short>());
 		}
 
 		private void _accuracyErrorField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
 		{
 			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.Type50.AccuracyErrorRadius = e.NewValue.SafeConvert<float>());
+			_unitManager.UpdateUnitAttribute(u => u.Type50.ProjectileDispersion = e.NewValue.SafeConvert<float>());
 		}
 
 		private void _frameDelayField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
 		{
 			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.Type50.FrameDelay = e.NewValue.SafeConvert<short>());
+			_unitManager.UpdateUnitAttribute(u => u.Type50.ProjectileFrameDelay = e.NewValue.SafeConvert<short>());
 		}
 
 		private void _graphicDisplacementXField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
 		{
 			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.Type50.GraphicDisplacement[0] = e.NewValue.SafeConvert<float>());
+			_unitManager.UpdateUnitAttribute(u => u.Type50.ProjectileGraphicDisplacement[0] = e.NewValue.SafeConvert<float>());
 		}
 
 		private void _graphicDisplacementYField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
 		{
 			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.Type50.GraphicDisplacement[1] = e.NewValue.SafeConvert<float>());
+			_unitManager.UpdateUnitAttribute(u => u.Type50.ProjectileGraphicDisplacement[1] = e.NewValue.SafeConvert<float>());
 		}
 
 		private void _graphicDisplacementZField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
 		{
 			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.Type50.GraphicDisplacement[2] = e.NewValue.SafeConvert<float>());
+			_unitManager.UpdateUnitAttribute(u => u.Type50.ProjectileGraphicDisplacement[2] = e.NewValue.SafeConvert<float>());
 		}
 
 		private void _blastRadiusField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
@@ -1538,7 +1538,7 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.Creatable.ResourceCosts[0] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, short>()
 			{
-				Enabled = (short)(e.NewValue.Enabled ? 1 : 0),
+				Paid = (short)(e.NewValue.Paid ? 1 : 0),
 				Type = (short)e.NewValue.Type,
 				Amount = (short)e.NewValue.Amount
 			});
@@ -1549,7 +1549,7 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.Creatable.ResourceCosts[1] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, short>()
 			{
-				Enabled = (short)(e.NewValue.Enabled ? 1 : 0),
+				Paid = (short)(e.NewValue.Paid ? 1 : 0),
 				Type = (short)e.NewValue.Type,
 				Amount = (short)e.NewValue.Amount
 			});
@@ -1560,7 +1560,7 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.Creatable.ResourceCosts[2] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, short>()
 			{
-				Enabled = (short)(e.NewValue.Enabled ? 1 : 0),
+				Paid = (short)(e.NewValue.Paid ? 1 : 0),
 				Type = (short)e.NewValue.Type,
 				Amount = (short)e.NewValue.Amount
 			});
@@ -1569,31 +1569,31 @@ namespace TechTreeEditor
 		private void _missileDuplMinField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
 		{
 			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.Creatable.DuplicatedMissilesMin = e.NewValue.SafeConvert<float>());
+			_unitManager.UpdateUnitAttribute(u => u.Creatable.ProjectileCount = e.NewValue.SafeConvert<float>());
 		}
 
 		private void _missileDuplMaxField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
 		{
 			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.Creatable.DuplicatedMissilesMax = e.NewValue.SafeConvert<byte>());
+			_unitManager.UpdateUnitAttribute(u => u.Creatable.ProjectileCountOnFullGarrison = e.NewValue.SafeConvert<byte>());
 		}
 
 		private void _missileSpawnXField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
 		{
 			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.Creatable.MissileSpawningArea[0] = e.NewValue.SafeConvert<float>());
+			_unitManager.UpdateUnitAttribute(u => u.Creatable.ProjectileSpawningAreaWidth = e.NewValue.SafeConvert<float>());
 		}
 
 		private void _missileSpawnYField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
 		{
 			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.Creatable.MissileSpawningArea[1] = e.NewValue.SafeConvert<float>());
+			_unitManager.UpdateUnitAttribute(u => u.Creatable.ProjectileSpawningAreaHeight = e.NewValue.SafeConvert<float>());
 		}
 
 		private void _missileSpawnZField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
 		{
 			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.Creatable.MissileSpawningArea[2] = e.NewValue.SafeConvert<float>());
+			_unitManager.UpdateUnitAttribute(u => u.Creatable.ProjectileSpawningAreaRandomness = e.NewValue.SafeConvert<float>());
 		}
 
 		private void _trainTimeField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
@@ -1617,7 +1617,7 @@ namespace TechTreeEditor
 		private void _displayedPierceArmorField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
 		{
 			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.Creatable.DisplayedPierceArmour = e.NewValue.SafeConvert<short>());
+			_unitManager.UpdateUnitAttribute(u => u.Creatable.DisplayedPierceArmor = e.NewValue.SafeConvert<short>());
 		}
 
 		private void _graGarrisonField_ValueChanged(object sender, Controls.DropDownFieldControl.ValueChangedEventArgs e)
@@ -1711,7 +1711,7 @@ namespace TechTreeEditor
 		private void _garrisonHealRateField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
 		{
 			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.Building.GarrisonHealRate = e.NewValue.SafeConvert<float>());
+			_unitManager.UpdateUnitAttribute(u => u.Building.GarrisonHealRateFactor = e.NewValue.SafeConvert<float>());
 		}
 
 		private void _unknown14Field_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)

@@ -472,7 +472,7 @@ namespace TechTreeEditor
 					animation.RenderOffset = new Point(offset.X - offsetLeft, offset.Y - offsetTop);
 
 					// Möglichst platzsparend mit dem Texturspeicher umgehen => beste Frameverteilung berechnen
-					int maxTextureSize = GL.GetInteger(GetPName.MaxTextureSize);
+					GL.GetInteger(GetPName.MaxTextureSize, out int maxTextureSize);
 					int minTexSize = int.MaxValue;
 					for(int fpl = (int)Math.Ceiling((double)animation.FrameCount / (maxTextureSize / frameHeight)); fpl <= animation.FrameCount / 2 + 1 && (fpl * frameWidth <= maxTextureSize); ++fpl)
 					{
@@ -703,7 +703,7 @@ namespace TechTreeEditor
 						double texRight = (frameX + animation.FrameBounds.Width) / animation.TextureBounds.Width;
 						double texTop = frameY / animation.TextureBounds.Height;
 						double texBottom = (frameY + animation.FrameBounds.Height) / animation.TextureBounds.Height;
-						GL.Begin(PrimitiveType.Quads);
+						GL.Begin(BeginMode.Quads);
 						{
 							GL.TexCoord2(texLeft, texTop); GL.Vertex2(0, 0); // Oben links
 							GL.TexCoord2(texRight, texTop); GL.Vertex2(2 * zoomedTexHalfWidth, 0); // Oben rechts
@@ -724,7 +724,7 @@ namespace TechTreeEditor
 			{
 				// Markierung zeichnen
 				GL.Color3(Color.DeepPink);
-				GL.Begin(PrimitiveType.Quads);
+				GL.Begin(BeginMode.Quads);
 				{
 					GL.Vertex2(-4, -4);
 					GL.Vertex2(4, -4);
@@ -746,18 +746,18 @@ namespace TechTreeEditor
 				{
 					// X/Y bestimmen
 					double projX = 0.0;
-					double projY = -_renderUnit.DATUnit.Type50.GraphicDisplacement[2];
+					double projY = -_renderUnit.DATUnit.Type50.ProjectileGraphicDisplacement[2];
 					if(angle == 0 || angle == 4)
 					{
 						// Blickrichtung unten/oben
-						projX -= (angle - 2) / 2 * _renderUnit.DATUnit.Type50.GraphicDisplacement[0];
-						projY -= (angle - 2) / 2 * _renderUnit.DATUnit.Type50.GraphicDisplacement[1];
+						projX -= (angle - 2) / 2 * _renderUnit.DATUnit.Type50.ProjectileGraphicDisplacement[0];
+						projY -= (angle - 2) / 2 * _renderUnit.DATUnit.Type50.ProjectileGraphicDisplacement[1];
 					}
 					else if(angle == 2 || angle == 6)
 					{
 						// Blickrichtung links/rechts
-						projX += (angle - 4) / 2 * _renderUnit.DATUnit.Type50.GraphicDisplacement[1];
-						projY += (angle - 4) / 2 * _renderUnit.DATUnit.Type50.GraphicDisplacement[0];
+						projX += (angle - 4) / 2 * _renderUnit.DATUnit.Type50.ProjectileGraphicDisplacement[1];
+						projY += (angle - 4) / 2 * _renderUnit.DATUnit.Type50.ProjectileGraphicDisplacement[0];
 					}
 
 					// Projektilposition berechnen
@@ -770,22 +770,22 @@ namespace TechTreeEditor
 					if(angle == 1 || angle == 5)
 					{
 						// Blickrichtung unten links/oben rechts
-						double proj1 = (angle - 3) / 2 * _renderUnit.DATUnit.Type50.GraphicDisplacement[1];
-						double proj2 = (angle - 3) / 2 * _renderUnit.DATUnit.Type50.GraphicDisplacement[0];
+						double proj1 = (angle - 3) / 2 * _renderUnit.DATUnit.Type50.ProjectileGraphicDisplacement[1];
+						double proj2 = (angle - 3) / 2 * _renderUnit.DATUnit.Type50.ProjectileGraphicDisplacement[0];
 
 						// Projektilposition berechnen
 						projPos.X = (float)((proj1 + proj2) * TILE_HORIZONTAL_OFFSET);
-						projPos.Y = (float)((-(proj1 - proj2) - _renderUnit.DATUnit.Type50.GraphicDisplacement[2]) * TILE_VERTICAL_OFFSET);
+						projPos.Y = (float)((-(proj1 - proj2) - _renderUnit.DATUnit.Type50.ProjectileGraphicDisplacement[2]) * TILE_VERTICAL_OFFSET);
 					}
 					else if(angle == 3 || angle == 7)
 					{
 						// Blickrichtung oben links/unten rechts
-						double proj1 = -(angle - 5) / 2 * _renderUnit.DATUnit.Type50.GraphicDisplacement[0];
-						double proj2 = (angle - 5) / 2 * _renderUnit.DATUnit.Type50.GraphicDisplacement[1];
+						double proj1 = -(angle - 5) / 2 * _renderUnit.DATUnit.Type50.ProjectileGraphicDisplacement[0];
+						double proj2 = (angle - 5) / 2 * _renderUnit.DATUnit.Type50.ProjectileGraphicDisplacement[1];
 
 						// Projektilposition berechnen
 						projPos.X = (float)((proj2 - proj1) * TILE_HORIZONTAL_OFFSET);
-						projPos.Y = (float)((proj2 + proj1 - _renderUnit.DATUnit.Type50.GraphicDisplacement[2]) * TILE_VERTICAL_OFFSET);
+						projPos.Y = (float)((proj2 + proj1 - _renderUnit.DATUnit.Type50.ProjectileGraphicDisplacement[2]) * TILE_VERTICAL_OFFSET);
 					}
 				}
 
@@ -795,7 +795,7 @@ namespace TechTreeEditor
 
 				// Projektilposition zeichnen
 				GL.Color3(Color.Red);
-				GL.Begin(PrimitiveType.Quads);
+				GL.Begin(BeginMode.Quads);
 				{
 					GL.Vertex2(projPos.X - 2, projPos.Y - 2);
 					GL.Vertex2(projPos.X + 2, projPos.Y - 2);
@@ -820,7 +820,7 @@ namespace TechTreeEditor
 				// Header-Leiste zeichnen
 				GL.BindTexture(TextureTarget.Texture2D, 0);
 				GL.Color3(Color.FromArgb(179, 255, 102));
-				GL.Begin(PrimitiveType.Quads);
+				GL.Begin(BeginMode.Quads);
 				{
 					GL.Vertex2(0, 0);
 					GL.Vertex2(entrySize.Width + 4, 0);
@@ -835,7 +835,7 @@ namespace TechTreeEditor
 				// Box für Framenummern zeichnen
 				GL.Color3(Color.FromArgb(218, 255, 179));
 				int frameNumberBoxHeight = _animations.Count * (entrySize.Height + 2);
-				GL.Begin(PrimitiveType.Quads);
+				GL.Begin(BeginMode.Quads);
 				{
 					GL.Vertex2(0, entrySize.Height + 4);
 					GL.Vertex2(entrySize.Width + 4, entrySize.Height + 4);
@@ -857,7 +857,7 @@ namespace TechTreeEditor
 
 				// Rahmen zeichnen
 				GL.Color3(Color.Black);
-				GL.Begin(PrimitiveType.LineLoop);
+				GL.Begin(BeginMode.LineLoop);
 				{
 					GL.Vertex2(0 + 0.5, 0 + 0.5);
 					GL.Vertex2(entrySize.Width + 4 + 0.5, 0 + 0.5);
@@ -1269,7 +1269,7 @@ namespace TechTreeEditor
 
 				// Zeichnen
 				GL.Color3(color);
-				GL.Begin(PrimitiveType.LineLoop);
+				GL.Begin(BeginMode.LineLoop);
 				for(double i = 0; i < 2 * Math.PI; i += step)
 					GL.Vertex2(_zoom * Math.Cos(i) * radX, _zoom * Math.Sin(i) * radY);
 				GL.End();
@@ -1284,7 +1284,7 @@ namespace TechTreeEditor
 
 				// Zeichnen
 				GL.Color3(color);
-				GL.Begin(PrimitiveType.LineLoop);
+				GL.Begin(BeginMode.LineLoop);
 				{
 					GL.Vertex2(_zoom * leftX, _zoom * leftY); // Links
 					GL.Vertex2(_zoom * topX, _zoom * topY); // Oben
@@ -1352,7 +1352,7 @@ namespace TechTreeEditor
 				int cTrans = (int)c - 32;
 				float charPosX = (cTrans & 31) / 32.0f;
 				float charPosY = (cTrans >> 5) / 10.0f;
-				GL.Begin(PrimitiveType.Quads);
+				GL.Begin(BeginMode.Quads);
 				{
 					GL.TexCoord2(charPosX, charPosY); GL.Vertex2(x, y); // Oben links
 					GL.TexCoord2(charPosX + 1 / 32.0f, charPosY); GL.Vertex2(x + 8, y); // Oben rechts

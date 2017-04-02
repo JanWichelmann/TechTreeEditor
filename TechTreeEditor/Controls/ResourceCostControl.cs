@@ -78,7 +78,7 @@ namespace TechTreeEditor.Controls
 			// Je nach Zustand die Elemente ein-/ausschalten
 			_typeComboBox.Enabled = _enableCheckBox.Checked;
 			_amountTextBox.Enabled = _enableCheckBox.Checked;
-			_value.Enabled = _enableCheckBox.Checked;
+			_value.Paid = _enableCheckBox.Checked;
 
 			// Ereignis auslösen
 			OnValueChanged(new ValueChangedEventArgs(_value));
@@ -109,7 +109,7 @@ namespace TechTreeEditor.Controls
 			set
 			{
 				_value = value;
-				_enableCheckBox.Checked = _value.Enabled;
+				_enableCheckBox.Checked = _value.Paid;
 				_typeComboBox.SelectedIndex = _value.Type;
 				_amountTextBox.Text = _value.Amount.ToString(CultureInfo.InvariantCulture.NumberFormat);
 			}

@@ -635,7 +635,7 @@ namespace TechTreeEditor
 				{
 					// Hintergrund zeichnen
 					GL.Color3(COLOR_BACKGROUND_DARK);
-					GL.Begin(PrimitiveType.Quads);
+					GL.Begin(BeginMode.Quads);
 					{
 						GL.Vertex2(0, DRAW_PANEL_PADDING + _ageOffsets[i] * vertBoxBounds);
 						GL.Vertex2(_drawPanel.Width, DRAW_PANEL_PADDING + _ageOffsets[i] * vertBoxBounds);
@@ -894,7 +894,7 @@ namespace TechTreeEditor
 
 			// Rahmen zeichnen
 			GL.Color3(COLOR_BORDER);
-			GL.Begin(PrimitiveType.Quads);
+			GL.Begin(BeginMode.Quads);
 			{
 				// Oben
 				GL.Vertex2(0, 0);
@@ -1071,7 +1071,7 @@ namespace TechTreeEditor
 			if(stippleLine)
 				GL.Enable(EnableCap.LineStipple);
 			GL.LineWidth(2);
-			GL.Begin(PrimitiveType.Lines);
+			GL.Begin(BeginMode.Lines);
 			{
 				GL.Vertex2(arrowOrigin);
 				GL.Vertex2(arrowHeadOrigin);
@@ -1082,7 +1082,7 @@ namespace TechTreeEditor
 				GL.Disable(EnableCap.LineStipple);
 
 			// Pfeilspitze
-			GL.Begin(PrimitiveType.Triangles);
+			GL.Begin(BeginMode.Triangles);
 			{
 				// Seite
 				GL.Vertex2(arrowHeadOrigin - arrowHeadSide);
@@ -1124,7 +1124,7 @@ namespace TechTreeEditor
 			if(stippleLine)
 				GL.Enable(EnableCap.LineStipple);
 			GL.LineWidth(2);
-			GL.Begin(PrimitiveType.Lines);
+			GL.Begin(BeginMode.Lines);
 			{
 				GL.Vertex2(lineOrigin);
 				GL.Vertex2(lineDest);
@@ -1146,7 +1146,7 @@ namespace TechTreeEditor
 
 			// Flag-Textur binden und zeichnen
 			GL.BindTexture(TextureTarget.Texture2D, flagTexID);
-			GL.Begin(PrimitiveType.Quads);
+			GL.Begin(BeginMode.Quads);
 			{
 				GL.TexCoord2(0.0, 0.0); GL.Vertex2(0, 0); // Oben links
 				GL.TexCoord2(1.0, 0.0); GL.Vertex2(RenderControl.BOX_BOUNDS, 0); // Oben rechts
@@ -1187,7 +1187,7 @@ namespace TechTreeEditor
 				int cTrans = (int)c - 32;
 				float charPosX = (cTrans & 31) / 32.0f;
 				float charPosY = (cTrans >> 5) / 10.0f;
-				GL.Begin(PrimitiveType.Quads);
+				GL.Begin(BeginMode.Quads);
 				{
 					GL.TexCoord2(charPosX, charPosY); GL.Vertex2(x, y); // Oben links
 					GL.TexCoord2(charPosX + 1 / 32.0f, charPosY); GL.Vertex2(x + 8, y); // Oben rechts

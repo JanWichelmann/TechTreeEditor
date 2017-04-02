@@ -59,7 +59,7 @@ namespace TechTreeEditor.TechTreeStructure
 			{
 				// Senkrechte Linie nach unten zeichnen
 				GL.Color3(Color.Black);
-				GL.Begin(PrimitiveType.Lines);
+				GL.Begin(BeginMode.Lines);
 				{
 					GL.Vertex2(position.X + (pixelWidth / 2), position.Y + RenderControl.BOX_BOUNDS + RenderControl.BOX_SPACE_VERT); // Oben
 					GL.Vertex2(position.X + (pixelWidth / 2), position.Y + RenderControl.BOX_BOUNDS + 2 * RenderControl.BOX_SPACE_VERT); // Unten
@@ -95,7 +95,7 @@ namespace TechTreeEditor.TechTreeStructure
 
 				// Senkrechte Linie darauf zeichnen
 				GL.Color3(Color.Black);
-				GL.Begin(PrimitiveType.Lines);
+				GL.Begin(BeginMode.Lines);
 				{
 					GL.Vertex2(dotLastChild.X, dotLastChild.Y); // Oben
 					GL.Vertex2(dotLastChild.X, childYOffset + RenderControl.BOX_SPACE_VERT); // Unten

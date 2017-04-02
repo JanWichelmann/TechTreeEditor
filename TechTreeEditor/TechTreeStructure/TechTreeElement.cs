@@ -205,7 +205,7 @@ namespace TechTreeEditor.TechTreeStructure
 				GL.Translate(_cacheBoxPosition.X, _cacheBoxPosition.Y, 0);
 
 				// Zeichnen
-				GL.Begin(PrimitiveType.Quads);
+				GL.Begin(BeginMode.Quads);
 				{
 					GL.TexCoord2(0.0, 0.0); GL.Vertex2(0, 0); // Oben links
 					GL.TexCoord2(1.0, 0.0); GL.Vertex2(RenderControl.BOX_BOUNDS, 0); // Oben rechts
@@ -239,7 +239,7 @@ namespace TechTreeEditor.TechTreeStructure
 				{
 					GL.Color4(Color.FromArgb(128, 28, 28));
 					GL.LineWidth(3);
-					GL.Begin(PrimitiveType.LineLoop);
+					GL.Begin(BeginMode.LineLoop);
 					{
 						GL.Vertex2(0, 0); // Oben links
 						GL.Vertex2(RenderControl.BOX_BOUNDS, 0); // Oben rechts
@@ -254,7 +254,7 @@ namespace TechTreeEditor.TechTreeStructure
 					// Falls Element ausgewählt, einen Auswahlrahmen zeichnen
 					GL.Color4(Color.FromArgb(166, 94, 94));
 					GL.LineWidth(3);
-					GL.Begin(PrimitiveType.LineLoop);
+					GL.Begin(BeginMode.LineLoop);
 					{
 						GL.Vertex2(0, 0); // Oben links
 						GL.Vertex2(RenderControl.BOX_BOUNDS, 0); // Oben rechts
