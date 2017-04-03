@@ -256,6 +256,9 @@ namespace TechTreeEditor.TechTreeStructure
 					Abilities.ForEach(a => a.ToXml(writer, elementIDs));
 				}
 				writer.WriteEndElement();
+
+				// TechTree-Node-Design schreiben
+				writer.WriteElementNumber("techtreenodedesign", NewTechTreeNodeDesign);
 			}
 			writer.WriteEndElement();
 

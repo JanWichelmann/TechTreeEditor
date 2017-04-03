@@ -104,6 +104,11 @@ namespace TechTreeEditor
 		/// </summary>
 		private bool _updatingControls = false;
 
+		/// <summary>
+		/// Die Designdaten des neuen Tech-Trees.
+		/// </summary>
+		private GenieLibrary.DataElements.TechTreeNew.TechTreeDesign _techTreeDesignData = null;
+
 		#endregion Variablen
 
 		#region Funktionen
@@ -348,6 +353,12 @@ namespace TechTreeEditor
 
 			// Projektdaten an Plugins übergeben
 			_plugins.ForEach(p => p.AssignProject(_projectFile));
+
+			// TechTree-Designs laden
+			_updatingControls = true;
+			_techTreeDesignData = null;
+			UpdateTechTreeNodeDesignsInContextMenu();
+			_updatingControls = false;
 
 			// Buttons freischalten
 			_pluginMenuButton.Enabled = true;
@@ -607,6 +618,47 @@ namespace TechTreeEditor
 			}
 		}
 
+		/// <summary>
+		/// Aktualisiert die Liste der TechTree-Node-Designs im Element-Kontextmenü.
+		/// </summary>
+		private void UpdateTechTreeNodeDesignsInContextMenu()
+		{
+			// TechTree-Design ist notwendig
+			if(_techTreeDesignData == null)
+			{
+				// Designdatei laden
+				if(string.IsNullOrWhiteSpace(_projectFile.TechTreeDesignPath) || !File.Exists(_projectFile.TechTreeDesignPath))
+					return;
+				try { _techTreeDesignData = new GenieLibrary.DataElements.TechTreeNew.TechTreeDesign().ReadData(new IORAMHelper.RAMBuffer(_projectFile.TechTreeDesignPath)); }
+				catch { return; }
+
+				// Ggf. alte Design-Buttons entfernen
+				while(_showInNewTechTreeCheckButton.DropDownItems.Count > 2)
+					_showInNewTechTreeCheckButton.DropDownItems.RemoveAt(2);
+
+				// Design-Buttons erstellen und einfügen
+				for(int i = 0; i < _techTreeDesignData.NodeBackgrounds.Count; ++i)
+				{
+					// Design abrufen
+					var nodeDesign = _techTreeDesignData.NodeBackgrounds[i];
+
+					// Button erstellen
+					ToolStripMenuItem nodeDesignButton = new ToolStripMenuItem();
+					nodeDesignButton.CheckOnClick = true;
+					nodeDesignButton.Text = $"[{i}] {nodeDesign.Name}";
+					nodeDesignButton.Tag = i;
+					nodeDesignButton.CheckedChanged += NodeDesignButton_CheckedChanged;
+					_showInNewTechTreeCheckButton.DropDownItems.Add(nodeDesignButton);
+				}
+			}
+
+			// Zum ausgewählten Element passenden Button auswählen
+			// Wenn das Design nicht existiert, ist nichts gewählt
+			if(_selectedElement != null)
+				for(int i = 2; i < _showInNewTechTreeCheckButton.DropDownItems.Count; ++i)
+					((ToolStripMenuItem)_showInNewTechTreeCheckButton.DropDownItems[i]).Checked = (_selectedElement.NewTechTreeNodeDesign == i - 2);
+		}
+
 		#endregion Funktionen
 
 		#region Ereignishandler
@@ -734,6 +786,7 @@ namespace TechTreeEditor
 				// NewTechTree-Buttons aktualisieren
 				_showInNewTechTreeCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.ShowInNewTechTree) == TechTreeElement.ElementFlags.ShowInNewTechTree);
 				_hideIfDisabledInNewTechTreeCheckButton.Checked = ((_selectedElement.Flags & TechTreeElement.ElementFlags.HideInNewTechTreeIfDisabled) == TechTreeElement.ElementFlags.HideInNewTechTreeIfDisabled);
+				UpdateTechTreeNodeDesignsInContextMenu();
 
 				// Fertig mit dem kritischen Teil
 				_updatingControls = false;
@@ -1445,6 +1498,7 @@ namespace TechTreeEditor
 					_selectedElement.Flags &= ~TechTreeElement.ElementFlags.ShowInNewTechTree;
 					_hideIfDisabledInNewTechTreeCheckButton.Checked = false;
 				}
+				UpdateTechTreeNodeDesignsInContextMenu();
 			}
 
 			// Neuzeichnen
@@ -1469,6 +1523,7 @@ namespace TechTreeEditor
 				}
 				else
 					_selectedElement.Flags &= ~TechTreeElement.ElementFlags.HideInNewTechTreeIfDisabled;
+				UpdateTechTreeNodeDesignsInContextMenu();
 			}
 
 			// Neuzeichnen
@@ -2028,8 +2083,8 @@ namespace TechTreeEditor
 				_languageEnglishMenuButton.Checked = false;
 			}
 			else
-				MessageBox.Show("Zur Übernahme der neuen Spracheinstellung muss das Programm neugestartet werden.", "Sprache ändern", MessageBoxButtons.OK, MessageBoxIcon.Information);
-		}
+				MessageBox.Show("The program has to be restarted to apply the language changes.", "Change language", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
 
 		private void _languageEnglishMenuButton_CheckedChanged(object sender, EventArgs e)
 		{
@@ -2043,7 +2098,30 @@ namespace TechTreeEditor
 				_languageGermanMenuButton.Checked = false;
 			}
 			else
-				MessageBox.Show("The program has to be restarted to apply the language changes.", "Change language", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show("Zur Übernahme der neuen Spracheinstellung muss das Programm neugestartet werden.", "Sprache ändern", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+
+		private void NodeDesignButton_CheckedChanged(object sender, EventArgs e)
+		{
+			// Unnötige Aufrufe des Ereignishandlers verhindern
+			if(_updatingControls)
+				return;
+			_updatingControls = true;
+
+			// Element ausgewählt?
+			if(_selectedElement != null)
+			{
+				// Andere Buttons deselektieren
+				for(int i = 2; i < _showInNewTechTreeCheckButton.DropDownItems.Count; ++i)
+					if(_showInNewTechTreeCheckButton.DropDownItems[i] != sender)
+						((ToolStripMenuItem)_showInNewTechTreeCheckButton.DropDownItems[i]).Checked = false;
+
+				// Auswahl merken
+				_selectedElement.NewTechTreeNodeDesign = (int)((ToolStripMenuItem)sender).Tag;
+			}
+
+			// Fertig
+			_updatingControls = false;
 		}
 
 		#endregion Ereignishandler

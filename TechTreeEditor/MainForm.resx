@@ -196,7 +196,7 @@
     <value>_renderPanel</value>
   </data>
   <data name="&gt;&gt;_renderPanel.Type" xml:space="preserve">
-    <value>TechTreeEditor.RenderControl, TechTreeEditor, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>TechTreeEditor.RenderControl, TechTreeEditor, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;_renderPanel.Parent" xml:space="preserve">
     <value>_menuContainer.ContentPanel</value>
@@ -1705,6 +1705,9 @@
   <data name="_hideIfDisabledInNewTechTreeCheckButton.Text" xml:space="preserve">
     <value>Nur, wenn verfügbar</value>
   </data>
+  <data name="_menuSeparator17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 6</value>
+  </data>
   <data name="_showInNewTechTreeCheckButton.ShortcutKeyDisplayString" xml:space="preserve">
     <value>T</value>
   </data>
@@ -1754,7 +1757,7 @@
     <value>Im Einheiten-Renderer anzeigen</value>
   </data>
   <data name="_techTreeElementContextMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>275, 276</value>
+    <value>275, 298</value>
   </data>
   <data name="&gt;&gt;_techTreeElementContextMenu.Name" xml:space="preserve">
     <value>_techTreeElementContextMenu</value>
@@ -2697,6 +2700,12 @@
   </data>
   <data name="&gt;&gt;_renderScreenshotDialog.Type" xml:space="preserve">
     <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_menuSeparator17.Name" xml:space="preserve">
+    <value>_menuSeparator17</value>
+  </data>
+  <data name="&gt;&gt;_menuSeparator17.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

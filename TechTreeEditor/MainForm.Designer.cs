@@ -127,6 +127,7 @@
 			this._showUnitInRendererMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._openProjectDialog = new System.Windows.Forms.OpenFileDialog();
 			this._renderScreenshotDialog = new System.Windows.Forms.SaveFileDialog();
+			this._menuSeparator17 = new System.Windows.Forms.ToolStripSeparator();
 			this._menuContainer.BottomToolStripPanel.SuspendLayout();
 			this._menuContainer.ContentPanel.SuspendLayout();
 			this._menuContainer.LeftToolStripPanel.SuspendLayout();
@@ -841,7 +842,8 @@
 			// 
 			this._showInNewTechTreeCheckButton.CheckOnClick = true;
 			this._showInNewTechTreeCheckButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._hideIfDisabledInNewTechTreeCheckButton});
+            this._hideIfDisabledInNewTechTreeCheckButton,
+            this._menuSeparator17});
 			this._showInNewTechTreeCheckButton.Image = global::TechTreeEditor.Icons.ShowInNewTechTree;
 			this._showInNewTechTreeCheckButton.Name = "_showInNewTechTreeCheckButton";
 			resources.ApplyResources(this._showInNewTechTreeCheckButton, "_showInNewTechTreeCheckButton");
@@ -900,6 +902,11 @@
 			// _renderScreenshotDialog
 			// 
 			resources.ApplyResources(this._renderScreenshotDialog, "_renderScreenshotDialog");
+			// 
+			// _menuSeparator17
+			// 
+			this._menuSeparator17.Name = "_menuSeparator17";
+			resources.ApplyResources(this._menuSeparator17, "_menuSeparator17");
 			// 
 			// MainForm
 			// 
@@ -1038,6 +1045,7 @@
 		private System.Windows.Forms.ToolStripSeparator _menuSeparator16;
 		private System.Windows.Forms.ToolStripButton _elementLeftButton;
 		private System.Windows.Forms.ToolStripButton _elementRightButton;
+		private System.Windows.Forms.ToolStripSeparator _menuSeparator17;
 	}
 }
 

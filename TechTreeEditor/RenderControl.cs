@@ -465,10 +465,13 @@ namespace TechTreeEditor
 			// Ich bin dran
 			_drawPanel.MakeCurrent();
 
-			// Blickwinkel erstellen
+			// Projektionsmatrix ändern
 			GL.MatrixMode(MatrixMode.Projection);
 			GL.LoadIdentity();
-			GL.Ortho(0, _drawPanel.Width, _drawPanel.Height, 0, -1, 1); // Pixel oben links ist (0, 0)
+
+			// Pixel oben links ist (0, 0)
+			// Verhindern, dass bei Programmstart ungültige Werte auftreten
+			GL.Ortho(0, Math.Max(1, _drawPanel.Width), Math.Max(1, _drawPanel.Height), 0, -1, 1);
 			GL.Viewport(0, 0, _drawPanel.Width, _drawPanel.Height);
 
 			// Zeichenmodus laden

@@ -124,7 +124,7 @@ namespace TechTreeEditor
 			Task.Factory.StartNew(() =>
 			{
 				// Basis-DAT laden
-				GenieLibrary.GenieFile exportDAT = new GenieLibrary.GenieFile(GenieLibrary.GenieFile.DecompressData(new IORAMHelper.RAMBuffer(_baseDATTextBox.Text)));
+				GenieLibrary.GenieFile exportDAT = new GenieLibrary.GenieFile(GenieLibrary.GenieFile.DecompressData(new RAMBuffer(_baseDATTextBox.Text)));
 
 				// Neue Grafikdaten zuweisen
 				exportDAT.GraphicPointers = _projectFile.BasicGenieFile.GraphicPointers;
@@ -985,6 +985,7 @@ namespace TechTreeEditor
 
 						// Eigenschaften setzen
 						ttElement.Age = (byte)currElement.Age;
+						ttElement.NodeBackgroundIndex = currElement.NewTechTreeNodeDesign;
 						ttElement.RequiredElements = new List<Tuple<GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType, short>>();
 
 						// Nach Typen unterscheiden

@@ -76,6 +76,11 @@ namespace TechTreeEditor.TechTreeStructure
 		/// </summary>
 		public TechTreeElement AlternateNewTechTreeParentElement { get; set; }
 
+		/// <summary>
+		/// Der Index des diesem Element zugeordneten Node-Designs im neuen TechTree. Nur wirksam, wenn das ShowInNewTechTree-Flag gesetzt ist.
+		/// </summary>
+		public int NewTechTreeNodeDesign { get; set; }
+
 		#endregion Öffentlich
 
 		#region Geschützt
@@ -168,6 +173,14 @@ namespace TechTreeEditor.TechTreeStructure
 			Hovered = false;
 			ShadowElement = false;
 			BuildingDependencies = new Dictionary<TechTreeBuilding, bool>();
+
+			// TechTree-Node-Design entsprechend dem Element-Typ setzen
+			if(this is TechTreeResearch)
+				NewTechTreeNodeDesign = (int)GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType.Research;
+			else if(this is TechTreeBuilding)
+				NewTechTreeNodeDesign = (int)GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType.Building;
+			else
+				NewTechTreeNodeDesign = (int)GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType.Creatable;
 		}
 
 		/// <summary>
@@ -321,7 +334,9 @@ namespace TechTreeEditor.TechTreeStructure
 			Flags = (ElementFlags)(int)element.Element("flags");
 			ShadowElement = (bool)element.Element("shadow");
 
-			// Ggf. alternatives TechTree-Elternelement einlesen (aus Kompatibilitätsgründen optional)
+			// Ggf. NewTechTree-Daten einlesen (aus Kompatibilitätsgründen optional)
+			if(element.Elements("techtreenodedesign").Any())
+				NewTechTreeNodeDesign = (int)element.Element("techtreenodedesign");
 			if(element.Elements("alternatetechtreeparent").Any())
 			{
 				// ID lesen, dann Element laden
