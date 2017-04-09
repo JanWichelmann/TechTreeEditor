@@ -138,7 +138,7 @@ namespace X2AddOnPlugin
 			_cost1Field.Value = _cost2Field.Value = _cost3Field.Value = new IGenieDataElement.ResourceTuple<int, float, bool>()
 			{
 				Amount = 0,
-				Enabled = false,
+				Paid = false,
 				Type = 0
 			};
 
@@ -543,19 +543,19 @@ namespace X2AddOnPlugin
 			newUnitDAT.HotKey = _dllHotkeyField.Value;
 			newUnitDAT.Creatable.ResourceCosts[0] = new IGenieDataElement.ResourceTuple<short, short, short>()
 			{
-				Enabled = (short)(_cost1Field.Value.Enabled ? 1 : 0),
+				Paid = (short)(_cost1Field.Value.Paid ? 1 : 0),
 				Type = (short)_cost1Field.Value.Type,
 				Amount = (short)_cost1Field.Value.Amount
 			};
 			newUnitDAT.Creatable.ResourceCosts[1] = new IGenieDataElement.ResourceTuple<short, short, short>()
 			{
-				Enabled = (short)(_cost2Field.Value.Enabled ? 1 : 0),
+				Paid = (short)(_cost2Field.Value.Paid ? 1 : 0),
 				Type = (short)_cost2Field.Value.Type,
 				Amount = (short)_cost2Field.Value.Amount
 			};
 			newUnitDAT.Creatable.ResourceCosts[2] = new IGenieDataElement.ResourceTuple<short, short, short>()
 			{
-				Enabled = (short)(_cost3Field.Value.Enabled ? 1 : 0),
+				Paid = (short)(_cost3Field.Value.Paid ? 1 : 0),
 				Type = (short)_cost3Field.Value.Type,
 				Amount = (short)_cost3Field.Value.Amount
 			};

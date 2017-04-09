@@ -353,6 +353,16 @@ namespace TechTreeEditor {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ImportBalancingFile {
+            get {
+                object obj = ResourceManager.GetObject("ImportBalancingFile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ImportProject {
             get {
                 object obj = ResourceManager.GetObject("ImportProject", resourceCulture);

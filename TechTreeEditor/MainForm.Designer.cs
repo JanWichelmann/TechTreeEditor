@@ -61,6 +61,7 @@
 			this._saveProjectMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._importDATMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._exportDATMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._importBalancingFileMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._renderScreenshotMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._projectSettingsMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._menuSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -119,6 +120,7 @@
 			this._menuSeparator15 = new System.Windows.Forms.ToolStripSeparator();
 			this._showInNewTechTreeCheckButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._hideIfDisabledInNewTechTreeCheckButton = new System.Windows.Forms.ToolStripMenuItem();
+			this._menuSeparator17 = new System.Windows.Forms.ToolStripSeparator();
 			this._menuSeparator10 = new System.Windows.Forms.ToolStripSeparator();
 			this._editAttributesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._editElementPropertiesMenuButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -127,7 +129,7 @@
 			this._showUnitInRendererMenuButton = new System.Windows.Forms.ToolStripMenuItem();
 			this._openProjectDialog = new System.Windows.Forms.OpenFileDialog();
 			this._renderScreenshotDialog = new System.Windows.Forms.SaveFileDialog();
-			this._menuSeparator17 = new System.Windows.Forms.ToolStripSeparator();
+			this._openBalancingFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this._menuContainer.BottomToolStripPanel.SuspendLayout();
 			this._menuContainer.ContentPanel.SuspendLayout();
 			this._menuContainer.LeftToolStripPanel.SuspendLayout();
@@ -371,6 +373,7 @@
             this._saveProjectMenuButton,
             this._importDATMenuButton,
             this._exportDATMenuButton,
+            this._importBalancingFileMenuButton,
             this._renderScreenshotMenuButton,
             this._projectSettingsMenuButton,
             this._menuSeparator1,
@@ -410,6 +413,13 @@
 			this._exportDATMenuButton.Image = global::TechTreeEditor.Icons.ExportProject;
 			this._exportDATMenuButton.Name = "_exportDATMenuButton";
 			this._exportDATMenuButton.Click += new System.EventHandler(this._exportDATMenuButton_Click);
+			// 
+			// _importBalancingFileMenuButton
+			// 
+			resources.ApplyResources(this._importBalancingFileMenuButton, "_importBalancingFileMenuButton");
+			this._importBalancingFileMenuButton.Image = global::TechTreeEditor.Icons.ImportBalancingFile;
+			this._importBalancingFileMenuButton.Name = "_importBalancingFileMenuButton";
+			this._importBalancingFileMenuButton.Click += new System.EventHandler(this._importBalancingFileMenuButton_Click);
 			// 
 			// _renderScreenshotMenuButton
 			// 
@@ -857,6 +867,11 @@
 			resources.ApplyResources(this._hideIfDisabledInNewTechTreeCheckButton, "_hideIfDisabledInNewTechTreeCheckButton");
 			this._hideIfDisabledInNewTechTreeCheckButton.CheckedChanged += new System.EventHandler(this._hideIfDisabledInNewTechTreeCheckButton_CheckedChanged);
 			// 
+			// _menuSeparator17
+			// 
+			this._menuSeparator17.Name = "_menuSeparator17";
+			resources.ApplyResources(this._menuSeparator17, "_menuSeparator17");
+			// 
 			// _menuSeparator10
 			// 
 			this._menuSeparator10.Name = "_menuSeparator10";
@@ -903,10 +918,9 @@
 			// 
 			resources.ApplyResources(this._renderScreenshotDialog, "_renderScreenshotDialog");
 			// 
-			// _menuSeparator17
+			// _openBalancingFileDialog
 			// 
-			this._menuSeparator17.Name = "_menuSeparator17";
-			resources.ApplyResources(this._menuSeparator17, "_menuSeparator17");
+			resources.ApplyResources(this._openBalancingFileDialog, "_openBalancingFileDialog");
 			// 
 			// MainForm
 			// 
@@ -1046,6 +1060,8 @@
 		private System.Windows.Forms.ToolStripButton _elementLeftButton;
 		private System.Windows.Forms.ToolStripButton _elementRightButton;
 		private System.Windows.Forms.ToolStripSeparator _menuSeparator17;
+		private System.Windows.Forms.ToolStripMenuItem _importBalancingFileMenuButton;
+		private System.Windows.Forms.OpenFileDialog _openBalancingFileDialog;
 	}
 }
 

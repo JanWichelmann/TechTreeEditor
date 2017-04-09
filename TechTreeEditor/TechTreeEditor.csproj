@@ -230,6 +230,12 @@
     <Compile Include="ExportDATFile.Designer.cs">
       <DependentUpon>ExportDATFile.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImportBalancingFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportBalancingFile.Designer.cs">
+      <DependentUpon>ImportBalancingFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImportDATFile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -386,6 +392,12 @@
     <EmbeddedResource Include="ExportDATFile.resx">
       <DependentUpon>ExportDATFile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ImportBalancingFile.en-US.resx">
+      <DependentUpon>ImportBalancingFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportBalancingFile.resx">
+      <DependentUpon>ImportBalancingFile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ImportDATFile.en-US.resx">
       <DependentUpon>ImportDATFile.cs</DependentUpon>
     </EmbeddedResource>
@@ -523,6 +535,7 @@
     <Content Include="Icons\PasteTree.png" />
     <Content Include="Icons\ProjectileIcon.png" />
     <Content Include="Icons\ProjectSettings.png" />
+    <Content Include="Icons\ImportBalancingFile.png" />
     <Content Include="Icons\RenderScreenshot.png" />
     <Content Include="Icons\RenderStart.png" />
     <Content Include="Icons\RenderStop.png" />

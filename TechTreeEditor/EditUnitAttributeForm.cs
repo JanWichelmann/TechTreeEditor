@@ -336,7 +336,7 @@ namespace TechTreeEditor
 					DataGridViewRow currRow = new DataGridViewRow();
 					currRow.Cells.Add(new DataGridViewComboBoxCell()
 					{
-						Value = attval.Key,
+						Value = (short)attval.Key,
 						DataSource = armourClasses,
 						DisplayMember = "Value",
 						ValueMember = "Key"
@@ -354,7 +354,7 @@ namespace TechTreeEditor
 					DataGridViewRow currRow = new DataGridViewRow();
 					currRow.Cells.Add(new DataGridViewComboBoxCell()
 					{
-						Value = armval.Key,
+						Value = (short)armval.Key,
 						DataSource = armourClasses,
 						DisplayMember = "Value",
 						ValueMember = "Key"

@@ -637,7 +637,7 @@
     <value>None</value>
   </data>
   <data name="_newProjectMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
+    <value>248, 38</value>
   </data>
   <data name="_newProjectMenuButton.Text" xml:space="preserve">
     <value>Neues Projekt...</value>
@@ -673,7 +673,7 @@
 </value>
   </data>
   <data name="_openProjectMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
+    <value>248, 38</value>
   </data>
   <data name="_openProjectMenuButton.Text" xml:space="preserve">
     <value>Projekt öffnen...</value>
@@ -713,7 +713,7 @@
 </value>
   </data>
   <data name="_saveProjectMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
+    <value>248, 38</value>
   </data>
   <data name="_saveProjectMenuButton.Text" xml:space="preserve">
     <value>Projekt speichern</value>
@@ -722,7 +722,7 @@
     <value>Alle Änderungen in der aktuell geöffneten Projektdatei speichern.</value>
   </data>
   <data name="_importDATMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
+    <value>248, 38</value>
   </data>
   <data name="_importDATMenuButton.Text" xml:space="preserve">
     <value>DAT importieren...</value>
@@ -734,7 +734,7 @@
     <value>False</value>
   </data>
   <data name="_exportDATMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
+    <value>248, 38</value>
   </data>
   <data name="_exportDATMenuButton.Text" xml:space="preserve">
     <value>DAT exportieren...</value>
@@ -742,11 +742,20 @@
   <data name="_exportDATMenuButton.ToolTipText" xml:space="preserve">
     <value>Das Projekt zu einer neuen DAT-Datei exportieren.</value>
   </data>
+  <data name="_importBalancingFileMenuButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="_importBalancingFileMenuButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 38</value>
+  </data>
+  <data name="_importBalancingFileMenuButton.Text" xml:space="preserve">
+    <value>Balancing-Datei importieren...</value>
+  </data>
   <data name="_renderScreenshotMenuButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="_renderScreenshotMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
+    <value>248, 38</value>
   </data>
   <data name="_renderScreenshotMenuButton.Text" xml:space="preserve">
     <value>Screenshot exportieren...</value>
@@ -758,13 +767,13 @@
     <value>False</value>
   </data>
   <data name="_projectSettingsMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
+    <value>248, 38</value>
   </data>
   <data name="_projectSettingsMenuButton.Text" xml:space="preserve">
     <value>Projekteigenschaften...</value>
   </data>
   <data name="_menuSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 6</value>
+    <value>245, 6</value>
   </data>
   <data name="_exitMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -786,7 +795,7 @@
 </value>
   </data>
   <data name="_exitMenuButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 22</value>
+    <value>248, 38</value>
   </data>
   <data name="_exitMenuButton.Text" xml:space="preserve">
     <value>Beenden</value>
@@ -1757,7 +1766,7 @@
     <value>Im Einheiten-Renderer anzeigen</value>
   </data>
   <data name="_techTreeElementContextMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>275, 298</value>
+    <value>275, 276</value>
   </data>
   <data name="&gt;&gt;_techTreeElementContextMenu.Name" xml:space="preserve">
     <value>_techTreeElementContextMenu</value>
@@ -1783,11 +1792,20 @@
   <data name="_renderScreenshotDialog.Title" xml:space="preserve">
     <value>Screenshot speichern...</value>
   </data>
+  <metadata name="_openBalancingFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <data name="_openBalancingFileDialog.Filter" xml:space="preserve">
+    <value>Balancing-Dateien (*.balancing)|*.balancing</value>
+  </data>
+  <data name="_openBalancingFileDialog.Title" xml:space="preserve">
+    <value>Balancing-Datei öffnen...</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>54</value>
+    <value>73</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
@@ -2329,6 +2347,12 @@
   <data name="&gt;&gt;_exportDATMenuButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;_importBalancingFileMenuButton.Name" xml:space="preserve">
+    <value>_importBalancingFileMenuButton</value>
+  </data>
+  <data name="&gt;&gt;_importBalancingFileMenuButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;_renderScreenshotMenuButton.Name" xml:space="preserve">
     <value>_renderScreenshotMenuButton</value>
   </data>
@@ -2653,6 +2677,12 @@
   <data name="&gt;&gt;_hideIfDisabledInNewTechTreeCheckButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;_menuSeparator17.Name" xml:space="preserve">
+    <value>_menuSeparator17</value>
+  </data>
+  <data name="&gt;&gt;_menuSeparator17.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;_menuSeparator10.Name" xml:space="preserve">
     <value>_menuSeparator10</value>
   </data>
@@ -2701,11 +2731,11 @@
   <data name="&gt;&gt;_renderScreenshotDialog.Type" xml:space="preserve">
     <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_menuSeparator17.Name" xml:space="preserve">
-    <value>_menuSeparator17</value>
+  <data name="&gt;&gt;_openBalancingFileDialog.Name" xml:space="preserve">
+    <value>_openBalancingFileDialog</value>
   </data>
-  <data name="&gt;&gt;_menuSeparator17.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;_openBalancingFileDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

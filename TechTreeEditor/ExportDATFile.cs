@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechTreeEditor.TechTreeStructure;
@@ -1089,6 +1091,68 @@ namespace TechTreeEditor
 				RAMBuffer tmpBuffer = new RAMBuffer();
 				exportDAT.WriteData(tmpBuffer);
 				GenieLibrary.GenieFile.CompressData(tmpBuffer).Save(_outputDATTextBox.Text);
+
+				// Ggf. ID-Zuordnung exportieren
+				if(_exportIdMappingCheckBox.Checked)
+				{
+					// Berechne Hash über String aller Einheiten-IDs und -Namen, sodass jede Einheit einmal vorkommt, sowie aller Technologie-IDs
+					byte[] hash;
+					using(MemoryStream hashString = new MemoryStream())
+					{
+						// Alle Einheiten-IDs und -Namen in Stream schreiben
+						HashSet<int> unitIds = new HashSet<int>(unitIDMap.Values);
+						foreach(GenieLibrary.DataElements.Civ c in exportDAT.Civs)
+						{
+							// Alle noch in der Einheitenliste enthaltenen Einheiten suchen
+							foreach(var u in c.Units)
+								if(unitIds.Contains(u.Key))
+								{
+									// Namen und ID anhängen
+									byte[] uName = Encoding.ASCII.GetBytes(u.Value.Name1.TrimEnd('\0'));
+									hashString.Write(uName, 0, uName.Length);
+									hashString.Write(BitConverter.GetBytes((short)u.Key), 0, 2);
+
+									// Einheit ist geschrieben
+									unitIds.Remove(u.Key);
+								}
+
+							// Fertig?
+							if(unitIds.Count == 0)
+								break;
+						}
+
+						// Alle Tech-IDs und -Namen in Stream schreiben
+						for(short r = 0; r < exportDAT.Researches.Count; ++r)
+						{
+							// Namen und ID anhängen
+							byte[] rName = Encoding.ASCII.GetBytes(exportDAT.Researches[r].Name.TrimEnd('\0'));
+							hashString.Write(rName, 0, rName.Length);
+							hashString.Write(BitConverter.GetBytes(r), 0, 2);
+						}
+
+						// Hash berechnen
+						hashString.Seek(0, SeekOrigin.Begin);
+						using(MD5 md5 = MD5.Create())
+							hash = md5.ComputeHash(hashString);
+					}
+
+					// Puffer erstellen und ID-Zuordnung schreiben
+					RAMBuffer mappingBuffer = new RAMBuffer();
+					mappingBuffer.Write(hash); // 128 Bit = 16 Bytes
+					mappingBuffer.WriteInteger(unitIDMap.Count);
+					foreach(var m in unitIDMap)
+					{
+						mappingBuffer.WriteShort((short)m.Value);
+						mappingBuffer.WriteShort((short)m.Key.ID);
+					}
+					mappingBuffer.WriteInteger(researchIDMap.Count);
+					foreach(var m in researchIDMap)
+					{
+						mappingBuffer.WriteShort((short)m.Value);
+						mappingBuffer.WriteShort((short)m.Key.ID);
+					}
+					mappingBuffer.Save(_outputDATTextBox.Text + ".mapping");
+				}
 
 				// Ggf. ID-Zuordnung im Projekt neu erstellen
 				if(_updateProjectIDsCheckBox.Checked)

@@ -100,13 +100,13 @@
     <Compile Include="ShipFile.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\GenieLibrary\GenieLibrary\GenieLibrary.csproj">
-      <Project>{999f8815-8f80-403a-95a6-48ade9b5b52a}</Project>
-      <Name>GenieLibrary</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DRSLibrary\DRSLibrary\DRSLibrary.csproj">
       <Project>{4c0ec97d-e156-4aef-9bbb-2dcdacc34512}</Project>
       <Name>DRSLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenieLibrary\GenieLibrary\GenieLibrary.csproj">
+      <Project>{999f8815-8f80-403a-95a6-48ade9b5b52a}</Project>
+      <Name>GenieLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\IORAMHelper\IORAMHelper\IORAMHelper.csproj">
       <Project>{e916caa5-59a9-4f62-a8fb-0ceec2d840b8}</Project>
@@ -137,7 +137,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(ProjectDir)bin\$(Configuration)\X2AddOnPlugin.dll" "$(SolutionDir)TechTreeEditor\bin\$(Configuration)\plugins"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

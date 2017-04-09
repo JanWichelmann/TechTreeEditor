@@ -7,6 +7,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 using TechTreeEditor.TechTreeStructure;
+using GenieLibrary;
 
 namespace TechTreeEditor
 {
@@ -366,6 +367,7 @@ namespace TechTreeEditor
 			_saveProjectButton.Enabled = true;
 			_exportDATMenuButton.Enabled = true;
 			_exportDATButton.Enabled = true;
+			_importBalancingFileMenuButton.Enabled = true;
 			_civSelectComboBox.Enabled = true;
 			_editGraphicsButton.Enabled = true;
 			_editCivBoniButton.Enabled = true;
@@ -2084,7 +2086,7 @@ namespace TechTreeEditor
 			}
 			else
 				MessageBox.Show("The program has to be restarted to apply the language changes.", "Change language", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			}
+		}
 
 		private void _languageEnglishMenuButton_CheckedChanged(object sender, EventArgs e)
 		{
@@ -2122,6 +2124,38 @@ namespace TechTreeEditor
 
 			// Fertig
 			_updatingControls = false;
+		}
+
+		private void _importBalancingFileMenuButton_Click(object sender, EventArgs e)
+		{
+			// Dialog zeigen
+			if(_openBalancingFileDialog.ShowDialog()== DialogResult.OK)
+			{
+				// Identitätsmapping erstellen
+				MappingFile idMapping = new MappingFile();
+				_projectFile.Where(elem => elem is TechTreeResearch).ForEach(elem => idMapping.ResearchMapping.Add((short)((TechTreeResearch)elem).ID, (short)((TechTreeResearch)elem).ID));
+				_projectFile.Where(elem => elem is TechTreeUnit).ForEach(elem => idMapping.UnitMapping.Add((short)((TechTreeUnit)elem).ID, (short)((TechTreeUnit)elem).ID));
+
+				// Fehler fangen
+				try
+				{
+					// Balancing-Datei laden
+					BalancingFile balancingFile = new BalancingFile(_projectFile.BasicGenieFile, _openBalancingFileDialog.FileName, _projectFile.LanguageFilePaths.ToArray(), idMapping);
+
+					// Import-Dialog zeigen
+					new ImportBalancingFile(_projectFile, balancingFile).ShowDialog();
+				}
+				catch(IOException ex)
+				{
+					// Fehler
+					MessageBox.Show($"Error loading balancing file: {ex.Message}");
+				}
+				catch(KeyNotFoundException)
+				{
+					// Fehler
+					MessageBox.Show($"Error loading balancing file: The balancing file changes dynamically generated items. Remove these changes first.");
+				}
+			}
 		}
 
 		#endregion Ereignishandler

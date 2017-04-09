@@ -30,7 +30,6 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExportDATFile));
 			this.label1 = new System.Windows.Forms.Label();
-			this._baseDATTextBox = new System.Windows.Forms.TextBox();
 			this._baseDATButton = new System.Windows.Forms.Button();
 			this._openDATDialog = new System.Windows.Forms.OpenFileDialog();
 			this._finishButton = new System.Windows.Forms.Button();
@@ -38,20 +37,17 @@
 			this._finishProgressBar = new System.Windows.Forms.ProgressBar();
 			this._saveDATDialog = new System.Windows.Forms.SaveFileDialog();
 			this._outputDATButton = new System.Windows.Forms.Button();
-			this._outputDATTextBox = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this._updateProjectIDsCheckBox = new System.Windows.Forms.CheckBox();
+			this._exportIdMappingCheckBox = new System.Windows.Forms.CheckBox();
+			this._outputDATTextBox = new System.Windows.Forms.TextBox();
+			this._baseDATTextBox = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// label1
 			// 
 			resources.ApplyResources(this.label1, "label1");
 			this.label1.Name = "label1";
-			// 
-			// _baseDATTextBox
-			// 
-			resources.ApplyResources(this._baseDATTextBox, "_baseDATTextBox");
-			this._baseDATTextBox.Name = "_baseDATTextBox";
 			// 
 			// _baseDATButton
 			// 
@@ -95,11 +91,6 @@
 			this._outputDATButton.UseVisualStyleBackColor = true;
 			this._outputDATButton.Click += new System.EventHandler(this._outputDATButton_Click);
 			// 
-			// _outputDATTextBox
-			// 
-			resources.ApplyResources(this._outputDATTextBox, "_outputDATTextBox");
-			this._outputDATTextBox.Name = "_outputDATTextBox";
-			// 
 			// label2
 			// 
 			resources.ApplyResources(this.label2, "label2");
@@ -111,10 +102,33 @@
 			this._updateProjectIDsCheckBox.Name = "_updateProjectIDsCheckBox";
 			this._updateProjectIDsCheckBox.UseVisualStyleBackColor = true;
 			// 
+			// _exportIdMappingCheckBox
+			// 
+			resources.ApplyResources(this._exportIdMappingCheckBox, "_exportIdMappingCheckBox");
+			this._exportIdMappingCheckBox.Checked = global::TechTreeEditor.Properties.Settings.Default.ExportDATFileExportIDMapping;
+			this._exportIdMappingCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::TechTreeEditor.Properties.Settings.Default, "ExportDATFileExportIDMapping", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this._exportIdMappingCheckBox.Name = "_exportIdMappingCheckBox";
+			this._exportIdMappingCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// _outputDATTextBox
+			// 
+			this._outputDATTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::TechTreeEditor.Properties.Settings.Default, "ExportDATFileOutputDATPath", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			resources.ApplyResources(this._outputDATTextBox, "_outputDATTextBox");
+			this._outputDATTextBox.Name = "_outputDATTextBox";
+			this._outputDATTextBox.Text = global::TechTreeEditor.Properties.Settings.Default.ExportDATFileOutputDATPath;
+			// 
+			// _baseDATTextBox
+			// 
+			this._baseDATTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::TechTreeEditor.Properties.Settings.Default, "ExportDATFileBaseDATPath", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			resources.ApplyResources(this._baseDATTextBox, "_baseDATTextBox");
+			this._baseDATTextBox.Name = "_baseDATTextBox";
+			this._baseDATTextBox.Text = global::TechTreeEditor.Properties.Settings.Default.ExportDATFileBaseDATPath;
+			// 
 			// ExportDATFile
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this._exportIdMappingCheckBox);
 			this.Controls.Add(this._updateProjectIDsCheckBox);
 			this.Controls.Add(this._outputDATButton);
 			this.Controls.Add(this._outputDATTextBox);
@@ -147,5 +161,6 @@
 		private System.Windows.Forms.TextBox _outputDATTextBox;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.CheckBox _updateProjectIDsCheckBox;
+		private System.Windows.Forms.CheckBox _exportIdMappingCheckBox;
 	}
 }
