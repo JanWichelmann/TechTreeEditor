@@ -42,6 +42,7 @@
 			this._exportIdMappingCheckBox = new System.Windows.Forms.CheckBox();
 			this._outputDATTextBox = new System.Windows.Forms.TextBox();
 			this._baseDATTextBox = new System.Windows.Forms.TextBox();
+			this._finishProgressLabel = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -78,7 +79,8 @@
 			// 
 			resources.ApplyResources(this._finishProgressBar, "_finishProgressBar");
 			this._finishProgressBar.Name = "_finishProgressBar";
-			this._finishProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+			this._finishProgressBar.Step = 1;
+			this._finishProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
 			// 
 			// _saveDATDialog
 			// 
@@ -124,10 +126,17 @@
 			this._baseDATTextBox.Name = "_baseDATTextBox";
 			this._baseDATTextBox.Text = global::TechTreeEditor.Properties.Settings.Default.ExportDATFileBaseDATPath;
 			// 
+			// _finishProgressLabel
+			// 
+			this._finishProgressLabel.AutoEllipsis = true;
+			resources.ApplyResources(this._finishProgressLabel, "_finishProgressLabel");
+			this._finishProgressLabel.Name = "_finishProgressLabel";
+			// 
 			// ExportDATFile
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this._finishProgressLabel);
 			this.Controls.Add(this._exportIdMappingCheckBox);
 			this.Controls.Add(this._updateProjectIDsCheckBox);
 			this.Controls.Add(this._outputDATButton);
@@ -162,5 +171,6 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.CheckBox _updateProjectIDsCheckBox;
 		private System.Windows.Forms.CheckBox _exportIdMappingCheckBox;
+		private System.Windows.Forms.Label _finishProgressLabel;
 	}
 }

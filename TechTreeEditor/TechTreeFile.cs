@@ -925,6 +925,17 @@ namespace TechTreeEditor
 		}
 
 		/// <summary>
+		/// Gibt das oberste Elternelement des gegebenen Elements zurück.
+		/// </summary>
+		/// <param name="element">Das Element, dessen Elternelement gesucht werden soll.</param>
+		/// <returns></returns>
+		public TechTreeElement GetElementParent(TechTreeElement element)
+		{
+			// Elternelement suchen
+			return TechTreeParentElements.FirstOrDefault(e => e.HasChild(element));
+		}
+
+		/// <summary>
 		/// Ändert die Anzahl der benutzten Zeitalter. Bei Erfolg wird true zurückgegeben; falls noch Elemente in den ggf. zu löschenden Zeitaltern existieren, ist der Rückgabewert false.
 		/// </summary>
 		/// <param name="newAgeCount">Die neue Zeitalter-Anzahl.</param>

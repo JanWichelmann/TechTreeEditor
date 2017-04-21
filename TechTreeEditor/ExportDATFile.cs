@@ -1,6 +1,7 @@
 ﻿using IORAMHelper;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -57,6 +58,23 @@ namespace TechTreeEditor
 		{
 			// Parameter merken
 			_projectFile = projectFile;
+		}
+
+		/// <summary>
+		/// Aktualisiert die Fortschrittsanzeige.
+		/// </summary>
+		/// <param name="step">Der aktuelle Schritt.</param>
+		private void UpdateExportStep(ExportSteps step)
+		{
+			// In Form-Thread Aktualisierung auslösen
+			Invoke(new Action(() =>
+			{
+				// Fortschrittsbalken setzen
+				_finishProgressBar.Value = ExportStepsTexts[step].Item1;
+
+				// Beschreibung zeigen
+				_finishProgressLabel.Text = ExportStepsTexts[step].Item2;
+			}));
 		}
 
 		#endregion Funktionen
@@ -120,12 +138,15 @@ namespace TechTreeEditor
 
 			// Ladebalken anzeigen
 			_finishProgressBar.Visible = true;
+			_finishProgressBar.Maximum = ExportStepsTexts.Max(est => est.Value.Item1);
+			_finishProgressLabel.Visible = true;
 			this.Cursor = Cursors.WaitCursor;
 
 			// Fertigstellungs-Funktion in separatem Thread ausführen, um Formular nicht zu blockieren
-			Task.Factory.StartNew(() =>
+			Task.Run(() =>
 			{
 				// Basis-DAT laden
+				UpdateExportStep(ExportSteps.Initialize);
 				GenieLibrary.GenieFile exportDAT = new GenieLibrary.GenieFile(GenieLibrary.GenieFile.DecompressData(new RAMBuffer(_baseDATTextBox.Text)));
 
 				// Neue Grafikdaten zuweisen
@@ -163,6 +184,7 @@ namespace TechTreeEditor
 				List<TechTreeUnit> units = _projectFile.Where(el => el is TechTreeUnit).Cast<TechTreeUnit>().ToList();
 
 				// ID-geschützte Einheiten haben Vorrang, diesen zuerst IDs zuweisen
+				UpdateExportStep(ExportSteps.CalculateUnitMapping);
 				for(int i = units.Count - 1; i >= 0; --i)
 				{
 					// Geschützt?
@@ -223,6 +245,7 @@ namespace TechTreeEditor
 				}
 
 				// Dunkle Zeit in Technologie-Liste einfügen, hat höchste Priorität
+				UpdateExportStep(ExportSteps.CalculateResearchMapping);
 				TechTreeResearch darkAgeResearch = new TechTreeResearch()
 				{
 					DATResearch = _projectFile.BasicGenieFile.Researches[100 + _projectFile.AgeCount],
@@ -271,6 +294,7 @@ namespace TechTreeEditor
 				}
 
 				// Technologie-Daten erstellen
+				UpdateExportStep(ExportSteps.BuildTechEffects);
 				SortedDictionary<int, GenieLibrary.DataElements.Research> datResearches = new SortedDictionary<int, GenieLibrary.DataElements.Research>();
 				foreach(var res in researchIDMap)
 				{
@@ -306,6 +330,7 @@ namespace TechTreeEditor
 				}
 
 				// Einheitenheader und -daten erstellen
+				UpdateExportStep(ExportSteps.BuildUnitData);
 				SortedDictionary<int, UnitIDContainer> unitData = new SortedDictionary<int, UnitIDContainer>();
 				foreach(var unit in unitIDMap)
 				{
@@ -433,11 +458,11 @@ namespace TechTreeEditor
 				}
 
 				// Age-Upgrades durchlaufen und Upgrade-Effekte einrichten
+				UpdateExportStep(ExportSteps.ApplyAgeUpgrades);
 				foreach(var unit in unitIDMap)
 				{
 					// Gebäude?
-					TechTreeBuilding currB = unit.Key as TechTreeBuilding;
-					if(currB != null)
+					if(unit.Key is TechTreeBuilding currB)
 					{
 						// Upgrades erstellen
 						foreach(var currAU in currB.AgeUpgrades)
@@ -463,6 +488,7 @@ namespace TechTreeEditor
 				}
 
 				// Einheiten durchlaufen und Kind-Elementen Orte und Buttons zuweisen
+				UpdateExportStep(ExportSteps.AssignChildButtons);
 				Dictionary<int, int> upgradeConstraints = new Dictionary<int, int>(); // Die einzelnen Upgrade-Verbindungen, Format: B <- A
 				foreach(var unit in _projectFile.Where(u => u is IChildrenContainer && u is TechTreeUnit))
 				{
@@ -529,6 +555,7 @@ namespace TechTreeEditor
 				}
 
 				// Button-IDs etc. ggf. von Elternelementen abwärts vererben
+				UpdateExportStep(ExportSteps.AssignInheritedChildButtons);
 				foreach(var unit in _projectFile.TechTreeParentElements.Where(u => u is IUpgradeable && u is TechTreeUnit))
 				{
 					// Einheitendaten abrufen
@@ -569,6 +596,7 @@ namespace TechTreeEditor
 				}
 
 				// Weiterentwicklungen für alle Einheiten erstellen
+				UpdateExportStep(ExportSteps.BuildUnitUpgrades);
 				List<TechTreeUnit> nonSuccessorUnits = unitIDMap.Keys.ToList();
 				int lastSuccUnitUpgradeResearchId = 0;
 				foreach(var unit in _projectFile.Where(u => u is IUpgradeable && u is TechTreeUnit))
@@ -652,6 +680,7 @@ namespace TechTreeEditor
 				}
 
 				// Alle Elemente mit leerer Button-ID von ihrer Elterneinheit lösen
+				UpdateExportStep(ExportSteps.FreeButtonlessChildren);
 				foreach(var unitD in unitData)
 					if(unitD.Value.ButtonID == 0)
 						unitD.Value.TrainParentID = -1;
@@ -660,6 +689,7 @@ namespace TechTreeEditor
 						res.Value.ResearchLocation = -1;
 
 				// Alle Gebäude suchen, von denen Elemente abhängen, und entsprechende Technologien definieren
+				UpdateExportStep(ExportSteps.BuildBuildingDependencies);
 				Dictionary<TechTreeBuilding, int> buildingDependencyResearchIDs = new Dictionary<TechTreeBuilding, int>();
 				foreach(var building in _projectFile.Where(b => b.GetType() == typeof(TechTreeBuilding) && _projectFile.Where(el => el.BuildingDependencies.ContainsKey((TechTreeBuilding)b)).Count > 0))
 				{
@@ -700,6 +730,7 @@ namespace TechTreeEditor
 				}
 
 				// Technologie-Abhängigkeiten erstellen
+				UpdateExportStep(ExportSteps.BuildResearchDependencies);
 				foreach(var res in researchIDMap)
 				{
 					// Abhängigkeiten erstellen
@@ -707,6 +738,7 @@ namespace TechTreeEditor
 				}
 
 				// Einheiten-Abhängigkeiten erstellen
+				UpdateExportStep(ExportSteps.BuildUnitDependencies);
 				foreach(TechTreeUnit unit in nonSuccessorUnits)
 				{
 					// Abhängigkeiten erstellen (nur für Einheiten, die allen Kulturen zur Verfügung stehen)
@@ -723,6 +755,7 @@ namespace TechTreeEditor
 				}
 
 				// Leere Technologie für nicht vergebene DAT-IDs erstellen
+				UpdateExportStep(ExportSteps.FillEmptyResearchSlots);
 				GenieLibrary.DataElements.Research emptyResearch = new GenieLibrary.DataElements.Research()
 				{
 					Name = "Empty\0",
@@ -751,6 +784,7 @@ namespace TechTreeEditor
 				}
 
 				// Leere Technologie-Effekt-Daten für nicht vergebene Techage-IDs erstellen
+				UpdateExportStep(ExportSteps.FillEmptyTechEffectSlots);
 				GenieLibrary.DataElements.Techage emptyTechage = new GenieLibrary.DataElements.Techage()
 				{
 					Name = "Empty\0",
@@ -769,6 +803,7 @@ namespace TechTreeEditor
 				}
 
 				// Einheitenheader in neue DAT kopieren
+				UpdateExportStep(ExportSteps.CopyUnitHeaders);
 				GenieLibrary.DataElements.UnitHeader emptyUnitHeader = new GenieLibrary.DataElements.UnitHeader()
 				{
 					Exists = 0,
@@ -785,6 +820,7 @@ namespace TechTreeEditor
 				}
 
 				// Zivilisationsdaten erstellen
+				UpdateExportStep(ExportSteps.BuildCivilizationData);
 				for(int c = 0; c < _projectFile.CivTrees.Count; ++c)
 				{
 					// Kultur-Konfiguration abrufen
@@ -958,6 +994,7 @@ namespace TechTreeEditor
 				}
 
 				// Ggf. neuen TechTree generieren
+				UpdateExportStep(ExportSteps.GenerateNewTechTree);
 				exportDAT.NewTechTree = _projectFile.ExportNewTechTree;
 				if(_projectFile.ExportNewTechTree)
 				{
@@ -1088,11 +1125,20 @@ namespace TechTreeEditor
 				}
 
 				// Neue DAT speichern
+				UpdateExportStep(ExportSteps.SaveGeneratedDatFile);
 				RAMBuffer tmpBuffer = new RAMBuffer();
 				exportDAT.WriteData(tmpBuffer);
-				GenieLibrary.GenieFile.CompressData(tmpBuffer).Save(_outputDATTextBox.Text);
+				try
+				{
+					GenieLibrary.GenieFile.CompressData(tmpBuffer).Save(_outputDATTextBox.Text);
+				}
+				catch(IOException ex)
+				{
+					MessageBox.Show(TechTreeEditor.Strings.ExportDATFile_Message_ErrorSaving + ex.Message, Strings.ExportDATFile_Message_ErrorSaving_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 
 				// Ggf. ID-Zuordnung exportieren
+				UpdateExportStep(ExportSteps.ExportIdMapping);
 				if(_exportIdMappingCheckBox.Checked)
 				{
 					// Berechne Hash über String aller Einheiten-IDs und -Namen, sodass jede Einheit einmal vorkommt, sowie aller Technologie-IDs
@@ -1155,6 +1201,7 @@ namespace TechTreeEditor
 				}
 
 				// Ggf. ID-Zuordnung im Projekt neu erstellen
+				UpdateExportStep(ExportSteps.RebuildProjectIdMapping);
 				if(_updateProjectIDsCheckBox.Checked)
 				{
 					// Die exportierte DAT ist Grundlage
@@ -1786,6 +1833,7 @@ namespace TechTreeEditor
 				// Nach Typ unterscheiden
 				GenieLibrary.DataElements.Techage.TechageEffect newEff = new GenieLibrary.DataElements.Techage.TechageEffect();
 				newEff.Type = (byte)eff.Type;
+				int filterMode = 0; // Gibt an, ob ein Element-Filter angewandt werden soll; 1 = Einheiten, 2 = Technologien
 				switch(eff.Type)
 				{
 					case TechEffect.EffectType.AttributeSet:
@@ -1793,8 +1841,8 @@ namespace TechTreeEditor
 					case TechEffect.EffectType.AttributeMult:
 						if(eff.Element != null)
 							newEff.A = (short)unitIDMap[(TechTreeUnit)eff.Element];
-						else
-							newEff.A = -1;
+						else if(eff.ClassID < 0)
+							filterMode = 1;
 						newEff.B = eff.ClassID;
 						newEff.C = eff.ParameterID;
 						newEff.D = eff.Value;
@@ -1810,7 +1858,7 @@ namespace TechTreeEditor
 						if(eff.Element != null)
 							newEff.A = (short)unitIDMap[(TechTreeUnit)eff.Element];
 						else
-							newEff.A = -1;
+							filterMode = 1;
 						newEff.B = (short)eff.Mode;
 						break;
 
@@ -1834,32 +1882,105 @@ namespace TechTreeEditor
 						if(eff.Element != null)
 							newEff.A = (short)researchIDMap[(TechTreeResearch)eff.Element];
 						else
-							newEff.A = -1;
+							filterMode = 2;
 						newEff.B = eff.ParameterID;
 						newEff.C = (short)eff.Mode;
 						newEff.D = eff.Value;
+						break;
+
+					case TechEffect.EffectType.ResearchCostMult:
+						if(eff.Element == null)
+							filterMode = 2;
+						else
+							newEff = CreateMultTechCostEffect((TechTreeResearch)eff.Element, eff);
 						break;
 
 					case TechEffect.EffectType.ResearchDisable:
 						if(eff.Element != null)
 							newEff.D = (float)researchIDMap[(TechTreeResearch)eff.Element];
 						else
-							newEff.D = -1.0f;
+							filterMode = 2;
 						break;
 
 					case TechEffect.EffectType.ResearchTimeSetPM:
 						if(eff.Element != null)
 							newEff.A = (short)researchIDMap[(TechTreeResearch)eff.Element];
 						else
-							newEff.A = -1;
+							filterMode = 2;
 						newEff.C = (short)eff.Mode;
 						newEff.D = eff.Value;
 						break;
+
+					case TechEffect.EffectType.ResearchTimeMult:
+						if(eff.Element == null)
+							filterMode = 2;
+						else
+							newEff = CreateMultTechTimeEffect((TechTreeResearch)eff.Element, eff);
+						break;
 				}
 
-				// Fertig, Effekt hinzufügen
-				techage.Effects.Add(newEff);
+				// Filtern?
+				if(filterMode == 1)
+				{
+					// Nach Einheiten filtern und Effekt für jede Einheit kopieren
+					TechEffect.ExpressionEvaluator eval = new TechEffect.ExpressionEvaluator(eff.ElementExpression);
+					_projectFile.Where(el => el is TechTreeUnit && eval.CheckElement(el, _projectFile)).ForEach(u =>
+						techage.Effects.Add(new GenieLibrary.DataElements.Techage.TechageEffect()
+						{
+							A = (short)unitIDMap[(TechTreeUnit)u],
+							B = newEff.B,
+							C = newEff.C,
+							D = newEff.D,
+							Type = newEff.Type
+						}));
+				}
+				else if(filterMode == 2)
+				{
+					// Nach Technologien filtern und Effekt für jede Technologie kopieren
+					TechEffect.ExpressionEvaluator eval = new TechEffect.ExpressionEvaluator(eff.ElementExpression);
+					_projectFile.Where(el => el is TechTreeResearch && eval.CheckElement(el, _projectFile)).ForEach(r =>
+					{
+						// Nach Effekt-Typen unterscheiden
+						if(eff.Type == TechEffect.EffectType.ResearchCostMult)
+							techage.Effects.Add(CreateMultTechCostEffect((TechTreeResearch)r, eff));
+						else if(eff.Type == TechEffect.EffectType.ResearchTimeMult)
+							techage.Effects.Add(CreateMultTechTimeEffect((TechTreeResearch)r, eff));
+						else
+							techage.Effects.Add(new GenieLibrary.DataElements.Techage.TechageEffect()
+							{
+								A = (eff.Type != TechEffect.EffectType.ResearchDisable ? (short)researchIDMap[(TechTreeResearch)r] : newEff.A),
+								B = newEff.B,
+								C = newEff.C,
+								D = (eff.Type == TechEffect.EffectType.ResearchDisable ? (float)researchIDMap[(TechTreeResearch)r] : newEff.D),
+								Type = newEff.Type
+							});
+
+					});
+				}
+				else
+					techage.Effects.Add(newEff);
 			}
+
+			// Hilfsfunktion zum Erstellen eines Technologie-Effektes, der eine multiplikative Änderung von Technologie-Kosten bewirkt.
+			GenieLibrary.DataElements.Techage.TechageEffect CreateMultTechCostEffect(TechTreeResearch research, TechEffect effect)
+			=> new GenieLibrary.DataElements.Techage.TechageEffect()
+			{
+				Type = (byte)TechEffect.EffectType.ResearchCostSetPM,
+				A = (short)researchIDMap[research],
+				B = effect.ParameterID,
+				C = (short)TechEffect.EffectMode.PM_Enable,
+				D = (effect.Value - 1) * research.DATResearch.ResourceCosts.Cast<GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>?>().FirstOrDefault(rc => rc?.Type == effect.ParameterID)?.Amount ?? 0
+			};
+
+			// Hilfsfunktion zum Erstellen eines Technologie-Effektes, der eine multiplikative Änderung der Technologie-Entwicklungszeit bewirkt.
+			GenieLibrary.DataElements.Techage.TechageEffect CreateMultTechTimeEffect(TechTreeResearch research, TechEffect effect)
+			=> new GenieLibrary.DataElements.Techage.TechageEffect()
+			{
+				Type = (byte)TechEffect.EffectType.ResearchTimeSetPM,
+				A = (short)researchIDMap[research],
+				C = (short)TechEffect.EffectMode.PM_Enable,
+				D = (effect.Value - 1) * research.DATResearch.ResearchTime
+			};
 		}
 
 		/// <summary>
@@ -1983,5 +2104,66 @@ namespace TechTreeEditor
 		}
 
 		#endregion Strukturen
+
+		#region Hilfselemente für die Fortschrittsanzeige
+
+		/// <summary>
+		/// The export step descriptions and status bar offsets.
+		/// </summary>
+		private readonly ReadOnlyDictionary<ExportSteps, Tuple<int, string>> ExportStepsTexts = new ReadOnlyDictionary<ExportSteps, Tuple<int, string>>(
+			 new Dictionary<ExportSteps, Tuple<int, string>>
+			 {
+				{ ExportSteps.Initialize, new Tuple<int, string>(0, "Initializing") },
+				{ ExportSteps.CalculateUnitMapping, new Tuple<int, string>(1, "Calculating unit mapping") },
+				{ ExportSteps.CalculateResearchMapping, new Tuple<int, string>(2, "Calculating research mapping") },
+				{ ExportSteps.BuildTechEffects, new Tuple<int, string>(3, "Building tech effects") },
+				{ ExportSteps.BuildUnitData, new Tuple<int, string>(4, "Building unit data") },
+				{ ExportSteps.ApplyAgeUpgrades, new Tuple<int, string>(5, "Applying age upgrades") },
+				{ ExportSteps.AssignChildButtons, new Tuple<int, string>(6, "Assigning child buttons") },
+				{ ExportSteps.AssignInheritedChildButtons, new Tuple<int, string>(7, "Assigning inherited child buttons") },
+				{ ExportSteps.BuildUnitUpgrades, new Tuple<int, string>(8, "Building unit upgrades") },
+				{ ExportSteps.FreeButtonlessChildren, new Tuple<int, string>(9, "Freeing button-less children") },
+				{ ExportSteps.BuildBuildingDependencies, new Tuple<int, string>(10, "Building building dependencies") },
+				{ ExportSteps.BuildResearchDependencies, new Tuple<int, string>(11, "Building research dependencies") },
+				{ ExportSteps.BuildUnitDependencies, new Tuple<int, string>(12, "Building unit dependencies") },
+				{ ExportSteps.FillEmptyResearchSlots, new Tuple<int, string>(13, "Filling empty research slots") },
+				{ ExportSteps.FillEmptyTechEffectSlots, new Tuple<int, string>(14, "Filling empty tech effect slots") },
+				{ ExportSteps.CopyUnitHeaders, new Tuple<int, string>(15, "Copying unit headers") },
+				{ ExportSteps.BuildCivilizationData, new Tuple<int, string>(16, "Building civilization data") },
+				{ ExportSteps.GenerateNewTechTree, new Tuple<int, string>(17, "Generating new tech tree") },
+				{ ExportSteps.SaveGeneratedDatFile, new Tuple<int, string>(18, "Saving generated DAT file") },
+				{ ExportSteps.ExportIdMapping, new Tuple<int, string>(19, "Exporting ID mapping") },
+				{ ExportSteps.RebuildProjectIdMapping, new Tuple<int, string>(20, "RebuildingProjectIdMapping") },
+			 });
+
+		/// <summary>
+		/// Die einzelnen Schritte beim Exportieren.
+		/// </summary>
+		private enum ExportSteps
+		{
+			Initialize,
+			CalculateUnitMapping,
+			CalculateResearchMapping,
+			BuildTechEffects,
+			BuildUnitData,
+			ApplyAgeUpgrades,
+			AssignChildButtons,
+			AssignInheritedChildButtons,
+			BuildUnitUpgrades,
+			FreeButtonlessChildren,
+			BuildBuildingDependencies,
+			BuildResearchDependencies,
+			BuildUnitDependencies,
+			FillEmptyResearchSlots,
+			FillEmptyTechEffectSlots,
+			CopyUnitHeaders,
+			BuildCivilizationData,
+			GenerateNewTechTree,
+			SaveGeneratedDatFile,
+			ExportIdMapping,
+			RebuildProjectIdMapping
+		}
+
+		#endregion
 	}
 }

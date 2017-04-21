@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -23,6 +25,11 @@ namespace TechTreeEditor.TechTreeStructure
 		public TechTreeElement Element { get; set; }
 
 		/// <summary>
+		/// Filterausdruck für die Grundelemente des Effekts. Nur benutzt, wenn das Grundelement nicht definiert und keine Klasse gesetzt ist.
+		/// </summary>
+		public string ElementExpression { get; set; } = "";
+
+		/// <summary>
 		/// Das Zielelement eines Upgrade-Effekts.
 		/// </summary>
 		public TechTreeElement DestinationElement { get; set; }
@@ -35,7 +42,7 @@ namespace TechTreeEditor.TechTreeStructure
 		/// <summary>
 		/// Die ID der betroffenen Einheiten-Klasse.
 		/// </summary>
-		public short ClassID { get; set; }
+		public short ClassID { get; set; } = -1;
 
 		/// <summary>
 		/// Der zu ändernde Parameter.
@@ -105,6 +112,7 @@ namespace TechTreeEditor.TechTreeStructure
 				// Grundelement schreiben
 				if(Element != null)
 					writer.WriteElementNumber("elem", elementIDs[Element]);
+				writer.WriteElementString("elemfilter", ElementExpression);
 
 				// Zielelement schreiben
 				if(DestinationElement != null)
@@ -138,6 +146,7 @@ namespace TechTreeEditor.TechTreeStructure
 			// Grundelement lesen
 			if(element.Element("elem") != null)
 				Element = elementIDs[(int)element.Element("elem")];
+			ElementExpression = (string)element.Element("elemfilter");
 
 			// Zielelement lesen
 			if(element.Element("delem") != null)
@@ -250,8 +259,10 @@ namespace TechTreeEditor.TechTreeStructure
 		/// <returns></returns>
 		public TechEffect Clone()
 		{
-			// Es sind nur Werttypen enthalten, die Referenzen zeigen auf Baumobjekte
-			return (TechEffect)this.MemberwiseClone();
+			// Kopieren
+			TechEffect copy=(TechEffect)MemberwiseClone();
+			copy.ElementExpression = string.Copy(ElementExpression);
+			return copy;
 		}
 
 		#endregion Funktionen
@@ -272,7 +283,9 @@ namespace TechTreeEditor.TechTreeStructure
 			ResourceMult = 6,
 			ResearchCostSetPM = 101,
 			ResearchDisable = 102,
-			ResearchTimeSetPM = 103
+			ResearchTimeSetPM = 103,
+			ResearchCostMult = 201,
+			ResearchTimeMult = 202,
 		}
 
 		/// <summary>
@@ -285,5 +298,97 @@ namespace TechTreeEditor.TechTreeStructure
 		}
 
 		#endregion Enumerationen
+
+		#region Unterklassen
+
+		/// <summary>
+		/// Erlaubt das Parsen und Auswerten eines Element-Filterausdrucks.
+		/// </summary>
+		public class ExpressionEvaluator
+		{
+			private static Regex _expressionStringParseRegex = new Regex("([A-Za-z\\.]+) *([\\<\\>\\=]+) *(.+)", RegexOptions.Compiled);
+			private Func<TechTreeElement, TechTreeFile, bool> _expression = null;
+
+			public ExpressionEvaluator(string expressionString)
+			{
+				// Eigenschaften verfügbar machen
+				ParameterExpression elementParam = Expression.Parameter(typeof(TechTreeElement));
+				Expression ageProperty = Expression.Property(elementParam, nameof(TechTreeElement.Age));
+				ParameterExpression projectFileParam = Expression.Parameter(typeof(TechTreeFile));
+
+				// Nach AND-Blöcken aufteilen
+				Expression expression = Expression.Constant(true, typeof(bool));
+				foreach(string andOperand in expressionString.Split(new string[] { " and " }, StringSplitOptions.RemoveEmptyEntries))
+				{
+					// Ausdruck zerlegen
+					var andOperandParts = _expressionStringParseRegex.Match(andOperand.Trim());
+					if(andOperandParts.Groups.Count != 4)
+						throw new FormatException("Invalid count of operand parameters. Expected <name> <relation operator> <value>.");
+
+					// Name
+					Expression nameExpr = null;
+					switch(andOperandParts.Groups[1].Value.ToLower())
+					{
+						case "age":
+							nameExpr = ageProperty;
+							break;
+						case "parent.id":
+							nameExpr = Expression.Property(Expression.Call(projectFileParam, typeof(TechTreeFile).GetMethod(nameof(TechTreeFile.GetElementParent)), elementParam), nameof(TechTreeElement.ID));
+							break;
+						default:
+							throw new FormatException($"Unknown name '{andOperandParts.Groups[1].Value}'.");
+					}
+
+					// Wert
+					Expression valExpr = null;
+					if(int.TryParse(andOperandParts.Groups[3].Value, out int val))
+						valExpr = Expression.Constant(val, typeof(int));
+					else
+						throw new FormatException($"Unknown value type.");
+
+					// Relation
+					Expression relExpr = null;
+					switch(andOperandParts.Groups[2].Value)
+					{
+						case "==":
+							relExpr = Expression.Equal(nameExpr, valExpr);
+							break;
+						case "<>":
+							relExpr = Expression.NotEqual(nameExpr, valExpr);
+							break;
+						case "<=":
+							relExpr = Expression.LessThanOrEqual(nameExpr, valExpr);
+							break;
+						case "<":
+							relExpr = Expression.LessThan(nameExpr, valExpr);
+							break;
+						case ">=":
+							relExpr = Expression.GreaterThanOrEqual(nameExpr, valExpr);
+							break;
+						case ">":
+							relExpr = Expression.GreaterThan(nameExpr, valExpr);
+							break;
+						default:
+							throw new FormatException($"Unknown relation operator '{andOperandParts.Groups[2].Value}'.");
+					}
+
+					// Teilausdruck mit vorhandenem ver-UND-en
+					expression = Expression.AndAlso(expression, relExpr);
+				}
+
+				// In kompilierten Lambda umwandeln und intern speichern
+				_expression = Expression.Lambda<Func<TechTreeElement, TechTreeFile, bool>>(expression, elementParam, projectFileParam).Compile();
+			}
+
+			/// <summary>
+			/// Wertet den Filterausdruck für das gegebene Element aus.
+			/// </summary>
+			/// <param name="element">Das zu überprüfende Element.</param>
+			/// <param name="projectFile">Die Projektdaten für weitere Checks.</param>
+			/// <returns></returns>
+			public bool CheckElement(TechTreeElement element, TechTreeFile projectFile) => _expression(element, projectFile);
+		}
+
+		#endregion
 	}
 }

@@ -419,6 +419,24 @@ namespace TechTreeEditor {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Schreiben der erzeugten Datei:  ähnelt.
+        /// </summary>
+        internal static string ExportDATFile_Message_ErrorSaving {
+            get {
+                return ResourceManager.GetString("ExportDATFile_Message_ErrorSaving", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler ähnelt.
+        /// </summary>
+        internal static string ExportDATFile_Message_ErrorSaving_Title {
+            get {
+                return ResourceManager.GetString("ExportDATFile_Message_ErrorSaving_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Warnung: Es ist eingestellt, dass sämtliche IDs im Projekt den exportierten angeglichen und anschließend gesperrt werden sollen.
         ///Dies ist nur bei endgültigen Releases empfehlenswert, um bei Updates eine gleichbleibende Zuordnung zu gewährleisten.
         ///
@@ -1223,6 +1241,15 @@ namespace TechTreeEditor {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Technologie-Kosten multiplikativ ändern ähnelt.
+        /// </summary>
+        internal static string TechEffectControl_EffectTypes_ResearchCostMult {
+            get {
+                return ResourceManager.GetString("TechEffectControl_EffectTypes_ResearchCostMult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Technologie-Kosten setzen/additiv ändern ähnelt.
         /// </summary>
         internal static string TechEffectControl_EffectTypes_ResearchCostSetPM {
@@ -1237,6 +1264,15 @@ namespace TechTreeEditor {
         internal static string TechEffectControl_EffectTypes_ResearchDisable {
             get {
                 return ResourceManager.GetString("TechEffectControl_EffectTypes_ResearchDisable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Technologie-Entwicklungszeit multiplikativ ändern ähnelt.
+        /// </summary>
+        internal static string TechEffectControl_EffectTypes_ResearchTimeMult {
+            get {
+                return ResourceManager.GetString("TechEffectControl_EffectTypes_ResearchTimeMult", resourceCulture);
             }
         }
         

@@ -30,6 +30,8 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TechEffectControl));
 			this._effectOptionsPanel = new System.Windows.Forms.Panel();
+			this._filterTextBox = new System.Windows.Forms.TextBox();
+			this._filterLabel = new System.Windows.Forms.Label();
 			this._effectTypeLabel = new System.Windows.Forms.Label();
 			this._effectTypeComboBox = new System.Windows.Forms.ComboBox();
 			this._sortEffectsButton = new System.Windows.Forms.Button();
@@ -51,12 +53,15 @@
 			this._destUnitField = new TechTreeEditor.Controls.DropDownFieldControl();
 			this._unitField = new TechTreeEditor.Controls.DropDownFieldControl();
 			this._effectsListBox = new TechTreeEditor.DoubleBufferedListBox();
+			this._filterTestButton = new System.Windows.Forms.Button();
 			this._effectOptionsPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// _effectOptionsPanel
 			// 
-			resources.ApplyResources(this._effectOptionsPanel, "_effectOptionsPanel");
+			this._effectOptionsPanel.Controls.Add(this._filterTestButton);
+			this._effectOptionsPanel.Controls.Add(this._filterTextBox);
+			this._effectOptionsPanel.Controls.Add(this._filterLabel);
 			this._effectOptionsPanel.Controls.Add(this._effectTypeLabel);
 			this._effectOptionsPanel.Controls.Add(this._effectTypeComboBox);
 			this._effectOptionsPanel.Controls.Add(this._sortEffectsButton);
@@ -77,7 +82,19 @@
 			this._effectOptionsPanel.Controls.Add(this._researchField);
 			this._effectOptionsPanel.Controls.Add(this._destUnitField);
 			this._effectOptionsPanel.Controls.Add(this._unitField);
+			resources.ApplyResources(this._effectOptionsPanel, "_effectOptionsPanel");
 			this._effectOptionsPanel.Name = "_effectOptionsPanel";
+			// 
+			// _filterTextBox
+			// 
+			resources.ApplyResources(this._filterTextBox, "_filterTextBox");
+			this._filterTextBox.Name = "_filterTextBox";
+			this._filterTextBox.TextChanged += new System.EventHandler(this._filterTextBox_TextChanged);
+			// 
+			// _filterLabel
+			// 
+			resources.ApplyResources(this._filterLabel, "_filterLabel");
+			this._filterLabel.Name = "_filterLabel";
 			// 
 			// _effectTypeLabel
 			// 
@@ -86,9 +103,9 @@
 			// 
 			// _effectTypeComboBox
 			// 
-			resources.ApplyResources(this._effectTypeComboBox, "_effectTypeComboBox");
 			this._effectTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._effectTypeComboBox.FormattingEnabled = true;
+			resources.ApplyResources(this._effectTypeComboBox, "_effectTypeComboBox");
 			this._effectTypeComboBox.Name = "_effectTypeComboBox";
 			this._effectTypeComboBox.SelectedIndexChanged += new System.EventHandler(this._effectTypeComboBox_SelectedIndexChanged);
 			// 
@@ -144,9 +161,9 @@
 			// 
 			// _resourceComboBox
 			// 
-			resources.ApplyResources(this._resourceComboBox, "_resourceComboBox");
 			this._resourceComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._resourceComboBox.FormattingEnabled = true;
+			resources.ApplyResources(this._resourceComboBox, "_resourceComboBox");
 			this._resourceComboBox.Name = "_resourceComboBox";
 			this._resourceComboBox.SelectedIndexChanged += new System.EventHandler(this._resourceComboBox_SelectedIndexChanged);
 			// 
@@ -157,9 +174,9 @@
 			// 
 			// _armourClassComboBox
 			// 
-			resources.ApplyResources(this._armourClassComboBox, "_armourClassComboBox");
 			this._armourClassComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._armourClassComboBox.FormattingEnabled = true;
+			resources.ApplyResources(this._armourClassComboBox, "_armourClassComboBox");
 			this._armourClassComboBox.Name = "_armourClassComboBox";
 			this._armourClassComboBox.SelectedIndexChanged += new System.EventHandler(this._armourClassComboBox_SelectedIndexChanged);
 			// 
@@ -170,9 +187,9 @@
 			// 
 			// _attributeComboBox
 			// 
-			resources.ApplyResources(this._attributeComboBox, "_attributeComboBox");
 			this._attributeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._attributeComboBox.FormattingEnabled = true;
+			resources.ApplyResources(this._attributeComboBox, "_attributeComboBox");
 			this._attributeComboBox.Name = "_attributeComboBox";
 			this._attributeComboBox.SelectedIndexChanged += new System.EventHandler(this._attributeComboBox_SelectedIndexChanged);
 			// 
@@ -183,9 +200,9 @@
 			// 
 			// _classComboBox
 			// 
-			resources.ApplyResources(this._classComboBox, "_classComboBox");
 			this._classComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._classComboBox.FormattingEnabled = true;
+			resources.ApplyResources(this._classComboBox, "_classComboBox");
 			this._classComboBox.Name = "_classComboBox";
 			this._classComboBox.SelectedIndexChanged += new System.EventHandler(this._classComboBox_SelectedIndexChanged);
 			// 
@@ -193,7 +210,6 @@
 			// 
 			resources.ApplyResources(this._valueField, "_valueField");
 			this._valueField.Name = "_valueField";
-			this._valueField.NameString = "Value:";
 			this._valueField.Value = new decimal(new int[] {
             0,
             0,
@@ -205,7 +221,6 @@
 			// 
 			resources.ApplyResources(this._modeCheckBox, "_modeCheckBox");
 			this._modeCheckBox.Name = "_modeCheckBox";
-			this._modeCheckBox.NameString = "Mode: [  ]  = Set, [X] = +/-";
 			this._modeCheckBox.Value = false;
 			this._modeCheckBox.ValueChanged += new TechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._modeCheckBox_ValueChanged);
 			// 
@@ -213,7 +228,6 @@
 			// 
 			resources.ApplyResources(this._researchField, "_researchField");
 			this._researchField.Name = "_researchField";
-			this._researchField.NameString = "Research:";
 			this._researchField.Value = null;
 			this._researchField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._researchField_ValueChanged);
 			// 
@@ -221,7 +235,6 @@
 			// 
 			resources.ApplyResources(this._destUnitField, "_destUnitField");
 			this._destUnitField.Name = "_destUnitField";
-			this._destUnitField.NameString = "Upgrade unit:";
 			this._destUnitField.Value = null;
 			this._destUnitField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._destUnitField_ValueChanged);
 			// 
@@ -229,7 +242,6 @@
 			// 
 			resources.ApplyResources(this._unitField, "_unitField");
 			this._unitField.Name = "_unitField";
-			this._unitField.NameString = "Unit:";
 			this._unitField.Value = null;
 			this._unitField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._unitField_ValueChanged);
 			// 
@@ -239,6 +251,14 @@
 			this._effectsListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
 			this._effectsListBox.Name = "_effectsListBox";
 			this._effectsListBox.SelectedIndexChanged += new System.EventHandler(this._effectsListBox_SelectedIndexChanged);
+			// 
+			// _filterTestButton
+			// 
+			this._filterTestButton.FlatAppearance.BorderSize = 0;
+			resources.ApplyResources(this._filterTestButton, "_filterTestButton");
+			this._filterTestButton.Name = "_filterTestButton";
+			this._filterTestButton.UseVisualStyleBackColor = true;
+			this._filterTestButton.Click += new System.EventHandler(this._filterTestButton_Click);
 			// 
 			// TechEffectControl
 			// 
@@ -277,5 +297,8 @@
 		private Controls.DropDownFieldControl _researchField;
 		private Controls.DropDownFieldControl _destUnitField;
 		private Controls.DropDownFieldControl _unitField;
+		private System.Windows.Forms.TextBox _filterTextBox;
+		private System.Windows.Forms.Label _filterLabel;
+		private System.Windows.Forms.Button _filterTestButton;
 	}
 }

@@ -93,6 +93,7 @@ namespace TechTreeEditor.Controls
 		/// <summary>
 		/// Ruft den Namenstext ab oder setzt diesen.
 		/// </summary>
+		[Localizable(true)]
 		public string NameString
 		{
 			get

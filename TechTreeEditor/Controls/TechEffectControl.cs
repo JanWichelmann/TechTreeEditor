@@ -44,8 +44,10 @@ namespace TechTreeEditor.Controls
 			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.AttributeMult, Strings.TechEffectControl_EffectTypes_AttributeMult),
 			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResourceMult, Strings.TechEffectControl_EffectTypes_ResourceMult),
 			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchCostSetPM, Strings.TechEffectControl_EffectTypes_ResearchCostSetPM),
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchCostMult, Strings.TechEffectControl_EffectTypes_ResearchCostMult),
 			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchDisable, Strings.TechEffectControl_EffectTypes_ResearchDisable),
 			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchTimeSetPM, Strings.TechEffectControl_EffectTypes_ResearchTimeSetPM),
+			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.ResearchTimeMult, Strings.TechEffectControl_EffectTypes_ResearchTimeMult),
 			new KeyValuePair<TechEffect.EffectType,string>( TechEffect.EffectType.UnitEnableDisable, Strings.TechEffectControl_EffectTypes_UnitEnableDisable), // Nur deaktivieren
 		}).ToList();
 
@@ -162,6 +164,7 @@ namespace TechTreeEditor.Controls
 			_unitField.Visible = false;
 			_destUnitField.Visible = false;
 			_researchField.Visible = false;
+			_filterLabel.Visible = _filterTextBox.Visible = _filterTestButton.Visible = false;
 			_classLabel.Visible = _classComboBox.Visible = false;
 			_attributeLabel.Visible = _attributeComboBox.Visible = false;
 			_armourClassLabel.Visible = _armourClassComboBox.Visible = false;
@@ -179,8 +182,10 @@ namespace TechTreeEditor.Controls
 					case TechEffect.EffectType.AttributePM:
 					case TechEffect.EffectType.AttributeMult:
 						_unitField.Visible = true;
-						_unitField.Value = (sel.Element == null ? _emptyUnit : sel.Element);
+						_unitField.Value = (sel.Element ?? _emptyUnit);
 						_classLabel.Visible = _classComboBox.Visible = true;
+						_filterLabel.Visible = _filterTextBox.Visible = _filterTestButton.Visible = (sel.Element == null && sel.ClassID < 0);
+						_filterTextBox.Text = sel.ElementExpression;
 						_classComboBox.SelectedIndex = sel.ClassID + 1;
 						_attributeLabel.Visible = _attributeComboBox.Visible = true;
 						_attributeComboBox.SelectedValue = (int)sel.ParameterID;
@@ -213,7 +218,9 @@ namespace TechTreeEditor.Controls
 
 					case TechEffect.EffectType.ResearchCostSetPM:
 						_researchField.Visible = true;
-						_researchField.Value = (sel.Element == null ? _emptyResearch : sel.Element);
+						_researchField.Value = (sel.Element ?? _emptyResearch);
+						_filterLabel.Visible = _filterTextBox.Visible = _filterTestButton.Visible = (sel.Element == null);
+						_filterTextBox.Text = sel.ElementExpression;
 						_resourceLabel.Visible = _resourceComboBox.Visible = true;
 						_resourceComboBox.SelectedIndex = sel.ParameterID;
 						_modeCheckBox.Visible = true;
@@ -222,16 +229,42 @@ namespace TechTreeEditor.Controls
 						_valueField.Value = (decimal)sel.Value;
 						break;
 
+					case TechEffect.EffectType.ResearchCostMult:
+						// Wirkt statisch auf die initialen Kosten einer Technologie, d.h. es wird später immer derselbe Betrag abgezogen, unabhängig von weiteren Boni
+						_researchField.Visible = true;
+						_researchField.Value = (sel.Element ?? _emptyResearch);
+						_filterLabel.Visible = _filterTextBox.Visible = _filterTestButton.Visible = (sel.Element == null);
+						_filterTextBox.Text = sel.ElementExpression;
+						_resourceLabel.Visible = _resourceComboBox.Visible = true;
+						_resourceComboBox.SelectedIndex = sel.ParameterID;
+						_valueField.Visible = true;
+						_valueField.Value = (decimal)sel.Value;
+						break;
+
 					case TechEffect.EffectType.ResearchDisable:
 						_researchField.Visible = true;
-						_researchField.Value = (sel.Element == null ? _emptyResearch : sel.Element);
+						_researchField.Value = (sel.Element ?? _emptyResearch);
+						_filterLabel.Visible = _filterTextBox.Visible = _filterTestButton.Visible = (sel.Element == null);
+						_filterTextBox.Text = sel.ElementExpression;
 						break;
 
 					case TechEffect.EffectType.ResearchTimeSetPM:
 						_researchField.Visible = true;
-						_researchField.Value = (sel.Element == null ? _emptyResearch : sel.Element);
+						_researchField.Value = (sel.Element ?? _emptyResearch);
+						_filterLabel.Visible = _filterTextBox.Visible = _filterTestButton.Visible = (sel.Element == null);
+						_filterTextBox.Text = sel.ElementExpression;
 						_modeCheckBox.Visible = true;
 						_modeCheckBox.Value = sel.Mode == TechEffect.EffectMode.PM_Enable;
+						_valueField.Visible = true;
+						_valueField.Value = (decimal)sel.Value;
+						break;
+
+					case TechEffect.EffectType.ResearchTimeMult:
+						// Wirkt statisch auf die initiale Zeit einer Technologie, d.h. es wird später immer derselbe Betrag abgezogen, unabhängig von weiteren Boni
+						_researchField.Visible = true;
+						_researchField.Value = (sel.Element ?? _emptyResearch);
+						_filterLabel.Visible = _filterTextBox.Visible = _filterTestButton.Visible = (sel.Element == null);
+						_filterTextBox.Text = sel.ElementExpression;
 						_valueField.Visible = true;
 						_valueField.Value = (decimal)sel.Value;
 						break;
@@ -239,7 +272,9 @@ namespace TechTreeEditor.Controls
 					case TechEffect.EffectType.UnitEnableDisable:
 						// Kann aktuell nur deaktivieren, Aktivierung wird mit der Freischalt-Abhängigkeit erreicht
 						_unitField.Visible = true;
-						_unitField.Value = (sel.Element == null ? _emptyUnit : sel.Element);
+						_unitField.Value = (sel.Element ?? _emptyUnit);
+						_filterLabel.Visible = _filterTextBox.Visible = _filterTestButton.Visible = (sel.Element == null);
+						_filterTextBox.Text = sel.ElementExpression;
 						break;
 				}
 			}
@@ -344,6 +379,23 @@ namespace TechTreeEditor.Controls
 			{
 				// Typ der ausgewählten Technologie ändern
 				sel.Type = (TechEffect.EffectType)_effectTypeComboBox.SelectedValue;
+				switch(sel.Type)
+				{
+					case TechEffect.EffectType.AttributeMult:
+					case TechEffect.EffectType.AttributePM:
+					case TechEffect.EffectType.AttributeSet:
+					case TechEffect.EffectType.UnitEnableDisable:
+						if(!(sel.Element is TechTreeUnit))
+							sel.Element = null;
+						break;
+					case TechEffect.EffectType.ResearchCostMult:
+					case TechEffect.EffectType.ResearchCostSetPM:
+					case TechEffect.EffectType.ResearchTimeMult:
+					case TechEffect.EffectType.ResearchTimeSetPM:
+						if(!(sel.Element is TechTreeResearch))
+							sel.Element = null;
+						break;
+				}
 
 				// Aktualisieren
 				UpdateEffectList();
@@ -371,6 +423,7 @@ namespace TechTreeEditor.Controls
 				// Aktualisieren
 				UpdateEffectList();
 			}
+			_filterLabel.Visible = _filterTextBox.Visible = _filterTestButton.Visible = (sel.Element == null && sel.ClassID < 0);
 		}
 
 		private void _destUnitField_ValueChanged(object sender, Controls.DropDownFieldControl.ValueChangedEventArgs e)
@@ -411,6 +464,61 @@ namespace TechTreeEditor.Controls
 				// Aktualisieren
 				UpdateEffectList();
 			}
+			_filterLabel.Visible = _filterTextBox.Visible = _filterTestButton.Visible = (sel.Element == null);
+		}
+
+		private void _filterTextBox_TextChanged(object sender, EventArgs e)
+		{
+			// Aktualisierungsvorgang?
+			if(_updating)
+				return;
+
+			// Ausgewähltes Element abrufen
+			TechEffect sel = (TechEffect)_effectsListBox.SelectedItem;
+			if(sel != null)
+			{
+				// Filterausdruck ändern
+				sel.ElementExpression = _filterTextBox.Text;
+
+				// Aktualisieren
+				UpdateEffectList();
+			}
+		}
+
+		private void _filterTestButton_Click(object sender, EventArgs e)
+		{
+			// Parser-Fehler fangen
+			try
+			{
+				// Testweise Ausdruck auswerten
+				TechEffect.ExpressionEvaluator eval = new TechEffect.ExpressionEvaluator(_filterTextBox.Text);
+				var list = _projectFile.Where(el => eval.CheckElement(el, _projectFile));
+
+				// Ergebnisse zeigen
+				Form resultForm = new Form()
+				{
+					Height = 300,
+					Width =400,
+					FormBorderStyle = FormBorderStyle.SizableToolWindow,
+					Text = "Filter expression evaluation results"
+				};
+				RichTextBox resultField = new RichTextBox()
+				{
+					Dock = DockStyle.Fill,
+					ReadOnly = true,
+					Font = _filterTextBox.Font
+				};
+				list.ForEach(el => resultField.AppendText(el.Name + "\r\n"));
+				resultField.SelectionStart = 0;
+				resultField.ScrollToCaret();
+				resultForm.Controls.Add(resultField);
+				resultForm.ShowDialog();
+			}
+			catch(Exception ex)
+			{
+				// Warnung zeigen
+				MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
 		}
 
 		private void _classComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -429,6 +537,7 @@ namespace TechTreeEditor.Controls
 				// Aktualisieren
 				UpdateEffectList();
 			}
+			_filterLabel.Visible = _filterTextBox.Visible = _filterTestButton.Visible = (sel.Element == null && sel.ClassID < 0);
 		}
 
 		private void _attributeComboBox_SelectedIndexChanged(object sender, EventArgs e)

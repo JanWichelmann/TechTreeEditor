@@ -318,9 +318,9 @@ namespace TechTreeEditor
 				// Rüstungsklassenliste in ComboBox einfügen
 				// Diese werden vorher in eine Liste geschrieben, um Indizierung zu ermöglichen, da die DataGridViewCombobox das offenbar nicht unterstützt
 				string[] armourClassesArr = Strings.ArmourClasses.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-				List<KeyValuePair<short, string>> armourClasses = new List<KeyValuePair<short, string>>(armourClassesArr.Length);
-				for(short i = 0; i < armourClassesArr.Length; ++i)
-					armourClasses.Add(new KeyValuePair<short, string>(i, armourClassesArr[i]));
+				List<KeyValuePair<ushort, string>> armourClasses = new List<KeyValuePair<ushort, string>>(armourClassesArr.Length);
+				for(ushort i = 0; i < armourClassesArr.Length; ++i)
+					armourClasses.Add(new KeyValuePair<ushort, string>(i, armourClassesArr[i]));
 				_attValClassColumn.DataSource = armourClasses;
 				_attValClassColumn.DisplayMember = "Value";
 				_attValClassColumn.ValueMember = "Key";
@@ -336,7 +336,7 @@ namespace TechTreeEditor
 					DataGridViewRow currRow = new DataGridViewRow();
 					currRow.Cells.Add(new DataGridViewComboBoxCell()
 					{
-						Value = (short)attval.Key,
+						Value = attval.Key,
 						DataSource = armourClasses,
 						DisplayMember = "Value",
 						ValueMember = "Key"
@@ -354,7 +354,7 @@ namespace TechTreeEditor
 					DataGridViewRow currRow = new DataGridViewRow();
 					currRow.Cells.Add(new DataGridViewComboBoxCell()
 					{
-						Value = (short)armval.Key,
+						Value = armval.Key,
 						DataSource = armourClasses,
 						DisplayMember = "Value",
 						ValueMember = "Key"
@@ -1287,8 +1287,7 @@ namespace TechTreeEditor
 			if(e.ColumnIndex == 1)
 			{
 				// Nur Zahlen erlauben
-				short val;
-				if(e.RowIndex != _attackValuesField.NewRowIndex && (!short.TryParse((string)e.FormattedValue, out val) || val < 0))
+				if(e.RowIndex != _attackValuesField.NewRowIndex && (!short.TryParse((string)e.FormattedValue, out short val) || val < 0))
 				{
 					// Fehlermeldung zeigen
 					MessageBox.Show(Strings.EditUnitAttributeForm_Message_PositiveShort, Strings.EditUnitAttributeForm_Message_PositiveShort_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);

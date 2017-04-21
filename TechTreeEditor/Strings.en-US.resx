@@ -510,4 +510,16 @@ They are parent elements at the very front of the tree.</value>
   <data name="TechEffectControl_EffectTypes_UnitEnableDisable" xml:space="preserve">
     <value>Disable unit</value>
   </data>
+  <data name="TechEffectControl_EffectTypes_ResearchCostMult" xml:space="preserve">
+    <value>Change research cost multiplicatively</value>
+  </data>
+  <data name="TechEffectControl_EffectTypes_ResearchTimeMult" xml:space="preserve">
+    <value>Change research time multiplicatively</value>
+  </data>
+  <data name="ExportDATFile_Message_ErrorSaving" xml:space="preserve">
+    <value>Error while saving the generated file: </value>
+  </data>
+  <data name="ExportDATFile_Message_ErrorSaving_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
 </root>
