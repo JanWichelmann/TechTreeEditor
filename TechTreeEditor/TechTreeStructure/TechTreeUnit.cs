@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Xml.Linq;
 
@@ -86,7 +87,7 @@ namespace TechTreeEditor.TechTreeStructure
 		/// Erstellt für alle Kindelemente die Texturen.
 		/// </summary>
 		/// <param name="textureFunc">Die Textur-Generierungsfunktion.</param>
-		public override void CreateIconTextures(Func<string, short, int> textureFunc)
+		public override void CreateIconTextures(Func<string, short, Color, int> textureFunc)
 		{
 			// Schon ein Icon vorhanden? => Abbrechen
 			if(IconTextureID > 0)
@@ -103,10 +104,10 @@ namespace TechTreeEditor.TechTreeStructure
 		/// Erstellt die Icon-Textur.
 		/// </summary>
 		/// <param name="textureFunc">Die Textur-Generierungsfunktion.</param>
-		public override void CreateIconTexture(Func<string, short, int> textureFunc)
+		public override void CreateIconTexture(Func<string, short, Color, int> textureFunc)
 		{
 			// Icon erstellen
-			IconTextureID = textureFunc(Type, DATUnit.IconID);
+			IconTextureID = textureFunc(Type, DATUnit.IconID, BoxColor);
 		}
 
 		/// <summary>

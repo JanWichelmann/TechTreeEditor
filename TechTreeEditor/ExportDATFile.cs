@@ -871,7 +871,7 @@ namespace TechTreeEditor
 						}
 					});
 
-					// Freie Technologien in Effekte umwandeln
+					// Technologie-"Kostenlos"-Flags in Effekte umwandeln
 					foreach(TechTreeResearch freeRes in currCivConfig.FreeElements)
 					{
 						// Zeit auf 0 setzen
@@ -888,7 +888,7 @@ namespace TechTreeEditor
 						foreach(var resource in datResearches[resID].ResourceCosts)
 						{
 							// Ressource benutzt? => Löschen
-							if(resource.Paid > 0)
+							if(resource.Mode > 0)
 								newBonusTechage.Effects.Add(new GenieLibrary.DataElements.Techage.TechageEffect()
 								{
 									Type = (byte)TechEffect.EffectType.ResearchCostSetPM,
@@ -1839,6 +1839,7 @@ namespace TechTreeEditor
 					case TechEffect.EffectType.AttributeSet:
 					case TechEffect.EffectType.AttributePM:
 					case TechEffect.EffectType.AttributeMult:
+						newEff.A = -1;
 						if(eff.Element != null)
 							newEff.A = (short)unitIDMap[(TechTreeUnit)eff.Element];
 						else if(eff.ClassID < 0)
@@ -1923,39 +1924,39 @@ namespace TechTreeEditor
 				if(filterMode == 1)
 				{
 					// Nach Einheiten filtern und Effekt für jede Einheit kopieren
-					TechEffect.ExpressionEvaluator eval = new TechEffect.ExpressionEvaluator(eff.ElementExpression);
-					_projectFile.Where(el => el is TechTreeUnit && eval.CheckElement(el, _projectFile)).ForEach(u =>
-						techage.Effects.Add(new GenieLibrary.DataElements.Techage.TechageEffect()
-						{
-							A = (short)unitIDMap[(TechTreeUnit)u],
-							B = newEff.B,
-							C = newEff.C,
-							D = newEff.D,
-							Type = newEff.Type
-						}));
+					TechEffect.ExpressionEvaluator eval = new TechEffect.ExpressionEvaluator(eff.ElementExpression, true);
+					_projectFile.Where(el => eval.CheckElement(el, _projectFile)).ForEach(u =>
+					   techage.Effects.Add(new GenieLibrary.DataElements.Techage.TechageEffect()
+					   {
+						   A = (short)unitIDMap[(TechTreeUnit)u],
+						   B = newEff.B,
+						   C = newEff.C,
+						   D = newEff.D,
+						   Type = newEff.Type
+					   }));
 				}
 				else if(filterMode == 2)
 				{
 					// Nach Technologien filtern und Effekt für jede Technologie kopieren
-					TechEffect.ExpressionEvaluator eval = new TechEffect.ExpressionEvaluator(eff.ElementExpression);
-					_projectFile.Where(el => el is TechTreeResearch && eval.CheckElement(el, _projectFile)).ForEach(r =>
-					{
-						// Nach Effekt-Typen unterscheiden
-						if(eff.Type == TechEffect.EffectType.ResearchCostMult)
-							techage.Effects.Add(CreateMultTechCostEffect((TechTreeResearch)r, eff));
-						else if(eff.Type == TechEffect.EffectType.ResearchTimeMult)
-							techage.Effects.Add(CreateMultTechTimeEffect((TechTreeResearch)r, eff));
-						else
-							techage.Effects.Add(new GenieLibrary.DataElements.Techage.TechageEffect()
-							{
-								A = (eff.Type != TechEffect.EffectType.ResearchDisable ? (short)researchIDMap[(TechTreeResearch)r] : newEff.A),
-								B = newEff.B,
-								C = newEff.C,
-								D = (eff.Type == TechEffect.EffectType.ResearchDisable ? (float)researchIDMap[(TechTreeResearch)r] : newEff.D),
-								Type = newEff.Type
-							});
+					TechEffect.ExpressionEvaluator eval = new TechEffect.ExpressionEvaluator(eff.ElementExpression, false);
+					_projectFile.Where(el => eval.CheckElement(el, _projectFile)).ForEach(r =>
+					 {
+						 // Nach Effekt-Typen unterscheiden
+						 if(eff.Type == TechEffect.EffectType.ResearchCostMult)
+							 techage.Effects.Add(CreateMultTechCostEffect((TechTreeResearch)r, eff));
+						 else if(eff.Type == TechEffect.EffectType.ResearchTimeMult)
+							 techage.Effects.Add(CreateMultTechTimeEffect((TechTreeResearch)r, eff));
+						 else
+							 techage.Effects.Add(new GenieLibrary.DataElements.Techage.TechageEffect()
+							 {
+								 A = (eff.Type != TechEffect.EffectType.ResearchDisable ? (short)researchIDMap[(TechTreeResearch)r] : newEff.A),
+								 B = newEff.B,
+								 C = newEff.C,
+								 D = (eff.Type == TechEffect.EffectType.ResearchDisable ? (float)researchIDMap[(TechTreeResearch)r] : newEff.D),
+								 Type = newEff.Type
+							 });
 
-					});
+					 });
 				}
 				else
 					techage.Effects.Add(newEff);
@@ -2133,7 +2134,7 @@ namespace TechTreeEditor
 				{ ExportSteps.GenerateNewTechTree, new Tuple<int, string>(17, "Generating new tech tree") },
 				{ ExportSteps.SaveGeneratedDatFile, new Tuple<int, string>(18, "Saving generated DAT file") },
 				{ ExportSteps.ExportIdMapping, new Tuple<int, string>(19, "Exporting ID mapping") },
-				{ ExportSteps.RebuildProjectIdMapping, new Tuple<int, string>(20, "RebuildingProjectIdMapping") },
+				{ ExportSteps.RebuildProjectIdMapping, new Tuple<int, string>(20, "Rebuilding project ID mapping") },
 			 });
 
 		/// <summary>

@@ -260,7 +260,7 @@ namespace TechTreeEditor.TechTreeStructure
 		public TechEffect Clone()
 		{
 			// Kopieren
-			TechEffect copy=(TechEffect)MemberwiseClone();
+			TechEffect copy = (TechEffect)MemberwiseClone();
 			copy.ElementExpression = string.Copy(ElementExpression);
 			return copy;
 		}
@@ -308,17 +308,30 @@ namespace TechTreeEditor.TechTreeStructure
 		{
 			private static Regex _expressionStringParseRegex = new Regex("([A-Za-z\\.]+) *([\\<\\>\\=]+) *(.+)", RegexOptions.Compiled);
 			private Func<TechTreeElement, TechTreeFile, bool> _expression = null;
+			private bool _isUnitExpression = false;
 
-			public ExpressionEvaluator(string expressionString)
+			public ExpressionEvaluator(string expressionString, bool isUnit)
 			{
-				// Eigenschaften verfügbar machen
+				// Allgemeine Eigenschaften verfügbar machen
+				ParameterExpression projectFileParam = Expression.Parameter(typeof(TechTreeFile));
 				ParameterExpression elementParam = Expression.Parameter(typeof(TechTreeElement));
 				Expression ageProperty = Expression.Property(elementParam, nameof(TechTreeElement.Age));
-				ParameterExpression projectFileParam = Expression.Parameter(typeof(TechTreeFile));
+
+				// Einheitenspezifische Eigenschaften abrufen
+				_isUnitExpression = isUnit;
+				Expression classProperty = null;
+				if(isUnit)
+				{
+					// Einheiten-Daten abrufen
+					Expression unitDataMember = Expression.PropertyOrField(Expression.Convert(elementParam, typeof(TechTreeUnit)), nameof(TechTreeUnit.DATUnit));
+
+					// Gewünschte Eigenschaften extrahieren
+					classProperty = Expression.Convert(Expression.PropertyOrField(unitDataMember, nameof(GenieLibrary.DataElements.Civ.Unit.Class)), typeof(int));
+				}
 
 				// Nach AND-Blöcken aufteilen
 				Expression expression = Expression.Constant(true, typeof(bool));
-				foreach(string andOperand in expressionString.Split(new string[] { " and " }, StringSplitOptions.RemoveEmptyEntries))
+				foreach(string andOperand in expressionString.Split(new string[] { " and ", "&&" }, StringSplitOptions.RemoveEmptyEntries))
 				{
 					// Ausdruck zerlegen
 					var andOperandParts = _expressionStringParseRegex.Match(andOperand.Trim());
@@ -332,8 +345,15 @@ namespace TechTreeEditor.TechTreeStructure
 						case "age":
 							nameExpr = ageProperty;
 							break;
+						case "class":
+							if(isUnit)
+								nameExpr = classProperty;
+							else
+								throw new FormatException($"The 'Class' filter can only be used with units.");
+							break;
 						case "parent.id":
-							nameExpr = Expression.Property(Expression.Call(projectFileParam, typeof(TechTreeFile).GetMethod(nameof(TechTreeFile.GetElementParent)), elementParam), nameof(TechTreeElement.ID));
+							Expression getElementParentExpr = Expression.Call(projectFileParam, typeof(TechTreeFile).GetMethod(nameof(TechTreeFile.GetElementParent)), elementParam);
+							nameExpr = Expression.Condition(Expression.Equal(getElementParentExpr, elementParam), Expression.Constant(-1, typeof(int)), Expression.Property(getElementParentExpr, nameof(TechTreeElement.ID)));
 							break;
 						default:
 							throw new FormatException($"Unknown name '{andOperandParts.Groups[1].Value}'.");
@@ -383,10 +403,11 @@ namespace TechTreeEditor.TechTreeStructure
 			/// <summary>
 			/// Wertet den Filterausdruck für das gegebene Element aus.
 			/// </summary>
-			/// <param name="element">Das zu überprüfende Element.</param>
+			/// <param name="element">Das zu überprüfende Element. Der Typ wird automatisch anhand des im Konstruktor übergebenen Parameters geprüft.</param>
 			/// <param name="projectFile">Die Projektdaten für weitere Checks.</param>
 			/// <returns></returns>
-			public bool CheckElement(TechTreeElement element, TechTreeFile projectFile) => _expression(element, projectFile);
+			public bool CheckElement(TechTreeElement element, TechTreeFile projectFile)
+				=> (_isUnitExpression != element is TechTreeResearch) ? _expression(element, projectFile) : false;
 		}
 
 		#endregion

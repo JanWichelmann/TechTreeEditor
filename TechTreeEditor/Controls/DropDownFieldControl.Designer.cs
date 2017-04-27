@@ -53,6 +53,7 @@
 			this._idTextBox.Size = new System.Drawing.Size(215, 20);
 			this._idTextBox.TabIndex = 2;
 			this._idTextBox.TextChanged += new System.EventHandler(this._idTextBox_TextChanged);
+			this._idTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this._idTextBox_KeyDown);
 			this._idTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this._idTextBox_KeyUp);
 			this._idTextBox.Leave += new System.EventHandler(this._idTextBox_Leave);
 			// 

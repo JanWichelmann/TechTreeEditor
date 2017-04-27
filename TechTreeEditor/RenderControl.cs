@@ -483,8 +483,9 @@ namespace TechTreeEditor
 		/// </summary>
 		/// <param name="type">Der Typ des Objekts, dem das Icon zugeordnet ist. Dies ist einfach der Klassenname des Objekts.</param>
 		/// <param name="iconID">Die ID des Icons.</param>
+		/// <param name="boxColor">Die Hintergrundfarbe der Element-Box.</param>
 		/// <returns></returns>
-		public int LoadIconAsTexture(string type, short iconID)
+		public int LoadIconAsTexture(string type, short iconID, Color boxColor)
 		{
 			// Ich bin dran
 			_drawPanel.MakeCurrent();
@@ -515,7 +516,7 @@ namespace TechTreeEditor
 						iconG.Clear(Color.FromArgb(220, 220, 220));
 						iconG.DrawImage(Icons.ResearchIcon, 2, 2, 32, 32);
 					}
-					boxG.Clear(Color.FromArgb(125, 202, 98));
+					boxG.Clear(boxColor);
 					break;
 
 				case "TechTreeCreatable":
@@ -528,7 +529,7 @@ namespace TechTreeEditor
 						iconG.Clear(Color.FromArgb(220, 220, 220));
 						iconG.DrawImage(Icons.UnitIcon, 2, 2, 32, 32);
 					}
-					boxG.Clear(Color.FromArgb(128, 187, 226));
+					boxG.Clear(boxColor);
 					break;
 
 				case "TechTreeBuilding":
@@ -541,7 +542,7 @@ namespace TechTreeEditor
 						iconG.Clear(Color.FromArgb(220, 220, 220));
 						iconG.DrawImage(Icons.BuildingIcon, 2, 2, 32, 32);
 					}
-					boxG.Clear(Color.FromArgb(246, 128, 128));
+					boxG.Clear(boxColor);
 					break;
 
 				case "TechTreeEyeCandy":
@@ -550,7 +551,7 @@ namespace TechTreeEditor
 						Graphics iconG = Graphics.FromImage(icon);
 						iconG.Clear(Color.FromArgb(220, 220, 220));
 						iconG.DrawImage(Icons.EyeCandyIcon, 2, 2, 32, 32);
-						boxG.Clear(Color.FromArgb(196, 145, 250));
+						boxG.Clear(boxColor);
 					}
 					break;
 
@@ -560,7 +561,7 @@ namespace TechTreeEditor
 						Graphics iconG = Graphics.FromImage(icon);
 						iconG.Clear(Color.FromArgb(220, 220, 220));
 						iconG.DrawImage(Icons.ProjectileIcon, 2, 2, 32, 32);
-						boxG.Clear(Color.FromArgb(250, 174, 132));
+						boxG.Clear(boxColor);
 					}
 					break;
 
@@ -570,7 +571,7 @@ namespace TechTreeEditor
 						Graphics iconG = Graphics.FromImage(icon);
 						iconG.Clear(Color.FromArgb(220, 220, 220));
 						iconG.DrawImage(Icons.DeadIcon, 2, 2, 32, 32);
-						boxG.Clear(Color.LightYellow);
+						boxG.Clear(boxColor);
 					}
 					break;
 
@@ -579,7 +580,7 @@ namespace TechTreeEditor
 						icon = new Bitmap(ICON_BOUNDS, ICON_BOUNDS);
 						Graphics iconG = Graphics.FromImage(icon);
 						iconG.Clear(Color.FromArgb(220, 220, 220));
-						boxG.Clear(Color.Peru);
+						boxG.Clear(boxColor);
 					}
 					break;
 			}
@@ -1237,9 +1238,7 @@ namespace TechTreeEditor
 		/// <param name="e">Die Ereignisdaten.</param>
 		protected virtual void OnSelectionChanged(SelectionChangedEventArgs e)
 		{
-			SelectionChangedEventHandler handler = SelectionChanged;
-			if(handler != null)
-				handler(this, e);
+			SelectionChanged?.Invoke(this, e);
 		}
 
 		/// <summary>

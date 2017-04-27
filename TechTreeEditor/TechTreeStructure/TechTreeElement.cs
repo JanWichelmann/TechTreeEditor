@@ -119,7 +119,7 @@ namespace TechTreeEditor.TechTreeStructure
 		/// Erstellt die Icon-Textur.
 		/// </summary>
 		/// <param name="textureFunc">Die Textur-Generierungsfunktion.</param>
-		public abstract void CreateIconTexture(Func<string, short, int> textureFunc);
+		public abstract void CreateIconTexture(Func<string, short, Color, int> textureFunc);
 
 		/// <summary>
 		/// Ruft eine Liste mit den Kindelementen ab. Dies wird zur Umsetzung von Such-Rekursionen u.ä. benutzt.
@@ -276,6 +276,10 @@ namespace TechTreeEditor.TechTreeStructure
 					}
 					GL.End();
 					GL.LineWidth(1);
+
+					// Element-Name als Tooltip
+					GL.Color4(BoxColor);
+					RenderControl.DrawString(Name, 2, RenderControl.BOX_BOUNDS + 2);
 				}
 
 				// Matrix wiederherstellen
@@ -350,7 +354,7 @@ namespace TechTreeEditor.TechTreeStructure
 		/// Erstellt für alle Kindelemente die Texturen.
 		/// </summary>
 		/// <param name="textureFunc">Die Textur-Generierungsfunktion.</param>
-		public virtual void CreateIconTextures(Func<string, short, int> textureFunc)
+		public virtual void CreateIconTextures(Func<string, short, Color, int> textureFunc)
 		{
 			// Aufruf für alle Kindelemente durchführen
 			GetChildren().ForEach(c => c.CreateIconTextures(textureFunc));
@@ -470,6 +474,11 @@ namespace TechTreeEditor.TechTreeStructure
 		{
 			get { return "TechTreeElement"; }
 		}
+
+		/// <summary>
+		/// Ruft die Farbe der Element-Box ab.
+		/// </summary>
+		public virtual Color BoxColor => Color.FromArgb(255, 255, 255);
 
 		#endregion Eigenschaften
 

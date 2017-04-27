@@ -143,30 +143,24 @@ namespace TechTreeEditor
 				_selectionYField.Value = (decimal)unit.SelectionRadius2;
 
 				// Ressourcen-Speicher setzen
-				_resourceStorage1Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
+				_resourceStorage1Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, byte>()
 				{
-					Paid = unit.ResourceStorages[0].Type >= 0,
+					Mode = unit.ResourceStorages[0].Mode,
 					Type = unit.ResourceStorages[0].Type,
 					Amount = unit.ResourceStorages[0].Amount
 				};
-				_resourceStorage1ModeField.Enabled = unit.ResourceStorages[0].Type >= 0;
-				_resourceStorage1ModeField.Value = unit.ResourceStorages[0].Paid;
-				_resourceStorage2Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
+				_resourceStorage2Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, byte>()
 				{
-					Paid = unit.ResourceStorages[1].Type >= 0,
+					Mode = unit.ResourceStorages[1].Mode,
 					Type = unit.ResourceStorages[1].Type,
 					Amount = unit.ResourceStorages[1].Amount
 				};
-				_resourceStorage2ModeField.Enabled = unit.ResourceStorages[1].Type >= 0;
-				_resourceStorage2ModeField.Value = unit.ResourceStorages[1].Paid;
-				_resourceStorage3Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
+				_resourceStorage3Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, byte>()
 				{
-					Paid = unit.ResourceStorages[2].Type >= 0,
+					Mode = unit.ResourceStorages[2].Mode,
 					Type = unit.ResourceStorages[2].Type,
 					Amount = unit.ResourceStorages[2].Amount
 				};
-				_resourceStorage3ModeField.Enabled = unit.ResourceStorages[2].Type >= 0;
-				_resourceStorage3ModeField.Value = unit.ResourceStorages[2].Paid;
 
 				// Klassenliste in ComboBox einfügen
 				_classComboBox.Items.AddRange(Strings.ClassNames.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries));
@@ -428,21 +422,21 @@ namespace TechTreeEditor
 				_cost1Field.Enabled = true;
 
 				// Ressourcen-Kosten setzen
-				_cost1Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
+				_cost1Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, byte>()
 				{
-					Paid = unit.Creatable.ResourceCosts[0].Paid > 0,
+					Mode = (byte)unit.Creatable.ResourceCosts[0].Mode,
 					Type = unit.Creatable.ResourceCosts[0].Type,
 					Amount = unit.Creatable.ResourceCosts[0].Amount
 				};
-				_cost2Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
+				_cost2Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, byte>()
 				{
-					Paid = unit.Creatable.ResourceCosts[1].Paid > 0,
+					Mode = (byte)unit.Creatable.ResourceCosts[1].Mode,
 					Type = unit.Creatable.ResourceCosts[1].Type,
 					Amount = unit.Creatable.ResourceCosts[1].Amount
 				};
-				_cost3Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
+				_cost3Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, byte>()
 				{
-					Paid = unit.Creatable.ResourceCosts[2].Paid > 0,
+					Mode = (byte)unit.Creatable.ResourceCosts[2].Mode,
 					Type = unit.Creatable.ResourceCosts[2].Type,
 					Amount = unit.Creatable.ResourceCosts[2].Amount
 				};
@@ -758,21 +752,9 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.ResourceStorages[0] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, float, byte>()
 			{
-				Paid = (byte)(e.NewValue.Paid ? _resourceStorage1ModeField.Value.SafeConvert<byte>() : 0),
-				Type = (short)(e.NewValue.Paid ? e.NewValue.Type : -1),
-				Amount = (e.NewValue.Paid ? e.NewValue.Amount : 0)
-			});
-			_resourceStorage1ModeField.Enabled = e.NewValue.Paid;
-		}
-
-		private void _resourceStorage1ModeField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
-		{
-			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.ResourceStorages[0] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, float, byte>()
-			{
-				Paid = _resourceStorage1ModeField.Value.SafeConvert<byte>(),
-				Type = (short)_resourceStorage1Field.Value.Type,
-				Amount = _resourceStorage1Field.Value.Amount
+				Mode = e.NewValue.Mode,
+				Type = (short)e.NewValue.Type,
+				Amount = e.NewValue.Amount
 			});
 		}
 
@@ -781,21 +763,9 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.ResourceStorages[1] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, float, byte>()
 			{
-				Paid = (byte)(e.NewValue.Paid ? _resourceStorage2ModeField.Value.SafeConvert<byte>() : 0),
-				Type = (short)(e.NewValue.Paid ? e.NewValue.Type : -1),
-				Amount = (e.NewValue.Paid ? e.NewValue.Amount : 0)
-			});
-			_resourceStorage2ModeField.Enabled = e.NewValue.Paid;
-		}
-
-		private void _resourceStorage2ModeField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
-		{
-			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.ResourceStorages[1] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, float, byte>()
-			{
-				Paid = _resourceStorage2ModeField.Value.SafeConvert<byte>(),
-				Type = (short)_resourceStorage2Field.Value.Type,
-				Amount = _resourceStorage2Field.Value.Amount
+				Mode = e.NewValue.Mode,
+				Type = (short)e.NewValue.Type,
+				Amount = e.NewValue.Amount
 			});
 		}
 
@@ -804,21 +774,9 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.ResourceStorages[2] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, float, byte>()
 			{
-				Paid = (byte)(e.NewValue.Paid ? _resourceStorage3ModeField.Value.SafeConvert<byte>() : 0),
-				Type = (short)(e.NewValue.Paid ? e.NewValue.Type : -1),
-				Amount = (e.NewValue.Paid ? e.NewValue.Amount : 0)
-			});
-			_resourceStorage3ModeField.Enabled = e.NewValue.Paid;
-		}
-
-		private void _resourceStorage3ModeField_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
-		{
-			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.ResourceStorages[2] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, float, byte>()
-			{
-				Paid = _resourceStorage3ModeField.Value.SafeConvert<byte>(),
-				Type = (short)_resourceStorage3Field.Value.Type,
-				Amount = _resourceStorage3Field.Value.Amount
+				Mode = e.NewValue.Mode,
+				Type = (short)e.NewValue.Type,
+				Amount = e.NewValue.Amount
 			});
 		}
 
@@ -1067,8 +1025,7 @@ namespace TechTreeEditor
 			if(e.ColumnIndex == 0 || e.ColumnIndex > 1)
 			{
 				// Nur Zahlen erlauben
-				byte val;
-				if(e.RowIndex != _dmgGraphicsField.NewRowIndex && !byte.TryParse((string)e.FormattedValue, out val))
+				if(e.RowIndex != _dmgGraphicsField.NewRowIndex && !byte.TryParse((string)e.FormattedValue, out byte val))
 				{
 					// Fehlermeldung zeigen
 					MessageBox.Show(Strings.EditUnitAttributeForm_Message_Byte, Strings.EditUnitAttributeForm_Message_Byte_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1082,8 +1039,7 @@ namespace TechTreeEditor
 			if(e.ColumnIndex == 1)
 			{
 				// Nur Zahlen erlauben
-				short val;
-				if(e.RowIndex != _dmgGraphicsField.NewRowIndex && (!short.TryParse((string)e.FormattedValue, out val) || val < 0))
+				if(e.RowIndex != _dmgGraphicsField.NewRowIndex && (!short.TryParse((string)e.FormattedValue, out short val) || val < 0))
 				{
 					// Fehlermeldung zeigen
 					MessageBox.Show(Strings.EditUnitAttributeForm_Message_PositiveShort, Strings.EditUnitAttributeForm_Message_PositiveShort_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1350,8 +1306,7 @@ namespace TechTreeEditor
 			if(e.ColumnIndex == 1)
 			{
 				// Nur Zahlen erlauben
-				short val;
-				if(e.RowIndex != _armourValuesField.NewRowIndex && (!short.TryParse((string)e.FormattedValue, out val) || val < 0))
+				if(e.RowIndex != _armourValuesField.NewRowIndex && (!short.TryParse((string)e.FormattedValue, out short val) || val < 0))
 				{
 					// Fehlermeldung zeigen
 					MessageBox.Show(Strings.EditUnitAttributeForm_Message_PositiveShort, Strings.EditUnitAttributeForm_Message_PositiveShort_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1537,7 +1492,7 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.Creatable.ResourceCosts[0] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, short>()
 			{
-				Paid = (short)(e.NewValue.Paid ? 1 : 0),
+				Mode = e.NewValue.Mode,
 				Type = (short)e.NewValue.Type,
 				Amount = (short)e.NewValue.Amount
 			});
@@ -1548,7 +1503,7 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.Creatable.ResourceCosts[1] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, short>()
 			{
-				Paid = (short)(e.NewValue.Paid ? 1 : 0),
+				Mode = e.NewValue.Mode,
 				Type = (short)e.NewValue.Type,
 				Amount = (short)e.NewValue.Amount
 			});
@@ -1559,7 +1514,7 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_unitManager.UpdateUnitAttribute(u => u.Creatable.ResourceCosts[2] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, short>()
 			{
-				Paid = (short)(e.NewValue.Paid ? 1 : 0),
+				Mode = e.NewValue.Mode,
 				Type = (short)e.NewValue.Type,
 				Amount = (short)e.NewValue.Amount
 			});
@@ -2544,9 +2499,7 @@ namespace TechTreeEditor
 		/// <param name="e">Die Ereignisdaten.</param>
 		protected virtual void OnIconChanged(IconChangedEventArgs e)
 		{
-			IconChangedEventHandler handler = IconChanged;
-			if(handler != null)
-				handler(this, e);
+			IconChanged?.Invoke(this, e);
 		}
 
 		/// <summary>

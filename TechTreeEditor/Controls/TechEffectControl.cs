@@ -325,6 +325,7 @@ namespace TechTreeEditor.Controls
 					ClassID = baseEff.ClassID,
 					DestinationElement = baseEff.DestinationElement,
 					Element = baseEff.Element,
+					ElementExpression = baseEff.ElementExpression,
 					Mode = baseEff.Mode,
 					ParameterID = baseEff.ParameterID,
 					Type = baseEff.Type,
@@ -421,9 +422,9 @@ namespace TechTreeEditor.Controls
 					sel.Element = null;
 
 				// Aktualisieren
+				_filterLabel.Visible = _filterTextBox.Visible = _filterTestButton.Visible = (sel.Element == null && sel.ClassID < 0);
 				UpdateEffectList();
 			}
-			_filterLabel.Visible = _filterTextBox.Visible = _filterTestButton.Visible = (sel.Element == null && sel.ClassID < 0);
 		}
 
 		private void _destUnitField_ValueChanged(object sender, Controls.DropDownFieldControl.ValueChangedEventArgs e)
@@ -462,9 +463,9 @@ namespace TechTreeEditor.Controls
 					sel.Element = null;
 
 				// Aktualisieren
+				_filterLabel.Visible = _filterTextBox.Visible = _filterTestButton.Visible = (sel.Element == null);
 				UpdateEffectList();
 			}
-			_filterLabel.Visible = _filterTextBox.Visible = _filterTestButton.Visible = (sel.Element == null);
 		}
 
 		private void _filterTextBox_TextChanged(object sender, EventArgs e)
@@ -487,18 +488,27 @@ namespace TechTreeEditor.Controls
 
 		private void _filterTestButton_Click(object sender, EventArgs e)
 		{
+			// Ausgewähltes Element abrufen
+			TechEffect sel = (TechEffect)_effectsListBox.SelectedItem;
+			if(sel == null)
+				return;
+
 			// Parser-Fehler fangen
 			try
 			{
+				// Effekt-Typ einbeziehen
+				bool isUnit = sel.Type == TechEffect.EffectType.AttributeMult || sel.Type == TechEffect.EffectType.AttributePM
+					|| sel.Type == TechEffect.EffectType.AttributeSet || sel.Type == TechEffect.EffectType.UnitEnableDisable;
+
 				// Testweise Ausdruck auswerten
-				TechEffect.ExpressionEvaluator eval = new TechEffect.ExpressionEvaluator(_filterTextBox.Text);
+				TechEffect.ExpressionEvaluator eval = new TechEffect.ExpressionEvaluator(_filterTextBox.Text, isUnit);
 				var list = _projectFile.Where(el => eval.CheckElement(el, _projectFile));
 
 				// Ergebnisse zeigen
 				Form resultForm = new Form()
 				{
 					Height = 300,
-					Width =400,
+					Width = 400,
 					FormBorderStyle = FormBorderStyle.SizableToolWindow,
 					Text = "Filter expression evaluation results"
 				};
@@ -535,9 +545,9 @@ namespace TechTreeEditor.Controls
 				sel.ClassID = (short)(_classComboBox.SelectedIndex - 1);
 
 				// Aktualisieren
+				_filterLabel.Visible = _filterTextBox.Visible = _filterTestButton.Visible = (sel.Element == null && sel.ClassID < 0);
 				UpdateEffectList();
 			}
-			_filterLabel.Visible = _filterTextBox.Visible = _filterTestButton.Visible = (sel.Element == null && sel.ClassID < 0);
 		}
 
 		private void _attributeComboBox_SelectedIndexChanged(object sender, EventArgs e)

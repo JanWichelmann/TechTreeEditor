@@ -154,8 +154,7 @@ namespace TechTreeEditor
 					foreach(var elem in _civCopyBar.Items)
 					{
 						// Button abrufen
-						ToolStripButton button = elem as ToolStripButton;
-						if(button != null && button.CheckOnClick)
+						if(elem is ToolStripButton button && button.CheckOnClick)
 							button.Checked = true;
 					}
 				};
@@ -172,8 +171,7 @@ namespace TechTreeEditor
 					foreach(var elem in _civCopyBar.Items)
 					{
 						// Button abrufen
-						ToolStripButton button = elem as ToolStripButton;
-						if(button != null && button.CheckOnClick)
+						if(elem is ToolStripButton button && button.CheckOnClick)
 							button.Checked = false;
 					}
 				};
@@ -190,8 +188,7 @@ namespace TechTreeEditor
 					foreach(var elem in _civCopyBar.Items)
 					{
 						// Button abrufen
-						ToolStripButton button = elem as ToolStripButton;
-						if(button != null && button.CheckOnClick)
+						if(elem is ToolStripButton button && button.CheckOnClick)
 							button.Checked = !button.Checked;
 					}
 				};
@@ -1598,8 +1595,9 @@ namespace TechTreeEditor
 				_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements, _projectFile.AgeCount);
 
 				// Scrollen
-				if(succElement != null && elementRenderDistance > 0 && elementRenderDistance < _renderPanel.Width)
-					_renderPanel.ScrollHorizontal(succElement.CacheBoxPosition.X - _selectedElement.CacheBoxPosition.X);
+				if((ModifierKeys & Keys.Control) != Keys.Control)
+					if(succElement != null && elementRenderDistance > 0 && elementRenderDistance < _renderPanel.Width)
+						_renderPanel.ScrollHorizontal(succElement.CacheBoxPosition.X - _selectedElement.CacheBoxPosition.X);
 			}
 		}
 
@@ -1619,8 +1617,9 @@ namespace TechTreeEditor
 				_renderPanel.UpdateTreeData(_projectFile.TechTreeParentElements, _projectFile.AgeCount);
 
 				// Scrollen
-				if(succElement != null && elementRenderDistance > 0 && elementRenderDistance < _renderPanel.Width)
-					_renderPanel.ScrollHorizontal(succElement.CacheBoxPosition.X - _selectedElement.CacheBoxPosition.X);
+				if((ModifierKeys & Keys.Control) != Keys.Control)
+					if(succElement != null && elementRenderDistance > 0 && elementRenderDistance < _renderPanel.Width)
+						_renderPanel.ScrollHorizontal(succElement.CacheBoxPosition.X - _selectedElement.CacheBoxPosition.X);
 			}
 		}
 
@@ -1769,9 +1768,9 @@ namespace TechTreeEditor
 				Unknown1 = -1,
 				RequiredTechs = new List<short>(new short[] { -1, -1, -1, -1, -1, -1 })
 			};
-			newResearchDAT.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>());
-			newResearchDAT.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>());
-			newResearchDAT.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>());
+			newResearchDAT.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+			newResearchDAT.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
+			newResearchDAT.ResourceCosts.Add(new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>() { Type = -1 });
 			newResearch.DATResearch = newResearchDAT;
 
 			// Technologie in die DAT schreiben
@@ -1986,8 +1985,7 @@ namespace TechTreeEditor
 		private void _sortChildrenMenuButton_Click(object sender, EventArgs e)
 		{
 			// Gewähltes Gebäude/gewählte Einheit abrufen
-			IChildrenContainer sel = _selectedElement as IChildrenContainer;
-			if(sel != null)
+			if(_selectedElement is IChildrenContainer sel)
 			{
 				// Kindelemente sortieren
 				sel.Children.Sort((e1, e2) => e1.Item1.CompareTo(e2.Item1));
@@ -2129,7 +2127,7 @@ namespace TechTreeEditor
 		private void _importBalancingFileMenuButton_Click(object sender, EventArgs e)
 		{
 			// Dialog zeigen
-			if(_openBalancingFileDialog.ShowDialog()== DialogResult.OK)
+			if(_openBalancingFileDialog.ShowDialog() == DialogResult.OK)
 			{
 				// Identitätsmapping erstellen
 				MappingFile idMapping = new MappingFile();

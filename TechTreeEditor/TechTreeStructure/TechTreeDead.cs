@@ -134,6 +134,11 @@ namespace TechTreeEditor.TechTreeStructure
 			get { return "TechTreeDead"; }
 		}
 
+		/// <summary>
+		/// Ruft die Farbe der Element-Box ab.
+		/// </summary>
+		public override Color BoxColor => Color.LightYellow;
+
 		#endregion Eigenschaften
 	}
 }

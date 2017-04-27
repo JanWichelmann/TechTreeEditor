@@ -66,21 +66,21 @@ namespace TechTreeEditor
 				_relIDTextBox.Text = relID.ToString();
 
 			// Ressourcen-Kosten setzen
-			_cost1Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
+			_cost1Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, byte>()
 			{
-				Paid = _treeResearch.DATResearch.ResourceCosts[0].Paid > 0,
+				Mode = _treeResearch.DATResearch.ResourceCosts[0].Mode,
 				Type = _treeResearch.DATResearch.ResourceCosts[0].Type,
 				Amount = _treeResearch.DATResearch.ResourceCosts[0].Amount
 			};
-			_cost2Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
+			_cost2Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, byte>()
 			{
-				Paid = _treeResearch.DATResearch.ResourceCosts[1].Paid > 0,
+				Mode = _treeResearch.DATResearch.ResourceCosts[1].Mode,
 				Type = _treeResearch.DATResearch.ResourceCosts[1].Type,
 				Amount = _treeResearch.DATResearch.ResourceCosts[1].Amount
 			};
-			_cost3Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool>()
+			_cost3Field.Value = new GenieLibrary.IGenieDataElement.ResourceTuple<int, float, byte>()
 			{
-				Paid = _treeResearch.DATResearch.ResourceCosts[2].Paid > 0,
+				Mode = _treeResearch.DATResearch.ResourceCosts[2].Mode,
 				Type = _treeResearch.DATResearch.ResourceCosts[2].Type,
 				Amount = _treeResearch.DATResearch.ResourceCosts[2].Amount
 			};
@@ -176,7 +176,7 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_treeResearch.DATResearch.ResourceCosts[0] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>()
 			{
-				Paid = (byte)(e.NewValue.Paid ? 1 : 0),
+				Mode = e.NewValue.Mode,
 				Type = (short)e.NewValue.Type,
 				Amount = (short)e.NewValue.Amount
 			};
@@ -187,7 +187,7 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_treeResearch.DATResearch.ResourceCosts[1] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>()
 			{
-				Paid = (byte)(e.NewValue.Paid ? 1 : 0),
+				Mode = e.NewValue.Mode,
 				Type = (short)e.NewValue.Type,
 				Amount = (short)e.NewValue.Amount
 			};
@@ -198,7 +198,7 @@ namespace TechTreeEditor
 			// Wert aktualisieren
 			_treeResearch.DATResearch.ResourceCosts[2] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>()
 			{
-				Paid = (byte)(e.NewValue.Paid ? 1 : 0),
+				Mode = e.NewValue.Mode,
 				Type = (short)e.NewValue.Type,
 				Amount = (short)e.NewValue.Amount
 			};
@@ -207,8 +207,7 @@ namespace TechTreeEditor
 		private void _relIDTextBox_TextChanged(object sender, EventArgs e)
 		{
 			// Wert parsen
-			int relID;
-			if(int.TryParse(_relIDTextBox.Text, out relID) && relID >= 0 && relID < 1000)
+			if(int.TryParse(_relIDTextBox.Text, out int relID) && relID >= 0 && relID < 1000)
 			{
 				// Wert ist gültig
 				_relIDTextBox.BackColor = SystemColors.Window;
@@ -262,9 +261,7 @@ namespace TechTreeEditor
 		/// <param name="e">Die Ereignisdaten.</param>
 		protected virtual void OnIconChanged(IconChangedEventArgs e)
 		{
-			IconChangedEventHandler handler = IconChanged;
-			if(handler != null)
-				handler(this, e);
+			IconChanged?.Invoke(this, e);
 		}
 
 		/// <summary>

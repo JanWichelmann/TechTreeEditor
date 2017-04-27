@@ -321,6 +321,11 @@ namespace TechTreeEditor.TechTreeStructure
 			get { return "TechTreeProjectile"; }
 		}
 
+		/// <summary>
+		/// Ruft die Farbe der Element-Box ab.
+		/// </summary>
+		public override Color BoxColor => Color.FromArgb(250, 174, 132);
+
 		#endregion Eigenschaften
 	}
 }

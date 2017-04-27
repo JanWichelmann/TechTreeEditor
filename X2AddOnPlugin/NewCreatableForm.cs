@@ -135,11 +135,11 @@ namespace X2AddOnPlugin
 			_relIDTextBox.Text = "0";
 
 			// Standardkosten zuweisen
-			_cost1Field.Value = _cost2Field.Value = _cost3Field.Value = new IGenieDataElement.ResourceTuple<int, float, bool>()
+			_cost1Field.Value = _cost2Field.Value = _cost3Field.Value = new IGenieDataElement.ResourceTuple<int, float, byte>()
 			{
 				Amount = 0,
-				Paid = false,
-				Type = 0
+				Mode = 0,
+				Type = -1
 			};
 
 			// Kulturenliste zuweisen
@@ -543,19 +543,19 @@ namespace X2AddOnPlugin
 			newUnitDAT.HotKey = _dllHotkeyField.Value;
 			newUnitDAT.Creatable.ResourceCosts[0] = new IGenieDataElement.ResourceTuple<short, short, short>()
 			{
-				Paid = (short)(_cost1Field.Value.Paid ? 1 : 0),
+				Mode = _cost1Field.Value.Mode,
 				Type = (short)_cost1Field.Value.Type,
 				Amount = (short)_cost1Field.Value.Amount
 			};
 			newUnitDAT.Creatable.ResourceCosts[1] = new IGenieDataElement.ResourceTuple<short, short, short>()
 			{
-				Paid = (short)(_cost2Field.Value.Paid ? 1 : 0),
+				Mode = _cost2Field.Value.Mode,
 				Type = (short)_cost2Field.Value.Type,
 				Amount = (short)_cost2Field.Value.Amount
 			};
 			newUnitDAT.Creatable.ResourceCosts[2] = new IGenieDataElement.ResourceTuple<short, short, short>()
 			{
-				Paid = (short)(_cost3Field.Value.Paid ? 1 : 0),
+				Mode = _cost3Field.Value.Mode,
 				Type = (short)_cost3Field.Value.Type,
 				Amount = (short)_cost3Field.Value.Amount
 			};
@@ -618,8 +618,7 @@ namespace X2AddOnPlugin
 		private void _relIDTextBox_TextChanged(object sender, EventArgs e)
 		{
 			// Wert parsen
-			int relID;
-			if(int.TryParse(_relIDTextBox.Text, out relID) && relID >= 0 && relID < 1000)
+			if(int.TryParse(_relIDTextBox.Text, out int relID) && relID >= 0 && relID < 1000)
 			{
 				// Wert ist gültig
 				_relIDTextBox.BackColor = SystemColors.Window;

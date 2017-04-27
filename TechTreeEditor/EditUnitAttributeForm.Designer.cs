@@ -139,9 +139,6 @@
 			this._cost2Field = new TechTreeEditor.Controls.ResourceCostControl();
 			this._cost1Field = new TechTreeEditor.Controls.ResourceCostControl();
 			this.groupBox6 = new System.Windows.Forms.GroupBox();
-			this._resourceStorage3ModeField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._resourceStorage2ModeField = new TechTreeEditor.Controls.NumberFieldControl();
-			this._resourceStorage1ModeField = new TechTreeEditor.Controls.NumberFieldControl();
 			this._resourceStorage3Field = new TechTreeEditor.Controls.ResourceCostControl();
 			this._resourceStorage2Field = new TechTreeEditor.Controls.ResourceCostControl();
 			this._resourceStorage1Field = new TechTreeEditor.Controls.ResourceCostControl();
@@ -284,8 +281,8 @@
 			// 
 			// _bottomPanel
 			// 
-			resources.ApplyResources(this._bottomPanel, "_bottomPanel");
 			this._bottomPanel.Controls.Add(this._closeButton);
+			resources.ApplyResources(this._bottomPanel, "_bottomPanel");
 			this._bottomPanel.Name = "_bottomPanel";
 			// 
 			// _closeButton
@@ -297,7 +294,6 @@
 			// 
 			// _mainTabControl
 			// 
-			resources.ApplyResources(this._mainTabControl, "_mainTabControl");
 			this._mainTabControl.Controls.Add(this._commonTabPage);
 			this._mainTabControl.Controls.Add(this._abilitiesTabPage);
 			this._mainTabControl.Controls.Add(this._statsTabPage);
@@ -309,15 +305,16 @@
 			this._mainTabControl.Controls.Add(this._graphicsTabPage);
 			this._mainTabControl.Controls.Add(this._soundsTabPage);
 			this._mainTabControl.Controls.Add(this._unknownTabPage);
+			resources.ApplyResources(this._mainTabControl, "_mainTabControl");
 			this._mainTabControl.Name = "_mainTabControl";
 			this._mainTabControl.SelectedIndex = 0;
 			// 
 			// _commonTabPage
 			// 
-			resources.ApplyResources(this._commonTabPage, "_commonTabPage");
 			this._commonTabPage.Controls.Add(this._nameLabel);
 			this._commonTabPage.Controls.Add(this._nameTextBox);
 			this._commonTabPage.Controls.Add(this.groupBox1);
+			resources.ApplyResources(this._commonTabPage, "_commonTabPage");
 			this._commonTabPage.Name = "_commonTabPage";
 			this._commonTabPage.UseVisualStyleBackColor = true;
 			// 
@@ -334,11 +331,11 @@
 			// 
 			// groupBox1
 			// 
-			resources.ApplyResources(this.groupBox1, "groupBox1");
 			this.groupBox1.Controls.Add(this._dllHotkeyField);
 			this.groupBox1.Controls.Add(this._dllDescriptionField);
 			this.groupBox1.Controls.Add(this._dllHelpField);
 			this.groupBox1.Controls.Add(this._dllNameField);
+			resources.ApplyResources(this.groupBox1, "groupBox1");
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.TabStop = false;
 			// 
@@ -346,7 +343,6 @@
 			// 
 			resources.ApplyResources(this._dllHotkeyField, "_dllHotkeyField");
 			this._dllHotkeyField.Name = "_dllHotkeyField";
-			this._dllHotkeyField.NameString = "Hotkey: ";
 			this._dllHotkeyField.ProjectFile = null;
 			this._dllHotkeyField.Value = 0;
 			this._dllHotkeyField.ValueChanged += new TechTreeEditor.Controls.LanguageDLLControl.ValueChangedEventHandler(this._dllHotkeyField_ValueChanged);
@@ -355,7 +351,6 @@
 			// 
 			resources.ApplyResources(this._dllDescriptionField, "_dllDescriptionField");
 			this._dllDescriptionField.Name = "_dllDescriptionField";
-			this._dllDescriptionField.NameString = "Description:";
 			this._dllDescriptionField.ProjectFile = null;
 			this._dllDescriptionField.Value = 0;
 			this._dllDescriptionField.ValueChanged += new TechTreeEditor.Controls.LanguageDLLControl.ValueChangedEventHandler(this._dllDescriptionField_ValueChanged);
@@ -364,7 +359,6 @@
 			// 
 			resources.ApplyResources(this._dllHelpField, "_dllHelpField");
 			this._dllHelpField.Name = "_dllHelpField";
-			this._dllHelpField.NameString = "Help:";
 			this._dllHelpField.ProjectFile = null;
 			this._dllHelpField.Value = 0;
 			this._dllHelpField.ValueChanged += new TechTreeEditor.Controls.LanguageDLLControl.ValueChangedEventHandler(this._dllHelpField_ValueChanged);
@@ -373,16 +367,15 @@
 			// 
 			resources.ApplyResources(this._dllNameField, "_dllNameField");
 			this._dllNameField.Name = "_dllNameField";
-			this._dllNameField.NameString = "Name: ";
 			this._dllNameField.ProjectFile = null;
 			this._dllNameField.Value = 0;
 			this._dllNameField.ValueChanged += new TechTreeEditor.Controls.LanguageDLLControl.ValueChangedEventHandler(this._dllNameField_ValueChanged);
 			// 
 			// _abilitiesTabPage
 			// 
-			resources.ApplyResources(this._abilitiesTabPage, "_abilitiesTabPage");
 			this._abilitiesTabPage.Controls.Add(this._abilitiesListBox);
 			this._abilitiesTabPage.Controls.Add(this.panel1);
+			resources.ApplyResources(this._abilitiesTabPage, "_abilitiesTabPage");
 			this._abilitiesTabPage.Name = "_abilitiesTabPage";
 			this._abilitiesTabPage.UseVisualStyleBackColor = true;
 			// 
@@ -396,7 +389,6 @@
 			// 
 			// panel1
 			// 
-			resources.ApplyResources(this.panel1, "panel1");
 			this.panel1.Controls.Add(this._abilityUnitComboBox);
 			this.panel1.Controls.Add(this._abilityUnitLabel);
 			this.panel1.Controls.Add(this._abilityUnknown6Field);
@@ -434,13 +426,14 @@
 			this.panel1.Controls.Add(this._abilityResourceComboBox);
 			this.panel1.Controls.Add(this._abilityTypeLabel);
 			this.panel1.Controls.Add(this._abilityClassLabel);
+			resources.ApplyResources(this.panel1, "panel1");
 			this.panel1.Name = "panel1";
 			// 
 			// _abilityUnitComboBox
 			// 
-			resources.ApplyResources(this._abilityUnitComboBox, "_abilityUnitComboBox");
 			this._abilityUnitComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
 			this._abilityUnitComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+			resources.ApplyResources(this._abilityUnitComboBox, "_abilityUnitComboBox");
 			this._abilityUnitComboBox.FormattingEnabled = true;
 			this._abilityUnitComboBox.Name = "_abilityUnitComboBox";
 			this._abilityUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._abilityUnitComboBox_SelectedIndexChanged);
@@ -454,7 +447,6 @@
 			// 
 			resources.ApplyResources(this._abilityUnknown6Field, "_abilityUnknown6Field");
 			this._abilityUnknown6Field.Name = "_abilityUnknown6Field";
-			this._abilityUnknown6Field.NameString = "UUnknown 6:";
 			this._abilityUnknown6Field.Value = new decimal(new int[] {
             0,
             0,
@@ -466,7 +458,6 @@
 			// 
 			resources.ApplyResources(this._abilityUnknown5Field, "_abilityUnknown5Field");
 			this._abilityUnknown5Field.Name = "_abilityUnknown5Field";
-			this._abilityUnknown5Field.NameString = "Unknown 5:";
 			this._abilityUnknown5Field.Value = new decimal(new int[] {
             0,
             0,
@@ -478,7 +469,6 @@
 			// 
 			resources.ApplyResources(this._abilityUnknown4Field, "_abilityUnknown4Field");
 			this._abilityUnknown4Field.Name = "_abilityUnknown4Field";
-			this._abilityUnknown4Field.NameString = "Unknown 4:";
 			this._abilityUnknown4Field.Value = new decimal(new int[] {
             0,
             0,
@@ -490,7 +480,6 @@
 			// 
 			resources.ApplyResources(this._abilityUnknown3Field, "_abilityUnknown3Field");
 			this._abilityUnknown3Field.Name = "_abilityUnknown3Field";
-			this._abilityUnknown3Field.NameString = "Unknown 3:";
 			this._abilityUnknown3Field.Value = new decimal(new int[] {
             0,
             0,
@@ -502,7 +491,6 @@
 			// 
 			resources.ApplyResources(this._abilityUnknown2Field, "_abilityUnknown2Field");
 			this._abilityUnknown2Field.Name = "_abilityUnknown2Field";
-			this._abilityUnknown2Field.NameString = "Unknown 2:";
 			this._abilityUnknown2Field.Value = new decimal(new int[] {
             0,
             0,
@@ -514,7 +502,6 @@
 			// 
 			resources.ApplyResources(this._abilityUnknown1Field, "_abilityUnknown1Field");
 			this._abilityUnknown1Field.Name = "_abilityUnknown1Field";
-			this._abilityUnknown1Field.NameString = "Unknown 1:";
 			this._abilityUnknown1Field.Value = new decimal(new int[] {
             0,
             0,
@@ -526,7 +513,6 @@
 			// 
 			resources.ApplyResources(this._abilityDropSoundField, "_abilityDropSoundField");
 			this._abilityDropSoundField.Name = "_abilityDropSoundField";
-			this._abilityDropSoundField.NameString = "Drop sound:";
 			this._abilityDropSoundField.Value = new decimal(new int[] {
             0,
             0,
@@ -538,7 +524,6 @@
 			// 
 			resources.ApplyResources(this._abilityExecutionSoundField, "_abilityExecutionSoundField");
 			this._abilityExecutionSoundField.Name = "_abilityExecutionSoundField";
-			this._abilityExecutionSoundField.NameString = "Execution sound:";
 			this._abilityExecutionSoundField.Value = new decimal(new int[] {
             0,
             0,
@@ -550,7 +535,6 @@
 			// 
 			resources.ApplyResources(this._abilityCarryGraphicField, "_abilityCarryGraphicField");
 			this._abilityCarryGraphicField.Name = "_abilityCarryGraphicField";
-			this._abilityCarryGraphicField.NameString = "Carry graphic:";
 			this._abilityCarryGraphicField.Value = null;
 			this._abilityCarryGraphicField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._abilityCarryGraphicField_ValueChanged);
 			// 
@@ -558,7 +542,6 @@
 			// 
 			resources.ApplyResources(this._abilityActionGraphicField, "_abilityActionGraphicField");
 			this._abilityActionGraphicField.Name = "_abilityActionGraphicField";
-			this._abilityActionGraphicField.NameString = "Action graphic:";
 			this._abilityActionGraphicField.Value = null;
 			this._abilityActionGraphicField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._abilityActionGraphicField_ValueChanged);
 			// 
@@ -566,7 +549,6 @@
 			// 
 			resources.ApplyResources(this._abilityProceedGraphicField, "_abilityProceedGraphicField");
 			this._abilityProceedGraphicField.Name = "_abilityProceedGraphicField";
-			this._abilityProceedGraphicField.NameString = "Proceed graph.:";
 			this._abilityProceedGraphicField.Value = null;
 			this._abilityProceedGraphicField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._abilityProceedGraphicField_ValueChanged);
 			// 
@@ -574,7 +556,6 @@
 			// 
 			resources.ApplyResources(this._abilityToolGraphicField, "_abilityToolGraphicField");
 			this._abilityToolGraphicField.Name = "_abilityToolGraphicField";
-			this._abilityToolGraphicField.NameString = "Walk graphic:";
 			this._abilityToolGraphicField.Value = null;
 			this._abilityToolGraphicField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._abilityToolGraphicField_ValueChanged);
 			// 
@@ -582,7 +563,6 @@
 			// 
 			resources.ApplyResources(this._abilityRightClickModeField, "_abilityRightClickModeField");
 			this._abilityRightClickModeField.Name = "_abilityRightClickModeField";
-			this._abilityRightClickModeField.NameString = "Right click mode:";
 			this._abilityRightClickModeField.Value = new decimal(new int[] {
             0,
             0,
@@ -594,7 +574,6 @@
 			// 
 			resources.ApplyResources(this._abilityTerrainField, "_abilityTerrainField");
 			this._abilityTerrainField.Name = "_abilityTerrainField";
-			this._abilityTerrainField.NameString = "Terrain:";
 			this._abilityTerrainField.Value = new decimal(new int[] {
             0,
             0,
@@ -606,7 +585,6 @@
 			// 
 			resources.ApplyResources(this._abilityPlunderSourceField, "_abilityPlunderSourceField");
 			this._abilityPlunderSourceField.Name = "_abilityPlunderSourceField";
-			this._abilityPlunderSourceField.NameString = "Plunder Mode:";
 			this._abilityPlunderSourceField.Value = new decimal(new int[] {
             0,
             0,
@@ -618,7 +596,6 @@
 			// 
 			resources.ApplyResources(this._abilitySelectionEnablerField, "_abilitySelectionEnablerField");
 			this._abilitySelectionEnablerField.Name = "_abilitySelectionEnablerField";
-			this._abilitySelectionEnablerField.NameString = "Selection enabler:";
 			this._abilitySelectionEnablerField.Value = new decimal(new int[] {
             0,
             0,
@@ -630,7 +607,6 @@
 			// 
 			resources.ApplyResources(this._abilitySelectionModeField, "_abilitySelectionModeField");
 			this._abilitySelectionModeField.Name = "_abilitySelectionModeField";
-			this._abilitySelectionModeField.NameString = "Selection mode:";
 			this._abilitySelectionModeField.Value = new decimal(new int[] {
             0,
             0,
@@ -642,7 +618,6 @@
 			// 
 			resources.ApplyResources(this._abilityRangeField, "_abilityRangeField");
 			this._abilityRangeField.Name = "_abilityRangeField";
-			this._abilityRangeField.NameString = "Extra range:";
 			this._abilityRangeField.Value = new decimal(new int[] {
             0,
             0,
@@ -654,7 +629,6 @@
 			// 
 			resources.ApplyResources(this._abilityRadiusField, "_abilityRadiusField");
 			this._abilityRadiusField.Name = "_abilityRadiusField";
-			this._abilityRadiusField.NameString = "Radius: ";
 			this._abilityRadiusField.Value = new decimal(new int[] {
             0,
             0,
@@ -666,7 +640,6 @@
 			// 
 			resources.ApplyResources(this._abilityWorkRateFactorField, "_abilityWorkRateFactorField");
 			this._abilityWorkRateFactorField.Name = "_abilityWorkRateFactorField";
-			this._abilityWorkRateFactorField.NameString = "Work rate factor:";
 			this._abilityWorkRateFactorField.Value = new decimal(new int[] {
             0,
             0,
@@ -737,9 +710,9 @@
 			// 
 			// _abilityClassComboBox
 			// 
-			resources.ApplyResources(this._abilityClassComboBox, "_abilityClassComboBox");
 			this._abilityClassComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
 			this._abilityClassComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+			resources.ApplyResources(this._abilityClassComboBox, "_abilityClassComboBox");
 			this._abilityClassComboBox.FormattingEnabled = true;
 			this._abilityClassComboBox.Name = "_abilityClassComboBox";
 			this._abilityClassComboBox.SelectedIndexChanged += new System.EventHandler(this._abilityClassComboBox_SelectedIndexChanged);
@@ -773,7 +746,6 @@
 			// 
 			// _statsTabPage
 			// 
-			resources.ApplyResources(this._statsTabPage, "_statsTabPage");
 			this._statsTabPage.Controls.Add(this._garrisonHealRateField);
 			this._statsTabPage.Controls.Add(this._workRateField);
 			this._statsTabPage.Controls.Add(this._searchRadiusField);
@@ -782,6 +754,7 @@
 			this._statsTabPage.Controls.Add(this._losField);
 			this._statsTabPage.Controls.Add(this._resourceCapacityField);
 			this._statsTabPage.Controls.Add(this._garrisonCapacityField);
+			resources.ApplyResources(this._statsTabPage, "_statsTabPage");
 			this._statsTabPage.Name = "_statsTabPage";
 			this._statsTabPage.UseVisualStyleBackColor = true;
 			// 
@@ -789,7 +762,6 @@
 			// 
 			resources.ApplyResources(this._garrisonHealRateField, "_garrisonHealRateField");
 			this._garrisonHealRateField.Name = "_garrisonHealRateField";
-			this._garrisonHealRateField.NameString = "Heal rate:";
 			this._garrisonHealRateField.Value = new decimal(new int[] {
             0,
             0,
@@ -801,7 +773,6 @@
 			// 
 			resources.ApplyResources(this._workRateField, "_workRateField");
 			this._workRateField.Name = "_workRateField";
-			this._workRateField.NameString = "Work rate:";
 			this._workRateField.Value = new decimal(new int[] {
             0,
             0,
@@ -813,7 +784,6 @@
 			// 
 			resources.ApplyResources(this._searchRadiusField, "_searchRadiusField");
 			this._searchRadiusField.Name = "_searchRadiusField";
-			this._searchRadiusField.NameString = "Search radius:";
 			this._searchRadiusField.Value = new decimal(new int[] {
             0,
             0,
@@ -825,7 +795,6 @@
 			// 
 			resources.ApplyResources(this._rotationSpeedField, "_rotationSpeedField");
 			this._rotationSpeedField.Name = "_rotationSpeedField";
-			this._rotationSpeedField.NameString = "Rotation speed:";
 			this._rotationSpeedField.Value = new decimal(new int[] {
             0,
             0,
@@ -837,7 +806,6 @@
 			// 
 			resources.ApplyResources(this._speedField, "_speedField");
 			this._speedField.Name = "_speedField";
-			this._speedField.NameString = "Speed:";
 			this._speedField.Value = new decimal(new int[] {
             0,
             0,
@@ -849,7 +817,6 @@
 			// 
 			resources.ApplyResources(this._losField, "_losField");
 			this._losField.Name = "_losField";
-			this._losField.NameString = "Line of sight:";
 			this._losField.Value = new decimal(new int[] {
             0,
             0,
@@ -861,7 +828,6 @@
 			// 
 			resources.ApplyResources(this._resourceCapacityField, "_resourceCapacityField");
 			this._resourceCapacityField.Name = "_resourceCapacityField";
-			this._resourceCapacityField.NameString = "Resource capacity:";
 			this._resourceCapacityField.Value = new decimal(new int[] {
             0,
             0,
@@ -873,7 +839,6 @@
 			// 
 			resources.ApplyResources(this._garrisonCapacityField, "_garrisonCapacityField");
 			this._garrisonCapacityField.Name = "_garrisonCapacityField";
-			this._garrisonCapacityField.NameString = "Garrison capacity:";
 			this._garrisonCapacityField.Value = new decimal(new int[] {
             0,
             0,
@@ -883,7 +848,6 @@
 			// 
 			// _combatTabPage
 			// 
-			resources.ApplyResources(this._combatTabPage, "_combatTabPage");
 			this._combatTabPage.Controls.Add(this._blastLevelField);
 			this._combatTabPage.Controls.Add(this._terrainMultField);
 			this._combatTabPage.Controls.Add(this._blastRadiusField);
@@ -895,6 +859,7 @@
 			this._combatTabPage.Controls.Add(this.groupBox18);
 			this._combatTabPage.Controls.Add(this._blastTypeField);
 			this._combatTabPage.Controls.Add(this._hitpointsField);
+			resources.ApplyResources(this._combatTabPage, "_combatTabPage");
 			this._combatTabPage.Name = "_combatTabPage";
 			this._combatTabPage.UseVisualStyleBackColor = true;
 			// 
@@ -902,7 +867,6 @@
 			// 
 			resources.ApplyResources(this._blastLevelField, "_blastLevelField");
 			this._blastLevelField.Name = "_blastLevelField";
-			this._blastLevelField.NameString = "Blast level:";
 			this._blastLevelField.Value = new decimal(new int[] {
             0,
             0,
@@ -914,7 +878,6 @@
 			// 
 			resources.ApplyResources(this._terrainMultField, "_terrainMultField");
 			this._terrainMultField.Name = "_terrainMultField";
-			this._terrainMultField.NameString = "Terrain multiplicator:";
 			this._terrainMultField.Value = new decimal(new int[] {
             0,
             0,
@@ -926,7 +889,6 @@
 			// 
 			resources.ApplyResources(this._blastRadiusField, "_blastRadiusField");
 			this._blastRadiusField.Name = "_blastRadiusField";
-			this._blastRadiusField.NameString = "Blast radius:";
 			this._blastRadiusField.Value = new decimal(new int[] {
             0,
             0,
@@ -938,7 +900,6 @@
 			// 
 			resources.ApplyResources(this._defaultArmorField, "_defaultArmorField");
 			this._defaultArmorField.Name = "_defaultArmorField";
-			this._defaultArmorField.NameString = "Default armour:";
 			this._defaultArmorField.Value = new decimal(new int[] {
             0,
             0,
@@ -950,7 +911,6 @@
 			// 
 			resources.ApplyResources(this._attackModeField, "_attackModeField");
 			this._attackModeField.Name = "_attackModeField";
-			this._attackModeField.NameString = "Attack mode:";
 			this._attackModeField.Value = new decimal(new int[] {
             0,
             0,
@@ -960,9 +920,9 @@
 			// 
 			// groupBox22
 			// 
-			resources.ApplyResources(this.groupBox22, "groupBox22");
 			this.groupBox22.Controls.Add(this._attackReloadTimeDisplayedField);
 			this.groupBox22.Controls.Add(this._attackReloadTimeField);
+			resources.ApplyResources(this.groupBox22, "groupBox22");
 			this.groupBox22.Name = "groupBox22";
 			this.groupBox22.TabStop = false;
 			// 
@@ -970,7 +930,6 @@
 			// 
 			resources.ApplyResources(this._attackReloadTimeDisplayedField, "_attackReloadTimeDisplayedField");
 			this._attackReloadTimeDisplayedField.Name = "_attackReloadTimeDisplayedField";
-			this._attackReloadTimeDisplayedField.NameString = "Displayed:";
 			this._attackReloadTimeDisplayedField.Value = new decimal(new int[] {
             0,
             0,
@@ -982,7 +941,6 @@
 			// 
 			resources.ApplyResources(this._attackReloadTimeField, "_attackReloadTimeField");
 			this._attackReloadTimeField.Name = "_attackReloadTimeField";
-			this._attackReloadTimeField.NameString = "Value:";
 			this._attackReloadTimeField.Value = new decimal(new int[] {
             0,
             0,
@@ -992,10 +950,10 @@
 			// 
 			// groupBox20
 			// 
-			resources.ApplyResources(this.groupBox20, "groupBox20");
 			this.groupBox20.Controls.Add(this._rangeDisplayedField);
 			this.groupBox20.Controls.Add(this._rangeMaxField);
 			this.groupBox20.Controls.Add(this._rangeMinField);
+			resources.ApplyResources(this.groupBox20, "groupBox20");
 			this.groupBox20.Name = "groupBox20";
 			this.groupBox20.TabStop = false;
 			// 
@@ -1003,7 +961,6 @@
 			// 
 			resources.ApplyResources(this._rangeDisplayedField, "_rangeDisplayedField");
 			this._rangeDisplayedField.Name = "_rangeDisplayedField";
-			this._rangeDisplayedField.NameString = "Displayed:";
 			this._rangeDisplayedField.Value = new decimal(new int[] {
             0,
             0,
@@ -1015,7 +972,6 @@
 			// 
 			resources.ApplyResources(this._rangeMaxField, "_rangeMaxField");
 			this._rangeMaxField.Name = "_rangeMaxField";
-			this._rangeMaxField.NameString = "Maximum:";
 			this._rangeMaxField.Value = new decimal(new int[] {
             0,
             0,
@@ -1027,7 +983,6 @@
 			// 
 			resources.ApplyResources(this._rangeMinField, "_rangeMinField");
 			this._rangeMinField.Name = "_rangeMinField";
-			this._rangeMinField.NameString = "Minimum:";
 			this._rangeMinField.Value = new decimal(new int[] {
             0,
             0,
@@ -1037,21 +992,21 @@
 			// 
 			// groupBox19
 			// 
-			resources.ApplyResources(this.groupBox19, "groupBox19");
 			this.groupBox19.Controls.Add(this._armourValuesField);
 			this.groupBox19.Controls.Add(this._displayedPierceArmorField);
 			this.groupBox19.Controls.Add(this._displayedMeleeArmourField);
+			resources.ApplyResources(this.groupBox19, "groupBox19");
 			this.groupBox19.Name = "groupBox19";
 			this.groupBox19.TabStop = false;
 			// 
 			// _armourValuesField
 			// 
-			resources.ApplyResources(this._armourValuesField, "_armourValuesField");
 			this._armourValuesField.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this._armourValuesField.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this._armourValuesField.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this._armValClassColumn,
             this._armValValueColumn});
+			resources.ApplyResources(this._armourValuesField, "_armourValuesField");
 			this._armourValuesField.Name = "_armourValuesField";
 			this._armourValuesField.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this._armourValuesField_CellValidating);
 			this._armourValuesField.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._armourValuesField_CellValueChanged);
@@ -1073,7 +1028,6 @@
 			// 
 			resources.ApplyResources(this._displayedPierceArmorField, "_displayedPierceArmorField");
 			this._displayedPierceArmorField.Name = "_displayedPierceArmorField";
-			this._displayedPierceArmorField.NameString = "/";
 			this._displayedPierceArmorField.Value = new decimal(new int[] {
             0,
             0,
@@ -1085,7 +1039,6 @@
 			// 
 			resources.ApplyResources(this._displayedMeleeArmourField, "_displayedMeleeArmourField");
 			this._displayedMeleeArmourField.Name = "_displayedMeleeArmourField";
-			this._displayedMeleeArmourField.NameString = "Displayed:";
 			this._displayedMeleeArmourField.Value = new decimal(new int[] {
             0,
             0,
@@ -1095,20 +1048,20 @@
 			// 
 			// groupBox18
 			// 
-			resources.ApplyResources(this.groupBox18, "groupBox18");
 			this.groupBox18.Controls.Add(this._attackValuesField);
 			this.groupBox18.Controls.Add(this._displayedAttackField);
+			resources.ApplyResources(this.groupBox18, "groupBox18");
 			this.groupBox18.Name = "groupBox18";
 			this.groupBox18.TabStop = false;
 			// 
 			// _attackValuesField
 			// 
-			resources.ApplyResources(this._attackValuesField, "_attackValuesField");
 			this._attackValuesField.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this._attackValuesField.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this._attackValuesField.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this._attValClassColumn,
             this._attValValueColumn});
+			resources.ApplyResources(this._attackValuesField, "_attackValuesField");
 			this._attackValuesField.Name = "_attackValuesField";
 			this._attackValuesField.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this._attackValuesField_CellValidating);
 			this._attackValuesField.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._attackValuesField_CellValueChanged);
@@ -1130,7 +1083,6 @@
 			// 
 			resources.ApplyResources(this._displayedAttackField, "_displayedAttackField");
 			this._displayedAttackField.Name = "_displayedAttackField";
-			this._displayedAttackField.NameString = "Displayed:";
 			this._displayedAttackField.Value = new decimal(new int[] {
             0,
             0,
@@ -1142,7 +1094,6 @@
 			// 
 			resources.ApplyResources(this._blastTypeField, "_blastTypeField");
 			this._blastTypeField.Name = "_blastTypeField";
-			this._blastTypeField.NameString = "Blast type:";
 			this._blastTypeField.Value = new decimal(new int[] {
             0,
             0,
@@ -1154,7 +1105,6 @@
 			// 
 			resources.ApplyResources(this._hitpointsField, "_hitpointsField");
 			this._hitpointsField.Name = "_hitpointsField";
-			this._hitpointsField.NameString = "Hitpoints:";
 			this._hitpointsField.Value = new decimal(new int[] {
             0,
             0,
@@ -1164,7 +1114,6 @@
 			// 
 			// _projectileTabPage
 			// 
-			resources.ApplyResources(this._projectileTabPage, "_projectileTabPage");
 			this._projectileTabPage.Controls.Add(this._missileDuplMaxField);
 			this._projectileTabPage.Controls.Add(this._missileSpawnZField);
 			this._projectileTabPage.Controls.Add(this._missileDuplMinField);
@@ -1181,6 +1130,7 @@
 			this._projectileTabPage.Controls.Add(this._accuracyPercentField);
 			this._projectileTabPage.Controls.Add(this._compensationModeField);
 			this._projectileTabPage.Controls.Add(this._stretchModeField);
+			resources.ApplyResources(this._projectileTabPage, "_projectileTabPage");
 			this._projectileTabPage.Name = "_projectileTabPage";
 			this._projectileTabPage.UseVisualStyleBackColor = true;
 			// 
@@ -1188,7 +1138,6 @@
 			// 
 			resources.ApplyResources(this._missileDuplMaxField, "_missileDuplMaxField");
 			this._missileDuplMaxField.Name = "_missileDuplMaxField";
-			this._missileDuplMaxField.NameString = "Maximum duplication:";
 			this._missileDuplMaxField.Value = new decimal(new int[] {
             0,
             0,
@@ -1200,7 +1149,6 @@
 			// 
 			resources.ApplyResources(this._missileSpawnZField, "_missileSpawnZField");
 			this._missileSpawnZField.Name = "_missileSpawnZField";
-			this._missileSpawnZField.NameString = "Spawn randomness:";
 			this._missileSpawnZField.Value = new decimal(new int[] {
             0,
             0,
@@ -1212,7 +1160,6 @@
 			// 
 			resources.ApplyResources(this._missileDuplMinField, "_missileDuplMinField");
 			this._missileDuplMinField.Name = "_missileDuplMinField";
-			this._missileDuplMinField.NameString = "Minimum duplication:";
 			this._missileDuplMinField.Value = new decimal(new int[] {
             0,
             0,
@@ -1224,7 +1171,6 @@
 			// 
 			resources.ApplyResources(this._frameDelayField, "_frameDelayField");
 			this._frameDelayField.Name = "_frameDelayField";
-			this._frameDelayField.NameString = "Frame delay:";
 			this._frameDelayField.Value = new decimal(new int[] {
             0,
             0,
@@ -1236,7 +1182,6 @@
 			// 
 			resources.ApplyResources(this._missileSpawnYField, "_missileSpawnYField");
 			this._missileSpawnYField.Name = "_missileSpawnYField";
-			this._missileSpawnYField.NameString = "Spawn radius 2:";
 			this._missileSpawnYField.Value = new decimal(new int[] {
             0,
             0,
@@ -1248,7 +1193,6 @@
 			// 
 			resources.ApplyResources(this._graphicDisplacementZField, "_graphicDisplacementZField");
 			this._graphicDisplacementZField.Name = "_graphicDisplacementZField";
-			this._graphicDisplacementZField.NameString = "Height:";
 			this._graphicDisplacementZField.Value = new decimal(new int[] {
             0,
             0,
@@ -1260,7 +1204,6 @@
 			// 
 			resources.ApplyResources(this._missileSpawnXField, "_missileSpawnXField");
 			this._missileSpawnXField.Name = "_missileSpawnXField";
-			this._missileSpawnXField.NameString = "Spawn radius 1:";
 			this._missileSpawnXField.Value = new decimal(new int[] {
             0,
             0,
@@ -1272,7 +1215,6 @@
 			// 
 			resources.ApplyResources(this._graphicDisplacementYField, "_graphicDisplacementYField");
 			this._graphicDisplacementYField.Name = "_graphicDisplacementYField";
-			this._graphicDisplacementYField.NameString = "Displacement to the front:";
 			this._graphicDisplacementYField.Value = new decimal(new int[] {
             0,
             0,
@@ -1284,7 +1226,6 @@
 			// 
 			resources.ApplyResources(this._graphicDisplacementXField, "_graphicDisplacementXField");
 			this._graphicDisplacementXField.Name = "_graphicDisplacementXField";
-			this._graphicDisplacementXField.NameString = "Displacement to the right:";
 			this._graphicDisplacementXField.Value = new decimal(new int[] {
             0,
             0,
@@ -1296,7 +1237,6 @@
 			// 
 			resources.ApplyResources(this._projectileArcField, "_projectileArcField");
 			this._projectileArcField.Name = "_projectileArcField";
-			this._projectileArcField.NameString = "Trajectory arc:";
 			this._projectileArcField.Value = new decimal(new int[] {
             0,
             0,
@@ -1308,7 +1248,6 @@
 			// 
 			resources.ApplyResources(this._penetrationModeField, "_penetrationModeField");
 			this._penetrationModeField.Name = "_penetrationModeField";
-			this._penetrationModeField.NameString = "Penetration mode:";
 			this._penetrationModeField.Value = new decimal(new int[] {
             0,
             0,
@@ -1320,7 +1259,6 @@
 			// 
 			resources.ApplyResources(this._accuracyErrorField, "_accuracyErrorField");
 			this._accuracyErrorField.Name = "_accuracyErrorField";
-			this._accuracyErrorField.NameString = "Error accuracy:";
 			this._accuracyErrorField.Value = new decimal(new int[] {
             0,
             0,
@@ -1332,7 +1270,6 @@
 			// 
 			resources.ApplyResources(this._dropAnimationModeField, "_dropAnimationModeField");
 			this._dropAnimationModeField.Name = "_dropAnimationModeField";
-			this._dropAnimationModeField.NameString = "Disappearance mode:";
 			this._dropAnimationModeField.Value = new decimal(new int[] {
             0,
             0,
@@ -1344,7 +1281,6 @@
 			// 
 			resources.ApplyResources(this._accuracyPercentField, "_accuracyPercentField");
 			this._accuracyPercentField.Name = "_accuracyPercentField";
-			this._accuracyPercentField.NameString = "Percentage accuracy:";
 			this._accuracyPercentField.Value = new decimal(new int[] {
             0,
             0,
@@ -1356,7 +1292,6 @@
 			// 
 			resources.ApplyResources(this._compensationModeField, "_compensationModeField");
 			this._compensationModeField.Name = "_compensationModeField";
-			this._compensationModeField.NameString = "Compensation mode:";
 			this._compensationModeField.Value = new decimal(new int[] {
             0,
             0,
@@ -1368,7 +1303,6 @@
 			// 
 			resources.ApplyResources(this._stretchModeField, "_stretchModeField");
 			this._stretchModeField.Name = "_stretchModeField";
-			this._stretchModeField.NameString = "Trajectory type:";
 			this._stretchModeField.Value = new decimal(new int[] {
             0,
             0,
@@ -1378,10 +1312,10 @@
 			// 
 			// _trainTabPage
 			// 
-			resources.ApplyResources(this._trainTabPage, "_trainTabPage");
 			this._trainTabPage.Controls.Add(this._trainTimeField);
 			this._trainTabPage.Controls.Add(this.groupBox25);
 			this._trainTabPage.Controls.Add(this.groupBox6);
+			resources.ApplyResources(this._trainTabPage, "_trainTabPage");
 			this._trainTabPage.Name = "_trainTabPage";
 			this._trainTabPage.UseVisualStyleBackColor = true;
 			// 
@@ -1389,7 +1323,6 @@
 			// 
 			resources.ApplyResources(this._trainTimeField, "_trainTimeField");
 			this._trainTimeField.Name = "_trainTimeField";
-			this._trainTimeField.NameString = "Creation time:";
 			this._trainTimeField.Value = new decimal(new int[] {
             0,
             0,
@@ -1399,10 +1332,10 @@
 			// 
 			// groupBox25
 			// 
-			resources.ApplyResources(this.groupBox25, "groupBox25");
 			this.groupBox25.Controls.Add(this._cost3Field);
 			this.groupBox25.Controls.Add(this._cost2Field);
 			this.groupBox25.Controls.Add(this._cost1Field);
+			resources.ApplyResources(this.groupBox25, "groupBox25");
 			this.groupBox25.Name = "groupBox25";
 			this.groupBox25.TabStop = false;
 			// 
@@ -1410,95 +1343,49 @@
 			// 
 			resources.ApplyResources(this._cost3Field, "_cost3Field");
 			this._cost3Field.Name = "_cost3Field";
-			this._cost3Field.NameString = "Cost 3:";
 			this._cost3Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._cost3Field_ValueChanged);
 			// 
 			// _cost2Field
 			// 
 			resources.ApplyResources(this._cost2Field, "_cost2Field");
 			this._cost2Field.Name = "_cost2Field";
-			this._cost2Field.NameString = "Cost 2:";
 			this._cost2Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._cost2Field_ValueChanged);
 			// 
 			// _cost1Field
 			// 
 			resources.ApplyResources(this._cost1Field, "_cost1Field");
 			this._cost1Field.Name = "_cost1Field";
-			this._cost1Field.NameString = "Cost 1:";
 			this._cost1Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._cost1Field_ValueChanged);
 			// 
 			// groupBox6
 			// 
-			resources.ApplyResources(this.groupBox6, "groupBox6");
-			this.groupBox6.Controls.Add(this._resourceStorage3ModeField);
-			this.groupBox6.Controls.Add(this._resourceStorage2ModeField);
-			this.groupBox6.Controls.Add(this._resourceStorage1ModeField);
 			this.groupBox6.Controls.Add(this._resourceStorage3Field);
 			this.groupBox6.Controls.Add(this._resourceStorage2Field);
 			this.groupBox6.Controls.Add(this._resourceStorage1Field);
+			resources.ApplyResources(this.groupBox6, "groupBox6");
 			this.groupBox6.Name = "groupBox6";
 			this.groupBox6.TabStop = false;
-			// 
-			// _resourceStorage3ModeField
-			// 
-			resources.ApplyResources(this._resourceStorage3ModeField, "_resourceStorage3ModeField");
-			this._resourceStorage3ModeField.Name = "_resourceStorage3ModeField";
-			this._resourceStorage3ModeField.NameString = "Mode:";
-			this._resourceStorage3ModeField.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			this._resourceStorage3ModeField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._resourceStorage3ModeField_ValueChanged);
-			// 
-			// _resourceStorage2ModeField
-			// 
-			resources.ApplyResources(this._resourceStorage2ModeField, "_resourceStorage2ModeField");
-			this._resourceStorage2ModeField.Name = "_resourceStorage2ModeField";
-			this._resourceStorage2ModeField.NameString = "Mode:";
-			this._resourceStorage2ModeField.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			this._resourceStorage2ModeField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._resourceStorage2ModeField_ValueChanged);
-			// 
-			// _resourceStorage1ModeField
-			// 
-			resources.ApplyResources(this._resourceStorage1ModeField, "_resourceStorage1ModeField");
-			this._resourceStorage1ModeField.Name = "_resourceStorage1ModeField";
-			this._resourceStorage1ModeField.NameString = "Mode:";
-			this._resourceStorage1ModeField.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			this._resourceStorage1ModeField.ValueChanged += new TechTreeEditor.Controls.NumberFieldControl.ValueChangedEventHandler(this._resourceStorage1ModeField_ValueChanged);
 			// 
 			// _resourceStorage3Field
 			// 
 			resources.ApplyResources(this._resourceStorage3Field, "_resourceStorage3Field");
 			this._resourceStorage3Field.Name = "_resourceStorage3Field";
-			this._resourceStorage3Field.NameString = "Storage 3:";
 			this._resourceStorage3Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._resourceStorage3Field_ValueChanged);
 			// 
 			// _resourceStorage2Field
 			// 
 			resources.ApplyResources(this._resourceStorage2Field, "_resourceStorage2Field");
 			this._resourceStorage2Field.Name = "_resourceStorage2Field";
-			this._resourceStorage2Field.NameString = "Storage 2:";
 			this._resourceStorage2Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._resourceStorage2Field_ValueChanged);
 			// 
 			// _resourceStorage1Field
 			// 
 			resources.ApplyResources(this._resourceStorage1Field, "_resourceStorage1Field");
 			this._resourceStorage1Field.Name = "_resourceStorage1Field";
-			this._resourceStorage1Field.NameString = "Storage 1:";
 			this._resourceStorage1Field.ValueChanged += new TechTreeEditor.Controls.ResourceCostControl.ValueChangedEventHandler(this._resourceStorage1Field_ValueChanged);
 			// 
 			// _editorTabPage
 			// 
-			resources.ApplyResources(this._editorTabPage, "_editorTabPage");
 			this._editorTabPage.Controls.Add(this._classLabel);
 			this._editorTabPage.Controls.Add(this._classComboBox);
 			this._editorTabPage.Controls.Add(this.groupBox33);
@@ -1521,6 +1408,7 @@
 			this._editorTabPage.Controls.Add(this._placementModeField);
 			this._editorTabPage.Controls.Add(this._enabledField);
 			this._editorTabPage.Controls.Add(this._deadModeField);
+			resources.ApplyResources(this._editorTabPage, "_editorTabPage");
 			this._editorTabPage.Name = "_editorTabPage";
 			this._editorTabPage.UseVisualStyleBackColor = true;
 			// 
@@ -1531,20 +1419,20 @@
 			// 
 			// _classComboBox
 			// 
-			resources.ApplyResources(this._classComboBox, "_classComboBox");
 			this._classComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
 			this._classComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this._classComboBox.FormattingEnabled = true;
+			resources.ApplyResources(this._classComboBox, "_classComboBox");
 			this._classComboBox.Name = "_classComboBox";
 			this._classComboBox.SelectedIndexChanged += new System.EventHandler(this._classComboBox_SelectedIndexChanged);
 			// 
 			// groupBox33
 			// 
-			resources.ApplyResources(this.groupBox33, "groupBox33");
 			this.groupBox33.Controls.Add(this._lootStoneField);
 			this.groupBox33.Controls.Add(this._lootGoldField);
 			this.groupBox33.Controls.Add(this._lootFoodField);
 			this.groupBox33.Controls.Add(this._lootWoodField);
+			resources.ApplyResources(this.groupBox33, "groupBox33");
 			this.groupBox33.Name = "groupBox33";
 			this.groupBox33.TabStop = false;
 			// 
@@ -1552,7 +1440,6 @@
 			// 
 			resources.ApplyResources(this._lootStoneField, "_lootStoneField");
 			this._lootStoneField.Name = "_lootStoneField";
-			this._lootStoneField.NameString = "Stone";
 			this._lootStoneField.Value = false;
 			this._lootStoneField.ValueChanged += new TechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._lootStoneField_ValueChanged);
 			// 
@@ -1560,7 +1447,6 @@
 			// 
 			resources.ApplyResources(this._lootGoldField, "_lootGoldField");
 			this._lootGoldField.Name = "_lootGoldField";
-			this._lootGoldField.NameString = "Gold";
 			this._lootGoldField.Value = false;
 			this._lootGoldField.ValueChanged += new TechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._lootGoldField_ValueChanged);
 			// 
@@ -1568,7 +1454,6 @@
 			// 
 			resources.ApplyResources(this._lootFoodField, "_lootFoodField");
 			this._lootFoodField.Name = "_lootFoodField";
-			this._lootFoodField.NameString = "Food";
 			this._lootFoodField.Value = false;
 			this._lootFoodField.ValueChanged += new TechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._lootFoodField_ValueChanged);
 			// 
@@ -1576,18 +1461,17 @@
 			// 
 			resources.ApplyResources(this._lootWoodField, "_lootWoodField");
 			this._lootWoodField.Name = "_lootWoodField";
-			this._lootWoodField.NameString = "Wood";
 			this._lootWoodField.Value = false;
 			this._lootWoodField.ValueChanged += new TechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._lootWoodField_ValueChanged);
 			// 
 			// groupBox13
 			// 
-			resources.ApplyResources(this.groupBox13, "groupBox13");
 			this.groupBox13.Controls.Add(this._selEditorColorField);
 			this.groupBox13.Controls.Add(this._selShapeField);
 			this.groupBox13.Controls.Add(this._selShapeTypeField);
 			this.groupBox13.Controls.Add(this._selEffectField);
 			this.groupBox13.Controls.Add(this._selMaskField);
+			resources.ApplyResources(this.groupBox13, "groupBox13");
 			this.groupBox13.Name = "groupBox13";
 			this.groupBox13.TabStop = false;
 			// 
@@ -1595,7 +1479,6 @@
 			// 
 			resources.ApplyResources(this._selEditorColorField, "_selEditorColorField");
 			this._selEditorColorField.Name = "_selEditorColorField";
-			this._selEditorColorField.NameString = "Editor color:";
 			this._selEditorColorField.Value = new decimal(new int[] {
             0,
             0,
@@ -1607,7 +1490,6 @@
 			// 
 			resources.ApplyResources(this._selShapeField, "_selShapeField");
 			this._selShapeField.Name = "_selShapeField";
-			this._selShapeField.NameString = "Shape:";
 			this._selShapeField.Value = new decimal(new int[] {
             0,
             0,
@@ -1619,7 +1501,6 @@
 			// 
 			resources.ApplyResources(this._selShapeTypeField, "_selShapeTypeField");
 			this._selShapeTypeField.Name = "_selShapeTypeField";
-			this._selShapeTypeField.NameString = "Shape type:";
 			this._selShapeTypeField.Value = new decimal(new int[] {
             0,
             0,
@@ -1631,7 +1512,6 @@
 			// 
 			resources.ApplyResources(this._selEffectField, "_selEffectField");
 			this._selEffectField.Name = "_selEffectField";
-			this._selEffectField.NameString = "Effect:";
 			this._selEffectField.Value = new decimal(new int[] {
             0,
             0,
@@ -1643,7 +1523,6 @@
 			// 
 			resources.ApplyResources(this._selMaskField, "_selMaskField");
 			this._selMaskField.Name = "_selMaskField";
-			this._selMaskField.NameString = "Mask:";
 			this._selMaskField.Value = new decimal(new int[] {
             0,
             0,
@@ -1653,13 +1532,13 @@
 			// 
 			// groupBox9
 			// 
-			resources.ApplyResources(this.groupBox9, "groupBox9");
 			this.groupBox9.Controls.Add(this._terrRestrField);
 			this.groupBox9.Controls.Add(this._terrSide2Field);
 			this.groupBox9.Controls.Add(this._terrSide1Field);
 			this.groupBox9.Controls.Add(this._terrPlacement2Field);
 			this.groupBox9.Controls.Add(this._terrPlacement1Field);
 			this.groupBox9.Controls.Add(this._foundTerrainField);
+			resources.ApplyResources(this.groupBox9, "groupBox9");
 			this.groupBox9.Name = "groupBox9";
 			this.groupBox9.TabStop = false;
 			// 
@@ -1667,7 +1546,6 @@
 			// 
 			resources.ApplyResources(this._terrRestrField, "_terrRestrField");
 			this._terrRestrField.Name = "_terrRestrField";
-			this._terrRestrField.NameString = "Restriction:";
 			this._terrRestrField.Value = new decimal(new int[] {
             0,
             0,
@@ -1679,7 +1557,6 @@
 			// 
 			resources.ApplyResources(this._terrSide2Field, "_terrSide2Field");
 			this._terrSide2Field.Name = "_terrSide2Field";
-			this._terrSide2Field.NameString = "Side 2:";
 			this._terrSide2Field.Value = new decimal(new int[] {
             0,
             0,
@@ -1691,7 +1568,6 @@
 			// 
 			resources.ApplyResources(this._terrSide1Field, "_terrSide1Field");
 			this._terrSide1Field.Name = "_terrSide1Field";
-			this._terrSide1Field.NameString = "Side 1:";
 			this._terrSide1Field.Value = new decimal(new int[] {
             0,
             0,
@@ -1703,7 +1579,6 @@
 			// 
 			resources.ApplyResources(this._terrPlacement2Field, "_terrPlacement2Field");
 			this._terrPlacement2Field.Name = "_terrPlacement2Field";
-			this._terrPlacement2Field.NameString = "Bottom 2:";
 			this._terrPlacement2Field.Value = new decimal(new int[] {
             0,
             0,
@@ -1715,7 +1590,6 @@
 			// 
 			resources.ApplyResources(this._terrPlacement1Field, "_terrPlacement1Field");
 			this._terrPlacement1Field.Name = "_terrPlacement1Field";
-			this._terrPlacement1Field.NameString = "Bottom 1:";
 			this._terrPlacement1Field.Value = new decimal(new int[] {
             0,
             0,
@@ -1727,7 +1601,6 @@
 			// 
 			resources.ApplyResources(this._foundTerrainField, "_foundTerrainField");
 			this._foundTerrainField.Name = "_foundTerrainField";
-			this._foundTerrainField.NameString = "Foundation:";
 			this._foundTerrainField.Value = new decimal(new int[] {
             0,
             0,
@@ -1737,13 +1610,13 @@
 			// 
 			// groupBox5
 			// 
-			resources.ApplyResources(this.groupBox5, "groupBox5");
 			this.groupBox5.Controls.Add(this._selectionYField);
 			this.groupBox5.Controls.Add(this._selectionXField);
 			this.groupBox5.Controls.Add(this._editorYField);
 			this.groupBox5.Controls.Add(this._editorXField);
 			this.groupBox5.Controls.Add(this._sizeYField);
 			this.groupBox5.Controls.Add(this._sizeXField);
+			resources.ApplyResources(this.groupBox5, "groupBox5");
 			this.groupBox5.Name = "groupBox5";
 			this.groupBox5.TabStop = false;
 			// 
@@ -1751,7 +1624,6 @@
 			// 
 			resources.ApplyResources(this._selectionYField, "_selectionYField");
 			this._selectionYField.Name = "_selectionYField";
-			this._selectionYField.NameString = "Selection Y:";
 			this._selectionYField.Value = new decimal(new int[] {
             0,
             0,
@@ -1763,7 +1635,6 @@
 			// 
 			resources.ApplyResources(this._selectionXField, "_selectionXField");
 			this._selectionXField.Name = "_selectionXField";
-			this._selectionXField.NameString = "Selection X:";
 			this._selectionXField.Value = new decimal(new int[] {
             0,
             0,
@@ -1775,7 +1646,6 @@
 			// 
 			resources.ApplyResources(this._editorYField, "_editorYField");
 			this._editorYField.Name = "_editorYField";
-			this._editorYField.NameString = "Editor Y:";
 			this._editorYField.Value = new decimal(new int[] {
             0,
             0,
@@ -1787,7 +1657,6 @@
 			// 
 			resources.ApplyResources(this._editorXField, "_editorXField");
 			this._editorXField.Name = "_editorXField";
-			this._editorXField.NameString = "Editor X:";
 			this._editorXField.Value = new decimal(new int[] {
             0,
             0,
@@ -1799,7 +1668,6 @@
 			// 
 			resources.ApplyResources(this._sizeYField, "_sizeYField");
 			this._sizeYField.Name = "_sizeYField";
-			this._sizeYField.NameString = "Size Y:";
 			this._sizeYField.Value = new decimal(new int[] {
             0,
             0,
@@ -1811,7 +1679,6 @@
 			// 
 			resources.ApplyResources(this._sizeXField, "_sizeXField");
 			this._sizeXField.Name = "_sizeXField";
-			this._sizeXField.NameString = "Size X:";
 			this._sizeXField.Value = new decimal(new int[] {
             0,
             0,
@@ -1823,7 +1690,6 @@
 			// 
 			resources.ApplyResources(this._garrisonTypeField, "_garrisonTypeField");
 			this._garrisonTypeField.Name = "_garrisonTypeField";
-			this._garrisonTypeField.NameString = "Garrison type:";
 			this._garrisonTypeField.Value = new decimal(new int[] {
             0,
             0,
@@ -1835,7 +1701,6 @@
 			// 
 			resources.ApplyResources(this._chargeModeField, "_chargeModeField");
 			this._chargeModeField.Name = "_chargeModeField";
-			this._chargeModeField.NameString = "Charge mode:";
 			this._chargeModeField.Value = new decimal(new int[] {
             0,
             0,
@@ -1847,7 +1712,6 @@
 			// 
 			resources.ApplyResources(this._heroModeField, "_heroModeField");
 			this._heroModeField.Name = "_heroModeField";
-			this._heroModeField.NameString = "Hero mode:";
 			this._heroModeField.Value = new decimal(new int[] {
             0,
             0,
@@ -1859,7 +1723,6 @@
 			// 
 			resources.ApplyResources(this._animalModeField, "_animalModeField");
 			this._animalModeField.Name = "_animalModeField";
-			this._animalModeField.NameString = "Animal mode:";
 			this._animalModeField.Value = new decimal(new int[] {
             0,
             0,
@@ -1871,7 +1734,6 @@
 			// 
 			resources.ApplyResources(this._villagerModeField, "_villagerModeField");
 			this._villagerModeField.Name = "_villagerModeField";
-			this._villagerModeField.NameString = "Villager mode:";
 			this._villagerModeField.Value = new decimal(new int[] {
             0,
             0,
@@ -1883,7 +1745,6 @@
 			// 
 			resources.ApplyResources(this._sheepConvField, "_sheepConvField");
 			this._sheepConvField.Name = "_sheepConvField";
-			this._sheepConvField.NameString = "Automatic conversion:";
 			this._sheepConvField.Value = new decimal(new int[] {
             0,
             0,
@@ -1895,7 +1756,6 @@
 			// 
 			resources.ApplyResources(this._trackUnitDensityField, "_trackUnitDensityField");
 			this._trackUnitDensityField.Name = "_trackUnitDensityField";
-			this._trackUnitDensityField.NameString = "Track unit distance:";
 			this._trackUnitDensityField.Value = new decimal(new int[] {
             0,
             0,
@@ -1907,7 +1767,6 @@
 			// 
 			resources.ApplyResources(this._civilizationField, "_civilizationField");
 			this._civilizationField.Name = "_civilizationField";
-			this._civilizationField.NameString = "Culture ID:";
 			this._civilizationField.Value = new decimal(new int[] {
             0,
             0,
@@ -1919,7 +1778,6 @@
 			// 
 			resources.ApplyResources(this._hpBar2Field, "_hpBar2Field");
 			this._hpBar2Field.Name = "_hpBar2Field";
-			this._hpBar2Field.NameString = "HP bar position 2:";
 			this._hpBar2Field.Value = new decimal(new int[] {
             0,
             0,
@@ -1931,7 +1789,6 @@
 			// 
 			resources.ApplyResources(this._hpBar1Field, "_hpBar1Field");
 			this._hpBar1Field.Name = "_hpBar1Field";
-			this._hpBar1Field.NameString = "HP bar position 1:";
 			this._hpBar1Field.Value = new decimal(new int[] {
             0,
             0,
@@ -1943,7 +1800,6 @@
 			// 
 			resources.ApplyResources(this._disappearsField, "_disappearsField");
 			this._disappearsField.Name = "_disappearsField";
-			this._disappearsField.NameString = "Disappears after completion";
 			this._disappearsField.Value = false;
 			this._disappearsField.ValueChanged += new TechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._disappearsField_ValueChanged);
 			// 
@@ -1951,7 +1807,6 @@
 			// 
 			resources.ApplyResources(this._graphicAngleField, "_graphicAngleField");
 			this._graphicAngleField.Name = "_graphicAngleField";
-			this._graphicAngleField.NameString = "Graphic angle:";
 			this._graphicAngleField.Value = new decimal(new int[] {
             0,
             0,
@@ -1963,7 +1818,6 @@
 			// 
 			resources.ApplyResources(this._adjacentModeField, "_adjacentModeField");
 			this._adjacentModeField.Name = "_adjacentModeField";
-			this._adjacentModeField.NameString = "Adjacent building part";
 			this._adjacentModeField.Value = false;
 			this._adjacentModeField.ValueChanged += new TechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._adjacentModeField_ValueChanged);
 			// 
@@ -1971,7 +1825,6 @@
 			// 
 			resources.ApplyResources(this._placementModeField, "_placementModeField");
 			this._placementModeField.Name = "_placementModeField";
-			this._placementModeField.NameString = "Placement mode:";
 			this._placementModeField.Value = new decimal(new int[] {
             0,
             0,
@@ -1983,7 +1836,6 @@
 			// 
 			resources.ApplyResources(this._enabledField, "_enabledField");
 			this._enabledField.Name = "_enabledField";
-			this._enabledField.NameString = "Enabled per default";
 			this._enabledField.Value = false;
 			this._enabledField.ValueChanged += new TechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._enabledField_ValueChanged);
 			// 
@@ -1991,13 +1843,11 @@
 			// 
 			resources.ApplyResources(this._deadModeField, "_deadModeField");
 			this._deadModeField.Name = "_deadModeField";
-			this._deadModeField.NameString = "Dead unit:";
 			this._deadModeField.Value = false;
 			this._deadModeField.ValueChanged += new TechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._deadModeField_ValueChanged);
 			// 
 			// _behaviourTabPage
 			// 
-			resources.ApplyResources(this._behaviourTabPage, "_behaviourTabPage");
 			this._behaviourTabPage.Controls.Add(this._edibleMeatField);
 			this._behaviourTabPage.Controls.Add(this._towerModeField);
 			this._behaviourTabPage.Controls.Add(this._unselectableField);
@@ -2011,6 +1861,7 @@
 			this._behaviourTabPage.Controls.Add(this._fogOfWarField);
 			this._behaviourTabPage.Controls.Add(this._minimapColorField);
 			this._behaviourTabPage.Controls.Add(this._resourceDecayField);
+			resources.ApplyResources(this._behaviourTabPage, "_behaviourTabPage");
 			this._behaviourTabPage.Name = "_behaviourTabPage";
 			this._behaviourTabPage.UseVisualStyleBackColor = true;
 			// 
@@ -2018,7 +1869,6 @@
 			// 
 			resources.ApplyResources(this._edibleMeatField, "_edibleMeatField");
 			this._edibleMeatField.Name = "_edibleMeatField";
-			this._edibleMeatField.NameString = "Contains meat";
 			this._edibleMeatField.Value = false;
 			this._edibleMeatField.ValueChanged += new TechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._edibleMeatField_ValueChanged);
 			// 
@@ -2026,7 +1876,6 @@
 			// 
 			resources.ApplyResources(this._towerModeField, "_towerModeField");
 			this._towerModeField.Name = "_towerModeField";
-			this._towerModeField.NameString = "Tower mode:";
 			this._towerModeField.Value = new decimal(new int[] {
             0,
             0,
@@ -2038,7 +1887,6 @@
 			// 
 			resources.ApplyResources(this._unselectableField, "_unselectableField");
 			this._unselectableField.Name = "_unselectableField";
-			this._unselectableField.NameString = "Not selectable";
 			this._unselectableField.Value = false;
 			this._unselectableField.ValueChanged += new TechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._unselectableField_ValueChanged);
 			// 
@@ -2046,7 +1894,6 @@
 			// 
 			resources.ApplyResources(this._flyModeField, "_flyModeField");
 			this._flyModeField.Name = "_flyModeField";
-			this._flyModeField.NameString = "Fly mode";
 			this._flyModeField.Value = false;
 			this._flyModeField.ValueChanged += new TechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._flyModeField_ValueChanged);
 			// 
@@ -2054,7 +1901,6 @@
 			// 
 			resources.ApplyResources(this._airModeField, "_airModeField");
 			this._airModeField.Name = "_airModeField";
-			this._airModeField.NameString = "No footprints";
 			this._airModeField.Value = false;
 			this._airModeField.ValueChanged += new TechTreeEditor.Controls.CheckBoxFieldControl.ValueChangedEventHandler(this._airModeField_ValueChanged);
 			// 
@@ -2062,7 +1908,6 @@
 			// 
 			resources.ApplyResources(this._interfaceModeField, "_interfaceModeField");
 			this._interfaceModeField.Name = "_interfaceModeField";
-			this._interfaceModeField.NameString = "Interface mode:";
 			this._interfaceModeField.Value = new decimal(new int[] {
             0,
             0,
@@ -2074,7 +1919,6 @@
 			// 
 			resources.ApplyResources(this._behaviourModeField, "_behaviourModeField");
 			this._behaviourModeField.Name = "_behaviourModeField";
-			this._behaviourModeField.NameString = "Behaviour mode:";
 			this._behaviourModeField.Value = new decimal(new int[] {
             0,
             0,
@@ -2086,7 +1930,6 @@
 			// 
 			resources.ApplyResources(this._hillModeField, "_hillModeField");
 			this._hillModeField.Name = "_hillModeField";
-			this._hillModeField.NameString = "Hill mode:";
 			this._hillModeField.Value = new decimal(new int[] {
             0,
             0,
@@ -2098,7 +1941,6 @@
 			// 
 			resources.ApplyResources(this._minimapModeField, "_minimapModeField");
 			this._minimapModeField.Name = "_minimapModeField";
-			this._minimapModeField.NameString = "Minimap mode:";
 			this._minimapModeField.Value = new decimal(new int[] {
             0,
             0,
@@ -2110,7 +1952,6 @@
 			// 
 			resources.ApplyResources(this._interactionModeField, "_interactionModeField");
 			this._interactionModeField.Name = "_interactionModeField";
-			this._interactionModeField.NameString = "Interaction mode:";
 			this._interactionModeField.Value = new decimal(new int[] {
             0,
             0,
@@ -2122,7 +1963,6 @@
 			// 
 			resources.ApplyResources(this._fogOfWarField, "_fogOfWarField");
 			this._fogOfWarField.Name = "_fogOfWarField";
-			this._fogOfWarField.NameString = "Fog of war mode:";
 			this._fogOfWarField.Value = new decimal(new int[] {
             0,
             0,
@@ -2134,7 +1974,6 @@
 			// 
 			resources.ApplyResources(this._minimapColorField, "_minimapColorField");
 			this._minimapColorField.Name = "_minimapColorField";
-			this._minimapColorField.NameString = "Minimap color:";
 			this._minimapColorField.Value = new decimal(new int[] {
             0,
             0,
@@ -2146,7 +1985,6 @@
 			// 
 			resources.ApplyResources(this._resourceDecayField, "_resourceDecayField");
 			this._resourceDecayField.Name = "_resourceDecayField";
-			this._resourceDecayField.NameString = "Resource decay:";
 			this._resourceDecayField.Value = new decimal(new int[] {
             0,
             0,
@@ -2156,7 +1994,6 @@
 			// 
 			// _graphicsTabPage
 			// 
-			resources.ApplyResources(this._graphicsTabPage, "_graphicsTabPage");
 			this._graphicsTabPage.Controls.Add(this.groupBox14);
 			this._graphicsTabPage.Controls.Add(this._iconIDField);
 			this._graphicsTabPage.Controls.Add(this._graAttackField);
@@ -2170,25 +2007,26 @@
 			this._graphicsTabPage.Controls.Add(this._graFalling2Field);
 			this._graphicsTabPage.Controls.Add(this._graFalling1Field);
 			this._graphicsTabPage.Controls.Add(this._graStanding1Field);
+			resources.ApplyResources(this._graphicsTabPage, "_graphicsTabPage");
 			this._graphicsTabPage.Name = "_graphicsTabPage";
 			this._graphicsTabPage.UseVisualStyleBackColor = true;
 			// 
 			// groupBox14
 			// 
-			resources.ApplyResources(this.groupBox14, "groupBox14");
 			this.groupBox14.Controls.Add(this._dmgGraphicsField);
+			resources.ApplyResources(this.groupBox14, "groupBox14");
 			this.groupBox14.Name = "groupBox14";
 			this.groupBox14.TabStop = false;
 			// 
 			// _dmgGraphicsField
 			// 
-			resources.ApplyResources(this._dmgGraphicsField, "_dmgGraphicsField");
 			this._dmgGraphicsField.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this._dmgGraphicsField.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this._dmgGraPercentColumn,
             this._dmgGraIDColumn,
             this._dmgGraApplyModeColumn,
             this._dmgGraUnknownColumn});
+			resources.ApplyResources(this._dmgGraphicsField, "_dmgGraphicsField");
 			this._dmgGraphicsField.Name = "_dmgGraphicsField";
 			this._dmgGraphicsField.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this._dmgGraphicsField_CellValidating);
 			this._dmgGraphicsField.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._dmgGraphicsField_CellValueChanged);
@@ -2222,7 +2060,6 @@
 			// 
 			resources.ApplyResources(this._iconIDField, "_iconIDField");
 			this._iconIDField.Name = "_iconIDField";
-			this._iconIDField.NameString = "Icon ID:";
 			this._iconIDField.Value = new decimal(new int[] {
             0,
             0,
@@ -2234,7 +2071,6 @@
 			// 
 			resources.ApplyResources(this._graAttackField, "_graAttackField");
 			this._graAttackField.Name = "_graAttackField";
-			this._graAttackField.NameString = "Attacking 1:";
 			this._graAttackField.Value = null;
 			this._graAttackField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graAttackField_ValueChanged);
 			// 
@@ -2242,7 +2078,6 @@
 			// 
 			resources.ApplyResources(this._graSnowField, "_graSnowField");
 			this._graSnowField.Name = "_graSnowField";
-			this._graSnowField.NameString = "Snow:";
 			this._graSnowField.Value = null;
 			this._graSnowField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graSnowField_ValueChanged);
 			// 
@@ -2250,7 +2085,6 @@
 			// 
 			resources.ApplyResources(this._graConstructionField, "_graConstructionField");
 			this._graConstructionField.Name = "_graConstructionField";
-			this._graConstructionField.NameString = "Building:";
 			this._graConstructionField.Value = null;
 			this._graConstructionField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graConstructionField_ValueChanged);
 			// 
@@ -2258,7 +2092,6 @@
 			// 
 			resources.ApplyResources(this._graChargeField, "_graChargeField");
 			this._graChargeField.Name = "_graChargeField";
-			this._graChargeField.NameString = "Charging:";
 			this._graChargeField.Value = null;
 			this._graChargeField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graChargeField_ValueChanged);
 			// 
@@ -2266,7 +2099,6 @@
 			// 
 			resources.ApplyResources(this._graGarrisonField, "_graGarrisonField");
 			this._graGarrisonField.Name = "_graGarrisonField";
-			this._graGarrisonField.NameString = "Garrison:";
 			this._graGarrisonField.Value = null;
 			this._graGarrisonField.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graGarrisonField_ValueChanged);
 			// 
@@ -2274,7 +2106,6 @@
 			// 
 			resources.ApplyResources(this._graMoving2Field, "_graMoving2Field");
 			this._graMoving2Field.Name = "_graMoving2Field";
-			this._graMoving2Field.NameString = "Walking 2:";
 			this._graMoving2Field.Value = null;
 			this._graMoving2Field.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graMoving2Field_ValueChanged);
 			// 
@@ -2282,7 +2113,6 @@
 			// 
 			resources.ApplyResources(this._graMoving1Field, "_graMoving1Field");
 			this._graMoving1Field.Name = "_graMoving1Field";
-			this._graMoving1Field.NameString = "Walking 1:";
 			this._graMoving1Field.Value = null;
 			this._graMoving1Field.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graMoving1Field_ValueChanged);
 			// 
@@ -2290,7 +2120,6 @@
 			// 
 			resources.ApplyResources(this._graStanding2Field, "_graStanding2Field");
 			this._graStanding2Field.Name = "_graStanding2Field";
-			this._graStanding2Field.NameString = "Standing 2:";
 			this._graStanding2Field.Value = null;
 			this._graStanding2Field.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graStanding2Field_ValueChanged);
 			// 
@@ -2298,7 +2127,6 @@
 			// 
 			resources.ApplyResources(this._graFalling2Field, "_graFalling2Field");
 			this._graFalling2Field.Name = "_graFalling2Field";
-			this._graFalling2Field.NameString = "Dying 2:";
 			this._graFalling2Field.Value = null;
 			this._graFalling2Field.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graFalling2Field_ValueChanged);
 			// 
@@ -2306,7 +2134,6 @@
 			// 
 			resources.ApplyResources(this._graFalling1Field, "_graFalling1Field");
 			this._graFalling1Field.Name = "_graFalling1Field";
-			this._graFalling1Field.NameString = "Dying 1:";
 			this._graFalling1Field.Value = null;
 			this._graFalling1Field.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graFalling1Field_ValueChanged);
 			// 
@@ -2314,13 +2141,11 @@
 			// 
 			resources.ApplyResources(this._graStanding1Field, "_graStanding1Field");
 			this._graStanding1Field.Name = "_graStanding1Field";
-			this._graStanding1Field.NameString = "Standing 1:";
 			this._graStanding1Field.Value = null;
 			this._graStanding1Field.ValueChanged += new TechTreeEditor.Controls.DropDownFieldControl.ValueChangedEventHandler(this._graStanding1Field_ValueChanged);
 			// 
 			// _soundsTabPage
 			// 
-			resources.ApplyResources(this._soundsTabPage, "_soundsTabPage");
 			this._soundsTabPage.Controls.Add(this._unknownSoundField);
 			this._soundsTabPage.Controls.Add(this._constructionSoundField);
 			this._soundsTabPage.Controls.Add(this._soundMoveField);
@@ -2329,6 +2154,7 @@
 			this._soundsTabPage.Controls.Add(this._soundTrain2Field);
 			this._soundsTabPage.Controls.Add(this._soundTrain1Field);
 			this._soundsTabPage.Controls.Add(this._soundSelectionField);
+			resources.ApplyResources(this._soundsTabPage, "_soundsTabPage");
 			this._soundsTabPage.Name = "_soundsTabPage";
 			this._soundsTabPage.UseVisualStyleBackColor = true;
 			// 
@@ -2336,7 +2162,6 @@
 			// 
 			resources.ApplyResources(this._unknownSoundField, "_unknownSoundField");
 			this._unknownSoundField.Name = "_unknownSoundField";
-			this._unknownSoundField.NameString = "Unknown:";
 			this._unknownSoundField.Value = new decimal(new int[] {
             0,
             0,
@@ -2348,7 +2173,6 @@
 			// 
 			resources.ApplyResources(this._constructionSoundField, "_constructionSoundField");
 			this._constructionSoundField.Name = "_constructionSoundField";
-			this._constructionSoundField.NameString = "Completion:";
 			this._constructionSoundField.Value = new decimal(new int[] {
             0,
             0,
@@ -2360,7 +2184,6 @@
 			// 
 			resources.ApplyResources(this._soundMoveField, "_soundMoveField");
 			this._soundMoveField.Name = "_soundMoveField";
-			this._soundMoveField.NameString = "Walking:";
 			this._soundMoveField.Value = new decimal(new int[] {
             0,
             0,
@@ -2372,7 +2195,6 @@
 			// 
 			resources.ApplyResources(this._soundAttackField, "_soundAttackField");
 			this._soundAttackField.Name = "_soundAttackField";
-			this._soundAttackField.NameString = "Attacking:";
 			this._soundAttackField.Value = new decimal(new int[] {
             0,
             0,
@@ -2384,7 +2206,6 @@
 			// 
 			resources.ApplyResources(this._soundFallingField, "_soundFallingField");
 			this._soundFallingField.Name = "_soundFallingField";
-			this._soundFallingField.NameString = "Dying:";
 			this._soundFallingField.Value = new decimal(new int[] {
             0,
             0,
@@ -2396,7 +2217,6 @@
 			// 
 			resources.ApplyResources(this._soundTrain2Field, "_soundTrain2Field");
 			this._soundTrain2Field.Name = "_soundTrain2Field";
-			this._soundTrain2Field.NameString = "Creation 2:";
 			this._soundTrain2Field.Value = new decimal(new int[] {
             0,
             0,
@@ -2408,7 +2228,6 @@
 			// 
 			resources.ApplyResources(this._soundTrain1Field, "_soundTrain1Field");
 			this._soundTrain1Field.Name = "_soundTrain1Field";
-			this._soundTrain1Field.NameString = "Creation 1:";
 			this._soundTrain1Field.Value = new decimal(new int[] {
             0,
             0,
@@ -2420,7 +2239,6 @@
 			// 
 			resources.ApplyResources(this._soundSelectionField, "_soundSelectionField");
 			this._soundSelectionField.Name = "_soundSelectionField";
-			this._soundSelectionField.NameString = "Selection:";
 			this._soundSelectionField.Value = new decimal(new int[] {
             0,
             0,
@@ -2430,7 +2248,6 @@
 			// 
 			// _unknownTabPage
 			// 
-			resources.ApplyResources(this._unknownTabPage, "_unknownTabPage");
 			this._unknownTabPage.Controls.Add(this._unknown10Field);
 			this._unknownTabPage.Controls.Add(this._unknown15Field);
 			this._unknownTabPage.Controls.Add(this._unknown14Field);
@@ -2450,6 +2267,7 @@
 			this._unknownTabPage.Controls.Add(this._unknown5Field);
 			this._unknownTabPage.Controls.Add(this._unknown3Field);
 			this._unknownTabPage.Controls.Add(this._unknown1Field);
+			resources.ApplyResources(this._unknownTabPage, "_unknownTabPage");
 			this._unknownTabPage.Name = "_unknownTabPage";
 			this._unknownTabPage.UseVisualStyleBackColor = true;
 			// 
@@ -2457,7 +2275,6 @@
 			// 
 			resources.ApplyResources(this._unknown10Field, "_unknown10Field");
 			this._unknown10Field.Name = "_unknown10Field";
-			this._unknown10Field.NameString = "10:";
 			this._unknown10Field.Value = new decimal(new int[] {
             0,
             0,
@@ -2469,7 +2286,6 @@
 			// 
 			resources.ApplyResources(this._unknown15Field, "_unknown15Field");
 			this._unknown15Field.Name = "_unknown15Field";
-			this._unknown15Field.NameString = "15:";
 			this._unknown15Field.Value = new decimal(new int[] {
             0,
             0,
@@ -2481,7 +2297,6 @@
 			// 
 			resources.ApplyResources(this._unknown14Field, "_unknown14Field");
 			this._unknown14Field.Name = "_unknown14Field";
-			this._unknown14Field.NameString = "14:";
 			this._unknown14Field.Value = new decimal(new int[] {
             0,
             0,
@@ -2493,7 +2308,6 @@
 			// 
 			resources.ApplyResources(this._unknown12Field, "_unknown12Field");
 			this._unknown12Field.Name = "_unknown12Field";
-			this._unknown12Field.NameString = "12:";
 			this._unknown12Field.Value = new decimal(new int[] {
             0,
             0,
@@ -2505,7 +2319,6 @@
 			// 
 			resources.ApplyResources(this._unknown13Field, "_unknown13Field");
 			this._unknown13Field.Name = "_unknown13Field";
-			this._unknown13Field.NameString = "13:";
 			this._unknown13Field.Value = new decimal(new int[] {
             0,
             0,
@@ -2517,7 +2330,6 @@
 			// 
 			resources.ApplyResources(this._unknown11Field, "_unknown11Field");
 			this._unknown11Field.Name = "_unknown11Field";
-			this._unknown11Field.NameString = "11:";
 			this._unknown11Field.Value = new decimal(new int[] {
             0,
             0,
@@ -2529,7 +2341,6 @@
 			// 
 			resources.ApplyResources(this._unknown9EField, "_unknown9EField");
 			this._unknown9EField.Name = "_unknown9EField";
-			this._unknown9EField.NameString = "9e:";
 			this._unknown9EField.Value = new decimal(new int[] {
             0,
             0,
@@ -2541,7 +2352,6 @@
 			// 
 			resources.ApplyResources(this._unknown9DField, "_unknown9DField");
 			this._unknown9DField.Name = "_unknown9DField";
-			this._unknown9DField.NameString = "9d:";
 			this._unknown9DField.Value = new decimal(new int[] {
             0,
             0,
@@ -2553,7 +2363,6 @@
 			// 
 			resources.ApplyResources(this._unknown9CField, "_unknown9CField");
 			this._unknown9CField.Name = "_unknown9CField";
-			this._unknown9CField.NameString = "9c:";
 			this._unknown9CField.Value = new decimal(new int[] {
             0,
             0,
@@ -2565,7 +2374,6 @@
 			// 
 			resources.ApplyResources(this._unknown9BField, "_unknown9BField");
 			this._unknown9BField.Name = "_unknown9BField";
-			this._unknown9BField.NameString = "9b:";
 			this._unknown9BField.Value = new decimal(new int[] {
             0,
             0,
@@ -2577,7 +2385,6 @@
 			// 
 			resources.ApplyResources(this._unknown9AField, "_unknown9AField");
 			this._unknown9AField.Name = "_unknown9AField";
-			this._unknown9AField.NameString = "9a:";
 			this._unknown9AField.Value = new decimal(new int[] {
             0,
             0,
@@ -2589,7 +2396,6 @@
 			// 
 			resources.ApplyResources(this._unknown8Field, "_unknown8Field");
 			this._unknown8Field.Name = "_unknown8Field";
-			this._unknown8Field.NameString = "8:";
 			this._unknown8Field.Value = new decimal(new int[] {
             0,
             0,
@@ -2601,7 +2407,6 @@
 			// 
 			resources.ApplyResources(this._unknown7Field, "_unknown7Field");
 			this._unknown7Field.Name = "_unknown7Field";
-			this._unknown7Field.NameString = "7:";
 			this._unknown7Field.Value = new decimal(new int[] {
             0,
             0,
@@ -2613,7 +2418,6 @@
 			// 
 			resources.ApplyResources(this._unknown6Field, "_unknown6Field");
 			this._unknown6Field.Name = "_unknown6Field";
-			this._unknown6Field.NameString = "6:";
 			this._unknown6Field.Value = new decimal(new int[] {
             0,
             0,
@@ -2625,7 +2429,6 @@
 			// 
 			resources.ApplyResources(this._unknown4Field, "_unknown4Field");
 			this._unknown4Field.Name = "_unknown4Field";
-			this._unknown4Field.NameString = "4:";
 			this._unknown4Field.Value = new decimal(new int[] {
             0,
             0,
@@ -2637,7 +2440,6 @@
 			// 
 			resources.ApplyResources(this._unknown2Field, "_unknown2Field");
 			this._unknown2Field.Name = "_unknown2Field";
-			this._unknown2Field.NameString = "2:";
 			this._unknown2Field.Value = new decimal(new int[] {
             0,
             0,
@@ -2649,7 +2451,6 @@
 			// 
 			resources.ApplyResources(this._unknown5Field, "_unknown5Field");
 			this._unknown5Field.Name = "_unknown5Field";
-			this._unknown5Field.NameString = "5:";
 			this._unknown5Field.Value = new decimal(new int[] {
             0,
             0,
@@ -2661,7 +2462,6 @@
 			// 
 			resources.ApplyResources(this._unknown3Field, "_unknown3Field");
 			this._unknown3Field.Name = "_unknown3Field";
-			this._unknown3Field.NameString = "3:";
 			this._unknown3Field.Value = new decimal(new int[] {
             0,
             0,
@@ -2673,7 +2473,6 @@
 			// 
 			resources.ApplyResources(this._unknown1Field, "_unknown1Field");
 			this._unknown1Field.Name = "_unknown1Field";
-			this._unknown1Field.NameString = "1:";
 			this._unknown1Field.Value = new decimal(new int[] {
             0,
             0,
@@ -2899,9 +2698,6 @@
 		private System.Windows.Forms.Label _classLabel;
 		private System.Windows.Forms.ComboBox _classComboBox;
 		private Controls.CheckBoxFieldControl _edibleMeatField;
-		private Controls.NumberFieldControl _resourceStorage3ModeField;
-		private Controls.NumberFieldControl _resourceStorage2ModeField;
-		private Controls.NumberFieldControl _resourceStorage1ModeField;
 		private System.Windows.Forms.TabPage _abilitiesTabPage;
 		private System.Windows.Forms.Label _abilityInfoLabel;
 		private DoubleBufferedListBox _abilitiesListBox;

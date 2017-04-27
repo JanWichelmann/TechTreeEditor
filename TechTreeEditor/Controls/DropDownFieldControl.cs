@@ -42,6 +42,11 @@ namespace TechTreeEditor.Controls
 		/// </summary>
 		private object _value = null;
 
+		/// <summary>
+		/// Gibt an, ob aufgrund von Mehrfachmarkierung die Liste erneut gefiltert werden muss.
+		/// </summary>
+		private bool _listResetNeeded = false;
+
 		#endregion Variablen
 
 		#region Funktionen
@@ -78,6 +83,13 @@ namespace TechTreeEditor.Controls
 		#endregion Funktionen
 
 		#region Eventhandler
+
+		private void _idTextBox_KeyDown(object sender, KeyEventArgs e)
+		{
+			// Wenn ein Zeichen überschrieben wird, muss die Auswahlliste neu gefüllt werden
+			if(_idTextBox.SelectionLength > 0)
+				_listResetNeeded = true;
+		}
 
 		private void _idTextBox_KeyUp(object sender, KeyEventArgs e)
 		{
@@ -116,13 +128,16 @@ namespace TechTreeEditor.Controls
 				// Liste filtern
 				string searchText = _idTextBox.Text;
 				string[] filteredList;
-				if(e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back) // Muss die komplette Liste durchsucht werden, oder reicht die bereits gefilterte?
+				if(e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back || _listResetNeeded) // Muss die komplette Liste durchsucht werden, oder reicht die bereits gefilterte?
 					filteredList = _elementNames.Where(name => name.Contains(searchText, StringComparison.InvariantCultureIgnoreCase)).ToArray();
 				else
 					filteredList = _elementListBox.Items.Cast<string>().Where(name => name.Contains(searchText, StringComparison.InvariantCultureIgnoreCase)).ToArray();
 				_elementListBox.Items.Clear();
 				_elementListBox.Items.AddRange(filteredList);
 			}
+
+			// Reset list refresh flag
+			_listResetNeeded = false;
 		}
 
 		private void _elementListBox_KeyUp(object sender, KeyEventArgs e)

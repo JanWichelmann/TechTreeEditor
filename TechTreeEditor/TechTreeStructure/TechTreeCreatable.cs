@@ -610,6 +610,11 @@ namespace TechTreeEditor.TechTreeStructure
 			set { _standardElement = value; }
 		}
 
+		/// <summary>
+		/// Ruft die Farbe der Element-Box ab.
+		/// </summary>
+		public override Color BoxColor => Color.FromArgb(128, 187, 226);
+
 		#endregion Eigenschaften
 	}
 }

@@ -30,8 +30,8 @@
 		{
 			this._amountTextBox = new System.Windows.Forms.TextBox();
 			this._nameLabel = new System.Windows.Forms.Label();
-			this._enableCheckBox = new System.Windows.Forms.CheckBox();
 			this._typeComboBox = new System.Windows.Forms.ComboBox();
+			this._modeTextBox = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// _amountTextBox
@@ -53,22 +53,9 @@
 			this._nameLabel.Margin = new System.Windows.Forms.Padding(3);
 			this._nameLabel.Name = "_nameLabel";
 			this._nameLabel.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-			this._nameLabel.Size = new System.Drawing.Size(98, 21);
+			this._nameLabel.Size = new System.Drawing.Size(139, 21);
 			this._nameLabel.TabIndex = 1;
 			this._nameLabel.Text = "Kosten 1:";
-			// 
-			// _enableCheckBox
-			// 
-			this._enableCheckBox.AutoSize = true;
-			this._enableCheckBox.Checked = true;
-			this._enableCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-			this._enableCheckBox.Dock = System.Windows.Forms.DockStyle.Right;
-			this._enableCheckBox.Location = new System.Drawing.Point(98, 0);
-			this._enableCheckBox.Name = "_enableCheckBox";
-			this._enableCheckBox.Size = new System.Drawing.Size(15, 21);
-			this._enableCheckBox.TabIndex = 2;
-			this._enableCheckBox.UseVisualStyleBackColor = true;
-			this._enableCheckBox.CheckedChanged += new System.EventHandler(this._enableCheckBox_CheckedChanged);
 			// 
 			// _typeComboBox
 			// 
@@ -77,18 +64,28 @@
 			this._typeComboBox.Dock = System.Windows.Forms.DockStyle.Right;
 			this._typeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._typeComboBox.FormattingEnabled = true;
-			this._typeComboBox.Location = new System.Drawing.Point(113, 0);
+			this._typeComboBox.Location = new System.Drawing.Point(151, 0);
 			this._typeComboBox.Name = "_typeComboBox";
-			this._typeComboBox.Size = new System.Drawing.Size(193, 21);
+			this._typeComboBox.Size = new System.Drawing.Size(155, 21);
 			this._typeComboBox.TabIndex = 3;
 			this._typeComboBox.SelectedIndexChanged += new System.EventHandler(this._typeComboBox_SelectedIndexChanged);
+			// 
+			// _modeTextBox
+			// 
+			this._modeTextBox.Dock = System.Windows.Forms.DockStyle.Right;
+			this._modeTextBox.Location = new System.Drawing.Point(139, 0);
+			this._modeTextBox.Name = "_modeTextBox";
+			this._modeTextBox.Size = new System.Drawing.Size(12, 20);
+			this._modeTextBox.TabIndex = 4;
+			this._modeTextBox.Text = "0";
+			this._modeTextBox.TextChanged += new System.EventHandler(this._modeTextBox_TextChanged);
 			// 
 			// ResourceCostControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this._nameLabel);
-			this.Controls.Add(this._enableCheckBox);
+			this.Controls.Add(this._modeTextBox);
 			this.Controls.Add(this._typeComboBox);
 			this.Controls.Add(this._amountTextBox);
 			this.Name = "ResourceCostControl";
@@ -102,7 +99,7 @@
 
 		private System.Windows.Forms.TextBox _amountTextBox;
 		private System.Windows.Forms.Label _nameLabel;
-		private System.Windows.Forms.CheckBox _enableCheckBox;
 		private System.Windows.Forms.ComboBox _typeComboBox;
+		private System.Windows.Forms.TextBox _modeTextBox;
 	}
 }

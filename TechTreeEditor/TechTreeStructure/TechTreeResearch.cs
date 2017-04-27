@@ -381,7 +381,7 @@ namespace TechTreeEditor.TechTreeStructure
 		/// Erstellt für alle Kindelemente die Texturen.
 		/// </summary>
 		/// <param name="textureFunc">Die Textur-Generierungsfunktion.</param>
-		public override void CreateIconTextures(Func<string, short, int> textureFunc)
+		public override void CreateIconTextures(Func<string, short, Color, int> textureFunc)
 		{
 			// Schon ein Icon vorhanden? => Abbrechen
 			if(IconTextureID > 0)
@@ -398,10 +398,10 @@ namespace TechTreeEditor.TechTreeStructure
 		/// Erstellt die Icon-Textur.
 		/// </summary>
 		/// <param name="textureFunc">Die Textur-Generierungsfunktion.</param>
-		public override void CreateIconTexture(Func<string, short, int> textureFunc)
+		public override void CreateIconTexture(Func<string, short, Color, int> textureFunc)
 		{
 			// Icon erstellen
-			IconTextureID = textureFunc(Type, DATResearch.IconID);
+			IconTextureID = textureFunc(Type, DATResearch.IconID, BoxColor);
 		}
 
 		/// <summary>
@@ -442,7 +442,7 @@ namespace TechTreeEditor.TechTreeStructure
 		/// <param name="projectFile">Das zugrundeliegende Projekt.</param>
 		/// <param name="textureFunc">Die Textur-Generierungsfunktion.</param>
 		/// <returns></returns>
-		public TechTreeResearch Clone(bool cloneChildren, TechTreeFile projectFile, Func<string, short, int> textureFunc)
+		public TechTreeResearch Clone(bool cloneChildren, TechTreeFile projectFile, Func<string, short, Color, int> textureFunc)
 		{
 			// Klon-Objekt erstellen
 			TechTreeResearch clone = (TechTreeResearch)projectFile.CreateElement("TechTreeResearch");
@@ -481,7 +481,7 @@ namespace TechTreeEditor.TechTreeStructure
 				clone.Successors = new List<TechTreeResearch>();
 
 			// Textur neu erstellen
-			clone.IconTextureID = textureFunc(clone.Type, clone.DATResearch.IconID);
+			clone.IconTextureID = textureFunc(clone.Type, clone.DATResearch.IconID, BoxColor);
 
 			// Namen aktualisieren
 			clone.UpdateName(projectFile.LanguageFileWrapper);
@@ -501,6 +501,11 @@ namespace TechTreeEditor.TechTreeStructure
 		{
 			get { return "TechTreeResearch"; }
 		}
+
+		/// <summary>
+		/// Ruft die Farbe der Element-Box ab.
+		/// </summary>
+		public override Color BoxColor => Color.FromArgb(125, 202, 98);
 
 		#endregion Eigenschaften
 	}

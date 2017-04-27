@@ -132,6 +132,11 @@ namespace TechTreeEditor.TechTreeStructure
 			get { return "TechTreeEyeCandy"; }
 		}
 
+		/// <summary>
+		/// Ruft die Farbe der Element-Box ab.
+		/// </summary>
+		public override Color BoxColor => Color.FromArgb(196, 145, 250);
+
 		#endregion Eigenschaften
 	}
 }

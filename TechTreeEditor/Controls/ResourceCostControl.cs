@@ -22,7 +22,7 @@ namespace TechTreeEditor.Controls
 		/// <summary>
 		/// Der ausgewählte Ressourcen-Wert.
 		/// </summary>
-		private GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool> _value;
+		private GenieLibrary.IGenieDataElement.ResourceTuple<int, float, byte> _value;
 
 		#endregion Variablen
 
@@ -44,6 +44,7 @@ namespace TechTreeEditor.Controls
 			}
 
 			// Ressourcen-ComboBox füllen
+			_typeComboBox.Items.Add("[None]");
 			_typeComboBox.Items.AddRange(_resourceList);
 		}
 
@@ -54,8 +55,7 @@ namespace TechTreeEditor.Controls
 		private void _amountTextBox_TextChanged(object sender, EventArgs e)
 		{
 			// Wert parsen
-			float value;
-			if(float.TryParse(_amountTextBox.Text, NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingSign | NumberStyles.AllowLeadingWhite, CultureInfo.InvariantCulture.NumberFormat, out value))
+			if(float.TryParse(_amountTextBox.Text, NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingSign | NumberStyles.AllowLeadingWhite, CultureInfo.InvariantCulture.NumberFormat, out float value))
 			{
 				// Neuen Wert merken
 				_value.Amount = value;
@@ -73,21 +73,31 @@ namespace TechTreeEditor.Controls
 			}
 		}
 
-		private void _enableCheckBox_CheckedChanged(object sender, EventArgs e)
+		private void _modeTextBox_TextChanged(object sender, EventArgs e)
 		{
-			// Je nach Zustand die Elemente ein-/ausschalten
-			_typeComboBox.Enabled = _enableCheckBox.Checked;
-			_amountTextBox.Enabled = _enableCheckBox.Checked;
-			_value.Paid = _enableCheckBox.Checked;
+			// Wert parsen
+			if(byte.TryParse(_modeTextBox.Text, out byte value))
+			{
+				// Neuen Wert merken
+				_value.Mode = value;
 
-			// Ereignis auslösen
-			OnValueChanged(new ValueChangedEventArgs(_value));
+				// Farbe setzen
+				_modeTextBox.BackColor = Color.White;
+
+				// Ereignis auslösen
+				OnValueChanged(new ValueChangedEventArgs(_value));
+			}
+			else
+			{
+				// Farbe setzen
+				_modeTextBox.BackColor = Color.PaleVioletRed;
+			}
 		}
 
 		private void _typeComboBox_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			// Neuen Wert abrufen
-			_value.Type = _typeComboBox.SelectedIndex;
+			_value.Type = _typeComboBox.SelectedIndex - 1;
 
 			// Ereignis auslösen
 			OnValueChanged(new ValueChangedEventArgs(_value));
@@ -100,7 +110,7 @@ namespace TechTreeEditor.Controls
 		/// <summary>
 		/// Ruft die ID ab oder setzt diese.
 		/// </summary>
-		public GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool> Value
+		public GenieLibrary.IGenieDataElement.ResourceTuple<int, float, byte> Value
 		{
 			get
 			{
@@ -109,8 +119,8 @@ namespace TechTreeEditor.Controls
 			set
 			{
 				_value = value;
-				_enableCheckBox.Checked = _value.Paid;
-				_typeComboBox.SelectedIndex = _value.Type;
+				_modeTextBox.Text = _value.Mode.ToString();
+				_typeComboBox.SelectedIndex = _value.Type + 1;
 				_amountTextBox.Text = _value.Amount.ToString(CultureInfo.InvariantCulture.NumberFormat);
 			}
 		}
@@ -155,9 +165,7 @@ namespace TechTreeEditor.Controls
 		/// <param name="e">Die Ereignisdaten.</param>
 		protected virtual void OnValueChanged(ValueChangedEventArgs e)
 		{
-			ValueChangedEventHandler handler = ValueChanged;
-			if(handler != null)
-				handler(this, e);
+			ValueChanged?.Invoke(this, e);
 		}
 
 		/// <summary>
@@ -168,12 +176,12 @@ namespace TechTreeEditor.Controls
 			/// <summary>
 			/// Der neue Wert.
 			/// </summary>
-			private GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool> _newValue;
+			private GenieLibrary.IGenieDataElement.ResourceTuple<int, float, byte> _newValue;
 
 			/// <summary>
 			/// Ruft den neuen Wert ab.
 			/// </summary>
-			public GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool> NewValue
+			public GenieLibrary.IGenieDataElement.ResourceTuple<int, float, byte> NewValue
 			{
 				get
 				{
@@ -186,7 +194,7 @@ namespace TechTreeEditor.Controls
 			/// Erstellt ein neues Ereignisdaten-Objekt mit den gegebenen Daten.
 			/// </summary>
 			/// <param name="newValue">Der neue Wert.</param>
-			public ValueChangedEventArgs(GenieLibrary.IGenieDataElement.ResourceTuple<int, float, bool> newValue)
+			public ValueChangedEventArgs(GenieLibrary.IGenieDataElement.ResourceTuple<int, float, byte> newValue)
 			{
 				// Parameter speichern
 				_newValue = newValue;
