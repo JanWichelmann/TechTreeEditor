@@ -1024,7 +1024,7 @@ namespace TechTreeEditor
 
 						// Eigenschaften setzen
 						ttElement.Age = (byte)currElement.Age;
-						ttElement.NodeBackgroundIndex = currElement.NewTechTreeNodeDesign;
+						ttElement.NodeTypeIndex = currElement.NewTechTreeNodeDesign;
 						ttElement.RequiredElements = new List<Tuple<GenieLibrary.DataElements.TechTreeNew.TechTreeElement.ItemType, short>>();
 
 						// Nach Typen unterscheiden

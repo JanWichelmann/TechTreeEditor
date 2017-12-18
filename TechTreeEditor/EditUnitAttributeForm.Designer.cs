@@ -36,6 +36,8 @@
 			this._nameLabel = new System.Windows.Forms.Label();
 			this._nameTextBox = new System.Windows.Forms.TextBox();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this._relIdLabel = new System.Windows.Forms.Label();
+			this._relIDTextBox = new System.Windows.Forms.TextBox();
 			this._dllHotkeyField = new TechTreeEditor.Controls.LanguageDLLControl();
 			this._dllDescriptionField = new TechTreeEditor.Controls.LanguageDLLControl();
 			this._dllHelpField = new TechTreeEditor.Controls.LanguageDLLControl();
@@ -331,6 +333,8 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this._relIdLabel);
+			this.groupBox1.Controls.Add(this._relIDTextBox);
 			this.groupBox1.Controls.Add(this._dllHotkeyField);
 			this.groupBox1.Controls.Add(this._dllDescriptionField);
 			this.groupBox1.Controls.Add(this._dllHelpField);
@@ -338,6 +342,17 @@
 			resources.ApplyResources(this.groupBox1, "groupBox1");
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.TabStop = false;
+			// 
+			// _relIdLabel
+			// 
+			resources.ApplyResources(this._relIdLabel, "_relIdLabel");
+			this._relIdLabel.Name = "_relIdLabel";
+			// 
+			// _relIDTextBox
+			// 
+			resources.ApplyResources(this._relIDTextBox, "_relIDTextBox");
+			this._relIDTextBox.Name = "_relIDTextBox";
+			this._relIDTextBox.TextChanged += new System.EventHandler(this._relIDTextBox_TextChanged);
 			// 
 			// _dllHotkeyField
 			// 
@@ -2494,6 +2509,7 @@
 			this._commonTabPage.ResumeLayout(false);
 			this._commonTabPage.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			this._abilitiesTabPage.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
@@ -2746,5 +2762,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn _dmgGraIDColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn _dmgGraApplyModeColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn _dmgGraUnknownColumn;
+		private System.Windows.Forms.Label _relIdLabel;
+		private System.Windows.Forms.TextBox _relIDTextBox;
 	}
 }

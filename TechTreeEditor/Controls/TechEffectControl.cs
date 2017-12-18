@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using TechTreeEditor.TechTreeStructure;
@@ -112,7 +113,10 @@ namespace TechTreeEditor.Controls
 
 			// Rüstungsklassen übergeben
 			if(_armourClasses == null)
-				_armourClasses = Strings.ArmourClasses.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+			{
+				string armourClassesFile = (File.Exists("ArmourClasses.txt") ? File.ReadAllText("ArmourClasses.txt") : Strings.ArmourClasses);
+				_armourClasses = armourClassesFile.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+			}
 			_armourClassComboBox.Items.AddRange(_armourClasses);
 
 			// Ressourcentypen übergeben

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using TechTreeEditor.TechTreeStructure;
@@ -110,6 +112,11 @@ namespace TechTreeEditor
 				_dllHelpField.Value = unit.LanguageDLLHelp - 79000;
 				_dllHotkeyField.ProjectFile = _projectFile;
 				_dllHotkeyField.Value = unit.HotKey;
+
+				// Wenn alle vier Language-IDs denselben relativen Wert haben, diesen anzeigen
+				int relID = _dllNameField.Value % 1000;
+				if(relID == _dllDescriptionField.Value % 1000 && relID == _dllHelpField.Value % 1000 && relID == _dllHotkeyField.Value % 1000)
+					_relIDTextBox.Text = relID.ToString();
 
 				// Grafik-Werte einfügen
 				_graStanding1Field.ElementList = tmpGrList;
@@ -311,7 +318,8 @@ namespace TechTreeEditor
 
 				// Rüstungsklassenliste in ComboBox einfügen
 				// Diese werden vorher in eine Liste geschrieben, um Indizierung zu ermöglichen, da die DataGridViewCombobox das offenbar nicht unterstützt
-				string[] armourClassesArr = Strings.ArmourClasses.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+				string armourClassesFile = (File.Exists("ArmourClasses.txt") ? File.ReadAllText("ArmourClasses.txt") : Strings.ArmourClasses);
+				string[] armourClassesArr = armourClassesFile.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
 				List<KeyValuePair<ushort, string>> armourClasses = new List<KeyValuePair<ushort, string>>(armourClassesArr.Length);
 				for(ushort i = 0; i < armourClassesArr.Length; ++i)
 					armourClasses.Add(new KeyValuePair<ushort, string>(i, armourClassesArr[i]));
@@ -373,7 +381,7 @@ namespace TechTreeEditor
 				_graphicDisplacementXField.Value = (decimal)unit.Type50.ProjectileGraphicDisplacement[0];
 				_graphicDisplacementYField.Value = (decimal)unit.Type50.ProjectileGraphicDisplacement[1];
 				_graphicDisplacementZField.Value = (decimal)unit.Type50.ProjectileGraphicDisplacement[2];
-				
+
 				// Verschiedene Werte setzen
 				_blastRadiusField.Value = (decimal)unit.Type50.BlastRadius;
 				_blastLevelField.Value = unit.Type50.BlastLevel;
@@ -631,6 +639,27 @@ namespace TechTreeEditor
 		#endregion Fenster
 
 		#region Tab: Allgemein
+
+		private void _relIDTextBox_TextChanged(object sender, EventArgs e)
+		{
+			// Wert parsen
+			if(int.TryParse(_relIDTextBox.Text, out int relID) && relID >= 0 && relID < 1000)
+			{
+				// Wert ist gültig
+				_relIDTextBox.BackColor = SystemColors.Window;
+
+				// Wert in alle vier Felder übertragen
+				_dllNameField.Value = 5000 + relID;
+				_dllDescriptionField.Value = 6000 + relID;
+				_dllHelpField.Value = 26000 + relID;
+				_dllHotkeyField.Value = 16000 + relID;
+			}
+			else
+			{
+				// Den User auf die Falscheingabe hinweisen
+				_relIDTextBox.BackColor = Color.Red;
+			}
+		}
 
 		private void _dllNameField_ValueChanged(object sender, Controls.LanguageDLLControl.ValueChangedEventArgs e)
 		{
@@ -1270,11 +1299,7 @@ namespace TechTreeEditor
 					continue;
 
 				// Daten einfügen
-				_unitManager.UpdateUnitAttribute(u => u.Type50.Attacks.Add
-				(
-					(ushort)currRow.Cells[0].Value,
-					currRow.Cells[1].Value.GetType() == typeof(ushort) ? (ushort)currRow.Cells[1].Value : ushort.Parse((string)currRow.Cells[1].Value)
-				));
+				_unitManager.UpdateUnitAttribute(u => u.Type50.Attacks[(ushort)currRow.Cells[0].Value] = currRow.Cells[1].Value.GetType() == typeof(ushort) ? (ushort)currRow.Cells[1].Value : ushort.Parse((string)currRow.Cells[1].Value));
 			}
 		}
 
@@ -1333,11 +1358,7 @@ namespace TechTreeEditor
 					continue;
 
 				// Daten einfügen
-				_unitManager.UpdateUnitAttribute(u => u.Type50.Armors.Add
-				(
-					(ushort)currRow.Cells[0].Value,
-					currRow.Cells[1].Value.GetType() == typeof(ushort) ? (ushort)currRow.Cells[1].Value : ushort.Parse((string)currRow.Cells[1].Value)
-				));
+				_unitManager.UpdateUnitAttribute(u => u.Type50.Armors[(ushort)currRow.Cells[0].Value] = currRow.Cells[1].Value.GetType() == typeof(ushort) ? (ushort)currRow.Cells[1].Value : ushort.Parse((string)currRow.Cells[1].Value));
 			}
 		}
 

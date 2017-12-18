@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq.Expressions;
 using System.Text.RegularExpressions;
 using System.Xml;
@@ -181,7 +182,10 @@ namespace TechTreeEditor.TechTreeStructure
 			if(_classes == null)
 				_classes = Strings.ClassNames.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
 			if(_armourClasses == null)
-				_armourClasses = Strings.ArmourClasses.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+			{
+				string armourClassesFile = (File.Exists("ArmourClasses.txt") ? File.ReadAllText("ArmourClasses.txt") : Strings.ArmourClasses);
+				_armourClasses = armourClassesFile.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+			}
 			if(_resourceTypes == null)
 				_resourceTypes = Strings.ResourceTypes.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
 

@@ -225,8 +225,59 @@
   <data name="&gt;&gt;_nameTextBox.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="_relIdLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_relIdLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_relIdLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 22</value>
+  </data>
+  <data name="_relIdLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 13</value>
+  </data>
+  <data name="_relIdLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="_relIdLabel.Text" xml:space="preserve">
+    <value>[Relative ID]</value>
+  </data>
+  <data name="&gt;&gt;_relIdLabel.Name" xml:space="preserve">
+    <value>_relIdLabel</value>
+  </data>
+  <data name="&gt;&gt;_relIdLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_relIdLabel.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_relIdLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_relIDTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>106, 19</value>
+  </data>
+  <data name="_relIDTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 20</value>
+  </data>
+  <data name="_relIDTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;_relIDTextBox.Name" xml:space="preserve">
+    <value>_relIDTextBox</value>
+  </data>
+  <data name="&gt;&gt;_relIDTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_relIDTextBox.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_relIDTextBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="_dllHotkeyField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 97</value>
+    <value>6, 123</value>
   </data>
   <data name="_dllHotkeyField.NameString" xml:space="preserve">
     <value>Hotkey: </value>
@@ -247,10 +298,10 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;_dllHotkeyField.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="_dllDescriptionField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 45</value>
+    <value>6, 71</value>
   </data>
   <data name="_dllDescriptionField.NameString" xml:space="preserve">
     <value>Description:</value>
@@ -271,10 +322,10 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;_dllDescriptionField.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="_dllHelpField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 71</value>
+    <value>6, 97</value>
   </data>
   <data name="_dllHelpField.NameString" xml:space="preserve">
     <value>Help:</value>
@@ -295,10 +346,10 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;_dllHelpField.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="_dllNameField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
+    <value>6, 45</value>
   </data>
   <data name="_dllNameField.NameString" xml:space="preserve">
     <value>Name: </value>
@@ -319,13 +370,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;_dllNameField.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 32</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>611, 127</value>
+    <value>611, 152</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>

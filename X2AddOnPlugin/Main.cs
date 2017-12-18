@@ -29,14 +29,9 @@ namespace X2AddOnPlugin
 		private MainForm.PluginCommunicator _communicator = null;
 
 		/// <summary>
-		/// Das Menü-Element für eine neue Einheit.
+		/// Die Menü-Elemente.
 		/// </summary>
-		private ToolStripMenuItem _newCreatableMenuButton;
-
-		/// <summary>
-		/// Das Menü-Element für ein neues Schiff.
-		/// </summary>
-		private ToolStripMenuItem _newShipMenuButton;
+		private List<ToolStripMenuItem> _menuButtons = new List<ToolStripMenuItem>();
 
 		/// <summary>
 		/// Ruft die geladene Graphics-DRS-Datei ab.
@@ -57,8 +52,8 @@ namespace X2AddOnPlugin
 		public Main()
 		{
 			// Neue Einheit-Button erstellen
-			_newCreatableMenuButton = new ToolStripMenuItem("Neue Einheit erstellen");
-			_newCreatableMenuButton.Click += new EventHandler((sender, e) =>
+			var newCreatableMenuButton = new ToolStripMenuItem("Neue Einheit erstellen");
+			newCreatableMenuButton.Click += new EventHandler((sender, e) =>
 			{
 				// Es muss was ausgewählt sein
 				if(_communicator.CurrentSelection == null as TechTreeUnit)
@@ -71,10 +66,11 @@ namespace X2AddOnPlugin
 						_communicator.IssueTreeUpdate();
 				}
 			});
+			_menuButtons.Add(newCreatableMenuButton);
 
 			// Neues Schiff-Button erstellen
-			_newShipMenuButton = new ToolStripMenuItem("Neues Schiff erstellen");
-			_newShipMenuButton.Click += new EventHandler((sender, e) =>
+			var newShipMenuButton = new ToolStripMenuItem("Neues Schiff erstellen");
+			newShipMenuButton.Click += new EventHandler((sender, e) =>
 			{
 				// Es muss was ausgewählt sein
 				if(_communicator.CurrentSelection as TechTreeCreatable == null)
@@ -87,6 +83,66 @@ namespace X2AddOnPlugin
 						_communicator.IssueTreeUpdate();
 				}
 			});
+			_menuButtons.Add(newShipMenuButton);
+
+			// Standardelement-Hierarchie-Button erstellen
+			var standardElementHierarchyButton = new ToolStripMenuItem("Standardelement-Vererbung reparieren");
+			standardElementHierarchyButton.Click += new EventHandler((sender, e) =>
+			{
+				// Eigenschaft aus Elternelementen rekursiv vererben
+				void recSetStandardElement(TechTreeUnit u, bool s)
+				{
+					if(u is TechTreeCreatable c)
+						c.StandardElement = s;
+					else if(u is TechTreeBuilding b)
+						b.StandardElement = s;
+					foreach(var child in u.GetChildren())
+						if(!_projectFile.TechTreeParentElements.Contains(child) && child is TechTreeUnit childU)
+							recSetStandardElement(childU, s);
+				};
+				foreach(var elem in _projectFile.TechTreeParentElements.Where(p => p is TechTreeBuilding || p is TechTreeCreatable))
+					if(elem is TechTreeBuilding b)
+						recSetStandardElement(b, b.StandardElement);
+					else if(elem is TechTreeCreatable c)
+						recSetStandardElement(c, c.StandardElement);
+				_communicator.IssueTreeUpdate();
+				MessageBox.Show("Vererbung erfolgreich.");
+			});
+			_menuButtons.Add(standardElementHierarchyButton);
+
+			// Kosten-Aufräum-Button erstellen
+			var cleanCostsButton = new ToolStripMenuItem("Einheiten/Technologie-Kosten aufräumen");
+			cleanCostsButton.Click += new EventHandler((sender, e) =>
+			{
+				// Einheiten
+				foreach(TechTreeUnit u in _projectFile.Where(el => el is TechTreeCreatable || el is TechTreeBuilding))
+					foreach(var c in _projectFile.BasicGenieFile.Civs)
+						if(c.Units.ContainsKey(u.ID))
+							for(int i = 0; i < 3; ++i)
+								if(c.Units[u.ID].Creatable.ResourceCosts[i].Amount == 0)
+									c.Units[u.ID].Creatable.ResourceCosts[i] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, short>()
+									{
+										Amount = 0,
+										Mode = 0,
+										Type = -1
+									};
+
+				// Technologien
+				foreach(TechTreeResearch r in _projectFile.Where(el => el is TechTreeResearch))
+					for(int i = 0; i < 3; ++i)
+						if(r.DATResearch.ResourceCosts[i].Amount == 0)
+							r.DATResearch.ResourceCosts[i] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, byte>()
+							{
+								Amount = 0,
+								Mode = 0,
+								Type = -1
+							};
+
+				// Baum aktualisieren
+				_communicator.IssueTreeUpdate();
+				MessageBox.Show("Aufräumen erfolgreich.");
+			});
+			_menuButtons.Add(cleanCostsButton);
 		}
 
 		#endregion
@@ -98,7 +154,7 @@ namespace X2AddOnPlugin
 		/// </summary>
 		public string Name
 		{
-			get { return "X2-AddOn"; }
+			get { return "Agearena AddOn"; }
 		}
 
 		/// <summary>
@@ -113,11 +169,11 @@ namespace X2AddOnPlugin
 			// Asynchron im Hintergrund Graphics-DRS laden
 			(new Task(() =>
 			{
-				// Graphics-DRS laden
-				try
+	// Graphics-DRS laden
+	try
 				{
-					// Datei laden, falls in Projektverzeichnis auffindbar
-					string graphicsDRSPath = Path.GetDirectoryName(_projectFile.InterfacDRSPath) + "\\graphics.drs";
+		// Datei laden, falls in Projektverzeichnis auffindbar
+		string graphicsDRSPath = Path.GetDirectoryName(_projectFile.InterfacDRSPath) + "\\graphics.drs";
 					if(File.Exists(graphicsDRSPath))
 						GraphicsDRS = new DRSFile(graphicsDRSPath);
 					else
@@ -125,8 +181,8 @@ namespace X2AddOnPlugin
 				}
 				catch
 				{
-					// Egal, Pech gehabt
-					GraphicsDRS = null;
+		// Egal, Pech gehabt
+		GraphicsDRS = null;
 				}
 
 			})).Start();
@@ -149,10 +205,7 @@ namespace X2AddOnPlugin
 		public List<ToolStripItem> GetPluginMenu()
 		{
 			// Menü-Element-Liste zurückgeben
-			List<ToolStripItem> result = new List<ToolStripItem>();
-			result.Add(_newCreatableMenuButton);
-			result.Add(_newShipMenuButton);
-			return result;
+			return _menuButtons.Cast<ToolStripItem>().ToList();
 		}
 
 		#endregion

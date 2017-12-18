@@ -220,6 +220,32 @@ namespace TechTreeEditor
 					}
 				}
 			}
+
+			foreach(TechTreeCreatable u in _allElements.Where(el => el is TechTreeCreatable c && c.StandardElement))
+			{
+				BasicGenieFile.Civs.ForEach(c =>
+				{
+					if(c.Units.ContainsKey(u.ID))
+					{
+						if(c.Units[u.ID].Creatable.ResourceCosts[2].Type != 4)
+							c.Units[u.ID].Creatable.ResourceCosts[2] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, short>()
+							{
+								Amount = 1,
+								Mode = 0,
+								Type = 4
+							};
+
+						for(int i = 0; i < 3; ++i)
+							if(c.Units[u.ID].Creatable.ResourceCosts[i].Amount == 0)
+								c.Units[u.ID].Creatable.ResourceCosts[i] = new GenieLibrary.IGenieDataElement.ResourceTuple<short, short, short>()
+								{
+									Amount = 0,
+									Mode = 0,
+									Type = -1
+								};
+					}
+				});
+			}
 		}
 
 		/// <summary>

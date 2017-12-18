@@ -636,10 +636,10 @@ namespace TechTreeEditor
 					_showInNewTechTreeCheckButton.DropDownItems.RemoveAt(2);
 
 				// Design-Buttons erstellen und einfügen
-				for(int i = 0; i < _techTreeDesignData.NodeBackgrounds.Count; ++i)
+				for(int i = 0; i < _techTreeDesignData.NodeTypes.Count; ++i)
 				{
 					// Design abrufen
-					var nodeDesign = _techTreeDesignData.NodeBackgrounds[i];
+					var nodeDesign = _techTreeDesignData.NodeTypes[i];
 
 					// Button erstellen
 					ToolStripMenuItem nodeDesignButton = new ToolStripMenuItem();
@@ -2130,9 +2130,12 @@ namespace TechTreeEditor
 			if(_openBalancingFileDialog.ShowDialog() == DialogResult.OK)
 			{
 				// Identitätsmapping erstellen
+				// Auch gelöschte Einheiten einbeziehen, falls die Balancing-Datei auf einer älteren DAT basiert
 				MappingFile idMapping = new MappingFile();
-				_projectFile.Where(elem => elem is TechTreeResearch).ForEach(elem => idMapping.ResearchMapping.Add((short)((TechTreeResearch)elem).ID, (short)((TechTreeResearch)elem).ID));
-				_projectFile.Where(elem => elem is TechTreeUnit).ForEach(elem => idMapping.UnitMapping.Add((short)((TechTreeUnit)elem).ID, (short)((TechTreeUnit)elem).ID));
+				for(short r = 0; r < _projectFile.BasicGenieFile.Researches.Count; ++r)
+					idMapping.ResearchMapping.Add(r, r);
+				for(short u = 0; u < _projectFile.BasicGenieFile.UnitHeaders.Count; ++u)
+					idMapping.UnitMapping.Add(u, u);
 
 				// Fehler fangen
 				try
