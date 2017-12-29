@@ -32,3 +32,4 @@ _ReSharper*/
 *.zip
 packages/*
 /.vs/TechTreeEditor/v15/sqlite3/storage.ide
+.vs/*
