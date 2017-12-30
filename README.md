@@ -1,18 +1,11 @@
 ## Introduction
 
-This application allows to edit the technology tree of *Age of Empires II: The Conquerors* in a graphical way. This includes editing attributes of units and researches, assigning them to building slots and defining dependencies. A new project can be created by importing a DAT file or using built-in templates; the export function writes the whole project data into a given base DAT.
+This application allows to edit the game data of *Age of Empires II: The Conquerors* in a graphical way, using the data's logical structure (tech tree). This includes editing attributes of units and researches, assigning them to building slots and defining dependencies. A new project can be created by importing a DAT file or using built-in templates; the export function writes the whole project data into a given base DAT.
 
-The most of the planned features are implemented and were tested extensively, but there may still occur random crashes, so it is recommended to do backups regularly.
+The most of the planned features are implemented and were tested extensively, and since this software is the primary tool used to develop the (german) [Agearena-AddOn](https://agearena.de/addon), it should be pretty stable. Anyway, there might still occur rare crashes, so it is recommended to do backups regularly.
 
 The software is available in english and german language; this should be determined automatically on initial startup.
 
-#### Missing Features
-
-##### Missing, but planned features are:
-* Undo/Redo commands (very complicated, so low priority)
-
-##### Currently not planned features are:
-* Modification of sounds (maybe later) and terrain data
 
 ## Legal Info & Credits
 
