@@ -115,6 +115,9 @@ namespace TechTreeEditor.TechTreeStructure
 
 				// TechTree-Node-Design schreiben
 				writer.WriteElementNumber("techtreenodedesign", NewTechTreeNodeDesign);
+
+				// KI-Namen schreiben
+				writer.WriteElementString("ainame", AiName);
 			}
 			writer.WriteEndElement();
 

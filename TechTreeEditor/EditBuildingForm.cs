@@ -184,6 +184,9 @@ namespace TechTreeEditor
 			// Baumenü-Button-ID setzen
 			_buttonIDField.Value = building.ButtonID;
 
+			// KI-Namen anzeigen
+			_aiNameTextBox.Text = _building.AiName;
+
 			// Alles geladen
 			_loading = false;
 		}
@@ -453,6 +456,18 @@ namespace TechTreeEditor
 		{
 			// Wert aktualisieren
 			_building.ButtonID = (int)e.NewValue;
+		}
+
+		private void _aiNameTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			// Wert parsen und aktualisieren
+			string parsedValue = "";
+			foreach(char c in _aiNameTextBox.Text.ToLower())
+				if(c >= 'a' && c <= 'z' || c == '-')
+					parsedValue += c;
+			if(_aiNameTextBox.Text != parsedValue)
+				_aiNameTextBox.Text = parsedValue;
+			_building.AiName = parsedValue;
 		}
 
 		#endregion Ereignishandler

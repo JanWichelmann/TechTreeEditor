@@ -30,6 +30,8 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditCreatableForm));
 			this._otherUnitsGroupBox = new System.Windows.Forms.GroupBox();
+			this.label7 = new System.Windows.Forms.Label();
+			this._aiNameTextBox = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this._deadUnitComboBox = new System.Windows.Forms.ComboBox();
 			this.label4 = new System.Windows.Forms.Label();
@@ -44,9 +46,9 @@
 			this._projUnitComboBox = new System.Windows.Forms.ComboBox();
 			this._childrenGroupBox = new System.Windows.Forms.GroupBox();
 			this._childrenView = new System.Windows.Forms.DataGridView();
-			this._closeButton = new System.Windows.Forms.Button();
 			this._childrenViewButtonColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this._childrenViewChildColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this._closeButton = new System.Windows.Forms.Button();
 			this._otherUnitsGroupBox.SuspendLayout();
 			this._childrenGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this._childrenView)).BeginInit();
@@ -55,6 +57,8 @@
 			// _otherUnitsGroupBox
 			// 
 			resources.ApplyResources(this._otherUnitsGroupBox, "_otherUnitsGroupBox");
+			this._otherUnitsGroupBox.Controls.Add(this.label7);
+			this._otherUnitsGroupBox.Controls.Add(this._aiNameTextBox);
 			this._otherUnitsGroupBox.Controls.Add(this.label6);
 			this._otherUnitsGroupBox.Controls.Add(this._deadUnitComboBox);
 			this._otherUnitsGroupBox.Controls.Add(this.label4);
@@ -69,6 +73,18 @@
 			this._otherUnitsGroupBox.Controls.Add(this._projUnitComboBox);
 			this._otherUnitsGroupBox.Name = "_otherUnitsGroupBox";
 			this._otherUnitsGroupBox.TabStop = false;
+			// 
+			// label7
+			// 
+			resources.ApplyResources(this.label7, "label7");
+			this.label7.Name = "label7";
+			// 
+			// _aiNameTextBox
+			// 
+			resources.ApplyResources(this._aiNameTextBox, "_aiNameTextBox");
+			this._aiNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+			this._aiNameTextBox.Name = "_aiNameTextBox";
+			this._aiNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this._aiNameTextBox_Validating);
 			// 
 			// label6
 			// 
@@ -174,13 +190,6 @@
 			this._childrenView.Name = "_childrenView";
 			this._childrenView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this._childrenView_CellValidating);
 			// 
-			// _closeButton
-			// 
-			resources.ApplyResources(this._closeButton, "_closeButton");
-			this._closeButton.Name = "_closeButton";
-			this._closeButton.UseVisualStyleBackColor = true;
-			this._closeButton.Click += new System.EventHandler(this._closeButton_Click);
-			// 
 			// _childrenViewButtonColumn
 			// 
 			this._childrenViewButtonColumn.FillWeight = 20F;
@@ -193,6 +202,13 @@
 			resources.ApplyResources(this._childrenViewChildColumn, "_childrenViewChildColumn");
 			this._childrenViewChildColumn.Name = "_childrenViewChildColumn";
 			this._childrenViewChildColumn.ReadOnly = true;
+			// 
+			// _closeButton
+			// 
+			resources.ApplyResources(this._closeButton, "_closeButton");
+			this._closeButton.Name = "_closeButton";
+			this._closeButton.UseVisualStyleBackColor = true;
+			this._closeButton.Click += new System.EventHandler(this._closeButton_Click);
 			// 
 			// EditCreatableForm
 			// 
@@ -232,5 +248,7 @@
 		private System.Windows.Forms.ComboBox _deadUnitComboBox;
 		private System.Windows.Forms.DataGridViewTextBoxColumn _childrenViewButtonColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn _childrenViewChildColumn;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.TextBox _aiNameTextBox;
 	}
 }

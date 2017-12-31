@@ -81,6 +81,11 @@ namespace TechTreeEditor.TechTreeStructure
 		/// </summary>
 		public int NewTechTreeNodeDesign { get; set; }
 
+		/// <summary>
+		/// Der KI-Bezeichner des Elements (wird später in Konstantendatei exportiert).
+		/// </summary>
+		public string AiName { get; set; }
+
 		#endregion Öffentlich
 
 		#region Geschützt
@@ -348,6 +353,10 @@ namespace TechTreeEditor.TechTreeStructure
 				if(id >= 0)
 					AlternateNewTechTreeParentElement = previousElements[id];
 			}
+
+			// Ggf. AI-Namen lesen (aus Kompatibilitätsgründen optional)
+			if(element.Elements("ainame").Any())
+				AiName = (string)element.Element("ainame");
 		}
 
 		/// <summary>

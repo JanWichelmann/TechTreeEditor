@@ -64,6 +64,9 @@ namespace TechTreeEditor
 				row.Cells.Add(new DataGridViewTextBoxCell() { Value = currD.Key.Name });
 				_buildingDepView.Rows.Add(row);
 			}
+
+			// KI-Namen anzeigen
+			_aiNameTextBox.Text = _research.AiName;
 		}
 
 		#endregion Funktionen
@@ -105,6 +108,18 @@ namespace TechTreeEditor
 		{
 			// Fenster schließen
 			this.Close();
+		}
+
+		private void _aiNameTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			// Wert parsen und aktualisieren
+			string parsedValue = "";
+			foreach(char c in _aiNameTextBox.Text.ToLower())
+				if(c >= 'a' && c <= 'z' || c == '-')
+					parsedValue += c;
+			if(_aiNameTextBox.Text != parsedValue)
+				_aiNameTextBox.Text = parsedValue;
+			_research.AiName = parsedValue;
 		}
 
 		#endregion Ereignishandler

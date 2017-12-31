@@ -117,956 +117,947 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="_ageUpgradeComboBox.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="_ageUpgradeComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 154</value>
-  </data>
-  <data name="_ageUpgradeComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 21</value>
-  </data>
-  <data name="_ageUpgradeComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;_ageUpgradeComboBox.Name" xml:space="preserve">
-    <value>_ageUpgradeComboBox</value>
-  </data>
-  <data name="&gt;&gt;_ageUpgradeComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_ageUpgradeComboBox.Parent" xml:space="preserve">
-    <value>_ageUpgradeGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_ageUpgradeComboBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="_ageUpgradeListBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
-  </data>
-  <data name="_ageUpgradeListBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 124</value>
-  </data>
-  <data name="_ageUpgradeListBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;_ageUpgradeListBox.Name" xml:space="preserve">
-    <value>_ageUpgradeListBox</value>
-  </data>
-  <data name="&gt;&gt;_ageUpgradeListBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_ageUpgradeListBox.Parent" xml:space="preserve">
-    <value>_ageUpgradeGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_ageUpgradeListBox.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="_ageUpgradeGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="_ageUpgradeGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 182</value>
-  </data>
-  <data name="_ageUpgradeGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="_ageUpgradeGroupBox.Text" xml:space="preserve">
-    <value>Zeitalter-Upgrades (0: Dunkle Zeit)</value>
-  </data>
-  <data name="&gt;&gt;_ageUpgradeGroupBox.Name" xml:space="preserve">
-    <value>_ageUpgradeGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_ageUpgradeGroupBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_ageUpgradeGroupBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_ageUpgradeGroupBox.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 22</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 13</value>
-  </data>
-  <data name="label6.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Tote Einheit:</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>_otherUnitsGroupBox</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 157</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 13</value>
-  </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Aktions-Gebäude:</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>_otherUnitsGroupBox</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="_transformUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 154</value>
-  </data>
-  <data name="_transformUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 21</value>
-  </data>
-  <data name="_transformUnitComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;_transformUnitComboBox.Name" xml:space="preserve">
-    <value>_transformUnitComboBox</value>
-  </data>
-  <data name="&gt;&gt;_transformUnitComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_transformUnitComboBox.Parent" xml:space="preserve">
-    <value>_otherUnitsGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_transformUnitComboBox.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="_deadUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 19</value>
-  </data>
-  <data name="_deadUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 21</value>
-  </data>
-  <data name="_deadUnitComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;_deadUnitComboBox.Name" xml:space="preserve">
-    <value>_deadUnitComboBox</value>
-  </data>
-  <data name="&gt;&gt;_deadUnitComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_deadUnitComboBox.Parent" xml:space="preserve">
-    <value>_otherUnitsGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_deadUnitComboBox.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 130</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 13</value>
-  </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Grundgebäude:</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>_otherUnitsGroupBox</value>
+  <data name="_annex4YBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="_headUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 127</value>
-  </data>
-  <data name="_headUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 21</value>
-  </data>
-  <data name="_headUnitComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;_headUnitComboBox.Name" xml:space="preserve">
     <value>_headUnitComboBox</value>
   </data>
-  <data name="&gt;&gt;_headUnitComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_headUnitComboBox.Parent" xml:space="preserve">
-    <value>_otherUnitsGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_headUnitComboBox.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 103</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 13</value>
-  </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Stapel-Gebäude:</value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>_otherUnitsGroupBox</value>
-  </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="_stackUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 100</value>
-  </data>
-  <data name="_stackUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 21</value>
-  </data>
-  <data name="_stackUnitComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;_stackUnitComboBox.Name" xml:space="preserve">
-    <value>_stackUnitComboBox</value>
-  </data>
-  <data name="&gt;&gt;_stackUnitComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_stackUnitComboBox.Parent" xml:space="preserve">
-    <value>_otherUnitsGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_stackUnitComboBox.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="_projDuplUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 73</value>
-  </data>
-  <data name="_projDuplUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 21</value>
-  </data>
-  <data name="_projDuplUnitComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;_projDuplUnitComboBox.Name" xml:space="preserve">
-    <value>_projDuplUnitComboBox</value>
-  </data>
-  <data name="&gt;&gt;_projDuplUnitComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_projDuplUnitComboBox.Parent" xml:space="preserve">
-    <value>_otherUnitsGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_projDuplUnitComboBox.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 76</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 13</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Projektil 2:</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>_otherUnitsGroupBox</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 49</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 13</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Projektil 1:</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>_otherUnitsGroupBox</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="_projUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 46</value>
-  </data>
   <data name="_projUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>209, 21</value>
   </data>
-  <data name="_projUnitComboBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;_projUnitComboBox.Name" xml:space="preserve">
-    <value>_projUnitComboBox</value>
+  <data name="&gt;&gt;_transformUnitComboBox.Name" xml:space="preserve">
+    <value>_transformUnitComboBox</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeComboBox.Parent" xml:space="preserve">
+    <value>_ageUpgradeGroupBox</value>
   </data>
   <data name="&gt;&gt;_projUnitComboBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_projUnitComboBox.Parent" xml:space="preserve">
-    <value>_otherUnitsGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_projUnitComboBox.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="_otherUnitsGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>236, 12</value>
-  </data>
-  <data name="_otherUnitsGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>319, 182</value>
-  </data>
-  <data name="_otherUnitsGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="_otherUnitsGroupBox.Text" xml:space="preserve">
-    <value>Gebäudeeigenschaften</value>
-  </data>
   <data name="&gt;&gt;_otherUnitsGroupBox.Name" xml:space="preserve">
     <value>_otherUnitsGroupBox</value>
   </data>
-  <data name="&gt;&gt;_otherUnitsGroupBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;_annex1XBox.Name" xml:space="preserve">
+    <value>_annex1XBox</value>
   </data>
-  <data name="&gt;&gt;_otherUnitsGroupBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_otherUnitsGroupBox.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <metadata name="_buildingDepViewCountColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="_buildingDepViewCountColumn.HeaderText" xml:space="preserve">
-    <value>Weitere?</value>
-  </data>
-  <metadata name="_buildingDepViewNameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="_buildingDepViewNameColumn.HeaderText" xml:space="preserve">
-    <value>Gebäude</value>
-  </data>
-  <data name="_buildingDepView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
-  </data>
-  <data name="_buildingDepView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>531, 134</value>
-  </data>
-  <data name="_buildingDepView.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;_buildingDepView.Name" xml:space="preserve">
-    <value>_buildingDepView</value>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
   </data>
-  <data name="&gt;&gt;_buildingDepView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
-  <data name="&gt;&gt;_buildingDepView.Parent" xml:space="preserve">
-    <value>_buildingDependencyGroupBox</value>
+  <data name="&gt;&gt;_stackUnitComboBox.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
   </data>
-  <data name="&gt;&gt;_buildingDepView.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="_buildingDependencyGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 200</value>
-  </data>
-  <data name="_buildingDependencyGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>543, 159</value>
-  </data>
-  <data name="_buildingDependencyGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="_buildingDependencyGroupBox.Text" xml:space="preserve">
-    <value>Gebäude-Abhängigkeiten</value>
-  </data>
-  <data name="&gt;&gt;_buildingDependencyGroupBox.Name" xml:space="preserve">
-    <value>_buildingDependencyGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_buildingDependencyGroupBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_buildingDependencyGroupBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_buildingDependencyGroupBox.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <metadata name="_childrenViewButtonColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="_childrenViewButtonColumn.HeaderText" xml:space="preserve">
-    <value>Button</value>
-  </data>
-  <metadata name="_childrenViewChildColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="_childrenViewChildColumn.HeaderText" xml:space="preserve">
-    <value>Kind</value>
-  </data>
-  <data name="_childrenView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
-  </data>
-  <data name="_childrenView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>330, 156</value>
-  </data>
-  <data name="_childrenView.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;_childrenView.Name" xml:space="preserve">
-    <value>_childrenView</value>
-  </data>
-  <data name="&gt;&gt;_childrenView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_childrenView.Parent" xml:space="preserve">
-    <value>_childrenGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_childrenView.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="_childrenGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>561, 12</value>
-  </data>
-  <data name="_childrenGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>342, 182</value>
-  </data>
-  <data name="_childrenGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="_childrenGroupBox.Text" xml:space="preserve">
-    <value>Kindelemente</value>
-  </data>
-  <data name="&gt;&gt;_childrenGroupBox.Name" xml:space="preserve">
-    <value>_childrenGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_childrenGroupBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_childrenGroupBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_childrenGroupBox.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="_annex4YBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>292, 98</value>
-  </data>
-  <data name="_annex4YBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="_annex4YBox.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="&gt;&gt;_annex4YBox.Name" xml:space="preserve">
-    <value>_annex4YBox</value>
-  </data>
-  <data name="&gt;&gt;_annex4YBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_annex4YBox.Parent" xml:space="preserve">
-    <value>_annexGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_annex4YBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="_annex4XBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>242, 98</value>
-  </data>
-  <data name="_annex4XBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="_annex4XBox.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="&gt;&gt;_annex4XBox.Name" xml:space="preserve">
-    <value>_annex4XBox</value>
-  </data>
-  <data name="&gt;&gt;_annex4XBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_annex4XBox.Parent" xml:space="preserve">
-    <value>_annexGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_annex4XBox.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="_annex4ComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>27, 97</value>
-  </data>
-  <data name="_annex4ComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 21</value>
-  </data>
-  <data name="_annex4ComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;_annex4ComboBox.Name" xml:space="preserve">
-    <value>_annex4ComboBox</value>
-  </data>
-  <data name="&gt;&gt;_annex4ComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_annex4ComboBox.Parent" xml:space="preserve">
-    <value>_annexGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_annex4ComboBox.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="_annex4CheckBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="_annex4CheckBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="_annex4CheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 100</value>
-  </data>
-  <data name="_annex4CheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 14</value>
-  </data>
-  <data name="_annex4CheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;_annex4CheckBox.Name" xml:space="preserve">
-    <value>_annex4CheckBox</value>
-  </data>
-  <data name="&gt;&gt;_annex4CheckBox.Type" xml:space="preserve">
+  <data name="&gt;&gt;_annex3CheckBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_annex4CheckBox.Parent" xml:space="preserve">
-    <value>_annexGroupBox</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
-  <data name="&gt;&gt;_annex4CheckBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;_closeButton.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="_annex3YBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>292, 71</value>
+  <data name="&gt;&gt;_childrenViewButtonColumn.Name" xml:space="preserve">
+    <value>_childrenViewButtonColumn</value>
   </data>
-  <data name="_annex3YBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
+  <data name="&gt;&gt;_annex1YBox.Name" xml:space="preserve">
+    <value>_annex1YBox</value>
   </data>
-  <data name="_annex3YBox.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
+  <data name="_projUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 46</value>
   </data>
-  <data name="&gt;&gt;_annex3YBox.Name" xml:space="preserve">
-    <value>_annex3YBox</value>
+  <data name="_ageUpgradeListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;_annex3YBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_annex3YBox.Parent" xml:space="preserve">
-    <value>_annexGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_annex3YBox.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="_annex3XBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>242, 71</value>
-  </data>
-  <data name="_annex3XBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="_annex3XBox.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="&gt;&gt;_annex3XBox.Name" xml:space="preserve">
-    <value>_annex3XBox</value>
-  </data>
-  <data name="&gt;&gt;_annex3XBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_annex3XBox.Parent" xml:space="preserve">
-    <value>_annexGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_annex3XBox.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="_annex3ComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>27, 70</value>
-  </data>
-  <data name="_annex3ComboBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_transformUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>209, 21</value>
   </data>
-  <data name="_annex3ComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
+  <data name="label7.Text" xml:space="preserve">
+    <value>KI-Bezeichner:</value>
   </data>
-  <data name="&gt;&gt;_annex3ComboBox.Name" xml:space="preserve">
-    <value>_annex3ComboBox</value>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="_stackUnitComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_annexGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="_ageUpgradeListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 154</value>
+  </data>
+  <data name="_annex3CheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 14</value>
   </data>
   <data name="&gt;&gt;_annex3ComboBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;_buildingDependencyGroupBox.Name" xml:space="preserve">
+    <value>_buildingDependencyGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex3YBox.Name" xml:space="preserve">
+    <value>_annex3YBox</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 103</value>
+  </data>
+  <data name="&gt;&gt;_headUnitComboBox.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex2XBox.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeListBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_projDuplUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 21</value>
+  </data>
+  <data name="&gt;&gt;_annex4ComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_annex3XBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>242, 71</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="_buildingDependencyGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 225</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 22</value>
+  </data>
+  <data name="_childrenGroupBox.Text" xml:space="preserve">
+    <value>Kindelemente</value>
+  </data>
+  <data name="&gt;&gt;_buildingDepViewCountColumn.Name" xml:space="preserve">
+    <value>_buildingDepViewCountColumn</value>
+  </data>
+  <data name="_buildingDepView.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="_aiNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 181</value>
+  </data>
+  <data name="&gt;&gt;_deadUnitComboBox.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Gebäude editieren: </value>
+  </data>
+  <data name="_annex2CheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 46</value>
+  </data>
+  <data name="&gt;&gt;_annex2ComboBox.Name" xml:space="preserve">
+    <value>_annex2ComboBox</value>
+  </data>
+  <data name="_annex1CheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_annexGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>558, 225</value>
+  </data>
+  <data name="_headUnitComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;_annex1ComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annexGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_buildingDependencyGroupBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;_projDuplUnitComboBox.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_buttonIDField.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="_annex4XBox.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="_projUnitComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="_ageUpgradeComboBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="_annex1YBox.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="_annex3CheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="_deadUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 19</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_aiNameTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;_annex2ComboBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="_annex1YBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 17</value>
+  </data>
+  <data name="&gt;&gt;_annex2XBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex3XBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 13</value>
+  </data>
+  <data name="&gt;&gt;_annex4YBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_annex3ComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 70</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;_annexGroupBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;_otherUnitsGroupBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;_childrenView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_annex1XBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex3YBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeListBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_stackUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 100</value>
+  </data>
+  <data name="_annex3ComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;_annex4XBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="_annex2XBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>242, 44</value>
+  </data>
+  <data name="&gt;&gt;_buttonIDField.Type" xml:space="preserve">
+    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.1.3.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_annex1XBox.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;_annex1CheckBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="_stackUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 21</value>
+  </data>
+  <data name="&gt;&gt;_projDuplUnitComboBox.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 76</value>
+  </data>
+  <data name="&gt;&gt;_annex1YBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_projUnitComboBox.Name" xml:space="preserve">
+    <value>_projUnitComboBox</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 13</value>
+  </data>
+  <data name="&gt;&gt;_childrenGroupBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_ageUpgradeComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="_annex4CheckBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_annex1ComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;_childrenGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_annex4CheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex2CheckBox.Name" xml:space="preserve">
+    <value>_annex2CheckBox</value>
+  </data>
+  <data name="_buildingDepView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>531, 134</value>
+  </data>
+  <data name="_aiNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 20</value>
+  </data>
+  <data name="_annex2CheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="_closeButton.Text" xml:space="preserve">
+    <value>Fertig</value>
+  </data>
+  <data name="&gt;&gt;_annexGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_annex1ComboBox.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;_annex2CheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_buildingDepViewNameColumn.HeaderText" xml:space="preserve">
+    <value>Gebäude</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeComboBox.Name" xml:space="preserve">
+    <value>_ageUpgradeComboBox</value>
+  </data>
+  <data name="_annex2XBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="_annex4ComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 97</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeListBox.Name" xml:space="preserve">
+    <value>_ageUpgradeListBox</value>
+  </data>
+  <data name="&gt;&gt;_deadUnitComboBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_deadUnitComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;_annex3ComboBox.Name" xml:space="preserve">
+    <value>_annex3ComboBox</value>
+  </data>
+  <data name="_annex3XBox.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;_annex4CheckBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Grundgebäude:</value>
+  </data>
+  <data name="_ageUpgradeGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 210</value>
+  </data>
+  <data name="&gt;&gt;_transformUnitComboBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="_buildingDepView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="_annex1XBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>242, 17</value>
+  </data>
+  <data name="&gt;&gt;_stackUnitComboBox.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="_deadUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 21</value>
+  </data>
+  <data name="_annex2CheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 13</value>
+  </data>
+  <data name="_ageUpgradeGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="&gt;&gt;_childrenViewButtonColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;_annex3ComboBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_projUnitComboBox.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex4ComboBox.Name" xml:space="preserve">
+    <value>_annex4ComboBox</value>
+  </data>
+  <data name="_annex3ComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 21</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;_projDuplUnitComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_childrenGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_annex2YBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="_annex2CheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 14</value>
+  </data>
+  <data name="_closeButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 23</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;_annex4ComboBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="_closeButton.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;_annex3CheckBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeGroupBox.Name" xml:space="preserve">
+    <value>_ageUpgradeGroupBox</value>
+  </data>
+  <data name="_childrenGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>342, 210</value>
+  </data>
+  <data name="_annex1XBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="_annex4CheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 14</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_ageUpgradeListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Projektil 1:</value>
+  </data>
+  <data name="_annex3YBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 71</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="_annex1CheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="_annex2YBox.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;_buildingDepView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_annex2YBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="_annex1CheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 14</value>
+  </data>
+  <data name="_otherUnitsGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>319, 210</value>
+  </data>
+  <data name="_transformUnitComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Aktions-Gebäude:</value>
+  </data>
+  <data name="&gt;&gt;_annex3CheckBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="_buildingDependencyGroupBox.Text" xml:space="preserve">
+    <value>Gebäude-Abhängigkeiten</value>
+  </data>
+  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;_annex2XBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="_childrenView.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 13</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 157</value>
+  </data>
+  <data name="&gt;&gt;_annex1CheckBox.Name" xml:space="preserve">
+    <value>_annex1CheckBox</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>915, 391</value>
+  </data>
+  <data name="&gt;&gt;_buildingDepViewCountColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_projDuplUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 73</value>
+  </data>
+  <data name="_annex2ComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 21</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;_deadUnitComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_buildingDependencyGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>543, 159</value>
+  </data>
+  <data name="_childrenGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>561, 12</value>
+  </data>
+  <data name="_annex4ComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 21</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Projektil 2:</value>
+  </data>
+  <data name="_otherUnitsGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>236, 12</value>
+  </data>
+  <data name="&gt;&gt;_buildingDepViewNameColumn.Name" xml:space="preserve">
+    <value>_buildingDepViewNameColumn</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeListBox.Parent" xml:space="preserve">
+    <value>_ageUpgradeGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_annex4YBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 98</value>
+  </data>
+  <data name="_annex2YBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 44</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;_aiNameTextBox.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="_annexGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;_annex3YBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="_annex1XBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;_transformUnitComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_annex1ComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 16</value>
+  </data>
+  <data name="_annex1CheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_childrenViewChildColumn.HeaderText" xml:space="preserve">
+    <value>Kind</value>
+  </data>
+  <data name="&gt;&gt;_annex1CheckBox.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;_annex3XBox.Parent" xml:space="preserve">
     <value>_annexGroupBox</value>
   </data>
   <data name="&gt;&gt;_annex3ComboBox.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="_annex3CheckBox.AutoSize" type="System.Boolean, mscorlib">
+  <data name="_buttonIDField.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeComboBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_aiNameTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex1YBox.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="_annex1YBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="&gt;&gt;_annex4ComboBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 49</value>
+  </data>
+  <data name="&gt;&gt;_annex3YBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="_otherUnitsGroupBox.Text" xml:space="preserve">
+    <value>Gebäudeeigenschaften</value>
+  </data>
+  <data name="&gt;&gt;_annex1XBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_buttonIDField.Name" xml:space="preserve">
+    <value>_buttonIDField</value>
+  </data>
+  <data name="_buildingDepViewCountColumn.HeaderText" xml:space="preserve">
+    <value>Weitere?</value>
+  </data>
+  <data name="&gt;&gt;_annex4XBox.Name" xml:space="preserve">
+    <value>_annex4XBox</value>
+  </data>
+  <data name="&gt;&gt;_annex2CheckBox.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;_otherUnitsGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_stackUnitComboBox.Name" xml:space="preserve">
+    <value>_stackUnitComboBox</value>
+  </data>
+  <data name="_annex2ComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="_annex3XBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="_childrenViewButtonColumn.HeaderText" xml:space="preserve">
+    <value>Button</value>
+  </data>
+  <data name="&gt;&gt;_buildingDependencyGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex2YBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex1YBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex1ComboBox.Name" xml:space="preserve">
+    <value>_annex1ComboBox</value>
+  </data>
+  <data name="&gt;&gt;_annex4YBox.Name" xml:space="preserve">
+    <value>_annex4YBox</value>
+  </data>
+  <data name="&gt;&gt;_otherUnitsGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_childrenViewChildColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_ageUpgradeGroupBox.Text" xml:space="preserve">
+    <value>Zeitalter-Upgrades (0: Dunkle Zeit)</value>
+  </data>
+  <data name="&gt;&gt;_transformUnitComboBox.Parent" xml:space="preserve">
+    <value>_otherUnitsGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_buildingDepView.Parent" xml:space="preserve">
+    <value>_buildingDependencyGroupBox</value>
+  </data>
+  <data name="_closeButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>758, 358</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeGroupBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;_annexGroupBox.Name" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_annex4CheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 100</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 13</value>
+  </data>
+  <data name="_annex4CheckBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="_annex3CheckBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="_annex3CheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 73</value>
+  <data name="&gt;&gt;_annex1ComboBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
   </data>
-  <data name="_annex3CheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 14</value>
-  </data>
-  <data name="_annex3CheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+  <data name="&gt;&gt;_annex4CheckBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
   </data>
   <data name="&gt;&gt;_annex3CheckBox.Name" xml:space="preserve">
     <value>_annex3CheckBox</value>
   </data>
-  <data name="&gt;&gt;_annex3CheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="_annex4YBox.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
   </data>
-  <data name="&gt;&gt;_annex3CheckBox.Parent" xml:space="preserve">
-    <value>_annexGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_annex3CheckBox.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="_annex2YBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>292, 44</value>
-  </data>
-  <data name="_annex2YBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="_annex2YBox.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;_annex2YBox.Name" xml:space="preserve">
-    <value>_annex2YBox</value>
-  </data>
-  <data name="&gt;&gt;_annex2YBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_annex2YBox.Parent" xml:space="preserve">
-    <value>_annexGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_annex2YBox.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="_annex2XBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>242, 44</value>
-  </data>
-  <data name="_annex2XBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="_annex2XBox.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;_annex2XBox.Name" xml:space="preserve">
-    <value>_annex2XBox</value>
-  </data>
-  <data name="&gt;&gt;_annex2XBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_annex2XBox.Parent" xml:space="preserve">
-    <value>_annexGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_annex2XBox.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="_annex2ComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>27, 43</value>
-  </data>
-  <data name="_annex2ComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 21</value>
-  </data>
-  <data name="_annex2ComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;_annex2ComboBox.Name" xml:space="preserve">
-    <value>_annex2ComboBox</value>
-  </data>
-  <data name="&gt;&gt;_annex2ComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_annex2ComboBox.Parent" xml:space="preserve">
-    <value>_annexGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_annex2ComboBox.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="_annex2CheckBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="_annex2CheckBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="_annex2CheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 46</value>
-  </data>
-  <data name="_annex2CheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 14</value>
-  </data>
-  <data name="_annex2CheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;_annex2CheckBox.Name" xml:space="preserve">
-    <value>_annex2CheckBox</value>
-  </data>
-  <data name="&gt;&gt;_annex2CheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;_buildingDepView.Name" xml:space="preserve">
+    <value>_buildingDepView</value>
   </data>
   <data name="&gt;&gt;_annex2CheckBox.Parent" xml:space="preserve">
     <value>_annexGroupBox</value>
   </data>
-  <data name="&gt;&gt;_annex2CheckBox.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="_annex1YBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>292, 17</value>
-  </data>
-  <data name="_annex1YBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="_annex1YBox.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;_annex1YBox.Name" xml:space="preserve">
-    <value>_annex1YBox</value>
-  </data>
-  <data name="&gt;&gt;_annex1YBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_annex1YBox.Parent" xml:space="preserve">
-    <value>_annexGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_annex1YBox.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="_annex1XBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>242, 17</value>
-  </data>
-  <data name="_annex1XBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="_annex1XBox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;_annex1XBox.Name" xml:space="preserve">
-    <value>_annex1XBox</value>
-  </data>
-  <data name="&gt;&gt;_annex1XBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_annex1XBox.Parent" xml:space="preserve">
-    <value>_annexGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_annex1XBox.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="_annex1ComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>27, 16</value>
-  </data>
-  <data name="_annex1ComboBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_headUnitComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>209, 21</value>
   </data>
-  <data name="_annex1ComboBox.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+  <data name="_annex3CheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
-  <data name="&gt;&gt;_annex1ComboBox.Name" xml:space="preserve">
-    <value>_annex1ComboBox</value>
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;_annex1ComboBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Tote Einheit:</value>
   </data>
-  <data name="&gt;&gt;_annex1ComboBox.Parent" xml:space="preserve">
-    <value>_annexGroupBox</value>
+  <data name="_ageUpgradeComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 182</value>
   </data>
-  <data name="&gt;&gt;_annex1ComboBox.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="_annex1CheckBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="_annex1CheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
-  </data>
-  <data name="_annex1CheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 14</value>
-  </data>
-  <data name="_annex1CheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;_annex1CheckBox.Name" xml:space="preserve">
-    <value>_annex1CheckBox</value>
-  </data>
-  <data name="&gt;&gt;_annex1CheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_annex1CheckBox.Parent" xml:space="preserve">
-    <value>_annexGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_annex1CheckBox.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="_annexGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>558, 200</value>
-  </data>
-  <data name="_annexGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>345, 127</value>
-  </data>
-  <data name="_annexGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="_annexGroupBox.Text" xml:space="preserve">
-    <value>Angebundene Gebäude</value>
-  </data>
-  <data name="&gt;&gt;_annexGroupBox.Name" xml:space="preserve">
-    <value>_annexGroupBox</value>
-  </data>
-  <data name="&gt;&gt;_annexGroupBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_annexGroupBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_annexGroupBox.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="_closeButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>758, 333</value>
-  </data>
-  <data name="_closeButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 23</value>
-  </data>
-  <data name="_closeButton.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="_closeButton.Text" xml:space="preserve">
-    <value>Fertig</value>
-  </data>
-  <data name="&gt;&gt;_closeButton.Name" xml:space="preserve">
-    <value>_closeButton</value>
-  </data>
-  <data name="&gt;&gt;_closeButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_closeButton.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;_childrenView.Name" xml:space="preserve">
+    <value>_childrenView</value>
   </data>
   <data name="&gt;&gt;_closeButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="_buttonIDField.Location" type="System.Drawing.Point, System.Drawing">
-    <value>561, 335</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>EditBuildingForm</value>
   </data>
-  <data name="_buttonIDField.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 20</value>
+  <data name="&gt;&gt;_annex2YBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="_buttonIDField.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;_buttonIDField.Name" xml:space="preserve">
-    <value>_buttonIDField</value>
-  </data>
-  <data name="&gt;&gt;_buttonIDField.Type" xml:space="preserve">
-    <value>TechTreeEditor.Controls.NumberFieldControl, TechTreeEditor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_buttonIDField.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;_childrenView.Parent" xml:space="preserve">
+    <value>_childrenGroupBox</value>
   </data>
   <data name="&gt;&gt;_buttonIDField.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en-US</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="&gt;&gt;_annex2YBox.Name" xml:space="preserve">
+    <value>_annex2YBox</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>915, 366</value>
+  <data name="_ageUpgradeGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_childrenViewChildColumn.Name" xml:space="preserve">
+    <value>_childrenViewChildColumn</value>
+  </data>
+  <data name="&gt;&gt;_headUnitComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_annex3CheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 73</value>
+  </data>
+  <data name="_closeButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="&gt;&gt;_annex2ComboBox.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Stapel-Gebäude:</value>
+  </data>
+  <data name="_otherUnitsGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="_childrenGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="_projDuplUnitComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_ageUpgradeComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 21</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_buildingDependencyGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_childrenView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_annex4XBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex1CheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_childrenGroupBox.Name" xml:space="preserve">
+    <value>_childrenGroupBox</value>
+  </data>
+  <data name="_annex3YBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="_annex2CheckBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_buildingDependencyGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="_buttonIDField.Location" type="System.Drawing.Point, System.Drawing">
+    <value>561, 360</value>
+  </data>
+  <data name="&gt;&gt;_aiNameTextBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_annex2XBox.Name" xml:space="preserve">
+    <value>_annex2XBox</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_annex4CheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 13</value>
+  </data>
+  <data name="&gt;&gt;_closeButton.Name" xml:space="preserve">
+    <value>_closeButton</value>
+  </data>
+  <data name="&gt;&gt;_annex4XBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_projUnitComboBox.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;_annex3XBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex4YBox.Parent" xml:space="preserve">
+    <value>_annexGroupBox</value>
+  </data>
+  <data name="&gt;&gt;_annex4XBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_ageUpgradeGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;_buildingDepViewNameColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_annex4YBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_annex4ComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;_annex4CheckBox.Name" xml:space="preserve">
+    <value>_annex4CheckBox</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1446,37 +1437,115 @@
         AAA=
 </value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Gebäude editieren: </value>
+  <data name="&gt;&gt;_annex2ComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_buildingDepViewCountColumn.Name" xml:space="preserve">
-    <value>_buildingDepViewCountColumn</value>
+  <data name="_annexGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>345, 127</value>
   </data>
-  <data name="&gt;&gt;_buildingDepViewCountColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="_annex1ComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 21</value>
   </data>
-  <data name="&gt;&gt;_buildingDepViewNameColumn.Name" xml:space="preserve">
-    <value>_buildingDepViewNameColumn</value>
+  <data name="&gt;&gt;_aiNameTextBox.Name" xml:space="preserve">
+    <value>_aiNameTextBox</value>
   </data>
-  <data name="&gt;&gt;_buildingDepViewNameColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="_annexGroupBox.Text" xml:space="preserve">
+    <value>Angebundene Gebäude</value>
   </data>
-  <data name="&gt;&gt;_childrenViewButtonColumn.Name" xml:space="preserve">
-    <value>_childrenViewButtonColumn</value>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 130</value>
   </data>
-  <data name="&gt;&gt;_childrenViewButtonColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="_buttonIDField.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 20</value>
   </data>
-  <data name="&gt;&gt;_childrenViewChildColumn.Name" xml:space="preserve">
-    <value>_childrenViewChildColumn</value>
+  <data name="_buttonIDField.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
-  <data name="&gt;&gt;_childrenViewChildColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="_ageUpgradeComboBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>EditBuildingForm</value>
+  <data name="&gt;&gt;_projDuplUnitComboBox.Name" xml:space="preserve">
+    <value>_projDuplUnitComboBox</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;_deadUnitComboBox.Name" xml:space="preserve">
+    <value>_deadUnitComboBox</value>
   </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_buttonIDField.NameString" xml:space="preserve">
+    <value>Build menu button ID:</value>
+  </data>
+  <data name="_annex2XBox.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 184</value>
+  </data>
+  <data name="_annex4XBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>242, 98</value>
+  </data>
+  <data name="&gt;&gt;_buildingDepView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_closeButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="_childrenView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>330, 184</value>
+  </data>
+  <data name="&gt;&gt;_stackUnitComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_headUnitComboBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;_annex3XBox.Name" xml:space="preserve">
+    <value>_annex3XBox</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="_childrenView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="_annex3YBox.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="_annex2ComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 43</value>
+  </data>
+  <data name="_headUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 127</value>
+  </data>
+  <data name="_transformUnitComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 154</value>
+  </data>
+  <data name="&gt;&gt;_buildingDependencyGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <metadata name="_buildingDepViewNameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en-US</value>
+  </metadata>
+  <metadata name="_buildingDepViewCountColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="_childrenViewButtonColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="_childrenViewChildColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

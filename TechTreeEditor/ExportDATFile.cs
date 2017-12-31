@@ -64,7 +64,8 @@ namespace TechTreeEditor
 		/// Aktualisiert die Fortschrittsanzeige.
 		/// </summary>
 		/// <param name="step">Der aktuelle Schritt.</param>
-		private void UpdateExportStep(ExportSteps step)
+		/// <param name="suffix">Optional. Ein dem Fortschrittslabel anzuhängender String.</param>
+		private void UpdateExportStep(ExportSteps step, string suffix = "")
 		{
 			// In Form-Thread Aktualisierung auslösen
 			Invoke(new Action(() =>
@@ -73,7 +74,7 @@ namespace TechTreeEditor
 				_finishProgressBar.Value = ExportStepsTexts[step].Item1;
 
 				// Beschreibung zeigen
-				_finishProgressLabel.Text = ExportStepsTexts[step].Item2;
+				_finishProgressLabel.Text = ExportStepsTexts[step].Item2 + suffix;
 			}));
 		}
 
@@ -824,6 +825,7 @@ namespace TechTreeEditor
 				for(int c = 0; c < _projectFile.CivTrees.Count; ++c)
 				{
 					// Kultur-Konfiguration abrufen
+					UpdateExportStep(ExportSteps.BuildCivilizationData, $" ({c + 1}/{_projectFile.CivTrees.Count})");
 					TechTreeFile.CivTreeConfig currCivConfig = _projectFile.CivTrees[c];
 
 					// Neue Kultur erstellen
@@ -1135,6 +1137,44 @@ namespace TechTreeEditor
 				catch(IOException ex)
 				{
 					MessageBox.Show(TechTreeEditor.Strings.ExportDATFile_Message_ErrorSaving + ex.Message, Strings.ExportDATFile_Message_ErrorSaving_Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+
+				// KI-Bezeichner exportieren
+				UpdateExportStep(ExportSteps.ExportAiNames);
+				using(FileStream perFile = File.Open(_outputDATTextBox.Text + ".per", FileMode.Create, FileAccess.Write))
+				using(StreamWriter perFileStream = new StreamWriter(perFile))
+				{
+					// Alle Gebäude schreiben
+					perFileStream.WriteLine("; --- BUILDINGS ---");
+					foreach(var unitIdMappingElement in unitIDMap.Where(el => el.Key is TechTreeBuilding))
+						if(!string.IsNullOrWhiteSpace(unitIdMappingElement.Key.AiName))
+						{
+							// Kommentar und Definition schreiben
+							perFileStream.WriteLine("; " + unitIdMappingElement.Key.Name);
+							perFileStream.WriteLine($"(defconst {unitIdMappingElement.Key.AiName} {unitIdMappingElement.Value})");
+						}
+
+					// Alle Einheiten schreiben
+					perFileStream.WriteLine("");
+					perFileStream.WriteLine("; --- UNITS ---");
+					foreach(var unitIdMappingElement in unitIDMap.Where(el => el.Key is TechTreeCreatable))
+						if(!string.IsNullOrWhiteSpace(unitIdMappingElement.Key.AiName))
+						{
+							// Kommentar und Definition schreiben
+							perFileStream.WriteLine("; " + unitIdMappingElement.Key.Name);
+							perFileStream.WriteLine($"(defconst {unitIdMappingElement.Key.AiName} {unitIdMappingElement.Value})");
+						}
+
+					// Alle Technologien schreiben
+					perFileStream.WriteLine("");
+					perFileStream.WriteLine("; --- RESEARCHES ---");
+					foreach(var researchIdMappingElement in researchIDMap)
+						if(!string.IsNullOrWhiteSpace(researchIdMappingElement.Key.AiName))
+						{
+							// Kommentar und Definition schreiben
+							perFileStream.WriteLine("; " + researchIdMappingElement.Key.Name);
+							perFileStream.WriteLine($"(defconst ri-{researchIdMappingElement.Key.AiName} {researchIdMappingElement.Value})");
+						}
 				}
 
 				// Ggf. ID-Zuordnung exportieren
@@ -2133,8 +2173,9 @@ namespace TechTreeEditor
 				{ ExportSteps.BuildCivilizationData, new Tuple<int, string>(16, "Building civilization data") },
 				{ ExportSteps.GenerateNewTechTree, new Tuple<int, string>(17, "Generating new tech tree") },
 				{ ExportSteps.SaveGeneratedDatFile, new Tuple<int, string>(18, "Saving generated DAT file") },
-				{ ExportSteps.ExportIdMapping, new Tuple<int, string>(19, "Exporting ID mapping") },
-				{ ExportSteps.RebuildProjectIdMapping, new Tuple<int, string>(20, "Rebuilding project ID mapping") },
+				{ ExportSteps.ExportAiNames, new Tuple<int, string>(19, "Exporting AI names") },
+				{ ExportSteps.ExportIdMapping, new Tuple<int, string>(20, "Exporting ID mapping") },
+				{ ExportSteps.RebuildProjectIdMapping, new Tuple<int, string>(21, "Rebuilding project ID mapping") },
 			 });
 
 		/// <summary>
@@ -2161,6 +2202,7 @@ namespace TechTreeEditor
 			BuildCivilizationData,
 			GenerateNewTechTree,
 			SaveGeneratedDatFile,
+			ExportAiNames,
 			ExportIdMapping,
 			RebuildProjectIdMapping
 		}

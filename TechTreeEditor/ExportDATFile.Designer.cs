@@ -114,22 +114,22 @@
 			// 
 			// _outputDATTextBox
 			// 
-			this._outputDATTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::TechTreeEditor.Properties.Settings.Default, "ExportDATFileOutputDATPath", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			resources.ApplyResources(this._outputDATTextBox, "_outputDATTextBox");
+			this._outputDATTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::TechTreeEditor.Properties.Settings.Default, "ExportDATFileOutputDATPath", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this._outputDATTextBox.Name = "_outputDATTextBox";
 			this._outputDATTextBox.Text = global::TechTreeEditor.Properties.Settings.Default.ExportDATFileOutputDATPath;
 			// 
 			// _baseDATTextBox
 			// 
-			this._baseDATTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::TechTreeEditor.Properties.Settings.Default, "ExportDATFileBaseDATPath", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			resources.ApplyResources(this._baseDATTextBox, "_baseDATTextBox");
+			this._baseDATTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::TechTreeEditor.Properties.Settings.Default, "ExportDATFileBaseDATPath", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this._baseDATTextBox.Name = "_baseDATTextBox";
 			this._baseDATTextBox.Text = global::TechTreeEditor.Properties.Settings.Default.ExportDATFileBaseDATPath;
 			// 
 			// _finishProgressLabel
 			// 
-			this._finishProgressLabel.AutoEllipsis = true;
 			resources.ApplyResources(this._finishProgressLabel, "_finishProgressLabel");
+			this._finishProgressLabel.AutoEllipsis = true;
 			this._finishProgressLabel.Name = "_finishProgressLabel";
 			// 
 			// ExportDATFile

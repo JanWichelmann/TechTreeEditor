@@ -11,7 +11,7 @@ namespace TechTreeEditor
 		#region Variablen
 
 		/// <summary>
-		/// Das in diesem Fenster bearbeitbare Gebäude.
+		/// Die in diesem Fenster bearbeitbare Einheit.
 		/// </summary>
 		private TechTreeCreatable _creatable = null;
 
@@ -87,11 +87,14 @@ namespace TechTreeEditor
 			foreach(var currC in _creatable.Children)
 			{
 				// Zeile erstellen
-				DataGridViewRow row = new DataGridViewRow() { Tag = (TechTreeElement)currC.Item2 };
+				DataGridViewRow row = new DataGridViewRow() { Tag = currC.Item2 };
 				row.Cells.Add(new DataGridViewTextBoxCell() { Value = currC.Item1.ToString() });
 				row.Cells.Add(new DataGridViewTextBoxCell() { Value = currC.Item2.Name });
 				_childrenView.Rows.Add(row);
 			}
+
+			// KI-Namen anzeigen
+			_aiNameTextBox.Text = _creatable.AiName;
 		}
 
 		#endregion Funktionen
@@ -127,12 +130,14 @@ namespace TechTreeEditor
 
 		private void _dropSite1ComboBox_SelectedIndexChanged(object sender, EventArgs e)
 		{
+			// Wert aktualisieren
 			TechTreeUnit selItem = (TechTreeUnit)_dropSite1ComboBox.SelectedItem;
 			_creatable.DropSite1Unit = (selItem.ID >= 0 ? selItem : null);
 		}
 
 		private void _dropSite2ComboBox_SelectedIndexChanged(object sender, EventArgs e)
 		{
+			// Wert aktualisieren
 			TechTreeUnit selItem = (TechTreeUnit)_dropSite2ComboBox.SelectedItem;
 			_creatable.DropSite2Unit = (selItem.ID >= 0 ? selItem : null);
 		}
@@ -163,6 +168,18 @@ namespace TechTreeEditor
 		{
 			// Fenster schließen
 			this.Close();
+		}
+
+		private void _aiNameTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			// Wert parsen und aktualisieren
+			string parsedValue = "";
+			foreach(char c in _aiNameTextBox.Text.ToLower())
+				if(c >= 'a' && c <= 'z' || c == '-')
+					parsedValue += c;
+			if(_aiNameTextBox.Text != parsedValue)
+				_aiNameTextBox.Text = parsedValue;
+			_creatable.AiName = parsedValue;
 		}
 
 		#endregion Ereignishandler

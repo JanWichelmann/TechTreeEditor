@@ -31,13 +31,15 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditResearchForm));
 			this._buildingDependencyGroupBox = new System.Windows.Forms.GroupBox();
 			this._buildingDepView = new System.Windows.Forms.DataGridView();
+			this._buildingDepViewCountColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this._buildingDepViewNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this._closeButton = new System.Windows.Forms.Button();
 			this._researchDependencyGroupBox = new System.Windows.Forms.GroupBox();
 			this._researchDepView = new System.Windows.Forms.DataGridView();
 			this._researchDepViewCountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this._researchDepViewResearchColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this._buildingDepViewCountColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-			this._buildingDepViewNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.label7 = new System.Windows.Forms.Label();
+			this._aiNameTextBox = new System.Windows.Forms.TextBox();
 			this._buildingDependencyGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this._buildingDepView)).BeginInit();
 			this._researchDependencyGroupBox.SuspendLayout();
@@ -63,6 +65,21 @@
             this._buildingDepViewNameColumn});
 			this._buildingDepView.Name = "_buildingDepView";
 			this._buildingDepView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._buildingDepView_CellValueChanged);
+			// 
+			// _buildingDepViewCountColumn
+			// 
+			this._buildingDepViewCountColumn.FillWeight = 20F;
+			resources.ApplyResources(this._buildingDepViewCountColumn, "_buildingDepViewCountColumn");
+			this._buildingDepViewCountColumn.Name = "_buildingDepViewCountColumn";
+			this._buildingDepViewCountColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this._buildingDepViewCountColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			// 
+			// _buildingDepViewNameColumn
+			// 
+			this._buildingDepViewNameColumn.FillWeight = 80F;
+			resources.ApplyResources(this._buildingDepViewNameColumn, "_buildingDepViewNameColumn");
+			this._buildingDepViewNameColumn.Name = "_buildingDepViewNameColumn";
+			this._buildingDepViewNameColumn.ReadOnly = true;
 			// 
 			// _closeButton
 			// 
@@ -105,25 +122,24 @@
 			this._researchDepViewResearchColumn.Name = "_researchDepViewResearchColumn";
 			this._researchDepViewResearchColumn.ReadOnly = true;
 			// 
-			// _buildingDepViewCountColumn
+			// label7
 			// 
-			this._buildingDepViewCountColumn.FillWeight = 20F;
-			resources.ApplyResources(this._buildingDepViewCountColumn, "_buildingDepViewCountColumn");
-			this._buildingDepViewCountColumn.Name = "_buildingDepViewCountColumn";
-			this._buildingDepViewCountColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this._buildingDepViewCountColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			resources.ApplyResources(this.label7, "label7");
+			this.label7.Name = "label7";
 			// 
-			// _buildingDepViewNameColumn
+			// _aiNameTextBox
 			// 
-			this._buildingDepViewNameColumn.FillWeight = 80F;
-			resources.ApplyResources(this._buildingDepViewNameColumn, "_buildingDepViewNameColumn");
-			this._buildingDepViewNameColumn.Name = "_buildingDepViewNameColumn";
-			this._buildingDepViewNameColumn.ReadOnly = true;
+			resources.ApplyResources(this._aiNameTextBox, "_aiNameTextBox");
+			this._aiNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+			this._aiNameTextBox.Name = "_aiNameTextBox";
+			this._aiNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this._aiNameTextBox_Validating);
 			// 
 			// EditResearchForm
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.label7);
+			this.Controls.Add(this._aiNameTextBox);
 			this.Controls.Add(this._researchDependencyGroupBox);
 			this.Controls.Add(this._closeButton);
 			this.Controls.Add(this._buildingDependencyGroupBox);
@@ -135,6 +151,7 @@
 			this._researchDependencyGroupBox.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this._researchDepView)).EndInit();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -149,5 +166,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn _researchDepViewResearchColumn;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn _buildingDepViewCountColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn _buildingDepViewNameColumn;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.TextBox _aiNameTextBox;
 	}
 }

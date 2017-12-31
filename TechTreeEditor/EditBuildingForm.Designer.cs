@@ -33,6 +33,8 @@
 			this._ageUpgradeComboBox = new System.Windows.Forms.ComboBox();
 			this._ageUpgradeListBox = new System.Windows.Forms.CheckedListBox();
 			this._otherUnitsGroupBox = new System.Windows.Forms.GroupBox();
+			this.label7 = new System.Windows.Forms.Label();
+			this._aiNameTextBox = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this._transformUnitComboBox = new System.Windows.Forms.ComboBox();
@@ -91,16 +93,16 @@
 			// 
 			// _ageUpgradeGroupBox
 			// 
+			resources.ApplyResources(this._ageUpgradeGroupBox, "_ageUpgradeGroupBox");
 			this._ageUpgradeGroupBox.Controls.Add(this._ageUpgradeComboBox);
 			this._ageUpgradeGroupBox.Controls.Add(this._ageUpgradeListBox);
-			resources.ApplyResources(this._ageUpgradeGroupBox, "_ageUpgradeGroupBox");
 			this._ageUpgradeGroupBox.Name = "_ageUpgradeGroupBox";
 			this._ageUpgradeGroupBox.TabStop = false;
 			// 
 			// _ageUpgradeComboBox
 			// 
-			this._ageUpgradeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			resources.ApplyResources(this._ageUpgradeComboBox, "_ageUpgradeComboBox");
+			this._ageUpgradeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._ageUpgradeComboBox.FormattingEnabled = true;
 			this._ageUpgradeComboBox.Name = "_ageUpgradeComboBox";
 			this._ageUpgradeComboBox.Sorted = true;
@@ -108,14 +110,17 @@
 			// 
 			// _ageUpgradeListBox
 			// 
-			this._ageUpgradeListBox.FormattingEnabled = true;
 			resources.ApplyResources(this._ageUpgradeListBox, "_ageUpgradeListBox");
+			this._ageUpgradeListBox.FormattingEnabled = true;
 			this._ageUpgradeListBox.Name = "_ageUpgradeListBox";
 			this._ageUpgradeListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this._ageUpgradeListBox_ItemCheck);
 			this._ageUpgradeListBox.SelectedIndexChanged += new System.EventHandler(this._ageUpgradeListBox_SelectedIndexChanged);
 			// 
 			// _otherUnitsGroupBox
 			// 
+			resources.ApplyResources(this._otherUnitsGroupBox, "_otherUnitsGroupBox");
+			this._otherUnitsGroupBox.Controls.Add(this.label7);
+			this._otherUnitsGroupBox.Controls.Add(this._aiNameTextBox);
 			this._otherUnitsGroupBox.Controls.Add(this.label6);
 			this._otherUnitsGroupBox.Controls.Add(this.label5);
 			this._otherUnitsGroupBox.Controls.Add(this._transformUnitComboBox);
@@ -128,9 +133,20 @@
 			this._otherUnitsGroupBox.Controls.Add(this.label2);
 			this._otherUnitsGroupBox.Controls.Add(this.label1);
 			this._otherUnitsGroupBox.Controls.Add(this._projUnitComboBox);
-			resources.ApplyResources(this._otherUnitsGroupBox, "_otherUnitsGroupBox");
 			this._otherUnitsGroupBox.Name = "_otherUnitsGroupBox";
 			this._otherUnitsGroupBox.TabStop = false;
+			// 
+			// label7
+			// 
+			resources.ApplyResources(this.label7, "label7");
+			this.label7.Name = "label7";
+			// 
+			// _aiNameTextBox
+			// 
+			resources.ApplyResources(this._aiNameTextBox, "_aiNameTextBox");
+			this._aiNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+			this._aiNameTextBox.Name = "_aiNameTextBox";
+			this._aiNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this._aiNameTextBox_Validating);
 			// 
 			// label6
 			// 
@@ -144,18 +160,18 @@
 			// 
 			// _transformUnitComboBox
 			// 
+			resources.ApplyResources(this._transformUnitComboBox, "_transformUnitComboBox");
 			this._transformUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._transformUnitComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this._transformUnitComboBox, "_transformUnitComboBox");
 			this._transformUnitComboBox.Name = "_transformUnitComboBox";
 			this._transformUnitComboBox.Sorted = true;
 			this._transformUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._transformUnitComboBox_SelectedIndexChanged);
 			// 
 			// _deadUnitComboBox
 			// 
+			resources.ApplyResources(this._deadUnitComboBox, "_deadUnitComboBox");
 			this._deadUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._deadUnitComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this._deadUnitComboBox, "_deadUnitComboBox");
 			this._deadUnitComboBox.Name = "_deadUnitComboBox";
 			this._deadUnitComboBox.Sorted = true;
 			this._deadUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._deadUnitComboBox_SelectedIndexChanged);
@@ -167,9 +183,9 @@
 			// 
 			// _headUnitComboBox
 			// 
+			resources.ApplyResources(this._headUnitComboBox, "_headUnitComboBox");
 			this._headUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._headUnitComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this._headUnitComboBox, "_headUnitComboBox");
 			this._headUnitComboBox.Name = "_headUnitComboBox";
 			this._headUnitComboBox.Sorted = true;
 			this._headUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._headUnitComboBox_SelectedIndexChanged);
@@ -181,18 +197,18 @@
 			// 
 			// _stackUnitComboBox
 			// 
+			resources.ApplyResources(this._stackUnitComboBox, "_stackUnitComboBox");
 			this._stackUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._stackUnitComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this._stackUnitComboBox, "_stackUnitComboBox");
 			this._stackUnitComboBox.Name = "_stackUnitComboBox";
 			this._stackUnitComboBox.Sorted = true;
 			this._stackUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._stackUnitComboBox_SelectedIndexChanged);
 			// 
 			// _projDuplUnitComboBox
 			// 
+			resources.ApplyResources(this._projDuplUnitComboBox, "_projDuplUnitComboBox");
 			this._projDuplUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._projDuplUnitComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this._projDuplUnitComboBox, "_projDuplUnitComboBox");
 			this._projDuplUnitComboBox.Name = "_projDuplUnitComboBox";
 			this._projDuplUnitComboBox.Sorted = true;
 			this._projDuplUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._projDuplUnitComboBox_SelectedIndexChanged);
@@ -209,22 +225,23 @@
 			// 
 			// _projUnitComboBox
 			// 
+			resources.ApplyResources(this._projUnitComboBox, "_projUnitComboBox");
 			this._projUnitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._projUnitComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this._projUnitComboBox, "_projUnitComboBox");
 			this._projUnitComboBox.Name = "_projUnitComboBox";
 			this._projUnitComboBox.Sorted = true;
 			this._projUnitComboBox.SelectedIndexChanged += new System.EventHandler(this._projUnitComboBox_SelectedIndexChanged);
 			// 
 			// _buildingDependencyGroupBox
 			// 
-			this._buildingDependencyGroupBox.Controls.Add(this._buildingDepView);
 			resources.ApplyResources(this._buildingDependencyGroupBox, "_buildingDependencyGroupBox");
+			this._buildingDependencyGroupBox.Controls.Add(this._buildingDepView);
 			this._buildingDependencyGroupBox.Name = "_buildingDependencyGroupBox";
 			this._buildingDependencyGroupBox.TabStop = false;
 			// 
 			// _buildingDepView
 			// 
+			resources.ApplyResources(this._buildingDepView, "_buildingDepView");
 			this._buildingDepView.AllowUserToAddRows = false;
 			this._buildingDepView.AllowUserToDeleteRows = false;
 			this._buildingDepView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -232,7 +249,6 @@
 			this._buildingDepView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this._buildingDepViewCountColumn,
             this._buildingDepViewNameColumn});
-			resources.ApplyResources(this._buildingDepView, "_buildingDepView");
 			this._buildingDepView.Name = "_buildingDepView";
 			this._buildingDepView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._buildingDepView_CellValueChanged);
 			// 
@@ -253,13 +269,14 @@
 			// 
 			// _childrenGroupBox
 			// 
-			this._childrenGroupBox.Controls.Add(this._childrenView);
 			resources.ApplyResources(this._childrenGroupBox, "_childrenGroupBox");
+			this._childrenGroupBox.Controls.Add(this._childrenView);
 			this._childrenGroupBox.Name = "_childrenGroupBox";
 			this._childrenGroupBox.TabStop = false;
 			// 
 			// _childrenView
 			// 
+			resources.ApplyResources(this._childrenView, "_childrenView");
 			this._childrenView.AllowUserToAddRows = false;
 			this._childrenView.AllowUserToDeleteRows = false;
 			this._childrenView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -267,7 +284,6 @@
 			this._childrenView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this._childrenViewButtonColumn,
             this._childrenViewChildColumn});
-			resources.ApplyResources(this._childrenView, "_childrenView");
 			this._childrenView.Name = "_childrenView";
 			this._childrenView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this._childrenView_CellValidating);
 			// 
@@ -286,6 +302,7 @@
 			// 
 			// _annexGroupBox
 			// 
+			resources.ApplyResources(this._annexGroupBox, "_annexGroupBox");
 			this._annexGroupBox.Controls.Add(this._annex4YBox);
 			this._annexGroupBox.Controls.Add(this._annex4XBox);
 			this._annexGroupBox.Controls.Add(this._annex4ComboBox);
@@ -302,19 +319,18 @@
 			this._annexGroupBox.Controls.Add(this._annex1XBox);
 			this._annexGroupBox.Controls.Add(this._annex1ComboBox);
 			this._annexGroupBox.Controls.Add(this._annex1CheckBox);
-			resources.ApplyResources(this._annexGroupBox, "_annexGroupBox");
 			this._annexGroupBox.Name = "_annexGroupBox";
 			this._annexGroupBox.TabStop = false;
 			// 
 			// _annex4YBox
 			// 
+			resources.ApplyResources(this._annex4YBox, "_annex4YBox");
 			this._annex4YBox.DecimalPlaces = 1;
 			this._annex4YBox.Increment = new decimal(new int[] {
             5,
             0,
             0,
             65536});
-			resources.ApplyResources(this._annex4YBox, "_annex4YBox");
 			this._annex4YBox.Maximum = new decimal(new int[] {
             10,
             0,
@@ -330,13 +346,13 @@
 			// 
 			// _annex4XBox
 			// 
+			resources.ApplyResources(this._annex4XBox, "_annex4XBox");
 			this._annex4XBox.DecimalPlaces = 1;
 			this._annex4XBox.Increment = new decimal(new int[] {
             5,
             0,
             0,
             65536});
-			resources.ApplyResources(this._annex4XBox, "_annex4XBox");
 			this._annex4XBox.Maximum = new decimal(new int[] {
             10,
             0,
@@ -352,9 +368,9 @@
 			// 
 			// _annex4ComboBox
 			// 
+			resources.ApplyResources(this._annex4ComboBox, "_annex4ComboBox");
 			this._annex4ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._annex4ComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this._annex4ComboBox, "_annex4ComboBox");
 			this._annex4ComboBox.Name = "_annex4ComboBox";
 			this._annex4ComboBox.Sorted = true;
 			this._annex4ComboBox.SelectedIndexChanged += new System.EventHandler(this._annex4ComboBox_SelectedIndexChanged);
@@ -370,13 +386,13 @@
 			// 
 			// _annex3YBox
 			// 
+			resources.ApplyResources(this._annex3YBox, "_annex3YBox");
 			this._annex3YBox.DecimalPlaces = 1;
 			this._annex3YBox.Increment = new decimal(new int[] {
             5,
             0,
             0,
             65536});
-			resources.ApplyResources(this._annex3YBox, "_annex3YBox");
 			this._annex3YBox.Maximum = new decimal(new int[] {
             10,
             0,
@@ -392,13 +408,13 @@
 			// 
 			// _annex3XBox
 			// 
+			resources.ApplyResources(this._annex3XBox, "_annex3XBox");
 			this._annex3XBox.DecimalPlaces = 1;
 			this._annex3XBox.Increment = new decimal(new int[] {
             5,
             0,
             0,
             65536});
-			resources.ApplyResources(this._annex3XBox, "_annex3XBox");
 			this._annex3XBox.Maximum = new decimal(new int[] {
             10,
             0,
@@ -414,9 +430,9 @@
 			// 
 			// _annex3ComboBox
 			// 
+			resources.ApplyResources(this._annex3ComboBox, "_annex3ComboBox");
 			this._annex3ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._annex3ComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this._annex3ComboBox, "_annex3ComboBox");
 			this._annex3ComboBox.Name = "_annex3ComboBox";
 			this._annex3ComboBox.Sorted = true;
 			this._annex3ComboBox.SelectedIndexChanged += new System.EventHandler(this._annex3ComboBox_SelectedIndexChanged);
@@ -432,13 +448,13 @@
 			// 
 			// _annex2YBox
 			// 
+			resources.ApplyResources(this._annex2YBox, "_annex2YBox");
 			this._annex2YBox.DecimalPlaces = 1;
 			this._annex2YBox.Increment = new decimal(new int[] {
             5,
             0,
             0,
             65536});
-			resources.ApplyResources(this._annex2YBox, "_annex2YBox");
 			this._annex2YBox.Maximum = new decimal(new int[] {
             10,
             0,
@@ -454,13 +470,13 @@
 			// 
 			// _annex2XBox
 			// 
+			resources.ApplyResources(this._annex2XBox, "_annex2XBox");
 			this._annex2XBox.DecimalPlaces = 1;
 			this._annex2XBox.Increment = new decimal(new int[] {
             5,
             0,
             0,
             65536});
-			resources.ApplyResources(this._annex2XBox, "_annex2XBox");
 			this._annex2XBox.Maximum = new decimal(new int[] {
             10,
             0,
@@ -476,9 +492,9 @@
 			// 
 			// _annex2ComboBox
 			// 
+			resources.ApplyResources(this._annex2ComboBox, "_annex2ComboBox");
 			this._annex2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._annex2ComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this._annex2ComboBox, "_annex2ComboBox");
 			this._annex2ComboBox.Name = "_annex2ComboBox";
 			this._annex2ComboBox.Sorted = true;
 			this._annex2ComboBox.SelectedIndexChanged += new System.EventHandler(this._annex2ComboBox_SelectedIndexChanged);
@@ -494,13 +510,13 @@
 			// 
 			// _annex1YBox
 			// 
+			resources.ApplyResources(this._annex1YBox, "_annex1YBox");
 			this._annex1YBox.DecimalPlaces = 1;
 			this._annex1YBox.Increment = new decimal(new int[] {
             5,
             0,
             0,
             65536});
-			resources.ApplyResources(this._annex1YBox, "_annex1YBox");
 			this._annex1YBox.Maximum = new decimal(new int[] {
             10,
             0,
@@ -516,13 +532,13 @@
 			// 
 			// _annex1XBox
 			// 
+			resources.ApplyResources(this._annex1XBox, "_annex1XBox");
 			this._annex1XBox.DecimalPlaces = 1;
 			this._annex1XBox.Increment = new decimal(new int[] {
             5,
             0,
             0,
             65536});
-			resources.ApplyResources(this._annex1XBox, "_annex1XBox");
 			this._annex1XBox.Maximum = new decimal(new int[] {
             10,
             0,
@@ -538,9 +554,9 @@
 			// 
 			// _annex1ComboBox
 			// 
+			resources.ApplyResources(this._annex1ComboBox, "_annex1ComboBox");
 			this._annex1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this._annex1ComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this._annex1ComboBox, "_annex1ComboBox");
 			this._annex1ComboBox.Name = "_annex1ComboBox";
 			this._annex1ComboBox.Sorted = true;
 			this._annex1ComboBox.SelectedIndexChanged += new System.EventHandler(this._annex1ComboBox_SelectedIndexChanged);
@@ -565,7 +581,6 @@
 			// 
 			resources.ApplyResources(this._buttonIDField, "_buttonIDField");
 			this._buttonIDField.Name = "_buttonIDField";
-			this._buttonIDField.NameString = "Build menu button ID:";
 			this._buttonIDField.Value = new decimal(new int[] {
             0,
             0,
@@ -653,5 +668,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn _childrenViewChildColumn;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn _buildingDepViewCountColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn _buildingDepViewNameColumn;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.TextBox _aiNameTextBox;
 	}
 }
