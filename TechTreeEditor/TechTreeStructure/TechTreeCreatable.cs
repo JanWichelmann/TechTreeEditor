@@ -565,7 +565,7 @@ namespace TechTreeEditor.TechTreeStructure
 			BuildingDependencies = new Dictionary<TechTreeBuilding, bool>();
 			foreach(XElement dep in element.Element("buildingdependencies").Descendants("dependency"))
 				BuildingDependencies.Add((TechTreeBuilding)previousElements[(int)dep], ((int)dep.Attribute("depcount") > 0));
-		}
+        }
 
 		/// <summary>
 		/// Zählt die Referenzen zu dem angegebenen Element.

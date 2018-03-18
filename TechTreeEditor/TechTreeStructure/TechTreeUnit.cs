@@ -79,9 +79,9 @@ namespace TechTreeEditor.TechTreeStructure
 				++id;
 			}
 
-			// Namen setzen
-			UpdateName(langFiles);
-		}
+            // Namen setzen
+            UpdateName(langFiles);
+        }
 
 		/// <summary>
 		/// Erstellt für alle Kindelemente die Texturen.

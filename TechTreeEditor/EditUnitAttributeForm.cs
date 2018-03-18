@@ -469,8 +469,8 @@ namespace TechTreeEditor
 				_graChargeField.Value = (unit.Creatable.ChargingGraphic < 0 ? _emptyG : _graphicList.FirstOrDefault(g => g.ID == unit.Creatable.ChargingGraphic));
 
 				// Unbekannte Werte setzen
-				_unknown11Field.Value = unit.Creatable.Unknown26;
-				_unknown12Field.Value = unit.Creatable.Unknown27;
+				_unknown11Field.Value = (decimal)unit.Creatable.Unknown26;
+				_unknown12Field.Value = (decimal)unit.Creatable.Unknown27;
 				_unknown13Field.Value = unit.Creatable.Unknown28;
 			}
 			if(unit.Type == GenieLibrary.DataElements.Civ.Unit.UnitType.Building)
@@ -1610,13 +1610,13 @@ namespace TechTreeEditor
 		private void _unknown11Field_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
 		{
 			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.Creatable.Unknown26 = e.NewValue.SafeConvert<int>());
+			_unitManager.UpdateUnitAttribute(u => u.Creatable.Unknown26 = e.NewValue.SafeConvert<float>());
 		}
 
 		private void _unknown12Field_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)
 		{
 			// Wert aktualisieren
-			_unitManager.UpdateUnitAttribute(u => u.Creatable.Unknown27 = e.NewValue.SafeConvert<int>());
+			_unitManager.UpdateUnitAttribute(u => u.Creatable.Unknown27 = e.NewValue.SafeConvert<float>());
 		}
 
 		private void _unknown13Field_ValueChanged(object sender, Controls.NumberFieldControl.ValueChangedEventArgs e)

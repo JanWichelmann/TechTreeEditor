@@ -652,7 +652,7 @@ namespace TechTreeEditor.TechTreeStructure
 			AnnexUnits = new List<Tuple<TechTreeBuilding, float, float>>();
 			foreach(XElement a in element.Element("annexes").Descendants("annex"))
 				AnnexUnits.Add(new Tuple<TechTreeBuilding, float, float>((TechTreeBuilding)previousElements[(int)a], (float)a.Attribute("x"), (float)a.Attribute("y")));
-		}
+        }
 
 		/// <summary>
 		/// Zählt die Referenzen zu dem angegebenen Element.
